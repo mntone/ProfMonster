@@ -12,7 +12,10 @@ public struct MHMockDataOffer {
 
 	public static let config = MHConfig(version: 1, titles: [configTitle])
 
-	public static let localization = MHLocalization(monsters: ["gulu_qoo": "Gulu Qoo"])
+	public static let localization = MHLocalization(monsters: [
+		MHLocalizationMonster(id: "gulu_qoo",
+							  name: "Gulu Qoo")
+	])
 
 	public static let game = MHGame(id: "mockgame",
 									localization: ["en"],
