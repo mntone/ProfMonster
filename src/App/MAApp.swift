@@ -12,24 +12,29 @@ struct MAApp: App {
 	private var appDelegate: MAAppDelegate
 #endif
 
-	let viewModel = HomeViewModel()
+	private let viewModel = HomeViewModel()
 
 	var body: some Scene {
 		WindowGroup {
-			Group {
-				if #available(iOS 16.1, macOS 13.1, watchOS 9.1, *) {
-					ContentView(viewModel)
-				} else {
-					ContentViewBackport(viewModel)
-				}
-			}.environmentObject(viewModel)
+			ContentView(viewModel)
+				.environmentObject(viewModel)
 		}
 #if os(watchOS)
 		.environment(\.watchMetrics, WatchUtil.getMetrics())
 #endif
+
+#if os(macOS)
+		Settings {
+			SettingsView()
+		}
+#endif
 	}
 
 	fileprivate(set) static var crashed: Bool = false
+
+	static func resetCrashed() {
+		crashed = false
+	}
 
 	private(set) static var container = Container()
 
@@ -43,7 +48,7 @@ struct MAApp: App {
 #if os(macOS)
 final class MAAppDelegate: NSObject, NSApplicationDelegate {
 	func applicationDidFinishLaunching(_ notification: Notification) {
-#if DEBUG
+#if !DEBUG
 		// Skip crash detection on DEBUG
 		MAApp.crashed = UserDefaults.standard.bool(forKey: "crashed")
 #endif

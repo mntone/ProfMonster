@@ -11,6 +11,10 @@ struct MonsterView: View {
 
 	var body: some View {
 		ZStack {
+#if os(iOS)
+			Color.systemGroupedBackground.ignoresSafeArea(.all)
+#endif
+
 			switch viewModel.state {
 			case .ready:
 				EmptyView()
@@ -31,20 +35,16 @@ struct MonsterView: View {
 						Text("header.physiology")
 					}
 				}
-#if os(macOS)
-				.listStyle(.plain)
-#elseif os(iOS)
+				.headerProminence(.increased)
+#if os(iOS)
 				.listRowBackground(Color.clear)
 #endif
 			case let .failure(_, reason):
 				Text(verbatim: String(localized: reason.localizationValue))
 			}
 		}
-#if os(iOS)
-		.background(Color.systemGroupedBackground, ignoresSafeAreaEdges: .all)
-#endif
 		.navigationTitle(viewModel.name ?? viewModel.id)
-		.task {
+		.onChangeBackport(of: viewModel, initial: true) { _, viewModel in
 			viewModel.loadIfNeeded()
 		}
     }

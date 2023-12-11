@@ -1,20 +1,9 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
-struct MonsterItemView: View {
-	@ObservedObject
-	private var viewModel: MonsterViewModel
+#if !os(macOS)
 
-	init(_ viewModel: MonsterViewModel) {
-		self.viewModel = viewModel
-	}
-
-	var body: some View {
-		Text(verbatim: viewModel.name ?? viewModel.id)
-			.redacted(reason: viewModel.name == nil ? .placeholder : [])
-	}
-}
-
+@available(iOS 16.0, watchOS 9.0, *)
 struct GameView: View {
 	@ObservedObject
 	private var viewModel: GameViewModel
@@ -24,32 +13,61 @@ struct GameView: View {
 	}
 
 	var body: some View {
-		List {
-			if #available(iOS 16.0, macOS 13.0, watchOS 9.0, *) {
-				ForEach(viewModel.monsters) { item in
-					NavigationLink(value: MARoute.monster(gameId: item.gameId, monsterId: item.id)) {
-						MonsterItemView(item)
-					}
-				}
-			} else {
-				ForEach(viewModel.monsters) { item in
-					NavigationLink {
-						MonsterView(item)
-					} label: {
-						MonsterItemView(item)
-					}
-				}
+		List(viewModel.monsters) { item in
+			NavigationLink(value: MARoute.monster(gameId: item.gameId, monsterId: item.id)) {
+				MonsterListItem(item)
 			}
 		}
-#if os(macOS)
-		.listStyle(.sidebar)
-#elseif os(iOS)
+#if os(iOS)
+		.listStyle(.plain)
+#endif
+		.navigationTitle(viewModel.name ?? viewModel.id)
+		.task {
+			viewModel.loadIfNeeded()
+		}
+	}
+}
+
+@available(iOS, introduced: 13.0, deprecated: 16.0, message: "Use GameView instead")
+@available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use GameView instead")
+struct GameViewBackport: View {
+	@ObservedObject
+	private var viewModel: GameViewModel
+
+	@Binding
+	private var selectedViewModel: MonsterViewModel?
+
+	init(_ viewModel: GameViewModel,
+		 selected selectedViewModel: Binding<MonsterViewModel?>) {
+		self.viewModel = viewModel
+		self._selectedViewModel = selectedViewModel
+	}
+
+	var body: some View {
+		List(viewModel.monsters) { item in
+			NavigationLink(tag: item, selection: $selectedViewModel) {
+				MonsterView(item)
+			} label: {
+				MonsterListItem(item)
+			}
+		}
+#if os(iOS)
+		.listStyle(.plain)
 		.navigationBarTitleDisplayMode(.inline)
 #endif
 		.navigationTitle(viewModel.name ?? viewModel.id)
+		.task {
+			viewModel.loadIfNeeded()
+		}
 	}
 }
 
 #Preview {
-	GameView(GameViewModel(config: MHMockDataOffer.configTitle))
+	if #available(iOS 16.0, watchOS 9.0, *) {
+		GameView(GameViewModel(config: MHMockDataOffer.configTitle))
+	} else {
+		GameViewBackport(GameViewModel(config: MHMockDataOffer.configTitle), selected: .constant(nil))
+	}
 }
+
+#endif

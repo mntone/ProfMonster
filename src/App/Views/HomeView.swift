@@ -1,6 +1,8 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
+#if !os(macOS)
+
 struct HomeItemView: View {
 	@ObservedObject
 	private var viewModel: GameViewModel
@@ -15,9 +17,10 @@ struct HomeItemView: View {
 	}
 }
 
+@available(iOS 16.0, watchOS 9.0, *)
 struct HomeView: View {
-	@State
-	private var isSettingsOpened: Bool = false
+	@Environment(\.settingsAction)
+	private var settingsAction
 
 	@ObservedObject
 	private var viewModel: HomeViewModel
@@ -27,29 +30,56 @@ struct HomeView: View {
 	}
 
 	var body: some View {
-		List {
-			if #available(iOS 16.0, macOS 13.0, watchOS 9.0, *) {
-				ForEach(viewModel.games) { item in
-					NavigationLink(value: MARoute.game(gameId: item.id)) {
-						HomeItemView(item)
-					}
-				}
-			} else {
-				ForEach(viewModel.games) { item in
-					NavigationLink {
-						GameView(item)
-					} label: {
-						HomeItemView(item)
-					}
-				}
+		List(viewModel.games) { item in
+			NavigationLink(value: MARoute.game(gameId: item.id)) {
+				HomeItemView(item)
 			}
-		}
-		.sheet(isPresented: $isSettingsOpened) {
-			SettingsContainerView()
 		}
 		.leadingToolbarItemBackport {
 			Button("settings.action", systemImage: "gearshape.fill") {
-				isSettingsOpened = true
+				settingsAction?.present()
+			}
+		}
+		.task {
+			viewModel.loadIfNeeded()
+		}
+	}
+}
+
+@available(iOS, introduced: 13.0, deprecated: 16.0, message: "Use NavigationStackHost instead")
+@available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use NavigationStackHost instead")
+struct HomeViewBackport: View {
+	@Environment(\.settingsAction)
+	private var settingsAction
+
+	@ObservedObject
+	private var viewModel: HomeViewModel
+
+	@Binding
+	private var selectedViewModel: GameViewModel?
+
+	@Binding
+	private var nestedSelectedViewModel: MonsterViewModel?
+
+	init(_ viewModel: HomeViewModel,
+		 selected selectedViewModel: Binding<GameViewModel?>,
+		 nestedSelected nestedSelectedViewModel: Binding<MonsterViewModel?>) {
+		self.viewModel = viewModel
+		self._selectedViewModel = selectedViewModel
+		self._nestedSelectedViewModel = nestedSelectedViewModel
+	}
+
+	var body: some View {
+		List(viewModel.games) { item in
+			NavigationLink(tag: item, selection: $selectedViewModel) {
+				GameViewBackport(item, selected: $nestedSelectedViewModel)
+			} label: {
+				HomeItemView(item)
+			}
+		}
+		.leadingToolbarItemBackport {
+			Button("settings.action", systemImage: "gearshape.fill") {
+				settingsAction?.present()
 			}
 		}
 		.task {
@@ -59,7 +89,15 @@ struct HomeView: View {
 }
 
 #Preview {
-	HomeView(HomeViewModel(games: [
-		GameViewModel(config: MHMockDataOffer.configTitle)
-	]))
+	if #available(iOS 16.0, watchOS 9.0, *) {
+		HomeView(HomeViewModel(games: [
+			GameViewModel(config: MHMockDataOffer.configTitle)
+		]))
+	} else {
+		HomeViewBackport(HomeViewModel(games: [
+			GameViewModel(config: MHMockDataOffer.configTitle)
+		]), selected: .constant(nil), nestedSelected: .constant(nil))
+	}
 }
+
+#endif

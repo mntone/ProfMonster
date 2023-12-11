@@ -13,13 +13,19 @@ final class GameViewModel: ViewModelCache<MonsterViewModel>, ObservableObject, I
 	init(id: String) {
 		self.id = id
 		super.init()
-
-		loadGameData()
 	}
 
 	convenience init(config: MHConfigTitle) {
 		self.init(id: config.id)
 		updateName(config)
+	}
+
+	func loadIfNeeded() {
+		guard monsters.isEmpty else {
+			return
+		}
+
+		loadGameData()
 	}
 
 	private func loadGameData() {
@@ -52,5 +58,21 @@ final class GameViewModel: ViewModelCache<MonsterViewModel>, ObservableObject, I
 		getOrCreate(id: monsterId) {
 			MonsterViewModel(monsterId, of: id)
 		}
+	}
+}
+
+// MARK: - Equatable
+
+extension GameViewModel: Equatable {
+	static func == (lhs: GameViewModel, rhs: GameViewModel) -> Bool {
+		lhs.id == rhs.id
+	}
+}
+
+// MARK: - Hashable
+
+extension GameViewModel: Hashable {
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(id)
 	}
 }

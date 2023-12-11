@@ -1,7 +1,6 @@
 import Foundation
 import SwiftUI
 
-@available(iOS 16.0, macOS 12.0, watchOS 9.0, *)
 enum MARoute: Hashable {
 	case game(gameId: String)
 	case monster(gameId: String, monsterId: String)
@@ -33,7 +32,6 @@ enum MARoute: Hashable {
 
 // MARK: - Decodable
 
-@available(iOS 16.0, macOS 12.0, watchOS 9.0, *)
 extension MARoute: Decodable {
 	init(from decoder: Decoder) throws {
 		let container = try decoder.singleValueContainer()
@@ -43,7 +41,6 @@ extension MARoute: Decodable {
 
 // MARK: - Encodable
 
-@available(iOS 16.0, macOS 12.0, watchOS 9.0, *)
 extension MARoute: Encodable {
 	func encode(to encoder: Encoder) throws {
 		var container = encoder.singleValueContainer()

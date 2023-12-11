@@ -72,3 +72,19 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 			.assign(to: &$state)
 	}
 }
+
+// MARK: - Equatable
+
+extension MonsterViewModel: Equatable {
+	static func == (lhs: MonsterViewModel, rhs: MonsterViewModel) -> Bool {
+		lhs.id == rhs.id
+	}
+}
+
+// MARK: - Hashable
+
+extension MonsterViewModel: Hashable {
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(id)
+	}
+}
