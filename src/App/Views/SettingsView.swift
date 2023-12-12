@@ -31,12 +31,26 @@ struct RemoveCacheButton: View {
 }
 
 struct SettingsView: View {
+#if os(iOS)
+	@Environment(\.settingsAction)
+	private var settingsAction
+#endif
+
 	var body: some View {
 		List {
 			Section {
 				RemoveCacheButton()
 			}
 		}
+#if os(iOS)
+		.toolbar {
+			ToolbarItem(placement: .cancellationAction) {
+				Button("settings.close", role: .cancel) {
+					settingsAction?.dismiss()
+				}
+			}
+		}
+#endif
 		.navigationTitle("settings.title")
 #if !os(macOS)
 		.navigationBarTitleDisplayMode(.large)
@@ -54,6 +68,9 @@ struct SettingsContainerView: View {
 			NavigationView {
 				SettingsView()
 			}
+#if !os(macOS)
+			.navigationViewStyle(.stack)
+#endif
 		}
 	}
 }

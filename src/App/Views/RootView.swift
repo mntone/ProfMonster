@@ -39,7 +39,7 @@ struct RootView: View {
 		}
 #if !os(macOS)
 		.leadingToolbarItemBackport {
-			Button("settings.action", systemImage: "gearshape.fill") {
+			Button("root.settings", systemImage: "gearshape.fill") {
 				settingsAction?.present()
 			}
 			.keyboardShortcut(",", modifiers: [.command])
