@@ -10,13 +10,28 @@ public final class MemoryStorage: Storage {
 		self._lock = LockUtil.create()
 		self._cache = [MemoryStorage.defaultGroupKey: [:]]
 	}
-
-	public func clear() {
+	
+	public var measureMode: StorageSizeMeasureMode {
+		@inline(__always)
+		get {
+			.none
+		}
+	}
+	
+	public var size: UInt64 {
+		@inline(__always)
+		get {
+			return 0
+		}
+	}
+	
+	public func resetAll() {
 		_lock.withLock {
 			_cache = [MemoryStorage.defaultGroupKey: [:]]
 		}
 	}
 
+	@inline(__always)
 	public func load<Item: Codable>(of type: Item.Type, for key: KeyType) -> Item? {
 		load(of: type, for: key, options: StorageLoadOptions.default)
 	}
@@ -32,6 +47,7 @@ public final class MemoryStorage: Storage {
 	}
 
 	@discardableResult
+	@inline(__always)
 	public func store<Item: Codable>(_ object: Item, for key: KeyType) -> Bool {
 		store(object, for: key, options: StorageStoreOptions.default)
 	}

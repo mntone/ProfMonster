@@ -25,7 +25,7 @@ struct MAApp: App {
 
 #if os(macOS)
 		Settings {
-			SettingsView()
+			SettingsView(SettingsViewModel(rootViewModel: viewModel))
 		}
 #endif
 	}

@@ -1,5 +1,11 @@
 import Foundation
 
+public enum StorageSizeMeasureMode {
+	case actual
+	case estimated
+	case none
+}
+
 public struct StorageLoadOptions {
 	public let autoExtendExpire: Bool
 	public let groupKey: String?
@@ -22,7 +28,10 @@ public struct StorageStoreOptions {
 public protocol Storage {
 	typealias KeyType = String
 
-	func clear()
+	var measureMode: StorageSizeMeasureMode { get }
+	var size: UInt64 { get }
+
+	func resetAll()
 
 	func load<Item: Codable>(of type: Item.Type, for key: KeyType) -> Item?
 	func load<Item: Codable>(of type: Item.Type, for key: KeyType, options: StorageLoadOptions) -> Item?

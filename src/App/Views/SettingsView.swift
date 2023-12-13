@@ -2,11 +2,14 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct RemoveCacheButton: View {
+	private let viewModel: SettingsViewModel
+
 	@State
 	private var isConfirm: Bool = false
-
-	@EnvironmentObject
-	private var rootViewModel: HomeViewModel
+	
+	init(_ viewModel: SettingsViewModel) {
+		self.viewModel = viewModel
+	}
 
 	var body: some View {
 		Button("settings.removeCache.action") {
@@ -15,8 +18,7 @@ struct RemoveCacheButton: View {
 		.foregroundColor(.blue)
 		.alert("settings.removeCache.title", isPresented: $isConfirm) {
 			Button(role: .destructive) {
-				MAApp.resolver.resolve(Storage.self)!.clear()
-				rootViewModel.clear()
+				viewModel.resetAllCaches()
 			} label: {
 				Text("settings.removeCache.action")
 			}
@@ -36,10 +38,21 @@ struct SettingsView: View {
 	private var settingsAction
 #endif
 
+	@ObservedObject
+	private var viewModel: SettingsViewModel
+
+	init(_ viewModel: SettingsViewModel) {
+		self.viewModel = viewModel
+	}
+
 	var body: some View {
 		List {
 			Section {
-				RemoveCacheButton()
+				RemoveCacheButton(viewModel)
+			} footer: {
+				if let storageSize = viewModel.storageSize {
+					Text("settings.cachesize(\(storageSize))")
+				}
 			}
 		}
 #if os(iOS)
@@ -55,26 +68,31 @@ struct SettingsView: View {
 #if !os(macOS)
 		.navigationBarTitleDisplayMode(.large)
 #endif
+		.task {
+			await viewModel.updateStorageSize()
+		}
 	}
 }
 
 struct SettingsContainerView: View {
+	private let viewModel: SettingsViewModel
+	
+	init(_ viewModel: SettingsViewModel) {
+		self.viewModel = viewModel
+	}
+	
 	var body: some View {
 		if #available(iOS 16.0, macOS 13.0, watchOS 9.0, *) {
 			NavigationStack {
-				SettingsView()
+				SettingsView(viewModel)
 			}
 		} else {
 			NavigationView {
-				SettingsView()
+				SettingsView(viewModel)
 			}
 #if !os(macOS)
 			.navigationViewStyle(.stack)
 #endif
 		}
 	}
-}
-
-#Preview {
-	SettingsView()
 }

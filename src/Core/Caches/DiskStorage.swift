@@ -6,17 +6,52 @@ public final class DiskStorage: Storage {
 	private let baseUrl: URL
 
 	private lazy var decoder = MessagePackDecoder()
-	private lazy var encoder = MessagePackEncoder()
 
 	public init(fileManager: FileManager = FileManager.default) {
 		self.fileManager = fileManager
 		self.baseUrl = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
 	}
-
-	public func clear() {
-		try! fileManager.removeItem(at: baseUrl)
+	
+	public var measureMode: StorageSizeMeasureMode {
+		@inline(__always)
+		get {
+			.actual
+		}
+	}
+	
+	public var size: UInt64 {
+		getSize(at: baseUrl)
+	}
+	
+	private func getSize(at baseUrl: URL) -> UInt64 {
+		do {
+			return try fileManager.contentsOfDirectory(at: baseUrl, includingPropertiesForKeys: nil).reduce(into: UInt64(0)) { size, url in
+#if os(macOS) || targetEnvironment(simulator)
+				guard url.lastPathComponent != ".DS_Store" else {
+					return
+				}
+#endif
+				
+				let itemAttributes = try! fileManager.attributesOfItem(atPath: url.relativePath)
+				if itemAttributes[.type] as! FileAttributeType == FileAttributeType.typeDirectory {
+					size += getSize(at: url)
+				} else {
+					size += itemAttributes[.size] as! UInt64 // an NSNumber object containing an unsigned long long
+				}
+			}
+		} catch {
+			// Not found
+			return 0
+		}
 	}
 
+	public func resetAll() {
+		try! fileManager.contentsOfDirectory(at: baseUrl, includingPropertiesForKeys: nil).forEach { url in
+			try! fileManager.removeItem(at: url)
+		}
+	}
+
+	@inline(__always)
 	public func load<Item: Codable>(of type: Item.Type, for key: KeyType) -> Item? {
 		load(of: type, for: key, options: StorageLoadOptions.default)
 	}
@@ -30,6 +65,7 @@ public final class DiskStorage: Storage {
 	}
 
 	@discardableResult
+	@inline(__always)
 	public func store<Item: Codable>(_ object: Item, for key: KeyType) -> Bool {
 		store(object, for: key, options: StorageStoreOptions.default)
 	}
@@ -39,6 +75,8 @@ public final class DiskStorage: Storage {
 		guard let url = getFileURL(for: key, of: options.groupKey, createDirectoryIfNotExist: true) else {
 			return false
 		}
+
+		let encoder = MessagePackEncoder()
 		do {
 			try encoder.encode(object).write(to: url)
 		} catch {

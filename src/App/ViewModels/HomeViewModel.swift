@@ -51,7 +51,7 @@ final class HomeViewModel: ViewModelCache<GameViewModel>, ObservableObject {
 		games.forEach { game in
 			game.clear()
 		}
-		self.clear()
+		super.clear()
 	}
 
 	func getOrCreate(id gameId: String) -> GameViewModel {

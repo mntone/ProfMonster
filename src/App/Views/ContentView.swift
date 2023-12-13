@@ -45,7 +45,7 @@ struct ContentView: View {
 #endif
 		}
 		.sheet(isPresented: $isSettingsPresented) {
-			SettingsContainerView()
+			SettingsContainerView(SettingsViewModel(rootViewModel: viewModel))
 		}
 		.setSettingsAction(isPresented: $isSettingsPresented)
 		.task {
