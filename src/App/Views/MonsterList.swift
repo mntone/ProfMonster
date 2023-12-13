@@ -18,6 +18,7 @@ struct MonsterList: View {
 		List(viewModel.monsters, id: \.self, selection: $selectedViewModel) { item in
 			MonsterListItem(item)
 		}
+		.searchable(text: $viewModel.searchText, prompt: Text("game.search[long]"))
 		.onChangeBackport(of: viewModel, initial: true) { _, viewModel in
 			viewModel.loadIfNeeded()
 		}

@@ -18,8 +18,14 @@ struct GameView: View {
 				MonsterListItem(item)
 			}
 		}
+#if os(watchOS)
+		.searchable(text: $viewModel.searchText, prompt: Text("game.search[short]"))
+#else
+		.searchable(text: $viewModel.searchText, prompt: Text("game.search[long]"))
+#endif
 #if os(iOS)
 		.listStyle(.plain)
+		.navigationBarTitleDisplayMode(.inline)
 #endif
 		.navigationTitle(viewModel.name ?? viewModel.id)
 		.task {
@@ -51,6 +57,11 @@ struct GameViewBackport: View {
 				MonsterListItem(item)
 			}
 		}
+#if os(watchOS)
+		.searchable(text: $viewModel.searchText, prompt: Text("game.search[short]"))
+#else
+		.searchable(text: $viewModel.searchText, prompt: Text("game.search[long]"))
+#endif
 #if os(iOS)
 		.listStyle(.plain)
 		.navigationBarTitleDisplayMode(.inline)

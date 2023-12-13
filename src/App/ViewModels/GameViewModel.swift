@@ -3,15 +3,25 @@ import MonsterAnalyzerCore
 
 final class GameViewModel: ViewModelCache<MonsterViewModel>, ObservableObject, Identifiable {
 	let id: String
+	let textProcessor: TextProcessor
 
 	@Published
 	private(set) var name: String?
 
 	@Published
 	private(set) var monsters: [MonsterViewModel] = []
+	
+	@Published
+	var searchText: String = ""
 
 	init(id: String) {
 		self.id = id
+
+		guard let textProcessor = MAApp.resolver.resolve(TextProcessor.self) else {
+			fatalError()
+		}
+		self.textProcessor = textProcessor
+		
 		super.init()
 	}
 
@@ -45,7 +55,22 @@ final class GameViewModel: ViewModelCache<MonsterViewModel>, ObservableObject, I
 				game.monsters.map(self.getOrCreate(id:))
 			}
 			.replaceError(with: [])
-			.receive(on: DispatchQueue.main)
+			.flatMap { monsters in
+				self.$searchText
+					.debounce(for: 0.333, scheduler: DispatchQueue.main)
+					.map { text in
+						if text.isEmpty {
+							return monsters
+						} else {
+							let normalizedText = self.textProcessor.normalize(text)
+							return monsters.filter { monster in
+								monster.keywords.contains { keyword in
+									keyword.contains(normalizedText)
+								}
+							}
+						}
+					}
+			}
 			.assign(to: &$monsters)
 	}
 

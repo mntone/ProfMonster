@@ -9,6 +9,10 @@ public final class CoreAssembly: Assembly {
 	}
 
 	public func assemble(container: Container) {
+		container.register(TextProcessor.self) { _ in
+			LanguageUtil.textProcessor
+		}
+
 		let storage = HybridStorage()
 		container.register(Storage.self) { _ in
 			storage

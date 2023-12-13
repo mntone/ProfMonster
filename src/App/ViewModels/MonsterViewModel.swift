@@ -5,6 +5,7 @@ import MonsterAnalyzerCore
 final class MonsterViewModel: ObservableObject, Identifiable {
 	let id: String
 	let gameId: String
+	var keywords: [String] = []
 
 	@Published
 	private(set) var name: String?
@@ -24,7 +25,12 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 			// TODO: Logger
 			fatalError()
 		}
-		langsvc.getMonsterName(id)
+		langsvc.getMonster(id)
+			.map { monster in
+				guard let monster else { return nil }
+				self.keywords = monster.getAllKeywords()
+				return monster.name
+			}
 			.receive(on: DispatchQueue.main)
 			.assign(to: &$name)
 	}

@@ -8,10 +8,10 @@ public final class MALanguageService: LanguageService {
 		self.dataPublisher = MALanguageService.getPreferredData(source: source, id: id)
 	}
 
-	public func getMonsterName(_ id: String) -> AnyPublisher<String?, Never> {
+	public func getMonster(_ id: String) -> AnyPublisher<MHLocalizationMonster?, Never> {
 		dataPublisher
 			.map { data in
-				data[id]?.name
+				data[id]
 			}
 			.replaceError(with: nil)
 			.eraseToAnyPublisher()

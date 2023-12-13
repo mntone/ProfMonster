@@ -14,7 +14,9 @@ public struct MHMockDataOffer {
 
 	public static let localization = MHLocalization(monsters: [
 		MHLocalizationMonster(id: "gulu_qoo",
-							  name: "Gulu Qoo")
+							  name: "Gulu Qoo",
+							  anotherName: nil,
+							  keywords: [])
 	])
 
 	public static let game = MHGame(id: "mockgame",

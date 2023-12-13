@@ -2,14 +2,14 @@ import Combine
 import Foundation
 
 public protocol LanguageService {
-	func getMonsterName(_ id: String) -> AnyPublisher<String?, Never>
+	func getMonster(_ id: String) -> AnyPublisher<MHLocalizationMonster?, Never>
 }
 
 public struct PassthroughtLanguageService: LanguageService {
 	public init() {
 	}
 
-	public func getMonsterName(_ id: String) -> AnyPublisher<String?, Never> {
-		Just(id).eraseToAnyPublisher()
+	public func getMonster(_ id: String) -> AnyPublisher<MHLocalizationMonster?, Never> {
+		Just(MHLocalizationMonster(id: id, name: id)).eraseToAnyPublisher()
 	}
 }

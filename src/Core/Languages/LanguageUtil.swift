@@ -1,6 +1,26 @@
 import Foundation
 
 public enum LanguageUtil {
+	static let textProcessor: TextProcessor = {
+		var lang = Locale.preferredLanguages[0]
+
+		// Try to remove hyphen (-)
+		if let index = lang.firstIndex(of: "-") {
+			lang = String(lang[..<index])
+		}
+
+		switch lang {
+		case "ja":
+			return JapaneseTextProcessor()
+		case "zh":
+			return ChineseTextProcessor()
+		case "ko":
+			return KoreanTextProcessor()
+		default:
+			return DefaultTextProcessor()
+		}
+	}()
+	
 	public static func getPreferredLanguageKey(_ keys: [String]) -> String {
 		guard !keys.isEmpty else {
 			fatalError()
