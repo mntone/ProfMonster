@@ -21,7 +21,9 @@ struct MonsterList: View {
 		.onChangeBackport(of: viewModel, initial: true) { _, viewModel in
 			viewModel.loadIfNeeded()
 		}
-#if !os(macOS)
+#if os(macOS)
+		.alternatingRowBackgroundsBackport(enable: true)
+#else
 		.navigationBarTitleDisplayMode(.inline)
 #endif
 		.navigationTitle(viewModel.name ?? viewModel.id)
