@@ -8,11 +8,11 @@ public protocol TextProcessor {
 public struct DefaultTextProcessor: TextProcessor {
 	public init() {
 	}
-	
+
 	public func normalize(_ text: String) -> String {
-		text
+		text.lowercased()
 	}
-	
+
 	public func latin(from text: String) -> String {
 		text
 	}
