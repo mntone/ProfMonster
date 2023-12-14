@@ -39,6 +39,8 @@ struct FixedWidthWeaknessItemView: View {
 }
 
 struct FixedWidthWeaknessView: View {
+	private static let maxItemWidth: CGFloat = 80
+
 	private let viewModel: WeaknessViewModel
 
 	@State
@@ -48,31 +50,48 @@ struct FixedWidthWeaknessView: View {
 		self.viewModel = viewModel
 	}
 
+	private func updateItemWidth(from containerSize: CGFloat) {
+		itemWidth = min(Self.maxItemWidth, containerSize / CGFloat(viewModel.items.count))
+	}
+
 	var body: some View {
-		ZStack {
+		ZStack(alignment: .topLeading) {
 			GeometryReader { proxy in
-				Color.clear.onAppear {
-					itemWidth = proxy.size.width / CGFloat(viewModel.items.count)
-				}
+				Color.clear
+#if os(watchOS)
+					.onAppear {
+						updateItemWidth(from: proxy.size.width)
+					}
+#else
+					.onChangeBackport(of: proxy.size.width, initial: true) { _, newValue in
+						updateItemWidth(from: newValue)
+					}
+#endif
 			}
 
 			HStack(spacing: 0) {
 #if os(watchOS)
 				ForEach(viewModel.items) { item in
-					FixedWidthWeaknessItemView(item).frame(width: itemWidth)
+					FixedWidthWeaknessItemView(item)
 				}
+				.frame(width: itemWidth)
 #else
 				ForEach(viewModel.items.dropLast()) { item in
-					FixedWidthWeaknessItemView(item).frame(width: itemWidth)
+					FixedWidthWeaknessItemView(item)
+				}
+				.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth)
+				.background(alignment: .trailing) {
 					Divider()
 				}
 
-				FixedWidthWeaknessItemView(viewModel.items.last!).frame(width: itemWidth)
+				FixedWidthWeaknessItemView(viewModel.items.last!)
+					.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth)
 #endif
 			}
-			.labelStyle(.iconOnly)
 		}
+		.fixedSize(horizontal: false, vertical: true)
 		.padding(.vertical, 4)
+		.labelStyle(.iconOnly)
 	}
 }
 
