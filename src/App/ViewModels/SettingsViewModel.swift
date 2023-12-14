@@ -9,36 +9,36 @@ final class SettingsViewModel: ObservableObject {
 		formatter.countStyle = .file
 		return formatter
 	}()
-	
+
 	private let rootViewModel: HomeViewModel
 	private let storage: Storage
-	
+
 	@Published
 	var storageSize: String?
-	
+
 	init(rootViewModel: HomeViewModel,
 		 storage: Storage) {
 		self.rootViewModel = rootViewModel
 		self.storage = storage
 	}
-	
+
 	convenience init(rootViewModel: HomeViewModel) {
 		guard let storage = MAApp.resolver.resolve(Storage.self) else {
 			fatalError()
 		}
 		self.init(rootViewModel: rootViewModel, storage: storage)
 	}
-	
+
 	func resetAllCaches() {
 		Task(priority: .utility) {
 			storage.resetAll()
 		}
-		rootViewModel.clear()
+		rootViewModel.resetData()
 
 		storageSize = nil
 		Task(operation: updateStorageSize)
 	}
-	
+
 	@Sendable
 	func updateStorageSize() async {
 		let storageSize = await Task(priority: .utility) {

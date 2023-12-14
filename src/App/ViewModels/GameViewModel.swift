@@ -1,87 +1,106 @@
+import Combine
 import Foundation
 import MonsterAnalyzerCore
 
-final class GameViewModel: ViewModelCache<MonsterViewModel>, ObservableObject, Identifiable {
+struct GameItemViewModel: Identifiable, Hashable {
 	let id: String
-	let textProcessor: TextProcessor
+	let gameID: String
+	let name: String
+	let keywords: [String]
+
+	init(id: String, gameID: String, name: String, keywords: [String]) {
+		self.id = id
+		self.gameID = gameID
+		self.name = name
+		self.keywords = keywords
+	}
+
+	init(monster: Monster) {
+		self.id = monster.id
+		self.gameID = monster.gameID
+		self.name = monster.name
+		self.keywords = monster.keywords
+	}
+
+#if DEBUG || targetEnvironment(simulator)
+	init(id monsterID: String, gameID: String) {
+		guard let app = MAApp.resolver.resolve(App.self),
+			  let game = app.findGame(by: gameID),
+			  let monster = game.findMonster(by: monsterID) else {
+			fatalError()
+		}
+		self.id = monster.id
+		self.gameID = monster.gameID
+		self.name = monster.name
+		self.keywords = monster.keywords
+	}
+#endif
+}
+
+final class GameViewModel: ObservableObject, Identifiable {
+	private let game: Game
 
 	@Published
-	private(set) var name: String?
+	private(set) var state: StarSwingsState = .ready
 
 	@Published
-	private(set) var monsters: [MonsterViewModel] = []
-	
+	private(set) var items: [GameItemViewModel] = []
+
 	@Published
 	var searchText: String = ""
 
-	init(id: String) {
-		self.id = id
-
+	init(_ game: Game) {
 		guard let textProcessor = MAApp.resolver.resolve(TextProcessor.self) else {
 			fatalError()
 		}
-		self.textProcessor = textProcessor
-		
-		super.init()
-	}
+		self.game = game
 
-	convenience init(config: MHConfigTitle) {
-		self.init(id: config.id)
-		updateName(config)
-	}
+		game.$state.receive(on: DispatchQueue.main).assign(to: &$state)
 
-	func loadIfNeeded() {
-		guard monsters.isEmpty else {
-			return
+		let getViewModel = game.$monsters.map { monsters in
+			monsters.map(GameItemViewModel.init)
 		}
-
-		loadGameData()
+		let updateSearchText = Just("").merge(with: $searchText.debounce(for: 0.333, scheduler: DispatchQueue.main))
+		getViewModel.combineLatest(updateSearchText) { monsters, searchText in
+			if searchText.isEmpty {
+				return monsters
+			} else {
+				let normalizedText = textProcessor.normalize(searchText)
+				return monsters.filter { monster in
+					monster.keywords.contains { keyword in
+						keyword.contains(normalizedText)
+					}
+				}
+			}
+		}.assign(to: &$items)
 	}
 
-	private func loadGameData() {
-		guard let client = MAApp.resolver.resolve(MHDataSource.self) else {
+	convenience init?(id gameID: String) {
+		guard let app = MAApp.resolver.resolve(App.self) else {
 			fatalError()
 		}
-
-		client.getGame(of: id)
-#if DEBUG
-			.handleEvents(receiveCompletion: { completion in
-				if case let .failure(error) = completion {
-					debugPrint(error)
-				}
-			})
-#endif
-			.map { game in
-				game.monsters.map(self.getOrCreate(id:))
-			}
-			.replaceError(with: [])
-			.flatMap { monsters in
-				self.$searchText
-					.debounce(for: 0.333, scheduler: DispatchQueue.main)
-					.map { text in
-						if text.isEmpty {
-							return monsters
-						} else {
-							let normalizedText = self.textProcessor.normalize(text)
-							return monsters.filter { monster in
-								monster.keywords.contains { keyword in
-									keyword.contains(normalizedText)
-								}
-							}
-						}
-					}
-			}
-			.assign(to: &$monsters)
+		guard let game = app.findGame(by: gameID) else {
+			// TODO: Logging. Game is not found
+			return nil
+		}
+		self.init(game)
 	}
 
-	func updateName(_ game: MHConfigTitle) {
-		let preferredLang = LanguageUtil.getPreferredLanguageKey(Array(game.names.keys))
-		self.name = game.names[preferredLang]!
+	func fetchData() {
+		game.fetchIfNeeded()
 	}
 
-	func getOrCreate(id monsterId: String) -> MonsterViewModel {
-		getOrCreate(id: monsterId) {
-			MonsterViewModel(monsterId, of: id)
+	var id: String {
+		@inline(__always)
+		get {
+			game.id
+		}
+	}
+
+	var name: String {
+		@inline(__always)
+		get {
+			game.name
 		}
 	}
 }

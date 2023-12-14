@@ -1,49 +1,55 @@
 import SwiftUI
 
 struct NavigationSplitViewHost: View {
-	private let homeViewModel: HomeViewModel
+	private let viewModel: HomeViewModel
+
+	@State
+	private var selectedGameID: String?
 
 	@State
 	private var gameViewModel: GameViewModel?
 
 	@State
-	private var monsterViewModel: MonsterViewModel?
+	private var selectedMonsterID: String?
 
 	@Binding
 	private var path: [MARoute]
 
 	init(_ viewModel: HomeViewModel,
 		 path: Binding<[MARoute]>) {
-		self.homeViewModel = viewModel
+		self.viewModel = viewModel
 		self._path = path
 	}
-	
+
 	@available(iOS 16.0, macOS 13.0, *)
 	private var host: some View {
 		NavigationSplitView {
-			RootView(homeViewModel, selected: $gameViewModel)
+			Sidebar(viewModel: viewModel, selectedGameID: $selectedGameID)
 #if os(macOS)
-				.navigationSplitViewColumnWidth(min: 160, ideal: 200, max: 240)
+				.navigationSplitViewColumnWidth(min: 140, ideal: 160, max: 200)
 #endif
 		} content: {
 #if os(macOS)
-			Group {
+			ZStack {
+				Color(.monsterListBackground)
+
 				if let gameViewModel {
-					MonsterList(gameViewModel, selected: $monsterViewModel)
-				} else {
-					Color(.monsterListBackground)
+					MonsterList(viewModel: gameViewModel, selectedMonsterID: $selectedMonsterID)
 				}
 			}
 			.navigationSplitViewColumnWidth(min: 160, ideal: 200, max: 240)
 #else
-			if let gameViewModel {
-				MonsterList(gameViewModel, selected: $monsterViewModel)
+			if let selectedGameID {
+				let gameViewModel = GameViewModel(id: selectedGameID)!
+				MonsterList(viewModel: gameViewModel, selectedMonsterID: $selectedMonsterID)
 			}
 #endif
 		} detail: {
 			Group {
-				if let monsterViewModel {
-					MonsterView(monsterViewModel)
+				if let selectedMonsterID,
+				   let selectedGameID {
+					let monsterViewModel = MonsterViewModel(id: selectedMonsterID, for: selectedGameID)!
+					MonsterView(viewModel: monsterViewModel)
 				}
 			}
 #if os(macOS)
@@ -56,22 +62,30 @@ struct NavigationSplitViewHost: View {
 	@available(macOS, introduced: 12.0, deprecated: 13.0, message: "Use NavigationSplitViewHost.host instead")
 	private var hostBackport: some View {
 		NavigationView {
-			RootView(homeViewModel, selected: $gameViewModel)
-			
-			if let gameViewModel {
-				MonsterList(gameViewModel, selected: $monsterViewModel)
-			} else {
+			Sidebar(viewModel: viewModel, selectedGameID: $selectedGameID)
+
 #if os(macOS)
+			ZStack {
 				Color(.monsterListBackground)
-#else
-				EmptyView()
-#endif
+
+				if let gameViewModel {
+					MonsterList(viewModel: gameViewModel, selectedMonsterID: $selectedMonsterID)
+				}
 			}
-			
-			if let monsterViewModel {
-				MonsterView(monsterViewModel)
+#else
+			if let gameViewModel {
+				MonsterList(viewModel: gameViewModel, selectedMonsterID: $selectedMonsterID)
 			} else {
-				EmptyView()
+				Color.clear
+			}
+#endif
+
+			if let selectedMonsterID,
+			   let selectedGameID {
+				let monsterViewModel = MonsterViewModel(id: selectedMonsterID, for: selectedGameID)!
+				MonsterView(viewModel: monsterViewModel)
+			} else {
+				Color(.monsterBackground)
 			}
 		}
 		.navigationViewStyle(.columns)
@@ -84,21 +98,23 @@ struct NavigationSplitViewHost: View {
 			} else {
 				hostBackport
 			}
-		}.onChange(of: gameViewModel) { newValue in
-			monsterViewModel = nil
+		}.onChange(of: viewModel.items.first) { newValue in
+			selectedGameID = newValue?.id
+		}.onChange(of: selectedGameID) { newValue in
+			selectedMonsterID = nil
 
 			if let newValue {
-				path = [.game(gameId: newValue.id)]
+				path = [.game(gameId: newValue)]
+				gameViewModel = GameViewModel(id: newValue)!
 			} else {
 				path = []
+				gameViewModel = nil
 			}
-		}.onChange(of: monsterViewModel) { newValue in
+		}.onChange(of: selectedMonsterID) { newValue in
 			if let newValue {
-				path = [path[0], .monster(gameId: gameViewModel!.id, monsterId: newValue.id)]
-			} else if gameViewModel != nil {
-				path = [path[0]]
+				path = [path[0], .monster(gameId: selectedGameID!, monsterId: newValue)]
 			} else {
-				path = []
+				path = [path[0]]
 			}
 		}
 		.task {
@@ -108,21 +124,19 @@ struct NavigationSplitViewHost: View {
 
 	private func loadPath() {
 		switch path.first {
-		case let .game(gameId):
-			let gameViewModel = homeViewModel.getOrCreate(id: gameId)
-			self.gameViewModel = gameViewModel
+		case let .game(gameID):
+			selectedGameID = gameID
 
-			guard path.count >= 2 else {
+			guard path.count >= 2,
+				  case let .monster(gameID2, monsterID) = path[1] else {
 				return
 			}
-
-			if case let .monster(_, monsterPath) = path[1] {
-				monsterViewModel = gameViewModel.getOrCreate(id: monsterPath)
-			}
+			precondition(gameID == gameID2) // Assume X == Y for MARoute.game(X) and MARoute.monster(Y, _)
+			selectedMonsterID = monsterID
 
 		default:
-			// Select the first game when new scene.
-			self.gameViewModel = homeViewModel.games.first
+			// Select the first item when new scene.
+			selectedGameID = viewModel.items.first?.id
 		}
 	}
 }

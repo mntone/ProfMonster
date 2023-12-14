@@ -6,30 +6,28 @@ import SwiftUI
 @available(iOS 16.0, watchOS 9.0, *)
 struct GameView: View {
 	@ObservedObject
-	private var viewModel: GameViewModel
-
-	init(_ viewModel: GameViewModel) {
-		self.viewModel = viewModel
-	}
+	private(set) var viewModel: GameViewModel
 
 	var body: some View {
-		List(viewModel.monsters) { item in
-			NavigationLink(value: MARoute.monster(gameId: item.gameId, monsterId: item.id)) {
-				MonsterListItem(item)
+		StateView(state: viewModel.state) {
+			List(viewModel.items) { item in
+				NavigationLink(value: MARoute.monster(gameId: item.gameID, monsterId: item.id)) {
+					MonsterListItem(viewModel: item)
+				}
 			}
-		}
 #if os(watchOS)
-		.searchable(text: $viewModel.searchText, prompt: Text("game.search[short]"))
+			.searchable(text: $viewModel.searchText, prompt: Text("game.search[short]"))
 #else
-		.searchable(text: $viewModel.searchText, prompt: Text("game.search[long]"))
+			.searchable(text: $viewModel.searchText, prompt: Text("game.search[long]"))
+			.listStyle(.plain)
 #endif
+		}
 #if os(iOS)
-		.listStyle(.plain)
 		.navigationBarTitleDisplayMode(.inline)
 #endif
-		.navigationTitle(viewModel.name ?? viewModel.id)
+		.navigationTitle(viewModel.name)
 		.task {
-			viewModel.loadIfNeeded()
+			viewModel.fetchData()
 		}
 	}
 }
@@ -38,46 +36,46 @@ struct GameView: View {
 @available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use GameView instead")
 struct GameViewBackport: View {
 	@ObservedObject
-	private var viewModel: GameViewModel
+	private(set) var viewModel: GameViewModel
 
 	@Binding
-	private var selectedViewModel: MonsterViewModel?
-
-	init(_ viewModel: GameViewModel,
-		 selected selectedViewModel: Binding<MonsterViewModel?>) {
-		self.viewModel = viewModel
-		self._selectedViewModel = selectedViewModel
-	}
+	private(set) var selectedMonsterID: String?
 
 	var body: some View {
-		List(viewModel.monsters) { item in
-			NavigationLink(tag: item, selection: $selectedViewModel) {
-				MonsterView(item)
-			} label: {
-				MonsterListItem(item)
+		StateView(state: viewModel.state) {
+			List(viewModel.items) { item in
+				NavigationLink(tag: item.id, selection: $selectedMonsterID) {
+					LazyView {
+						let monsterViewModel = MonsterViewModel(id: item.id, for: viewModel.id)!
+						MonsterView(viewModel: monsterViewModel)
+					}
+				} label: {
+					MonsterListItem(viewModel: item)
+				}
 			}
-		}
 #if os(watchOS)
-		.searchable(text: $viewModel.searchText, prompt: Text("game.search[short]"))
+			.searchable(text: $viewModel.searchText, prompt: Text("game.search[short]"))
 #else
-		.searchable(text: $viewModel.searchText, prompt: Text("game.search[long]"))
+			.searchable(text: $viewModel.searchText, prompt: Text("game.search[long]"))
+			.listStyle(.plain)
 #endif
+		}
 #if os(iOS)
-		.listStyle(.plain)
 		.navigationBarTitleDisplayMode(.inline)
 #endif
-		.navigationTitle(viewModel.name ?? viewModel.id)
+		.navigationTitle(viewModel.name)
 		.task {
-			viewModel.loadIfNeeded()
+			viewModel.fetchData()
 		}
 	}
 }
 
 #Preview {
+	let viewModel = GameViewModel(id: "mockgame")!
 	if #available(iOS 16.0, watchOS 9.0, *) {
-		GameView(GameViewModel(config: MHMockDataOffer.configTitle))
+		return GameView(viewModel: viewModel)
 	} else {
-		GameViewBackport(GameViewModel(config: MHMockDataOffer.configTitle), selected: .constant(nil))
+		return GameViewBackport(viewModel: viewModel, selectedMonsterID: .constant(nil))
 	}
 }
 

@@ -3,35 +3,35 @@ import SwiftUI
 
 struct MonsterList: View {
 	@ObservedObject
-	private var viewModel: GameViewModel
+	private(set) var viewModel: GameViewModel
 
 	@Binding
-	private var selectedViewModel: MonsterViewModel?
-
-	init(_ viewModel: GameViewModel,
-		 selected selectedViewModel: Binding<MonsterViewModel?>) {
-		self.viewModel = viewModel
-		self._selectedViewModel = selectedViewModel
-	}
+	private(set) var selectedMonsterID: String?
 
 	var body: some View {
-		List(viewModel.monsters, id: \.self, selection: $selectedViewModel) { item in
-			MonsterListItem(item)
+		StateView(state: viewModel.state) {
+			List(viewModel.items, id: \.id, selection: $selectedMonsterID) { item in
+				MonsterListItem(viewModel: item)
+			}
+			.searchable(text: $viewModel.searchText, prompt: Text("game.search[long]"))
+#if os(macOS)
+			.animation(.default, value: viewModel.items)
+			.listRowBackground(Color.clear)
+#endif
 		}
-		.searchable(text: $viewModel.searchText, prompt: Text("game.search[long]"))
 		.onChangeBackport(of: viewModel, initial: true) { _, viewModel in
-			viewModel.loadIfNeeded()
+			viewModel.fetchData()
 		}
 #if os(macOS)
 		.alternatingRowBackgroundsBackport(enable: true)
 #else
 		.navigationBarTitleDisplayMode(.inline)
 #endif
-		.navigationTitle(viewModel.name ?? viewModel.id)
+		.navigationTitle(viewModel.name)
 	}
 }
 
 #Preview {
-	MonsterList(GameViewModel(config: MHMockDataOffer.configTitle),
-				selected: .constant(nil))
+	let viewModel = GameViewModel(id: "mockgame")!
+	return MonsterList(viewModel: viewModel, selectedMonsterID: .constant(nil))
 }

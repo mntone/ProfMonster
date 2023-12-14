@@ -50,7 +50,6 @@ extension MARoute: Encodable {
 
 // MARK: - Array of MARoute
 
-@available(iOS 16.0, macOS 12.0, watchOS 9.0, *)
 extension Array where Element == MARoute {
 	init(string: String) {
 		var savedGameId: String?
@@ -71,5 +70,13 @@ extension Array where Element == MARoute {
 				fatalError()
 			}
 		}
+	}
+}
+
+// MARK: - HomeItemViewModel
+
+extension HomeItemViewModel {
+	var routeValue: MARoute {
+		.game(gameId: id)
 	}
 }

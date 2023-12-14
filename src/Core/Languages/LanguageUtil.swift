@@ -20,8 +20,8 @@ public enum LanguageUtil {
 			return DefaultTextProcessor()
 		}
 	}()
-	
-	public static func getPreferredLanguageKey(_ keys: [String]) -> String {
+
+	public static func getPreferredLanguageKey<C>(_ keys: C) -> String where C: Collection, C.Element == String {
 		guard !keys.isEmpty else {
 			fatalError()
 		}
@@ -47,6 +47,6 @@ public enum LanguageUtil {
 		}
 
 		// Return first keys
-		return keys[0]
+		return keys.first!
 	}
 }

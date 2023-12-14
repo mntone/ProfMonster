@@ -2,19 +2,16 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct MonsterListItem: View {
-	@ObservedObject
-	private var viewModel: MonsterViewModel
-
-	init(_ viewModel: MonsterViewModel) {
-		self.viewModel = viewModel
-	}
+	let viewModel: GameItemViewModel
 
 	var body: some View {
-		Text(verbatim: viewModel.name ?? viewModel.id)
-			.redacted(reason: viewModel.name == nil ? .placeholder : [])
+		Text(verbatim: viewModel.name)
 	}
 }
 
+#if DEBUG || targetEnvironment(simulator)
 #Preview {
-	MonsterListItem(MonsterViewModel("gulu_qoo", of: "mockgame"))
+	let viewModel = GameItemViewModel(id: "gulu_qoo", gameID: "mockgame")
+	return MonsterListItem(viewModel: viewModel)
 }
+#endif

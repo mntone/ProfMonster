@@ -1,62 +1,50 @@
 import Foundation
 import MonsterAnalyzerCore
 
-final class HomeViewModel: ViewModelCache<GameViewModel>, ObservableObject {
+struct HomeItemViewModel: Identifiable, Hashable {
+	let id: String
+	let name: String
+
+	init(id: String, name: String) {
+		self.id = id
+		self.name = name
+	}
+
+	init(game: Game) {
+		self.id = game.id
+		self.name = game.name
+	}
+}
+
+final class HomeViewModel: ObservableObject {
+	private let app: App
+
 	@Published
-	private(set) var games: [GameViewModel]
+	private(set) var items: [HomeItemViewModel] = []
 
-	override init() {
-		self.games = []
-		super.init()
-	}
-
-	init(games: [GameViewModel]) {
-		self.games = games
-	}
-
-	func loadIfNeeded() {
-		guard games.isEmpty else {
-			return
-		}
-
-		loadGamesData()
-	}
-
-	private func loadGamesData() {
-		guard let client = MAApp.resolver.resolve(MHDataSource.self) else {
+	init() {
+		guard let app = MAApp.resolver.resolve(App.self) else {
 			fatalError()
 		}
+		self.app = app
 
-		client.getConfig()
-#if DEBUG
-			.handleEvents(receiveCompletion: { completion in
-				if case let .failure(error) = completion {
-					debugPrint(error)
-				}
-			})
-#endif
-			.receive(on: DispatchQueue.main)
-			.map { config in
-				config.titles.map { title in
-					let viewModel = self.getOrCreate(id: title.id)
-					viewModel.updateName(title)
-					return viewModel
-				}
+		app.$games
+			.map { games in
+				games.map(HomeItemViewModel.init)
 			}
-			.replaceError(with: [])
-			.assign(to: &$games)
+			.receive(on: DispatchQueue.main)
+			.assign(to: &$items)
 	}
 
-	override func clear() {
-		games.forEach { game in
-			game.clear()
+	func resetData() {
+		app.resetMemoryCache()
+
+		Task(priority: .utility) {
+			app.fetchIfNeeded()
 		}
-		super.clear()
 	}
 
-	func getOrCreate(id gameId: String) -> GameViewModel {
-		getOrCreate(id: gameId) {
-			GameViewModel(id: gameId)
-		}
+	func fetchData() {
+		app.fetchIfNeeded()
 	}
 }

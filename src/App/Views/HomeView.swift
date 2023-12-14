@@ -3,36 +3,18 @@ import SwiftUI
 
 #if !os(macOS)
 
-struct HomeItemView: View {
-	@ObservedObject
-	private var viewModel: GameViewModel
-
-	init(_ viewModel: GameViewModel) {
-		self.viewModel = viewModel
-	}
-
-	var body: some View {
-		Text(verbatim: viewModel.name ?? viewModel.id)
-			.redacted(reason: viewModel.name == nil ? .placeholder : [])
-	}
-}
-
 @available(iOS 16.0, watchOS 9.0, *)
 struct HomeView: View {
 	@Environment(\.settingsAction)
 	private var settingsAction
 
 	@ObservedObject
-	private var viewModel: HomeViewModel
-
-	init(_ viewModel: HomeViewModel) {
-		self.viewModel = viewModel
-	}
+	private(set) var viewModel: HomeViewModel
 
 	var body: some View {
-		List(viewModel.games) { item in
-			NavigationLink(value: MARoute.game(gameId: item.id)) {
-				HomeItemView(item)
+		List(viewModel.items) { item in
+			NavigationLink(value: item.routeValue) {
+				Text(verbatim: item.name)
 			}
 		}
 		.leadingToolbarItemBackport {
@@ -42,7 +24,7 @@ struct HomeView: View {
 		}
 		.navigationTitle("home.title")
 		.task {
-			viewModel.loadIfNeeded()
+			viewModel.fetchData()
 		}
 	}
 }
@@ -54,28 +36,24 @@ struct HomeViewBackport: View {
 	private var settingsAction
 
 	@ObservedObject
-	private var viewModel: HomeViewModel
+	private(set) var viewModel: HomeViewModel
 
 	@Binding
-	private var selectedViewModel: GameViewModel?
+	private(set) var selectedGameID: String?
 
 	@Binding
-	private var nestedSelectedViewModel: MonsterViewModel?
-
-	init(_ viewModel: HomeViewModel,
-		 selected selectedViewModel: Binding<GameViewModel?>,
-		 nestedSelected nestedSelectedViewModel: Binding<MonsterViewModel?>) {
-		self.viewModel = viewModel
-		self._selectedViewModel = selectedViewModel
-		self._nestedSelectedViewModel = nestedSelectedViewModel
-	}
+	private(set) var selectedMonsterID: String?
 
 	var body: some View {
-		List(viewModel.games) { item in
-			NavigationLink(tag: item, selection: $selectedViewModel) {
-				GameViewBackport(item, selected: $nestedSelectedViewModel)
+		List(viewModel.items) { item in
+			NavigationLink(tag: item.id, selection: $selectedGameID) {
+				LazyView {
+					let viewModel = GameViewModel(id: item.id)!
+					GameViewBackport(viewModel: viewModel,
+									 selectedMonsterID: $selectedMonsterID)
+				}
 			} label: {
-				HomeItemView(item)
+				Text(verbatim: item.name)
 			}
 		}
 		.leadingToolbarItemBackport {
@@ -85,20 +63,19 @@ struct HomeViewBackport: View {
 		}
 		.navigationTitle("home.title")
 		.task {
-			viewModel.loadIfNeeded()
+			viewModel.fetchData()
 		}
 	}
 }
 
 #Preview {
+	let viewModel = HomeViewModel()
 	if #available(iOS 16.0, watchOS 9.0, *) {
-		HomeView(HomeViewModel(games: [
-			GameViewModel(config: MHMockDataOffer.configTitle)
-		]))
+		return HomeView(viewModel: viewModel)
 	} else {
-		HomeViewBackport(HomeViewModel(games: [
-			GameViewModel(config: MHMockDataOffer.configTitle)
-		]), selected: .constant(nil), nestedSelected: .constant(nil))
+		return HomeViewBackport(viewModel: viewModel,
+								selectedGameID: .constant(nil),
+								selectedMonsterID: .constant(nil))
 	}
 }
 

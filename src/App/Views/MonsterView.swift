@@ -3,53 +3,42 @@ import SwiftUI
 
 struct MonsterView: View {
 	@ObservedObject
-	private var viewModel: MonsterViewModel
-
-	init(_ viewModel: MonsterViewModel) {
-		self.viewModel = viewModel
-	}
+	private(set) var viewModel: MonsterViewModel
 
 	var body: some View {
-		ZStack {
 #if os(iOS)
-			Color.systemGroupedBackground.ignoresSafeArea(.all)
+		let background: Color? = Color.systemGroupedBackground
+#else
+		let background: Color? = nil
 #endif
-
-			switch viewModel.state {
-			case .ready:
-				EmptyView()
-			case .loading:
-				ProgressView()
-			case let .complete(monster):
-				Form {
-					Section {
-						FixedWidthWeaknessView(monster.createWeakness())
-					} header: {
-						Text("header.weakness")
-					}
-
-					Section {
-						PhysiologyScrollableView(monster.createPhysiology())
-							.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-					} header: {
-						Text("header.physiology")
-					}
+		StateView(state: viewModel.state, background: background) {
+			Form {
+				Section {
+					FixedWidthWeaknessView(viewModel.data.createWeakness())
+				} header: {
+					Text("header.weakness")
 				}
-				.headerProminence(.increased)
-#if os(iOS)
-				.listRowBackground(Color.clear)
-#endif
-			case let .failure(_, reason):
-				Text(verbatim: String(localized: reason.localizationValue))
+
+				Section {
+					PhysiologyScrollableView(viewModel.data.createPhysiology())
+						.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+				} header: {
+					Text("header.physiology")
+				}
 			}
+			.headerProminence(.increased)
+#if os(iOS)
+			.listRowBackground(Color.clear)
+#endif
 		}
-		.navigationTitle(viewModel.name ?? viewModel.id)
+		.navigationTitle(viewModel.name)
 		.onChangeBackport(of: viewModel, initial: true) { _, viewModel in
-			viewModel.loadIfNeeded()
+			viewModel.fetchData()
 		}
     }
 }
 
 #Preview {
-	MonsterView(MonsterViewModel("gulu_qoo", of: "mockgame"))
+	let viewModel = MonsterViewModel(id: "gulu_qoo", for: "mockgame")!
+	return MonsterView(viewModel: viewModel)
 }

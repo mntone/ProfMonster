@@ -3,28 +3,28 @@ import Foundation
 public final class MemoryStorage: Storage {
 	private static let defaultGroupKey = "_def"
 
-	private let _lock: any Lock
+	private let _lock: Lock
 	private var _cache: [String: [String: any Codable]]
 
 	public init() {
 		self._lock = LockUtil.create()
 		self._cache = [MemoryStorage.defaultGroupKey: [:]]
 	}
-	
+
 	public var measureMode: StorageSizeMeasureMode {
 		@inline(__always)
 		get {
 			.none
 		}
 	}
-	
+
 	public var size: UInt64 {
 		@inline(__always)
 		get {
 			return 0
 		}
 	}
-	
+
 	public func resetAll() {
 		_lock.withLock {
 			_cache = [MemoryStorage.defaultGroupKey: [:]]

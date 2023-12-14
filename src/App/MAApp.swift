@@ -3,7 +3,7 @@ import SwiftUI
 import Swinject
 
 @main
-struct MAApp: App {
+struct MAApp: SwiftUI.App {
 #if os(macOS)
 	@NSApplicationDelegateAdaptor
 	private var appDelegate: MAAppDelegate

@@ -13,32 +13,56 @@ public final class CoreAssembly: Assembly {
 			LanguageUtil.textProcessor
 		}
 
-		let storage = HybridStorage()
+#if DEBUG || targetEnvironment(simulator)
+		if AppUtil.isPreview {
+			assembleForPreview(container: container)
+		} else {
+			assembleForProduct(container: container)
+		}
+#else
+		assembleForProduct(container: container)
+#endif
+	}
+
+	private func assembleForProduct(container: Container) {
+		let storage = DiskStorage()
 		container.register(Storage.self) { _ in
 			storage
 		}
 
-#if targetEnvironment(simulator)
-		if AppUtil.isPreview {
-			container.register(MHDataSource.self) { _ in
-				MHMockDataOffer()
-			}
-		} else {
-			container.register(MHDataSource.self) { _ in
-				MHDataServer(source: MHClient(source: self.source), storage: storage)
-			}
-		}
-#else
+		let dataSource: MHDataSource = MHDataServer(source: MHClient(source: self.source), storage: storage)
 		container.register(MHDataSource.self) { _ in
-			MHDataServer(source: MHClient(source: self.source), storage: storage)
+			dataSource
 		}
-#endif
 
-		container.register(LanguageService.self) { resolver, id in
-			guard let source = resolver.resolve(MHDataSource.self) else {
-				fatalError()
-			}
-			return MALanguageService(source: source, id: id)
+		let app = App(dataSource: dataSource, locale: "en")
+		container.register(App.self) { _ in
+			app
 		}
 	}
+
+#if DEBUG || targetEnvironment(simulator)
+	private func assembleForPreview(container: Container) {
+		let storage = MemoryStorage()
+		container.register(Storage.self) { _ in
+			storage
+		}
+
+		let dataSource: MHDataSource = MHMockDataOffer()
+		container.register(MHDataSource.self) { _ in
+			dataSource
+		}
+
+		let app = App(dataSource: dataSource, locale: "en")
+		container.register(App.self) { _ in
+			app
+		}
+
+		// Prefetch for Previews
+		app.fetchIfNeeded()
+		app.games.forEach { game in
+			game.fetchIfNeeded()
+		}
+	}
+#endif
 }
