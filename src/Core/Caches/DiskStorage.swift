@@ -11,18 +11,18 @@ public final class DiskStorage: Storage {
 		self.fileManager = fileManager
 		self.baseUrl = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
 	}
-	
+
 	public var measureMode: StorageSizeMeasureMode {
 		@inline(__always)
 		get {
 			.actual
 		}
 	}
-	
+
 	public var size: UInt64 {
 		getSize(at: baseUrl)
 	}
-	
+
 	private func getSize(at baseUrl: URL) -> UInt64 {
 		do {
 			return try fileManager.contentsOfDirectory(at: baseUrl, includingPropertiesForKeys: nil).reduce(into: UInt64(0)) { size, url in
@@ -31,12 +31,16 @@ public final class DiskStorage: Storage {
 					return
 				}
 #endif
-				
-				let itemAttributes = try! fileManager.attributesOfItem(atPath: url.relativePath)
-				if itemAttributes[.type] as! FileAttributeType == FileAttributeType.typeDirectory {
-					size += getSize(at: url)
-				} else {
-					size += itemAttributes[.size] as! UInt64 // an NSNumber object containing an unsigned long long
+
+				do {
+					let itemAttributes = try fileManager.attributesOfItem(atPath: url.relativePath)
+					if itemAttributes[.type] as! FileAttributeType == FileAttributeType.typeDirectory {
+						size += getSize(at: url)
+					} else {
+						size += itemAttributes[.size] as! UInt64  // an NSNumber object containing an unsigned long long
+					}
+				} catch {
+					// No action; maybe, file is not found.
 				}
 			}
 		} catch {
