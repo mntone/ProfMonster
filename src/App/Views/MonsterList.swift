@@ -42,8 +42,8 @@ struct MonsterList: View {
 		.alternatingRowBackgroundsBackport(enable: true)
 #else
 		.navigationBarTitleDisplayMode(.inline)
-#endif
 		.navigationTitle(viewModel.name)
+#endif
 	}
 }
 

@@ -64,7 +64,7 @@ struct GameViewBackport: View {
 	private(set) var viewModel: GameViewModel
 
 	@Binding
-	private(set) var selectedMonsterID: String?
+	var selectedMonsterID: String?
 
 	var body: some View {
 		StateView(state: viewModel.state) {

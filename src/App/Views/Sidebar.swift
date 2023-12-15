@@ -18,12 +18,15 @@ struct Sidebar: View {
 			Text(verbatim: item.name)
 		}
 #if !os(macOS)
-		.leadingToolbarItemBackport {
-			Button("root.settings", systemImage: "gearshape.fill") {
-				settingsAction?.present()
+		.toolbar {
+			ToolbarItem(placement: .topBarTrailing) {
+				Button("root.settings", systemImage: "gearshape.fill") {
+					settingsAction?.present()
+				}
+				.keyboardShortcut(",", modifiers: [.command])
 			}
-			.keyboardShortcut(",", modifiers: [.command])
 		}
+		.navigationTitle("root.title")
 #endif
 		.task {
 			viewModel.fetchData()

@@ -39,10 +39,10 @@ struct HomeViewBackport: View {
 	private(set) var viewModel: HomeViewModel
 
 	@Binding
-	private(set) var selectedGameID: String?
+	var selectedGameID: String?
 
 	@Binding
-	private(set) var selectedMonsterID: String?
+	var selectedMonsterID: String?
 
 	var body: some View {
 		List(viewModel.items) { item in

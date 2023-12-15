@@ -16,7 +16,7 @@ struct MAApp: SwiftUI.App {
 
 	var body: some Scene {
 		WindowGroup {
-			ContentView(viewModel)
+			ContentView(viewModel: viewModel)
 				.environmentObject(viewModel)
 		}
 #if os(watchOS)

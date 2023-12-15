@@ -5,16 +5,10 @@ import SwiftUI
 
 @available(iOS 16.0, watchOS 9.0, *)
 struct NavigationStackHost: View {
-	private let viewModel: HomeViewModel
+	let viewModel: HomeViewModel
 
 	@Binding
-	private var path: [MARoute]
-
-	init(_ viewModel: HomeViewModel,
-		 path: Binding<[MARoute]>) {
-		self.viewModel = viewModel
-		self._path = path
-	}
+	private(set) var path: [MARoute]
 
 	var body: some View {
 		NavigationStack(path: $path) {
@@ -42,17 +36,13 @@ struct NavigationStackHost: View {
 @available(iOS, introduced: 13.0, deprecated: 16.0, message: "Use NavigationStackHost instead")
 @available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use NavigationStackHost instead")
 struct NavigationStackHostBackport: View {
-	private let viewModel: HomeViewModel
+	let viewModel: HomeViewModel
 
-	@State
-	private var selectedGameID: String?
+	@Binding
+	var selectedGameID: String?
 
-	@State
-	private var selectedMonsterID: String?
-
-	init(_ viewModel: HomeViewModel) {
-		self.viewModel = viewModel
-	}
+	@Binding
+	var selectedMonsterID: String?
 
 	var body: some View {
 		NavigationView {

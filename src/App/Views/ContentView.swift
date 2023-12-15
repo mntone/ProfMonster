@@ -1,46 +1,66 @@
 import SwiftUI
 
 struct ContentView: View {
-	private let viewModel: HomeViewModel
+	let viewModel: HomeViewModel
 
 #if os(iOS)
 	@Environment(\.horizontalSizeClass)
 	private var horizontalSizeClass
 #endif
 
-	@Environment(\.scenePhase)
-	private var scenePhase
-
-	@SceneStorage("path")
-	private var pathData: Data?
-
-	@State
-	private var path: [MARoute] = []
-
 	@State
 	private var isSettingsPresented: Bool = false
-
-	init(_ viewModel: HomeViewModel) {
-		self.viewModel = viewModel
-	}
 
 	var body: some View {
 		Group {
 #if os(macOS)
-			NavigationSplitViewHost(viewModel, path: $path)
+			NavigationPathSupport { gameID, monsterID in
+				if #available(macOS 13.0, *) {
+					NavigationSplitViewHost(viewModel: viewModel,
+											selectedGameID: gameID,
+											selectedMonsterID: monsterID)
+				} else {
+					NavigationSplitViewHostBackport(viewModel: viewModel,
+													selectedGameID: gameID,
+													selectedMonsterID: monsterID)
+				}
+			}
 #elseif os(watchOS)
 			if #available(watchOS 9.0, *) {
-				NavigationStackHost(viewModel, path: $path)
+				NavigationPathHost { path in
+					NavigationStackHost(viewModel: viewModel, path: path)
+				}
 			} else {
-				NavigationStackHostBackport(viewModel)
+				NavigationPathSupport { gameID, monsterID in
+					NavigationStackHostBackport(viewModel: viewModel,
+												selectedGameID: gameID,
+												selectedMonsterID: monsterID)
+				}
 			}
 #else
-			if UIDevice.current.userInterfaceIdiom == .pad {
-				NavigationSplitViewHost(viewModel, path: $path)
+			if UIDevice.current.userInterfaceIdiom == .pad,
+			   horizontalSizeClass == .regular {
+				NavigationPathSupport { gameID, monsterID in
+					if #available(iOS 16.0, *) {
+						NavigationSplitViewHost(viewModel: viewModel,
+												selectedGameID: gameID,
+												selectedMonsterID: monsterID)
+					} else {
+						NavigationSplitViewHostBackport(viewModel: viewModel,
+														selectedGameID: gameID,
+														selectedMonsterID: monsterID)
+					}
+				}
 			} else if #available(iOS 16.0, *) {
-				NavigationStackHost(viewModel, path: $path)
+				NavigationPathHost { path in
+					NavigationStackHost(viewModel: viewModel, path: path)
+				}
 			} else {
-				NavigationStackHostBackport(viewModel)
+				NavigationPathSupport { gameID, monsterID in
+					NavigationStackHostBackport(viewModel: viewModel,
+												selectedGameID: gameID,
+												selectedMonsterID: monsterID)
+				}
 			}
 #endif
 		}
@@ -48,27 +68,5 @@ struct ContentView: View {
 			SettingsContainerView(SettingsViewModel(rootViewModel: viewModel))
 		}
 		.setSettingsAction(isPresented: $isSettingsPresented)
-		.task {
-			if !MAApp.crashed {
-				self.path = RouteHelper.decode(pathData: pathData)
-			}
-		}
-		.onChange(of: scenePhase) { newValue in
-			switch newValue {
-			case .background, .active:
-				break
-			case .inactive:
-				if scenePhase == .active {
-					storePath()
-				}
-				break
-			@unknown default:
-				fatalError()
-			}
-		}
-	}
-
-	private func storePath() {
-		pathData = RouteHelper.encode(path: path)
 	}
 }
