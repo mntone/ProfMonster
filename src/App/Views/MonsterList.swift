@@ -19,6 +19,22 @@ struct MonsterList: View {
 			.listRowBackground(Color.clear)
 #endif
 		}
+		.toolbar {
+			ToolbarItem(placement: .primaryAction) {
+				Menu {
+					Picker(selection: $viewModel.sort) {
+						Text("monsters.sort[ingame]").tag(Sort.inGame)
+						Text("monsters.sort[name]").tag(Sort.name)
+					} label: {
+						EmptyView()
+					}
+					.pickerStyle(.inline)
+				} label: {
+					Label("monsters.sort",
+						  systemImage: "arrow.up.arrow.down.circle")
+				}
+			}
+		}
 		.onChangeBackport(of: viewModel, initial: true) { _, viewModel in
 			viewModel.fetchData()
 		}

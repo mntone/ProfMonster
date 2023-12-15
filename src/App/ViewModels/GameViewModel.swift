@@ -37,6 +37,12 @@ struct GameItemViewModel: Identifiable, Hashable {
 #endif
 }
 
+extension GameItemViewModel: Comparable {
+	static func <(lhs: GameItemViewModel, rhs: GameItemViewModel) -> Bool {
+		lhs.name < rhs.name
+	}
+}
+
 final class GameViewModel: ObservableObject, Identifiable {
 	private let game: Game
 
@@ -45,6 +51,11 @@ final class GameViewModel: ObservableObject, Identifiable {
 
 	@Published
 	private(set) var items: [GameItemViewModel] = []
+
+#if !os(watchOS)
+	@Published
+	var sort: Sort = .inGame
+#endif
 
 	@Published
 	var searchText: String = ""
@@ -61,18 +72,21 @@ final class GameViewModel: ObservableObject, Identifiable {
 			monsters.map(GameItemViewModel.init)
 		}
 		let updateSearchText = Just("").merge(with: $searchText.debounce(for: 0.333, scheduler: DispatchQueue.main))
-		getViewModel.combineLatest(updateSearchText) { monsters, searchText in
-			if searchText.isEmpty {
-				return monsters
-			} else {
-				let normalizedText = textProcessor.normalize(searchText)
-				return monsters.filter { monster in
-					monster.keywords.contains { keyword in
-						keyword.contains(normalizedText)
-					}
-				}
+#if os(watchOS)
+		getViewModel.combineLatest(updateSearchText) { (monsters: [GameItemViewModel], searchText: String) -> [GameItemViewModel] in
+			Self.filter(searchText, from: monsters, textProcessor: textProcessor)
+		}.assign(to: &$items)
+#else
+		getViewModel.combineLatest($sort, updateSearchText) { (monsters: [GameItemViewModel], sort: Sort, searchText: String) -> [GameItemViewModel] in
+			let filteredMonster = Self.filter(searchText, from: monsters, textProcessor: textProcessor)
+			switch sort {
+			case .inGame:
+				return filteredMonster
+			case .name:
+				return filteredMonster.sorted()
 			}
 		}.assign(to: &$items)
+#endif
 	}
 
 	convenience init?(id gameID: String) {
@@ -84,6 +98,22 @@ final class GameViewModel: ObservableObject, Identifiable {
 			return nil
 		}
 		self.init(game)
+	}
+
+	private static func filter(_ searchText: String,
+							   from monsters: [GameItemViewModel],
+							   textProcessor: TextProcessor) -> [GameItemViewModel] {
+		if searchText.isEmpty {
+			return monsters
+		} else {
+			let normalizedText = textProcessor.normalize(searchText)
+			let filteredMonsters = monsters.filter { monster in
+				monster.keywords.contains { keyword in
+					keyword.contains(normalizedText)
+				}
+			}
+			return filteredMonsters
+		}
 	}
 
 	func fetchData() {

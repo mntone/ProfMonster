@@ -12,6 +12,7 @@
 		EB19D6732B1EFB6700C90417 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E82B16C254004D63EA /* Element.swift */; };
 		EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */; };
 		EB2550142B288C84004823BA /* View+AlternatingRowBackgroundsBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2550132B288C84004823BA /* View+AlternatingRowBackgroundsBackport.swift */; };
+		EB31EEB72B2BEB4300FF8536 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB42B2BD7FA00FF8536 /* Sort.swift */; };
 		EB38D1FB2B2946A800CED9DB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */; };
 		EB38D1FC2B2946A800CED9DB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */; };
 		EB44EF492B1C017100DD47B5 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44EF482B1C017100DD47B5 /* CoreAssembly.swift */; };
@@ -222,6 +223,7 @@
 		EB19D6742B1EFF7700C90417 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+RetryIf.swift"; sourceTree = "<group>"; };
 		EB2550132B288C84004823BA /* View+AlternatingRowBackgroundsBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AlternatingRowBackgroundsBackport.swift"; sourceTree = "<group>"; };
+		EB31EEB42B2BD7FA00FF8536 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		EB44EF482B1C017100DD47B5 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -355,6 +357,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB31EEB32B2BD7D400FF8536 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				EB31EEB42B2BD7FA00FF8536 /* Sort.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		EB9620DB2B1D5F6000FD7115 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -389,6 +399,7 @@
 		EB967A322B29D4C90041A491 /* StarSwings */ = {
 			isa = PBXGroup;
 			children = (
+				EB31EEB32B2BD7D400FF8536 /* Enums */,
 				EB967A382B29DAB60041A491 /* Utils */,
 				EB967A3B2B29DCC20041A491 /* App.swift */,
 				EB967A332B29D5390041A491 /* Game.swift */,
@@ -960,6 +971,7 @@
 				EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */,
 				EB967A422B29E8540041A491 /* StarSwingsError.swift in Sources */,
 				EB967A402B29E4650041A491 /* StarSwingsState.swift in Sources */,
+				EB31EEB72B2BEB4300FF8536 /* Sort.swift in Sources */,
 				EBEA6F492B185A0900734AAA /* Storage.swift in Sources */,
 				EB967A282B299F9E0041A491 /* TextProcessor.swift in Sources */,
 			);

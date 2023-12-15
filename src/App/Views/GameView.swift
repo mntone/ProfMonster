@@ -3,6 +3,26 @@ import SwiftUI
 
 #if !os(macOS)
 
+#if !os(watchOS)
+
+private func sortToolbarItem(selection: Binding<Sort>) -> some ToolbarContent {
+	ToolbarItem(placement: .primaryAction) {
+		Menu {
+			Picker(selection: selection) {
+				Text("game.sort[ingame]").tag(Sort.inGame)
+				Text("game.sort[name]").tag(Sort.name)
+			} label: {
+				EmptyView()
+			}
+		} label: {
+			Label("game.sort",
+				  systemImage: "arrow.up.arrow.down.circle")
+		}
+	}
+}
+
+#endif
+
 @available(iOS 16.0, watchOS 9.0, *)
 struct GameView: View {
 	@ObservedObject
@@ -22,6 +42,11 @@ struct GameView: View {
 			.listStyle(.plain)
 #endif
 		}
+#if !os(watchOS)
+		.toolbar {
+			sortToolbarItem(selection: $viewModel.sort)
+		}
+#endif
 #if os(iOS)
 		.navigationBarTitleDisplayMode(.inline)
 #endif
@@ -60,6 +85,11 @@ struct GameViewBackport: View {
 			.listStyle(.plain)
 #endif
 		}
+#if !os(watchOS)
+		.toolbar {
+			sortToolbarItem(selection: $viewModel.sort)
+		}
+#endif
 #if os(iOS)
 		.navigationBarTitleDisplayMode(.inline)
 #endif
