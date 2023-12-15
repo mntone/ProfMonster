@@ -7,10 +7,13 @@ Prof. Monster is monster status viewer of Monster Hunter series.
 ### Implemented features
 
 - Show monster weakness & physiology
+- Search and sort the monsters
 
 ### TODO
 
-- Search the monsters
+- Search weak elements
+- Add Hand off feature
+- Store sorting mode
 
 ## Authors
 
@@ -18,7 +21,7 @@ Prof. Monster is monster status viewer of Monster Hunter series.
 
 ## License
 
-*Prof. Monster* is licensed under the GPLv3 license - see the [LICENSE.txt](https://github.com/mntone/Prof-Monster/blob/main/LICENSE.txt) file for details.
+*Prof. Monster* is licensed under the GPLv3 license - see the [LICENSE.txt](https://github.com/mntone/ProfMonster/blob/main/LICENSE.txt) file for details.
 
 ## Related projects
 
