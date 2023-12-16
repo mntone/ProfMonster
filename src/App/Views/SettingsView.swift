@@ -2,14 +2,10 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct RemoveCacheButton: View {
-	private let viewModel: SettingsViewModel
+	let viewModel: SettingsViewModel
 
 	@State
 	private var isConfirm: Bool = false
-	
-	init(_ viewModel: SettingsViewModel) {
-		self.viewModel = viewModel
-	}
 
 	var body: some View {
 		Button("settings.removeCache.action") {
@@ -39,16 +35,12 @@ struct SettingsView: View {
 #endif
 
 	@ObservedObject
-	private var viewModel: SettingsViewModel
-
-	init(_ viewModel: SettingsViewModel) {
-		self.viewModel = viewModel
-	}
+	private(set) var viewModel: SettingsViewModel
 
 	var body: some View {
 		List {
 			Section {
-				RemoveCacheButton(viewModel)
+				RemoveCacheButton(viewModel: viewModel)
 			} footer: {
 				if let storageSize = viewModel.storageSize {
 					Text("settings.cachesize(\(storageSize))")
@@ -76,19 +68,19 @@ struct SettingsView: View {
 
 struct SettingsContainerView: View {
 	private let viewModel: SettingsViewModel
-	
+
 	init(_ viewModel: SettingsViewModel) {
 		self.viewModel = viewModel
 	}
-	
+
 	var body: some View {
 		if #available(iOS 16.0, macOS 13.0, watchOS 9.0, *) {
 			NavigationStack {
-				SettingsView(viewModel)
+				SettingsView(viewModel: viewModel)
 			}
 		} else {
 			NavigationView {
-				SettingsView(viewModel)
+				SettingsView(viewModel: viewModel)
 			}
 #if !os(macOS)
 			.navigationViewStyle(.stack)

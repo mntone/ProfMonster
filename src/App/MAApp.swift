@@ -25,7 +25,7 @@ struct MAApp: SwiftUI.App {
 
 #if os(macOS)
 		Settings {
-			SettingsView(SettingsViewModel(rootViewModel: viewModel))
+			SettingsView(viewModel: SettingsViewModel(rootViewModel: viewModel))
 		}
 #endif
 	}
