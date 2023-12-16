@@ -1,9 +1,21 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
-struct PhysiologyViewMetrics {
-#if os(watchOS)
+enum PhysiologyViewMetrics {
+#if os(macOS)
+	static let textStyle: Font.TextStyle = .body
+	static let defaultFontSize: CGFloat = 13
+	static let headerBaseWidth: CGFloat = 100
+	static let itemBaseWidth: CGFloat = 24
+	static let maxWidth: CGFloat = 500
+
+	static let margin: CGFloat = 4
+	static let scrollMargin: CGFloat = 12
+	static let spacing: CGFloat = 4
+	static let inset: CGFloat = 12
+#elseif os(watchOS)
 	static let textStyle: Font.TextStyle = .caption2
+	static let defaultFontSize: CGFloat = 14
 	static let headerBaseWidth: CGFloat = 45
 	static let itemBaseWidth: CGFloat = 20
 
@@ -12,7 +24,10 @@ struct PhysiologyViewMetrics {
 	static let spacing: CGFloat = 2
 	static let inset: CGFloat = 8
 #else
-	static let textStyle: Font.TextStyle = .callout
+	static let maxScaleFactor: CGFloat = 1.9
+
+	static let textStyle: Font.TextStyle = .subheadline
+	static let defaultFontSize: CGFloat = 15
 	static let headerBaseWidth: CGFloat = 75
 	static let itemBaseWidth: CGFloat = 24
 
@@ -35,9 +50,7 @@ struct PhysiologyHeaderHeightPreferenceKey: PreferenceKey {
 
 struct PhysiologyHeaderView: View {
 	let viewModel: PhysiologyViewModel
-
-	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
-	private var headerWidth: CGFloat = PhysiologyViewMetrics.headerBaseWidth
+	let headerWidth: CGFloat
 
 	var body: some View {
 		Text(verbatim: viewModel.header)
@@ -58,9 +71,7 @@ struct PhysiologyHeaderView: View {
 
 struct PhysiologyContentView: View {
 	let viewModel: PhysiologyViewModel
-
-	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
-	private var itemWidth: CGFloat = PhysiologyViewMetrics.itemBaseWidth
+	let itemWidth: CGFloat
 
 	var body: some View {
 		HStack {
@@ -84,6 +95,19 @@ struct PhysiologyScrollableView: View {
 	@Environment(\.layoutDirection)
 	private var layoutDirection
 
+#if os(iOS)
+	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
+	private var fontSize: CGFloat = PhysiologyViewMetrics.defaultFontSize
+#endif
+
+#if !os(macOS)
+	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
+	private var headerWidth: CGFloat = PhysiologyViewMetrics.headerBaseWidth
+
+	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
+	private var itemWidth: CGFloat = PhysiologyViewMetrics.itemBaseWidth
+#endif
+
 	@State
 	private var headerHeights: [String: CGFloat] = [:]
 
@@ -91,12 +115,26 @@ struct PhysiologyScrollableView: View {
 	private var offsetX: CGFloat = 0
 
 	var body: some View {
-		HStack(spacing: 0) {
+#if os(iOS)
+		let cappedHeaderWidth = min(headerWidth, PhysiologyViewMetrics.maxScaleFactor * PhysiologyViewMetrics.headerBaseWidth)
+		let cappedItemWidth = min(itemWidth, PhysiologyViewMetrics.maxScaleFactor * PhysiologyViewMetrics.itemBaseWidth)
+#endif
+
+		HStack(alignment: .top, spacing: 0) {
 			VStack(spacing: 0) {
 				ForEach(Array(viewModel.groups.enumerated()), id: \.offset) { i, group in
 					VStack(spacing: 0) {
 						ForEach(group.items) { item in
-							PhysiologyHeaderView(viewModel: item)
+#if os(iOS)
+							PhysiologyHeaderView(viewModel: item,
+												 headerWidth: cappedHeaderWidth)
+#elseif os(macOS)
+							PhysiologyHeaderView(viewModel: item,
+												 headerWidth: PhysiologyViewMetrics.headerBaseWidth)
+#else
+							PhysiologyHeaderView(viewModel: item,
+												 headerWidth: headerWidth)
+#endif
 						}
 					}
 					.padding(.vertical, PhysiologyViewMetrics.spacing)
@@ -115,8 +153,19 @@ struct PhysiologyScrollableView: View {
 					ForEach(Array(viewModel.groups.enumerated()), id: \.offset) { i, group in
 						VStack(spacing: 0) {
 							ForEach(group.items) { item in
-								PhysiologyContentView(viewModel: item)
+#if os(iOS)
+								PhysiologyContentView(viewModel: item,
+													  itemWidth: cappedItemWidth)
 									.frame(height: headerHeights[item.id])
+#elseif os(macOS)
+								PhysiologyContentView(viewModel: item,
+													  itemWidth: PhysiologyViewMetrics.itemBaseWidth)
+									.frame(height: headerHeights[item.id])
+#else
+								PhysiologyContentView(viewModel: item,
+													  itemWidth: itemWidth)
+									.frame(height: headerHeights[item.id])
+#endif
 							}
 						}
 						.padding(.vertical, PhysiologyViewMetrics.spacing)
@@ -141,7 +190,11 @@ struct PhysiologyScrollableView: View {
 			}
 		}
 		.padding(.leading, PhysiologyViewMetrics.margin)
+#if os(iOS)
+		.font(.system(size: min(fontSize, PhysiologyViewMetrics.maxScaleFactor * PhysiologyViewMetrics.defaultFontSize)).monospacedDigit())
+#else
 		.font(.system(PhysiologyViewMetrics.textStyle).monospacedDigit())
+#endif
 	}
 
 	private var isLTR: Bool {
