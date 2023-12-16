@@ -3,10 +3,9 @@ import Foundation
 enum PhysiologyMapper {
 	private static let removingState: Set<String> = ["default", "broken"]
 
-	private static func localizedStates(_ keys: [String]) -> [String] {
-		// TODO: Localize
+	private static func localizedStates(_ keys: [String], languageService: LanguageService) -> [String] {
 		keys.map { key in
-			key.replacingOccurrences(of: "_", with: " ").capitalized
+			languageService.getLocalizedString(of: key, for: .state)
 		}
 	}
 
@@ -20,10 +19,12 @@ enum PhysiologyMapper {
 		}
 	}
 
-	private static func map(_ src: MHMonsterPhysiologyValue, states: [String]? = nil) -> Physiology {
+	private static func map(_ src: MHMonsterPhysiologyValue,
+							states: [String]? = nil,
+							languageService: LanguageService) -> Physiology {
 		let baseStates = states ?? src.states
 		return Physiology(stateInfo: getStateInfo(baseStates),
-						  states: localizedStates(baseStates),
+						  states: localizedStates(baseStates, languageService: languageService),
 						  value: PhysiologyValue(slash: src.slash,
 												 strike: src.strike,
 												 shell: src.shell,
@@ -66,7 +67,7 @@ enum PhysiologyMapper {
 						dragon: Self.getAverage(data, of: .dragon))
 	}
 
-	static func map(json src: MHMonster) -> Physiologies {
+	static func map(json src: MHMonster, languageService: LanguageService) -> Physiologies {
 		let allAbnormalStates = Set(src.physiologies.flatMap { physiologies in
 			Array(Set(physiologies.values.flatMap(\.states)))
 		}).subtracting(Self.removingState).filter { state in
@@ -82,12 +83,12 @@ enum PhysiologyMapper {
 				guard !physiologyValue.states.contains(where: { s in allAbnormalStates.contains(s) }) else {
 					return nil
 				}
-				return map(physiologyValue)
+				return map(physiologyValue, languageService: languageService)
 			}
 			return PhysiologyGroup(parts: physiology.parts,
 								   items: items)
 		}
-		let defaultSection = PhysiologySection(state: "default",
+		let defaultSection = PhysiologySection(state: languageService.getLocalizedString(of: "default", for: .state),
 											   groups: defaultSectionData,
 											   average: getAverages(defaultSectionData))
 
@@ -103,12 +104,12 @@ enum PhysiologyMapper {
 					if filteredState.isEmpty {
 						filteredState.append("default")
 					}
-					return map(physiologyValue, states: filteredState)
+					return map(physiologyValue, states: filteredState, languageService: languageService)
 				}
 				return PhysiologyGroup(parts: physiology.parts,
 									   items: items)
 			}
-			return PhysiologySection(state: targetState,
+			return PhysiologySection(state: languageService.getLocalizedString(of: targetState, for: .state),
 									 groups: sectionData,
 									 average: getAverages(sectionData))
 		}

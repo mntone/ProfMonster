@@ -1,14 +1,16 @@
 import Combine
 import Foundation
+import Swinject
 
 public final class App: FetchableEntity, Entity {
-	private let _locale: String
+	private let _container: Container
 
 	@Published
 	public private(set) var games: [Game] = []
 
-	public init(dataSource: MHDataSource, locale: String) {
-		self._locale = locale
+	public init(container: Container,
+				dataSource: MHDataSource) {
+		self._container = container
 		super.init(dataSource: dataSource)
 	}
 
@@ -18,9 +20,9 @@ public final class App: FetchableEntity, Entity {
 			state = .loading
 
 			_dataSource.getConfig()
-				.map { [_dataSource, _locale] config in
+				.map { [_container, _dataSource] config in
 					config.titles.map { title in
-						Game(dataSource: _dataSource, json: title, locale: _locale)
+						Game(container: _container, dataSource: _dataSource, json: title)
 					}
 				}
 				.catch { error in

@@ -9,8 +9,8 @@ public final class CoreAssembly: Assembly {
 	}
 
 	public func assemble(container: Container) {
-		container.register(TextProcessor.self) { _ in
-			LanguageUtil.textProcessor
+		container.register(LanguageService.self) { (_, keys: [String]) in
+			MALanguageService(keys)
 		}
 
 #if DEBUG || targetEnvironment(simulator)
@@ -35,7 +35,7 @@ public final class CoreAssembly: Assembly {
 			dataSource
 		}
 
-		let app = App(dataSource: dataSource, locale: "en")
+		let app = App(container: container, dataSource: dataSource)
 		container.register(App.self) { _ in
 			app
 		}
@@ -53,7 +53,7 @@ public final class CoreAssembly: Assembly {
 			dataSource
 		}
 
-		let app = App(dataSource: dataSource, locale: "en")
+		let app = App(container: container, dataSource: dataSource)
 		container.register(App.self) { _ in
 			app
 		}

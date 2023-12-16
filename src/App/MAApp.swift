@@ -36,12 +36,10 @@ struct MAApp: SwiftUI.App {
 		crashed = false
 	}
 
-	private(set) static var container = Container()
-
 	static var resolver: Resolver = {
 		return Assembler([
 			CoreAssembly(),
-		], container: container).resolver
+		]).resolver
 	}()
 }
 

@@ -61,9 +61,6 @@ final class GameViewModel: ObservableObject, Identifiable {
 	var searchText: String = ""
 
 	init(_ game: Game) {
-		guard let textProcessor = MAApp.resolver.resolve(TextProcessor.self) else {
-			fatalError()
-		}
 		self.game = game
 
 		game.$state.receive(on: DispatchQueue.main).assign(to: &$state)
@@ -74,11 +71,11 @@ final class GameViewModel: ObservableObject, Identifiable {
 		let updateSearchText = Just("").merge(with: $searchText.debounce(for: 0.333, scheduler: DispatchQueue.main))
 #if os(watchOS)
 		getViewModel.combineLatest(updateSearchText) { (monsters: [GameItemViewModel], searchText: String) -> [GameItemViewModel] in
-			Self.filter(searchText, from: monsters, textProcessor: textProcessor)
+			Self.filter(searchText, from: monsters, languageService: game.languageService)
 		}.assign(to: &$items)
 #else
 		getViewModel.combineLatest($sort, updateSearchText) { (monsters: [GameItemViewModel], sort: Sort, searchText: String) -> [GameItemViewModel] in
-			let filteredMonster = Self.filter(searchText, from: monsters, textProcessor: textProcessor)
+			let filteredMonster = Self.filter(searchText, from: monsters, languageService: game.languageService)
 			switch sort {
 			case .inGame:
 				return filteredMonster
@@ -102,11 +99,11 @@ final class GameViewModel: ObservableObject, Identifiable {
 
 	private static func filter(_ searchText: String,
 							   from monsters: [GameItemViewModel],
-							   textProcessor: TextProcessor) -> [GameItemViewModel] {
+							   languageService: LanguageService) -> [GameItemViewModel] {
 		if searchText.isEmpty {
 			return monsters
 		} else {
-			let normalizedText = textProcessor.normalize(searchText)
+			let normalizedText = languageService.normalize(searchText)
 			let filteredMonsters = monsters.filter { monster in
 				monster.keywords.contains { keyword in
 					keyword.contains(normalizedText)

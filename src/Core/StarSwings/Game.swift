@@ -1,10 +1,14 @@
 import Combine
 import Foundation
+import Swinject
 
 public final class Game: FetchableEntity, Entity {
+	private let _container: Container
+
 	public let id: String
 	public let name: String
-	public let locale: String
+
+	public private(set) var languageService: LanguageService = PassthroughtLanguageService()
 
 	@Published
 	public private(set) var monsters: [Monster] = []
@@ -18,14 +22,14 @@ public final class Game: FetchableEntity, Entity {
 		}
 	}
 
-	init(dataSource: MHDataSource,
-		 json: MHConfigTitle,
-		 locale: String) {
+	init(container: Container,
+		 dataSource: MHDataSource,
+		 json: MHConfigTitle) {
+		self._container = container
 		self.id = json.id
 
 		let preferredLocale = LanguageUtil.getPreferredLanguageKey(json.names.keys)
 		self.name = json.names[preferredLocale]!
-		self.locale = locale
 		super.init(dataSource: dataSource)
 	}
 
@@ -35,13 +39,19 @@ public final class Game: FetchableEntity, Entity {
 			state = .loading
 
 			_dataSource.getGame(of: id)
-				.flatMap { [self] json in
-					let preferredLocale = LanguageUtil.getPreferredLanguageKey(json.localization)
-					return self._dataSource.getLocalization(of: preferredLocale, for: self.id).map { localization in
-						json.monsters.map { monsterID in
+				.flatMap { [weak self] json in
+					guard let self else { fatalError() }
+
+					let langsvc = _container.resolve(LanguageService.self, argument: json.localization)!
+					return self._dataSource.getLocalization(of: langsvc.locale, for: self.id).map { localization in
+						langsvc.register(dictionary: localization.states, for: .state)
+						self.languageService = langsvc
+
+						return json.monsters.map { monsterID in
 							Monster(monsterID,
 									gameID: self.id,
 									dataSource: self._dataSource,
+									languageService: langsvc,
 									localization: localization.monsters.first(where: { m in m.id == monsterID })!)
 						}
 					}

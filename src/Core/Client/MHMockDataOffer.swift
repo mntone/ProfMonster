@@ -125,7 +125,8 @@ public struct MHMockDataOffer {
 	   ])
 
 	public static var physiology1: Physiologies {
-		PhysiologyMapper.map(json: monster1)
+		PhysiologyMapper.map(json: monster1,
+							 languageService: PassthroughtLanguageService())
 	}
 
 	public init() {

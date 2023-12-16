@@ -1,32 +1,35 @@
-import Combine
 import Foundation
 
-public final class MALanguageService: LanguageService {
-	private let dataPublisher: Publishers.Share<Publishers.FlatMap<Publishers.Map<AnyPublisher<MHLocalization, any Error>, [String : MHLocalizationMonster]>, AnyPublisher<MHGame, any Error>>>
+final class MALanguageService: LanguageService {
+	private let _textProcessor: TextProcessor
 
-	public init(source: MHDataSource, id: String) {
-		self.dataPublisher = MALanguageService.getPreferredData(source: source, id: id)
+	let locale: String
+
+	var dictionaries: [LanguageDictionary: [String: String]] = [:]
+
+	init<C>(_ keys: C) where C: Collection, C.Element == String {
+		self.locale = LanguageUtil.getPreferredLanguageKey(keys)
+		self._textProcessor = LanguageUtil.getPreferredTextProcessor(self.locale)
 	}
 
-	public func getMonster(_ id: String) -> AnyPublisher<MHLocalizationMonster?, Never> {
-		dataPublisher
-			.map { data in
-				data[id]
-			}
-			.replaceError(with: nil)
-			.eraseToAnyPublisher()
+	func normalize(_ text: String) -> String {
+		_textProcessor.normalize(text)
 	}
 
-	private static func getPreferredData(source: MHDataSource, id: String) -> Publishers.Share<Publishers.FlatMap<Publishers.Map<AnyPublisher<MHLocalization, any Error>, [String : MHLocalizationMonster]>, AnyPublisher<MHGame, any Error>>> {
-		return source.getGame(of: id)
-			.flatMap { data in
-				let preferredKey = LanguageUtil.getPreferredLanguageKey(data.localization)
-				return source.getLocalization(of: preferredKey, for: id).map { data in
-					data.monsters.reduce(into: [:]) { cur, next in
-						cur[next.id] = next
-					}
-				}
-			}
-			.share()
+	func latin(from text: String) -> String {
+		_textProcessor.latin(from: text)
+	}
+
+	func register(dictionary: [String: String], for type: LanguageDictionary) {
+		dictionaries[type] = dictionary
+	}
+
+	func getLocalizedString(of key: String, for type: LanguageDictionary) -> String {
+		if let dict = dictionaries[type],
+		   let val = dict[key] {
+			return val
+		} else {
+			return key.replacingOccurrences(of: "_", with: " ").capitalized
+		}
 	}
 }
