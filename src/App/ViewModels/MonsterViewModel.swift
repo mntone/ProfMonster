@@ -9,12 +9,15 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 	private(set) var state: StarSwingsState = .ready
 
 	@Published
-	var data: MHMonster!
+	var data: MonsterDataViewModel?
 
 	init(_ monster: Monster) {
 		self.monster = monster
 		monster.$state.receive(on: DispatchQueue.main).assign(to: &$state)
-		monster.$data.receive(on: DispatchQueue.main).assign(to: &$data)
+		monster.$physiologies
+			.map { $0.map(MonsterDataViewModel.init(rawValue:)) }
+			.receive(on: DispatchQueue.main)
+			.assign(to: &$data)
 	}
 
 	convenience init?(id monsterID: String, for gameID: String) {

@@ -2,11 +2,7 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct WeaknessItemView: View {
-	private let viewModel: WeaknessItemViewModel
-
-	init(_ viewModel: WeaknessItemViewModel) {
-		self.viewModel = viewModel
-	}
+	let viewModel: WeaknessItemViewModel
 
 	var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
@@ -16,8 +12,9 @@ struct WeaknessItemView: View {
 					.lineLimit(1)
 			} icon: {
 				viewModel.attackIcon
-			}.foregroundColor(viewModel.attackColor)
-				.padding(.bottom, 2)
+			}
+			.foregroundColor(viewModel.attackColor)
+			.padding(.bottom, 2)
 
 			Text(String(format: "%.1f", viewModel.value))
 				.font(.system(size: 20, weight: .bold, design: .rounded).monospacedDigit())
@@ -28,7 +25,7 @@ struct WeaknessItemView: View {
 	}
 }
 
-@available(iOS 16, macOS 13, *)
+@available(iOS 16.0, macOS 13.0, *)
 struct HWrap: Layout {
 	// inspired by: https://stackoverflow.com/a/75672314
 	private let spacing: CGFloat
@@ -81,48 +78,33 @@ struct HWrap: Layout {
 	}
 }
 
+@available(iOS 16.0, macOS 13.0, *)
 struct WeaknessView: View {
-	private let viewModel: WeaknessViewModel
-
-	init(_ viewModel: WeaknessViewModel) {
-		self.viewModel = viewModel
-	}
+	let viewModel: WeaknessSectionViewModel
 
 	var body: some View {
-		if #available(iOS 16, macOS 13, *) {
-			HWrap(spacing: 8) {
-				ForEach(viewModel.items) { item in
-					ZStack(alignment: .trailing) {
-						HBorderView()
-						WeaknessItemView(item)
-							.padding(.trailing, 8 + HBorderView.length)
-					}
+		HWrap(spacing: 8) {
+			ForEach(viewModel.items) { item in
+				ZStack(alignment: .trailing) {
+					HBorderView()
+					WeaknessItemView(viewModel: item)
+						.padding(.trailing, 8 + HBorderView.length)
 				}
 			}
-			.labelStyle(.titleOnly)
-			.padding(4)
-		} else {
-			HStack {
-				ForEach(viewModel.items) { item in
-					ZStack(alignment: .trailing) {
-						HBorderView()
-						WeaknessItemView(item)
-							.padding(.trailing, 8 + HBorderView.length)
-					}
-				}
-			}
-			.padding(4)
 		}
+		.labelStyle(.titleOnly)
+		.padding(4)
 	}
 }
 
+@available(iOS 16.0, macOS 13.0, *)
 #Preview {
 	ScrollView {
-		WeaknessView(MHMockDataOffer.monster1.createWeakness())
+		WeaknessView(viewModel: WeaknessViewModel(rawValue: MHMockDataOffer.physiology1).sections[0])
 			.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
 			.background(RoundedRectangle(cornerRadius: 8)
 				.foregroundColor(.secondarySystemGroupedBackground))
 			.padding(EdgeInsets(top: 8, leading: 15, bottom: 8, trailing: 15))
-   }
-   .background(Color.systemGroupedBackground.ignoresSafeArea())
+	}
+	.background(Color.systemGroupedBackground.ignoresSafeArea())
 }

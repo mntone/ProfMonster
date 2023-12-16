@@ -34,14 +34,10 @@ struct PhysiologyHeaderHeightPreferenceKey: PreferenceKey {
 }
 
 struct PhysiologyHeaderView: View {
+	let viewModel: PhysiologyViewModel
+
 	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
 	private var headerWidth: CGFloat = PhysiologyViewMetrics.headerBaseWidth
-
-	private let viewModel: PhysiologyItemViewModel
-
-	init(_ viewModel: PhysiologyItemViewModel) {
-		self.viewModel = viewModel
-	}
 
 	var body: some View {
 		Text(verbatim: viewModel.header)
@@ -61,18 +57,14 @@ struct PhysiologyHeaderView: View {
 }
 
 struct PhysiologyContentView: View {
+	let viewModel: PhysiologyViewModel
+
 	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
 	private var itemWidth: CGFloat = PhysiologyViewMetrics.itemBaseWidth
 
-	private let viewModel: PhysiologyItemViewModel
-
-	init(_ viewModel: PhysiologyItemViewModel) {
-		self.viewModel = viewModel
-	}
-
 	var body: some View {
 		HStack {
-			ForEach(Array(viewModel.values.enumerated()), id: \.offset) { _, val in
+			ForEach(Array(viewModel.value.values().enumerated()), id: \.offset) { _, val in
 				Spacer()
 				Text(verbatim: String(val))
 					.frame(width: itemWidth)
@@ -87,7 +79,7 @@ struct PhysiologyContentView: View {
 }
 
 struct PhysiologyScrollableView: View {
-	private let viewModel: PhysiologyViewModel
+	let viewModel: PhysiologySectionViewModel
 
 	@Environment(\.layoutDirection)
 	private var layoutDirection
@@ -98,17 +90,13 @@ struct PhysiologyScrollableView: View {
 	@State
 	private var offsetX: CGFloat = 0
 
-	init(_ viewModel: PhysiologyViewModel) {
-		self.viewModel = viewModel
-	}
-
 	var body: some View {
 		HStack(spacing: 0) {
 			VStack(spacing: 0) {
-				ForEach(Array(viewModel.sections.enumerated()), id: \.offset) { i, section in
+				ForEach(Array(viewModel.groups.enumerated()), id: \.offset) { i, group in
 					VStack(spacing: 0) {
-						ForEach(section.items) { item in
-							PhysiologyHeaderView(item)
+						ForEach(group.items) { item in
+							PhysiologyHeaderView(viewModel: item)
 						}
 					}
 					.padding(.vertical, PhysiologyViewMetrics.spacing)
@@ -124,10 +112,10 @@ struct PhysiologyScrollableView: View {
 
 			ObservableHorizontalScrollView(offsetX: $offsetX) {
 				VStack(spacing: 0) {
-					ForEach(Array(viewModel.sections.enumerated()), id: \.offset) { i, section in
+					ForEach(Array(viewModel.groups.enumerated()), id: \.offset) { i, group in
 						VStack(spacing: 0) {
-							ForEach(section.items) { item in
-								PhysiologyContentView(item)
+							ForEach(group.items) { item in
+								PhysiologyContentView(viewModel: item)
 									.frame(height: headerHeights[item.id])
 							}
 						}
@@ -185,7 +173,7 @@ struct PhysiologyScrollableView: View {
 // Add `.padding(.leading, isLTR ? 2 : 0)` to ScrollView if you need.
 // But, in real case, its sentence is unnessesary.
 #Preview {
-	PhysiologyScrollableView(MHMockDataOffer.monster1.createPhysiology())
+	PhysiologyScrollableView(viewModel: PhysiologiesViewModel(rawValue: MHMockDataOffer.physiology1).sections[0])
 		//.environment(\.locale, Locale(identifier: "ar"))
 		//.environment(\.layoutDirection, .rightToLeft)
 }

@@ -47,30 +47,43 @@ struct WeaknessItemViewModel: Identifiable, AttackItemViewModel {
 	}
 }
 
-struct WeaknessViewModel: Identifiable, AttackViewModel {
-	let id: String
+struct WeaknessSectionViewModel: Identifiable {
+	let state: String
 	let items: [WeaknessItemViewModel]
 
-	init(_ id: String,
+	init(state: String,
 		 items: [WeaknessItemViewModel]) {
-		self.id = id
+		self.state = state
 		self.items = items
 	}
 
-	init(monster: MHMonster,
-		 for attacks: [Attack] = Attack.allElements) {
-		self.id = monster.id
+	init(rawValue: PhysiologySection,
+		 of attacks: [Attack] = Attack.allElements) {
+		self.state = rawValue.state
 
-		let val = monster.getAverages(of: attacks)
+		let val = rawValue.average.values(of: attacks)
 		let top = val.max() ?? 0
 		self.items = zip(attacks, val).map { attack, val in
 			WeaknessItemViewModel(attack: attack, value: val, top: top)
 		}
 	}
+
+	var id: String {
+		state
+	}
 }
 
-extension MHMonster {
-	func createWeakness() -> WeaknessViewModel {
-		return WeaknessViewModel(monster: self)
+struct WeaknessViewModel {
+	let sections: [WeaknessSectionViewModel]
+
+	init(sections: [WeaknessSectionViewModel]) {
+		self.sections = sections
+	}
+
+	init(rawValue: Physiologies,
+		 of attacks: [Attack] = Attack.allElements) {
+		self.sections = rawValue.sections.enumerated().map { id, rawValue in
+			WeaknessSectionViewModel(rawValue: rawValue, of: attacks)
+		}
 	}
 }

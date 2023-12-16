@@ -12,24 +12,42 @@ struct MonsterView: View {
 		let background: Color? = nil
 #endif
 		StateView(state: viewModel.state, background: background) {
-			Form {
-				Section {
-					FixedWidthWeaknessView(viewModel.data.createWeakness())
-				} header: {
-					Text("header.weakness")
-				}
+			if let data = viewModel.data {
+				Form {
+					Section {
+						let requireHeader = data.weakness.sections.count > 1
+						ForEach(data.weakness.sections) { section in
+							VStack(alignment: .leading) {
+								if requireHeader {
+									Text(verbatim: section.state)
+								}
+								FixedWidthWeaknessView(viewModel: section)
+							}
+						}
+					} header: {
+						Text("header.weakness")
+					}
 
-				Section {
-					PhysiologyScrollableView(viewModel.data.createPhysiology())
-						.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-				} header: {
-					Text("header.physiology")
+					Section {
+						let requireHeader = data.physiologies.sections.count > 1
+						ForEach(data.physiologies.sections) { section in
+							VStack(alignment: .leading) {
+								if requireHeader {
+									Text(verbatim: section.state)
+								}
+								PhysiologyScrollableView(viewModel: section)
+							}
+							.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+						}
+					} header: {
+						Text("header.physiology")
+					}
 				}
-			}
-			.headerProminence(.increased)
+				.headerProminence(.increased)
 #if os(iOS)
-			.listRowBackground(Color.clear)
+				.listRowBackground(Color.clear)
 #endif
+			}
 		}
 		.navigationTitle(viewModel.name)
 		.onChangeBackport(of: viewModel, initial: true) { _, viewModel in

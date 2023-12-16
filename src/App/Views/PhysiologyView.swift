@@ -2,17 +2,13 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct PhysiologyRowView: View {
+	let viewModel: PhysiologyViewModel
+
 	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
 	private var headerWidth: CGFloat = PhysiologyViewMetrics.headerBaseWidth
 
 	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
 	private var itemWidth: CGFloat = PhysiologyViewMetrics.itemBaseWidth
-
-	private let viewModel: PhysiologyItemViewModel
-
-	init(_ viewModel: PhysiologyItemViewModel) {
-		self.viewModel = viewModel
-	}
 
 	var body: some View {
 		HStack {
@@ -21,7 +17,7 @@ struct PhysiologyRowView: View {
 				.fixedSize(horizontal: false, vertical: true)
 				.frame(width: headerWidth)
 
-			ForEach(Array(viewModel.values.enumerated()), id: \.offset) { _, val in
+			ForEach(Array(viewModel.value.values().enumerated()), id: \.offset) { _, val in
 				Spacer()
 				Text(verbatim: String(val))
 					.frame(width: itemWidth)
@@ -32,32 +28,24 @@ struct PhysiologyRowView: View {
 }
 
 struct PhysiologySectionView: View {
-	private let viewModel: PhysiologySectionViewModel
-
-	init(_ viewModel: PhysiologySectionViewModel) {
-		self.viewModel = viewModel
-	}
+	let viewModel: PhysiologyGroupViewModel
 
 	var body: some View {
 		VStack(spacing: 0) {
 			ForEach(viewModel.items) { item in
-				PhysiologyRowView(item)
+				PhysiologyRowView(viewModel: item)
 			}
 		}
 	}
 }
 
 struct PhysiologyView: View {
-	private let viewModel: PhysiologyViewModel
-
-	init(_ viewModel: PhysiologyViewModel) {
-		self.viewModel = viewModel
-	}
+	let viewModel: PhysiologySectionViewModel
 
 	var body: some View {
 		VStack(spacing: 0) {
-			ForEach(Array(viewModel.sections.enumerated()), id: \.offset) { i, section in
-				PhysiologySectionView(section)
+			ForEach(Array(viewModel.groups.enumerated()), id: \.offset) { i, group in
+				PhysiologySectionView(viewModel: group)
 					.padding(EdgeInsets(top: PhysiologyViewMetrics.spacing,
 										leading: PhysiologyViewMetrics.inset,
 										bottom: PhysiologyViewMetrics.spacing,
@@ -73,6 +61,6 @@ struct PhysiologyView: View {
 }
 
 #Preview {
-	PhysiologyView(MHMockDataOffer.monster1.createPhysiology())
+	PhysiologyView(viewModel: PhysiologiesViewModel(rawValue: MHMockDataOffer.physiology1).sections[0])
 		.padding()
 }

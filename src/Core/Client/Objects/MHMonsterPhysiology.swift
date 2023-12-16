@@ -1,22 +1,22 @@
 import Foundation
 
-public struct MHMonsterPhysiologyValue: Codable {
-	public let state: String
+struct MHMonsterPhysiologyValue: Codable {
+	let states: [String]
 
-	public let slash: Int8
-	public let strike: Int8
-	public let shell: Int8
+	let slash: Int8
+	let strike: Int8
+	let shell: Int8
 
-	public let fire: Int8
-	public let water: Int8
-	public let thunder: Int8
-	public let ice: Int8
-	public let dragon: Int8
+	let fire: Int8
+	let water: Int8
+	let thunder: Int8
+	let ice: Int8
+	let dragon: Int8
 
-	public let stun: Int8
+	let stun: Int8
 }
 
-public struct MHMonsterPhysiology: Codable {
-	public let parts: [String]
-	public let values: [MHMonsterPhysiologyValue]
+struct MHMonsterPhysiology: Codable {
+	let parts: [String]
+	let values: [MHMonsterPhysiologyValue]
 }

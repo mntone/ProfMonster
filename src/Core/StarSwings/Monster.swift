@@ -9,7 +9,7 @@ public final class Monster: FetchableEntity, Entity {
 	public let keywords: [String]
 
 	@Published
-	public var data: MHMonster?
+	public var physiologies: Physiologies?
 
 	private var _cancellable: AnyCancellable?
 
@@ -31,17 +31,18 @@ public final class Monster: FetchableEntity, Entity {
 			state = .loading
 
 			_dataSource.getMonster(of: id, for: gameID)
+				.map(PhysiologyMapper.map(json:))
 				.map(Optional.init)
 				.catch { error in
 					self._handle(error: error)
-					return Empty<MHMonster?, Never>()
+					return Empty<Physiologies?, Never>()
 				}
 				.handleEvents(receiveCompletion: { completion in
 					if case .finished = completion {
 						self.state = .complete
 					}
 				})
-				.assign(to: &$data)
+				.assign(to: &$physiologies)
 		}
 	}
 }

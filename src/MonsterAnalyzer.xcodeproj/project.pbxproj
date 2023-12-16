@@ -128,9 +128,7 @@
 		EBEA6F4F2B185A1A00734AAA /* MHDataServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F162B182BB900734AAA /* MHDataServer.swift */; };
 		EBEA6F502B185A1A00734AAA /* MHDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F132B1829EE00734AAA /* MHDataSource.swift */; };
 		EBEA6F512B185A1A00734AAA /* MHClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1BD2B158F91004D63EA /* MHClient.swift */; };
-		EBEA6F522B185A2900734AAA /* MHMonster+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C12B15AD07004D63EA /* MHMonster+Extensions.swift */; };
 		EBEA6F532B185A2900734AAA /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E22B163B0E004D63EA /* Attack.swift */; };
-		EBEA6F542B185A2900734AAA /* MHMonsterPhysiologyValue+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F1D2B1855D000734AAA /* MHMonsterPhysiologyValue+Extensions.swift */; };
 		EBEA6F552B185A3B00734AAA /* LanguageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B2222B17770E004D63EA /* LanguageService.swift */; };
 		EBEA6F562B185A4000734AAA /* MALanguageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21E2B177691004D63EA /* MALanguageService.swift */; };
 		EBEA6F602B185AB100734AAA /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = EBEA6F5F2B185AB100734AAA /* Swinject-Dynamic */; };
@@ -148,6 +146,10 @@
 		EBEA6F822B1A205300734AAA /* MessagePacker in Frameworks */ = {isa = PBXBuildFile; productRef = EBEA6F812B1A205300734AAA /* MessagePacker */; };
 		EBEA6F842B1A208200734AAA /* DiskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F832B1A208200734AAA /* DiskStorage.swift */; };
 		EBEA6F862B1A33F800734AAA /* HybridStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F852B1A33F800734AAA /* HybridStorage.swift */; };
+		EBF684A42B2D4C5D0071981F /* Physiology.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A32B2D4C5D0071981F /* Physiology.swift */; };
+		EBF684A72B2D50060071981F /* PhysiologyMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A62B2D50060071981F /* PhysiologyMapper.swift */; };
+		EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */; };
+		EBF684AA2B2D88450071981F /* MonsterDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */; };
 		EBF684AB2B2D91A30071981F /* NavigationPathHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB82B2C9DD000FF8536 /* NavigationPathHost.swift */; };
 		EBF9282B2B1038C9007D59D4 /* MAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9282A2B1038C9007D59D4 /* MAApp.swift */; };
 		EBF9282D2B1038C9007D59D4 /* MonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9282C2B1038C9007D59D4 /* MonsterView.swift */; };
@@ -269,7 +271,6 @@
 		EBB4B1B92B158D14004D63EA /* MHConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHConfig.swift; sourceTree = "<group>"; };
 		EBB4B1BB2B158E38004D63EA /* MHMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHMonster.swift; sourceTree = "<group>"; };
 		EBB4B1BD2B158F91004D63EA /* MHClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHClient.swift; sourceTree = "<group>"; };
-		EBB4B1C12B15AD07004D63EA /* MHMonster+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MHMonster+Extensions.swift"; sourceTree = "<group>"; };
 		EBB4B1C42B15BDA7004D63EA /* WeaknessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaknessViewModel.swift; sourceTree = "<group>"; };
 		EBB4B1C62B15BF48004D63EA /* MonsterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterViewModel.swift; sourceTree = "<group>"; };
 		EBB4B1C82B15CB7D004D63EA /* MHGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHGame.swift; sourceTree = "<group>"; };
@@ -307,7 +308,6 @@
 		EBEA6F132B1829EE00734AAA /* MHDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHDataSource.swift; sourceTree = "<group>"; };
 		EBEA6F162B182BB900734AAA /* MHDataServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHDataServer.swift; sourceTree = "<group>"; };
 		EBEA6F192B1854FC00734AAA /* MHMonsterPhysiology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHMonsterPhysiology.swift; sourceTree = "<group>"; };
-		EBEA6F1D2B1855D000734AAA /* MHMonsterPhysiologyValue+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MHMonsterPhysiologyValue+Extensions.swift"; sourceTree = "<group>"; };
 		EBEA6F252B1858FA00734AAA /* MonsterAnalyzerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MonsterAnalyzerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEA6F272B1858FA00734AAA /* MonsterAnalyserCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonsterAnalyserCore.h; sourceTree = "<group>"; };
 		EBEA6F2E2B1858FB00734AAA /* MonsterAnalyzerCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterAnalyzerCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -318,6 +318,9 @@
 		EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HBorderView.swift; sourceTree = "<group>"; };
 		EBEA6F832B1A208200734AAA /* DiskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskStorage.swift; sourceTree = "<group>"; };
 		EBEA6F852B1A33F800734AAA /* HybridStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HybridStorage.swift; sourceTree = "<group>"; };
+		EBF684A32B2D4C5D0071981F /* Physiology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Physiology.swift; sourceTree = "<group>"; };
+		EBF684A62B2D50060071981F /* PhysiologyMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyMapper.swift; sourceTree = "<group>"; };
+		EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataViewModel.swift; sourceTree = "<group>"; };
 		EBF928272B1038C9007D59D4 /* MonsterAnalyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterAnalyzer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF9282A2B1038C9007D59D4 /* MAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAApp.swift; sourceTree = "<group>"; };
 		EBF9282C2B1038C9007D59D4 /* MonsterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterView.swift; sourceTree = "<group>"; };
@@ -369,6 +372,7 @@
 		EB31EEB32B2BD7D400FF8536 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
+				EBB4B1E22B163B0E004D63EA /* Attack.swift */,
 				EB31EEB42B2BD7FA00FF8536 /* Sort.swift */,
 			);
 			path = Enums;
@@ -420,6 +424,7 @@
 			isa = PBXGroup;
 			children = (
 				EB31EEB32B2BD7D400FF8536 /* Enums */,
+				EBF684A22B2D4C280071981F /* Objects */,
 				EB967A382B29DAB60041A491 /* Utils */,
 				EB967A3B2B29DCC20041A491 /* App.swift */,
 				EB967A332B29D5390041A491 /* Game.swift */,
@@ -455,6 +460,7 @@
 				EBB4B1E42B16A6D4004D63EA /* AttackViewModel.swift */,
 				EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */,
 				EB9620EA2B1D839B00FD7115 /* HomeViewModel.swift */,
+				EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */,
 				EBB4B1C62B15BF48004D63EA /* MonsterViewModel.swift */,
 				EBB4B1D12B15ED1B004D63EA /* PhysiologyViewModel.swift */,
 				EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */,
@@ -603,11 +609,8 @@
 		EBEA6F1C2B18559A00734AAA /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				EBB4B1E22B163B0E004D63EA /* Attack.swift */,
 				EBB4B1E82B16C254004D63EA /* Element.swift */,
 				EB967A252B299BFC0041A491 /* MHLocalizationMonster+Extensions.swift */,
-				EBB4B1C12B15AD07004D63EA /* MHMonster+Extensions.swift */,
-				EBEA6F1D2B1855D000734AAA /* MHMonsterPhysiologyValue+Extensions.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -618,6 +621,7 @@
 				EBEA6F0A2B17F93900734AAA /* Caches */,
 				EBEA6F112B18295F00734AAA /* Client */,
 				EBB4B2212B1776F1004D63EA /* Languages */,
+				EBF684A52B2D4FEF0071981F /* Mappers */,
 				EBEA6F1C2B18559A00734AAA /* Objects */,
 				EB967A322B29D4C90041A491 /* StarSwings */,
 				EB9620DB2B1D5F6000FD7115 /* Utils */,
@@ -646,6 +650,22 @@
 				EBEA6F732B18B56700734AAA /* UnevenRoundedRectangleBackport.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		EBF684A22B2D4C280071981F /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				EBF684A32B2D4C5D0071981F /* Physiology.swift */,
+			);
+			path = Objects;
+			sourceTree = "<group>";
+		};
+		EBF684A52B2D4FEF0071981F /* Mappers */ = {
+			isa = PBXGroup;
+			children = (
+				EBF684A62B2D50060071981F /* PhysiologyMapper.swift */,
+			);
+			path = Mappers;
 			sourceTree = "<group>";
 		};
 		EBF9281E2B1038C9007D59D4 = {
@@ -926,6 +946,7 @@
 				EBCA22292B21A58C00C487AD /* LeadingToolbarItemBackportModifier.swift in Sources */,
 				EBB4B2062B175DAB004D63EA /* MAApp.swift in Sources */,
 				EB9620E32B1D6FCC00FD7115 /* MARoute.swift in Sources */,
+				EBF684AA2B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
 				EB8778262B26B38200B3359C /* MonsterListItem.swift in Sources */,
 				EBB4B2082B175DC0004D63EA /* MonsterView.swift in Sources */,
 				EBB4B2122B175DE7004D63EA /* MonsterViewModel.swift in Sources */,
@@ -985,12 +1006,12 @@
 				EBEA6F4A2B185A1600734AAA /* MHLocalization.swift in Sources */,
 				EB967A262B299BFC0041A491 /* MHLocalizationMonster+Extensions.swift in Sources */,
 				EB9620F92B1DD41200FD7115 /* MHMockDataOffer.swift in Sources */,
-				EBEA6F522B185A2900734AAA /* MHMonster+Extensions.swift in Sources */,
 				EBEA6F4B2B185A1600734AAA /* MHMonster.swift in Sources */,
 				EBEA6F4C2B185A1600734AAA /* MHMonsterPhysiology.swift in Sources */,
-				EBEA6F542B185A2900734AAA /* MHMonsterPhysiologyValue+Extensions.swift in Sources */,
 				EB967A3A2B29DAC00041A491 /* Monster.swift in Sources */,
 				EB9620DD2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift in Sources */,
+				EBF684A42B2D4C5D0071981F /* Physiology.swift in Sources */,
+				EBF684A72B2D50060071981F /* PhysiologyMapper.swift in Sources */,
 				EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */,
 				EB31EEB72B2BEB4300FF8536 /* Sort.swift in Sources */,
 				EB967A422B29E8540041A491 /* StarSwingsError.swift in Sources */,
@@ -1028,6 +1049,7 @@
 				EBCA222D2B222ECB00C487AD /* LeadingToolbarItemBackportModifier.swift in Sources */,
 				EBF9282B2B1038C9007D59D4 /* MAApp.swift in Sources */,
 				EB9620E22B1D6E1000FD7115 /* MARoute.swift in Sources */,
+				EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
 				EB8778232B26B28500B3359C /* MonsterList.swift in Sources */,
 				EB8778252B26B38200B3359C /* MonsterListItem.swift in Sources */,
 				EBF9282D2B1038C9007D59D4 /* MonsterView.swift in Sources */,

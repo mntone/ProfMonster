@@ -17,7 +17,7 @@ public struct MHMockDataOffer {
 							  name: "Gulu Qoo",
 							  anotherName: nil,
 							  keywords: [])
-	])
+	], states: [:])
 
 	public static let game = MHGame(id: "mockgame",
 									localization: ["en"],
@@ -30,7 +30,7 @@ public struct MHMockDataOffer {
 			   parts: ["head"],
 			   values: [
 				   MHMonsterPhysiologyValue(
-					   state: "default",
+					   states: ["default"],
 					   slash: 68,
 					   strike: 68,
 					   shell: 60,
@@ -46,7 +46,7 @@ public struct MHMockDataOffer {
 			   parts: ["torso"],
 			   values: [
 				   MHMonsterPhysiologyValue(
-					   state: "default",
+					   states: ["default"],
 					   slash: 45,
 					   strike: 45,
 					   shell: 40,
@@ -62,7 +62,7 @@ public struct MHMockDataOffer {
 			   parts: ["foreleg"],
 			   values: [
 				   MHMonsterPhysiologyValue(
-					   state: "default",
+					   states: ["default"],
 					   slash: 52,
 					   strike: 56,
 					   shell: 45,
@@ -78,7 +78,7 @@ public struct MHMockDataOffer {
 			   parts: ["tail"],
 			   values: [
 				   MHMonsterPhysiologyValue(
-					   state: "default",
+					   states: ["default"],
 					   slash: 55,
 					   strike: 50,
 					   shell: 35,
@@ -94,7 +94,7 @@ public struct MHMockDataOffer {
 			   parts: ["boulder"],
 			   values: [
 				   MHMonsterPhysiologyValue(
-					   state: "default",
+					   states: ["default"],
 					   slash: 5,
 					   strike: 5,
 					   shell: 5,
@@ -110,7 +110,7 @@ public struct MHMockDataOffer {
 			   parts: ["pod"],
 			   values: [
 				   MHMonsterPhysiologyValue(
-					   state: "default",
+					   states: ["default"],
 					   slash: 50,
 					   strike: 50,
 					   shell: 50,
@@ -123,6 +123,10 @@ public struct MHMockDataOffer {
 			   ]
 		   ),
 	   ])
+
+	public static var physiology1: Physiologies {
+		PhysiologyMapper.map(json: monster1)
+	}
 
 	public init() {
 	}

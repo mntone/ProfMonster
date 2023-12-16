@@ -2,7 +2,7 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct FixedWidthWeaknessItemView: View {
-	private let viewModel: WeaknessItemViewModel
+	let viewModel: WeaknessItemViewModel
 
 #if !os(watchOS)
 	@Environment(\.legibilityWeight)
@@ -11,10 +11,6 @@ struct FixedWidthWeaknessItemView: View {
 	@ScaledMetric(relativeTo: .title3)
 	private var signFontSize: CGFloat = 20
 #endif
-
-	init(_ viewModel: WeaknessItemViewModel) {
-		self.viewModel = viewModel
-	}
 
 	var body: some View {
 		VStack(spacing: 0) {
@@ -41,14 +37,10 @@ struct FixedWidthWeaknessItemView: View {
 struct FixedWidthWeaknessView: View {
 	private static let maxItemWidth: CGFloat = 80
 
-	private let viewModel: WeaknessViewModel
+	let viewModel: WeaknessSectionViewModel
 
 	@State
 	private var itemWidth: CGFloat?
-
-	init(_ viewModel: WeaknessViewModel) {
-		self.viewModel = viewModel
-	}
 
 	private func updateItemWidth(from containerSize: CGFloat) {
 		itemWidth = min(Self.maxItemWidth, containerSize / CGFloat(viewModel.items.count))
@@ -72,19 +64,19 @@ struct FixedWidthWeaknessView: View {
 			HStack(spacing: 0) {
 #if os(watchOS)
 				ForEach(viewModel.items) { item in
-					FixedWidthWeaknessItemView(item)
+					FixedWidthWeaknessItemView(viewModel: item)
 				}
 				.frame(width: itemWidth)
 #else
 				ForEach(viewModel.items.dropLast()) { item in
-					FixedWidthWeaknessItemView(item)
+					FixedWidthWeaknessItemView(viewModel: item)
 				}
 				.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth)
 				.background(alignment: .trailing) {
 					Divider()
 				}
 
-				FixedWidthWeaknessItemView(viewModel.items.last!)
+				FixedWidthWeaknessItemView(viewModel: viewModel.items.last!)
 					.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth)
 #endif
 			}
@@ -96,5 +88,5 @@ struct FixedWidthWeaknessView: View {
 }
 
 #Preview {
-	FixedWidthWeaknessView(MHMockDataOffer.monster1.createWeakness())
+	FixedWidthWeaknessView(viewModel: WeaknessViewModel(rawValue: MHMockDataOffer.physiology1).sections[0])
 }

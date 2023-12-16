@@ -2,91 +2,77 @@ import Foundation
 import MonsterAnalyzerCore
 import SwiftUI
 
-struct PhysiologyItemViewModel: Identifiable {
+struct PhysiologyViewModel: Identifiable {
 	let id: String
 	let parts: [String]
-	let state: PhysiologyState
-	let values: [Int8]
 
-	init(parts: [String], state: PhysiologyState, values: [Int8]) {
-		self.id = parts.joined(separator: "&") + "." + state.rawValue
+	private let rawValue: Physiology
+
+	init(_ parts: [String], rawValue: Physiology) {
+		self.id = "\(parts.joined(separator: "+"))&\(rawValue.states.joined(separator: "+"))"
 		self.parts = parts
-		self.state = state
-		self.values = values
+		self.rawValue = rawValue
+	}
+
+	var value: PhysiologyValue<Int8> {
+		rawValue.value
 	}
 
 	var header: String {
-		switch state {
-		case .unknown, .default:
+		switch rawValue.stateInfo {
+		case .default:
 			return parts.map { part in
 				String(localized: String.LocalizationValue("part." + part))
 			}.joined(separator: String(localized: "part.separator"))
 		default:
-			return String(localized: String.LocalizationValue("state." + state.rawValue))
+			return rawValue.states.joined(separator: String(localized: "part.separator"))
 		}
 	}
 
 	var foregroundColor: Color {
-		switch state {
-		case .angry:
-			return .red
-		case .distending:
-			return .green
-		case .guarding:
-			return .indigo
-		case .mud:
-			return .brown
-		case .postbreak:
-			return .teal
-		case .rolling:
-			return .cyan
-		default:
+		switch rawValue.stateInfo {
+		case .default:
 			return .primary
+		case .broken:
+			return .teal
+		case .other:
+			return .secondary
+		}
+	}
+}
+
+struct PhysiologyGroupViewModel: Identifiable {
+	let id: String
+	let items: [PhysiologyViewModel]
+
+	init(rawValue: PhysiologyGroup) {
+		self.id = rawValue.parts.joined(separator: "+")
+		self.items = rawValue.items.map { item in
+			PhysiologyViewModel(rawValue.parts, rawValue: item)
 		}
 	}
 }
 
 struct PhysiologySectionViewModel: Identifiable {
-	let id: String
-	let parts: [String]
-	let items: [PhysiologyItemViewModel]
+	let state: String
+	let groups: [PhysiologyGroupViewModel]
 
-	init(parts: [String], items: [PhysiologyItemViewModel]) {
-		self.id = parts.joined(separator: "&")
-		self.parts = parts
-		self.items = items
+	init(rawValue: PhysiologySection) {
+		self.state = rawValue.state
+		self.groups = rawValue.groups.map(PhysiologyGroupViewModel.init(rawValue:))
+	}
+
+	var id: String {
+		state
 	}
 }
 
-struct PhysiologyViewModel: Identifiable {
+struct PhysiologiesViewModel: Identifiable {
 	let id: String
 	let sections: [PhysiologySectionViewModel]
 
-	init(_ id: String,
-		 sections: [PhysiologySectionViewModel]) {
-		self.id = id
-		self.sections = sections
-	}
-
-	init(monster: MHMonster,
-		 for attacks: [Attack] = Attack.allCases) {
-		self.id = monster.id
-		self.sections = monster.physiologies
-			.map { physiology in
-				PhysiologySectionViewModel(
-					parts: physiology.parts,
-					items: physiology.values.map { value in
-						PhysiologyItemViewModel(
-							parts: physiology.parts,
-							state: PhysiologyState(rawValue: value.state) ?? .unknown,
-							values: value.getValues(for: attacks))
-						})
-			}
-	}
-}
-
-extension MHMonster {
-	func createPhysiology() -> PhysiologyViewModel {
-		return PhysiologyViewModel(monster: self)
+	init(rawValue: Physiologies) {
+		self.id = rawValue.id
+		self.sections = rawValue.sections.map(PhysiologySectionViewModel.init(rawValue:))
 	}
 }

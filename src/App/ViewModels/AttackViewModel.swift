@@ -49,15 +49,3 @@ extension AttackItemViewModel {
 		LocalizedStringKey("label.attack." + attack.rawValue)
 	}
 }
-
-protocol AttackViewModel where ItemType: AttackItemViewModel {
-	associatedtype ItemType
-
-	var items: [ItemType] { get }
-}
-
-extension AttackViewModel {
-	subscript(attack: Attack) -> AttackItemViewModel? {
-		items.first(where: { item in item.attack == attack })
-	}
-}

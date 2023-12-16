@@ -8,7 +8,7 @@ public enum Element: String, CaseIterable {
 	case dragon
 }
 
-public extension Element {
+extension Element {
 	var keyPathForMonsterPhysiologyValue: KeyPath<MHMonsterPhysiologyValue, Int8> {
 		switch self {
 		case .fire:
