@@ -51,7 +51,7 @@ struct PhysiologyView: View {
 										bottom: PhysiologyViewMetrics.spacing,
 										trailing: PhysiologyViewMetrics.inset))
 					.background(i % 2 != 0
-								? RoundedRectangle(cornerRadius: 4).foregroundColor(.systemFill)
+								? RoundedRectangle(cornerRadius: 4).foregroundColor(.physiologySecondary)
 								: nil)
 			}
 		}

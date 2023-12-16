@@ -101,7 +101,7 @@ struct PhysiologyScrollableView: View {
 					}
 					.padding(.vertical, PhysiologyViewMetrics.spacing)
 					.background(i % 2 != 0
-									? headerBackgroundShape.foregroundColor(.systemFill)
+									? headerBackgroundShape.foregroundColor(.physiologySecondary)
 									: nil)
 				}
 			}
@@ -121,7 +121,7 @@ struct PhysiologyScrollableView: View {
 						}
 						.padding(.vertical, PhysiologyViewMetrics.spacing)
 						.background(i % 2 != 0
-									? contentBackgroundShape.foregroundColor(.systemFill)
+									? contentBackgroundShape.foregroundColor(.physiologySecondary)
 									: nil)
 					}
 				}

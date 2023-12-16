@@ -12,15 +12,15 @@ extension AttackItemViewModel {
 		case .slash, .strike, .shell:
 			return .primary
 		case .fire:
-			return Color(.fire)
+			return .fire
 		case .water:
-			return Color(.water)
+			return .water
 		case .thunder:
-			return Color(.thunder)
+			return .thunder
 		case .ice:
-			return Color(.ice)
+			return .ice
 		case .dragon:
-			return Color(.dragon)
+			return .dragon
 		}
 	}
 
