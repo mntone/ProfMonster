@@ -14,7 +14,7 @@ class AppTests: XCTestCase {
 	}
 
 	private func assertEqual(original: URLError.Code, transformed: StarSwingsError) throws {
-		let erredDataSource = app.resolver.resolve(MHDataSource.self) as! ErredDataSource
+		let erredDataSource = app.resolver.resolve(DataSource.self) as! ErredDataSource
 		erredDataSource.error = URLError(original)
 		erredDataSource.errorLevel = .config
 

@@ -88,5 +88,5 @@ struct FixedWidthWeaknessView: View {
 }
 
 #Preview {
-	FixedWidthWeaknessView(viewModel: WeaknessViewModel(rawValue: MHMockDataOffer.physiology1).sections[0])
+	FixedWidthWeaknessView(viewModel: WeaknessViewModel(rawValue: MockDataSource.physiology1).sections[0])
 }

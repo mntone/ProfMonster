@@ -2,7 +2,7 @@ import Combine
 import Foundation
 
 public class FetchableEntity {
-	let _dataSource: MHDataSource
+	let _dataSource: DataSource
 	let _lock: Lock = LockUtil.create()
 
 	var cancellable: AnyCancellable?
@@ -10,7 +10,7 @@ public class FetchableEntity {
 	@Published
 	public var state: StarSwingsState = .ready
 
-	init(dataSource: MHDataSource) {
+	init(dataSource: DataSource) {
 		self._dataSource = dataSource
 	}
 

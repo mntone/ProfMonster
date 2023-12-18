@@ -17,7 +17,7 @@ public final class Monster: FetchableEntity, Entity {
 
 	init(_ id: String,
 		 gameID: String,
-		 dataSource: MHDataSource,
+		 dataSource: DataSource,
 		 languageService: LanguageService,
 		 localization: MHLocalizationMonster) {
 		self._languageService = languageService

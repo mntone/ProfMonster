@@ -61,6 +61,6 @@ struct PhysiologyView: View {
 }
 
 #Preview {
-	PhysiologyView(viewModel: PhysiologiesViewModel(rawValue: MHMockDataOffer.physiology1).sections[0])
+	PhysiologyView(viewModel: PhysiologiesViewModel(rawValue: MockDataSource.physiology1).sections[0])
 		.padding()
 }

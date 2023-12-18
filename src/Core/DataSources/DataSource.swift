@@ -1,7 +1,7 @@
 import Combine
 import Foundation
 
-public protocol MHDataSource {
+protocol DataSource {
 	func getConfig() -> AnyPublisher<MHConfig, Error>
 	func getGame(of titleId: String) -> AnyPublisher<MHGame, Error>
 	func getLocalization(of key: String, for titleId: String) -> AnyPublisher<MHLocalization, Error>

@@ -14,12 +14,12 @@ class GameTests: XCTestCase {
 	}
 
 	private func assertEqual(original: URLError.Code, transformed: StarSwingsError) throws {
-		let erredDataSource = app.resolver.resolve(MHDataSource.self) as! ErredDataSource
+		let erredDataSource = app.resolver.resolve(DataSource.self) as! ErredDataSource
 		erredDataSource.error = URLError(original)
 		erredDataSource.errorLevel = .game
 
 		app.fetchIfNeeded()
-		XCTAssertEqual(app.games.count, MHMockDataOffer.config.titles.count)
+		XCTAssertEqual(app.games.count, MockDataSource.config.titles.count)
 
 		let game = app.games[0]
 		game.fetchIfNeeded()
@@ -32,11 +32,11 @@ class GameTests: XCTestCase {
 	func testAppInit() {
 		XCTAssertTrue(app.games.isEmpty)
 		app.fetchIfNeeded()
-		XCTAssertEqual(app.games.count, MHMockDataOffer.config.titles.count)
+		XCTAssertEqual(app.games.count, MockDataSource.config.titles.count)
 
 		let game = app.games[0]
 		game.fetchIfNeeded()
-		XCTAssertEqual(game.monsters.count, MHMockDataOffer.game.monsters.count)
+		XCTAssertEqual(game.monsters.count, MockDataSource.game.monsters.count)
 	}
 
 	func testNetworkErrorCanceled() throws {

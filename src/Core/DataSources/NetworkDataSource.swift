@@ -1,23 +1,23 @@
 import Combine
 import Foundation
 
-public struct MHClientOptions {
+public struct NetworkDataSourceOptions {
 	public let retryCount: Int
 
 	init(retryCount: Int = 1) {
 		self.retryCount = retryCount
 	}
 
-	public static let `default` = MHClientOptions()
+	public static let `default` = NetworkDataSourceOptions()
 }
 
-public final class MHClient {
+final class NetworkDataSource {
 	private let source: URL
 	private let decoder: JSONDecoder
 	private let session: URLSession
-	private let options: MHClientOptions
+	private let options: NetworkDataSourceOptions
 
-	public init(source: URL, session: URLSession, options: MHClientOptions = .default) {
+	init(source: URL, session: URLSession, options: NetworkDataSourceOptions = .default) {
 		self.source = source
 		let decoder = JSONDecoder()
 		decoder.keyDecodingStrategy = .convertFromSnakeCase
@@ -26,7 +26,7 @@ public final class MHClient {
 		self.options = options
 	}
 
-	public convenience init(source: URL, options: MHClientOptions = .default) {
+	convenience init(source: URL, options: NetworkDataSourceOptions = .default) {
 		let conf = URLSessionConfiguration.ephemeral
 		conf.httpAdditionalHeaders = [
 			"Accept": "application/json",
@@ -37,9 +37,7 @@ public final class MHClient {
 
 	private func getData(of url: URL) -> Publishers.RetryIf<Publishers.TryMap<URLSession.DataTaskPublisher, Data>> {
 		var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
-		if #available(macOS 11.3, *) {
-			request.assumesHTTP3Capable = true
-		}
+		request.assumesHTTP3Capable = true
 		request.networkServiceType = .responsiveData
 		return session.dataTaskPublisher(for: request).tryMap { data, response in
 			guard let response = response as? HTTPURLResponse,
@@ -71,8 +69,8 @@ public final class MHClient {
 }
 
 // MARK: - MHDataOffer
-extension MHClient: MHDataSource {
-	public func getConfig() -> AnyPublisher<MHConfig, Error> {
+extension NetworkDataSource: DataSource {
+	func getConfig() -> AnyPublisher<MHConfig, Error> {
 		guard let url = URL(string: "config.json", relativeTo: source) else {
 			fatalError()
 		}
@@ -81,7 +79,7 @@ extension MHClient: MHDataSource {
 			.eraseToAnyPublisher()
 	}
 
-	public func getGame(of titleId: String) -> AnyPublisher<MHGame, Error> {
+	func getGame(of titleId: String) -> AnyPublisher<MHGame, Error> {
 		guard let url = URL(string: "\(titleId)/index.json", relativeTo: source) else {
 			fatalError()
 		}
@@ -90,7 +88,7 @@ extension MHClient: MHDataSource {
 			.eraseToAnyPublisher()
 	}
 
-	public func getLocalization(of key: String, for titleId: String) -> AnyPublisher<MHLocalization, Error> {
+	func getLocalization(of key: String, for titleId: String) -> AnyPublisher<MHLocalization, Error> {
 		guard let url = URL(string: "\(titleId)/localization/\(key).json", relativeTo: source) else {
 			fatalError()
 		}
@@ -99,7 +97,7 @@ extension MHClient: MHDataSource {
 			.eraseToAnyPublisher()
 	}
 
-	public func getMonster(of id: String, for titleId: String) -> AnyPublisher<MHMonster, Error> {
+	func getMonster(of id: String, for titleId: String) -> AnyPublisher<MHMonster, Error> {
 		guard let url = URL(string: "\(titleId)/monsters/\(id).json", relativeTo: source) else {
 			fatalError()
 		}

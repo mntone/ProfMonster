@@ -9,13 +9,13 @@ enum ErrorOfferLevel {
 	case none
 }
 
-final class ErredDataSource: MHDataSource {
-	let dataSource: MHDataSource
+final class ErredDataSource: DataSource {
+	let dataSource: DataSource
 
 	var error: Error
 	var errorLevel: ErrorOfferLevel
 
-	init(dataSource: MHDataSource,
+	init(dataSource: DataSource,
 		 error: Error = StarSwingsError.notExist,
 		 errorLevel: ErrorOfferLevel = .none) {
 		self.dataSource = dataSource

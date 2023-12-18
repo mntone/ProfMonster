@@ -23,7 +23,7 @@ public final class Game: FetchableEntity, Entity {
 	}
 
 	init(resolver: Resolver,
-		 dataSource: MHDataSource,
+		 dataSource: DataSource,
 		 json: MHConfigTitle) {
 		self._resolver = resolver
 		self.id = json.id

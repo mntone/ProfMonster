@@ -9,7 +9,7 @@ public final class App: FetchableEntity, Entity {
 	public private(set) var games: [Game] = []
 
 	public init(resolver: Resolver) {
-		guard let dataSource = resolver.resolve(MHDataSource.self) else {
+		guard let dataSource = resolver.resolve(DataSource.self) else {
 			fatalError()
 		}
 		self.resolver = resolver

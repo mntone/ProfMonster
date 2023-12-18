@@ -226,7 +226,7 @@ struct PhysiologyScrollableView: View {
 // Add `.padding(.leading, isLTR ? 2 : 0)` to ScrollView if you need.
 // But, in real case, its sentence is unnessesary.
 #Preview {
-	PhysiologyScrollableView(viewModel: PhysiologiesViewModel(rawValue: MHMockDataOffer.physiology1).sections[0])
+	PhysiologyScrollableView(viewModel: PhysiologiesViewModel(rawValue: MockDataSource.physiology1).sections[0])
 		//.environment(\.locale, Locale(identifier: "ar"))
 		//.environment(\.layoutDirection, .rightToLeft)
 }

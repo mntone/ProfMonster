@@ -3,8 +3,8 @@ import MonsterAnalyzerCore
 
 struct TestAssembly: Assembly {
 	func assemble(container: Container) {
-		let wrappedDataSource = ErredDataSource(dataSource: container.resolve(MHDataSource.self)!)
-		container.register(MHDataSource.self) { r in
+		let wrappedDataSource = ErredDataSource(dataSource: container.resolve(DataSource.self)!)
+		container.register(DataSource.self) { r in
 			wrappedDataSource
 		}
 

@@ -1,8 +1,8 @@
 import Combine
 import Foundation
 
-public struct MHMockDataOffer {
-	public static let configTitle = MHConfigTitle(id: "mockgame", names: [
+public struct MockDataSource {
+	static let configTitle = MHConfigTitle(id: "mockgame", names: [
 		"en": "Mock",
 		"ja": "モック",
 	], fullNames: [
@@ -10,18 +10,18 @@ public struct MHMockDataOffer {
 		"ja": "モックゲーム",
 	])
 
-	public static let config = MHConfig(version: 1, titles: [configTitle])
+	static let config = MHConfig(version: 1, titles: [configTitle])
 
-	public static let localization = MHLocalization(monsters: [
+	static let localization = MHLocalization(monsters: [
 		MHLocalizationMonster(id: "gulu_qoo",
 							  name: "Gulu Qoo",
 							  anotherName: nil,
 							  keywords: [])
 	], states: [:])
 
-	public static let game = MHGame(id: "mockgame",
-									localization: ["en"],
-									monsters: ["gulu_qoo"])
+	static let game = MHGame(id: "mockgame",
+							 localization: ["en"],
+							 monsters: ["gulu_qoo"])
 
 	public static let monster1 = MHMonster(id: "gulu_qoo",
 										   version: "1.0.0",
@@ -135,27 +135,27 @@ public struct MHMockDataOffer {
 
 // MARK: - MHDataOffer
 
-extension MHMockDataOffer: MHDataSource {
-	public func getConfig() -> AnyPublisher<MHConfig, Error> {
-		Just(MHMockDataOffer.config)
+extension MockDataSource: DataSource {
+	func getConfig() -> AnyPublisher<MHConfig, Error> {
+		Just(Self.config)
 			.setFailureType(to: Error.self)
 			.eraseToAnyPublisher()
 	}
 
-	public func getGame(of titleId: String) -> AnyPublisher<MHGame, Error> {
-		Just(MHMockDataOffer.game)
+	func getGame(of titleId: String) -> AnyPublisher<MHGame, Error> {
+		Just(Self.game)
 			.setFailureType(to: Error.self)
 			.eraseToAnyPublisher()
 	}
 
-	public func getLocalization(of key: String, for titleId: String) -> AnyPublisher<MHLocalization, Error> {
-		Just(MHMockDataOffer.localization)
+	func getLocalization(of key: String, for titleId: String) -> AnyPublisher<MHLocalization, Error> {
+		Just(Self.localization)
 			.setFailureType(to: Error.self)
 			.eraseToAnyPublisher()
 	}
 
 	public func getMonster(of id: String, for titleId: String) -> AnyPublisher<MHMonster, Error> {
-		Just(MHMockDataOffer.monster1)
+		Just(Self.monster1)
 			.setFailureType(to: Error.self)
 			.eraseToAnyPublisher()
 	}

@@ -100,7 +100,7 @@ struct WeaknessView: View {
 @available(iOS 16.0, macOS 13.0, *)
 #Preview {
 	ScrollView {
-		WeaknessView(viewModel: WeaknessViewModel(rawValue: MHMockDataOffer.physiology1).sections[0])
+		WeaknessView(viewModel: WeaknessViewModel(rawValue: MockDataSource.physiology1).sections[0])
 			.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
 			.background(RoundedRectangle(cornerRadius: 8)
 				.foregroundColor(.secondarySystemGroupedBackground))

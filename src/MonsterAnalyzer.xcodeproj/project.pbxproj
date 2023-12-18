@@ -57,7 +57,7 @@
 		EB9620F42B1D90DB00FD7115 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620EA2B1D839B00FD7115 /* HomeViewModel.swift */; };
 		EB9620F62B1DA50800FD7115 /* RouteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F52B1DA50800FD7115 /* RouteHelper.swift */; };
 		EB9620F72B1DA50800FD7115 /* RouteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F52B1DA50800FD7115 /* RouteHelper.swift */; };
-		EB9620F92B1DD41200FD7115 /* MHMockDataOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F82B1DD41200FD7115 /* MHMockDataOffer.swift */; };
+		EB9620F92B1DD41200FD7115 /* MockDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F82B1DD41200FD7115 /* MockDataSource.swift */; };
 		EB9620FA2B1DD6D500FD7115 /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F772B1A099000734AAA /* AppUtil.swift */; };
 		EB967A262B299BFC0041A491 /* MonsterLocalizationMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A252B299BFC0041A491 /* MonsterLocalizationMapper.swift */; };
 		EB967A282B299F9E0041A491 /* TextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A272B299F9E0041A491 /* TextProcessor.swift */; };
@@ -133,9 +133,9 @@
 		EBEA6F4C2B185A1600734AAA /* MHMonsterPhysiology.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F192B1854FC00734AAA /* MHMonsterPhysiology.swift */; };
 		EBEA6F4D2B185A1600734AAA /* MHConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1B92B158D14004D63EA /* MHConfig.swift */; };
 		EBEA6F4E2B185A1600734AAA /* MHGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C82B15CB7D004D63EA /* MHGame.swift */; };
-		EBEA6F4F2B185A1A00734AAA /* MHDataServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F162B182BB900734AAA /* MHDataServer.swift */; };
-		EBEA6F502B185A1A00734AAA /* MHDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F132B1829EE00734AAA /* MHDataSource.swift */; };
-		EBEA6F512B185A1A00734AAA /* MHClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1BD2B158F91004D63EA /* MHClient.swift */; };
+		EBEA6F4F2B185A1A00734AAA /* CacheableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F162B182BB900734AAA /* CacheableDataSource.swift */; };
+		EBEA6F502B185A1A00734AAA /* DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F132B1829EE00734AAA /* DataSource.swift */; };
+		EBEA6F512B185A1A00734AAA /* NetworkDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1BD2B158F91004D63EA /* NetworkDataSource.swift */; };
 		EBEA6F532B185A2900734AAA /* Attack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E22B163B0E004D63EA /* Attack.swift */; };
 		EBEA6F552B185A3B00734AAA /* LanguageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B2222B17770E004D63EA /* LanguageService.swift */; };
 		EBEA6F562B185A4000734AAA /* MALanguageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21E2B177691004D63EA /* MALanguageService.swift */; };
@@ -269,7 +269,7 @@
 		EB9620EC2B1D867E00FD7115 /* LanguageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageUtil.swift; sourceTree = "<group>"; };
 		EB9620F12B1D8E1300FD7115 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		EB9620F52B1DA50800FD7115 /* RouteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteHelper.swift; sourceTree = "<group>"; };
-		EB9620F82B1DD41200FD7115 /* MHMockDataOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHMockDataOffer.swift; sourceTree = "<group>"; };
+		EB9620F82B1DD41200FD7115 /* MockDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSource.swift; sourceTree = "<group>"; };
 		EB967A252B299BFC0041A491 /* MonsterLocalizationMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterLocalizationMapper.swift; sourceTree = "<group>"; };
 		EB967A272B299F9E0041A491 /* TextProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProcessor.swift; sourceTree = "<group>"; };
 		EB967A2A2B29A0BA0041A491 /* JapaneseTextProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseTextProcessor.swift; sourceTree = "<group>"; };
@@ -286,7 +286,7 @@
 		EB967A4A2B2AC7100041A491 /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
 		EBB4B1B92B158D14004D63EA /* MHConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHConfig.swift; sourceTree = "<group>"; };
 		EBB4B1BB2B158E38004D63EA /* MHMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHMonster.swift; sourceTree = "<group>"; };
-		EBB4B1BD2B158F91004D63EA /* MHClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHClient.swift; sourceTree = "<group>"; };
+		EBB4B1BD2B158F91004D63EA /* NetworkDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataSource.swift; sourceTree = "<group>"; };
 		EBB4B1C42B15BDA7004D63EA /* WeaknessViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaknessViewModel.swift; sourceTree = "<group>"; };
 		EBB4B1C62B15BF48004D63EA /* MonsterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterViewModel.swift; sourceTree = "<group>"; };
 		EBB4B1C82B15CB7D004D63EA /* MHGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHGame.swift; sourceTree = "<group>"; };
@@ -320,8 +320,8 @@
 		EBDF0B5F2B24A68C003E2808 /* SigningHelper.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SigningHelper.xcconfig; sourceTree = "<group>"; };
 		EBEA6F0B2B17F9B300734AAA /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		EBEA6F0E2B1800E600734AAA /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
-		EBEA6F132B1829EE00734AAA /* MHDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHDataSource.swift; sourceTree = "<group>"; };
-		EBEA6F162B182BB900734AAA /* MHDataServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHDataServer.swift; sourceTree = "<group>"; };
+		EBEA6F132B1829EE00734AAA /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
+		EBEA6F162B182BB900734AAA /* CacheableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheableDataSource.swift; sourceTree = "<group>"; };
 		EBEA6F192B1854FC00734AAA /* MHMonsterPhysiology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHMonsterPhysiology.swift; sourceTree = "<group>"; };
 		EBEA6F252B1858FA00734AAA /* MonsterAnalyzerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MonsterAnalyzerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEA6F272B1858FA00734AAA /* MonsterAnalyserCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonsterAnalyserCore.h; sourceTree = "<group>"; };
@@ -608,16 +608,16 @@
 			path = Caches;
 			sourceTree = "<group>";
 		};
-		EBEA6F112B18295F00734AAA /* Client */ = {
+		EBEA6F112B18295F00734AAA /* DataSources */ = {
 			isa = PBXGroup;
 			children = (
 				EBEA6F122B18296C00734AAA /* Objects */,
-				EBB4B1BD2B158F91004D63EA /* MHClient.swift */,
-				EBEA6F162B182BB900734AAA /* MHDataServer.swift */,
-				EBEA6F132B1829EE00734AAA /* MHDataSource.swift */,
-				EB9620F82B1DD41200FD7115 /* MHMockDataOffer.swift */,
+				EBEA6F162B182BB900734AAA /* CacheableDataSource.swift */,
+				EBEA6F132B1829EE00734AAA /* DataSource.swift */,
+				EB9620F82B1DD41200FD7115 /* MockDataSource.swift */,
+				EBB4B1BD2B158F91004D63EA /* NetworkDataSource.swift */,
 			);
-			path = Client;
+			path = DataSources;
 			sourceTree = "<group>";
 		};
 		EBEA6F122B18296C00734AAA /* Objects */ = {
@@ -644,7 +644,7 @@
 			isa = PBXGroup;
 			children = (
 				EBEA6F0A2B17F93900734AAA /* Caches */,
-				EBEA6F112B18295F00734AAA /* Client */,
+				EBEA6F112B18295F00734AAA /* DataSources */,
 				EBB4B2212B1776F1004D63EA /* Languages */,
 				EBF684A52B2D4FEF0071981F /* Mappers */,
 				EBEA6F1C2B18559A00734AAA /* Objects */,
@@ -1018,8 +1018,10 @@
 				EB967A3C2B29DCC30041A491 /* App.swift in Sources */,
 				EB9620FA2B1DD6D500FD7115 /* AppUtil.swift in Sources */,
 				EBEA6F532B185A2900734AAA /* Attack.swift in Sources */,
+				EBEA6F4F2B185A1A00734AAA /* CacheableDataSource.swift in Sources */,
 				EB967A2F2B29ADC20041A491 /* ChineseTextProcessor.swift in Sources */,
 				EB44EF492B1C017100DD47B5 /* CoreAssembly.swift in Sources */,
+				EBEA6F502B185A1A00734AAA /* DataSource.swift in Sources */,
 				EBEA6F842B1A208200734AAA /* DiskStorage.swift in Sources */,
 				EB19D6732B1EFB6700C90417 /* Element.swift in Sources */,
 				EB967A3E2B29DF100041A491 /* Entity.swift in Sources */,
@@ -1033,17 +1035,15 @@
 				EB9620DF2B1D616A00FD7115 /* Lock.swift in Sources */,
 				EBEA6F562B185A4000734AAA /* MALanguageService.swift in Sources */,
 				EBEA6F482B185A0900734AAA /* MemoryStorage.swift in Sources */,
-				EBEA6F512B185A1A00734AAA /* MHClient.swift in Sources */,
 				EBEA6F4D2B185A1600734AAA /* MHConfig.swift in Sources */,
-				EBEA6F4F2B185A1A00734AAA /* MHDataServer.swift in Sources */,
-				EBEA6F502B185A1A00734AAA /* MHDataSource.swift in Sources */,
 				EBEA6F4E2B185A1600734AAA /* MHGame.swift in Sources */,
 				EBEA6F4A2B185A1600734AAA /* MHLocalization.swift in Sources */,
-				EB9620F92B1DD41200FD7115 /* MHMockDataOffer.swift in Sources */,
 				EBEA6F4B2B185A1600734AAA /* MHMonster.swift in Sources */,
 				EBEA6F4C2B185A1600734AAA /* MHMonsterPhysiology.swift in Sources */,
+				EB9620F92B1DD41200FD7115 /* MockDataSource.swift in Sources */,
 				EB967A3A2B29DAC00041A491 /* Monster.swift in Sources */,
 				EB967A262B299BFC0041A491 /* MonsterLocalizationMapper.swift in Sources */,
+				EBEA6F512B185A1A00734AAA /* NetworkDataSource.swift in Sources */,
 				EB9620DD2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift in Sources */,
 				EBF684A42B2D4C5D0071981F /* Physiology.swift in Sources */,
 				EBF684A72B2D50060071981F /* PhysiologyMapper.swift in Sources */,

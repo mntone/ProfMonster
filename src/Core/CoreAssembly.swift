@@ -56,8 +56,8 @@ public struct CoreAssembly: Assembly {
 			storage
 		}
 
-		let dataSource: MHDataSource = MHDataServer(source: MHClient(source: self.source), storage: storage)
-		container.register(MHDataSource.self) { _ in
+		let dataSource: DataSource = CacheableDataSource(source: NetworkDataSource(source: self.source), storage: storage)
+		container.register(DataSource.self) { _ in
 			dataSource
 		}
 	}
@@ -69,8 +69,8 @@ public struct CoreAssembly: Assembly {
 			storage
 		}
 
-		let dataSource: MHDataSource = MHMockDataOffer()
-		container.register(MHDataSource.self) { _ in
+		let dataSource: DataSource = MockDataSource()
+		container.register(DataSource.self) { _ in
 			dataSource
 		}
 	}
