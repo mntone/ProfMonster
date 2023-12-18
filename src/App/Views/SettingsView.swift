@@ -8,18 +8,16 @@ struct RemoveCacheButton: View {
 	private var isConfirm: Bool = false
 
 	var body: some View {
-		Button("settings.removeCache.action") {
+		Button("Remove All Caches") {
 			isConfirm = true
 		}
 		.foregroundColor(.blue)
-		.alert("settings.removeCache.title", isPresented: $isConfirm) {
-			Button(role: .destructive) {
+		.alert("Remove Caches", isPresented: $isConfirm) {
+			Button("Remove All Caches", role: .destructive) {
 				viewModel.resetAllCaches()
-			} label: {
-				Text("settings.removeCache.action")
 			}
 
-			Button("settings.removeCache.cancel", role: .cancel) {
+			Button("Cancel", role: .cancel) {
 				isConfirm = false
 			}
 		} message: {
@@ -50,13 +48,13 @@ struct SettingsView: View {
 #if os(iOS)
 		.toolbar {
 			ToolbarItem(placement: .cancellationAction) {
-				Button("settings.close", role: .cancel) {
+				Button("Close", role: .cancel) {
 					settingsAction?.dismiss()
 				}
 			}
 		}
 #endif
-		.navigationTitle("settings.title")
+		.navigationTitle("Settings")
 #if !os(macOS)
 		.navigationBarTitleDisplayMode(.large)
 #endif

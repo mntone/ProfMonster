@@ -7,16 +7,13 @@ import SwiftUI
 
 private func sortToolbarItem(selection: Binding<Sort>) -> some ToolbarContent {
 	ToolbarItem(placement: .primaryAction) {
-		Menu {
+		Menu("Sort", systemImage: "arrow.up.arrow.down.circle") {
 			Picker(selection: selection) {
-				Text("game.sort[ingame]").tag(Sort.inGame)
-				Text("game.sort[name]").tag(Sort.name)
+				Text("In Game").tag(Sort.inGame)
+				Text("Name").tag(Sort.name)
 			} label: {
 				EmptyView()
 			}
-		} label: {
-			Label("game.sort",
-				  systemImage: "arrow.up.arrow.down.circle")
 		}
 	}
 }
@@ -36,9 +33,9 @@ struct GameView: View {
 				}
 			}
 #if os(watchOS)
-			.searchable(text: $viewModel.searchText, prompt: Text("game.search[short]"))
+			.searchable(text: $viewModel.searchText, prompt: Text("Search"))
 #else
-			.searchable(text: $viewModel.searchText, prompt: Text("game.search[long]"))
+			.searchable(text: $viewModel.searchText, prompt: Text("Monster and Weakness"))
 			.listStyle(.plain)
 #endif
 		}
@@ -79,9 +76,9 @@ struct GameViewBackport: View {
 				}
 			}
 #if os(watchOS)
-			.searchable(text: $viewModel.searchText, prompt: Text("game.search[short]"))
+			.searchable(text: $viewModel.searchText, prompt: Text("Search"))
 #else
-			.searchable(text: $viewModel.searchText, prompt: Text("game.search[long]"))
+			.searchable(text: $viewModel.searchText, prompt: Text("Monster and Weakness"))
 			.listStyle(.plain)
 #endif
 		}

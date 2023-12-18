@@ -20,13 +20,13 @@ struct Sidebar: View {
 #if !os(macOS)
 		.toolbar {
 			ToolbarItem(placement: .topBarTrailing) {
-				Button("root.settings", systemImage: "gearshape.fill") {
+				Button("Settings", systemImage: "gearshape.fill") {
 					settingsAction?.present()
 				}
 				.keyboardShortcut(",", modifiers: [.command])
 			}
 		}
-		.navigationTitle("root.title")
+		.navigationTitle("Prof. Monster")
 #endif
 		.task {
 			viewModel.fetchData()

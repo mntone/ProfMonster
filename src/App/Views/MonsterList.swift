@@ -13,7 +13,7 @@ struct MonsterList: View {
 			List(viewModel.items, id: \.id, selection: $selectedMonsterID) { item in
 				MonsterListItem(viewModel: item)
 			}
-			.searchable(text: $viewModel.searchText, prompt: Text("game.search[long]"))
+			.searchable(text: $viewModel.searchText, prompt: Text("Monster and Weakness"))
 #if os(macOS)
 			.animation(.default, value: viewModel.items)
 			.listRowBackground(Color.clear)
@@ -21,17 +21,14 @@ struct MonsterList: View {
 		}
 		.toolbar {
 			ToolbarItem(placement: .primaryAction) {
-				Menu {
+				Menu("Sort", systemImage: "arrow.up.arrow.down.circle") {
 					Picker(selection: $viewModel.sort) {
-						Text("monsters.sort[ingame]").tag(Sort.inGame)
-						Text("monsters.sort[name]").tag(Sort.name)
+						Text("In Game").tag(Sort.inGame)
+						Text("Name").tag(Sort.name)
 					} label: {
 						EmptyView()
 					}
 					.pickerStyle(.inline)
-				} label: {
-					Label("monsters.sort",
-						  systemImage: "arrow.up.arrow.down.circle")
 				}
 			}
 		}

@@ -18,11 +18,11 @@ struct HomeView: View {
 			}
 		}
 		.leadingToolbarItemBackport {
-			Button("home.settings", systemImage: "gearshape.fill") {
+			Button("Settings", systemImage: "gearshape.fill") {
 				settingsAction?.present()
 			}
 		}
-		.navigationTitle("home.title")
+		.navigationTitle("Prof. Monster")
 		.task {
 			viewModel.fetchData()
 		}
@@ -57,11 +57,11 @@ struct HomeViewBackport: View {
 			}
 		}
 		.leadingToolbarItemBackport {
-			Button("home.settings", systemImage: "gearshape.fill") {
+			Button("Settings", systemImage: "gearshape.fill") {
 				settingsAction?.present()
 			}
 		}
-		.navigationTitle("home.title")
+		.navigationTitle("Prof. Monster")
 		.task {
 			viewModel.fetchData()
 		}
