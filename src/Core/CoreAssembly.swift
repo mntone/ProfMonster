@@ -1,12 +1,31 @@
 import Foundation
 import Swinject
 
-public final class CoreAssembly: Assembly {
+#if DEBUG || targetEnvironment(simulator)
+public enum CoreAssemblyMode {
+	case auto
+	case develop
+	case product
+}
+#endif
+
+public struct CoreAssembly: Assembly {
+#if DEBUG || targetEnvironment(simulator)
+	private let mode: CoreAssemblyMode
+#endif
 	private let source: URL
 
+#if DEBUG || targetEnvironment(simulator)
+	public init(mode: CoreAssemblyMode = .auto,
+				source: URL = URL(string: "https://raw.githubusercontent.com/mntone/mhdata/main/")!) {
+		self.mode = mode
+		self.source = source
+	}
+#else
 	public init(source: URL = URL(string: "https://raw.githubusercontent.com/mntone/mhdata/main/")!) {
 		self.source = source
 	}
+#endif
 
 	public func assemble(container: Container) {
 		container.register(LanguageService.self) { (_, keys: [String]) in
@@ -14,9 +33,16 @@ public final class CoreAssembly: Assembly {
 		}
 
 #if DEBUG || targetEnvironment(simulator)
-		if AppUtil.isPreview {
-			assembleForPreview(container: container)
-		} else {
+		switch mode {
+		case .auto:
+			if AppUtil.isPreview {
+				assembleForDevelop(container: container)
+			} else {
+				assembleForProduct(container: container)
+			}
+		case .develop:
+			assembleForDevelop(container: container)
+		case .product:
 			assembleForProduct(container: container)
 		}
 #else
@@ -34,15 +60,10 @@ public final class CoreAssembly: Assembly {
 		container.register(MHDataSource.self) { _ in
 			dataSource
 		}
-
-		let app = App(container: container, dataSource: dataSource)
-		container.register(App.self) { _ in
-			app
-		}
 	}
 
 #if DEBUG || targetEnvironment(simulator)
-	private func assembleForPreview(container: Container) {
+	private func assembleForDevelop(container: Container) {
 		let storage = MemoryStorage()
 		container.register(Storage.self) { _ in
 			storage
@@ -51,17 +72,6 @@ public final class CoreAssembly: Assembly {
 		let dataSource: MHDataSource = MHMockDataOffer()
 		container.register(MHDataSource.self) { _ in
 			dataSource
-		}
-
-		let app = App(container: container, dataSource: dataSource)
-		container.register(App.self) { _ in
-			app
-		}
-
-		// Prefetch for Previews
-		app.fetchIfNeeded()
-		app.games.forEach { game in
-			game.fetchIfNeeded()
 		}
 	}
 #endif

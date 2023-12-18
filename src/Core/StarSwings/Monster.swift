@@ -34,21 +34,19 @@ public final class Monster: FetchableEntity, Entity {
 		_lock.withLock {
 			guard case .ready = state else { return }
 			state = .loading
-
-			_dataSource.getMonster(of: id, for: gameID)
-				.map { [_languageService] json in
-					Optional(PhysiologyMapper.map(json: json, languageService: _languageService))
-				}
-				.catch { error in
-					self._handle(error: error)
-					return Empty<Physiologies?, Never>()
-				}
-				.handleEvents(receiveCompletion: { completion in
-					if case .finished = completion {
-						self.state = .complete
-					}
-				})
-				.assign(to: &$physiologies)
 		}
+
+		_dataSource.getMonster(of: id, for: gameID)
+			.map { [_languageService] json in
+				Optional(PhysiologyMapper.map(json: json, languageService: _languageService))
+			}
+			.handleEvents(receiveCompletion: { [weak self] completion in
+				guard let self else { fatalError() }
+				self._handle(completion: completion)
+			})
+			.catch { error in
+				return Empty<Physiologies?, Never>()
+			}
+			.assign(to: &$physiologies)
 	}
 }

@@ -39,6 +39,7 @@ struct MAApp: SwiftUI.App {
 	static var resolver: Resolver = {
 		return Assembler([
 			CoreAssembly(),
+			AppAssembly(),
 		]).resolver
 	}()
 }

@@ -1,16 +1,18 @@
 import Combine
 import Foundation
-import Swinject
+import protocol Swinject.Resolver
 
 public final class App: FetchableEntity, Entity {
-	private let _container: Container
+	let resolver: Resolver
 
 	@Published
 	public private(set) var games: [Game] = []
 
-	public init(container: Container,
-				dataSource: MHDataSource) {
-		self._container = container
+	public init(resolver: Resolver) {
+		guard let dataSource = resolver.resolve(MHDataSource.self) else {
+			fatalError()
+		}
+		self.resolver = resolver
 		super.init(dataSource: dataSource)
 	}
 
@@ -18,24 +20,22 @@ public final class App: FetchableEntity, Entity {
 		_lock.withLock {
 			guard case .ready = state else { return }
 			state = .loading
-
-			_dataSource.getConfig()
-				.map { [_container, _dataSource] config in
-					config.titles.map { title in
-						Game(container: _container, dataSource: _dataSource, json: title)
-					}
-				}
-				.catch { error in
-					self._handle(error: error)
-					return Empty<[Game], Never>()
-				}
-				.handleEvents(receiveCompletion: { completion in
-					if case .finished = completion {
-						self.state = .complete
-					}
-				})
-				.assign(to: &$games)
 		}
+
+		_dataSource.getConfig()
+			.map { [resolver, _dataSource] config in
+				config.titles.map { title in
+					Game(resolver: resolver, dataSource: _dataSource, json: title)
+				}
+			}
+			.handleEvents(receiveCompletion: { [weak self] completion in
+				guard let self else { fatalError() }
+				self._handle(completion: completion)
+			})
+			.catch { error in
+				return Empty<[Game], Never>()
+			}
+			.assign(to: &$games)
 	}
 
 	public func resetMemoryCache() {

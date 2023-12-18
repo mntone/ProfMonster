@@ -3,7 +3,7 @@ import Foundation
 import Swinject
 
 public final class Game: FetchableEntity, Entity {
-	private let _container: Container
+	private let _resolver: Resolver
 
 	public let id: String
 	public let name: String
@@ -22,10 +22,10 @@ public final class Game: FetchableEntity, Entity {
 		}
 	}
 
-	init(container: Container,
+	init(resolver: Resolver,
 		 dataSource: MHDataSource,
 		 json: MHConfigTitle) {
-		self._container = container
+		self._resolver = resolver
 		self.id = json.id
 
 		let preferredLocale = LanguageUtil.getPreferredLanguageKey(json.names.keys)
@@ -37,36 +37,34 @@ public final class Game: FetchableEntity, Entity {
 		_lock.withLock {
 			guard case .ready = state else { return }
 			state = .loading
-
-			_dataSource.getGame(of: id)
-				.flatMap { [weak self] json in
-					guard let self else { fatalError() }
-
-					let langsvc = _container.resolve(LanguageService.self, argument: json.localization)!
-					return self._dataSource.getLocalization(of: langsvc.localeKey, for: self.id).map { localization in
-						langsvc.register(dictionary: localization.states, for: .state)
-						self.languageService = langsvc
-
-						return json.monsters.map { monsterID in
-							Monster(monsterID,
-									gameID: self.id,
-									dataSource: self._dataSource,
-									languageService: langsvc,
-									localization: localization.monsters.first(where: { m in m.id == monsterID })!)
-						}
-					}
-				}
-				.catch { error in
-					self._handle(error: error)
-					return Empty<[Monster], Never>()
-				}
-				.handleEvents(receiveCompletion: { completion in
-					if case .finished = completion {
-						self.state = .complete
-					}
-				})
-				.assign(to: &$monsters)
 		}
+
+		_dataSource.getGame(of: id)
+			.flatMap { [weak self] json in
+				guard let self else { fatalError() }
+
+				let langsvc = _resolver.resolve(LanguageService.self, argument: json.localization)!
+				return self._dataSource.getLocalization(of: langsvc.localeKey, for: self.id).map { localization in
+					langsvc.register(dictionary: localization.states, for: .state)
+					self.languageService = langsvc
+
+					return json.monsters.map { monsterID in
+						Monster(monsterID,
+								gameID: self.id,
+								dataSource: self._dataSource,
+								languageService: langsvc,
+								localization: localization.monsters.first(where: { m in m.id == monsterID })!)
+					}
+				}
+			}
+			.handleEvents(receiveCompletion: { [weak self] completion in
+				guard let self else { fatalError() }
+				self._handle(completion: completion)
+			})
+			.catch { error in
+				return Empty<[Monster], Never>()
+			}
+			.assign(to: &$monsters)
 	}
 
 	public func resetMemoryCache() {

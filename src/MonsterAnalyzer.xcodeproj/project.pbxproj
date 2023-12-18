@@ -14,12 +14,16 @@
 		EB19D6732B1EFB6700C90417 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E82B16C254004D63EA /* Element.swift */; };
 		EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */; };
 		EB2550142B288C84004823BA /* View+AlternatingRowBackgroundsBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2550132B288C84004823BA /* View+AlternatingRowBackgroundsBackport.swift */; };
+		EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
+		EB29563B2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
 		EB31EEB72B2BEB4300FF8536 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB42B2BD7FA00FF8536 /* Sort.swift */; };
 		EB31EEB92B2C9DD000FF8536 /* NavigationPathHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB82B2C9DD000FF8536 /* NavigationPathHost.swift */; };
 		EB31EEBC2B2C9E4D00FF8536 /* NavigationPathSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEBB2B2C9E4D00FF8536 /* NavigationPathSupport.swift */; };
 		EB31EEBD2B2C9E4D00FF8536 /* NavigationPathSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEBB2B2C9E4D00FF8536 /* NavigationPathSupport.swift */; };
 		EB38D1FB2B2946A800CED9DB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */; };
 		EB38D1FC2B2946A800CED9DB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */; };
+		EB433A3A2B2DEB050079AAD8 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB433A392B2DEB050079AAD8 /* AppTests.swift */; };
+		EB433A3C2B2DEF750079AAD8 /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = EB433A3B2B2DEF750079AAD8 /* Swinject-Dynamic */; };
 		EB44EF492B1C017100DD47B5 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44EF482B1C017100DD47B5 /* CoreAssembly.swift */; };
 		EB44EF4B2B1C0BCB00DD47B5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */; };
 		EB44EF4C2B1C0BCB00DD47B5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */; };
@@ -37,6 +41,11 @@
 		EB87782E2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */; };
 		EB87782F2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */; };
 		EB8F07DA2B2FB229006AC575 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB8F07D92B2FB229006AC575 /* Localizable.xcstrings */; };
+		EB8F07E02B2FF421006AC575 /* StarSwingsState+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F07DE2B2FF41D006AC575 /* StarSwingsState+Error.swift */; };
+		EB8F07E12B2FF423006AC575 /* ErredDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F07DC2B2FF3EB006AC575 /* ErredDataSource.swift */; };
+		EB8F07E32B300B84006AC575 /* TestAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F07E22B300B84006AC575 /* TestAssembly.swift */; };
+		EB8F07E52B300BE4006AC575 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F07E42B300BE4006AC575 /* GameTests.swift */; };
+		EB8F07E72B300F18006AC575 /* MonsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F07E62B300F18006AC575 /* MonsterTests.swift */; };
 		EB9620DD2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620DC2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift */; };
 		EB9620DF2B1D616A00FD7115 /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620DE2B1D616A00FD7115 /* Lock.swift */; };
 		EB9620E22B1D6E1000FD7115 /* MARoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620E12B1D6E1000FD7115 /* MARoute.swift */; };
@@ -231,10 +240,12 @@
 		EB19D6742B1EFF7700C90417 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+RetryIf.swift"; sourceTree = "<group>"; };
 		EB2550132B288C84004823BA /* View+AlternatingRowBackgroundsBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AlternatingRowBackgroundsBackport.swift"; sourceTree = "<group>"; };
+		EB2956392B30139A002C5CA8 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		EB31EEB42B2BD7FA00FF8536 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		EB31EEB82B2C9DD000FF8536 /* NavigationPathHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPathHost.swift; sourceTree = "<group>"; };
 		EB31EEBB2B2C9E4D00FF8536 /* NavigationPathSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPathSupport.swift; sourceTree = "<group>"; };
 		EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		EB433A392B2DEB050079AAD8 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
 		EB44EF482B1C017100DD47B5 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB645A602B26749E00D27500 /* NavigationStackHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStackHost.swift; sourceTree = "<group>"; };
@@ -245,6 +256,11 @@
 		EB8778272B26BDEF00B3359C /* EnvironmentValues+SettingsActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+SettingsActions.swift"; sourceTree = "<group>"; };
 		EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnChangeBackport.swift"; sourceTree = "<group>"; };
 		EB8F07D92B2FB229006AC575 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		EB8F07DC2B2FF3EB006AC575 /* ErredDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErredDataSource.swift; sourceTree = "<group>"; };
+		EB8F07DE2B2FF41D006AC575 /* StarSwingsState+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StarSwingsState+Error.swift"; sourceTree = "<group>"; };
+		EB8F07E22B300B84006AC575 /* TestAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAssembly.swift; sourceTree = "<group>"; };
+		EB8F07E42B300BE4006AC575 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
+		EB8F07E62B300F18006AC575 /* MonsterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterTests.swift; sourceTree = "<group>"; };
 		EB9620DC2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSAllocatedUnfairLockBackport.swift; sourceTree = "<group>"; };
 		EB9620DE2B1D616A00FD7115 /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		EB9620E12B1D6E1000FD7115 /* MARoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARoute.swift; sourceTree = "<group>"; };
@@ -353,6 +369,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBEA6F2F2B1858FB00734AAA /* MonsterAnalyzerCore.framework in Frameworks */,
+				EB433A3C2B2DEF750079AAD8 /* Swinject-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +403,16 @@
 				EB645A602B26749E00D27500 /* NavigationStackHost.swift */,
 			);
 			path = Navigations;
+			sourceTree = "<group>";
+		};
+		EB8F07DB2B2FF3E1006AC575 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				EB8F07DC2B2FF3EB006AC575 /* ErredDataSource.swift */,
+				EB8F07DE2B2FF41D006AC575 /* StarSwingsState+Error.swift */,
+				EB8F07E22B300B84006AC575 /* TestAssembly.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		EB9620DB2B1D5F6000FD7115 /* Utils */ = {
@@ -632,7 +659,11 @@
 		EBEA6F342B1858FB00734AAA /* CoreTests */ = {
 			isa = PBXGroup;
 			children = (
+				EB8F07DB2B2FF3E1006AC575 /* Utils */,
+				EB433A392B2DEB050079AAD8 /* AppTests.swift */,
+				EB8F07E42B300BE4006AC575 /* GameTests.swift */,
 				EBEA6F352B1858FB00734AAA /* MemoryStorageTests.swift */,
+				EB8F07E62B300F18006AC575 /* MonsterTests.swift */,
 			);
 			name = CoreTests;
 			path = ../test/Core;
@@ -697,6 +728,7 @@
 				EBB4B1C32B15BD82004D63EA /* ViewModels */,
 				EBB4B1CE2B15E003004D63EA /* Views */,
 				EBF928302B1038CB007D59D4 /* app.entitlements */,
+				EB2956392B30139A002C5CA8 /* AppAssembly.swift */,
 				EBF9282E2B1038CB007D59D4 /* Assets.xcassets */,
 				EBB4B1EC2B1737EF004D63EA /* Colors.xcassets */,
 				EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */,
@@ -792,6 +824,9 @@
 				EBEA6F332B1858FB00734AAA /* PBXTargetDependency */,
 			);
 			name = MonsterAnalyzerCoreTests;
+			packageProductDependencies = (
+				EB433A3B2B2DEF750079AAD8 /* Swinject-Dynamic */,
+			);
 			productName = MonsterAnalyserCoreTests;
 			productReference = EBEA6F2E2B1858FB00734AAA /* MonsterAnalyzerCoreTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -929,6 +964,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB29563B2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBB4B2162B175DE7004D63EA /* AttackViewModel.swift in Sources */,
 				EBC85C7B2B2063FF008A16C6 /* BottomCircularButtonStyle.swift in Sources */,
 				EBB4B2172B175DED004D63EA /* Color+Extensions.swift in Sources */,
@@ -1024,7 +1060,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB433A3A2B2DEB050079AAD8 /* AppTests.swift in Sources */,
+				EB8F07E12B2FF423006AC575 /* ErredDataSource.swift in Sources */,
+				EB8F07E52B300BE4006AC575 /* GameTests.swift in Sources */,
 				EBEA6F362B1858FB00734AAA /* MemoryStorageTests.swift in Sources */,
+				EB8F07E72B300F18006AC575 /* MonsterTests.swift in Sources */,
+				EB8F07E02B2FF421006AC575 /* StarSwingsState+Error.swift in Sources */,
+				EB8F07E32B300B84006AC575 /* TestAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1032,6 +1074,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBB4B1E52B16A6D4004D63EA /* AttackViewModel.swift in Sources */,
 				EBB4B1D72B161E94004D63EA /* Color+Extensions.swift in Sources */,
 				EBB4B2042B175D4A004D63EA /* ContentView.swift in Sources */,
@@ -1537,6 +1580,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		EB433A3B2B2DEF750079AAD8 /* Swinject-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBB4B2252B17787E004D63EA /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = "Swinject-Dynamic";
+		};
 		EBEA6F5D2B185A8200734AAA /* Swinject-Dynamic */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = EBB4B2252B17787E004D63EA /* XCRemoteSwiftPackageReference "Swinject" */;
