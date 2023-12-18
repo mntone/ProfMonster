@@ -36,6 +36,7 @@
 		EB8778292B26BDEF00B3359C /* EnvironmentValues+SettingsActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778272B26BDEF00B3359C /* EnvironmentValues+SettingsActions.swift */; };
 		EB87782E2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */; };
 		EB87782F2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */; };
+		EB8F07DA2B2FB229006AC575 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB8F07D92B2FB229006AC575 /* Localizable.xcstrings */; };
 		EB9620DD2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620DC2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift */; };
 		EB9620DF2B1D616A00FD7115 /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620DE2B1D616A00FD7115 /* Lock.swift */; };
 		EB9620E22B1D6E1000FD7115 /* MARoute.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620E12B1D6E1000FD7115 /* MARoute.swift */; };
@@ -243,6 +244,7 @@
 		EB8778242B26B38200B3359C /* MonsterListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListItem.swift; sourceTree = "<group>"; };
 		EB8778272B26BDEF00B3359C /* EnvironmentValues+SettingsActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+SettingsActions.swift"; sourceTree = "<group>"; };
 		EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnChangeBackport.swift"; sourceTree = "<group>"; };
+		EB8F07D92B2FB229006AC575 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB9620DC2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSAllocatedUnfairLockBackport.swift; sourceTree = "<group>"; };
 		EB9620DE2B1D616A00FD7115 /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		EB9620E12B1D6E1000FD7115 /* MARoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARoute.swift; sourceTree = "<group>"; };
@@ -497,6 +499,7 @@
 				EB967A292B29A0AF0041A491 /* TextProcessor */,
 				EBB4B2222B17770E004D63EA /* LanguageService.swift */,
 				EB9620EC2B1D867E00FD7115 /* LanguageUtil.swift */,
+				EB8F07D92B2FB229006AC575 /* Localizable.xcstrings */,
 				EBB4B21E2B177691004D63EA /* MALanguageService.swift */,
 			);
 			path = Languages;
@@ -896,6 +899,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB8F07DA2B2FB229006AC575 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

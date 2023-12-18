@@ -45,7 +45,7 @@ public struct PhysiologyValue<Number> {
 
 public struct Physiology {
 	public let stateInfo: PhysiologyStateInfo
-	public let states: [String]
+	public let label: String
 	public let value: PhysiologyValue<Int8>
 	public let stun: Int8
 
@@ -68,11 +68,12 @@ public struct Physiology {
 
 public struct PhysiologyGroup {
 	public let parts: [String]
+	public let label: String
 	public let items: [Physiology]
 }
 
 public struct PhysiologySection {
-	public let state: String
+	public let label: String
 	public let groups: [PhysiologyGroup]
 	public let average: PhysiologyValue<Float>
 }

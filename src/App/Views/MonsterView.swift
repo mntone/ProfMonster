@@ -19,7 +19,7 @@ struct MonsterView: View {
 						ForEach(data.weakness.sections) { section in
 							VStack(alignment: .leading) {
 								if requireHeader {
-									Text(verbatim: section.state)
+									Text(verbatim: section.header)
 								}
 								FixedWidthWeaknessView(viewModel: section)
 							}
@@ -33,7 +33,7 @@ struct MonsterView: View {
 						ForEach(data.physiologies.sections) { section in
 							VStack(alignment: .leading) {
 								if requireHeader {
-									Text(verbatim: section.state)
+									Text(verbatim: section.header)
 								}
 								PhysiologyScrollableView(viewModel: section)
 							}

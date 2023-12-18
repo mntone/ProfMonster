@@ -43,7 +43,7 @@ public final class Game: FetchableEntity, Entity {
 					guard let self else { fatalError() }
 
 					let langsvc = _container.resolve(LanguageService.self, argument: json.localization)!
-					return self._dataSource.getLocalization(of: langsvc.locale, for: self.id).map { localization in
+					return self._dataSource.getLocalization(of: langsvc.localeKey, for: self.id).map { localization in
 						langsvc.register(dictionary: localization.states, for: .state)
 						self.languageService = langsvc
 

@@ -3,30 +3,21 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct PhysiologyViewModel: Identifiable {
-	let id: String
-	let parts: [String]
+	let id: UInt32
+	let header: String
 
 	private let rawValue: Physiology
 
-	init(_ parts: [String], rawValue: Physiology) {
-		self.id = "\(parts.joined(separator: "+"))&\(rawValue.states.joined(separator: "+"))"
-		self.parts = parts
+	fileprivate init(id: Int,
+					 partsLabel: String,
+					 rawValue: Physiology) {
+		self.id = UInt32(exactly: id)!
+		self.header = rawValue.isDefault ? partsLabel : rawValue.label
 		self.rawValue = rawValue
 	}
 
 	var value: PhysiologyValue<Int8> {
 		rawValue.value
-	}
-
-	var header: String {
-		switch rawValue.stateInfo {
-		case .default:
-			return parts.map { part in
-				String(localized: String.LocalizationValue("part." + part))
-			}.joined(separator: String(localized: "part.separator"))
-		default:
-			return rawValue.states.joined(separator: String(localized: "part.separator"))
-		}
 	}
 
 	var foregroundColor: Color {
@@ -42,28 +33,30 @@ struct PhysiologyViewModel: Identifiable {
 }
 
 struct PhysiologyGroupViewModel: Identifiable {
-	let id: String
+	let id: UInt16
+	let label: String
 	let items: [PhysiologyViewModel]
 
-	init(rawValue: PhysiologyGroup) {
-		self.id = rawValue.parts.joined(separator: "+")
-		self.items = rawValue.items.map { item in
-			PhysiologyViewModel(rawValue.parts, rawValue: item)
+	fileprivate init(id: Int, rawValue: PhysiologyGroup) {
+		self.id = UInt16(exactly: id)!
+		self.label = rawValue.label
+		self.items = rawValue.items.enumerated().map { i, item in
+			PhysiologyViewModel(id: id << 16 | i, partsLabel: rawValue.label, rawValue: item)
 		}
 	}
 }
 
 struct PhysiologySectionViewModel: Identifiable {
-	let state: String
+	let header: String
 	let groups: [PhysiologyGroupViewModel]
 
 	init(rawValue: PhysiologySection) {
-		self.state = rawValue.state
-		self.groups = rawValue.groups.map(PhysiologyGroupViewModel.init(rawValue:))
+		self.header = rawValue.label
+		self.groups = rawValue.groups.enumerated().map(PhysiologyGroupViewModel.init(id:rawValue:))
 	}
 
 	var id: String {
-		state
+		header
 	}
 }
 

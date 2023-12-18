@@ -68,11 +68,13 @@ final class GameViewModel: ObservableObject, Identifiable {
 		let getViewModel = game.$monsters.map { monsters in
 			monsters.map(GameItemViewModel.init)
 		}
-		let updateSearchText = Just("").merge(with: $searchText.debounce(for: 0.333, scheduler: DispatchQueue.main))
+		let updateSearchText = Just("").merge(with: $searchText.debounce(for: 0.333, scheduler: DispatchQueue.global(qos: .userInitiated)))
 #if os(watchOS)
 		getViewModel.combineLatest(updateSearchText) { (monsters: [GameItemViewModel], searchText: String) -> [GameItemViewModel] in
 			Self.filter(searchText, from: monsters, languageService: game.languageService)
-		}.assign(to: &$items)
+		}
+		.receive(on: DispatchQueue.main)
+		.assign(to: &$items)
 #else
 		getViewModel.combineLatest($sort, updateSearchText) { (monsters: [GameItemViewModel], sort: Sort, searchText: String) -> [GameItemViewModel] in
 			let filteredMonster = Self.filter(searchText, from: monsters, languageService: game.languageService)
@@ -82,7 +84,9 @@ final class GameViewModel: ObservableObject, Identifiable {
 			case .name:
 				return filteredMonster.sorted()
 			}
-		}.assign(to: &$items)
+		}
+		.receive(on: DispatchQueue.main)
+		.assign(to: &$items)
 #endif
 	}
 

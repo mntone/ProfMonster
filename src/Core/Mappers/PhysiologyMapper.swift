@@ -3,12 +3,6 @@ import Foundation
 enum PhysiologyMapper {
 	private static let removingState: Set<String> = ["default", "broken"]
 
-	private static func localizedStates(_ keys: [String], languageService: LanguageService) -> [String] {
-		keys.map { key in
-			languageService.getLocalizedString(of: key, for: .state)
-		}
-	}
-
 	private static func getStateInfo(_ states: [String]) -> PhysiologyStateInfo {
 		if states.contains("broken") {
 			return .broken
@@ -23,8 +17,9 @@ enum PhysiologyMapper {
 							states: [String]? = nil,
 							languageService: LanguageService) -> Physiology {
 		let baseStates = states ?? src.states
+		let statesLabel = languageService.getLocalizedJoinedString(of: baseStates, for: .state)
 		return Physiology(stateInfo: getStateInfo(baseStates),
-						  states: localizedStates(baseStates, languageService: languageService),
+						  label: statesLabel,
 						  value: PhysiologyValue(slash: src.slash,
 												 strike: src.strike,
 												 shell: src.shell,
@@ -37,7 +32,6 @@ enum PhysiologyMapper {
 	}
 
 	private static func getAverage(_ data: [PhysiologyGroup], of attack: Attack) -> Float {
-
 		let sum = data.map { group in
 			group.parts.count * group.items.map { physiology in
 				Int(physiology.value.value(of: attack))
@@ -85,10 +79,11 @@ enum PhysiologyMapper {
 				}
 				return map(physiologyValue, languageService: languageService)
 			}
-			return PhysiologyGroup(parts: physiology.parts,
-								   items: items)
+
+			let partsLabel = languageService.getLocalizedJoinedString(of: physiology.parts, for: .part)
+			return PhysiologyGroup(parts: physiology.parts, label: partsLabel, items: items)
 		}
-		let defaultSection = PhysiologySection(state: languageService.getLocalizedString(of: "default", for: .state),
+		let defaultSection = PhysiologySection(label: languageService.getLocalizedString(of: "default", for: .state),
 											   groups: defaultSectionData,
 											   average: getAverages(defaultSectionData))
 
@@ -106,10 +101,11 @@ enum PhysiologyMapper {
 					}
 					return map(physiologyValue, states: filteredState, languageService: languageService)
 				}
-				return PhysiologyGroup(parts: physiology.parts,
-									   items: items)
+
+				let partsLabel = languageService.getLocalizedJoinedString(of: physiology.parts, for: .part)
+				return PhysiologyGroup(parts: physiology.parts, label: partsLabel, items: items)
 			}
-			return PhysiologySection(state: languageService.getLocalizedString(of: targetState, for: .state),
+			return PhysiologySection(label: languageService.getLocalizedString(of: targetState, for: .state),
 									 groups: sectionData,
 									 average: getAverages(sectionData))
 		}

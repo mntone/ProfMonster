@@ -48,18 +48,18 @@ struct WeaknessItemViewModel: Identifiable, AttackItemViewModel {
 }
 
 struct WeaknessSectionViewModel: Identifiable {
-	let state: String
+	let header: String
 	let items: [WeaknessItemViewModel]
 
-	init(state: String,
+	init(header: String,
 		 items: [WeaknessItemViewModel]) {
-		self.state = state
+		self.header = header
 		self.items = items
 	}
 
 	init(rawValue: PhysiologySection,
 		 of attacks: [Attack] = Attack.allElements) {
-		self.state = rawValue.state
+		self.header = rawValue.label
 
 		let val = rawValue.average.values(of: attacks)
 		let top = val.max() ?? 0
@@ -69,7 +69,7 @@ struct WeaknessSectionViewModel: Identifiable {
 	}
 
 	var id: String {
-		state
+		header
 	}
 }
 

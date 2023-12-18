@@ -41,9 +41,9 @@ enum PhysiologyViewMetrics {
 }
 
 struct PhysiologyHeaderHeightPreferenceKey: PreferenceKey {
-	static var defaultValue: [String: CGFloat] = [:]
+	static var defaultValue: [PhysiologyViewModel.ID: CGFloat] = [:]
 
-	static func reduce(value: inout [String: CGFloat], nextValue: () -> [String: CGFloat]) {
+	static func reduce(value: inout [PhysiologyViewModel.ID: CGFloat], nextValue: () -> [PhysiologyViewModel.ID: CGFloat]) {
 		value.merge(nextValue()) { cur, next in next }
 	}
 }
@@ -109,7 +109,7 @@ struct PhysiologyScrollableView: View {
 #endif
 
 	@State
-	private var headerHeights: [String: CGFloat] = [:]
+	private var headerHeights: [UInt32: CGFloat] = [:]
 
 	@State
 	private var offsetX: CGFloat = 0
