@@ -12,7 +12,7 @@ struct AppAssembly: Assembly {
 		if AppUtil.isPreview {
 			// Prefetch for Previews
 			app.fetchIfNeeded()
-			app.games.forEach { game in
+			app.state.data?.forEach { game in
 				game.fetchIfNeeded()
 			}
 		}

@@ -2,8 +2,7 @@ import SwiftUI
 
 @available(iOS 16.0, macOS 13.0, *)
 struct NavigationSplitViewHost: View {
-	@ObservedObject
-	private(set) var viewModel: HomeViewModel
+	let viewModel: HomeViewModel
 
 	@Binding
 	var selectedGameID: String?
@@ -30,11 +29,11 @@ struct NavigationSplitViewHost: View {
 #endif
 		} content: {
 #if os(macOS)
-			ZStack {
-				Color(.monsterListBackground)
-
+			Group {
 				if let gameViewModel {
 					MonsterList(viewModel: gameViewModel, selectedMonsterID: $selectedMonsterID)
+				} else {
+					Color.monsterListBackground.ignoresSafeArea()
 				}
 			}
 			.navigationSplitViewColumnWidth(min: 160, ideal: 200, max: 240)
@@ -44,12 +43,18 @@ struct NavigationSplitViewHost: View {
 			}
 #endif
 		} detail: {
+#if os(iOS)
+			if let monsterViewModel {
+				MonsterView(viewModel: monsterViewModel)
+			} else {
+				Color.monsterBackground.ignoresSafeArea()
+			}
+#else
 			Group {
 				if let monsterViewModel {
 					MonsterView(viewModel: monsterViewModel)
 				}
 			}
-#if os(macOS)
 			.navigationSplitViewColumnWidth(min: 180, ideal: 375)
 #endif
 		}
@@ -76,27 +81,37 @@ struct NavigationSplitViewHost: View {
 				}
 			} else {
 				// Select the first item when new scene.
-				selectedGameID = viewModel.items.first?.id
+				selectedGameID = viewModel.state.data?.first?.id
 			}
 		}
-		.onChange(of: viewModel.items) { newValue in
+		.onReceive(viewModel.$state) { newValue in
 			selectedMonsterID = nil
-			selectedGameID = viewModel.items.first?.id
-		}
-		.onChange(of: selectedGameID) { newValue in
-			if let newValue {
-				gameViewModel = GameViewModel(id: newValue)!
+			if let items = newValue.data {
+				let selectedGameID = items.first?.id
+				self.selectedGameID = selectedGameID
+				updateGameViewModel(of: selectedGameID)
 			} else {
-				gameViewModel = nil
+				selectedGameID = nil
 			}
 		}
-		.onChange(of: selectedMonsterID) { newValue in
-			if let selectedGameID,
-			   let newValue {
-				monsterViewModel = MonsterViewModel(id: newValue, for: selectedGameID)
-			} else {
-				monsterViewModel = nil
-			}
+		.onChange(of: selectedGameID, perform: updateGameViewModel)
+		.onChange(of: selectedMonsterID, perform: updateMonsterViewModel)
+	}
+
+	private func updateGameViewModel(of id: String?) {
+		if let id {
+			gameViewModel = GameViewModel(id: id)
+		} else {
+			gameViewModel = nil
+		}
+	}
+
+	private func updateMonsterViewModel(of id: String?) {
+		if let selectedGameID,
+		   let id {
+			monsterViewModel = MonsterViewModel(id: id, for: selectedGameID)
+		} else {
+			monsterViewModel = nil
 		}
 	}
 }
@@ -104,8 +119,7 @@ struct NavigationSplitViewHost: View {
 @available(iOS, introduced: 15.0, deprecated: 16.0, message: "Use NavigationSplitViewHost instead")
 @available(macOS, introduced: 12.0, deprecated: 13.0, message: "Use NavigationSplitViewHost instead")
 struct NavigationSplitViewHostBackport: View {
-	@ObservedObject
-	private(set) var viewModel: HomeViewModel
+	let viewModel: HomeViewModel
 
 	@Binding
 	var selectedGameID: String?
@@ -121,16 +135,13 @@ struct NavigationSplitViewHostBackport: View {
 
 	var body: some View {
 		NavigationView {
-
 #if os(macOS)
 			Sidebar(viewModel: viewModel, selectedGameID: $selectedGameID)
 
-			ZStack {
-				Color(.monsterListBackground)
-
-				if let gameViewModel {
-					MonsterList(viewModel: gameViewModel, selectedMonsterID: $selectedMonsterID)
-				}
+			if let monsterViewModel {
+				MonsterView(viewModel: monsterViewModel)
+			} else {
+				Color.monsterBackground.ignoresSafeArea()
 			}
 #else
 			SidebarBackport(viewModel: viewModel, selectedGameID: $selectedGameID)
@@ -145,7 +156,7 @@ struct NavigationSplitViewHostBackport: View {
 			if let monsterViewModel {
 				MonsterView(viewModel: monsterViewModel)
 			} else {
-				Color(.monsterBackground)
+				Color.monsterBackground.ignoresSafeArea()
 			}
 		}
 		.navigationViewStyle(.columns)
@@ -158,27 +169,37 @@ struct NavigationSplitViewHostBackport: View {
 				}
 			} else {
 				// Select the first item when new scene.
-				selectedGameID = viewModel.items.first?.id
+				selectedGameID = viewModel.state.data?.first?.id
 			}
 		}
-		.onChange(of: viewModel.items) { newValue in
+		.onReceive(viewModel.$state) { newValue in
 			selectedMonsterID = nil
-			selectedGameID = viewModel.items.first?.id
-		}
-		.onChange(of: selectedGameID) { newValue in
-			if let newValue {
-				gameViewModel = GameViewModel(id: newValue)!
+			if let items = newValue.data {
+				let selectedGameID = items.first?.id
+				self.selectedGameID = selectedGameID
+				updateGameViewModel(of: selectedGameID)
 			} else {
-				gameViewModel = nil
+				selectedGameID = nil
 			}
 		}
-		.onChange(of: selectedMonsterID) { newValue in
-			if let selectedGameID,
-			   let newValue {
-				monsterViewModel = MonsterViewModel(id: newValue, for: selectedGameID)
-			} else {
-				monsterViewModel = nil
-			}
+		.onChange(of: selectedGameID, perform: updateGameViewModel)
+		.onChange(of: selectedMonsterID, perform: updateMonsterViewModel)
+	}
+
+	private func updateGameViewModel(of id: String?) {
+		if let id {
+			gameViewModel = GameViewModel(id: id)
+		} else {
+			gameViewModel = nil
+		}
+	}
+
+	private func updateMonsterViewModel(of id: String?) {
+		if let selectedGameID,
+		   let id {
+			monsterViewModel = MonsterViewModel(id: id, for: selectedGameID)
+		} else {
+			monsterViewModel = nil
 		}
 	}
 }

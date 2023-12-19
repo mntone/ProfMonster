@@ -3,51 +3,24 @@ import SwiftUI
 
 #if !os(macOS)
 
-#if !os(watchOS)
-
-private func sortToolbarItem(selection: Binding<Sort>) -> some ToolbarContent {
-	ToolbarItem(placement: .primaryAction) {
-		Menu("Sort", systemImage: "arrow.up.arrow.down.circle") {
-			Picker(selection: selection) {
-				Text("In Game").tag(Sort.inGame)
-				Text("Name").tag(Sort.name)
-			} label: {
-				EmptyView()
-			}
-		}
-	}
-}
-
-#endif
-
 @available(iOS 16.0, watchOS 9.0, *)
 struct GameView: View {
 	@ObservedObject
 	private(set) var viewModel: GameViewModel
 
 	var body: some View {
-		StateView(state: viewModel.state) {
-			List(viewModel.items) { item in
-				NavigationLink(value: MARoute.monster(gameId: item.gameID, monsterId: item.id)) {
-					MonsterListItem(viewModel: item)
-				}
+		List(viewModel.state.data ?? []) { item in
+			NavigationLink(value: MARoute.monster(gameId: item.gameID, monsterId: item.id)) {
+				MonsterListItem(viewModel: item)
 			}
-#if os(watchOS)
-			.searchable(text: $viewModel.searchText, prompt: Text("Search"))
-#else
-			.searchable(text: $viewModel.searchText, prompt: Text("Monster and Weakness"))
-			.listStyle(.plain)
-#endif
 		}
-#if !os(watchOS)
-		.toolbar {
-			sortToolbarItem(selection: $viewModel.sort)
-		}
-#endif
 #if os(iOS)
-		.navigationBarTitleDisplayMode(.inline)
+		.listStyle(.plain)
 #endif
-		.navigationTitle(viewModel.name)
+		.navigationTitle(Text(verbatim: viewModel.name))
+		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
+											searchText: $viewModel.searchText,
+											isLoading: viewModel.state.isLoading))
 		.task {
 			viewModel.fetchData()
 		}
@@ -64,8 +37,8 @@ struct GameViewBackport: View {
 	var selectedMonsterID: String?
 
 	var body: some View {
-		StateView(state: viewModel.state) {
-			List(viewModel.items) { item in
+		ScrollViewReader { reader in
+			List(viewModel.state.data ?? []) { item in
 				NavigationLink(tag: item.id, selection: $selectedMonsterID) {
 					LazyView {
 						let monsterViewModel = MonsterViewModel(id: item.id, for: viewModel.id)!
@@ -75,22 +48,19 @@ struct GameViewBackport: View {
 					MonsterListItem(viewModel: item)
 				}
 			}
-#if os(watchOS)
-			.searchable(text: $viewModel.searchText, prompt: Text("Search"))
-#else
-			.searchable(text: $viewModel.searchText, prompt: Text("Monster and Weakness"))
+#if os(iOS)
 			.listStyle(.plain)
 #endif
+			.onAppear {
+				if let selectedMonsterID {
+					reader.scrollTo(selectedMonsterID)
+				}
+			}
 		}
-#if !os(watchOS)
-		.toolbar {
-			sortToolbarItem(selection: $viewModel.sort)
-		}
-#endif
-#if os(iOS)
-		.navigationBarTitleDisplayMode(.inline)
-#endif
-		.navigationTitle(viewModel.name)
+		.navigationTitle(Text(verbatim: viewModel.name))
+		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
+											searchText: $viewModel.searchText,
+											isLoading: viewModel.state.isLoading))
 		.task {
 			viewModel.fetchData()
 		}

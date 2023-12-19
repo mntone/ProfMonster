@@ -2,16 +2,13 @@ import Combine
 import Foundation
 import Swinject
 
-public final class Game: FetchableEntity, Entity {
+public final class Game: FetchableEntity<[Monster]>, Entity {
 	private let _resolver: Resolver
 
 	public let id: String
 	public let name: String
 
 	public private(set) var languageService: LanguageService = PassthroughtLanguageService()
-
-	@Published
-	public private(set) var monsters: [Monster] = []
 
 	public private(set) var hasChanges: Bool = false
 
@@ -33,7 +30,7 @@ public final class Game: FetchableEntity, Entity {
 		super.init(dataSource: dataSource)
 	}
 
-	override func _fetch() async throws {
+	override func _fetch() async throws -> [Monster] {
 		let game = try await _dataSource.getGame(of: id)
 		let langsvc = _resolver.resolve(LanguageService.self, argument: game.localization)!
 		let localization = try await _dataSource.getLocalization(of: langsvc.localeKey, for: id)
@@ -47,15 +44,26 @@ public final class Game: FetchableEntity, Entity {
 					languageService: langsvc,
 					localization: localization.monsters.first(where: { m in m.id == monsterID })!)
 		}
-		self.monsters = monsters
+		return monsters
 	}
 
 	public func resetMemoryCache() {
 		_lock.withLock {
 			guard case .complete = state else { return }
 			defer { state = .ready }
-			monsters.removeAll()
+
+			if var monsters = state.data {
+				monsters.removeAll()
+			}
 		}
+	}
+}
+
+// MARK: - Equatable
+
+extension Game: Equatable {
+	public static func ==(lhs: Game, rhs: Game) -> Bool {
+		lhs.id == rhs.id
 	}
 }
 
@@ -63,7 +71,11 @@ public final class Game: FetchableEntity, Entity {
 
 public extension Game {
 	func findMonster(by id: String) -> Monster? {
-		monsters.first { monster in
+		guard let monsters = state.data else {
+			return nil
+		}
+
+		return monsters.first { monster in
 			monster.id == id
 		}
 	}

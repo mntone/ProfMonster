@@ -2,11 +2,8 @@ import Combine
 import Foundation
 import protocol Swinject.Resolver
 
-public final class App: FetchableEntity, Entity {
+public final class App: FetchableEntity<[Game]>, Entity {
 	let resolver: Resolver
-
-	@Published
-	public private(set) var games: [Game] = []
 
 	public init(resolver: Resolver) {
 		guard let dataSource = resolver.resolve(DataSource.self) else {
@@ -16,11 +13,11 @@ public final class App: FetchableEntity, Entity {
 		super.init(dataSource: dataSource)
 	}
 
-	override func _fetch() async throws {
+	override func _fetch() async throws -> [Game] {
 		let games = try await _dataSource.getConfig().titles.map { title in
 			Game(resolver: resolver, dataSource: _dataSource, json: title)
 		}
-		self.games = games
+		return games
 	}
 
 	public func resetMemoryCache() {
@@ -28,10 +25,12 @@ public final class App: FetchableEntity, Entity {
 			guard case .complete = state else { return }
 			defer { state = .ready }
 
-			games.forEach { game in
-				game.resetMemoryCache()
+			if var games = state.data {
+				games.forEach { game in
+					game.resetMemoryCache()
+				}
+				games.removeAll()
 			}
-			games.removeAll()
 		}
 	}
 }
@@ -40,8 +39,16 @@ public final class App: FetchableEntity, Entity {
 
 public extension App {
 	func findGame(by id: String) -> Game? {
-		games.first { game in
+		guard let games = state.data else {
+			return nil
+		}
+
+		return games.first { game in
 			game.id == id
 		}
+	}
+
+	func findMonster(by id: String, of gameID: String) -> Monster? {
+		findGame(by: gameID)?.findMonster(by: id)
 	}
 }

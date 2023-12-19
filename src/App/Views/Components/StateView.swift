@@ -1,14 +1,14 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
-struct StateView<Content: View>: View {
-	private let state: StarSwingsState
-	private let content: () -> Content
+struct StateView<Content: View, Data>: View {
+	private let state: StarSwingsState<Data>
+	private let content: (Data) -> Content
 	private let background: Color?
 
-	init(state: StarSwingsState,
+	init(state: StarSwingsState<Data>,
 		 background: Color? = nil,
-		 @ViewBuilder content: @escaping () -> Content) {
+		 @ViewBuilder content: @escaping (Data) -> Content) {
 		self.state = state
 		self.background = background
 		self.content = content
@@ -25,8 +25,8 @@ struct StateView<Content: View>: View {
 				EmptyView()
 			case .loading:
 				ProgressView()
-			case .complete:
-				content()
+			case let .complete(data):
+				content(data)
 			case .failure:
 				Text(verbatim: "Error")
 			}

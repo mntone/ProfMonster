@@ -20,7 +20,7 @@ final class HomeViewModel: ObservableObject {
 	private let app: App
 
 	@Published
-	private(set) var items: [HomeItemViewModel] = []
+	private(set) var state: StarSwingsState<[HomeItemViewModel]> = .ready
 
 	init() {
 		guard let app = MAApp.resolver.resolve(App.self) else {
@@ -28,23 +28,28 @@ final class HomeViewModel: ObservableObject {
 		}
 		self.app = app
 
-		app.$games
-			.map { games in
+		app.$state
+			.mapData { games in
 				games.map(HomeItemViewModel.init)
 			}
 			.receive(on: DispatchQueue.main)
-			.assign(to: &$items)
+			.assign(to: &$state)
 	}
 
 	func resetData() {
 		app.resetMemoryCache()
-
-		Task(priority: .utility) {
-			app.fetchIfNeeded()
-		}
+		app.fetchIfNeeded()
 	}
 
 	func fetchData() {
 		app.fetchIfNeeded()
+	}
+}
+
+// MARK: - Equatable
+
+extension HomeViewModel: Equatable {
+	static func == (lhs: HomeViewModel, rhs: HomeViewModel) -> Bool {
+		false
 	}
 }

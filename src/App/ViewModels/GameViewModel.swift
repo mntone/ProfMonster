@@ -37,6 +37,12 @@ struct GameItemViewModel: Identifiable, Hashable {
 #endif
 }
 
+extension GameItemViewModel: Equatable {
+	static func == (lhs: GameItemViewModel, rhs: GameItemViewModel) -> Bool {
+		lhs.id == rhs.id && lhs.gameID == rhs.gameID
+	}
+}
+
 extension GameItemViewModel: Comparable {
 	static func <(lhs: GameItemViewModel, rhs: GameItemViewModel) -> Bool {
 		lhs.name < rhs.name
@@ -47,15 +53,10 @@ final class GameViewModel: ObservableObject, Identifiable {
 	private let game: Game
 
 	@Published
-	private(set) var state: StarSwingsState = .ready
+	private(set) var state: StarSwingsState<[GameItemViewModel]> = .ready
 
-	@Published
-	private(set) var items: [GameItemViewModel] = []
-
-#if !os(watchOS)
 	@Published
 	var sort: Sort = .inGame
-#endif
 
 	@Published
 	var searchText: String = ""
@@ -63,30 +64,43 @@ final class GameViewModel: ObservableObject, Identifiable {
 	init(_ game: Game) {
 		self.game = game
 
-		game.$state.receive(on: DispatchQueue.main).assign(to: &$state)
-
-		let getViewModel = game.$monsters.map { monsters in
-			monsters.map(GameItemViewModel.init)
-		}
+		let getState = game.$state
+			.mapData { monsters in
+				monsters.map(GameItemViewModel.init)
+			}
 		let updateSearchText = Just("").merge(with: $searchText.debounce(for: 0.333, scheduler: DispatchQueue.global(qos: .userInitiated)))
 #if os(watchOS)
-		getViewModel.combineLatest(updateSearchText) { (monsters: [GameItemViewModel], searchText: String) -> [GameItemViewModel] in
-			Self.filter(searchText, from: monsters, languageService: game.languageService)
-		}
-		.receive(on: DispatchQueue.main)
-		.assign(to: &$items)
-#else
-		getViewModel.combineLatest($sort, updateSearchText) { (monsters: [GameItemViewModel], sort: Sort, searchText: String) -> [GameItemViewModel] in
-			let filteredMonster = Self.filter(searchText, from: monsters, languageService: game.languageService)
-			switch sort {
-			case .inGame:
-				return filteredMonster
-			case .name:
-				return filteredMonster.sorted()
+		getState.combineLatest(updateSearchText) { (state: StarSwingsState<[GameItemViewModel]>, searchText: String) -> StarSwingsState<[GameItemViewModel]> in
+			state.mapData { monsters in
+				Self.filter(searchText, from: monsters, languageService: game.languageService)
 			}
 		}
 		.receive(on: DispatchQueue.main)
-		.assign(to: &$items)
+		.assign(to: &$state)
+#else
+		getState.combineLatest($sort, updateSearchText) { (state: StarSwingsState<[GameItemViewModel]>, sort: Sort, searchText: String) -> StarSwingsState<[GameItemViewModel]> in
+			state.mapData { monsters in
+				let filteredMonster = Self.filter(searchText, from: monsters, languageService: game.languageService)
+				switch sort {
+				case .inGame:
+					return filteredMonster
+				case .name:
+					return filteredMonster.sorted()
+				}
+			}
+		}
+		.removeDuplicates { prev, cur in
+			switch (prev, cur) {
+			case (.ready, .ready), (.loading, .loading):
+				return true
+			case let (.complete(prevData), .complete(curData)):
+				return prevData == curData
+			default:
+				return false
+			}
+		}
+		.receive(on: DispatchQueue.main)
+		.assign(to: &$state)
 #endif
 	}
 

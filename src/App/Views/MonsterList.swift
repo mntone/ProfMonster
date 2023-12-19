@@ -1,20 +1,6 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
-private func sortToolbarItem(selection: Binding<Sort>) -> some ToolbarContent {
-	ToolbarItem(placement: .primaryAction) {
-		Menu("Sort", systemImage: "arrow.up.arrow.down.circle") {
-			Picker(selection: selection) {
-				Text("In Game").tag(Sort.inGame)
-				Text("Name").tag(Sort.name)
-			} label: {
-				EmptyView()
-			}
-			.pickerStyle(.inline)
-		}
-	}
-}
-
 struct MonsterList: View {
 	@ObservedObject
 	private(set) var viewModel: GameViewModel
@@ -23,25 +9,16 @@ struct MonsterList: View {
 	private(set) var selectedMonsterID: String?
 
 	var body: some View {
-		StateView(state: viewModel.state) {
-			List(viewModel.items, id: \.id, selection: $selectedMonsterID) { item in
-				MonsterListItem(viewModel: item)
-			}
-			.searchable(text: $viewModel.searchText, prompt: Text("Monster and Weakness"))
-#if os(macOS)
-			.animation(.default, value: viewModel.items)
-			.listRowBackground(Color.clear)
-#endif
-		}
-		.toolbar {
-			sortToolbarItem(selection: $viewModel.sort)
+		List(viewModel.state.data ?? [], id: \.id, selection: $selectedMonsterID) { item in
+			MonsterListItem(viewModel: item)
 		}
 #if os(macOS)
-		.alternatingRowBackgroundsBackport(enable: true)
-#else
-		.navigationBarTitleDisplayMode(.inline)
-		.navigationTitle(viewModel.name)
+		.animation(.default, value: viewModel.state.data)
 #endif
+		.navigationTitle(Text(verbatim: viewModel.name))
+		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
+											searchText: $viewModel.searchText,
+											isLoading: viewModel.state.isLoading))
 		.onChangeBackport(of: viewModel, initial: true) { _, newValue in
 			newValue.fetchData()
 		}
@@ -62,19 +39,15 @@ struct MonsterListBackport: View {
 	private(set) var selectedMonsterID: String?
 
 	var body: some View {
-		StateView(state: viewModel.state) {
-			List(viewModel.items, id: \.id) { item in
-				SelectableListRowBackport(tag: item.id, selection: $selectedMonsterID) {
-					MonsterListItem(viewModel: item)
-				}
+		List(viewModel.state.data ?? [], id: \.id) { item in
+			SelectableListRowBackport(tag: item.id, selection: $selectedMonsterID) {
+				MonsterListItem(viewModel: item)
 			}
-			.searchable(text: $viewModel.searchText, prompt: Text("Monster and Weakness"))
 		}
-		.toolbar {
-			sortToolbarItem(selection: $viewModel.sort)
-		}
-		.navigationBarTitleDisplayMode(.inline)
-		.navigationTitle(viewModel.name)
+		.navigationTitle(Text(verbatim: viewModel.name))
+		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
+											searchText: $viewModel.searchText,
+											isLoading: viewModel.state.isLoading))
 		.onChangeBackport(of: viewModel, initial: true) { _, newValue in
 			newValue.fetchData()
 		}

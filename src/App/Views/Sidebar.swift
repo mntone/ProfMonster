@@ -2,10 +2,8 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct Sidebar: View {
-#if !os(macOS)
 	@Environment(\.settingsAction)
 	private var settingsAction
-#endif
 
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
@@ -14,20 +12,12 @@ struct Sidebar: View {
 	private(set) var selectedGameID: String?
 
 	var body: some View {
-		List(viewModel.items, id: \.id, selection: $selectedGameID) { item in
+		List(viewModel.state.data ?? [], id: \.id, selection: $selectedGameID) { item in
 			Text(verbatim: item.name)
 		}
-#if !os(macOS)
-		.toolbar {
-			ToolbarItem(placement: .topBarTrailing) {
-				Button("Settings", systemImage: "gearshape.fill") {
-					settingsAction?.present()
-				}
-				.keyboardShortcut(",", modifiers: [.command])
-			}
-		}
-		.navigationTitle("Prof. Monster")
-#endif
+		.modifier(SharedGameListModifier(isLoading: viewModel.state.isLoading) {
+			settingsAction?.present()
+		})
 		.task {
 			viewModel.fetchData()
 		}
@@ -48,20 +38,14 @@ struct SidebarBackport: View {
 	private(set) var selectedGameID: String?
 
 	var body: some View {
-		List(viewModel.items, id: \.id) { item in
+		List(viewModel.state.data ?? []) { item in
 			SelectableListRowBackport(tag: item.id, selection: $selectedGameID) {
 				Text(verbatim: item.name)
 			}
 		}
-		.toolbar {
-			ToolbarItem(placement: .topBarTrailing) {
-				Button("Settings", systemImage: "gearshape.fill") {
-					settingsAction?.present()
-				}
-				.keyboardShortcut(",", modifiers: [.command])
-			}
-		}
-		.navigationTitle("Prof. Monster")
+		.modifier(SharedGameListModifier(isLoading: viewModel.state.isLoading) {
+			settingsAction?.present()
+		})
 		.task {
 			viewModel.fetchData()
 		}

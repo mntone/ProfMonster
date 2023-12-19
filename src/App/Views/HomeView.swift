@@ -12,17 +12,14 @@ struct HomeView: View {
 	private(set) var viewModel: HomeViewModel
 
 	var body: some View {
-		List(viewModel.items) { item in
+		List(viewModel.state.data ?? []) { item in
 			NavigationLink(value: item.routeValue) {
 				Text(verbatim: item.name)
 			}
 		}
-		.leadingToolbarItemBackport {
-			Button("Settings", systemImage: "gearshape.fill") {
-				settingsAction?.present()
-			}
-		}
-		.navigationTitle("Prof. Monster")
+		.modifier(SharedGameListModifier(isLoading: viewModel.state.isLoading) {
+			settingsAction?.present()
+		})
 		.task {
 			viewModel.fetchData()
 		}
@@ -45,7 +42,7 @@ struct HomeViewBackport: View {
 	var selectedMonsterID: String?
 
 	var body: some View {
-		List(viewModel.items) { item in
+		List(viewModel.state.data ?? []) { item in
 			NavigationLink(tag: item.id, selection: $selectedGameID) {
 				LazyView {
 					let viewModel = GameViewModel(id: item.id)!
@@ -56,12 +53,9 @@ struct HomeViewBackport: View {
 				Text(verbatim: item.name)
 			}
 		}
-		.leadingToolbarItemBackport {
-			Button("Settings", systemImage: "gearshape.fill") {
-				settingsAction?.present()
-			}
-		}
-		.navigationTitle("Prof. Monster")
+		.modifier(SharedGameListModifier(isLoading: viewModel.state.isLoading) {
+			settingsAction?.present()
+		})
 		.task {
 			viewModel.fetchData()
 		}

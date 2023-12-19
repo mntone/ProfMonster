@@ -6,26 +6,23 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 	private let monster: Monster
 
 	@Published
-	private(set) var state: StarSwingsState = .ready
-
-	@Published
-	var data: MonsterDataViewModel?
+	private(set) var state: StarSwingsState<MonsterDataViewModel> = .ready
 
 	init(_ monster: Monster) {
 		self.monster = monster
-		monster.$state.receive(on: DispatchQueue.main).assign(to: &$state)
-		monster.$physiologies
-			.map { $0.map(MonsterDataViewModel.init(rawValue:)) }
+		monster.$state
+			.mapData { physiologies in
+				MonsterDataViewModel(rawValue: physiologies)
+			}
 			.receive(on: DispatchQueue.main)
-			.assign(to: &$data)
+			.assign(to: &$state)
 	}
 
 	convenience init?(id monsterID: String, for gameID: String) {
 		guard let app = MAApp.resolver.resolve(App.self) else {
 			fatalError()
 		}
-		guard let game = app.findGame(by: gameID),
-			  let monster = game.findMonster(by: monsterID) else {
+		guard let monster = app.findMonster(by: monsterID, of: gameID) else {
 			// TODO: Logging. Game is not found
 			return nil
 		}

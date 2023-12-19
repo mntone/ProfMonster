@@ -1,7 +1,7 @@
 import Combine
 import Foundation
 
-public final class Monster: FetchableEntity, Entity {
+public final class Monster: FetchableEntity<Physiologies>, Entity {
 	private let _languageService: LanguageService
 
 	public let id: String
@@ -9,9 +9,6 @@ public final class Monster: FetchableEntity, Entity {
 	public let name: String
 	public let anotherName: String?
 	public let keywords: [String]
-
-	@Published
-	public var physiologies: Physiologies?
 
 	init(_ id: String,
 		 gameID: String,
@@ -28,9 +25,17 @@ public final class Monster: FetchableEntity, Entity {
 		super.init(dataSource: dataSource)
 	}
 
-	override func _fetch() async throws {
+	override func _fetch() async throws -> Physiologies {
 		let monster = try await _dataSource.getMonster(of: id, for: gameID)
 		let physiologies = PhysiologyMapper.map(json: monster, languageService: _languageService)
-		self.physiologies = physiologies
+		return physiologies
+	}
+}
+
+// MARK: - Equatable
+
+extension Monster: Equatable {
+	public static func ==(lhs: Monster, rhs: Monster) -> Bool {
+		lhs.id == rhs.id
 	}
 }

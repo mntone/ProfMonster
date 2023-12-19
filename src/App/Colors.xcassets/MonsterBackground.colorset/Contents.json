@@ -5,13 +5,6 @@
         "platform" : "ios",
         "reference" : "systemGroupedBackgroundColor"
       },
-      "idiom" : "iphone"
-    },
-    {
-      "color" : {
-        "platform" : "ios",
-        "reference" : "systemGroupedBackgroundColor"
-      },
       "idiom" : "ipad"
     },
     {

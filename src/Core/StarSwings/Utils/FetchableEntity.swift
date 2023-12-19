@@ -1,14 +1,12 @@
 import Combine
 import Foundation
 
-public class FetchableEntity {
+public class FetchableEntity<Data> {
 	let _dataSource: DataSource
 	let _lock: Lock = LockUtil.create()
 
-	var cancellable: AnyCancellable?
-
 	@Published
-	public var state: StarSwingsState = .ready
+	public internal(set) var state: StarSwingsState<Data> = .ready
 
 	init(dataSource: DataSource) {
 		self._dataSource = dataSource
@@ -24,12 +22,13 @@ public class FetchableEntity {
 		fetch(priority: .userInitiated)
 	}
 
-	public final func fetch(priority: TaskPriority) {
-		Task(priority: priority) { @MainActor in
+	@discardableResult
+	final func fetch(priority: TaskPriority) -> Task<Void, Never> {
+		return Task(priority: priority) { @MainActor in
 			do {
-				try await _fetch()
+				let data = try await _fetch()
 				_lock.withLock {
-					self.state = .complete
+					self.state = .complete(data: data)
 				}
 			} catch {
 				_handle(error: error)
@@ -37,7 +36,7 @@ public class FetchableEntity {
 		}
 	}
 
-	func _fetch() async throws {
+	func _fetch() async throws -> Data {
 		preconditionFailure("This function must be override.")
 	}
 
