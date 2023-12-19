@@ -30,6 +30,7 @@ enum PhysiologyViewMetrics {
 	static let defaultFontSize: CGFloat = 15
 	static let headerBaseWidth: CGFloat = 75
 	static let itemBaseWidth: CGFloat = 24
+	static let maxWidth: CGFloat = 480
 
 	static let margin: CGFloat = 4
 	static let scrollMargin: CGFloat = 12

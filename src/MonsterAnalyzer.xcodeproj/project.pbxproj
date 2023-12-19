@@ -100,7 +100,6 @@
 		EBB4B2152B175DE7004D63EA /* WeaknessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C42B15BDA7004D63EA /* WeaknessViewModel.swift */; };
 		EBB4B2162B175DE7004D63EA /* AttackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E42B16A6D4004D63EA /* AttackViewModel.swift */; };
 		EBB4B2172B175DED004D63EA /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */; };
-		EBB4B2192B175DED004D63EA /* PhysiologyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CF2B15E0C9004D63EA /* PhysiologyView.swift */; };
 		EBB4B21C2B176CE7004D63EA /* FixedWidthWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */; };
 		EBC85C612B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C622B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
@@ -1002,7 +1001,6 @@
 				EB645A612B26749E00D27500 /* NavigationStackHost.swift in Sources */,
 				EB19D6722B1EBEC900C90417 /* ObservableHorizontalScrollView.swift in Sources */,
 				EBEA6F722B1889A900734AAA /* PhysiologyScrollableView.swift in Sources */,
-				EBB4B2192B175DED004D63EA /* PhysiologyView.swift in Sources */,
 				EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */,
 				EB9620F72B1DA50800FD7115 /* RouteHelper.swift in Sources */,
 				EBCA222C2B221E5700C487AD /* SettingsView.swift in Sources */,
