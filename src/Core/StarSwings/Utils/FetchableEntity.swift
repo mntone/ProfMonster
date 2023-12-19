@@ -14,6 +14,20 @@ public class FetchableEntity {
 		self._dataSource = dataSource
 	}
 
+	public final func fetchIfNeeded() {
+		let needToFetch = _lock.withLock {
+			guard case .ready = state else { return false }
+			state = .loading
+			return true
+		}
+		guard needToFetch else { return }
+		_fetch()
+	}
+
+	func _fetch() {
+		preconditionFailure("This function must be override.")
+	}
+
 	func _handle(completion: Subscribers.Completion<Error>) {
 		switch completion {
 		case let .failure(error):

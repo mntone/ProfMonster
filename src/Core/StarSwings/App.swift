@@ -16,12 +16,7 @@ public final class App: FetchableEntity, Entity {
 		super.init(dataSource: dataSource)
 	}
 
-	public func fetchIfNeeded() {
-		_lock.withLock {
-			guard case .ready = state else { return }
-			state = .loading
-		}
-
+	override func _fetch() {
 		_dataSource.getConfig()
 			.map { [resolver, _dataSource] config in
 				config.titles.map { title in

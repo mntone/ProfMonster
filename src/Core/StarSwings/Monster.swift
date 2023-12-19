@@ -30,12 +30,7 @@ public final class Monster: FetchableEntity, Entity {
 		super.init(dataSource: dataSource)
 	}
 
-	public func fetchIfNeeded() {
-		_lock.withLock {
-			guard case .ready = state else { return }
-			state = .loading
-		}
-
+	override func _fetch() {
 		_dataSource.getMonster(of: id, for: gameID)
 			.map { [_languageService] json in
 				Optional(PhysiologyMapper.map(json: json, languageService: _languageService))

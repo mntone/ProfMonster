@@ -33,12 +33,7 @@ public final class Game: FetchableEntity, Entity {
 		super.init(dataSource: dataSource)
 	}
 
-	public func fetchIfNeeded() {
-		_lock.withLock {
-			guard case .ready = state else { return }
-			state = .loading
-		}
-
+	override func _fetch() {
 		_dataSource.getGame(of: id)
 			.flatMap { [weak self] json in
 				guard let self else { fatalError() }
