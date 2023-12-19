@@ -35,74 +35,83 @@ final class NetworkDataSource {
 		self.init(source: source, session: session)
 	}
 
-	private func getData(of url: URL) -> Publishers.RetryIf<Publishers.TryMap<URLSession.DataTaskPublisher, Data>> {
+	private func getItem<Item: Decodable>(of url: URL, type: Item.Type) async throws -> Item {
 		var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
 		request.assumesHTTP3Capable = true
 		request.networkServiceType = .responsiveData
-		return session.dataTaskPublisher(for: request).tryMap { data, response in
-			guard let response = response as? HTTPURLResponse,
-				  (200...299).contains(response.statusCode) else {
-				throw URLError(.badServerResponse)
-			}
+		return try await getItem(ofRequest: request, type: type, count: options.retryCount)
+	}
 
-			//guard response.mimeType == "application/json" else {
-			//	throw URLError(.badServerResponse)
-			//}
-
-			return data
-		}.retry(times: options.retryCount) { error in
-			if case let urlError as URLError = error {
-				switch urlError.code {
-				case .timedOut, .networkConnectionLost, .notConnectedToInternet:
-					return true
+	private func getItem<Item: Decodable>(ofRequest urlRequest: URLRequest, type: Item.Type, count: Int = 0) async throws -> Item {
+		do {
+			let (data, response) = try await session.data(for: urlRequest)
+			try handle(response: response)
+			return try decoder.decode(type, from: data)
+		} catch {
+			if count != 0 {
+				let retry: Bool
+				switch error {
+				case let urlError as URLError:
+					switch urlError.code {
+					case .timedOut, .networkConnectionLost, .notConnectedToInternet:
+						retry = true
+					default:
+						retry = false
+					}
+				case DecodingError.dataCorrupted:
+					retry = true
 				default:
-					break
+					retry = false
+				}
+
+				if retry {
+					return try await getItem(ofRequest: urlRequest, type: type, count: options.retryCount)
 				}
 			}
-			return false
+			throw error
 		}
 	}
 
-	private func getData<Item>(of url: URL, type: Item.Type) -> Publishers.Decode<Publishers.RetryIf<Publishers.TryMap<URLSession.DataTaskPublisher, Data>>, Item, JSONDecoder> {
-		getData(of: url).decode(type: type, decoder: decoder)
+	private func handle(response: URLResponse) throws {
+		guard let response = response as? HTTPURLResponse,
+			  (200...299).contains(response.statusCode) else {
+			throw URLError(.badServerResponse)
+		}
+
+		//guard response.mimeType == "application/json" else {
+		//	throw URLError(.badServerResponse)
+		//}
 	}
 }
 
-// MARK: - MHDataOffer
+// MARK: - DataSource
+
 extension NetworkDataSource: DataSource {
-	func getConfig() -> AnyPublisher<MHConfig, Error> {
+	func getConfig() async throws -> MHConfig {
 		guard let url = URL(string: "config.json", relativeTo: source) else {
 			fatalError()
 		}
-
-		return getData(of: url, type: MHConfig.self)
-			.eraseToAnyPublisher()
+		return try await getItem(of: url, type: MHConfig.self)
 	}
 
-	func getGame(of titleId: String) -> AnyPublisher<MHGame, Error> {
+	func getGame(of titleId: String) async throws -> MHGame {
 		guard let url = URL(string: "\(titleId)/index.json", relativeTo: source) else {
 			fatalError()
 		}
-
-		return getData(of: url, type: MHGame.self)
-			.eraseToAnyPublisher()
+		return try await getItem(of: url, type: MHGame.self)
 	}
 
-	func getLocalization(of key: String, for titleId: String) -> AnyPublisher<MHLocalization, Error> {
+	func getLocalization(of key: String, for titleId: String) async throws -> MHLocalization {
 		guard let url = URL(string: "\(titleId)/localization/\(key).json", relativeTo: source) else {
 			fatalError()
 		}
-
-		return getData(of: url, type: MHLocalization.self)
-			.eraseToAnyPublisher()
+		return try await getItem(of: url, type: MHLocalization.self)
 	}
 
-	func getMonster(of id: String, for titleId: String) -> AnyPublisher<MHMonster, Error> {
+	func getMonster(of id: String, for titleId: String) async throws -> MHMonster {
 		guard let url = URL(string: "\(titleId)/monsters/\(id).json", relativeTo: source) else {
 			fatalError()
 		}
-
-		return getData(of: url, type: MHMonster.self)
-			.eraseToAnyPublisher()
+		return try await getItem(of: url, type: MHMonster.self)
 	}
 }

@@ -1,6 +1,6 @@
 import Combine
 import Foundation
-import MonsterAnalyzerCore
+@testable import MonsterAnalyzerCore
 
 enum ErrorOfferLevel {
 	case config
@@ -23,37 +23,34 @@ final class ErredDataSource: DataSource {
 		self.errorLevel = errorLevel
 	}
 
-	func getConfig() -> AnyPublisher<MHConfig, Error> {
+	func getConfig() async throws -> MHConfig {
 		switch errorLevel {
 		case .config:
-			Fail(outputType: MHConfig.self, failure: error)
-				.eraseToAnyPublisher()
+			throw error
 		case .game, .monster, .none:
-			dataSource.getConfig()
+			try await dataSource.getConfig()
 		}
 	}
 
-	func getGame(of titleId: String) -> AnyPublisher<MHGame, Error> {
+	func getGame(of titleId: String) async throws -> MHGame {
 		switch errorLevel {
 		case .config, .game:
-			Fail(outputType: MHGame.self, failure: error)
-				.eraseToAnyPublisher()
+			throw error
 		case .monster, .none:
-			dataSource.getGame(of: titleId)
+			try await dataSource.getGame(of: titleId)
 		}
 	}
 
-	func getLocalization(of key: String, for titleId: String) -> AnyPublisher<MHLocalization, Error> {
-		dataSource.getLocalization(of: key, for: titleId)
+	func getLocalization(of key: String, for titleId: String) async throws -> MHLocalization {
+		try await dataSource.getLocalization(of: key, for: titleId)
 	}
 
-	func getMonster(of id: String, for titleId: String) -> AnyPublisher<MHMonster, Error> {
+	func getMonster(of id: String, for titleId: String) async throws -> MHMonster {
 		switch errorLevel {
 		case .config, .game, .monster:
-			Fail(outputType: MHMonster.self, failure: error)
-				.eraseToAnyPublisher()
+			throw error
 		case .none:
-			dataSource.getMonster(of: id, for: titleId)
+			try await dataSource.getMonster(of: id, for: titleId)
 		}
 	}
 }

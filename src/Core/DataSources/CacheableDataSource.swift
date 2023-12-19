@@ -11,7 +11,7 @@ struct CacheableDataSource {
 	}
 }
 
-// MARK: - MHDataOffer
+// MARK: - DataSource
 
 extension CacheableDataSource: DataSource {
 	private static let configKey = "conf"
@@ -19,63 +19,47 @@ extension CacheableDataSource: DataSource {
 	private static let localizationKey = "i18n"
 	private static let monsterKey = "mons"
 
-	func getConfig() -> AnyPublisher<MHConfig, Error> {
+	func getConfig() async throws -> MHConfig {
 		guard let conf = storage.load(of: MHConfig.self, for: Self.configKey) else {
-			return source.getConfig()
-				.handleEvents(receiveOutput: { game in
-					storage.store(game, for: Self.configKey)
-				})
-				.eraseToAnyPublisher()
+			let conf = try await source.getConfig()
+			storage.store(conf, for: Self.configKey)
+			return conf
 		}
-		return Just(conf)
-			.setFailureType(to: Error.self)
-			.eraseToAnyPublisher()
+		return conf
 	}
 
-	func getGame(of titleId: String) -> AnyPublisher<MHGame, Error> {
+	func getGame(of titleId: String) async throws -> MHGame {
 		let loadOptions = StorageLoadOptions(groupKey: titleId)
 		guard let game = storage.load(of: MHGame.self, for: Self.gameKey, options: loadOptions) else {
-			return source.getGame(of: titleId)
-				.handleEvents(receiveOutput: { game in
-					let storeOptions = StorageStoreOptions(groupKey: titleId)
-					storage.store(game, for: Self.gameKey, options: storeOptions)
-				})
-				.eraseToAnyPublisher()
+			let game = try await source.getGame(of: titleId)
+			let storeOptions = StorageStoreOptions(groupKey: titleId)
+			storage.store(game, for: Self.gameKey, options: storeOptions)
+			return game
 		}
-		return Just(game)
-			.setFailureType(to: Error.self)
-			.eraseToAnyPublisher()
+		return game
 	}
 
-	func getLocalization(of key: String, for titleId: String) -> AnyPublisher<MHLocalization, Error> {
+	func getLocalization(of key: String, for titleId: String) async throws -> MHLocalization {
 		let groupKey = "\(titleId)/\(Self.localizationKey)"
 		let loadOptions = StorageLoadOptions(groupKey: groupKey)
 		guard let localization = storage.load(of: MHLocalization.self, for: key, options: loadOptions) else {
-			return source.getLocalization(of: key, for: titleId)
-				.handleEvents(receiveOutput: { localization in
-					let storeOptions = StorageStoreOptions(groupKey: groupKey)
-					storage.store(localization, for: key, options: storeOptions)
-				})
-				.eraseToAnyPublisher()
+			let localization = try await source.getLocalization(of: key, for: titleId)
+			let storeOptions = StorageStoreOptions(groupKey: groupKey)
+			storage.store(localization, for: key, options: storeOptions)
+			return localization
 		}
-		return Just(localization)
-			.setFailureType(to: Error.self)
-			.eraseToAnyPublisher()
+		return localization
 	}
 
-	func getMonster(of id: String, for titleId: String) -> AnyPublisher<MHMonster, Error> {
+	func getMonster(of id: String, for titleId: String) async throws -> MHMonster {
 		let groupKey = "\(titleId)/\(Self.monsterKey)"
 		let loadOptions = StorageLoadOptions(groupKey: groupKey)
 		guard let monster = storage.load(of: MHMonster.self, for: id, options: loadOptions) else {
-			return source.getMonster(of: id, for: titleId)
-				.handleEvents(receiveOutput: { monster in
-					let storeOptions = StorageStoreOptions(groupKey: groupKey)
-					storage.store(monster, for: id, options: storeOptions)
-				})
-				.eraseToAnyPublisher()
+			let monster = try await source.getMonster(of: id, for: titleId)
+			let storeOptions = StorageStoreOptions(groupKey: groupKey)
+			storage.store(monster, for: id, options: storeOptions)
+			return monster
 		}
-		return Just(monster)
-			.setFailureType(to: Error.self)
-			.eraseToAnyPublisher()
+		return monster
 	}
 }

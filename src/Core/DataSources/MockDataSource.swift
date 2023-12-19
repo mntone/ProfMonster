@@ -133,30 +133,22 @@ public struct MockDataSource {
 	}
 }
 
-// MARK: - MHDataOffer
+// MARK: - DataSource
 
 extension MockDataSource: DataSource {
-	func getConfig() -> AnyPublisher<MHConfig, Error> {
-		Just(Self.config)
-			.setFailureType(to: Error.self)
-			.eraseToAnyPublisher()
+	func getConfig() async throws -> MHConfig {
+		Self.config
 	}
 
-	func getGame(of titleId: String) -> AnyPublisher<MHGame, Error> {
-		Just(Self.game)
-			.setFailureType(to: Error.self)
-			.eraseToAnyPublisher()
+	func getGame(of titleId: String) async throws -> MHGame {
+		Self.game
 	}
 
-	func getLocalization(of key: String, for titleId: String) -> AnyPublisher<MHLocalization, Error> {
-		Just(Self.localization)
-			.setFailureType(to: Error.self)
-			.eraseToAnyPublisher()
+	func getLocalization(of key: String, for titleId: String) async throws -> MHLocalization {
+		Self.localization
 	}
 
-	public func getMonster(of id: String, for titleId: String) -> AnyPublisher<MHMonster, Error> {
-		Just(Self.monster1)
-			.setFailureType(to: Error.self)
-			.eraseToAnyPublisher()
+	func getMonster(of id: String, for titleId: String) async throws -> MHMonster {
+		Self.monster1
 	}
 }

@@ -33,33 +33,21 @@ public final class Game: FetchableEntity, Entity {
 		super.init(dataSource: dataSource)
 	}
 
-	override func _fetch() {
-		_dataSource.getGame(of: id)
-			.flatMap { [weak self] json in
-				guard let self else { fatalError() }
+	override func _fetch() async throws {
+		let game = try await _dataSource.getGame(of: id)
+		let langsvc = _resolver.resolve(LanguageService.self, argument: game.localization)!
+		let localization = try await _dataSource.getLocalization(of: langsvc.localeKey, for: id)
+		langsvc.register(dictionary: localization.states, for: .state)
+		languageService = langsvc
 
-				let langsvc = _resolver.resolve(LanguageService.self, argument: json.localization)!
-				return self._dataSource.getLocalization(of: langsvc.localeKey, for: self.id).map { localization in
-					langsvc.register(dictionary: localization.states, for: .state)
-					self.languageService = langsvc
-
-					return json.monsters.map { monsterID in
-						Monster(monsterID,
-								gameID: self.id,
-								dataSource: self._dataSource,
-								languageService: langsvc,
-								localization: localization.monsters.first(where: { m in m.id == monsterID })!)
-					}
-				}
-			}
-			.handleEvents(receiveCompletion: { [weak self] completion in
-				guard let self else { fatalError() }
-				self._handle(completion: completion)
-			})
-			.catch { error in
-				return Empty<[Monster], Never>()
-			}
-			.assign(to: &$monsters)
+		let monsters = game.monsters.map { monsterID in
+			Monster(monsterID,
+					gameID: self.id,
+					dataSource: self._dataSource,
+					languageService: langsvc,
+					localization: localization.monsters.first(where: { m in m.id == monsterID })!)
+		}
+		self.monsters = monsters
 	}
 
 	public func resetMemoryCache() {

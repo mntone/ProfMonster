@@ -1,5 +1,5 @@
 import Swinject
-import MonsterAnalyzerCore
+@testable import MonsterAnalyzerCore
 
 struct TestAssembly: Assembly {
 	func assemble(container: Container) {

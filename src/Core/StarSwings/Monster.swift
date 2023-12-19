@@ -13,8 +13,6 @@ public final class Monster: FetchableEntity, Entity {
 	@Published
 	public var physiologies: Physiologies?
 
-	private var _cancellable: AnyCancellable?
-
 	init(_ id: String,
 		 gameID: String,
 		 dataSource: DataSource,
@@ -30,18 +28,9 @@ public final class Monster: FetchableEntity, Entity {
 		super.init(dataSource: dataSource)
 	}
 
-	override func _fetch() {
-		_dataSource.getMonster(of: id, for: gameID)
-			.map { [_languageService] json in
-				Optional(PhysiologyMapper.map(json: json, languageService: _languageService))
-			}
-			.handleEvents(receiveCompletion: { [weak self] completion in
-				guard let self else { fatalError() }
-				self._handle(completion: completion)
-			})
-			.catch { error in
-				return Empty<Physiologies?, Never>()
-			}
-			.assign(to: &$physiologies)
+	override func _fetch() async throws {
+		let monster = try await _dataSource.getMonster(of: id, for: gameID)
+		let physiologies = PhysiologyMapper.map(json: monster, languageService: _languageService)
+		self.physiologies = physiologies
 	}
 }

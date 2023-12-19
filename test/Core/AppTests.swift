@@ -1,9 +1,11 @@
+import Combine
 import Swinject
 import XCTest
 @testable import MonsterAnalyzerCore
 
 class AppTests: XCTestCase {
-	var app: App!
+	private var cancellable = Set<AnyCancellable>()
+	private var app: App!
 
 	override func setUp() {
 		let resolver = Assembler([
@@ -13,15 +15,16 @@ class AppTests: XCTestCase {
 		app = App(resolver: resolver)
 	}
 
-	private func assertEqual(original: URLError.Code, transformed: StarSwingsError) throws {
+	private func assertEqual(original: URLError.Code, transformed: StarSwingsError) async throws {
 		let erredDataSource = app.resolver.resolve(DataSource.self) as! ErredDataSource
 		erredDataSource.error = URLError(original)
 		erredDataSource.errorLevel = .config
 
 		app.fetchIfNeeded()
 
-		XCTAssertTrue(app.state.hasError)
-		XCTAssertEqual(app.state.error, transformed)
+		let state = await app.getState(in: &cancellable)
+		XCTAssertTrue(state.hasError)
+		XCTAssertEqual(state.error, transformed)
 		XCTAssertTrue(app.games.isEmpty)
 	}
 
@@ -29,31 +32,31 @@ class AppTests: XCTestCase {
 		XCTAssertTrue(app.games.isEmpty)
 	}
 
-	func testNetworkErrorCanceled() throws {
-		try assertEqual(original: .cancelled, transformed: .cancelled)
+	func testNetworkErrorCanceled() async throws {
+		try await assertEqual(original: .cancelled, transformed: .cancelled)
 	}
 
-	func testNetworkErrorConnectionLost() throws {
-		try assertEqual(original: .networkConnectionLost, transformed: .connectionLost)
+	func testNetworkErrorConnectionLost() async throws {
+		try await assertEqual(original: .networkConnectionLost, transformed: .connectionLost)
 	}
 
-	func testNetworkErrorCannotConnectToHost() throws {
-		try assertEqual(original: .cannotConnectToHost, transformed: .noConnection)
+	func testNetworkErrorCannotConnectToHost() async throws {
+		try await assertEqual(original: .cannotConnectToHost, transformed: .noConnection)
 	}
 
-	func testNetworkErrorNoConnection() throws {
-		try assertEqual(original: .notConnectedToInternet, transformed: .noConnection)
+	func testNetworkErrorNoConnection() async throws {
+		try await assertEqual(original: .notConnectedToInternet, transformed: .noConnection)
 	}
 
-	func testNetworkErrorTimedOut() throws {
-		try assertEqual(original: .timedOut, transformed: .timedOut)
+	func testNetworkErrorTimedOut() async throws {
+		try await assertEqual(original: .timedOut, transformed: .timedOut)
 	}
 
-	func testNetworkErrorNotExist() throws {
-		try assertEqual(original: .fileDoesNotExist, transformed: .notExist)
+	func testNetworkErrorNotExist() async throws {
+		try await assertEqual(original: .fileDoesNotExist, transformed: .notExist)
 	}
 
-	func testNetworkErrorDataNotAllowed() throws {
-		try assertEqual(original: .dataNotAllowed, transformed: .noConnection)
+	func testNetworkErrorDataNotAllowed() async throws {
+		try await assertEqual(original: .dataNotAllowed, transformed: .noConnection)
 	}
 }

@@ -16,21 +16,11 @@ public final class App: FetchableEntity, Entity {
 		super.init(dataSource: dataSource)
 	}
 
-	override func _fetch() {
-		_dataSource.getConfig()
-			.map { [resolver, _dataSource] config in
-				config.titles.map { title in
-					Game(resolver: resolver, dataSource: _dataSource, json: title)
-				}
-			}
-			.handleEvents(receiveCompletion: { [weak self] completion in
-				guard let self else { fatalError() }
-				self._handle(completion: completion)
-			})
-			.catch { error in
-				return Empty<[Game], Never>()
-			}
-			.assign(to: &$games)
+	override func _fetch() async throws {
+		let games = try await _dataSource.getConfig().titles.map { title in
+			Game(resolver: resolver, dataSource: _dataSource, json: title)
+		}
+		self.games = games
 	}
 
 	public func resetMemoryCache() {

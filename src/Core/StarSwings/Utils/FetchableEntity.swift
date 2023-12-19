@@ -21,20 +21,24 @@ public class FetchableEntity {
 			return true
 		}
 		guard needToFetch else { return }
-		_fetch()
+		fetch(priority: .userInitiated)
 	}
 
-	func _fetch() {
-		preconditionFailure("This function must be override.")
-	}
-
-	func _handle(completion: Subscribers.Completion<Error>) {
-		switch completion {
-		case let .failure(error):
-			_handle(error: error)
-		case .finished:
-			state = .complete
+	public final func fetch(priority: TaskPriority) {
+		Task(priority: priority) { @MainActor in
+			do {
+				try await _fetch()
+				_lock.withLock {
+					self.state = .complete
+				}
+			} catch {
+				_handle(error: error)
+			}
 		}
+	}
+
+	func _fetch() async throws {
+		preconditionFailure("This function must be override.")
 	}
 
 	func _handle(error: Error) {

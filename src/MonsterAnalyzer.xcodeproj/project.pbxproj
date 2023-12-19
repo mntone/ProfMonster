@@ -41,6 +41,8 @@
 		EB8778292B26BDEF00B3359C /* EnvironmentValues+SettingsActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778272B26BDEF00B3359C /* EnvironmentValues+SettingsActions.swift */; };
 		EB87782E2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */; };
 		EB87782F2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */; };
+		EB8CA0D82B31467500679CC0 /* Publisher+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8CA0D72B31467500679CC0 /* Publisher+Get.swift */; };
+		EB8CA0DA2B3146A800679CC0 /* FetchableEntity+GetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8CA0D92B3146A800679CC0 /* FetchableEntity+GetState.swift */; };
 		EB8F07DA2B2FB229006AC575 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB8F07D92B2FB229006AC575 /* Localizable.xcstrings */; };
 		EB8F07E02B2FF421006AC575 /* StarSwingsState+Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F07DE2B2FF41D006AC575 /* StarSwingsState+Error.swift */; };
 		EB8F07E12B2FF423006AC575 /* ErredDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F07DC2B2FF3EB006AC575 /* ErredDataSource.swift */; };
@@ -256,6 +258,8 @@
 		EB8778242B26B38200B3359C /* MonsterListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListItem.swift; sourceTree = "<group>"; };
 		EB8778272B26BDEF00B3359C /* EnvironmentValues+SettingsActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+SettingsActions.swift"; sourceTree = "<group>"; };
 		EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnChangeBackport.swift"; sourceTree = "<group>"; };
+		EB8CA0D72B31467500679CC0 /* Publisher+Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Get.swift"; sourceTree = "<group>"; };
+		EB8CA0D92B3146A800679CC0 /* FetchableEntity+GetState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FetchableEntity+GetState.swift"; sourceTree = "<group>"; };
 		EB8F07D92B2FB229006AC575 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB8F07DC2B2FF3EB006AC575 /* ErredDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErredDataSource.swift; sourceTree = "<group>"; };
 		EB8F07DE2B2FF41D006AC575 /* StarSwingsState+Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StarSwingsState+Error.swift"; sourceTree = "<group>"; };
@@ -418,6 +422,8 @@
 			isa = PBXGroup;
 			children = (
 				EB8F07DC2B2FF3EB006AC575 /* ErredDataSource.swift */,
+				EB8CA0D92B3146A800679CC0 /* FetchableEntity+GetState.swift */,
+				EB8CA0D72B31467500679CC0 /* Publisher+Get.swift */,
 				EB8F07DE2B2FF41D006AC575 /* StarSwingsState+Error.swift */,
 				EB8F07E22B300B84006AC575 /* TestAssembly.swift */,
 			);
@@ -1071,9 +1077,11 @@
 			files = (
 				EB433A3A2B2DEB050079AAD8 /* AppTests.swift in Sources */,
 				EB8F07E12B2FF423006AC575 /* ErredDataSource.swift in Sources */,
+				EB8CA0DA2B3146A800679CC0 /* FetchableEntity+GetState.swift in Sources */,
 				EB8F07E52B300BE4006AC575 /* GameTests.swift in Sources */,
 				EBEA6F362B1858FB00734AAA /* MemoryStorageTests.swift in Sources */,
 				EB8F07E72B300F18006AC575 /* MonsterTests.swift in Sources */,
+				EB8CA0D82B31467500679CC0 /* Publisher+Get.swift in Sources */,
 				EB8F07E02B2FF421006AC575 /* StarSwingsState+Error.swift in Sources */,
 				EB8F07E32B300B84006AC575 /* TestAssembly.swift in Sources */,
 			);
