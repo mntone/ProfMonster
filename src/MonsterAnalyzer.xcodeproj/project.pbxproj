@@ -16,6 +16,7 @@
 		EB2550142B288C84004823BA /* View+AlternatingRowBackgroundsBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2550132B288C84004823BA /* View+AlternatingRowBackgroundsBackport.swift */; };
 		EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
 		EB29563B2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
+		EB2956412B310E28002C5CA8 /* SelectableListRowBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956402B310E28002C5CA8 /* SelectableListRowBackport.swift */; };
 		EB31EEB72B2BEB4300FF8536 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB42B2BD7FA00FF8536 /* Sort.swift */; };
 		EB31EEB92B2C9DD000FF8536 /* NavigationPathHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB82B2C9DD000FF8536 /* NavigationPathHost.swift */; };
 		EB31EEBC2B2C9E4D00FF8536 /* NavigationPathSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEBB2B2C9E4D00FF8536 /* NavigationPathSupport.swift */; };
@@ -241,6 +242,7 @@
 		EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+RetryIf.swift"; sourceTree = "<group>"; };
 		EB2550132B288C84004823BA /* View+AlternatingRowBackgroundsBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AlternatingRowBackgroundsBackport.swift"; sourceTree = "<group>"; };
 		EB2956392B30139A002C5CA8 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
+		EB2956402B310E28002C5CA8 /* SelectableListRowBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableListRowBackport.swift; sourceTree = "<group>"; };
 		EB31EEB42B2BD7FA00FF8536 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		EB31EEB82B2C9DD000FF8536 /* NavigationPathHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPathHost.swift; sourceTree = "<group>"; };
 		EB31EEBB2B2C9E4D00FF8536 /* NavigationPathSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPathSupport.swift; sourceTree = "<group>"; };
@@ -385,6 +387,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB29563F2B310E1D002C5CA8 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				EB2956402B310E28002C5CA8 /* SelectableListRowBackport.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
 		EB31EEB32B2BD7D400FF8536 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -672,6 +682,7 @@
 		EBEA6F7B2B1A1B0900734AAA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EB29563F2B310E1D002C5CA8 /* iOS */,
 				EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */,
 				EB967A472B2AC6E80041A491 /* LazyView.swift */,
 				EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */,
@@ -1105,6 +1116,7 @@
 				EBB4B1D02B15E0C9004D63EA /* PhysiologyView.swift in Sources */,
 				EBB4B1D22B15ED1B004D63EA /* PhysiologyViewModel.swift in Sources */,
 				EB9620F62B1DA50800FD7115 /* RouteHelper.swift in Sources */,
+				EB2956412B310E28002C5CA8 /* SelectableListRowBackport.swift in Sources */,
 				EBCA222B2B221E5700C487AD /* SettingsView.swift in Sources */,
 				EB38D1FB2B2946A800CED9DB /* SettingsViewModel.swift in Sources */,
 				EB645A642B2685D500D27500 /* Sidebar.swift in Sources */,

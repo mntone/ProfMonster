@@ -121,9 +121,10 @@ struct NavigationSplitViewHostBackport: View {
 
 	var body: some View {
 		NavigationView {
-			Sidebar(viewModel: viewModel, selectedGameID: $selectedGameID)
 
 #if os(macOS)
+			Sidebar(viewModel: viewModel, selectedGameID: $selectedGameID)
+
 			ZStack {
 				Color(.monsterListBackground)
 
@@ -132,8 +133,10 @@ struct NavigationSplitViewHostBackport: View {
 				}
 			}
 #else
+			SidebarBackport(viewModel: viewModel, selectedGameID: $selectedGameID)
+
 			if let gameViewModel {
-				MonsterList(viewModel: gameViewModel, selectedMonsterID: $selectedMonsterID)
+				MonsterListBackport(viewModel: gameViewModel, selectedMonsterID: $selectedMonsterID)
 			} else {
 				Color.clear
 			}
