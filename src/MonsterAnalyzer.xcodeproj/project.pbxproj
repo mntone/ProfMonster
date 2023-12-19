@@ -122,7 +122,7 @@
 		EBCA222D2B222ECB00C487AD /* LeadingToolbarItemBackportModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA22282B21A58C00C487AD /* LeadingToolbarItemBackportModifier.swift */; };
 		EBCA222E2B228C6800C487AD /* FixedWidthWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */; };
 		EBEA6F2F2B1858FB00734AAA /* MonsterAnalyzerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEA6F252B1858FA00734AAA /* MonsterAnalyzerCore.framework */; };
-		EBEA6F362B1858FB00734AAA /* MemoryStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F352B1858FB00734AAA /* MemoryStorageTests.swift */; };
+		EBEA6F362B1858FB00734AAA /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F352B1858FB00734AAA /* StorageTests.swift */; };
 		EBEA6F372B1858FB00734AAA /* MonsterAnalyserCore.h in Headers */ = {isa = PBXBuildFile; fileRef = EBEA6F272B1858FA00734AAA /* MonsterAnalyserCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EBEA6F3A2B1858FB00734AAA /* MonsterAnalyzerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEA6F252B1858FA00734AAA /* MonsterAnalyzerCore.framework */; };
 		EBEA6F3B2B1858FB00734AAA /* MonsterAnalyzerCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = EBEA6F252B1858FA00734AAA /* MonsterAnalyzerCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -155,7 +155,6 @@
 		EBEA6F7F2B1A1B2D00734AAA /* HBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */; };
 		EBEA6F822B1A205300734AAA /* MessagePacker in Frameworks */ = {isa = PBXBuildFile; productRef = EBEA6F812B1A205300734AAA /* MessagePacker */; };
 		EBEA6F842B1A208200734AAA /* DiskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F832B1A208200734AAA /* DiskStorage.swift */; };
-		EBEA6F862B1A33F800734AAA /* HybridStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F852B1A33F800734AAA /* HybridStorage.swift */; };
 		EBF684A42B2D4C5D0071981F /* Physiology.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A32B2D4C5D0071981F /* Physiology.swift */; };
 		EBF684A72B2D50060071981F /* PhysiologyMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A62B2D50060071981F /* PhysiologyMapper.swift */; };
 		EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */; };
@@ -331,13 +330,12 @@
 		EBEA6F252B1858FA00734AAA /* MonsterAnalyzerCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MonsterAnalyzerCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEA6F272B1858FA00734AAA /* MonsterAnalyserCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonsterAnalyserCore.h; sourceTree = "<group>"; };
 		EBEA6F2E2B1858FB00734AAA /* MonsterAnalyzerCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterAnalyzerCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		EBEA6F352B1858FB00734AAA /* MemoryStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorageTests.swift; sourceTree = "<group>"; };
+		EBEA6F352B1858FB00734AAA /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
 		EBEA6F702B1889A900734AAA /* PhysiologyScrollableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyScrollableView.swift; sourceTree = "<group>"; };
 		EBEA6F732B18B56700734AAA /* UnevenRoundedRectangleBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnevenRoundedRectangleBackport.swift; sourceTree = "<group>"; };
 		EBEA6F772B1A099000734AAA /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
 		EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HBorderView.swift; sourceTree = "<group>"; };
 		EBEA6F832B1A208200734AAA /* DiskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskStorage.swift; sourceTree = "<group>"; };
-		EBEA6F852B1A33F800734AAA /* HybridStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HybridStorage.swift; sourceTree = "<group>"; };
 		EBF684A32B2D4C5D0071981F /* Physiology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Physiology.swift; sourceTree = "<group>"; };
 		EBF684A62B2D50060071981F /* PhysiologyMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyMapper.swift; sourceTree = "<group>"; };
 		EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataViewModel.swift; sourceTree = "<group>"; };
@@ -616,7 +614,6 @@
 			isa = PBXGroup;
 			children = (
 				EBEA6F832B1A208200734AAA /* DiskStorage.swift */,
-				EBEA6F852B1A33F800734AAA /* HybridStorage.swift */,
 				EBEA6F0E2B1800E600734AAA /* MemoryStorage.swift */,
 				EBEA6F0B2B17F9B300734AAA /* Storage.swift */,
 			);
@@ -677,8 +674,8 @@
 				EB8F07DB2B2FF3E1006AC575 /* Utils */,
 				EB433A392B2DEB050079AAD8 /* AppTests.swift */,
 				EB8F07E42B300BE4006AC575 /* GameTests.swift */,
-				EBEA6F352B1858FB00734AAA /* MemoryStorageTests.swift */,
 				EB8F07E62B300F18006AC575 /* MonsterTests.swift */,
+				EBEA6F352B1858FB00734AAA /* StorageTests.swift */,
 			);
 			name = CoreTests;
 			path = ../test/Core;
@@ -1042,7 +1039,6 @@
 				EB967A3E2B29DF100041A491 /* Entity.swift in Sources */,
 				EB967A462B2A0E980041A491 /* FetchableEntity.swift in Sources */,
 				EB967A342B29D5390041A491 /* Game.swift in Sources */,
-				EBEA6F862B1A33F800734AAA /* HybridStorage.swift in Sources */,
 				EB967A2B2B29A0BA0041A491 /* JapaneseTextProcessor.swift in Sources */,
 				EB967A2D2B29AB500041A491 /* KoreanTextProcessor.swift in Sources */,
 				EBEA6F552B185A3B00734AAA /* LanguageService.swift in Sources */,
@@ -1079,10 +1075,10 @@
 				EB8F07E12B2FF423006AC575 /* ErredDataSource.swift in Sources */,
 				EB8CA0DA2B3146A800679CC0 /* FetchableEntity+GetState.swift in Sources */,
 				EB8F07E52B300BE4006AC575 /* GameTests.swift in Sources */,
-				EBEA6F362B1858FB00734AAA /* MemoryStorageTests.swift in Sources */,
 				EB8F07E72B300F18006AC575 /* MonsterTests.swift in Sources */,
 				EB8CA0D82B31467500679CC0 /* Publisher+Get.swift in Sources */,
 				EB8F07E02B2FF421006AC575 /* StarSwingsState+Error.swift in Sources */,
+				EBEA6F362B1858FB00734AAA /* StorageTests.swift in Sources */,
 				EB8F07E32B300B84006AC575 /* TestAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

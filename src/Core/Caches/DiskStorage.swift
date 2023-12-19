@@ -1,25 +1,25 @@
 import Foundation
 import MessagePacker
 
-public final class DiskStorage: Storage {
+final class DiskStorage: Storage {
 	private let fileManager: FileManager
 	private let baseUrl: URL
 
 	private lazy var decoder = MessagePackDecoder()
 
-	public init(fileManager: FileManager = FileManager.default) {
+	init(fileManager: FileManager = FileManager.default) {
 		self.fileManager = fileManager
 		self.baseUrl = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
 	}
 
-	public var measureMode: StorageSizeMeasureMode {
+	var measureMode: StorageSizeMeasureMode {
 		@inline(__always)
 		get {
 			.actual
 		}
 	}
 
-	public var size: UInt64 {
+	var size: UInt64 {
 		getSize(at: baseUrl)
 	}
 
@@ -49,18 +49,18 @@ public final class DiskStorage: Storage {
 		}
 	}
 
-	public func resetAll() {
+	func resetAll() {
 		try! fileManager.contentsOfDirectory(at: baseUrl, includingPropertiesForKeys: nil).forEach { url in
 			try! fileManager.removeItem(at: url)
 		}
 	}
 
 	@inline(__always)
-	public func load<Item: Codable>(of type: Item.Type, for key: KeyType) -> Item? {
+	func load<Item: Codable>(of type: Item.Type, for key: KeyType) -> Item? {
 		load(of: type, for: key, options: StorageLoadOptions.default)
 	}
 
-	public func load<Item: Codable>(of type: Item.Type, for key: KeyType, options: StorageLoadOptions) -> Item? {
+	func load<Item: Codable>(of type: Item.Type, for key: KeyType, options: StorageLoadOptions) -> Item? {
 		guard let url = getFileURL(for: key, of: options.groupKey),
 			  let data = try? Data(contentsOf: url) else {
 			return nil
@@ -70,12 +70,12 @@ public final class DiskStorage: Storage {
 
 	@discardableResult
 	@inline(__always)
-	public func store<Item: Codable>(_ object: Item, for key: KeyType) -> Bool {
+	func store<Item: Codable>(_ object: Item, for key: KeyType) -> Bool {
 		store(object, for: key, options: StorageStoreOptions.default)
 	}
 
 	@discardableResult
-	public func store<Item: Codable>(_ object: Item, for key: KeyType, options: StorageStoreOptions) -> Bool {
+	func store<Item: Codable>(_ object: Item, for key: KeyType, options: StorageStoreOptions) -> Bool {
 		guard let url = getFileURL(for: key, of: options.groupKey, createDirectoryIfNotExist: true) else {
 			return false
 		}
