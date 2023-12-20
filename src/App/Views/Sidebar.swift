@@ -18,9 +18,6 @@ struct Sidebar: View {
 		.modifier(SharedGameListModifier(isLoading: viewModel.state.isLoading) {
 			settingsAction?.present()
 		})
-		.task {
-			viewModel.fetchData()
-		}
 	}
 }
 
@@ -46,9 +43,6 @@ struct SidebarBackport: View {
 		.modifier(SharedGameListModifier(isLoading: viewModel.state.isLoading) {
 			settingsAction?.present()
 		})
-		.task {
-			viewModel.fetchData()
-		}
 	}
 }
 

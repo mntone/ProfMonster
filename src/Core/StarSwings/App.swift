@@ -13,6 +13,17 @@ public final class App: FetchableEntity<[Game]>, Entity {
 		super.init(dataSource: dataSource)
 	}
 
+	@discardableResult
+	public func prefetch(of gameID: String) async -> Game? {
+		guard let games = await fetch(priority: .userInitiated).value else {
+			return nil
+		}
+		let game = games.first { game in
+			game.id == gameID
+		}
+		return game
+	}
+
 	override func _fetch() async throws -> [Game] {
 		let games = try await _dataSource.getConfig().titles.map { title in
 			Game(resolver: resolver, dataSource: _dataSource, json: title)

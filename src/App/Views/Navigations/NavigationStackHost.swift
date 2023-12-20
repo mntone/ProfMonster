@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import class MonsterAnalyzerCore.App
 
 #if !os(macOS)
 
@@ -16,21 +17,14 @@ struct NavigationStackHost: View {
 				.navigationDestination(for: MARoute.self) { path in
 					switch path {
 					case let .game(gameId):
-						if let viewModel = GameViewModel(id: gameId) {
-							GameView(viewModel: viewModel)
-						} else {
-							EmptyView()
-						}
+						let viewModel = GameViewModel(id: gameId)!
+						GameView(viewModel: viewModel)
 					case let .monster(gameId, monsterId):
-						if let viewModel = MonsterViewModel(id: monsterId, for: gameId) {
-							MonsterView(viewModel: viewModel)
-						} else {
-							EmptyView()
-						}
+						let viewModel = MonsterViewModel(id: monsterId, for: gameId)!
+						MonsterView(viewModel: viewModel)
 					}
 				}
-		}
-	}
+		}	}
 }
 
 @available(iOS, introduced: 13.0, deprecated: 16.0, message: "Use NavigationStackHost instead")

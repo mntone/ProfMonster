@@ -5,8 +5,8 @@ struct NavigationPathSupport<Content: View>: View {
 	@Environment(\.scenePhase)
 	private var scenePhase
 
-	@SceneStorage("path")
-	private var pathData: Data?
+	@Binding
+	var pathString: String?
 
 	@ViewBuilder
 	let content: (_ selectedGameID: Binding<String?>, _ selectedMonsterID: Binding<String?>) -> Content
@@ -19,8 +19,8 @@ struct NavigationPathSupport<Content: View>: View {
 
 	var body: some View {
 		content($selectedGameID, $selectedMonsterID)
-			.onAppear {
-				loadPath()
+			.task {
+				await loadPath()
 			}
 #if !os(macOS)
 			.onDisappear {
@@ -42,22 +42,16 @@ struct NavigationPathSupport<Content: View>: View {
 			}
 	}
 
-	private func loadPath() {
-		let notCrashed = !MAApp.crashed
-		MAApp.resetCrashed()
-		guard notCrashed else {
-			return
-		}
-
-		let path = RouteHelper.decode(pathData: pathData)
-		if case let .game(gameID) = path.first {
-			selectedGameID = gameID
+	private func loadPath() async {
+		let path = await RouteHelper.load(from: pathString)
+		if case let .game(rootGameID) = path.first {
+			selectedGameID = rootGameID
 
 			guard path.count >= 2,
-				  case let .monster(gameID2, monsterID) = path[1] else {
+				  case let .monster(gameID, monsterID) = path[1] else {
 				return
 			}
-			precondition(gameID == gameID2) // Assume X == Y for MARoute.game(X) and MARoute.monster(Y, _)
+			precondition(rootGameID == gameID) // Assume X == Y for .game(X) and .monster(Y, _)
 			selectedMonsterID = monsterID
 		}
 	}
@@ -67,15 +61,15 @@ struct NavigationPathSupport<Content: View>: View {
 		if let selectedGameID {
 			if let selectedMonsterID {
 				path = [
-					.game(gameId: selectedGameID),
-					.monster(gameId: selectedGameID, monsterId: selectedMonsterID),
+					.game(gameID: selectedGameID),
+					.monster(gameID: selectedGameID, monsterID: selectedMonsterID),
 				]
 			} else {
-				path = [.game(gameId: selectedGameID)]
+				path = [.game(gameID: selectedGameID)]
 			}
 		} else {
 			path = []
 		}
-		pathData = RouteHelper.encode(path: path)
+		pathString = RouteHelper.encode(path: path)
 	}
 }

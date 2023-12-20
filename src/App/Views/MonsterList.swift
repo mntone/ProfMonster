@@ -19,9 +19,6 @@ struct MonsterList: View {
 		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 											searchText: $viewModel.searchText,
 											isLoading: viewModel.state.isLoading))
-		.onChangeBackport(of: viewModel, initial: true) { _, newValue in
-			newValue.fetchData()
-		}
 	}
 }
 
@@ -48,9 +45,6 @@ struct MonsterListBackport: View {
 		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 											searchText: $viewModel.searchText,
 											isLoading: viewModel.state.isLoading))
-		.onChangeBackport(of: viewModel, initial: true) { _, newValue in
-			newValue.fetchData()
-		}
 	}
 }
 

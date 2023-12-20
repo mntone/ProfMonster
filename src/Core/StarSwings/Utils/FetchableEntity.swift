@@ -23,15 +23,17 @@ public class FetchableEntity<Data> {
 	}
 
 	@discardableResult
-	final func fetch(priority: TaskPriority) -> Task<Void, Never> {
+	final func fetch(priority: TaskPriority) -> Task<Data?, Never> {
 		return Task(priority: priority) { @MainActor in
 			do {
 				let data = try await _fetch()
 				_lock.withLock {
 					self.state = .complete(data: data)
 				}
+				return data
 			} catch {
 				_handle(error: error)
+				return nil
 			}
 		}
 	}

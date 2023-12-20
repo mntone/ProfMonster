@@ -10,7 +10,7 @@ struct GameView: View {
 
 	var body: some View {
 		List(viewModel.state.data ?? []) { item in
-			NavigationLink(value: MARoute.monster(gameId: item.gameID, monsterId: item.id)) {
+			NavigationLink(value: MARoute.monster(gameID: item.gameID, monsterID: item.id)) {
 				MonsterListItem(viewModel: item)
 			}
 		}
@@ -21,9 +21,6 @@ struct GameView: View {
 		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 											searchText: $viewModel.searchText,
 											isLoading: viewModel.state.isLoading))
-		.task {
-			viewModel.fetchData()
-		}
 	}
 }
 
@@ -61,9 +58,6 @@ struct GameViewBackport: View {
 		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 											searchText: $viewModel.searchText,
 											isLoading: viewModel.state.isLoading))
-		.task {
-			viewModel.fetchData()
-		}
 	}
 }
 

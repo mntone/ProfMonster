@@ -6,16 +6,20 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 	private let monster: Monster
 
 	@Published
-	private(set) var state: StarSwingsState<MonsterDataViewModel> = .ready
+	private(set) var state: StarSwingsState<MonsterDataViewModel>
 
 	init(_ monster: Monster) {
 		self.monster = monster
+		self.state = monster.state.mapData(MonsterDataViewModel.init(rawValue:))
 		monster.$state
+			.dropFirst()
 			.mapData { physiologies in
 				MonsterDataViewModel(rawValue: physiologies)
 			}
 			.receive(on: DispatchQueue.main)
 			.assign(to: &$state)
+
+		monster.fetchIfNeeded()
 	}
 
 	convenience init?(id monsterID: String, for gameID: String) {
@@ -27,10 +31,6 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 			return nil
 		}
 		self.init(monster)
-	}
-
-	func fetchData() {
-		monster.fetchIfNeeded()
 	}
 
 	var id: String {

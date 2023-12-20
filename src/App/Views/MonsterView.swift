@@ -50,10 +50,7 @@ struct MonsterView: View {
 			}
 		}
 		.navigationTitle(viewModel.name)
-		.onChangeBackport(of: viewModel, initial: true) { _, viewModel in
-			viewModel.fetchData()
-		}
-    }
+	}
 }
 
 #Preview {

@@ -1,3 +1,4 @@
+import MonsterAnalyzerCore
 import SwiftUI
 
 #if !os(macOS)
@@ -6,8 +7,8 @@ struct NavigationPathHost<Content: View>: View {
 	@Environment(\.scenePhase)
 	private var scenePhase
 
-	@SceneStorage("path")
-	private var pathData: Data?
+	@Binding
+	var pathString: String?
 
 	@ViewBuilder
 	let content: (_ path: Binding<[MARoute]>) -> Content
@@ -17,14 +18,8 @@ struct NavigationPathHost<Content: View>: View {
 
 	var body: some View {
 		content($path)
-			.onAppear {
-				let notCrashed = !MAApp.crashed
-				MAApp.resetCrashed()
-				guard notCrashed else {
-					return
-				}
-
-				path = RouteHelper.decode(pathData: pathData)
+			.task {
+				path = await RouteHelper.load(from: pathString)
 			}
 			.onDisappear {
 				storePath()
@@ -45,7 +40,7 @@ struct NavigationPathHost<Content: View>: View {
 	}
 
 	private func storePath() {
-		pathData = RouteHelper.encode(path: path)
+		pathString = RouteHelper.encode(path: path)
 	}
 }
 

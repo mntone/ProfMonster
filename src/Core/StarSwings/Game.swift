@@ -30,6 +30,17 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 		super.init(dataSource: dataSource)
 	}
 
+	@discardableResult
+	public func prefetch(of monsterID: String) async -> Monster? {
+		guard let monsters = await fetch(priority: .userInitiated).value else {
+			return nil
+		}
+		let monster = monsters.first { monster in
+			monster.id == monsterID
+		}
+		return monster
+	}
+
 	override func _fetch() async throws -> [Monster] {
 		let game = try await _dataSource.getGame(of: id)
 		let langsvc = _resolver.resolve(LanguageService.self, argument: game.localization)!

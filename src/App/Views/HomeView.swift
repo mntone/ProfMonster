@@ -13,16 +13,13 @@ struct HomeView: View {
 
 	var body: some View {
 		List(viewModel.state.data ?? []) { item in
-			NavigationLink(value: item.routeValue) {
+			NavigationLink(value: MARoute.game(gameID: item.id)) {
 				Text(verbatim: item.name)
 			}
 		}
 		.modifier(SharedGameListModifier(isLoading: viewModel.state.isLoading) {
 			settingsAction?.present()
 		})
-		.task {
-			viewModel.fetchData()
-		}
 	}
 }
 
@@ -56,9 +53,6 @@ struct HomeViewBackport: View {
 		.modifier(SharedGameListModifier(isLoading: viewModel.state.isLoading) {
 			settingsAction?.present()
 		})
-		.task {
-			viewModel.fetchData()
-		}
 	}
 }
 

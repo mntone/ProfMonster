@@ -8,13 +8,16 @@ struct ContentView: View {
 	private var horizontalSizeClass
 #endif
 
+	@SceneStorage("_p")
+	private var pathString: String?
+
 	@State
 	private var isSettingsPresented: Bool = false
 
 	var body: some View {
 		Group {
 #if os(macOS)
-			NavigationPathSupport { gameID, monsterID in
+			NavigationPathSupport(pathString: $pathString) { gameID, monsterID in
 				if #available(macOS 13.0, *) {
 					NavigationSplitViewHost(viewModel: viewModel,
 											selectedGameID: gameID,
@@ -27,11 +30,11 @@ struct ContentView: View {
 			}
 #elseif os(watchOS)
 			if #available(watchOS 9.0, *) {
-				NavigationPathHost { path in
+				NavigationPathHost(pathString: $pathString) { path in
 					NavigationStackHost(viewModel: viewModel, path: path)
 				}
 			} else {
-				NavigationPathSupport { gameID, monsterID in
+				NavigationPathSupport(pathString: $pathString) { gameID, monsterID in
 					NavigationStackHostBackport(viewModel: viewModel,
 												selectedGameID: gameID,
 												selectedMonsterID: monsterID)
@@ -40,7 +43,7 @@ struct ContentView: View {
 #else
 			if UIDevice.current.userInterfaceIdiom == .pad,
 			   horizontalSizeClass == .regular {
-				NavigationPathSupport { gameID, monsterID in
+				NavigationPathSupport(pathString: $pathString) { gameID, monsterID in
 					if #available(iOS 16.0, *) {
 						NavigationSplitViewHost(viewModel: viewModel,
 												selectedGameID: gameID,
@@ -52,11 +55,11 @@ struct ContentView: View {
 					}
 				}
 			} else if #available(iOS 16.0, *) {
-				NavigationPathHost { path in
+				NavigationPathHost(pathString: $pathString) { path in
 					NavigationStackHost(viewModel: viewModel, path: path)
 				}
 			} else {
-				NavigationPathSupport { gameID, monsterID in
+				NavigationPathSupport(pathString: $pathString) { gameID, monsterID in
 					NavigationStackHostBackport(viewModel: viewModel,
 												selectedGameID: gameID,
 												selectedMonsterID: monsterID)
