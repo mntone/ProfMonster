@@ -11,30 +11,33 @@ enum PhysiologyViewMetrics {
 
 	static let margin: CGFloat = 4
 	static let scrollMargin: CGFloat = 12
-	static let spacing: CGFloat = 4
+	static let spacing: CGFloat = 8
+	static let rowSpacing: CGFloat = 4
 	static let inset: CGFloat = 12
 #elseif os(watchOS)
 	static let textStyle: Font.TextStyle = .caption2
 	static let defaultFontSize: CGFloat = 14
-	static let headerBaseWidth: CGFloat = 45
+	static let headerBaseWidth: CGFloat = 50
 	static let itemBaseWidth: CGFloat = 20
 
 	static let margin: CGFloat = 2
 	static let scrollMargin: CGFloat = 8
-	static let spacing: CGFloat = 2
+	static let spacing: CGFloat = 4
+	static let rowSpacing: CGFloat = 2
 	static let inset: CGFloat = 8
 #else
 	static let maxScaleFactor: CGFloat = 1.9
 
 	static let textStyle: Font.TextStyle = .subheadline
 	static let defaultFontSize: CGFloat = 15
-	static let headerBaseWidth: CGFloat = 75
+	static let headerBaseWidth: CGFloat = 88
 	static let itemBaseWidth: CGFloat = 24
 	static let maxWidth: CGFloat = 480
 
-	static let margin: CGFloat = 4
+	static let margin: CGFloat = 8
 	static let scrollMargin: CGFloat = 12
-	static let spacing: CGFloat = 4
+	static let spacing: CGFloat = 8
+	static let rowSpacing: CGFloat = 4
 	static let inset: CGFloat = 12
 #endif
 
@@ -49,15 +52,30 @@ struct PhysiologyHeaderHeightPreferenceKey: PreferenceKey {
 	}
 }
 
+private struct PhysiologyRowHeaderView: View {
+	let viewModel: [PhysiologyColumnViewModel]
+	let itemWidth: CGFloat
+
+	var body: some View {
+		HStack(spacing: PhysiologyViewMetrics.spacing) {
+			ForEach(viewModel) { item in
+				item.attackIcon
+					.foregroundColor(item.attackColor)
+			}
+			.frame(maxWidth: itemWidth)
+		}
+		.padding(EdgeInsets(top: PhysiologyViewMetrics.rowSpacing,
+							leading: PhysiologyViewMetrics.margin,
+							bottom: PhysiologyViewMetrics.rowSpacing,
+							trailing: PhysiologyViewMetrics.inset))
+	}
+}
+
 struct PhysiologyHeaderView: View {
 	let viewModel: PhysiologyViewModel
-	let headerWidth: CGFloat
 
 	var body: some View {
 		Text(verbatim: viewModel.header)
-			.multilineTextAlignment(.center)
-			.fixedSize(horizontal: false, vertical: true)
-			.frame(width: headerWidth)
 			.foregroundColor(viewModel.foregroundColor)
 			.background(GeometryReader { proxy in
 				Color.clear.preference(key: PhysiologyHeaderHeightPreferenceKey.self,
@@ -75,12 +93,11 @@ struct PhysiologyContentView: View {
 	let itemWidth: CGFloat
 
 	var body: some View {
-		HStack {
-			ForEach(Array(viewModel.value.values().enumerated()), id: \.offset) { _, val in
-				Spacer()
+		HStack(spacing: PhysiologyViewMetrics.spacing) {
+			ForEach(Array(viewModel.values.enumerated()), id: \.offset) { _, val in
 				Text(verbatim: String(val))
-					.frame(width: itemWidth)
 			}
+			.frame(width: itemWidth)
 		}
 		.foregroundColor(viewModel.foregroundColor)
 		.padding(EdgeInsets(top: 0,
@@ -121,37 +138,49 @@ struct PhysiologyScrollableView: View {
 		let cappedItemWidth = min(itemWidth, PhysiologyViewMetrics.maxScaleFactor * PhysiologyViewMetrics.itemBaseWidth)
 #endif
 
-		HStack(alignment: .top, spacing: 0) {
+		HStack(alignment: .bottom, spacing: 0) {
+			let headerBackground = headerBackgroundShape.foregroundColor(.physiologySecondary)
 			VStack(spacing: 0) {
-				ForEach(Array(viewModel.groups.enumerated()), id: \.offset) { i, group in
+				ForEach(viewModel.groups) { group in
 					VStack(spacing: 0) {
 						ForEach(group.items) { item in
-#if os(iOS)
-							PhysiologyHeaderView(viewModel: item,
-												 headerWidth: cappedHeaderWidth)
-#elseif os(macOS)
-							PhysiologyHeaderView(viewModel: item,
-												 headerWidth: PhysiologyViewMetrics.headerBaseWidth)
-#else
-							PhysiologyHeaderView(viewModel: item,
-												 headerWidth: headerWidth)
-#endif
+							PhysiologyHeaderView(viewModel: item)
 						}
 					}
-					.padding(.vertical, PhysiologyViewMetrics.spacing)
-					.background(i % 2 != 0
-									? headerBackgroundShape.foregroundColor(.physiologySecondary)
-									: nil)
+					.padding(.vertical, PhysiologyViewMetrics.rowSpacing)
+					.frame(maxWidth: .infinity)
+					.background(group.id % 2 != 0 ? headerBackground : nil)
 				}
 			}
-			.padding(.vertical, PhysiologyViewMetrics.margin)
+			.multilineTextAlignment(.center)
+			.fixedSize(horizontal: false, vertical: true)
+#if os(iOS)
+			.frame(maxWidth: cappedHeaderWidth)
+#elseif os(macOS)
+			.frame(maxWidth: PhysiologyViewMetrics.headerBaseWidth)
+#else
+			.frame(maxWidth: headerWidth)
+#endif
+			.padding(.bottom, PhysiologyViewMetrics.rowSpacing)
 			.onPreferenceChange(PhysiologyHeaderHeightPreferenceKey.self) { heights in
 				headerHeights = heights
 			}
 
+			let contentBackground = contentBackgroundShape.foregroundColor(.physiologySecondary)
 			ObservableHorizontalScrollView(offsetX: $offsetX) {
 				VStack(spacing: 0) {
-					ForEach(Array(viewModel.groups.enumerated()), id: \.offset) { i, group in
+#if os(iOS)
+					PhysiologyRowHeaderView(viewModel: viewModel.columns,
+											itemWidth: cappedItemWidth)
+#elseif os(macOS)
+					PhysiologyRowHeaderView(viewModel: viewModel.columns,
+											itemWidth: PhysiologyViewMetrics.itemBaseWidth)
+#else
+					PhysiologyRowHeaderView(viewModel: viewModel.columns,
+											itemWidth: itemWidth)
+#endif
+
+					ForEach(viewModel.groups) { group in
 						VStack(spacing: 0) {
 							ForEach(group.items) { item in
 #if os(iOS)
@@ -169,15 +198,13 @@ struct PhysiologyScrollableView: View {
 #endif
 							}
 						}
-						.padding(.vertical, PhysiologyViewMetrics.spacing)
-						.background(i % 2 != 0
-									? contentBackgroundShape.foregroundColor(.physiologySecondary)
-									: nil)
+						.padding(.vertical, PhysiologyViewMetrics.rowSpacing)
+						.background(group.id % 2 != 0 ? contentBackground : nil)
 					}
 				}
-				.padding(EdgeInsets(top: PhysiologyViewMetrics.margin,
+				.padding(EdgeInsets(top: PhysiologyViewMetrics.rowSpacing,
 									leading: 0,
-									bottom: PhysiologyViewMetrics.margin,
+									bottom: PhysiologyViewMetrics.rowSpacing,
 									trailing: PhysiologyViewMetrics.scrollMargin))
 			}
 			.ignoresSafeArea(.all, edges: .leading)
@@ -228,6 +255,7 @@ struct PhysiologyScrollableView: View {
 // But, in real case, its sentence is unnessesary.
 #Preview {
 	PhysiologyScrollableView(viewModel: PhysiologiesViewModel(rawValue: MockDataSource.physiology1).sections[0])
+		.previewLayout(.sizeThatFits)
 		//.environment(\.locale, Locale(identifier: "ar"))
 		//.environment(\.layoutDirection, .rightToLeft)
 }

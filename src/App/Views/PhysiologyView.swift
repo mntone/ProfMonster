@@ -3,6 +3,48 @@ import SwiftUI
 
 struct PhysiologyRowView: View {
 	let viewModel: PhysiologyViewModel
+	let headerWidth: CGFloat
+	let itemWidth: CGFloat
+
+	var body: some View {
+		HStack(spacing: 0) {
+			Text(verbatim: viewModel.header)
+				.fixedSize(horizontal: false, vertical: true)
+				.frame(width: headerWidth)
+
+			ForEach(Array(viewModel.values.enumerated()), id: \.offset) { _, val in
+				Spacer(minLength: PhysiologyViewMetrics.spacing)
+				Text(verbatim: String(val))
+					.frame(width: itemWidth)
+			}
+		}
+		.foregroundColor(viewModel.foregroundColor)
+	}
+}
+
+private struct PhysiologyRowHeaderView: View {
+	let viewModel: [PhysiologyColumnViewModel]
+	let headerWidth: CGFloat
+	let itemWidth: CGFloat
+
+	var body: some View {
+		HStack(spacing: 0) {
+			ForEach(viewModel) { item in
+				Spacer(minLength: PhysiologyViewMetrics.spacing)
+				item.attackIcon
+					.foregroundColor(item.attackColor)
+					.frame(width: itemWidth)
+			}
+		}
+		.padding(EdgeInsets(top: PhysiologyViewMetrics.rowSpacing,
+							leading: PhysiologyViewMetrics.inset + headerWidth,
+							bottom: PhysiologyViewMetrics.rowSpacing,
+							trailing: PhysiologyViewMetrics.inset))
+	}
+}
+
+struct PhysiologyView: View {
+	let viewModel: PhysiologySectionViewModel
 
 #if !os(macOS)
 	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
@@ -13,57 +55,41 @@ struct PhysiologyRowView: View {
 #endif
 
 	var body: some View {
-		HStack {
-			Text(verbatim: viewModel.header)
-				.multilineTextAlignment(.center)
-				.fixedSize(horizontal: false, vertical: true)
-#if os(macOS)
-				.frame(width: PhysiologyViewMetrics.headerBaseWidth)
-#else
-				.frame(width: headerWidth)
-#endif
-			ForEach(Array(viewModel.value.values().enumerated()), id: \.offset) { _, val in
-				Spacer()
-				Text(verbatim: String(val))
-#if os(macOS)
-					.frame(width: PhysiologyViewMetrics.itemBaseWidth)
-#else
-					.frame(width: itemWidth)
-#endif
-			}
-		}
-		.foregroundColor(viewModel.foregroundColor)
-	}
-}
-
-struct PhysiologySectionView: View {
-	let viewModel: PhysiologyGroupViewModel
-
-	var body: some View {
 		VStack(spacing: 0) {
-			ForEach(viewModel.items) { item in
-				PhysiologyRowView(viewModel: item)
+#if os(macOS)
+			PhysiologyRowHeaderView(viewModel: viewModel.columns,
+									headerWidth: PhysiologyViewMetrics.headerBaseWidth,
+									itemWidth: PhysiologyViewMetrics.itemBaseWidth)
+#else
+			PhysiologyRowHeaderView(viewModel: viewModel.columns,
+									headerWidth: headerWidth,
+									itemWidth: itemWidth)
+#endif
+
+			ForEach(viewModel.groups) { group in
+				VStack(spacing: 0) {
+					ForEach(group.items) { item in
+#if os(macOS)
+						PhysiologyRowView(viewModel: item,
+										  headerWidth: PhysiologyViewMetrics.headerBaseWidth,
+										  itemWidth: PhysiologyViewMetrics.itemBaseWidth)
+#else
+						PhysiologyRowView(viewModel: item,
+										  headerWidth: headerWidth,
+										  itemWidth: itemWidth)
+#endif
+					}
+				}
+				.padding(EdgeInsets(top: PhysiologyViewMetrics.rowSpacing,
+									leading: PhysiologyViewMetrics.inset,
+									bottom: PhysiologyViewMetrics.rowSpacing,
+									trailing: PhysiologyViewMetrics.inset))
+				.background(group.id % 2 != 0
+							? RoundedRectangle(cornerRadius: 4).foregroundColor(.physiologySecondary)
+							: nil)
 			}
 		}
-	}
-}
-
-struct PhysiologyView: View {
-	let viewModel: PhysiologySectionViewModel
-
-	var body: some View {
-		VStack(spacing: 0) {
-			ForEach(Array(viewModel.groups.enumerated()), id: \.offset) { i, group in
-				PhysiologySectionView(viewModel: group)
-					.padding(EdgeInsets(top: PhysiologyViewMetrics.spacing,
-										leading: PhysiologyViewMetrics.inset,
-										bottom: PhysiologyViewMetrics.spacing,
-										trailing: PhysiologyViewMetrics.inset))
-					.background(i % 2 != 0
-								? RoundedRectangle(cornerRadius: 4).foregroundColor(.physiologySecondary)
-								: nil)
-			}
-		}
+		.multilineTextAlignment(.center)
 		.font(Font.system(PhysiologyViewMetrics.textStyle).monospacedDigit())
 		.frame(idealWidth: PhysiologyViewMetrics.maxWidth,
 			   maxWidth: PhysiologyViewMetrics.maxWidth)
