@@ -1,17 +1,19 @@
 import Foundation
 
-public struct JapaneseTextProcessor: TextProcessor {
+struct JapaneseTextProcessor: TextProcessor {
 	public init() {
 	}
 
-	public func normalize(_ text: String) -> String {
+	func normalize(_ text: String) -> String {
 		text.lowercased()
 			.applyingTransform(.hiraganaToKatakana, reverse: false)!
 			.decomposedStringWithCompatibilityMapping  // NFKD
 	}
 
-	public func latin(from text: String) -> String {
-		text.precomposedStringWithCompatibilityMapping  // NFKC
+	func latin(from text: String) -> String {
+		text.replacingOccurrences(of: "亜種$", with: "アシュ", options: .regularExpression)
+			.replacingOccurrences(of: "希少種$", with: "キショウシュ", options: .regularExpression)
+			.precomposedStringWithCompatibilityMapping  // NFKC
 			.applyingTransform(.latinToKatakana, reverse: true)!
 	}
 }

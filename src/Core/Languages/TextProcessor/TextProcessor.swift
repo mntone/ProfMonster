@@ -5,15 +5,15 @@ public protocol TextProcessor {
 	func latin(from text: String) -> String
 }
 
-public struct DefaultTextProcessor: TextProcessor {
-	public init() {
+struct DefaultTextProcessor: TextProcessor {
+	init() {
 	}
 
-	public func normalize(_ text: String) -> String {
+	func normalize(_ text: String) -> String {
 		text.lowercased()
 	}
 
-	public func latin(from text: String) -> String {
+	func latin(from text: String) -> String {
 		text
 	}
 }
