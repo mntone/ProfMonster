@@ -1,6 +1,7 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
+@available(iOS 16.0, *)
 struct MonsterList: View {
 	@ObservedObject
 	private(set) var viewModel: GameViewModel
@@ -14,6 +15,9 @@ struct MonsterList: View {
 		}
 #if os(macOS)
 		.animation(.default, value: viewModel.state.data)
+#endif
+#if os(iOS)
+		.scrollDismissesKeyboard(.immediately)
 #endif
 		.navigationTitle(Text(verbatim: viewModel.name))
 		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
@@ -41,6 +45,9 @@ struct MonsterListBackport: View {
 				MonsterListItem(viewModel: item)
 			}
 		}
+#if os(iOS)
+		.backport.scrollDismissesKeyboard(.immediately)
+#endif
 		.navigationTitle(Text(verbatim: viewModel.name))
 		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 											searchText: $viewModel.searchText,
@@ -52,5 +59,13 @@ struct MonsterListBackport: View {
 
 #Preview {
 	let viewModel = GameViewModel(id: "mockgame")!
+#if os(macOS)
 	return MonsterList(viewModel: viewModel, selectedMonsterID: .constant(nil))
+#else
+	if #available(iOS 16.0, *) {
+		return MonsterList(viewModel: viewModel, selectedMonsterID: .constant(nil))
+	} else {
+		return MonsterListBackport(viewModel: viewModel, selectedMonsterID: .constant(nil))
+	}
+#endif
 }

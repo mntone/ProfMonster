@@ -16,6 +16,7 @@ struct GameView: View {
 		}
 #if os(iOS)
 		.listStyle(.plain)
+		.scrollDismissesKeyboard(.immediately)
 #endif
 		.navigationTitle(Text(verbatim: viewModel.name))
 		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
@@ -47,6 +48,7 @@ struct GameViewBackport: View {
 			}
 #if os(iOS)
 			.listStyle(.plain)
+			.backport.scrollDismissesKeyboard(.immediately)
 #endif
 			.onAppear {
 				if let selectedMonsterID {

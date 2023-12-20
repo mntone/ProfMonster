@@ -23,11 +23,15 @@
 		EB31EEBD2B2C9E4D00FF8536 /* NavigationPathSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEBB2B2C9E4D00FF8536 /* NavigationPathSupport.swift */; };
 		EB38D1FB2B2946A800CED9DB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */; };
 		EB38D1FC2B2946A800CED9DB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */; };
+		EB42495D2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42495C2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift */; };
+		EB42495F2B332A230086E255 /* Backport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42495E2B332A230086E255 /* Backport.swift */; };
+		EB4249602B332A230086E255 /* Backport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42495E2B332A230086E255 /* Backport.swift */; };
 		EB433A3A2B2DEB050079AAD8 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB433A392B2DEB050079AAD8 /* AppTests.swift */; };
 		EB433A3C2B2DEF750079AAD8 /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = EB433A3B2B2DEF750079AAD8 /* Swinject-Dynamic */; };
 		EB44EF492B1C017100DD47B5 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44EF482B1C017100DD47B5 /* CoreAssembly.swift */; };
 		EB44EF4B2B1C0BCB00DD47B5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */; };
 		EB44EF4C2B1C0BCB00DD47B5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */; };
+		EB47FA402B331F1700044DEE /* SwiftUIIntrospect-Static in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = EB47FA3F2B331F1700044DEE /* SwiftUIIntrospect-Static */; };
 		EB645A612B26749E00D27500 /* NavigationStackHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A602B26749E00D27500 /* NavigationStackHost.swift */; };
 		EB645A642B2685D500D27500 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A632B2685D500D27500 /* Sidebar.swift */; };
 		EB645A652B269EF300D27500 /* NavigationStackHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A602B26749E00D27500 /* NavigationStackHost.swift */; };
@@ -251,6 +255,8 @@
 		EB31EEB82B2C9DD000FF8536 /* NavigationPathHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPathHost.swift; sourceTree = "<group>"; };
 		EB31EEBB2B2C9E4D00FF8536 /* NavigationPathSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPathSupport.swift; sourceTree = "<group>"; };
 		EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		EB42495C2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ScrollDismissesKeyboard.swift"; sourceTree = "<group>"; };
+		EB42495E2B332A230086E255 /* Backport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backport.swift; sourceTree = "<group>"; };
 		EB433A392B2DEB050079AAD8 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
 		EB44EF482B1C017100DD47B5 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -387,6 +393,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBEA6F3A2B1858FB00734AAA /* MonsterAnalyzerCore.framework in Frameworks */,
+				EB47FA402B331F1700044DEE /* SwiftUIIntrospect-Static in Frameworks */,
 				EBEA6F652B185ABE00734AAA /* Swinject-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +429,14 @@
 				EB645A602B26749E00D27500 /* NavigationStackHost.swift */,
 			);
 			path = Navigations;
+			sourceTree = "<group>";
+		};
+		EB42495B2B3329E30086E255 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				EB42495C2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift */,
+			);
+			path = iOS;
 			sourceTree = "<group>";
 		};
 		EB8F07DB2B2FF3E1006AC575 /* Utils */ = {
@@ -578,7 +593,9 @@
 		EBC85C6E2B205397008A16C6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EB42495B2B3329E30086E255 /* iOS */,
 				EBC85C6F2B2053A5008A16C6 /* watchOS */,
+				EB42495E2B332A230086E255 /* Backport.swift */,
 				EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */,
 				EBC85C7C2B209D65008A16C6 /* EdgeInsets+Extensions.swift */,
 				EB8778272B26BDEF00B3359C /* EnvironmentValues+SettingsActions.swift */,
@@ -870,6 +887,7 @@
 			name = MonsterAnalyzer;
 			packageProductDependencies = (
 				EBEA6F642B185ABE00734AAA /* Swinject-Dynamic */,
+				EB47FA3F2B331F1700044DEE /* SwiftUIIntrospect-Static */,
 			);
 			productName = "Monster Analyser";
 			productReference = EBF928272B1038C9007D59D4 /* MonsterAnalyzer.app */;
@@ -925,6 +943,7 @@
 			packageReferences = (
 				EBEA6F802B1A205300734AAA /* XCRemoteSwiftPackageReference "MessagePacker" */,
 				EBB4B2252B17787E004D63EA /* XCRemoteSwiftPackageReference "Swinject" */,
+				EB47FA3E2B331F1700044DEE /* XCRemoteSwiftPackageReference "swiftui-introspect" */,
 			);
 			productRefGroup = EBF928282B1038C9007D59D4 /* Products */;
 			projectDirPath = "";
@@ -987,6 +1006,7 @@
 			files = (
 				EB29563B2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBB4B2162B175DE7004D63EA /* AttackViewModel.swift in Sources */,
+				EB4249602B332A230086E255 /* Backport.swift in Sources */,
 				EBC85C7B2B2063FF008A16C6 /* BottomCircularButtonStyle.swift in Sources */,
 				EBB4B2172B175DED004D63EA /* Color+Extensions.swift in Sources */,
 				EBB4B2052B175D4A004D63EA /* ContentView.swift in Sources */,
@@ -1099,6 +1119,8 @@
 			files = (
 				EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBB4B1E52B16A6D4004D63EA /* AttackViewModel.swift in Sources */,
+				EB42495D2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift in Sources */,
+				EB42495F2B332A230086E255 /* Backport.swift in Sources */,
 				EBB4B1D72B161E94004D63EA /* Color+Extensions.swift in Sources */,
 				EBB4B2042B175D4A004D63EA /* ContentView.swift in Sources */,
 				EBC85C7D2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */,
@@ -1587,6 +1609,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		EB47FA3E2B331F1700044DEE /* XCRemoteSwiftPackageReference "swiftui-introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/swiftui-introspect";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.1;
+			};
+		};
 		EBB4B2252B17787E004D63EA /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
@@ -1610,6 +1640,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = EBB4B2252B17787E004D63EA /* XCRemoteSwiftPackageReference "Swinject" */;
 			productName = "Swinject-Dynamic";
+		};
+		EB47FA3F2B331F1700044DEE /* SwiftUIIntrospect-Static */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EB47FA3E2B331F1700044DEE /* XCRemoteSwiftPackageReference "swiftui-introspect" */;
+			productName = "SwiftUIIntrospect-Static";
 		};
 		EBEA6F5D2B185A8200734AAA /* Swinject-Dynamic */ = {
 			isa = XCSwiftPackageProductDependency;
