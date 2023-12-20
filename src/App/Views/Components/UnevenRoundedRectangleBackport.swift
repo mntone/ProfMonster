@@ -9,7 +9,7 @@ struct UnevenRoundedRectangleBackport: Shape {
 		static let topRight    = CornerOptions(rawValue: 1 << 1)
 		static let bottomLeft  = CornerOptions(rawValue: 1 << 2)
 		static let bottomRight = CornerOptions(rawValue: 1 << 3)
-		
+
 		static let left: CornerOptions = [.topLeft, .bottomLeft]
 		static let right: CornerOptions = [.topRight, .bottomRight]
 
@@ -34,61 +34,61 @@ struct UnevenRoundedRectangleBackport: Shape {
 		}
 
 #if os(macOS)
-		let halfPI: CGFloat = 0.5 * .pi
-		let path = CGMutablePath()
-		if corner.contains(.topLeft) {
-			path.move(to: CGPoint(x: cornerRadius, y: 0))
-		} else {
-			path.move(to: .zero)
-		}
-		
-		let xCenter = rect.width - cornerRadius
-		if corner.contains(.topRight) {
-			path.addLine(to: CGPoint(x: xCenter, y: 0))
-			path.addArc(center: CGPoint(x: xCenter, y: 0),
-						radius: cornerRadius,
-						startAngle: -halfPI,
-						endAngle: 0,
-						clockwise: false)
-		} else {
-			path.addLine(to: CGPoint(x: rect.width, y: 0))
-		}
-		
-		let yCenter = rect.height - cornerRadius
-		if corner.contains(.bottomRight) {
-			path.addLine(to: CGPoint(x: rect.width, y: yCenter))
-			path.addArc(center: CGPoint(x: xCenter, y: yCenter),
-						radius: cornerRadius,
-						startAngle: 0,
-						endAngle: halfPI,
-						clockwise: false)
-		} else {
-			path.addLine(to: CGPoint(x: rect.width, y: rect.height))
-		}
+		return Path { path in
+			let cappedCornerRadius = min(cornerRadius, 0.5 * rect.width, 0.5 * rect.height)
+			let halfPI: Angle = .radians(0.5 * .pi)
+			if corner.contains(.topLeft) {
+				path.move(to: CGPoint(x: cappedCornerRadius, y: 0))
+			} else {
+				path.move(to: CGPoint.zero)
+			}
 
-		if corner.contains(.bottomLeft) {
-			path.addLine(to: CGPoint(x: cornerRadius, y: rect.height))
-			path.addArc(center: CGPoint(x: cornerRadius, y: yCenter),
-						radius: cornerRadius,
-						startAngle: halfPI,
-						endAngle: .pi,
-						clockwise: false)
-		} else {
-			path.addLine(to: CGPoint(x: 0, y: rect.height))
+			let xCenter = rect.width - cappedCornerRadius
+			if corner.contains(.topRight) {
+				path.addLine(to: CGPoint(x: xCenter, y: 0))
+				path.addArc(center: CGPoint(x: xCenter, y: cappedCornerRadius),
+							radius: cappedCornerRadius,
+							startAngle: -halfPI,
+							endAngle: Angle.zero,
+							clockwise: false)
+			} else {
+				path.addLine(to: CGPoint(x: rect.width, y: 0))
+			}
+
+			let yCenter = rect.height - cappedCornerRadius
+			if corner.contains(.bottomRight) {
+				path.addLine(to: CGPoint(x: rect.width, y: yCenter))
+				path.addArc(center: CGPoint(x: xCenter, y: yCenter),
+							radius: cappedCornerRadius,
+							startAngle: Angle.zero,
+							endAngle: halfPI,
+							clockwise: false)
+			} else {
+				path.addLine(to: CGPoint(x: rect.width, y: rect.height))
+			}
+
+			if corner.contains(.bottomLeft) {
+				path.addLine(to: CGPoint(x: cappedCornerRadius, y: rect.height))
+				path.addArc(center: CGPoint(x: cappedCornerRadius, y: yCenter),
+							radius: cappedCornerRadius,
+							startAngle: halfPI,
+							endAngle: Angle.radians(.pi),
+							clockwise: false)
+			} else {
+				path.addLine(to: CGPoint(x: 0, y: rect.height))
+			}
+
+			if corner.contains(.topLeft) {
+				path.addLine(to: CGPoint(x: 0, y: cappedCornerRadius))
+				path.addArc(center: CGPoint(x: cappedCornerRadius, y: cappedCornerRadius),
+							radius: cappedCornerRadius,
+							startAngle: Angle.radians(.pi),
+							endAngle: Angle.radians(1.5 * .pi),
+							clockwise: false)
+			} else {
+				path.addLine(to: .zero)
+			}
 		}
-		
-		if corner.contains(.topLeft) {
-			path.addLine(to: CGPoint(x: 0, y: cornerRadius))
-			path.addArc(center: CGPoint(x: cornerRadius, y: cornerRadius),
-						radius: cornerRadius,
-						startAngle: .pi,
-						endAngle: .pi + halfPI,
-						clockwise: false)
-		} else {
-			path.addLine(to: .zero)
-		}
-		
-		return Path(path)
 #else
 		var uiCorners: UIRectCorner = []
 		if corner.contains(.topLeft) {
