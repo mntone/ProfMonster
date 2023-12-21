@@ -14,6 +14,7 @@ struct MonsterList: View {
 			MonsterListItem(viewModel: item)
 		}
 #if os(macOS)
+		.backport.alternatingRowBackgrounds()
 		.animation(.default, value: viewModel.state.data)
 #endif
 #if os(iOS)

@@ -13,7 +13,7 @@
 		EB19D6722B1EBEC900C90417 /* ObservableHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */; };
 		EB19D6732B1EFB6700C90417 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E82B16C254004D63EA /* Element.swift */; };
 		EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */; };
-		EB2550142B288C84004823BA /* View+AlternatingRowBackgroundsBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2550132B288C84004823BA /* View+AlternatingRowBackgroundsBackport.swift */; };
+		EB2550142B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2550132B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift */; };
 		EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
 		EB29563B2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
 		EB2956412B310E28002C5CA8 /* SelectableListRowBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956402B310E28002C5CA8 /* SelectableListRowBackport.swift */; };
@@ -248,7 +248,7 @@
 		EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableHorizontalScrollView.swift; sourceTree = "<group>"; };
 		EB19D6742B1EFF7700C90417 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+RetryIf.swift"; sourceTree = "<group>"; };
-		EB2550132B288C84004823BA /* View+AlternatingRowBackgroundsBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AlternatingRowBackgroundsBackport.swift"; sourceTree = "<group>"; };
+		EB2550132B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+AlternatingRowBackgrounds.swift"; sourceTree = "<group>"; };
 		EB2956392B30139A002C5CA8 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		EB2956402B310E28002C5CA8 /* SelectableListRowBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableListRowBackport.swift; sourceTree = "<group>"; };
 		EB31EEB42B2BD7FA00FF8536 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
@@ -439,6 +439,14 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		EB60764B2B33F5B900AF9121 /* macOS */ = {
+			isa = PBXGroup;
+			children = (
+				EB2550132B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift */,
+			);
+			path = macOS;
+			sourceTree = "<group>";
+		};
 		EB8F07DB2B2FF3E1006AC575 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,12 +602,12 @@
 			isa = PBXGroup;
 			children = (
 				EB42495B2B3329E30086E255 /* iOS */,
+				EB60764B2B33F5B900AF9121 /* macOS */,
 				EBC85C6F2B2053A5008A16C6 /* watchOS */,
 				EB42495E2B332A230086E255 /* Backport.swift */,
 				EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */,
 				EBC85C7C2B209D65008A16C6 /* EdgeInsets+Extensions.swift */,
 				EB8778272B26BDEF00B3359C /* EnvironmentValues+SettingsActions.swift */,
-				EB2550132B288C84004823BA /* View+AlternatingRowBackgroundsBackport.swift */,
 				EB0004D42B2CB668001C71D5 /* View+If.swift */,
 				EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */,
 			);
@@ -1119,6 +1127,7 @@
 			files = (
 				EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBB4B1E52B16A6D4004D63EA /* AttackViewModel.swift in Sources */,
+				EB2550142B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift in Sources */,
 				EB42495D2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift in Sources */,
 				EB42495F2B332A230086E255 /* Backport.swift in Sources */,
 				EBB4B1D72B161E94004D63EA /* Color+Extensions.swift in Sources */,
@@ -1158,7 +1167,6 @@
 				EB645A642B2685D500D27500 /* Sidebar.swift in Sources */,
 				EB967A4B2B2AC7100041A491 /* StateView.swift in Sources */,
 				EBEA6F742B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
-				EB2550142B288C84004823BA /* View+AlternatingRowBackgroundsBackport.swift in Sources */,
 				EB0004D52B2CB668001C71D5 /* View+If.swift in Sources */,
 				EB87782E2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */,
 				EB9620E82B1D7A5000FD7115 /* ViewModelCache.swift in Sources */,

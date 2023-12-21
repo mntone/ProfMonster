@@ -33,9 +33,7 @@ struct SharedMonsterListModifier: ViewModifier {
 					ProgressView()
 				}
 			}
-#if os(macOS)
-			.alternatingRowBackgroundsBackport(enable: true)
-#else
+#if os(iOS)
 			.navigationBarTitleDisplayMode(.inline)
 #endif
 	}
