@@ -42,8 +42,13 @@ struct WeaknessItemViewModel: Identifiable, AttackItemViewModel {
 		}
 	}
 
-	var signKey: LocalizedStringKey {
-		return LocalizedStringKey("effectiveSign." + effective.rawValue)
+	var signWeight: Font.Weight {
+		switch effective {
+		case .high, .middle:
+			return .semibold
+		case .low, .none:
+			return .medium
+		}
 	}
 }
 

@@ -1,13 +1,20 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
+extension Font {
+	public static func systemBackport(_ style: Font.TextStyle, design: Font.Design? = nil, weight: Font.Weight? = nil) -> Font {
+		if #available(iOS 16.0, macOS 13.0, watchOS 9.0, *) {
+			system(style, design: design, weight: weight)
+		} else {
+			system(style, design: design ?? .default).weight(weight ?? .regular)
+		}
+	}
+}
+
 struct FixedWidthWeaknessItemView: View {
 	let viewModel: WeaknessItemViewModel
 
 #if !os(watchOS)
-	@Environment(\.legibilityWeight)
-	private var legibilityWeight
-
 	@ScaledMetric(relativeTo: .title3)
 	private var signFontSize: CGFloat = 20
 #endif
@@ -21,13 +28,15 @@ struct FixedWidthWeaknessItemView: View {
 			}
 			.foregroundColor(viewModel.attackColor)
 
-			Text(viewModel.signKey)
+			Text(viewModel.effective.rawValue)
 				.foregroundColor(viewModel.signColor)
 #if os(watchOS)
-				.font(.system(.body, design: .rounded))
+				.font(.systemBackport(.body,
+									  design: .rounded,
+									  weight: viewModel.signWeight))
 #else
 				.font(.system(size: signFontSize,
-							  weight: legibilityWeight == .bold ? .bold : .semibold,
+							  weight: viewModel.signWeight,
 							  design: .rounded))
 #endif
 		}
@@ -61,7 +70,7 @@ struct FixedWidthWeaknessView: View {
 #endif
 			}
 
-			HStack(spacing: 0) {
+			HStack(alignment: .lastTextBaseline, spacing: 0) {
 #if os(watchOS)
 				ForEach(viewModel.items) { item in
 					FixedWidthWeaknessItemView(viewModel: item)
