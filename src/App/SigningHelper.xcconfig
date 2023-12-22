@@ -4,3 +4,4 @@
 // Separate signing options from project file.
 // For example, it is the params like DEVELOPMENT_TEAM.
 #include? "Signing.xcconfig"
+#include? "Versioning.xcconfig"
