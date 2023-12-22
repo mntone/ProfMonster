@@ -5,8 +5,8 @@ import SwiftUI
 
 @available(iOS 16.0, watchOS 9.0, *)
 struct HomeView: View {
-	@Environment(\.settingsAction)
-	private var settingsAction
+	@Environment(\.presentSettingsSheetAction)
+	private var presentSettingsSheetAction
 
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
@@ -18,7 +18,7 @@ struct HomeView: View {
 			}
 		}
 		.modifier(SharedGameListModifier(isLoading: viewModel.state.isLoading) {
-			settingsAction?.present()
+			presentSettingsSheetAction()
 		})
 	}
 }
@@ -26,8 +26,8 @@ struct HomeView: View {
 @available(iOS, introduced: 13.0, deprecated: 16.0, message: "Use NavigationStackHost instead")
 @available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use NavigationStackHost instead")
 struct HomeViewBackport: View {
-	@Environment(\.settingsAction)
-	private var settingsAction
+	@Environment(\.presentSettingsSheetAction)
+	private var presentSettingsSheetAction
 
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
@@ -51,7 +51,7 @@ struct HomeViewBackport: View {
 			}
 		}
 		.modifier(SharedGameListModifier(isLoading: viewModel.state.isLoading) {
-			settingsAction?.present()
+			presentSettingsSheetAction()
 		})
 	}
 }

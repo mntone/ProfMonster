@@ -353,6 +353,22 @@
         }
       }
     },
+    "App" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "App"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリ"
+          }
+        }
+      }
+    },
     "attackShort.blast" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1520,6 +1536,54 @@
         }
       }
     },
+    "Data" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データ"
+          }
+        }
+      }
+    },
+    "Display" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Display"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "画面表示"
+          }
+        }
+      }
+    },
+    "Element Attack" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Element Attack"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "属性攻撃"
+          }
+        }
+      }
+    },
     "error.noConnection" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1703,6 +1767,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "怪物教授無法下載資料，因為連接超時了。"
+          }
+        }
+      }
+    },
+    "Git Commit Date" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Git Commit Date"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gitのコミット日時"
+          }
+        }
+      }
+    },
+    "Git Commit Hash" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Git Commit Hash"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gitのコミット ハッシュ値"
           }
         }
       }
@@ -2458,6 +2554,59 @@
         }
       }
     },
+    "Number" : {
+      "comment" : "action.displayMode.number",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Number"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数値"
+          }
+        }
+      }
+    },
+    "Off" : {
+      "comment" : "action.displayMode.off",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Off"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オフ"
+          }
+        }
+      }
+    },
+    "Physical Attack" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Physical Attack"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "物理攻撃"
+          }
+        }
+      }
+    },
     "Prof. Monster" : {
       "comment" : "title.appname",
       "localizations" : {
@@ -3049,6 +3198,24 @@
         }
       }
     },
+    "Sign" : {
+      "comment" : "action.displayMode.sign",
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sign"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "記号"
+          }
+        }
+      }
+    },
     "Sort" : {
       "comment" : "action.sort",
       "localizations" : {
@@ -3062,6 +3229,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ソート"
+          }
+        }
+      }
+    },
+    "Version" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バージョン"
           }
         }
       }

@@ -10,6 +10,9 @@ struct MAApp: SwiftUI.App {
 #elseif os(watchOS)
 	@WKApplicationDelegateAdaptor
 	private var appDelegate: MAAppDelegate
+#else
+	@UIApplicationDelegateAdaptor
+	private var appDelegate: MAAppDelegate
 #endif
 
 	private let viewModel = HomeViewModel()
@@ -25,8 +28,13 @@ struct MAApp: SwiftUI.App {
 
 #if os(macOS)
 		Settings {
-			SettingsView(viewModel: SettingsViewModel(rootViewModel: viewModel))
+			if #available(macOS 13.0, *) {
+				ColumnSettingsContainer(viewModel: SettingsViewModel(rootViewModel: viewModel))
+			} else {
+				EmptyView()
+			}
 		}
+		.windowToolbarStyle(.expanded)
 #endif
 	}
 
@@ -76,9 +84,30 @@ final class MAAppDelegate: NSObject, WKApplicationDelegate {
 		crashedLastTime = false
 	}
 }
+#else
+final class MAAppDelegate: NSObject, UIApplicationDelegate {
+	func applicationDidFinishLaunching() {
+#if !targetEnvironment(simulator)
+		// Skip crash detection on simulator
+		MAApp.crashed = crashedLastTime
+#endif
+		crashedLastTime = true
+	}
+
+	func applicationWillResignActive() {
+		crashedLastTime = true
+	}
+
+	func applicationDidEnterBackground() {
+		crashedLastTime = false
+	}
+
+	func applicationWillTerminate(_ application: UIApplication) {
+		crashedLastTime = false
+	}
+}
 #endif
 
-#if !os(iOS)
 extension MAAppDelegate {
 	var crashedLastTime: Bool {
 		get {
@@ -89,4 +118,3 @@ extension MAAppDelegate {
 		}
 	}
 }
-#endif

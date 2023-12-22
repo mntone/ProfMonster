@@ -11,8 +11,10 @@ struct ContentView: View {
 	@SceneStorage("_p")
 	private var pathString: String?
 
+#if !os(macOS)
 	@State
 	private var isSettingsPresented: Bool = false
+#endif
 
 	var body: some View {
 		Group {
@@ -67,9 +69,11 @@ struct ContentView: View {
 			}
 #endif
 		}
+#if !os(macOS)
 		.sheet(isPresented: $isSettingsPresented) {
-			SettingsContainerView(SettingsViewModel(rootViewModel: viewModel))
+			SettingsContainer(viewModel: SettingsViewModel(rootViewModel: viewModel))
 		}
-		.setSettingsAction(isPresented: $isSettingsPresented)
+		.setPresentSettingsSheetAction(isPresented: $isSettingsPresented)
+#endif
 	}
 }

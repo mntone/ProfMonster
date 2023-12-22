@@ -10,6 +10,9 @@ struct UnevenRoundedRectangleBackport: Shape {
 		static let bottomLeft  = CornerOptions(rawValue: 1 << 2)
 		static let bottomRight = CornerOptions(rawValue: 1 << 3)
 
+		static let top: CornerOptions = [.topLeft, .topRight]
+		static let bottom: CornerOptions = [.bottomLeft, .bottomRight]
+
 		static let left: CornerOptions = [.topLeft, .bottomLeft]
 		static let right: CornerOptions = [.topRight, .bottomRight]
 
