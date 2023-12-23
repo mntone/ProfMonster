@@ -4,6 +4,12 @@
     "CFBundleDisplayName" : {
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "معلم الوحوش"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -14,6 +20,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Prof. Monster"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo"
           }
         },
         "fr" : {
@@ -38,6 +56,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "몬스터 교수"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Potwór"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstro"
           }
         },
         "ru" : {
@@ -63,6 +93,12 @@
     "CFBundleName" : {
       "extractionState" : "manual",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "معلم الوحوش"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -73,6 +109,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Prof. Monster"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo"
           }
         },
         "fr" : {
@@ -97,6 +145,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "몬스터 교수"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Potwór"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstro"
           }
         },
         "ru" : {

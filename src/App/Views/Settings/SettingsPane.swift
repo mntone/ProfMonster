@@ -3,7 +3,7 @@ import SwiftUI
 enum SettingsPane: String, CaseIterable, Hashable, Identifiable {
 	case display = "Display"
 	case data = "Data"
-	case app = "App"
+	case app = "About App"
 
 	var id: String {
 		rawValue
