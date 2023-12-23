@@ -1,4 +1,3 @@
-import Combine
 import Foundation
 
 public enum LanguageDictionary {
@@ -22,7 +21,7 @@ final class PassthroughtLanguageService: LanguageService {
 	let locale: Locale = Locale(identifier: "en")
 	var dictionaries: [LanguageDictionary: [String: String]] = [:]
 
-	public init() {
+	init() {
 	}
 
 	var localeKey: String {

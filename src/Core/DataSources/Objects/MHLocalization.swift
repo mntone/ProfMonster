@@ -1,10 +1,10 @@
 import Foundation
 
-public struct MHLocalizationMonster: Codable {
-	public let id: String
-	public let name: String
-	public let anotherName: String?
-	public let keywords: [String]
+struct MHLocalizationMonster: Codable {
+	let id: String
+	let name: String
+	let anotherName: String?
+	let keywords: [String]
 
 	init(id: String,
 		 name: String,
@@ -23,7 +23,7 @@ public struct MHLocalizationMonster: Codable {
 		case keywords
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.id = try container.decode(String.self, forKey: .id)
 		self.name = try container.decode(String.self, forKey: .name)
@@ -31,7 +31,7 @@ public struct MHLocalizationMonster: Codable {
 		self.keywords = try container.decodeIfPresent([String].self, forKey: .keywords) ?? []
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 		try container.encode(id, forKey: .id)
 		try container.encode(name, forKey: .name)
@@ -42,9 +42,9 @@ public struct MHLocalizationMonster: Codable {
 	}
 }
 
-public struct MHLocalization: Codable {
-	public let monsters: [MHLocalizationMonster]
-	public let states: [String: String]
+struct MHLocalization: Codable {
+	let monsters: [MHLocalizationMonster]
+	let states: [String: String]
 
 	init(monsters: [MHLocalizationMonster],
 		 states: [String: String]) {
@@ -57,13 +57,13 @@ public struct MHLocalization: Codable {
 		case states
 	}
 
-	public init(from decoder: Decoder) throws {
+	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.monsters = try container.decode([MHLocalizationMonster].self, forKey: .monsters)
 		self.states = try container.decodeIfPresent([String: String].self, forKey: .states) ?? [:]
 	}
 
-	public func encode(to encoder: Encoder) throws {
+	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 		try container.encode(self.monsters, forKey: .monsters)
 		if !states.isEmpty {
