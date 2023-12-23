@@ -8,10 +8,15 @@ trim_trailing_whitespace = true
 indent_style = tab
 indent_size = 4
 
-[Contents.json,*.xcstrings]
+[Contents.json]
 indent_style = space
 indent_size = 2
 
 [*.xcscheme]
 indent_style = space
 indent_size = 3
+
+[*.xcstrings]
+indent_style = space
+indent_size = 2
+insert_final_newline = false
