@@ -14,6 +14,7 @@
 		EB19D6732B1EFB6700C90417 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E82B16C254004D63EA /* Element.swift */; };
 		EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */; };
 		EB2550142B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2550132B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift */; };
+		EB28F1B32B370F0700291055 /* DividedHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28F1B22B370F0700291055 /* DividedHStack.swift */; };
 		EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
 		EB29563B2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
 		EB2956412B310E28002C5CA8 /* SelectableListRowBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956402B310E28002C5CA8 /* SelectableListRowBackport.swift */; };
@@ -104,6 +105,11 @@
 		EB99227E2B357D6C00DBA812 /* SettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99227C2B357D6C00DBA812 /* SettingsPane.swift */; };
 		EB9922802B357D9400DBA812 /* DisplaySettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99227F2B357D9400DBA812 /* DisplaySettingsPane.swift */; };
 		EB9922812B357D9400DBA812 /* DisplaySettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99227F2B357D9400DBA812 /* DisplaySettingsPane.swift */; };
+		EB99DBC92B36D0A200A43552 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99DBC82B36D0A200A43552 /* Settings.swift */; };
+		EB99DBCB2B36D0DD00A43552 /* WeaknessDisplayMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99DBCA2B36D0DD00A43552 /* WeaknessDisplayMode.swift */; };
+		EB99DBCD2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99DBCC2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift */; };
+		EB99DBCE2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99DBCC2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift */; };
+		EB99DBD32B36D65600A43552 /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB99DBD22B36D65600A43552 /* UserDefault.swift */; };
 		EBA66F182B355C07009DE78C /* ColumnSettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA66F172B355C07009DE78C /* ColumnSettingsContainer.swift */; };
 		EBA66F1A2B355EDE009DE78C /* DrillDownSettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA66F192B355EDE009DE78C /* DrillDownSettingsContainer.swift */; };
 		EBA66F1B2B355EDE009DE78C /* DrillDownSettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA66F192B355EDE009DE78C /* DrillDownSettingsContainer.swift */; };
@@ -274,6 +280,7 @@
 		EB19D6742B1EFF7700C90417 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+RetryIf.swift"; sourceTree = "<group>"; };
 		EB2550132B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+AlternatingRowBackgrounds.swift"; sourceTree = "<group>"; };
+		EB28F1B22B370F0700291055 /* DividedHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividedHStack.swift; sourceTree = "<group>"; };
 		EB2956392B30139A002C5CA8 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		EB2956402B310E28002C5CA8 /* SelectableListRowBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableListRowBackport.swift; sourceTree = "<group>"; };
 		EB31EEB42B2BD7FA00FF8536 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
@@ -334,6 +341,10 @@
 		EB9922792B35686300DBA812 /* SettingsLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabelStyle.swift; sourceTree = "<group>"; };
 		EB99227C2B357D6C00DBA812 /* SettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPane.swift; sourceTree = "<group>"; };
 		EB99227F2B357D9400DBA812 /* DisplaySettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySettingsPane.swift; sourceTree = "<group>"; };
+		EB99DBC82B36D0A200A43552 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		EB99DBCA2B36D0DD00A43552 /* WeaknessDisplayMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaknessDisplayMode.swift; sourceTree = "<group>"; };
+		EB99DBCC2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeaknessDisplayMode+Extensions.swift"; sourceTree = "<group>"; };
+		EB99DBD22B36D65600A43552 /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserDefault.swift; sourceTree = "<group>"; };
 		EBA66F172B355C07009DE78C /* ColumnSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColumnSettingsContainer.swift; sourceTree = "<group>"; };
 		EBA66F192B355EDE009DE78C /* DrillDownSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillDownSettingsContainer.swift; sourceTree = "<group>"; };
 		EBA66F1C2B355F38009DE78C /* AppSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsPane.swift; sourceTree = "<group>"; };
@@ -455,6 +466,7 @@
 				EB31EEB42B2BD7FA00FF8536 /* Sort.swift */,
 				EB967A412B29E8540041A491 /* StarSwingsError.swift */,
 				EB967A3F2B29E4650041A491 /* StarSwingsState.swift */,
+				EB99DBCA2B36D0DD00A43552 /* WeaknessDisplayMode.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -505,6 +517,7 @@
 				EB9620DE2B1D616A00FD7115 /* Lock.swift */,
 				EB9620DC2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift */,
 				EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */,
+				EB99DBD22B36D65600A43552 /* UserDefault.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -538,6 +551,7 @@
 				EB967A3B2B29DCC20041A491 /* App.swift */,
 				EB967A332B29D5390041A491 /* Game.swift */,
 				EB967A392B29DAC00041A491 /* Monster.swift */,
+				EB99DBC82B36D0A200A43552 /* Settings.swift */,
 			);
 			path = StarSwings;
 			sourceTree = "<group>";
@@ -639,6 +653,7 @@
 			children = (
 				EBC85C672B202DE5008A16C6 /* ViewModelError.swift */,
 				EBC85C6A2B202E05008A16C6 /* ViewModelStateAnd.swift */,
+				EB99DBCC2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -776,6 +791,7 @@
 			isa = PBXGroup;
 			children = (
 				EB29563F2B310E1D002C5CA8 /* iOS */,
+				EB28F1B22B370F0700291055 /* DividedHStack.swift */,
 				EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */,
 				EB3B491E2B35E2B200E89711 /* LabeledContentBackport.swift */,
 				EB967A472B2AC6E80041A491 /* LazyView.swift */,
@@ -1179,6 +1195,7 @@
 				EBC85C732B205469008A16C6 /* WatchMetrics.swift in Sources */,
 				EBC85C772B205F67008A16C6 /* WatchMetricsKey.swift in Sources */,
 				EBC85C752B205DE0008A16C6 /* WatchUtil.swift in Sources */,
+				EB99DBCE2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift in Sources */,
 				EBB4B2152B175DE7004D63EA /* WeaknessViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1219,11 +1236,14 @@
 				EBF684A42B2D4C5D0071981F /* Physiology.swift in Sources */,
 				EBF684A72B2D50060071981F /* PhysiologyMapper.swift in Sources */,
 				EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */,
+				EB99DBC92B36D0A200A43552 /* Settings.swift in Sources */,
 				EB31EEB72B2BEB4300FF8536 /* Sort.swift in Sources */,
 				EB967A422B29E8540041A491 /* StarSwingsError.swift in Sources */,
 				EB967A402B29E4650041A491 /* StarSwingsState.swift in Sources */,
 				EBEA6F492B185A0900734AAA /* Storage.swift in Sources */,
 				EB967A282B299F9E0041A491 /* TextProcessor.swift in Sources */,
+				EB99DBD32B36D65600A43552 /* UserDefault.swift in Sources */,
+				EB99DBCB2B36D0DD00A43552 /* WeaknessDisplayMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1258,6 +1278,7 @@
 				EBB4B2042B175D4A004D63EA /* ContentView.swift in Sources */,
 				EBA66F202B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
 				EB9922802B357D9400DBA812 /* DisplaySettingsPane.swift in Sources */,
+				EB28F1B32B370F0700291055 /* DividedHStack.swift in Sources */,
 				EBA66F1A2B355EDE009DE78C /* DrillDownSettingsContainer.swift in Sources */,
 				EBC85C7D2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */,
 				EBB4B1D52B161691004D63EA /* Effective.swift in Sources */,
@@ -1307,6 +1328,7 @@
 				EB9620E82B1D7A5000FD7115 /* ViewModelCache.swift in Sources */,
 				EBC85C682B202DE5008A16C6 /* ViewModelError.swift in Sources */,
 				EBC85C6B2B202E05008A16C6 /* ViewModelStateAnd.swift in Sources */,
+				EB99DBCD2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift in Sources */,
 				EBF9283A2B103CB0007D59D4 /* WeaknessView.swift in Sources */,
 				EBB4B1C52B15BDA7004D63EA /* WeaknessViewModel.swift in Sources */,
 			);

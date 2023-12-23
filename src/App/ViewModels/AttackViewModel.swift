@@ -24,24 +24,24 @@ extension AttackItemViewModel {
 		}
 	}
 
-	var attackIcon: Image {
+	var attackImageName: String {
 		switch attack {
 		case .slash:
-			return Image(systemName: "scissors")
+			return "scissors"
 		case .strike:
-			return Image(systemName: "hammer.fill")
+			return "hammer.fill"
 		case .shell:
-			return Image(systemName: "fossil.shell.fill")
+			return "fossil.shell.fill"
 		case .fire:
-			return Image(systemName: "flame.fill")
+			return "flame.fill"
 		case .water:
-			return Image(systemName: "drop.fill")
+			return "drop.fill"
 		case .thunder:
-			return Image(systemName: "bolt.fill")
+			return "bolt.fill"
 		case .ice:
-			return Image(systemName: "snowflake")
+			return "snowflake"
 		case .dragon:
-			return Image(systemName: "atom")
+			return "atom"
 		}
 	}
 

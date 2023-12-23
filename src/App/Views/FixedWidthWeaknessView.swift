@@ -11,33 +11,52 @@ extension Font {
 	}
 }
 
-struct FixedWidthWeaknessItemView: View {
+private struct FixedWidthWeaknessSignItemView: View {
 	let viewModel: WeaknessItemViewModel
 
 #if !os(watchOS)
-	@ScaledMetric(relativeTo: .title3)
-	private var signFontSize: CGFloat = 20
+	let signFontSize: CGFloat
 #endif
 
 	var body: some View {
 		VStack(spacing: 0) {
-			Label {
-				Text(viewModel.attackKey)
-			} icon: {
-				viewModel.attackIcon
-			}
-			.foregroundColor(viewModel.attackColor)
+			Label(viewModel.attackKey, systemImage: viewModel.attackImageName)
+				.foregroundStyle(viewModel.attackColor)
 
 			Text(viewModel.effective.rawValue)
-				.foregroundColor(viewModel.signColor)
+				.foregroundStyle(viewModel.signColor)
 #if os(watchOS)
 				.font(.systemBackport(.body,
 									  design: .rounded,
-									  weight: viewModel.signWeight))
+									  weight: viewModel.signWeight).leading(.tight))
 #else
 				.font(.system(size: signFontSize,
 							  weight: viewModel.signWeight,
 							  design: .rounded))
+#endif
+#if !os(macOS)
+				.minimumScaleFactor(0.5)
+#endif
+		}
+	}
+}
+
+@available(watchOS, unavailable)
+private struct FixedWidthWeaknessNumberItemView: View {
+	let viewModel: WeaknessItemViewModel
+	let signFontSize: CGFloat
+
+	var body: some View {
+		VStack(alignment: .leading, spacing: 0) {
+			Label(viewModel.attackKey, systemImage: viewModel.attackImageName)
+				.foregroundStyle(viewModel.attackColor)
+
+			Text(viewModel.value, format: .number.precision(.fractionLength(1)))
+				.font(.system(size: signFontSize,
+							  weight: viewModel.signWeight,
+							  design: .rounded))
+#if !os(macOS)
+				.minimumScaleFactor(0.5)
 #endif
 		}
 	}
@@ -46,6 +65,12 @@ struct FixedWidthWeaknessItemView: View {
 struct FixedWidthWeaknessView: View {
 	private static let maxItemWidth: CGFloat = 80
 
+#if !os(watchOS)
+	@ScaledMetric(relativeTo: .title3)
+	private var signFontSize: CGFloat = 20
+#endif
+
+	let displayMode: WeaknessDisplayMode
 	let viewModel: WeaknessSectionViewModel
 
 	@State
@@ -70,32 +95,51 @@ struct FixedWidthWeaknessView: View {
 #endif
 			}
 
-			HStack(alignment: .lastTextBaseline, spacing: 0) {
 #if os(watchOS)
+			HStack(alignment: .firstTextBaseline, spacing: 0) {
 				ForEach(viewModel.items) { item in
-					FixedWidthWeaknessItemView(viewModel: item)
+					FixedWidthWeaknessSignItemView(viewModel: item)
 				}
 				.frame(width: itemWidth)
-#else
-				ForEach(viewModel.items.dropLast()) { item in
-					FixedWidthWeaknessItemView(viewModel: item)
-				}
-				.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth)
-				.background(alignment: .trailing) {
-					Divider()
-				}
-
-				FixedWidthWeaknessItemView(viewModel: viewModel.items.last!)
-					.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth)
-#endif
 			}
+			.labelStyle(.iconOnly)
+#else
+			switch displayMode {
+			case .none:
+				EmptyView()
+			case .sign:
+				DividedHStack(alignment: .firstTextBaseline, spacing: 0) {
+					ForEach(viewModel.items) { item in
+						FixedWidthWeaknessSignItemView(viewModel: item, signFontSize: signFontSize)
+					}
+					.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth)
+				}
+				.labelStyle(.iconOnly)
+			case .number:
+				DividedHStack(alignment: .firstTextBaseline, spacing: 0) {
+					ForEach(viewModel.items) { item in
+						FixedWidthWeaknessNumberItemView(viewModel: item, signFontSize: signFontSize)
+					}
+					.padding(.horizontal, 8)
+					.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth, alignment: .leading)
+				}
+				.labelStyle(.titleOnly)
+				.padding(.horizontal, -8)
+			}
+#endif
 		}
+		.lineLimit(1)
 		.fixedSize(horizontal: false, vertical: true)
 		.padding(.vertical, 4)
-		.labelStyle(.iconOnly)
 	}
 }
 
-#Preview {
-	FixedWidthWeaknessView(viewModel: WeaknessViewModel(rawValue: MockDataSource.physiology1).sections[0])
+#Preview("Sign") {
+	FixedWidthWeaknessView(displayMode: .sign,
+						   viewModel: WeaknessViewModel(rawValue: MockDataSource.physiology1).sections[0])
+}
+
+#Preview("Number") {
+	FixedWidthWeaknessView(displayMode: .number,
+						   viewModel: WeaknessViewModel(rawValue: MockDataSource.physiology1).sections[0])
 }

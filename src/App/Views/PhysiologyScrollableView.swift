@@ -59,7 +59,7 @@ private struct PhysiologyRowHeaderView: View {
 	var body: some View {
 		HStack(spacing: PhysiologyViewMetrics.spacing) {
 			ForEach(viewModel) { item in
-				item.attackIcon
+				Image(systemName: item.attackImageName)
 					.foregroundColor(item.attackColor)
 			}
 			.frame(maxWidth: itemWidth)

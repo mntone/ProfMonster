@@ -5,11 +5,14 @@ import MonsterAnalyzerCore
 final class MonsterViewModel: ObservableObject, Identifiable {
 	private let monster: Monster
 
+	let elementDisplay: WeaknessDisplayMode
+
 	@Published
 	private(set) var state: StarSwingsState<MonsterDataViewModel>
 
 	init(_ monster: Monster) {
 		self.monster = monster
+		self.elementDisplay = monster.app?.settings.elementDisplay ?? .sign
 		self.state = monster.state.mapData(MonsterDataViewModel.init(rawValue:))
 		monster.$state
 			.dropFirst()

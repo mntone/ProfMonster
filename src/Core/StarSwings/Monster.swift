@@ -4,17 +4,21 @@ import Foundation
 public final class Monster: FetchableEntity<Physiologies>, Entity {
 	private let _languageService: LanguageService
 
+	public weak var app: App?
+
 	public let id: String
 	public let gameID: String
 	public let name: String
 	public let anotherName: String?
 	public let keywords: [String]
 
-	init(_ id: String,
+	init(app: App,
+		 id: String,
 		 gameID: String,
 		 dataSource: DataSource,
 		 languageService: LanguageService,
 		 localization: MHLocalizationMonster) {
+		self.app = app
 		self._languageService = languageService
 
 		self.id = id

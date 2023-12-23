@@ -5,6 +5,12 @@ import protocol Swinject.Resolver
 public final class App: FetchableEntity<[Game]>, Entity {
 	let resolver: Resolver
 
+	public let settings = Settings()
+
+	public var app: App? {
+		self
+	}
+
 	public init(resolver: Resolver) {
 		guard let dataSource = resolver.resolve(DataSource.self) else {
 			fatalError()
@@ -26,7 +32,7 @@ public final class App: FetchableEntity<[Game]>, Entity {
 
 	override func _fetch() async throws -> [Game] {
 		let games = try await _dataSource.getConfig().titles.map { title in
-			Game(resolver: resolver, dataSource: _dataSource, json: title)
+			Game(app: self, resolver: resolver, dataSource: _dataSource, json: title)
 		}
 		return games
 	}

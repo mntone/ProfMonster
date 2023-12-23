@@ -11,7 +11,7 @@ struct WeaknessItemView: View {
 					.font(.callout.weight(.medium))
 					.lineLimit(1)
 			} icon: {
-				viewModel.attackIcon
+				Image(systemName: viewModel.attackImageName)
 			}
 			.foregroundColor(viewModel.attackColor)
 			.padding(.bottom, 2)

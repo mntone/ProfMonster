@@ -5,6 +5,8 @@ import Swinject
 public final class Game: FetchableEntity<[Monster]>, Entity {
 	private let _resolver: Resolver
 
+	public weak var app: App?
+
 	public let id: String
 	public let name: String
 
@@ -19,9 +21,11 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 		}
 	}
 
-	init(resolver: Resolver,
+	init(app: App,
+		 resolver: Resolver,
 		 dataSource: DataSource,
 		 json: MHConfigTitle) {
+		self.app = app
 		self._resolver = resolver
 		self.id = json.id
 
@@ -48,8 +52,10 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 		langsvc.register(dictionary: localization.states, for: .state)
 		languageService = langsvc
 
+		let app = self.app!
 		let monsters = game.monsters.map { monsterID in
-			Monster(monsterID,
+			Monster(app: app,
+					id: monsterID,
 					gameID: self.id,
 					dataSource: self._dataSource,
 					languageService: langsvc,

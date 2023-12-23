@@ -1,3 +1,4 @@
+import Combine
 import Foundation
 import MonsterAnalyzerCore
 import SwiftUI
@@ -11,15 +12,30 @@ final class SettingsViewModel: ObservableObject {
 	}()
 
 	private let rootViewModel: HomeViewModel
+	private let settings: MonsterAnalyzerCore.Settings
 	private let storage: Storage
 
 	@Published
 	var storageSize: String?
 
+	@Published
+	var elementDisplay: WeaknessDisplayMode {
+		didSet {
+			settings.elementDisplay = elementDisplay
+		}
+	}
+
 	init(rootViewModel: HomeViewModel,
 		 storage: Storage) {
+		guard let app = MAApp.resolver.resolve(MonsterAnalyzerCore.App.self) else {
+			fatalError()
+		}
 		self.rootViewModel = rootViewModel
+		self.settings = app.settings
 		self.storage = storage
+		self.elementDisplay = app.settings.elementDisplay
+
+		settings.$elementDisplay.dropFirst().receive(on: DispatchQueue.main).assign(to: &$elementDisplay)
 	}
 
 	convenience init(rootViewModel: HomeViewModel) {
