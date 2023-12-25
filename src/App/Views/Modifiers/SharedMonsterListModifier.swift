@@ -24,7 +24,14 @@ struct SharedMonsterListModifier: ViewModifier {
 			}
 #endif
 #if os(watchOS)
-			.searchable(text: searchText, prompt: Text("Search"))
+			.block { content in
+				if #available(watchOS 10.2, *) {
+					// The "searchable" is broken on watchOS 10.2.
+					content
+				} else {
+					content.searchable(text: searchText, prompt: Text("Search"))
+				}
+			}
 #else
 			.searchable(text: searchText, prompt: Text("Monster and Weakness"))
 #endif

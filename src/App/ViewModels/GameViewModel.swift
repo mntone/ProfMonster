@@ -53,7 +53,7 @@ final class GameViewModel: ObservableObject, Identifiable {
 	private let game: Game
 
 	@Published
-	private(set) var state: StarSwingsState<[GameItemViewModel]>
+	private(set) var state: StarSwingsState<[GameItemViewModel]> = .ready
 
 	@Published
 	var sort: Sort = .inGame
@@ -63,13 +63,8 @@ final class GameViewModel: ObservableObject, Identifiable {
 
 	init(_ game: Game) {
 		self.game = game
-		self.state = game.state
-			.mapData { monsters in
-				monsters.map(GameItemViewModel.init)
-			}
 
 		let getState = game.$state
-			.dropFirst()
 			.mapData { monsters in
 				monsters.map(GameItemViewModel.init)
 			}
