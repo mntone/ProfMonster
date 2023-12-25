@@ -61,49 +61,81 @@ enum PhysiologyMapper {
 						dragon: Self.getAverage(data, of: .dragon))
 	}
 
-	static func map(json src: MHMonster, languageService: LanguageService) -> Physiologies {
-		let allAbnormalStates = Set(src.physiologies.flatMap { physiologies in
-			Array(Set(physiologies.values.flatMap(\.states)))
-		}).subtracting(Self.removingState).filter { state in
-			src.physiologies.allSatisfy { physiologies in
-				physiologies.values.contains { value in
+	private static func filter<C>(_ states: C, by physiologies: [MHMonsterPhysiology], in frequency10e9: Int) -> [String] where C: Collection, C.Element == String {
+		return states.filter { state in
+			let pickedCount = physiologies.reduce(into: 0) { count, physiology in
+				let hasState = physiology.values.contains { value in
 					value.states.contains(state)
 				}
+				if hasState {
+					count += 1
+				}
 			}
+			let output = 1000000000 * pickedCount / physiologies.count >= frequency10e9
+			return output
 		}
+	}
+
+	private static func getGroup(of targetState: String,
+								 from values: [MHMonsterPhysiologyValue],
+								 languageService: LanguageService) -> [Physiology] {
+		values.compactMap { value -> Physiology? in
+			guard value.states.contains(targetState) else {
+				return nil
+			}
+			var filteredState = value.states.filter { state in
+				state != targetState
+			}
+			if filteredState.isEmpty {
+				filteredState.append("default")
+			}
+			return map(value, states: filteredState, languageService: languageService)
+		}
+	}
+
+	static func map(json src: MHMonster, languageService: LanguageService) -> Physiologies {
+		let allAbnormalStates = Set(src.physiologies.flatMap { physiologies in
+			Set(physiologies.values.flatMap(\.states))
+		}).subtracting(Self.removingState)
+		let filteredAllAbnormalStates = Self.filter(allAbnormalStates, by: src.physiologies, in: 500000000)
 
 		let defaultSectionData = src.physiologies.map { physiology in
 			let items = physiology.values.compactMap { physiologyValue -> Physiology? in
-				guard !physiologyValue.states.contains(where: { s in allAbnormalStates.contains(s) }) else {
+				guard !physiologyValue.states.contains(where: { s in filteredAllAbnormalStates.contains(s) }) else {
 					return nil
 				}
 				return map(physiologyValue, languageService: languageService)
 			}
 
 			let partsLabel = languageService.getLocalizedJoinedString(of: physiology.parts, for: .part)
-			return PhysiologyGroup(parts: physiology.parts, label: partsLabel, items: items)
+			return PhysiologyGroup(parts: physiology.parts,
+								   label: partsLabel,
+								   items: items,
+								   isReference: false)
 		}
 		let defaultSection = PhysiologySection(label: languageService.getLocalizedString(of: "default", for: .state),
 											   groups: defaultSectionData,
 											   average: getAverages(defaultSectionData))
 
-		var abnormalSections = allAbnormalStates.map { targetState in
+		var abnormalSections = filteredAllAbnormalStates.map { targetState in
 			let sectionData = src.physiologies.map { physiology in
-				let items = physiology.values.compactMap { physiologyValue -> Physiology? in
-					guard physiologyValue.states.contains(targetState) else {
-						return nil
-					}
-					var filteredState = physiologyValue.states.filter { state in
-						state != targetState
-					}
-					if filteredState.isEmpty {
-						filteredState.append("default")
-					}
-					return map(physiologyValue, states: filteredState, languageService: languageService)
-				}
-
+				let abnormalItems = getGroup(of: targetState,
+											 from: physiology.values,
+											 languageService: languageService)
 				let partsLabel = languageService.getLocalizedJoinedString(of: physiology.parts, for: .part)
-				return PhysiologyGroup(parts: physiology.parts, label: partsLabel, items: items)
+				guard !abnormalItems.isEmpty else {
+					let defaultItems = getGroup(of: "default",
+												from: physiology.values,
+												languageService: languageService)
+					return PhysiologyGroup(parts: physiology.parts,
+										   label: partsLabel,
+										   items: defaultItems,
+										   isReference: true)
+				}
+				return PhysiologyGroup(parts: physiology.parts,
+									   label: partsLabel,
+									   items: abnormalItems,
+									   isReference: false)
 			}
 			return PhysiologySection(label: languageService.getLocalizedString(of: targetState, for: .state),
 									 groups: sectionData,

@@ -70,6 +70,7 @@ public struct PhysiologyGroup {
 	public let parts: [String]
 	public let label: String
 	public let items: [Physiology]
+	public let isReference: Bool
 }
 
 public struct PhysiologySection {

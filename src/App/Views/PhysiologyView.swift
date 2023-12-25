@@ -18,7 +18,7 @@ struct PhysiologyRowView: View {
 					.frame(width: itemWidth)
 			}
 		}
-		.foregroundColor(viewModel.foregroundColor)
+		.foregroundStyle(viewModel.foregroundShape)
 	}
 }
 
@@ -32,7 +32,7 @@ private struct PhysiologyRowHeaderView: View {
 			ForEach(viewModel) { item in
 				Spacer(minLength: PhysiologyViewMetrics.spacing)
 				Image(systemName: item.attackImageName)
-					.foregroundColor(item.attackColor)
+					.foregroundStyle(item.attackColor)
 					.frame(width: itemWidth)
 			}
 		}

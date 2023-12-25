@@ -7,7 +7,7 @@ enum PhysiologyViewMetrics {
 	static let defaultFontSize: CGFloat = 13
 	static let headerBaseWidth: CGFloat = 100
 	static let itemBaseWidth: CGFloat = 24
-	static let maxWidth: CGFloat = 500
+	static let maxWidth: CGFloat = 540
 
 	static let margin: CGFloat = 4
 	static let scrollMargin: CGFloat = 12
@@ -60,7 +60,7 @@ private struct PhysiologyRowHeaderView: View {
 		HStack(spacing: PhysiologyViewMetrics.spacing) {
 			ForEach(viewModel) { item in
 				Image(systemName: item.attackImageName)
-					.foregroundColor(item.attackColor)
+					.foregroundStyle(item.attackColor)
 			}
 			.frame(maxWidth: itemWidth)
 		}
@@ -76,7 +76,7 @@ struct PhysiologyHeaderView: View {
 
 	var body: some View {
 		Text(verbatim: viewModel.header)
-			.foregroundColor(viewModel.foregroundColor)
+			.foregroundStyle(viewModel.foregroundShape)
 			.background(GeometryReader { proxy in
 				Color.clear.preference(key: PhysiologyHeaderHeightPreferenceKey.self,
 									   value: [viewModel.id: proxy.size.height])
@@ -99,7 +99,7 @@ struct PhysiologyContentView: View {
 			}
 			.frame(width: itemWidth)
 		}
-		.foregroundColor(viewModel.foregroundColor)
+		.foregroundStyle(viewModel.foregroundShape)
 		.padding(EdgeInsets(top: 0,
 							leading: PhysiologyViewMetrics.margin,
 							bottom: 0,

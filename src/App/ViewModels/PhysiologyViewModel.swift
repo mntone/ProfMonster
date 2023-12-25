@@ -7,25 +7,28 @@ struct PhysiologyViewModel: Identifiable {
 	let stateInfo: PhysiologyStateInfo
 	let header: String
 	let values: [Int8]
+	let isReference: Bool
 
 	fileprivate init(id: Int,
 					 partsLabel: String,
 					 rawValue: Physiology,
-					 of attacks: [Attack]) {
+					 of attacks: [Attack],
+					 isReference: Bool) {
 		self.id = UInt32(exactly: id)!
 		self.stateInfo = rawValue.stateInfo
 		self.header = rawValue.isDefault ? partsLabel : rawValue.label
 		self.values = rawValue.value.values(of: attacks)
+		self.isReference = isReference
 	}
 
-	var foregroundColor: Color {
+	var foregroundShape: AnyShapeStyle {
 		switch stateInfo {
 		case .default:
-			return .primary
+			return AnyShapeStyle(isReference ? .secondary : .primary)
 		case .broken:
-			return .teal
+			return AnyShapeStyle(.tint)
 		case .other:
-			return .secondary
+			return AnyShapeStyle(isReference ? .tertiary : .secondary)
 		}
 	}
 }
@@ -39,7 +42,11 @@ struct PhysiologyGroupViewModel: Identifiable {
 		self.id = UInt16(exactly: id)!
 		self.label = rawValue.label
 		self.items = rawValue.items.enumerated().map { i, item in
-			PhysiologyViewModel(id: id << 16 | i, partsLabel: rawValue.label, rawValue: item, of: attacks)
+			PhysiologyViewModel(id: id << 16 | i,
+								partsLabel: rawValue.label,
+								rawValue: item,
+								of: attacks,
+								isReference: rawValue.isReference)
 		}
 	}
 }
