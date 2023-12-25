@@ -1430,6 +1430,22 @@
         }
       }
     },
+    "Build Info" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Build Info"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ビルド情報"
+          }
+        }
+      }
+    },
     "Cancel" : {
       "comment" : "action.cancel",
       "localizations" : {
@@ -2810,6 +2826,22 @@
         }
       }
     },
+    "Open Browser" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open Browser"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ブラウザーで開く"
+          }
+        }
+      }
+    },
     "Physical Attack" : {
       "extractionState" : "stale",
       "localizations" : {
@@ -3477,18 +3509,18 @@
         }
       }
     },
-    "Version" : {
+    "Version %@" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Version"
+            "value" : "Version %@"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "バージョン"
+            "value" : "バージョン %@"
           }
         }
       }
