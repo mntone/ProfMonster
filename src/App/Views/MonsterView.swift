@@ -11,45 +11,67 @@ struct MonsterView: View {
 #else
 		let background: Color? = nil
 #endif
-		StateView(state: viewModel.state, background: background) {
-			if let data = viewModel.data {
-				Form {
+		StateView(state: viewModel.state, background: background) { data in
+			Form {
+				if viewModel.elementDisplay != .none {
 					Section {
 						let requireHeader = data.weakness.sections.count > 1
 						ForEach(data.weakness.sections) { section in
-							VStack(alignment: .leading) {
-								if requireHeader {
+							if requireHeader {
+								VStack(alignment: .leading, spacing: 0) {
 									Text(verbatim: section.header)
+										.font(.system(.subheadline).weight(.medium))
+									FixedWidthWeaknessView(displayMode: viewModel.elementDisplay,
+														   viewModel: section)
 								}
-								FixedWidthWeaknessView(viewModel: section)
+							} else {
+								FixedWidthWeaknessView(displayMode: viewModel.elementDisplay,
+													   viewModel: section)
 							}
 						}
 					} header: {
 						Text("header.weakness")
 					}
-
-					Section {
-						let requireHeader = data.physiologies.sections.count > 1
-						ForEach(data.physiologies.sections) { section in
-							VStack(alignment: .leading) {
-								if requireHeader {
-									Text(verbatim: section.header)
-								}
-								PhysiologyScrollableView(viewModel: section)
-							}
-							.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-						}
-					} header: {
-						Text("header.physiology")
-					}
 				}
-				.headerProminence(.increased)
-#if os(iOS)
-				.listRowBackground(Color.clear)
+
+				Section {
+					let requireHeader = data.physiologies.sections.count > 1
+					ForEach(data.physiologies.sections) { section in
+						if requireHeader {
+							VStack(alignment: .leading, spacing: 0) {
+								Text(verbatim: section.header)
+									.font(.system(.subheadline).weight(.medium))
+									.padding(.horizontal)
+#if os(macOS)
+								PhysiologyView(viewModel: section)
+#else
+								PhysiologyScrollableView(viewModel: section)
 #endif
+							}
+							.listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
+						} else {
+#if os(macOS)
+							PhysiologyView(viewModel: section)
+#else
+							PhysiologyScrollableView(viewModel: section)
+								.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
+#endif
+						}
+					}
+				} header: {
+					Text("header.physiology")
+				}
 			}
+			.block {
+				if #available(iOS 16.0, macOS 13.0, watchOS 9.0, *) {
+					$0.formStyle(.grouped)
+				} else {
+					$0
+				}
+			}
+			.headerProminence(.increased)
 		}
-		.navigationTitle(viewModel.name)
+		.navigationTitle(Text(verbatim: viewModel.name))
 	}
 }
 
