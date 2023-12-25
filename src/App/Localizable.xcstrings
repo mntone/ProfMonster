@@ -388,7 +388,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Informations sur l'appli"
+            "value" : "Informations sur l'application"
           }
         },
         "it" : {
@@ -407,6 +407,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "앱 정보"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ta aplikacja…"
           }
         },
         "pt-BR" : {
@@ -2648,6 +2654,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "水"
+          }
+        }
+      }
+    },
+    "LICENSES" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LICENSES"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ライセンス"
           }
         }
       }

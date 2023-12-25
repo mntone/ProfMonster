@@ -18,6 +18,11 @@
 		EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
 		EB29563B2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
 		EB2956412B310E28002C5CA8 /* SelectableListRowBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956402B310E28002C5CA8 /* SelectableListRowBackport.swift */; };
+		EB2B0FA62B390FCE004596A6 /* mit.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB2B0FA52B390FCE004596A6 /* mit.txt */; };
+		EB2B0FA72B390FCE004596A6 /* mit.txt in Resources */ = {isa = PBXBuildFile; fileRef = EB2B0FA52B390FCE004596A6 /* mit.txt */; };
+		EB2B0FAB2B3925E3004596A6 /* View+Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B0FAA2B3925E3004596A6 /* View+Cursor.swift */; };
+		EB2B0FAD2B39260D004596A6 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B0FAC2B39260D004596A6 /* LicenseView.swift */; };
+		EB2B0FAE2B39260D004596A6 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B0FAC2B39260D004596A6 /* LicenseView.swift */; };
 		EB31EEB72B2BEB4300FF8536 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB42B2BD7FA00FF8536 /* Sort.swift */; };
 		EB31EEB92B2C9DD000FF8536 /* NavigationPathHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB82B2C9DD000FF8536 /* NavigationPathHost.swift */; };
 		EB31EEBC2B2C9E4D00FF8536 /* NavigationPathSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEBB2B2C9E4D00FF8536 /* NavigationPathSupport.swift */; };
@@ -283,6 +288,9 @@
 		EB28F1B22B370F0700291055 /* DividedHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividedHStack.swift; sourceTree = "<group>"; };
 		EB2956392B30139A002C5CA8 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		EB2956402B310E28002C5CA8 /* SelectableListRowBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableListRowBackport.swift; sourceTree = "<group>"; };
+		EB2B0FA52B390FCE004596A6 /* mit.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = mit.txt; sourceTree = "<group>"; };
+		EB2B0FAA2B3925E3004596A6 /* View+Cursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Cursor.swift"; sourceTree = "<group>"; };
+		EB2B0FAC2B39260D004596A6 /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
 		EB31EEB42B2BD7FA00FF8536 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		EB31EEB82B2C9DD000FF8536 /* NavigationPathHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPathHost.swift; sourceTree = "<group>"; };
 		EB31EEBB2B2C9E4D00FF8536 /* NavigationPathSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPathSupport.swift; sourceTree = "<group>"; };
@@ -459,6 +467,14 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		EB2B0FA42B390FA3004596A6 /* Licenses */ = {
+			isa = PBXGroup;
+			children = (
+				EB2B0FA52B390FCE004596A6 /* mit.txt */,
+			);
+			path = Licenses;
+			sourceTree = "<group>";
+		};
 		EB31EEB32B2BD7D400FF8536 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
@@ -494,6 +510,7 @@
 			isa = PBXGroup;
 			children = (
 				EB2550132B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift */,
+				EB2B0FAA2B3925E3004596A6 /* View+Cursor.swift */,
 			);
 			path = macOS;
 			sourceTree = "<group>";
@@ -568,11 +585,13 @@
 		EBA66F162B355BF5009DE78C /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				EB2B0FA42B390FA3004596A6 /* Licenses */,
 				EBA66F1C2B355F38009DE78C /* AppSettingsPane.swift */,
 				EBA66F172B355C07009DE78C /* ColumnSettingsContainer.swift */,
 				EBA66F1F2B355F3E009DE78C /* DataSettingsPane.swift */,
 				EB99227F2B357D9400DBA812 /* DisplaySettingsPane.swift */,
 				EBA66F192B355EDE009DE78C /* DrillDownSettingsContainer.swift */,
+				EB2B0FAC2B39260D004596A6 /* LicenseView.swift */,
 				EBCA222A2B221E5700C487AD /* SettingsContainer.swift */,
 				EB99227C2B357D6C00DBA812 /* SettingsPane.swift */,
 			);
@@ -1053,6 +1072,7 @@
 				EBB4B2012B175990004D63EA /* Colors.xcassets in Resources */,
 				EBC85C622B201939008A16C6 /* InfoPlist.xcstrings in Resources */,
 				EB44EF4C2B1C0BCB00DD47B5 /* Localizable.xcstrings in Resources */,
+				EB2B0FA72B390FCE004596A6 /* mit.txt in Resources */,
 				EBB4B2002B17598B004D63EA /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1080,6 +1100,7 @@
 				EBB4B1ED2B1737EF004D63EA /* Colors.xcassets in Resources */,
 				EBC85C612B201939008A16C6 /* InfoPlist.xcstrings in Resources */,
 				EB44EF4B2B1C0BCB00DD47B5 /* Localizable.xcstrings in Resources */,
+				EB2B0FA62B390FCE004596A6 /* mit.txt in Resources */,
 				EBF928332B1038CB007D59D4 /* Preview Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1160,6 +1181,7 @@
 				EB3B49202B35E2B200E89711 /* LabeledContentBackport.swift in Sources */,
 				EB967A492B2AC6E80041A491 /* LazyView.swift in Sources */,
 				EBCA22292B21A58C00C487AD /* LeadingToolbarItemBackportModifier.swift in Sources */,
+				EB2B0FAE2B39260D004596A6 /* LicenseView.swift in Sources */,
 				EBB4B2062B175DAB004D63EA /* MAApp.swift in Sources */,
 				EB9620E32B1D6FCC00FD7115 /* MARoute.swift in Sources */,
 				EBF684AA2B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
@@ -1292,6 +1314,7 @@
 				EB3B491F2B35E2B200E89711 /* LabeledContentBackport.swift in Sources */,
 				EB967A482B2AC6E80041A491 /* LazyView.swift in Sources */,
 				EBCA222D2B222ECB00C487AD /* LeadingToolbarItemBackportModifier.swift in Sources */,
+				EB2B0FAD2B39260D004596A6 /* LicenseView.swift in Sources */,
 				EBF9282B2B1038C9007D59D4 /* MAApp.swift in Sources */,
 				EB9620E22B1D6E1000FD7115 /* MARoute.swift in Sources */,
 				EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
@@ -1323,6 +1346,7 @@
 				EBEA6F742B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
 				EB3B49192B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
 				EB6297F22B37179200E830E6 /* View+Block.swift in Sources */,
+				EB2B0FAB2B3925E3004596A6 /* View+Cursor.swift in Sources */,
 				EB0004D52B2CB668001C71D5 /* View+If.swift in Sources */,
 				EB87782E2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */,
 				EB9620E82B1D7A5000FD7115 /* ViewModelCache.swift in Sources */,
