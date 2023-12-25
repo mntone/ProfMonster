@@ -24,7 +24,8 @@ struct NavigationStackHost: View {
 						MonsterView(viewModel: viewModel)
 					}
 				}
-		}	}
+		}
+	}
 }
 
 @available(iOS, introduced: 13.0, deprecated: 16.0, message: "Use NavigationStackHost instead")

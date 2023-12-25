@@ -44,15 +44,21 @@ struct NavigationPathSupport<Content: View>: View {
 
 	private func loadPath() async {
 		let path = await RouteHelper.load(from: pathString)
-		if case let .game(rootGameID) = path.first {
-			selectedGameID = rootGameID
 
-			guard path.count >= 2,
-				  case let .monster(gameID, monsterID) = path[1] else {
-				return
+		if case let .game(rootGameID) = path.first {
+			var storingSelection = Transaction()
+			storingSelection.disablesAnimations = true
+
+			withTransaction(storingSelection) {
+				selectedGameID = rootGameID
+
+				guard path.count >= 2,
+					  case let .monster(gameID, monsterID) = path[1] else {
+					return
+				}
+				precondition(rootGameID == gameID) // Assume X == Y for .game(X) and .monster(Y, _)
+				selectedMonsterID = monsterID
 			}
-			precondition(rootGameID == gameID) // Assume X == Y for .game(X) and .monster(Y, _)
-			selectedMonsterID = monsterID
 		}
 	}
 
