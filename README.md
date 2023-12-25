@@ -1,6 +1,6 @@
 # Prof. Monster
 
-Prof. Monster is monster status viewer of Monster Hunter series. 
+Prof. Monster is monster status viewer of Monster Hunter series.
 
 ## Features and Future
 

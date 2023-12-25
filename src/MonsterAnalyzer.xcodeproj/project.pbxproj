@@ -46,6 +46,7 @@
 		EB44EF4B2B1C0BCB00DD47B5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */; };
 		EB44EF4C2B1C0BCB00DD47B5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */; };
 		EB47FA402B331F1700044DEE /* SwiftUIIntrospect-Static in Frameworks */ = {isa = PBXBuildFile; platformFilter = ios; productRef = EB47FA3F2B331F1700044DEE /* SwiftUIIntrospect-Static */; };
+		EB5941CE2B39ABD1005BC27C /* MonsterAnalyzerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EBB4B1F22B17593F004D63EA /* MonsterAnalyzerWatch.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB6297F22B37179200E830E6 /* View+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6297F12B37179200E830E6 /* View+Block.swift */; };
 		EB6297F32B37179200E830E6 /* View+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6297F12B37179200E830E6 /* View+Block.swift */; };
 		EB645A612B26749E00D27500 /* NavigationStackHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A602B26749E00D27500 /* NavigationStackHost.swift */; };
@@ -212,6 +213,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		EB5941CF2B39ABD1005BC27C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EBF9281F2B1038C9007D59D4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EBB4B1F12B17593F004D63EA;
+			remoteInfo = MonsterAnalyzerWatch;
+		};
 		EBEA6F302B1858FB00734AAA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EBF9281F2B1038C9007D59D4 /* Project object */;
@@ -243,6 +251,17 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		EB5941D12B39ABD1005BC27C /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				EB5941CE2B39ABD1005BC27C /* MonsterAnalyzerWatch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		EBEA6F3F2B1858FB00734AAA /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -978,17 +997,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EBF928362B1038CB007D59D4 /* Build configuration list for PBXNativeTarget "MonsterAnalyzer" */;
 			buildPhases = (
-				EBB4A3FC2B3463F700D8C024 /* Version Info Script */,
 				EBF928232B1038C9007D59D4 /* Sources */,
 				EBF928242B1038C9007D59D4 /* Frameworks */,
 				EBF928252B1038C9007D59D4 /* Resources */,
 				EBEA6F3F2B1858FB00734AAA /* Embed Frameworks */,
+				EB5941D12B39ABD1005BC27C /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 				EBEA6F392B1858FB00734AAA /* PBXTargetDependency */,
 				EBEA6F5E2B185A8200734AAA /* PBXTargetDependency */,
+				EB5941D02B39ABD1005BC27C /* PBXTargetDependency */,
 			);
 			name = MonsterAnalyzer;
 			packageProductDependencies = (
@@ -1108,28 +1128,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		EBB4A3FC2B3463F700D8C024 /* Version Info Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/../scripts/versioning.sh",
-			);
-			name = "Version Info Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/App/Versioning.xcconfig",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "$SCRIPT_INPUT_FILE_0\n";
-			showEnvVarsInLog = 0;
-		};
 		EBB4A3FD2B348E4200D8C024 /* Version Info Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			alwaysOutOfDate = 1;
@@ -1361,6 +1359,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		EB5941D02B39ABD1005BC27C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = EBB4B1F12B17593F004D63EA /* MonsterAnalyzerWatch */;
+			targetProxy = EB5941CF2B39ABD1005BC27C /* PBXContainerItemProxy */;
+		};
 		EBEA6F312B1858FB00734AAA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EBEA6F242B1858FA00734AAA /* MonsterAnalyzerCore */;
@@ -1697,6 +1701,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -1730,6 +1735,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

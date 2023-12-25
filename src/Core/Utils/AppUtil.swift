@@ -17,6 +17,10 @@ public enum AppUtil {
 		info(key: "CFBundleShortVersionString") as! String
 	}
 
+	public static var version: String {
+		info(key: "MAInternalVersion") as! String
+	}
+
 	public static var gitDate: Date {
 		let gitDateString = info(key: "MAGitDateString") as! String
 		return dateFormatter.date(from: gitDateString)!

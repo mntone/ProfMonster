@@ -37,7 +37,7 @@ struct AppSettingsPane: View {
 
 					Text("Prof. Monster")
 						.font(.headline)
-					Text("Version \(AppUtil.bundleVersion)")
+					Text("Version \(AppUtil.version)")
 						.font(.subheadline)
 				}
 				.scenePadding()

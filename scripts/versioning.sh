@@ -15,8 +15,9 @@ GIT_HASH=$(git rev-parse HEAD)
 GIT_DATE=$(git log -1 --format='%ci')
 
 {
-	echo "CURRENT_PROJECT_VERSION = $VERSION;"
+	echo "CURRENT_PROJECT_VERSION = $GIT_TAG;"
 	echo "GIT_DATE                = $GIT_DATE;"
 	echo "GIT_HASH                = $GIT_HASH;"
+	echo "INTERNAL_VERSION        = $VERSION;"
 	echo "MARKETING_VERSION       = $GIT_TAG;"
 } > "$SCRIPT_OUTPUT_FILE_0"
