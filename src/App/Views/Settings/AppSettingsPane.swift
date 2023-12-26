@@ -7,6 +7,16 @@ struct AppSettingsPane: View {
 	private var watchMetrics
 #endif
 
+	private var hashContent: some View {
+		let gitCurrent = AppUtil.gitCurrent
+		let gitOrigin = AppUtil.gitOrigin
+		return Link(destination: URL(string: "https://github.com/mntone/ProfMonster/compare/\(gitOrigin)...\(gitCurrent)")!) {
+			Text(verbatim: gitOrigin)
+			+ Text(verbatim: "..")
+			+ Text(verbatim: gitCurrent.contains(".") ? gitCurrent : String(gitCurrent.prefix(7)))
+		}
+	}
+
 	var body: some View {
 		Form {
 			Section {
@@ -52,18 +62,18 @@ struct AppSettingsPane: View {
 
 			Section("Build Info") {
 				if #available(iOS 16.0, macOS 13.0, watchOS 9.0, *) {
-					LabeledContent("Git Commit Hash") {
-						let gitHash = AppUtil.gitHash
-						Link(gitHash, destination: URL(string: "https://github.com/mntone/ProfMonster/commit/\(gitHash)")!)
+					LabeledContent("Git Difference") {
+						hashContent
 					}
 
+					LabeledContent("Git Commit Hash", value: AppUtil.gitHash)
 					LabeledContent("Git Commit Date", value: AppUtil.gitDate.formatted(date: .numeric, time: .complete))
 				} else {
-					LabeledContentBackport("Git Commit Hash") {
-						let gitHash = AppUtil.gitHash
-						Link(gitHash, destination: URL(string: "https://github.com/mntone/ProfMonster/commit/\(gitHash)")!)
+					LabeledContentBackport("Git Difference") {
+						hashContent
 					}
 
+					LabeledContentBackport("Git Commit Hash", value: AppUtil.gitHash)
 					LabeledContentBackport("Git Commit Date", value: AppUtil.gitDate.formatted(date: .numeric, time: .complete))
 				}
 			}

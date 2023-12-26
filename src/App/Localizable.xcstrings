@@ -1957,6 +1957,22 @@
         }
       }
     },
+    "Git Difference" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Git Difference"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gitの差分"
+          }
+        }
+      }
+    },
     "header.physiology" : {
       "localizations" : {
         "ar" : {

@@ -21,13 +21,25 @@ public enum AppUtil {
 		info(key: "MAInternalVersion") as! String
 	}
 
+	public static var gitCurrent: String {
+		info(key: "MAGitCurrent") as! String
+	}
+
 	public static var gitDate: Date {
-		let gitDateString = info(key: "MAGitDateString") as! String
+		let gitDateString = info(key: "MAGitDate") as! String
 		return dateFormatter.date(from: gitDateString)!
 	}
 
 	public static var gitHash: String {
-		info(key: "MAGitHashString") as! String
+		info(key: "MAGitHash") as! String
+	}
+
+	public static var gitHashOrigin: String {
+		info(key: "MAGitHashOrigin") as! String
+	}
+
+	public static var gitOrigin: String {
+		info(key: "MAGitOrigin") as! String
 	}
 
 	private static func info(key: String) -> Any? {

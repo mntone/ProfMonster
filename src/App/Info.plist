@@ -2,10 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>MAGitDateString</key>
+	<key>MAGitCurrent</key>
+	<string>$(GIT_CURRENT)</string>
+	<key>MAGitDate</key>
 	<string>$(GIT_DATE)</string>
-	<key>MAGitHashString</key>
+	<key>MAGitHash</key>
 	<string>$(GIT_HASH)</string>
+	<key>MAGitHashOrigin</key>
+	<string>$(GIT_HASH_ORIGIN)</string>
+	<key>MAGitOrigin</key>
+	<string>$(GIT_ORIGIN)</string>
 	<key>MAInternalVersion</key>
 	<string>$(INTERNAL_VERSION)</string>
 </dict>
