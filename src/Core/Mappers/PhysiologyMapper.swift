@@ -61,7 +61,7 @@ enum PhysiologyMapper {
 						dragon: Self.getAverage(data, of: .dragon))
 	}
 
-	private static func filter<C>(_ states: C, by physiologies: [MHMonsterPhysiology], in frequency10e9: Int) -> [String] where C: Collection, C.Element == String {
+	private static func filter<C>(_ states: C, by physiologies: [MHMonsterPhysiology], in frequency10e6: Int) -> [String] where C: Collection, C.Element == String {
 		return states.filter { state in
 			let pickedCount = physiologies.reduce(into: 0) { count, physiology in
 				let hasState = physiology.values.contains { value in
@@ -71,7 +71,7 @@ enum PhysiologyMapper {
 					count += 1
 				}
 			}
-			let output = 1000000000 * pickedCount / physiologies.count >= frequency10e9
+			let output = 1000000 * pickedCount / physiologies.count >= frequency10e6
 			return output
 		}
 	}
@@ -97,7 +97,7 @@ enum PhysiologyMapper {
 		let allAbnormalStates = Set(src.physiologies.flatMap { physiologies in
 			Set(physiologies.values.flatMap(\.states))
 		}).subtracting(Self.removingState)
-		let filteredAllAbnormalStates = Self.filter(allAbnormalStates, by: src.physiologies, in: 500000000)
+		let filteredAllAbnormalStates = Self.filter(allAbnormalStates, by: src.physiologies, in: 500000)
 
 		let defaultSectionData = src.physiologies.map { physiology in
 			let items = physiology.values.compactMap { physiologyValue -> Physiology? in
