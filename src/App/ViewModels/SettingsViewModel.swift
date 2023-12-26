@@ -25,6 +25,13 @@ final class SettingsViewModel: ObservableObject {
 		}
 	}
 
+	@Published
+	var mergeParts: Bool {
+		didSet {
+			settings.mergeParts = mergeParts
+		}
+	}
+
 	init(rootViewModel: HomeViewModel,
 		 storage: Storage) {
 		guard let app = MAApp.resolver.resolve(MonsterAnalyzerCore.App.self) else {
@@ -34,8 +41,10 @@ final class SettingsViewModel: ObservableObject {
 		self.settings = app.settings
 		self.storage = storage
 		self.elementDisplay = app.settings.elementDisplay
+		self.mergeParts = app.settings.mergeParts
 
 		settings.$elementDisplay.dropFirst().receive(on: DispatchQueue.main).assign(to: &$elementDisplay)
+		settings.$mergeParts.dropFirst().receive(on: DispatchQueue.main).assign(to: &$mergeParts)
 	}
 
 	convenience init(rootViewModel: HomeViewModel) {

@@ -2,7 +2,7 @@ import Combine
 import Foundation
 
 public final class Monster: FetchableEntity<Physiologies>, Entity {
-	private let _languageService: LanguageService
+	private let _physiologyMapper: PhysiologyMapper
 
 	public weak var app: App?
 
@@ -17,9 +17,10 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 		 gameID: String,
 		 dataSource: DataSource,
 		 languageService: LanguageService,
+		 physiologyMapper: PhysiologyMapper,
 		 localization: MHLocalizationMonster) {
 		self.app = app
-		self._languageService = languageService
+		self._physiologyMapper = physiologyMapper
 
 		self.id = id
 		self.gameID = gameID
@@ -31,7 +32,8 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 
 	override func _fetch() async throws -> Physiologies {
 		let monster = try await _dataSource.getMonster(of: id, for: gameID)
-		let physiologies = PhysiologyMapper.map(json: monster, languageService: _languageService)
+		let options = PhysiologyMapperOptions(mergeParts: app?.settings.mergeParts ?? true)
+		let physiologies = _physiologyMapper.map(json: monster, options: options)
 		return physiologies
 	}
 }

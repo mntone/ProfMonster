@@ -125,8 +125,8 @@ public struct MockDataSource {
 	   ])
 
 	public static var physiology1: Physiologies {
-		PhysiologyMapper.map(json: monster1,
-							 languageService: PassthroughtLanguageService())
+		let mapper = PhysiologyMapper(languageService: PassthroughtLanguageService())
+		return mapper.map(json: monster1, options: PhysiologyMapperOptions(mergeParts: false))
 	}
 
 	public init() {

@@ -51,6 +51,7 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 		let localization = try await _dataSource.getLocalization(of: langsvc.localeKey, for: id)
 		langsvc.register(dictionary: localization.states, for: .state)
 		languageService = langsvc
+		let physiologyMapper = PhysiologyMapper(languageService: languageService)
 
 		let app = self.app!
 		let monsters = game.monsters.map { monsterID in
@@ -59,6 +60,7 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 					gameID: self.id,
 					dataSource: self._dataSource,
 					languageService: langsvc,
+					physiologyMapper: physiologyMapper,
 					localization: localization.monsters.first(where: { m in m.id == monsterID })!)
 		}
 		return monsters

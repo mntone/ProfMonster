@@ -1,12 +1,12 @@
 import Foundation
 
-public enum PhysiologyStateInfo {
+public enum PhysiologyStateInfo: Int8 {
 	case `default`
 	case broken
 	case other
 }
 
-public struct PhysiologyValue<Number> {
+public struct PhysiologyValue<Number>: Hashable where Number: Hashable, Number: Numeric {
 	public let slash: Number
 	public let strike: Number
 	public let shell: Number
@@ -43,7 +43,7 @@ public struct PhysiologyValue<Number> {
 	}
 }
 
-public struct Physiology {
+public struct Physiology: Hashable {
 	public let stateInfo: PhysiologyStateInfo
 	public let label: String
 	public let value: PhysiologyValue<Int8>

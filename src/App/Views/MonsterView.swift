@@ -14,7 +14,7 @@ struct MonsterView: View {
 		StateView(state: viewModel.state, background: background) { data in
 			Form {
 				if viewModel.elementDisplay != .none {
-					Section {
+					Section("Weakness") {
 						let requireHeader = data.weakness.sections.count > 1
 						ForEach(data.weakness.sections) { section in
 							if requireHeader {
@@ -29,12 +29,10 @@ struct MonsterView: View {
 													   viewModel: section)
 							}
 						}
-					} header: {
-						Text("header.weakness")
 					}
 				}
 
-				Section {
+				Section("Physiology") {
 					let requireHeader = data.physiologies.sections.count > 1
 					ForEach(data.physiologies.sections) { section in
 						if requireHeader {
@@ -58,8 +56,6 @@ struct MonsterView: View {
 #endif
 						}
 					}
-				} header: {
-					Text("header.physiology")
 				}
 			}
 			.block {
