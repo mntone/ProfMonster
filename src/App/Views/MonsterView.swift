@@ -33,28 +33,24 @@ struct MonsterView: View {
 				}
 
 				Section("Physiology") {
-					let requireHeader = data.physiologies.sections.count > 1
+					let headerHidden = data.physiologies.sections.count <= 1
 					ForEach(data.physiologies.sections) { section in
-						if requireHeader {
+#if os(macOS)
+						PhysiologyView(viewModel: section, headerHidden: headerHidden)
+#else
+						if !headerHidden {
 							VStack(alignment: .leading, spacing: 0) {
 								Text(verbatim: section.header)
 									.font(.system(.subheadline).weight(.medium))
 									.padding(.horizontal)
-#if os(macOS)
-								PhysiologyView(viewModel: section)
-#else
 								PhysiologyScrollableView(viewModel: section)
-#endif
 							}
 							.listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
 						} else {
-#if os(macOS)
-							PhysiologyView(viewModel: section)
-#else
 							PhysiologyScrollableView(viewModel: section)
 								.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
-#endif
 						}
+#endif
 					}
 				}
 			}

@@ -11,14 +11,21 @@ struct PhysiologyRowView: View {
 			Text(verbatim: viewModel.header)
 				.fixedSize(horizontal: false, vertical: true)
 				.frame(width: headerWidth)
+				.accessibilityAddTraits(.isHeader)
 
-			ForEach(Array(viewModel.values.enumerated()), id: \.offset) { _, val in
+			ForEach(viewModel.values) { item in
 				Spacer(minLength: PhysiologyViewMetrics.spacing)
-				Text(verbatim: String(val))
+
+				let text = Text(verbatim: String(item.value))
+				text
 					.frame(width: itemWidth)
+					.accessibilityLabel(item.attack.accessibilityLabel)
+					.accessibilityValue(text)
 			}
 		}
 		.foregroundStyle(viewModel.foregroundShape)
+		.accessibilityElement(children: .contain)
+		.accessibilityLabel(Text(verbatim: viewModel.header))
 	}
 }
 
@@ -31,8 +38,8 @@ private struct PhysiologyRowHeaderView: View {
 		HStack(spacing: 0) {
 			ForEach(viewModel) { item in
 				Spacer(minLength: PhysiologyViewMetrics.spacing)
-				Image(systemName: item.attackImageName)
-					.foregroundStyle(item.attackColor)
+				Image(systemName: item.attack.imageName)
+					.foregroundStyle(item.attack.color)
 					.frame(width: itemWidth)
 			}
 		}
@@ -40,11 +47,13 @@ private struct PhysiologyRowHeaderView: View {
 							leading: PhysiologyViewMetrics.inset + headerWidth,
 							bottom: PhysiologyViewMetrics.rowSpacing,
 							trailing: PhysiologyViewMetrics.inset))
+		.accessibilityHidden(true)
 	}
 }
 
 struct PhysiologyView: View {
 	let viewModel: PhysiologySectionViewModel
+	let headerHidden: Bool
 
 #if !os(macOS)
 	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
@@ -55,7 +64,13 @@ struct PhysiologyView: View {
 #endif
 
 	var body: some View {
-		VStack(spacing: 0) {
+		VStack(alignment: .leading, spacing: 0) {
+			if !headerHidden {
+				Text(verbatim: viewModel.header)
+					.font(.system(.subheadline).weight(.medium))
+					.accessibilityAddTraits(.isHeader)
+			}
+
 #if os(macOS)
 			PhysiologyRowHeaderView(viewModel: viewModel.columns,
 									headerWidth: PhysiologyViewMetrics.headerBaseWidth,
@@ -85,7 +100,7 @@ struct PhysiologyView: View {
 									bottom: PhysiologyViewMetrics.rowSpacing,
 									trailing: PhysiologyViewMetrics.inset))
 				.background(group.id % 2 != 0
-							? RoundedRectangle(cornerRadius: 4).foregroundColor(.physiologySecondary)
+							? RoundedRectangle(cornerRadius: 4).foregroundColor(.physiologySecondary).accessibilityHidden(true)
 							: nil)
 			}
 		}
@@ -93,10 +108,12 @@ struct PhysiologyView: View {
 		.font(Font.system(PhysiologyViewMetrics.textStyle).monospacedDigit())
 		.frame(idealWidth: PhysiologyViewMetrics.maxWidth,
 			   maxWidth: PhysiologyViewMetrics.maxWidth)
+		.accessibilityElement(children: .contain)
+		.accessibilityLabel(Text(verbatim: viewModel.header))
 	}
 }
 
 #Preview {
-	PhysiologyView(viewModel: PhysiologiesViewModel(rawValue: MockDataSource.physiology1).sections[0])
+	PhysiologyView(viewModel: PhysiologiesViewModel(rawValue: MockDataSource.physiology1).sections[0], headerHidden: false)
 		.previewLayout(.sizeThatFits)
 }

@@ -2,7 +2,7 @@ import Foundation
 import MonsterAnalyzerCore
 import SwiftUI
 
-struct WeaknessItemViewModel: Identifiable, AttackItemViewModel {
+struct WeaknessItemViewModel: Identifiable {
 	let attack: Attack
 	let effective: Effective
 	let value: Float

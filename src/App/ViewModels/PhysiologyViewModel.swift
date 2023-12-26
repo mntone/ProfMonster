@@ -2,11 +2,20 @@ import Foundation
 import MonsterAnalyzerCore
 import SwiftUI
 
+struct PhysiologyValueViewModel: Identifiable {
+	let attack: Attack
+	let value: Int8
+
+	var id: String {
+		attack.rawValue
+	}
+}
+
 struct PhysiologyViewModel: Identifiable {
 	let id: UInt32
 	let stateInfo: PhysiologyStateInfo
 	let header: String
-	let values: [Int8]
+	let values: [PhysiologyValueViewModel]
 	let isReference: Bool
 
 	fileprivate init(id: Int,
@@ -17,7 +26,7 @@ struct PhysiologyViewModel: Identifiable {
 		self.id = UInt32(exactly: id)!
 		self.stateInfo = rawValue.stateInfo
 		self.header = rawValue.isDefault ? partsLabel : rawValue.label
-		self.values = rawValue.value.values(of: attacks)
+		self.values = zip(attacks, rawValue.value.values(of: attacks)).map(PhysiologyValueViewModel.init)
 		self.isReference = isReference
 	}
 
@@ -51,7 +60,7 @@ struct PhysiologyGroupViewModel: Identifiable {
 	}
 }
 
-struct PhysiologyColumnViewModel: Identifiable, AttackItemViewModel {
+struct PhysiologyColumnViewModel: Identifiable {
 	let attack: Attack
 
 	var id: String {

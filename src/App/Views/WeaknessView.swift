@@ -7,13 +7,13 @@ struct WeaknessItemView: View {
 	var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
 			Label {
-				Text(viewModel.attackKey)
+				Text(viewModel.attack.label)
 					.font(.callout.weight(.medium))
 					.lineLimit(1)
 			} icon: {
-				Image(systemName: viewModel.attackImageName)
+				Image(systemName: viewModel.attack.imageName)
 			}
-			.foregroundColor(viewModel.attackColor)
+			.foregroundColor(viewModel.attack.color)
 			.padding(.bottom, 2)
 
 			Text(String(format: "%.1f", viewModel.value))

@@ -131,7 +131,7 @@
 		EBB4B1D22B15ED1B004D63EA /* PhysiologyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D12B15ED1B004D63EA /* PhysiologyViewModel.swift */; };
 		EBB4B1D52B161691004D63EA /* Effective.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D42B161691004D63EA /* Effective.swift */; };
 		EBB4B1D72B161E94004D63EA /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */; };
-		EBB4B1E52B16A6D4004D63EA /* AttackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E42B16A6D4004D63EA /* AttackViewModel.swift */; };
+		EBB4B1E52B16A6D4004D63EA /* Attack+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E42B16A6D4004D63EA /* Attack+Extensions.swift */; };
 		EBB4B1ED2B1737EF004D63EA /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB4B1EC2B1737EF004D63EA /* Colors.xcassets */; };
 		EBB4B2002B17598B004D63EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF928322B1038CB007D59D4 /* Preview Assets.xcassets */; };
 		EBB4B2012B175990004D63EA /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB4B1EC2B1737EF004D63EA /* Colors.xcassets */; };
@@ -145,7 +145,7 @@
 		EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D12B15ED1B004D63EA /* PhysiologyViewModel.swift */; };
 		EBB4B2142B175DE7004D63EA /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */; };
 		EBB4B2152B175DE7004D63EA /* WeaknessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C42B15BDA7004D63EA /* WeaknessViewModel.swift */; };
-		EBB4B2162B175DE7004D63EA /* AttackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E42B16A6D4004D63EA /* AttackViewModel.swift */; };
+		EBB4B2162B175DE7004D63EA /* Attack+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E42B16A6D4004D63EA /* Attack+Extensions.swift */; };
 		EBB4B2172B175DED004D63EA /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */; };
 		EBB4B21C2B176CE7004D63EA /* FixedWidthWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */; };
 		EBC85C612B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
@@ -390,7 +390,7 @@
 		EBB4B1D42B161691004D63EA /* Effective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effective.swift; sourceTree = "<group>"; };
 		EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		EBB4B1E22B163B0E004D63EA /* Attack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
-		EBB4B1E42B16A6D4004D63EA /* AttackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackViewModel.swift; sourceTree = "<group>"; };
+		EBB4B1E42B16A6D4004D63EA /* Attack+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attack+Extensions.swift"; sourceTree = "<group>"; };
 		EBB4B1E82B16C254004D63EA /* Element.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Element.swift; sourceTree = "<group>"; };
 		EBB4B1EC2B1737EF004D63EA /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		EBB4B1F22B17593F004D63EA /* MonsterAnalyzerWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterAnalyzerWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -630,7 +630,6 @@
 			children = (
 				EB2B05B92B3AAA0200E0BFD3 /* Enums */,
 				EBC85C632B202DCD008A16C6 /* Utils */,
-				EBB4B1E42B16A6D4004D63EA /* AttackViewModel.swift */,
 				EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */,
 				EB9620EA2B1D839B00FD7115 /* HomeViewModel.swift */,
 				EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */,
@@ -690,6 +689,7 @@
 		EBC85C632B202DCD008A16C6 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				EBB4B1E42B16A6D4004D63EA /* Attack+Extensions.swift */,
 				EBC85C672B202DE5008A16C6 /* ViewModelError.swift */,
 				EBC85C6A2B202E05008A16C6 /* ViewModelStateAnd.swift */,
 				EB99DBCC2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift */,
@@ -1133,7 +1133,7 @@
 			files = (
 				EB29563B2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBA66F1E2B355F38009DE78C /* AppSettingsPane.swift in Sources */,
-				EBB4B2162B175DE7004D63EA /* AttackViewModel.swift in Sources */,
+				EBB4B2162B175DE7004D63EA /* Attack+Extensions.swift in Sources */,
 				EB4249602B332A230086E255 /* Backport.swift in Sources */,
 				EBC85C7B2B2063FF008A16C6 /* BottomCircularButtonStyle.swift in Sources */,
 				EBB4B2172B175DED004D63EA /* Color+Extensions.swift in Sources */,
@@ -1263,7 +1263,7 @@
 			files = (
 				EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBA66F1D2B355F38009DE78C /* AppSettingsPane.swift in Sources */,
-				EBB4B1E52B16A6D4004D63EA /* AttackViewModel.swift in Sources */,
+				EBB4B1E52B16A6D4004D63EA /* Attack+Extensions.swift in Sources */,
 				EB2550142B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift in Sources */,
 				EB42495D2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift in Sources */,
 				EB42495F2B332A230086E255 /* Backport.swift in Sources */,

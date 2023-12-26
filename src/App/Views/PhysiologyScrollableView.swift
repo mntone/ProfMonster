@@ -59,8 +59,8 @@ private struct PhysiologyRowHeaderView: View {
 	var body: some View {
 		HStack(spacing: PhysiologyViewMetrics.spacing) {
 			ForEach(viewModel) { item in
-				Image(systemName: item.attackImageName)
-					.foregroundStyle(item.attackColor)
+				Image(systemName: item.attack.imageName)
+					.foregroundStyle(item.attack.color)
 			}
 			.frame(maxWidth: itemWidth)
 		}
@@ -94,8 +94,8 @@ struct PhysiologyContentView: View {
 
 	var body: some View {
 		HStack(spacing: PhysiologyViewMetrics.spacing) {
-			ForEach(Array(viewModel.values.enumerated()), id: \.offset) { _, val in
-				Text(verbatim: String(val))
+			ForEach(viewModel.values) { item in
+				Text(verbatim: String(item.value))
 			}
 			.frame(width: itemWidth)
 		}
