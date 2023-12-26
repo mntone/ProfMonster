@@ -49,6 +49,8 @@ public class FetchableEntity<Data> {
 
 		if let urlError = error as? URLError {
 			_handle(urlError: urlError)
+		} else if let ssError = error as? StarSwingsError {
+			_handle(ssError: ssError)
 		} else {
 			_handle(ssError: .other(error))
 		}
@@ -70,7 +72,7 @@ public class FetchableEntity<Data> {
 		case .timedOut:
 			ssError = .timedOut
 		case .fileDoesNotExist:
-			ssError = .notExist
+			ssError = .notExists
 		default:
 			ssError = .other(urlError)
 		}

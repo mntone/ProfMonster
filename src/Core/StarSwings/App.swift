@@ -31,7 +31,14 @@ public final class App: FetchableEntity<[Game]>, Entity {
 	}
 
 	override func _fetch() async throws -> [Game] {
-		let games = try await _dataSource.getConfig().titles.map { title in
+		let config = try await _dataSource.getConfig()
+
+		// Check data format version.
+		guard config.version == MHConfig.currentVersion else {
+			throw StarSwingsError.notSupported
+		}
+
+		let games = config.titles.map { title in
 			Game(app: self, resolver: resolver, dataSource: _dataSource, json: title)
 		}
 		return games

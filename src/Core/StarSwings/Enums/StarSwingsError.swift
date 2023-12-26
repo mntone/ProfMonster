@@ -5,7 +5,8 @@ public enum StarSwingsError: Error {
 	case connectionLost
 	case noConnection
 	case timedOut
-	case notExist
+	case notExists
+	case notSupported
 	case other(Error)
 }
 
@@ -16,7 +17,8 @@ extension StarSwingsError: Equatable {
 			(.connectionLost, .connectionLost),
 			(.noConnection, .noConnection),
 			(.timedOut, .timedOut),
-			(.notExist, .notExist):
+			(.notExists, .notExists),
+			(.notSupported, .notSupported):
 			return true
 		default:
 			return false

@@ -7,6 +7,8 @@ struct MHConfigTitle: Codable {
 }
 
 struct MHConfig: Codable {
-	let version: Int
+	let version: UInt8
 	let titles: [MHConfigTitle]
+
+	static let currentVersion: UInt8 = 1
 }
