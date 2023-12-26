@@ -9,7 +9,17 @@ struct SharedSettingsContainerModifier: ViewModifier {
 
 	func body(content: Content) -> some View {
 		content
+#if os(macOS)
 			.labelStyle(.settings)
+#else
+			.block { content in
+				if #available(iOS 16.0, watchOS 9.0, *) {
+					content.labelStyle(.settings)
+				} else {
+					content.labelStyle(.settingsBackport)
+				}
+			}
+#endif
 #if os(iOS)
 			.toolbar {
 				ToolbarItem(placement: .cancellationAction) {
