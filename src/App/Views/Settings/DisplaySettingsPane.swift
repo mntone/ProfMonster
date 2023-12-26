@@ -17,7 +17,7 @@ struct DisplaySettingsPane: View {
 			PreferredPicker("Element Attack",
 							data: WeaknessDisplayMode.allCases,
 							selection: $viewModel.elementDisplay) { mode in
-				Text(mode.localizedStringKey)
+				Text(mode.localizedKey)
 			}
 #endif
 		}

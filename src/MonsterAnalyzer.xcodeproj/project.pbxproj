@@ -486,6 +486,14 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		EB2B05B92B3AAA0200E0BFD3 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4B1D42B161691004D63EA /* Effective.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		EB2B0FA42B390FA3004596A6 /* Licenses */ = {
 			isa = PBXGroup;
 			children = (
@@ -617,17 +625,10 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		EBB4B1B82B158CB9004D63EA /* Objects */ = {
-			isa = PBXGroup;
-			children = (
-				EBB4B1D42B161691004D63EA /* Effective.swift */,
-			);
-			path = Objects;
-			sourceTree = "<group>";
-		};
 		EBB4B1C32B15BD82004D63EA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				EB2B05B92B3AAA0200E0BFD3 /* Enums */,
 				EBC85C632B202DCD008A16C6 /* Utils */,
 				EBB4B1E42B16A6D4004D63EA /* AttackViewModel.swift */,
 				EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */,
@@ -883,7 +884,6 @@
 		EBF928292B1038C9007D59D4 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				EBB4B1B82B158CB9004D63EA /* Objects */,
 				EBF928312B1038CB007D59D4 /* Preview Content */,
 				EBB4B1C32B15BD82004D63EA /* ViewModels */,
 				EBB4B1CE2B15E003004D63EA /* Views */,

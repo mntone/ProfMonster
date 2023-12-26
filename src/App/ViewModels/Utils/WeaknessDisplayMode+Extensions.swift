@@ -2,7 +2,7 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 extension WeaknessDisplayMode {
-	var localizedStringKey: LocalizedStringKey {
+	var localizedKey: LocalizedStringKey {
 		LocalizedStringKey(rawValue)
 	}
 }

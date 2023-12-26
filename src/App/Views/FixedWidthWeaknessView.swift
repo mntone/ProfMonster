@@ -23,7 +23,7 @@ private struct FixedWidthWeaknessSignItemView: View {
 			Label(viewModel.attackKey, systemImage: viewModel.attackImageName)
 				.foregroundStyle(viewModel.attackColor)
 
-			Text(viewModel.effective.rawValue)
+			Text(viewModel.effective.localizedKey)
 				.foregroundStyle(viewModel.signColor)
 #if os(watchOS)
 				.font(.systemBackport(.body,
