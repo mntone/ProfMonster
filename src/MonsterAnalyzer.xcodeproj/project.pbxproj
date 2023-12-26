@@ -927,7 +927,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EBB4B1FD2B175941004D63EA /* Build configuration list for PBXNativeTarget "MonsterAnalyzerWatch" */;
 			buildPhases = (
-				EBB4A3FD2B348E4200D8C024 /* Version Info Script */,
 				EBB4B1EE2B17593F004D63EA /* Sources */,
 				EBB4B1EF2B17593F004D63EA /* Frameworks */,
 				EBB4B1F02B17593F004D63EA /* Resources */,
@@ -1126,31 +1125,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		EBB4A3FD2B348E4200D8C024 /* Version Info Script */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/../scripts/versioning.sh",
-			);
-			name = "Version Info Script";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/App/Versioning.xcconfig",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "$SCRIPT_INPUT_FILE_0\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EBB4B1EE2B17593F004D63EA /* Sources */ = {
