@@ -65,13 +65,18 @@ final class GameViewModel: ObservableObject, Identifiable {
 #endif
 
 	@Published
-	var sort: Sort = .inGame
+	var sort: Sort {
+		didSet {
+			game.app?.settings.sort = sort
+		}
+	}
 
 	@Published
 	var searchText: String = ""
 
 	init(_ game: Game) {
 		self.game = game
+		self.sort = game.app?.settings.sort ?? .inGame
 
 		let getState = game.$state
 			.mapData { monsters in
