@@ -25,6 +25,17 @@ struct MAApp: SwiftUI.App {
 #if os(watchOS)
 		.environment(\.watchMetrics, WatchUtil.getMetrics())
 #endif
+#if os(macOS)
+		.commands {
+			CommandGroup(replacing: .appInfo) {
+				Button("About Prof. Monster") {
+					NSApplication.shared.orderFrontStandardAboutPanel(options: [
+						.applicationVersion: String(localized: "Version \(AppUtil.version)"),
+					])
+				}
+			}
+		}
+#endif
 
 #if os(macOS)
 		Settings {
