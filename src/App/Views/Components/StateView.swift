@@ -27,8 +27,8 @@ struct StateView<Content: View, Data>: View {
 				ProgressView()
 			case let .complete(data):
 				content(data)
-			case .failure:
-				Text(verbatim: "Error")
+			case let .failure(_, error):
+				Text(error.label)
 			}
 		}
 	}

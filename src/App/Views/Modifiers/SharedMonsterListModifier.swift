@@ -1,10 +1,10 @@
-import enum MonsterAnalyzerCore.Sort
+import MonsterAnalyzerCore
 import SwiftUI
 
-struct SharedMonsterListModifier: ViewModifier {
+struct SharedMonsterListModifier<Data>: ViewModifier {
+	let state: StarSwingsState<Data>
 	let sort: Binding<Sort>
 	let searchText: Binding<String>
-	let isLoading: Bool
 
 	func body(content: Content) -> some View {
 		content
@@ -36,8 +36,14 @@ struct SharedMonsterListModifier: ViewModifier {
 			.searchable(text: searchText, prompt: Text("Monster and Weakness"))
 #endif
 			.overlay {
-				if isLoading {
+				switch state {
+				case .loading:
 					ProgressView()
+				case let .failure(_, error):
+					Text(error.label)
+						.scenePadding()
+				default:
+					EmptyView()
 				}
 			}
 #if os(iOS)

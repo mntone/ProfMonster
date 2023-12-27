@@ -19,9 +19,9 @@ struct GameView: View {
 		.scrollDismissesKeyboard(.immediately)
 #endif
 		.navigationTitle(Text(verbatim: viewModel.name))
-		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
-											searchText: $viewModel.searchText,
-											isLoading: viewModel.state.isLoading))
+		.modifier(SharedMonsterListModifier(state: viewModel.state,
+											sort: $viewModel.sort,
+											searchText: $viewModel.searchText))
 	}
 }
 
@@ -57,9 +57,9 @@ struct GameViewBackport: View {
 			}
 		}
 		.navigationTitle(Text(verbatim: viewModel.name))
-		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
-											searchText: $viewModel.searchText,
-											isLoading: viewModel.state.isLoading))
+		.modifier(SharedMonsterListModifier(state: viewModel.state,
+											sort: $viewModel.sort,
+											searchText: $viewModel.searchText))
 	}
 }
 

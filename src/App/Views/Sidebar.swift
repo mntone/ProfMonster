@@ -15,7 +15,7 @@ struct Sidebar: View {
 		List(viewModel.state.data ?? [], id: \.id, selection: $selectedGameID) { item in
 			Text(verbatim: item.name)
 		}
-		.modifier(SharedGameListModifier(isLoading: viewModel.state.isLoading) {
+		.modifier(SharedGameListModifier(state: viewModel.state) {
 			presentSettingsSheetAction()
 		})
 	}
@@ -40,7 +40,7 @@ struct SidebarBackport: View {
 				Text(verbatim: item.name)
 			}
 		}
-		.modifier(SharedGameListModifier(isLoading: viewModel.state.isLoading) {
+		.modifier(SharedGameListModifier(state: viewModel.state) {
 			presentSettingsSheetAction()
 		})
 	}

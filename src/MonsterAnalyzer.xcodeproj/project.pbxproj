@@ -53,6 +53,8 @@
 		EB645A642B2685D500D27500 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A632B2685D500D27500 /* Sidebar.swift */; };
 		EB645A652B269EF300D27500 /* NavigationStackHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A602B26749E00D27500 /* NavigationStackHost.swift */; };
 		EB645A662B26A3C000D27500 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F12B1D8E1300FD7115 /* HomeView.swift */; };
+		EB693EA72B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */; };
+		EB693EA82B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */; };
 		EB6ADE742B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */; };
 		EB6ADE752B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */; };
 		EB87781F2B26B0AB00B3359C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F12B1D8E1300FD7115 /* HomeView.swift */; };
@@ -150,10 +152,6 @@
 		EBB4B21C2B176CE7004D63EA /* FixedWidthWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */; };
 		EBC85C612B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C622B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
-		EBC85C682B202DE5008A16C6 /* ViewModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C672B202DE5008A16C6 /* ViewModelError.swift */; };
-		EBC85C692B202DE5008A16C6 /* ViewModelError.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C672B202DE5008A16C6 /* ViewModelError.swift */; };
-		EBC85C6B2B202E05008A16C6 /* ViewModelStateAnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C6A2B202E05008A16C6 /* ViewModelStateAnd.swift */; };
-		EBC85C6C2B202E05008A16C6 /* ViewModelStateAnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C6A2B202E05008A16C6 /* ViewModelStateAnd.swift */; };
 		EBC85C712B2053B6008A16C6 /* WatchDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C702B2053B6008A16C6 /* WatchDevice.swift */; };
 		EBC85C732B205469008A16C6 /* WatchMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C722B205469008A16C6 /* WatchMetrics.swift */; };
 		EBC85C752B205DE0008A16C6 /* WatchUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C742B205DE0008A16C6 /* WatchUtil.swift */; };
@@ -326,6 +324,7 @@
 		EB6297F12B37179200E830E6 /* View+Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Block.swift"; sourceTree = "<group>"; };
 		EB645A602B26749E00D27500 /* NavigationStackHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStackHost.swift; sourceTree = "<group>"; };
 		EB645A632B2685D500D27500 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
+		EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StarSwingsError+Extensions.swift"; sourceTree = "<group>"; };
 		EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSettingsPaneModifier.swift; sourceTree = "<group>"; };
 		EB8778202B26B1E600B3359C /* NavigationSplitViewHost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationSplitViewHost.swift; sourceTree = "<group>"; };
 		EB8778222B26B28500B3359C /* MonsterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
@@ -400,8 +399,6 @@
 		EBB4B2222B17770E004D63EA /* LanguageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageService.swift; sourceTree = "<group>"; };
 		EBB4B22B2B178302004D63EA /* MHLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHLocalization.swift; sourceTree = "<group>"; };
 		EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
-		EBC85C672B202DE5008A16C6 /* ViewModelError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelError.swift; sourceTree = "<group>"; };
-		EBC85C6A2B202E05008A16C6 /* ViewModelStateAnd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelStateAnd.swift; sourceTree = "<group>"; };
 		EBC85C702B2053B6008A16C6 /* WatchDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDevice.swift; sourceTree = "<group>"; };
 		EBC85C722B205469008A16C6 /* WatchMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMetrics.swift; sourceTree = "<group>"; };
 		EBC85C742B205DE0008A16C6 /* WatchUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchUtil.swift; sourceTree = "<group>"; };
@@ -690,8 +687,7 @@
 			isa = PBXGroup;
 			children = (
 				EBB4B1E42B16A6D4004D63EA /* Attack+Extensions.swift */,
-				EBC85C672B202DE5008A16C6 /* ViewModelError.swift */,
-				EBC85C6A2B202E05008A16C6 /* ViewModelStateAnd.swift */,
+				EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */,
 				EB99DBCC2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift */,
 			);
 			path = Utils;
@@ -1176,6 +1172,7 @@
 				EB97F6A62B31B60700E31602 /* SharedMonsterListModifier.swift in Sources */,
 				EB3B49232B35EAD100E89711 /* SharedSettingsContainerModifier.swift in Sources */,
 				EB6ADE752B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */,
+				EB693EA82B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
 				EB967A4C2B2AC7100041A491 /* StateView.swift in Sources */,
 				EBEA6F752B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
 				EB3B491A2B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
@@ -1183,8 +1180,6 @@
 				EB0004D62B2CB668001C71D5 /* View+If.swift in Sources */,
 				EB87782F2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */,
 				EB9620E92B1D7BBA00FD7115 /* ViewModelCache.swift in Sources */,
-				EBC85C692B202DE5008A16C6 /* ViewModelError.swift in Sources */,
-				EBC85C6C2B202E05008A16C6 /* ViewModelStateAnd.swift in Sources */,
 				EBC85C712B2053B6008A16C6 /* WatchDevice.swift in Sources */,
 				EBC85C732B205469008A16C6 /* WatchMetrics.swift in Sources */,
 				EBC85C772B205F67008A16C6 /* WatchMetricsKey.swift in Sources */,
@@ -1314,6 +1309,7 @@
 				EB3B49222B35EAD100E89711 /* SharedSettingsContainerModifier.swift in Sources */,
 				EB6ADE742B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */,
 				EB645A642B2685D500D27500 /* Sidebar.swift in Sources */,
+				EB693EA72B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
 				EB967A4B2B2AC7100041A491 /* StateView.swift in Sources */,
 				EBEA6F742B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
 				EB3B49192B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
@@ -1322,8 +1318,6 @@
 				EB0004D52B2CB668001C71D5 /* View+If.swift in Sources */,
 				EB87782E2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */,
 				EB9620E82B1D7A5000FD7115 /* ViewModelCache.swift in Sources */,
-				EBC85C682B202DE5008A16C6 /* ViewModelError.swift in Sources */,
-				EBC85C6B2B202E05008A16C6 /* ViewModelStateAnd.swift in Sources */,
 				EB99DBCD2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift in Sources */,
 				EBF9283A2B103CB0007D59D4 /* WeaknessView.swift in Sources */,
 				EBB4B1C52B15BDA7004D63EA /* WeaknessViewModel.swift in Sources */,

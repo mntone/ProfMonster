@@ -1,8 +1,8 @@
-import enum MonsterAnalyzerCore.Sort
+import MonsterAnalyzerCore
 import SwiftUI
 
-struct SharedGameListModifier: ViewModifier {
-	let isLoading: Bool
+struct SharedGameListModifier<Data>: ViewModifier {
+	let state: StarSwingsState<Data>
 	let settingsAction: () -> Void
 
 	func body(content: Content) -> some View {
@@ -16,8 +16,14 @@ struct SharedGameListModifier: ViewModifier {
 			}
 #endif
 			.overlay {
-				if isLoading {
+				switch state {
+				case .loading:
 					ProgressView()
+				case let .failure(_, error):
+					Text(error.label)
+						.scenePadding()
+				default:
+					EmptyView()
 				}
 			}
 			.navigationTitle("Prof. Monster")

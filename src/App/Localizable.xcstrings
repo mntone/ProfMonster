@@ -1764,7 +1764,13 @@
         }
       }
     },
-    "error.noConnection" : {
+    "ERROR_CANCELLED" : {
+
+    },
+    "ERROR_CONNECTION_LOST" : {
+
+    },
+    "ERROR_NO_CONNECTION" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1811,7 +1817,7 @@
         }
       }
     },
-    "error.notFound" : {
+    "ERROR_NOT_EXISTS" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -1858,7 +1864,24 @@
         }
       }
     },
-    "error.other(%@)" : {
+    "ERROR_NOT_SUPPORTED" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monster cannot read the data.﻿ Please update Prof. Monster to the latest version."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データをデコードすることができません。アプリを最新版にアップデートしてください。"
+          }
+        }
+      }
+    },
+    "ERROR_OTHER(%@)" : {
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -1904,7 +1927,7 @@
         }
       }
     },
-    "error.timeout" : {
+    "ERROR_TIMED_OUT" : {
       "extractionState" : "manual",
       "localizations" : {
         "de" : {

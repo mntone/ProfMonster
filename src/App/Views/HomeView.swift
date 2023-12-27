@@ -17,7 +17,7 @@ struct HomeView: View {
 				Text(verbatim: item.name)
 			}
 		}
-		.modifier(SharedGameListModifier(isLoading: viewModel.state.isLoading) {
+		.modifier(SharedGameListModifier(state: viewModel.state) {
 			presentSettingsSheetAction()
 		})
 	}
@@ -50,7 +50,7 @@ struct HomeViewBackport: View {
 				Text(verbatim: item.name)
 			}
 		}
-		.modifier(SharedGameListModifier(isLoading: viewModel.state.isLoading) {
+		.modifier(SharedGameListModifier(state: viewModel.state) {
 			presentSettingsSheetAction()
 		})
 	}
