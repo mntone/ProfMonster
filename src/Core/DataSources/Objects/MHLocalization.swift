@@ -1,6 +1,6 @@
 import Foundation
 
-struct MHLocalizationMonster: Codable {
+struct MHLocalizationMonster: Codable, Sendable {
 	let id: String
 	let name: String
 	let anotherName: String?
@@ -42,7 +42,7 @@ struct MHLocalizationMonster: Codable {
 	}
 }
 
-struct MHLocalization: Codable {
+struct MHLocalization: Codable, Sendable {
 	let monsters: [MHLocalizationMonster]
 	let states: [String: String]
 

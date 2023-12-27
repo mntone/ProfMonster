@@ -1,6 +1,6 @@
 import Foundation
 
-struct MHMonsterPhysiologyValue: Codable {
+struct MHMonsterPhysiologyValue: Codable, Sendable {
 	let states: [String]
 
 	let slash: Int8
@@ -16,7 +16,7 @@ struct MHMonsterPhysiologyValue: Codable {
 	let stun: Int8
 }
 
-struct MHMonsterPhysiology: Codable {
+struct MHMonsterPhysiology: Codable, Sendable {
 	let parts: [String]
 	let values: [MHMonsterPhysiologyValue]
 }
