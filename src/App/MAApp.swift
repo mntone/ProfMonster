@@ -42,7 +42,7 @@ struct MAApp: SwiftUI.App {
 			if #available(macOS 13.0, *) {
 				ColumnSettingsContainer(viewModel: SettingsViewModel(rootViewModel: viewModel))
 			} else {
-				EmptyView()
+				TabSettingsContainer(viewModel: SettingsViewModel(rootViewModel: viewModel))
 			}
 		}
 		.windowToolbarStyle(.expanded)
