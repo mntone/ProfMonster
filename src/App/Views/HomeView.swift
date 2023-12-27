@@ -32,20 +32,17 @@ struct HomeViewBackport: View {
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
 
-	@Binding
-	var selectedGameID: String?
-
-	@Binding
-	var selectedMonsterID: String?
+	let selectedGameID: Binding<GameViewModel.ID?>
+	let selectedMonsterID: Binding<MonsterViewModel.ID?>
 
 	var body: some View {
 		List(viewModel.state.data ?? []) { item in
-			NavigationLink(tag: item.id, selection: $selectedGameID) {
+			NavigationLink(tag: item.id, selection: selectedGameID) {
 				LazyView {
 					let viewModel = GameViewModel(id: item.id)!
 					GamePage(viewModel: viewModel) { item in
 						MonsterListNavigatableItemBackport(viewModel: item,
-														  selection: $selectedMonsterID)
+														   selection: selectedMonsterID)
 					}
 				}
 			} label: {

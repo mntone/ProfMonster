@@ -8,11 +8,10 @@ struct Sidebar: View {
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
 
-	@Binding
-	private(set) var selectedGameID: String?
+	let selection: Binding<GameViewModel.ID?>
 
 	var body: some View {
-		List(viewModel.state.data ?? [], id: \.id, selection: $selectedGameID) { item in
+		List(viewModel.state.data ?? [], id: \.id, selection: selection) { item in
 			Text(verbatim: item.name)
 		}
 		.modifier(SharedGameListModifier(state: viewModel.state) {
@@ -31,12 +30,11 @@ struct SidebarBackport: View {
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
 
-	@Binding
-	private(set) var selectedGameID: String?
+	let selection: Binding<GameViewModel.ID?>
 
 	var body: some View {
 		List(viewModel.state.data ?? []) { item in
-			SelectableListRowBackport(tag: item.id, selection: $selectedGameID) {
+			SelectableListRowBackport(tag: item.id, selection: selection) {
 				Text(verbatim: item.name)
 			}
 		}
@@ -50,5 +48,5 @@ struct SidebarBackport: View {
 
 #Preview {
 	Sidebar(viewModel: HomeViewModel(),
-			selectedGameID: .constant(nil))
+			selection: .constant(nil))
 }

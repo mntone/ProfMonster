@@ -7,12 +7,10 @@ import class MonsterAnalyzerCore.App
 @available(iOS 16.0, watchOS 9.0, *)
 struct NavigationStackHost: View {
 	let viewModel: HomeViewModel
-
-	@Binding
-	private(set) var path: [MARoute]
+	let path: Binding<[MARoute]>
 
 	var body: some View {
-		NavigationStack(path: $path) {
+		NavigationStack(path: path) {
 			HomeView(viewModel: viewModel)
 				.navigationDestination(for: MARoute.self) { path in
 					switch path {
@@ -34,18 +32,14 @@ struct NavigationStackHost: View {
 @available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use NavigationStackHost instead")
 struct NavigationStackHostBackport: View {
 	let viewModel: HomeViewModel
-
-	@Binding
-	var selectedGameID: String?
-
-	@Binding
-	var selectedMonsterID: String?
+	let selectedGameID: Binding<GameViewModel.ID?>
+	let selectedMonsterID: Binding<MonsterViewModel.ID?>
 
 	var body: some View {
 		NavigationView {
 			HomeViewBackport(viewModel: viewModel,
-							 selectedGameID: $selectedGameID,
-							 selectedMonsterID: $selectedMonsterID)
+							 selectedGameID: selectedGameID,
+							 selectedMonsterID: selectedMonsterID)
 		}
 		.navigationViewStyle(.stack)
 	}

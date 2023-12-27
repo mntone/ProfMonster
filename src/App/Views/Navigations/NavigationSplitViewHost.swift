@@ -1,14 +1,15 @@
 import SwiftUI
 
 @available(iOS 16.0, macOS 13.0, *)
+@available(watchOS, unavailable)
 struct NavigationSplitViewHost: View {
 	let viewModel: HomeViewModel
 
 	@Binding
-	var selectedGameID: String?
+	var selectedGameID: GameViewModel.ID?
 
 	@Binding
-	var selectedMonsterID: String?
+	var selectedMonsterID: MonsterViewModel.ID?
 
 #if os(iOS)
 	@State
@@ -23,7 +24,7 @@ struct NavigationSplitViewHost: View {
 
 	var body: some View {
 		NavigationSplitView {
-			Sidebar(viewModel: viewModel, selectedGameID: $selectedGameID)
+			Sidebar(viewModel: viewModel, selection: $selectedGameID)
 #if os(macOS)
 				.navigationSplitViewColumnWidth(min: 140, ideal: 160, max: 200)
 #endif
@@ -118,14 +119,15 @@ struct NavigationSplitViewHost: View {
 
 @available(iOS, introduced: 15.0, deprecated: 16.0, message: "Use NavigationSplitViewHost instead")
 @available(macOS, introduced: 12.0, deprecated: 13.0, message: "Use NavigationSplitViewHost instead")
+@available(watchOS, unavailable)
 struct NavigationSplitViewHostBackport: View {
 	let viewModel: HomeViewModel
 
 	@Binding
-	var selectedGameID: String?
+	var selectedGameID: GameViewModel.ID?
 
 	@Binding
-	var selectedMonsterID: String?
+	var selectedMonsterID: MonsterViewModel.ID?
 
 	@State
 	private var gameViewModel: GameViewModel? = nil
@@ -136,7 +138,7 @@ struct NavigationSplitViewHostBackport: View {
 	var body: some View {
 		NavigationView {
 #if os(macOS)
-			Sidebar(viewModel: viewModel, selectedGameID: $selectedGameID)
+			Sidebar(viewModel: viewModel, selection: $selectedGameID)
 
 			if let monsterViewModel {
 				MonsterView(viewModel: monsterViewModel)
@@ -144,7 +146,7 @@ struct NavigationSplitViewHostBackport: View {
 				Color.monsterBackground.ignoresSafeArea()
 			}
 #else
-			SidebarBackport(viewModel: viewModel, selectedGameID: $selectedGameID)
+			SidebarBackport(viewModel: viewModel, selection: $selectedGameID)
 
 			if let gameViewModel {
 				GamePage(viewModel: gameViewModel) { item in
