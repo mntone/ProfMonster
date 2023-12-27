@@ -18,7 +18,9 @@ struct NavigationStackHost: View {
 					switch path {
 					case let .game(gameId):
 						let viewModel = GameViewModel(id: gameId)!
-						GameView(viewModel: viewModel)
+						GamePage(viewModel: viewModel) { item in
+							MonsterListNavigatableItem(viewModel: item)
+						}
 					case let .monster(gameId, monsterId):
 						let viewModel = MonsterViewModel(id: monsterId, for: gameId)!
 						MonsterView(viewModel: viewModel)

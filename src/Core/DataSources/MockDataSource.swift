@@ -10,7 +10,7 @@ public struct MockDataSource {
 		"ja": "モックゲーム",
 	])
 
-	static let config = MHConfig(version: 1, titles: [configTitle])
+	static let config = MHConfig(version: 2, titles: [configTitle])
 
 	static let localization = MHLocalization(monsters: [
 		MHLocalizationMonster(id: "gulu_qoo",
@@ -21,9 +21,10 @@ public struct MockDataSource {
 
 	static let game = MHGame(id: "mockgame",
 							 localization: ["en"],
-							 monsters: ["gulu_qoo"])
+							 monsters: [MHGameMonster(id: "gulu_qoo", type: "piyopiyo")])
 
 	public static let monster1 = MHMonster(id: "gulu_qoo",
+										   type: "piyopiyo",
 										   version: "1.0.0",
 										   physiologies: [
 			MHMonsterPhysiology(

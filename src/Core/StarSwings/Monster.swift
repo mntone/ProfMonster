@@ -7,6 +7,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 	public weak var app: App?
 
 	public let id: String
+	public let type: String
 	public let gameID: String
 	public let name: String
 	public let anotherName: String?
@@ -14,6 +15,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 
 	init(app: App,
 		 id: String,
+		 type: String,
 		 gameID: String,
 		 dataSource: DataSource,
 		 languageService: LanguageService,
@@ -23,6 +25,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 		self._physiologyMapper = physiologyMapper
 
 		self.id = id
+		self.type = type
 		self.gameID = gameID
 		self.name = localization.name
 		self.anotherName = localization.anotherName

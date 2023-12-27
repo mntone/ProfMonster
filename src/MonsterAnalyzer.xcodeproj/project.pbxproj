@@ -128,7 +128,7 @@
 		EBB4B1C52B15BDA7004D63EA /* WeaknessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C42B15BDA7004D63EA /* WeaknessViewModel.swift */; };
 		EBB4B1C72B15BF48004D63EA /* MonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C62B15BF48004D63EA /* MonsterViewModel.swift */; };
 		EBB4B1CB2B15CC47004D63EA /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */; };
-		EBB4B1CD2B15D0C7004D63EA /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CC2B15D0C7004D63EA /* GameView.swift */; };
+		EBB4B1CD2B15D0C7004D63EA /* GamePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CC2B15D0C7004D63EA /* GamePage.swift */; };
 		EBB4B1D02B15E0C9004D63EA /* PhysiologyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CF2B15E0C9004D63EA /* PhysiologyView.swift */; };
 		EBB4B1D22B15ED1B004D63EA /* PhysiologyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D12B15ED1B004D63EA /* PhysiologyViewModel.swift */; };
 		EBB4B1D52B161691004D63EA /* Effective.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D42B161691004D63EA /* Effective.swift */; };
@@ -140,7 +140,7 @@
 		EBB4B2042B175D4A004D63EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B2032B175D49004D63EA /* ContentView.swift */; };
 		EBB4B2052B175D4A004D63EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B2032B175D49004D63EA /* ContentView.swift */; };
 		EBB4B2062B175DAB004D63EA /* MAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9282A2B1038C9007D59D4 /* MAApp.swift */; };
-		EBB4B2072B175DB8004D63EA /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CC2B15D0C7004D63EA /* GameView.swift */; };
+		EBB4B2072B175DB8004D63EA /* GamePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CC2B15D0C7004D63EA /* GamePage.swift */; };
 		EBB4B2082B175DC0004D63EA /* MonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9282C2B1038C9007D59D4 /* MonsterView.swift */; };
 		EBB4B20E2B175DE2004D63EA /* Effective.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D42B161691004D63EA /* Effective.swift */; };
 		EBB4B2122B175DE7004D63EA /* MonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C62B15BF48004D63EA /* MonsterViewModel.swift */; };
@@ -164,6 +164,7 @@
 		EBCA222C2B221E5700C487AD /* SettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA222A2B221E5700C487AD /* SettingsContainer.swift */; };
 		EBCA222D2B222ECB00C487AD /* LeadingToolbarItemBackportModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA22282B21A58C00C487AD /* LeadingToolbarItemBackportModifier.swift */; };
 		EBCA222E2B228C6800C487AD /* FixedWidthWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */; };
+		EBDFD8512B3C112A00AF1832 /* GameGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */; };
 		EBEA6F2F2B1858FB00734AAA /* MonsterAnalyzerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEA6F252B1858FA00734AAA /* MonsterAnalyzerCore.framework */; };
 		EBEA6F362B1858FB00734AAA /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F352B1858FB00734AAA /* StorageTests.swift */; };
 		EBEA6F372B1858FB00734AAA /* MonsterAnalyserCore.h in Headers */ = {isa = PBXBuildFile; fileRef = EBEA6F272B1858FA00734AAA /* MonsterAnalyserCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -203,6 +204,10 @@
 		EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */; };
 		EBF684AA2B2D88450071981F /* MonsterDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */; };
 		EBF684AB2B2D91A30071981F /* NavigationPathHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB82B2C9DD000FF8536 /* NavigationPathHost.swift */; };
+		EBF706F02B3C03F100AE88C4 /* MonsterListItemContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */; };
+		EBF706F12B3C03F100AE88C4 /* MonsterListItemContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */; };
+		EBF706F42B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF706F32B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift */; };
+		EBF706F52B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF706F32B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift */; };
 		EBF9282B2B1038C9007D59D4 /* MAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9282A2B1038C9007D59D4 /* MAApp.swift */; };
 		EBF9282D2B1038C9007D59D4 /* MonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9282C2B1038C9007D59D4 /* MonsterView.swift */; };
 		EBF9282F2B1038CB007D59D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF9282E2B1038CB007D59D4 /* Assets.xcassets */; };
@@ -383,7 +388,7 @@
 		EBB4B1C62B15BF48004D63EA /* MonsterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterViewModel.swift; sourceTree = "<group>"; };
 		EBB4B1C82B15CB7D004D63EA /* MHGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHGame.swift; sourceTree = "<group>"; };
 		EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
-		EBB4B1CC2B15D0C7004D63EA /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		EBB4B1CC2B15D0C7004D63EA /* GamePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePage.swift; sourceTree = "<group>"; };
 		EBB4B1CF2B15E0C9004D63EA /* PhysiologyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyView.swift; sourceTree = "<group>"; };
 		EBB4B1D12B15ED1B004D63EA /* PhysiologyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyViewModel.swift; sourceTree = "<group>"; };
 		EBB4B1D42B161691004D63EA /* Effective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effective.swift; sourceTree = "<group>"; };
@@ -408,6 +413,7 @@
 		EBCA22282B21A58C00C487AD /* LeadingToolbarItemBackportModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingToolbarItemBackportModifier.swift; sourceTree = "<group>"; };
 		EBCA222A2B221E5700C487AD /* SettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContainer.swift; sourceTree = "<group>"; };
 		EBDF0B5F2B24A68C003E2808 /* SigningHelper.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SigningHelper.xcconfig; sourceTree = "<group>"; };
+		EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGroupViewModel.swift; sourceTree = "<group>"; };
 		EBEA6F0B2B17F9B300734AAA /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		EBEA6F0E2B1800E600734AAA /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 		EBEA6F132B1829EE00734AAA /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
@@ -425,6 +431,8 @@
 		EBF684A32B2D4C5D0071981F /* Physiology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Physiology.swift; sourceTree = "<group>"; };
 		EBF684A62B2D50060071981F /* PhysiologyMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyMapper.swift; sourceTree = "<group>"; };
 		EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataViewModel.swift; sourceTree = "<group>"; };
+		EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListItemContainers.swift; sourceTree = "<group>"; };
+		EBF706F32B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncPreviewSupport.swift; sourceTree = "<group>"; };
 		EBF928272B1038C9007D59D4 /* MonsterAnalyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterAnalyzer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF9282A2B1038C9007D59D4 /* MAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAApp.swift; sourceTree = "<group>"; };
 		EBF9282C2B1038C9007D59D4 /* MonsterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterView.swift; sourceTree = "<group>"; };
@@ -627,6 +635,7 @@
 			children = (
 				EB2B05B92B3AAA0200E0BFD3 /* Enums */,
 				EBC85C632B202DCD008A16C6 /* Utils */,
+				EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */,
 				EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */,
 				EB9620EA2B1D839B00FD7115 /* HomeViewModel.swift */,
 				EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */,
@@ -651,10 +660,11 @@
 				EBC85C6E2B205397008A16C6 /* Utils */,
 				EBB4B2032B175D49004D63EA /* ContentView.swift */,
 				EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */,
-				EBB4B1CC2B15D0C7004D63EA /* GameView.swift */,
+				EBB4B1CC2B15D0C7004D63EA /* GamePage.swift */,
 				EB9620F12B1D8E1300FD7115 /* HomeView.swift */,
 				EB8778222B26B28500B3359C /* MonsterList.swift */,
 				EB8778242B26B38200B3359C /* MonsterListItem.swift */,
+				EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */,
 				EBF9282C2B1038C9007D59D4 /* MonsterView.swift */,
 				EBEA6F702B1889A900734AAA /* PhysiologyScrollableView.swift */,
 				EBB4B1CF2B15E0C9004D63EA /* PhysiologyView.swift */,
@@ -826,6 +836,7 @@
 			isa = PBXGroup;
 			children = (
 				EB29563F2B310E1D002C5CA8 /* iOS */,
+				EBF706F22B3C0C9D00AE88C4 /* Previews */,
 				EB28F1B22B370F0700291055 /* DividedHStack.swift */,
 				EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */,
 				EB3B491E2B35E2B200E89711 /* LabeledContentBackport.swift */,
@@ -853,6 +864,14 @@
 				EBF684A62B2D50060071981F /* PhysiologyMapper.swift */,
 			);
 			path = Mappers;
+			sourceTree = "<group>";
+		};
+		EBF706F22B3C0C9D00AE88C4 /* Previews */ = {
+			isa = PBXGroup;
+			children = (
+				EBF706F32B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift */,
+			);
+			path = Previews;
 			sourceTree = "<group>";
 		};
 		EBF9281E2B1038C9007D59D4 = {
@@ -1129,6 +1148,7 @@
 			files = (
 				EB29563B2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBA66F1E2B355F38009DE78C /* AppSettingsPane.swift in Sources */,
+				EBF706F52B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift in Sources */,
 				EBB4B2162B175DE7004D63EA /* Attack+Extensions.swift in Sources */,
 				EB4249602B332A230086E255 /* Backport.swift in Sources */,
 				EBC85C7B2B2063FF008A16C6 /* BottomCircularButtonStyle.swift in Sources */,
@@ -1141,7 +1161,7 @@
 				EBB4B20E2B175DE2004D63EA /* Effective.swift in Sources */,
 				EB8778292B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */,
 				EBB4B21C2B176CE7004D63EA /* FixedWidthWeaknessView.swift in Sources */,
-				EBB4B2072B175DB8004D63EA /* GameView.swift in Sources */,
+				EBB4B2072B175DB8004D63EA /* GamePage.swift in Sources */,
 				EBB4B2142B175DE7004D63EA /* GameViewModel.swift in Sources */,
 				EBEA6F7F2B1A1B2D00734AAA /* HBorderView.swift in Sources */,
 				EB87781F2B26B0AB00B3359C /* HomeView.swift in Sources */,
@@ -1154,6 +1174,7 @@
 				EB9620E32B1D6FCC00FD7115 /* MARoute.swift in Sources */,
 				EBF684AA2B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
 				EB8778262B26B38200B3359C /* MonsterListItem.swift in Sources */,
+				EBF706F12B3C03F100AE88C4 /* MonsterListItemContainers.swift in Sources */,
 				EBB4B2082B175DC0004D63EA /* MonsterView.swift in Sources */,
 				EBB4B2122B175DE7004D63EA /* MonsterViewModel.swift in Sources */,
 				EBF684AB2B2D91A30071981F /* NavigationPathHost.swift in Sources */,
@@ -1258,6 +1279,7 @@
 			files = (
 				EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBA66F1D2B355F38009DE78C /* AppSettingsPane.swift in Sources */,
+				EBF706F42B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift in Sources */,
 				EBB4B1E52B16A6D4004D63EA /* Attack+Extensions.swift in Sources */,
 				EB2550142B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift in Sources */,
 				EB42495D2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift in Sources */,
@@ -1273,7 +1295,8 @@
 				EBB4B1D52B161691004D63EA /* Effective.swift in Sources */,
 				EB8778282B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */,
 				EBCA222E2B228C6800C487AD /* FixedWidthWeaknessView.swift in Sources */,
-				EBB4B1CD2B15D0C7004D63EA /* GameView.swift in Sources */,
+				EBDFD8512B3C112A00AF1832 /* GameGroupViewModel.swift in Sources */,
+				EBB4B1CD2B15D0C7004D63EA /* GamePage.swift in Sources */,
 				EBB4B1CB2B15CC47004D63EA /* GameViewModel.swift in Sources */,
 				EBEA6F7E2B1A1B2C00734AAA /* HBorderView.swift in Sources */,
 				EB645A662B26A3C000D27500 /* HomeView.swift in Sources */,
@@ -1287,6 +1310,7 @@
 				EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
 				EB8778232B26B28500B3359C /* MonsterList.swift in Sources */,
 				EB8778252B26B38200B3359C /* MonsterListItem.swift in Sources */,
+				EBF706F02B3C03F100AE88C4 /* MonsterListItemContainers.swift in Sources */,
 				EBF9282D2B1038C9007D59D4 /* MonsterView.swift in Sources */,
 				EBB4B1C72B15BF48004D63EA /* MonsterViewModel.swift in Sources */,
 				EB31EEB92B2C9DD000FF8536 /* NavigationPathHost.swift in Sources */,

@@ -54,14 +54,15 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 		let physiologyMapper = PhysiologyMapper(languageService: languageService)
 
 		let app = self.app!
-		let monsters = game.monsters.map { monsterID in
+		let monsters = game.monsters.map { monster in
 			Monster(app: app,
-					id: monsterID,
+					id: monster.id,
+					type: monster.type,
 					gameID: self.id,
 					dataSource: self._dataSource,
 					languageService: langsvc,
 					physiologyMapper: physiologyMapper,
-					localization: localization.monsters.first(where: { m in m.id == monsterID })!)
+					localization: localization.monsters.first(where: { m in m.id == monster.id })!)
 		}
 		return monsters
 	}

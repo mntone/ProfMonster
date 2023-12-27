@@ -11,7 +11,16 @@ struct MonsterListItem: View {
 
 #if DEBUG || targetEnvironment(simulator)
 #Preview {
-	let viewModel = GameItemViewModel(id: "gulu_qoo", gameID: "mockgame")
-	return MonsterListItem(viewModel: viewModel)
+	AsyncPreviewSupport { viewModel in
+		List {
+			MonsterListItem(viewModel: viewModel)
+			MonsterListItem(viewModel: viewModel)
+			MonsterListItem(viewModel: viewModel)
+			MonsterListItem(viewModel: viewModel)
+		}
+	} task: {
+		let viewModel = await GameItemViewModel(id: "gulu_qoo", gameID: "mockgame")
+		return viewModel
+	}
 }
 #endif

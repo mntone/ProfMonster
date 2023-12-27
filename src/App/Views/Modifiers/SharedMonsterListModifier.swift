@@ -15,6 +15,7 @@ struct SharedMonsterListModifier<Data>: ViewModifier {
 						Picker(selection: sort) {
 							Text("In Game").tag(Sort.inGame)
 							Text("Name").tag(Sort.name)
+							Text("Type").tag(Sort.type)
 						} label: {
 							EmptyView()
 						}

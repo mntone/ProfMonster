@@ -1,40 +1,45 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
-@available(iOS 16.0, *)
-@available(watchOS, unavailable)
-struct MonsterList: View {
+#if !os(macOS)
+
+@available(macOS, unavailable)
+struct GamePage<ItemView: View>: View {
 	@ObservedObject
 	private(set) var viewModel: GameViewModel
 
-	let selection: Binding<String?>
+	@ViewBuilder
+	let content: (GameItemViewModel) -> ItemView
 
 	@ViewBuilder
 	private var list: some View {
+#if os(watchOS)
+		List(viewModel.state.data ?? []) { item in
+			content(item)
+		}
+#else
 		let items = viewModel.state.data ?? []
 		if items.count > 1 {
-			List(items, id: \.id, selection: selection) { group in
+			List(items) { group in
 				Section(group.label) {
 					ForEach(group.items) { item in
-						MonsterListItem(viewModel: item)
+						content(item)
 					}
 				}
 			}
 		} else {
-			List(items.first?.items ?? [], id: \.id, selection: selection) { item in
-				MonsterListItem(viewModel: item)
+			List(items.first?.items ?? []) { item in
+				content(item)
 			}
 		}
+#endif
 	}
 
 	var body: some View {
 		list
-#if os(macOS)
-			.backport.alternatingRowBackgrounds()
-			.animation(.default, value: viewModel.state.data)
-#endif
 #if os(iOS)
-			.scrollDismissesKeyboard(.immediately)
+			.listStyle(.plain)
+			.backport.scrollDismissesKeyboard(.immediately)
 #endif
 			.navigationTitle(Text(verbatim: viewModel.name))
 			.modifier(SharedMonsterListModifier(state: viewModel.state,
@@ -43,9 +48,15 @@ struct MonsterList: View {
 	}
 }
 
-@available(iOS 16.0, *)
-@available(watchOS, unavailable)
+@available(iOS 16.0, watchOS 9.0, *)
+@available(macOS, unavailable)
 #Preview {
 	let viewModel = GameViewModel(id: "mockgame")!
-	return MonsterList(viewModel: viewModel, selection: .constant(nil))
+	return NavigationStack {
+		GamePage(viewModel: viewModel) { item in
+			MonsterListNavigatableItem(viewModel: item)
+		}
+	}
 }
+
+#endif

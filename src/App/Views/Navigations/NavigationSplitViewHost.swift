@@ -31,7 +31,7 @@ struct NavigationSplitViewHost: View {
 #if os(macOS)
 			Group {
 				if let gameViewModel {
-					MonsterList(viewModel: gameViewModel, selectedMonsterID: $selectedMonsterID)
+					MonsterList(viewModel: gameViewModel, selection: $selectedMonsterID)
 				} else {
 					Color.monsterListBackground.ignoresSafeArea()
 				}
@@ -39,7 +39,7 @@ struct NavigationSplitViewHost: View {
 			.navigationSplitViewColumnWidth(min: 160, ideal: 200, max: 240)
 #else
 			if let gameViewModel {
-				MonsterList(viewModel: gameViewModel, selectedMonsterID: $selectedMonsterID)
+				MonsterList(viewModel: gameViewModel, selection: $selectedMonsterID)
 			}
 #endif
 		} detail: {
@@ -147,7 +147,9 @@ struct NavigationSplitViewHostBackport: View {
 			SidebarBackport(viewModel: viewModel, selectedGameID: $selectedGameID)
 
 			if let gameViewModel {
-				MonsterListBackport(viewModel: gameViewModel, selectedMonsterID: $selectedMonsterID)
+				GamePage(viewModel: gameViewModel) { item in
+					MonsterSelectableListItem(viewModel: item, selection: $selectedMonsterID)
+				}
 			} else {
 				Color.clear
 			}

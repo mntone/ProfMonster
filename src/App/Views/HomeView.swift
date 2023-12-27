@@ -43,8 +43,10 @@ struct HomeViewBackport: View {
 			NavigationLink(tag: item.id, selection: $selectedGameID) {
 				LazyView {
 					let viewModel = GameViewModel(id: item.id)!
-					GameViewBackport(viewModel: viewModel,
-									 selectedMonsterID: $selectedMonsterID)
+					GamePage(viewModel: viewModel) { item in
+						MonsterListNavigatableItemBackport(viewModel: item,
+														  selection: $selectedMonsterID)
+					}
 				}
 			} label: {
 				Text(verbatim: item.name)

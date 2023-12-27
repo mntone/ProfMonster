@@ -10,5 +10,5 @@ struct MHConfig: Codable, Sendable {
 	let version: UInt8
 	let titles: [MHConfigTitle]
 
-	static let currentVersion: UInt8 = 1
+	static let currentVersion: UInt8 = 2
 }

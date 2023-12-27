@@ -4,12 +4,14 @@ import MonsterAnalyzerCore
 
 struct GameItemViewModel: Identifiable, Hashable {
 	let id: String
+	let type: String
 	let gameID: String
 	let name: String
 	let keywords: [String]
 
-	init(id: String, gameID: String, name: String, keywords: [String]) {
+	init(id: String, type: String, gameID: String, name: String, keywords: [String]) {
 		self.id = id
+		self.type = type
 		self.gameID = gameID
 		self.name = name
 		self.keywords = keywords
@@ -17,19 +19,21 @@ struct GameItemViewModel: Identifiable, Hashable {
 
 	init(monster: Monster) {
 		self.id = monster.id
+		self.type = monster.type
 		self.gameID = monster.gameID
 		self.name = monster.name
 		self.keywords = monster.keywords
 	}
 
 #if DEBUG || targetEnvironment(simulator)
-	init(id monsterID: String, gameID: String) {
-		guard let app = MAApp.resolver.resolve(App.self),
-			  let game = app.findGame(by: gameID),
-			  let monster = game.findMonster(by: monsterID) else {
+	init(id monsterID: String, gameID: String) async {
+		guard let app = await MAApp.resolver.resolve(App.self),
+			  let game = await app.prefetch(of: gameID),
+			  let monster = await game.prefetch(of: monsterID) else {
 			fatalError()
 		}
 		self.id = monster.id
+		self.type = monster.type
 		self.gameID = monster.gameID
 		self.name = monster.name
 		self.keywords = monster.keywords
@@ -52,8 +56,13 @@ extension GameItemViewModel: Comparable {
 final class GameViewModel: ObservableObject, Identifiable {
 	private let game: Game
 
+#if os(watchOS)
 	@Published
 	private(set) var state: StarSwingsState<[GameItemViewModel]> = .ready
+#else
+	@Published
+	private(set) var state: StarSwingsState<[GameGroupViewModel]> = .ready
+#endif
 
 	@Published
 	var sort: Sort = .inGame
@@ -78,15 +87,27 @@ final class GameViewModel: ObservableObject, Identifiable {
 		.receive(on: DispatchQueue.main)
 		.assign(to: &$state)
 #else
-		getState.combineLatest($sort, updateSearchText) { (state: StarSwingsState<[GameItemViewModel]>, sort: Sort, searchText: String) -> StarSwingsState<[GameItemViewModel]> in
+		getState.combineLatest($sort, updateSearchText) { (state: StarSwingsState<[GameItemViewModel]>, sort: Sort, searchText: String) -> StarSwingsState<[GameGroupViewModel]> in
 			state.mapData { monsters in
 				let filteredMonster = Self.filter(searchText, from: monsters, languageService: game.languageService)
+				let groups: [GameGroupViewModel]
 				switch sort {
 				case .inGame:
-					return filteredMonster
+					groups = [GameGroupViewModel(gameID: game.id, type: .inGame, items: filteredMonster)]
 				case .name:
-					return filteredMonster.sorted()
+					groups = [GameGroupViewModel(gameID: game.id, type: .byName, items: filteredMonster.sorted())]
+				case .type:
+					groups = filteredMonster.reduce(into: [:]) { result, next in
+						if let items = result[next.type] {
+							result[next.type] = items + [next]
+						} else {
+							result[next.type] = [next]
+						}
+					}.map { id, group in
+						GameGroupViewModel(gameID: game.id, type: .type(id: id), items: group)
+					}.sorted()
 				}
+				return groups
 			}
 		}
 		.removeDuplicates { prev, cur in
