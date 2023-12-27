@@ -87,27 +87,40 @@ final class GameViewModel: ObservableObject, Identifiable {
 		.receive(on: DispatchQueue.main)
 		.assign(to: &$state)
 #else
-		getState.combineLatest($sort, updateSearchText) { (state: StarSwingsState<[GameItemViewModel]>, sort: Sort, searchText: String) -> StarSwingsState<[GameGroupViewModel]> in
-			state.mapData { monsters in
-				let filteredMonster = Self.filter(searchText, from: monsters, languageService: game.languageService)
+		getState.combineLatest($sort) { (state: StarSwingsState<[GameItemViewModel]>, sort: Sort) -> StarSwingsState<[GameGroupViewModel]> in
+			state.mapData { (monsters: [GameItemViewModel]) -> [GameGroupViewModel] in
 				let groups: [GameGroupViewModel]
 				switch sort {
 				case .inGame:
-					groups = [GameGroupViewModel(gameID: game.id, type: .inGame, items: filteredMonster)]
+					groups = [GameGroupViewModel(gameID: game.id, type: .inGame, items: monsters)]
 				case .name:
-					groups = [GameGroupViewModel(gameID: game.id, type: .byName, items: filteredMonster.sorted())]
+					groups = [GameGroupViewModel(gameID: game.id, type: .byName, items: monsters.sorted())]
 				case .type:
-					groups = filteredMonster.reduce(into: [:]) { result, next in
-						if let items = result[next.type] {
-							result[next.type] = items + [next]
-						} else {
-							result[next.type] = [next]
+					groups = monsters
+						.reduce(into: [:]) { (result: inout [String: [GameItemViewModel]], next: GameItemViewModel) in
+							if let items = result[next.type] {
+								result[next.type] = items + [next]
+							} else {
+								result[next.type] = [next]
+							}
 						}
-					}.map { id, group in
-						GameGroupViewModel(gameID: game.id, type: .type(id: id), items: group)
-					}.sorted()
+						.map { id, items in
+							GameGroupViewModel(gameID: game.id, type: .type(id: id), items: items.sorted())
+						}
+						.sorted()
 				}
 				return groups
+			}
+		}
+		.combineLatest($searchText) { (state: StarSwingsState<[GameGroupViewModel]>, searchText: String) -> StarSwingsState<[GameGroupViewModel]> in
+			state.mapData { groups in
+				groups.compactMap { group in
+					let monsters = Self.filter(searchText, from: group.items, languageService: game.languageService)
+					guard !monsters.isEmpty else {
+						return nil
+					}
+					return GameGroupViewModel(gameID: group.gameID, type: group.type, items: monsters)
+				}
 			}
 		}
 		.removeDuplicates { prev, cur in

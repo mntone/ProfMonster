@@ -12,7 +12,7 @@ struct MonsterList: View {
 	@ViewBuilder
 	private var list: some View {
 		let items = viewModel.state.data ?? []
-		if items.count > 1 {
+		if items.count > 1 || items.first?.type.isType == true {
 			List(items, id: \.id, selection: selection) { group in
 				Section(group.label) {
 					ForEach(group.items) { item in

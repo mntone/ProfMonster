@@ -6,6 +6,14 @@ enum GameGroupType: Hashable {
 	case byName
 	case favorite
 	case type(id: String)
+	
+	var isType: Bool {
+		if case .type = self {
+			return true
+		} else {
+			return false
+		}
+	}
 }
 
 @available(watchOS, unavailable)
@@ -45,7 +53,7 @@ struct GameGroupViewModel: Identifiable {
 @available(watchOS, unavailable)
 extension GameGroupViewModel: Equatable {
 	static func == (lhs: GameGroupViewModel, rhs: GameGroupViewModel) -> Bool {
-		lhs.type == rhs.type && lhs.gameID == rhs.gameID
+		lhs.type == rhs.type && lhs.gameID == rhs.gameID && lhs.items == rhs.items
 	}
 }
 

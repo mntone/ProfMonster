@@ -19,7 +19,7 @@ struct GamePage<ItemView: View>: View {
 		}
 #else
 		let items = viewModel.state.data ?? []
-		if items.count > 1 {
+		if items.count > 1 || items.first?.type.isType == true {
 			List(items) { group in
 				Section(group.label) {
 					ForEach(group.items) { item in
