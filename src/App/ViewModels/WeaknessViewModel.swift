@@ -45,9 +45,9 @@ struct WeaknessItemViewModel: Identifiable {
 	var signWeight: Font.Weight {
 		switch effective {
 		case .high, .middle:
-			return .semibold
+			return .bold
 		case .low, .none:
-			return .medium
+			return .semibold
 		}
 	}
 }

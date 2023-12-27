@@ -48,6 +48,31 @@ private struct FixedWidthWeaknessSignItemView: View {
 private struct FixedWidthWeaknessNumberItemView: View {
 	let viewModel: WeaknessItemViewModel
 	let signFontSize: CGFloat
+	let fractionLength: Int
+
+	private var integerFont: Font {
+		.system(size: signFontSize,
+				weight: viewModel.signWeight,
+				design: .rounded)
+	}
+
+	private var fractionFont: Font {
+		.system(size: 0.666666 * signFontSize,
+				weight: viewModel.signWeight,
+				design: .rounded)
+	}
+
+	private var number: some View {
+		let power = pow(10, Float(fractionLength))
+		let frac = (power * viewModel.value.truncatingRemainder(dividingBy: 1)).rounded()
+		if frac == 0 {
+			return Text(Int(viewModel.value), format: .number).font(integerFont)
+			+ Text(verbatim: "." + String(repeating: "0", count: fractionLength)).font(fractionFont)
+		} else {
+			return Text(Int(viewModel.value), format: .number).font(integerFont)
+			+ (Text(verbatim: ".") + Text(frac, format: .number.precision(.integerLength(fractionLength)))).font(fractionFont)
+		}
+	}
 
 	var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
@@ -55,10 +80,7 @@ private struct FixedWidthWeaknessNumberItemView: View {
 				.foregroundStyle(viewModel.attack.color)
 				.accessibilityLabel(viewModel.attack.accessibilityLabel)
 
-			Text(viewModel.value, format: .number.precision(.fractionLength(1)))
-				.font(.system(size: signFontSize,
-							  weight: viewModel.signWeight,
-							  design: .rounded))
+			number
 #if !os(macOS)
 				.minimumScaleFactor(0.5)
 #endif
@@ -71,8 +93,8 @@ struct FixedWidthWeaknessView: View {
 	private static let maxItemWidth: CGFloat = 80
 
 #if !os(watchOS)
-	@ScaledMetric(relativeTo: .title3)
-	private var signFontSize: CGFloat = 20
+	@ScaledMetric(relativeTo: .title2)
+	private var signFontSize: CGFloat = 22
 #endif
 
 	let displayMode: WeaknessDisplayMode
@@ -120,10 +142,13 @@ struct FixedWidthWeaknessView: View {
 					.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth)
 				}
 				.labelStyle(.iconOnly)
-			case .number:
+			case let .number(fractionLength):
+				let fractionLengthInt = Int(fractionLength)
 				DividedHStack(alignment: .firstTextBaseline, spacing: 0) {
 					ForEach(viewModel.items) { item in
-						FixedWidthWeaknessNumberItemView(viewModel: item, signFontSize: signFontSize)
+						FixedWidthWeaknessNumberItemView(viewModel: item,
+														 signFontSize: signFontSize,
+														 fractionLength: fractionLengthInt)
 					}
 					.padding(.horizontal, 8)
 					.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth, alignment: .leading)
@@ -145,6 +170,6 @@ struct FixedWidthWeaknessView: View {
 }
 
 #Preview("Number") {
-	FixedWidthWeaknessView(displayMode: .number,
+	FixedWidthWeaknessView(displayMode: .number(fractionLength: 1),
 						   viewModel: WeaknessViewModel(rawValue: MockDataSource.physiology1).sections[0])
 }
