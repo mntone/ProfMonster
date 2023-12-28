@@ -2,9 +2,6 @@ import SwiftUI
 
 @available(watchOS, introduced: 8.0, deprecated: 9.0, message: "Use NavigationStackHost instead")
 struct NavigationPathSupport<Content: View>: View {
-	@Environment(\.scenePhase)
-	private var scenePhase
-
 	@Binding
 	var pathString: String?
 
@@ -22,24 +19,10 @@ struct NavigationPathSupport<Content: View>: View {
 			.task {
 				await loadPath()
 			}
-#if !os(macOS)
-			.onDisappear {
-				storePath()
-			}
+#if os(iOS)
+			.onDisappear(perform: storePath)
 #endif
-			.onChange(of: scenePhase) { newValue in
-				switch newValue {
-				case .background, .active:
-					break
-				case .inactive:
-					if scenePhase == .active {
-						storePath()
-					}
-					break
-				@unknown default:
-					fatalError()
-				}
-			}
+			.onReceive(NotificationCenter.default.publisher(for: .platformWillResignActiveNotification), perform: storePath(_:))
 	}
 
 	private func loadPath() async {
@@ -60,6 +43,10 @@ struct NavigationPathSupport<Content: View>: View {
 				selectedMonsterID = monsterID
 			}
 		}
+	}
+
+	private func storePath(_: Notification) {
+		storePath()
 	}
 
 	private func storePath() {

@@ -3,10 +3,8 @@ import SwiftUI
 
 #if !os(macOS)
 
+@available(macOS, unavailable)
 struct NavigationPathHost<Content: View>: View {
-	@Environment(\.scenePhase)
-	private var scenePhase
-
 	@Binding
 	var pathString: String?
 
@@ -24,19 +22,11 @@ struct NavigationPathHost<Content: View>: View {
 			.onDisappear {
 				storePath()
 			}
-			.onChange(of: scenePhase) { newValue in
-				switch newValue {
-				case .background, .active:
-					break
-				case .inactive:
-					if scenePhase == .active {
-						storePath()
-					}
-					break
-				@unknown default:
-					fatalError()
-				}
-			}
+			.onReceive(NotificationCenter.default.publisher(for: .platformWillResignActiveNotification), perform: storePath(_:))
+	}
+
+	private func storePath(_: Notification) {
+		storePath()
 	}
 
 	private func storePath() {

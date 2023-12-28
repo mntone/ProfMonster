@@ -5,6 +5,7 @@ import class MonsterAnalyzerCore.App
 #if !os(macOS)
 
 @available(iOS 16.0, watchOS 9.0, *)
+@available(macOS, unavailable)
 struct NavigationStackHost: View {
 	let viewModel: HomeViewModel
 	let path: Binding<[MARoute]>
@@ -29,6 +30,7 @@ struct NavigationStackHost: View {
 }
 
 @available(iOS, introduced: 13.0, deprecated: 16.0, message: "Use NavigationStackHost instead")
+@available(macOS, unavailable)
 @available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use NavigationStackHost instead")
 struct NavigationStackHostBackport: View {
 	let viewModel: HomeViewModel

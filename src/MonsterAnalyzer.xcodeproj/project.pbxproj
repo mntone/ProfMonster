@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EB0004D52B2CB668001C71D5 /* View+If.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0004D42B2CB668001C71D5 /* View+If.swift */; };
 		EB0004D62B2CB668001C71D5 /* View+If.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0004D42B2CB668001C71D5 /* View+If.swift */; };
+		EB10435B2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */; };
 		EB19D6712B1EBE8400C90417 /* ObservableHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */; };
 		EB19D6722B1EBEC900C90417 /* ObservableHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */; };
 		EB19D6732B1EFB6700C90417 /* Element.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E82B16C254004D63EA /* Element.swift */; };
@@ -306,6 +307,7 @@
 
 /* Begin PBXFileReference section */
 		EB0004D42B2CB668001C71D5 /* View+If.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+If.swift"; sourceTree = "<group>"; };
+		EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extensions.swift"; sourceTree = "<group>"; };
 		EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableHorizontalScrollView.swift; sourceTree = "<group>"; };
 		EB19D6742B1EFF7700C90417 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+RetryIf.swift"; sourceTree = "<group>"; };
@@ -569,6 +571,7 @@
 			children = (
 				EBEA6F772B1A099000734AAA /* AppUtil.swift */,
 				EB9620DE2B1D616A00FD7115 /* Lock.swift */,
+				EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */,
 				EB9620DC2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift */,
 				EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */,
 				EB99DBD22B36D65600A43552 /* UserDefault.swift */,
@@ -1250,6 +1253,7 @@
 				EB967A3A2B29DAC00041A491 /* Monster.swift in Sources */,
 				EB967A262B299BFC0041A491 /* MonsterLocalizationMapper.swift in Sources */,
 				EBEA6F512B185A1A00734AAA /* NetworkDataSource.swift in Sources */,
+				EB10435B2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift in Sources */,
 				EB9620DD2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift in Sources */,
 				EBF684A42B2D4C5D0071981F /* Physiology.swift in Sources */,
 				EBF684A72B2D50060071981F /* PhysiologyMapper.swift in Sources */,
