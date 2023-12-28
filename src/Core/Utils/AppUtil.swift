@@ -17,6 +17,14 @@ public enum AppUtil {
 		info(key: "CFBundleShortVersionString") as! String
 	}
 
+#if os(watchOS)
+	@available(iOS, unavailable)
+	@available(macOS, unavailable)
+	public static var companionAppBundleIdentifier: String {
+		info(key: "WKCompanionAppBundleIdentifier") as! String
+	}
+#endif
+
 	public static var version: String {
 		info(key: "MAInternalVersion") as! String
 	}

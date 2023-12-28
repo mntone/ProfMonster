@@ -4108,6 +4108,22 @@
         }
       }
     },
+    "Note" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Note"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "メモ"
+          }
+        }
+      }
+    },
     "Number" : {
       "comment" : "action.displayMode.number",
       "extractionState" : "manual",
@@ -5556,6 +5572,12 @@
     },
     "Type" : {
       "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",

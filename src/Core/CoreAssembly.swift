@@ -32,6 +32,11 @@ public struct CoreAssembly: Assembly {
 			MALanguageService(keys)
 		}
 
+		let userDatabase = CoreDataUserDatabase()
+		container.register(UserDatabase.self) { (_) in
+			userDatabase
+		}
+
 #if DEBUG || targetEnvironment(simulator)
 		switch mode {
 		case .auto:

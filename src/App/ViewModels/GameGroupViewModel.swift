@@ -6,7 +6,7 @@ enum GameGroupType: Hashable {
 	case byName
 	case favorite
 	case type(id: String)
-	
+
 	var isType: Bool {
 		if case .type = self {
 			return true

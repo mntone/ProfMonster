@@ -83,7 +83,7 @@ struct AppSettingsPane: View {
 				LicenseView(name: "MessagePacker",
 							link: URL(string: "https://github.com/hirotakan/MessagePacker"),
 							text: mit.replacingOccurrences(of: "{Copyright}", with: "Copyright (c) 2018 hiro"))
-#if os(iOS)
+#if os(iOS) || os(macOS)
 				LicenseView(name: "SwiftUI Introspect",
 							link: URL(string: "https://github.com/siteline/swiftui-introspect"),
 							text: mit.replacingOccurrences(of: "{Copyright}", with: "Copyright 2019 Timber Software"))

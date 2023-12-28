@@ -4,11 +4,33 @@ import MonsterAnalyzerCore
 
 final class MonsterViewModel: ObservableObject, Identifiable {
 	private let monster: Monster
+#if !os(watchOS)
+	private let notifier: DebounceNotifier<String>
+#endif
 
 	let elementDisplay: WeaknessDisplayMode
 
 	@Published
 	private(set) var state: StarSwingsState<MonsterDataViewModel>
+
+	@Published
+	var isFavorited: Bool {
+		didSet {
+			monster.isFavorited = isFavorited
+		}
+	}
+
+#if os(watchOS)
+	@Published
+	var note: String
+#else
+	@Published
+	var note: String {
+		didSet {
+			notifier.send(note)
+		}
+	}
+#endif
 
 	init(_ monster: Monster) {
 		self.monster = monster
@@ -16,13 +38,27 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 		self.state = monster.state.mapData { physiology in
 			MonsterDataViewModel(monster.id, rawValue: physiology)
 		}
+		self.isFavorited = monster.isFavorited
+		self.note = monster.note
+
+		// Send data
+#if !os(watchOS)
+		self.notifier = DebounceNotifier(interval: 5.0) { note in
+			monster.note = note
+		}
+#endif
+
+		// Receive data
+		let scheduler = DispatchQueue.main
 		monster.$state
 			.dropFirst()
 			.mapData { physiologies in
 				MonsterDataViewModel(monster.id, rawValue: physiologies)
 			}
-			.receive(on: DispatchQueue.main)
+			.receive(on: scheduler)
 			.assign(to: &$state)
+		monster.$isFavorited.dropFirst().receive(on: scheduler).assign(to: &$isFavorited)
+		monster.$note.dropFirst().receive(on: scheduler).assign(to: &$note)
 
 		monster.fetchIfNeeded()
 	}
@@ -37,6 +73,14 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 		}
 		self.init(monster)
 	}
+
+#if !os(watchOS)
+	deinit {
+		if monster.note != note {
+			monster.note = note
+		}
+	}
+#endif
 
 	var id: String {
 		@inline(__always)
