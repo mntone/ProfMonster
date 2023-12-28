@@ -81,7 +81,7 @@ struct AppSettingsPane: View {
 			Section("LICENSES") {
 				let mit = Self.loadLicense(of: "mit")!
 				LicenseView(name: "MessagePacker",
-							link: URL(string: "https://github.com/a2/MessagePack.swift"),
+							link: URL(string: "https://github.com/hirotakan/MessagePacker"),
 							text: mit.replacingOccurrences(of: "{Copyright}", with: "Copyright (c) 2018 hiro"))
 #if os(iOS)
 				LicenseView(name: "SwiftUI Introspect",
