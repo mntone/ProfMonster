@@ -1,5 +1,5 @@
 import Foundation
-import os
+import struct os.OSAllocatedUnfairLock
 
 #if VERBOSE
 

@@ -1,6 +1,5 @@
 import Foundation
 import SwiftUI
-import class MonsterAnalyzerCore.App
 
 #if !os(macOS)
 

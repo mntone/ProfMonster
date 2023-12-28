@@ -1,6 +1,6 @@
 import Combine
 import Foundation
-import Swinject
+import protocol Swinject.Resolver
 
 public final class Game: FetchableEntity<[Monster]>, Entity {
 	private let _resolver: Resolver
