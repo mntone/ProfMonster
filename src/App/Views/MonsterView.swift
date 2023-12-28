@@ -15,20 +15,8 @@ struct MonsterView: View {
 			Form {
 				if viewModel.elementDisplay != .none {
 					Section("Weakness") {
-						let requireHeader = data.weakness.sections.count > 1
-						ForEach(data.weakness.sections) { section in
-							if requireHeader {
-								VStack(alignment: .leading, spacing: 0) {
-									Text(verbatim: section.header)
-										.font(.system(.subheadline).weight(.medium))
-									FixedWidthWeaknessView(displayMode: viewModel.elementDisplay,
-														   viewModel: section)
-								}
-							} else {
-								FixedWidthWeaknessView(displayMode: viewModel.elementDisplay,
-													   viewModel: section)
-							}
-						}
+						FixedWidthWeaknessView(viewModel: data.weakness,
+											   displayMode: viewModel.elementDisplay)
 					}
 				}
 

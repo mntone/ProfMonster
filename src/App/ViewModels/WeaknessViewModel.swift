@@ -53,17 +53,22 @@ struct WeaknessItemViewModel: Identifiable {
 }
 
 struct WeaknessSectionViewModel: Identifiable {
+	let id: String
 	let header: String
 	let items: [WeaknessItemViewModel]
 
-	init(header: String,
+	init(id: String,
+		 header: String,
 		 items: [WeaknessItemViewModel]) {
+		self.id = id
 		self.header = header
 		self.items = items
 	}
 
-	init(rawValue: PhysiologySection,
+	init(_ id: String,
+		 rawValue: PhysiologySection,
 		 of attacks: [Attack] = Attack.allElements) {
+		self.id = "\(id):\(rawValue.label)"
 		self.header = rawValue.label
 
 		let val = rawValue.average.values(of: attacks)
@@ -72,23 +77,24 @@ struct WeaknessSectionViewModel: Identifiable {
 			WeaknessItemViewModel(attack: attack, value: val, top: top)
 		}
 	}
-
-	var id: String {
-		header
-	}
 }
 
 struct WeaknessViewModel {
+	let id: String
 	let sections: [WeaknessSectionViewModel]
 
-	init(sections: [WeaknessSectionViewModel]) {
+	init(id: String, sections: [WeaknessSectionViewModel]) {
+		self.id = id
 		self.sections = sections
 	}
 
-	init(rawValue: Physiologies,
+	init(_ id: String,
+		 rawValue: Physiologies,
 		 of attacks: [Attack] = Attack.allElements) {
+		let myid = "\(id):w"
+		self.id = myid
 		self.sections = rawValue.sections.enumerated().map { id, rawValue in
-			WeaknessSectionViewModel(rawValue: rawValue, of: attacks)
+			WeaknessSectionViewModel(myid, rawValue: rawValue, of: attacks)
 		}
 	}
 }

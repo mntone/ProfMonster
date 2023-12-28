@@ -126,6 +126,8 @@
 		EBA66F1E2B355F38009DE78C /* AppSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA66F1C2B355F38009DE78C /* AppSettingsPane.swift */; };
 		EBA66F202B355F3E009DE78C /* DataSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA66F1F2B355F3E009DE78C /* DataSettingsPane.swift */; };
 		EBA66F212B355F3E009DE78C /* DataSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA66F1F2B355F3E009DE78C /* DataSettingsPane.swift */; };
+		EBB154C02B3D03C000636DB0 /* DetailItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB154BF2B3D03C000636DB0 /* DetailItemHeader.swift */; };
+		EBB154C12B3D03C000636DB0 /* DetailItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB154BF2B3D03C000636DB0 /* DetailItemHeader.swift */; };
 		EBB4B1C52B15BDA7004D63EA /* WeaknessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C42B15BDA7004D63EA /* WeaknessViewModel.swift */; };
 		EBB4B1C72B15BF48004D63EA /* MonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C62B15BF48004D63EA /* MonsterViewModel.swift */; };
 		EBB4B1CB2B15CC47004D63EA /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */; };
@@ -382,6 +384,7 @@
 		EBA66F192B355EDE009DE78C /* DrillDownSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillDownSettingsContainer.swift; sourceTree = "<group>"; };
 		EBA66F1C2B355F38009DE78C /* AppSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsPane.swift; sourceTree = "<group>"; };
 		EBA66F1F2B355F3E009DE78C /* DataSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSettingsPane.swift; sourceTree = "<group>"; };
+		EBB154BF2B3D03C000636DB0 /* DetailItemHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemHeader.swift; sourceTree = "<group>"; };
 		EBB4A3FE2B3491C400D8C024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBB4B1B92B158D14004D63EA /* MHConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHConfig.swift; sourceTree = "<group>"; };
 		EBB4B1BB2B158E38004D63EA /* MHMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHMonster.swift; sourceTree = "<group>"; };
@@ -840,6 +843,7 @@
 			children = (
 				EB29563F2B310E1D002C5CA8 /* iOS */,
 				EBF706F22B3C0C9D00AE88C4 /* Previews */,
+				EBB154BF2B3D03C000636DB0 /* DetailItemHeader.swift */,
 				EB28F1B22B370F0700291055 /* DividedHStack.swift */,
 				EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */,
 				EB3B491E2B35E2B200E89711 /* LabeledContentBackport.swift */,
@@ -1158,6 +1162,7 @@
 				EBB4B2172B175DED004D63EA /* Color+Extensions.swift in Sources */,
 				EBB4B2052B175D4A004D63EA /* ContentView.swift in Sources */,
 				EBA66F212B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
+				EBB154C12B3D03C000636DB0 /* DetailItemHeader.swift in Sources */,
 				EB9922812B357D9400DBA812 /* DisplaySettingsPane.swift in Sources */,
 				EBA66F1B2B355EDE009DE78C /* DrillDownSettingsContainer.swift in Sources */,
 				EBC85C7E2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */,
@@ -1291,6 +1296,7 @@
 				EBA66F182B355C07009DE78C /* ColumnSettingsContainer.swift in Sources */,
 				EBB4B2042B175D4A004D63EA /* ContentView.swift in Sources */,
 				EBA66F202B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
+				EBB154C02B3D03C000636DB0 /* DetailItemHeader.swift in Sources */,
 				EB9922802B357D9400DBA812 /* DisplaySettingsPane.swift in Sources */,
 				EB28F1B32B370F0700291055 /* DividedHStack.swift in Sources */,
 				EBA66F1A2B355EDE009DE78C /* DrillDownSettingsContainer.swift in Sources */,

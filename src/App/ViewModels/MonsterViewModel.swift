@@ -13,11 +13,13 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 	init(_ monster: Monster) {
 		self.monster = monster
 		self.elementDisplay = monster.app?.settings.elementDisplay ?? .sign
-		self.state = monster.state.mapData(MonsterDataViewModel.init(rawValue:))
+		self.state = monster.state.mapData { physiology in
+			MonsterDataViewModel(monster.id, rawValue: physiology)
+		}
 		monster.$state
 			.dropFirst()
 			.mapData { physiologies in
-				MonsterDataViewModel(rawValue: physiologies)
+				MonsterDataViewModel(monster.id, rawValue: physiologies)
 			}
 			.receive(on: DispatchQueue.main)
 			.assign(to: &$state)

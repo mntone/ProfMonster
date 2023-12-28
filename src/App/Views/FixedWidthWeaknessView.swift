@@ -89,7 +89,7 @@ private struct FixedWidthWeaknessNumberItemView: View {
 	}
 }
 
-struct FixedWidthWeaknessView: View {
+struct FixedWidthWeaknessSectionView: View {
 	private static let maxItemWidth: CGFloat = 80
 
 #if !os(watchOS)
@@ -97,8 +97,9 @@ struct FixedWidthWeaknessView: View {
 	private var signFontSize: CGFloat = 22
 #endif
 
-	let displayMode: WeaknessDisplayMode
 	let viewModel: WeaknessSectionViewModel
+	let displayMode: WeaknessDisplayMode
+	let headerHidden: Bool
 
 	@State
 	private var itemWidth: CGFloat?
@@ -108,68 +109,91 @@ struct FixedWidthWeaknessView: View {
 	}
 
 	var body: some View {
-		ZStack(alignment: .topLeading) {
-			GeometryReader { proxy in
-				Color.clear
-#if os(watchOS)
-					.onAppear {
-						updateItemWidth(from: proxy.size.width)
-					}
-#else
-					.onChangeBackport(of: proxy.size.width, initial: true) { _, newValue in
-						updateItemWidth(from: newValue)
-					}
-#endif
+		VStack(alignment: .leading) {
+			if !headerHidden {
+				DetailItemHeader(header: viewModel.header)
 			}
 
+			ZStack(alignment: .topLeading) {
+				GeometryReader { proxy in
+					Color.clear
 #if os(watchOS)
-			HStack(alignment: .firstTextBaseline, spacing: 0) {
-				ForEach(viewModel.items) { item in
-					FixedWidthWeaknessSignItemView(viewModel: item)
-				}
-				.frame(width: itemWidth)
-			}
-			.labelStyle(.iconOnly)
+						.onAppear {
+							updateItemWidth(from: proxy.size.width)
+						}
 #else
-			switch displayMode {
-			case .none:
-				EmptyView()
-			case .sign:
-				DividedHStack(alignment: .firstTextBaseline, spacing: 0) {
+						.onChangeBackport(of: proxy.size.width, initial: true) { _, newValue in
+							updateItemWidth(from: newValue)
+						}
+#endif
+				}
+
+#if os(watchOS)
+				HStack(alignment: .firstTextBaseline, spacing: 0) {
 					ForEach(viewModel.items) { item in
-						FixedWidthWeaknessSignItemView(viewModel: item, signFontSize: signFontSize)
+						FixedWidthWeaknessSignItemView(viewModel: item)
 					}
-					.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth)
+					.frame(width: itemWidth)
 				}
 				.labelStyle(.iconOnly)
-			case let .number(fractionLength):
-				let fractionLengthInt = Int(fractionLength)
-				DividedHStack(alignment: .firstTextBaseline, spacing: 0) {
-					ForEach(viewModel.items) { item in
-						FixedWidthWeaknessNumberItemView(viewModel: item,
-														 signFontSize: signFontSize,
-														 fractionLength: fractionLengthInt)
+#else
+				switch displayMode {
+				case .none:
+					EmptyView()
+				case .sign:
+					DividedHStack(alignment: .firstTextBaseline, spacing: 0) {
+						ForEach(viewModel.items) { item in
+							FixedWidthWeaknessSignItemView(viewModel: item, signFontSize: signFontSize)
+						}
+						.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth)
 					}
-					.padding(.horizontal, 8)
-					.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth, alignment: .leading)
+					.labelStyle(.iconOnly)
+				case let .number(fractionLength):
+					let fractionLengthInt = Int(fractionLength)
+					DividedHStack(alignment: .firstTextBaseline, spacing: 0) {
+						ForEach(viewModel.items) { item in
+							FixedWidthWeaknessNumberItemView(viewModel: item,
+															 signFontSize: signFontSize,
+															 fractionLength: fractionLengthInt)
+						}
+						.padding(.horizontal, 8)
+						.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth, alignment: .leading)
+					}
+					.labelStyle(.titleOnly)
+					.padding(.horizontal, -8)
 				}
-				.labelStyle(.titleOnly)
-				.padding(.horizontal, -8)
-			}
 #endif
+			}
 		}
 		.lineLimit(1)
 		.fixedSize(horizontal: false, vertical: true)
-		.padding(.vertical, 4)
+	}
+}
+
+struct FixedWidthWeaknessView: View {
+	let viewModel: WeaknessViewModel
+	let displayMode: WeaknessDisplayMode
+
+	var body: some View {
+		let headerHidden = viewModel.sections.count <= 1
+		return ForEach(viewModel.sections) { section in
+			FixedWidthWeaknessSectionView(viewModel: section,
+										  displayMode: displayMode,
+										  headerHidden: headerHidden)
+		}
 	}
 }
 
 #Preview("Sign") {
-	FixedWidthWeaknessView(displayMode: .sign,
-						   viewModel: WeaknessViewModel(rawValue: MockDataSource.physiology1).sections[0])
+	Form {
+		FixedWidthWeaknessView(viewModel: WeaknessViewModel("mock", rawValue: MockDataSource.physiology1),
+							   displayMode: .sign)
+	}
 }
 
 #Preview("Number") {
-	FixedWidthWeaknessView(displayMode: .number(fractionLength: 1),
-						   viewModel: WeaknessViewModel(rawValue: MockDataSource.physiology1).sections[0])
+	Form {
+		FixedWidthWeaknessView(viewModel: WeaknessViewModel("mock", rawValue: MockDataSource.physiology1),
+							   displayMode: .sign)
+	}
 }
