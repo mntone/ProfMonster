@@ -31,7 +31,8 @@ struct MonsterList: View {
 		list
 #if os(macOS)
 			.backport.alternatingRowBackgrounds()
-			.animation(.default, value: viewModel.state.data)
+			.animation(ProcessInfo.processInfo.isLowPowerModeEnabled ? nil : .default,
+					   value: viewModel.state.data)
 #endif
 #if os(iOS)
 			.scrollDismissesKeyboard(.immediately)
