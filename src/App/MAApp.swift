@@ -73,6 +73,14 @@ final class MAAppDelegate: NSObject, NSApplicationDelegate {
 		crashedLastTime = true
 	}
 
+	func applicationWillBecomeActive(_ notification: Notification) {
+		crashedLastTime = true
+	}
+
+	func applicationDidResignActive(_ notification: Notification) {
+		crashedLastTime = false
+	}
+
 	func applicationWillTerminate(_ notification: Notification) {
 		crashedLastTime = false
 	}
