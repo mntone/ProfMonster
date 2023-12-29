@@ -16,6 +16,7 @@ struct PhysiologyViewModel: Identifiable {
 	let stateInfo: PhysiologyStateInfo
 	let header: String
 	let values: [PhysiologyValueViewModel]
+	let stun: Int8
 	let isReference: Bool
 
 	fileprivate init(id: Int,
@@ -27,7 +28,25 @@ struct PhysiologyViewModel: Identifiable {
 		self.stateInfo = rawValue.stateInfo
 		self.header = rawValue.isDefault ? partsLabel : rawValue.label
 		self.values = zip(attacks, rawValue.value.values(of: attacks)).map(PhysiologyValueViewModel.init)
+		self.stun = rawValue.stun
 		self.isReference = isReference
+	}
+
+	var stunLabel: String {
+		switch stun {
+		case 120:
+			String(localized: "6/5")
+		case 100:
+			String(localized: "1")
+		case 80:
+			String(localized: "4/5")
+		case 75:
+			String(localized: "3/4")
+		case 50:
+			String(localized: "1/2")
+		default:
+			""
+		}
 	}
 
 	var foregroundShape: AnyShapeStyle {

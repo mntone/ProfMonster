@@ -22,6 +22,14 @@ struct PhysiologyRowView: View {
 					.accessibilityLabel(item.attack.accessibilityLabel)
 					.accessibilityValue(text)
 			}
+
+			Spacer(minLength: PhysiologyViewMetrics.spacing)
+
+			let stunLabel = viewModel.stunLabel
+			Text(verbatim: stunLabel)
+				.frame(width: itemWidth)
+				.accessibilityLabel("Stun")
+				.accessibilityValue(stunLabel)
 		}
 		.foregroundStyle(viewModel.foregroundShape)
 		.accessibilityElement(children: .contain)
@@ -42,6 +50,11 @@ private struct PhysiologyRowHeaderView: View {
 					.foregroundStyle(item.attack.color)
 					.frame(width: itemWidth)
 			}
+
+			Spacer(minLength: PhysiologyViewMetrics.spacing)
+			Image(systemName: "star.fill")
+				.foregroundStyle(.thunder)
+				.frame(width: itemWidth)
 		}
 		.padding(EdgeInsets(top: PhysiologyViewMetrics.rowSpacing,
 							leading: PhysiologyViewMetrics.inset + headerWidth,

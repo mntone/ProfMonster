@@ -63,6 +63,10 @@ private struct PhysiologyRowHeaderView: View {
 					.foregroundStyle(item.attack.color)
 			}
 			.frame(maxWidth: itemWidth)
+
+			Image(systemName: "star.fill")
+				.foregroundStyle(.thunder)
+				.frame(width: itemWidth)
 		}
 		.padding(EdgeInsets(top: PhysiologyViewMetrics.rowSpacing,
 							leading: PhysiologyViewMetrics.margin,
@@ -98,6 +102,9 @@ struct PhysiologyContentView: View {
 				Text(verbatim: String(item.value))
 			}
 			.frame(width: itemWidth)
+
+			Text(verbatim: viewModel.stunLabel)
+				.frame(width: itemWidth)
 		}
 		.foregroundStyle(viewModel.foregroundShape)
 		.padding(EdgeInsets(top: 0,
@@ -136,6 +143,7 @@ struct PhysiologyScrollableView: View {
 #if os(iOS)
 		let cappedHeaderWidth = min(headerWidth, PhysiologyViewMetrics.maxScaleFactor * PhysiologyViewMetrics.headerBaseWidth)
 		let cappedItemWidth = min(itemWidth, PhysiologyViewMetrics.maxScaleFactor * PhysiologyViewMetrics.itemBaseWidth)
+		let cappedFontSize = min(fontSize, PhysiologyViewMetrics.maxScaleFactor * PhysiologyViewMetrics.defaultFontSize)
 #endif
 
 		HStack(alignment: .bottom, spacing: 0) {
@@ -219,10 +227,11 @@ struct PhysiologyScrollableView: View {
 		}
 		.padding(.leading, PhysiologyViewMetrics.margin)
 #if os(iOS)
-		.font(.system(size: min(fontSize, PhysiologyViewMetrics.maxScaleFactor * PhysiologyViewMetrics.defaultFontSize)).monospacedDigit())
+		.font(.system(size: cappedFontSize).monospacedDigit())
 #else
 		.font(.system(PhysiologyViewMetrics.textStyle).monospacedDigit())
 #endif
+		.minimumScaleFactor(0.5)
 	}
 
 	private var isLTR: Bool {
