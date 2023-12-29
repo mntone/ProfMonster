@@ -8,8 +8,6 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 	private let notifier: DebounceNotifier<String>
 #endif
 
-	let elementDisplay: WeaknessDisplayMode
-
 	@Published
 	private(set) var state: StarSwingsState<MonsterDataViewModel>
 
@@ -34,9 +32,12 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 
 	init(_ monster: Monster) {
 		self.monster = monster
-		self.elementDisplay = monster.app?.settings.elementDisplay ?? .sign
+
+		let elementDisplay = monster.app?.settings.elementDisplay ?? .sign
 		self.state = monster.state.mapData { physiology in
-			MonsterDataViewModel(monster.id, rawValue: physiology)
+			MonsterDataViewModel(monster.id,
+								 displayMode: elementDisplay,
+								 rawValue: physiology)
 		}
 		self.isFavorited = monster.isFavorited
 		self.note = monster.note
@@ -53,7 +54,9 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 		monster.$state
 			.dropFirst()
 			.mapData { physiologies in
-				MonsterDataViewModel(monster.id, rawValue: physiologies)
+				MonsterDataViewModel(monster.id,
+									 displayMode: elementDisplay,
+									 rawValue: physiologies)
 			}
 			.receive(on: scheduler)
 			.assign(to: &$state)

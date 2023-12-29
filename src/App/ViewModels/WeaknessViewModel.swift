@@ -81,18 +81,28 @@ struct WeaknessSectionViewModel: Identifiable {
 
 struct WeaknessViewModel {
 	let id: String
+	let displayMode: WeaknessDisplayMode
 	let sections: [WeaknessSectionViewModel]
 
-	init(id: String, sections: [WeaknessSectionViewModel]) {
+	init(id: String,
+		 displayMode: WeaknessDisplayMode,
+		 sections: [WeaknessSectionViewModel]) {
+		precondition(displayMode != .none)
+
 		self.id = id
+		self.displayMode = displayMode
 		self.sections = sections
 	}
 
 	init(_ id: String,
+		 displayMode: WeaknessDisplayMode,
 		 rawValue: Physiologies,
 		 of attacks: [Attack] = Attack.allElements) {
+		precondition(displayMode != .none)
+
 		let myid = "\(id):w"
 		self.id = myid
+		self.displayMode = displayMode
 		self.sections = rawValue.sections.enumerated().map { id, rawValue in
 			WeaknessSectionViewModel(myid, rawValue: rawValue, of: attacks)
 		}

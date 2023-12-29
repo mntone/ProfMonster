@@ -99,6 +99,9 @@ struct WeaknessView: View {
 
 @available(iOS 16.0, macOS 13.0, *)
 #Preview {
-	WeaknessView(viewModel: WeaknessViewModel("mock", rawValue: MockDataSource.physiology1).sections[0])
+	let viewModel = WeaknessViewModel("mock",
+									  displayMode: .number(fractionLength: 1),
+									  rawValue: MockDataSource.physiology1)
+	return WeaknessView(viewModel: viewModel.sections[0])
 		.previewLayout(.sizeThatFits)
 }

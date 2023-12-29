@@ -42,10 +42,9 @@ struct MonsterView: View {
 #endif
 		StateView(state: viewModel.state, background: background) { data in
 			Form {
-				if viewModel.elementDisplay != .none {
+				if let weakness = data.weakness {
 					Section("Weakness") {
-						FixedWidthWeaknessView(viewModel: data.weakness,
-											   displayMode: viewModel.elementDisplay)
+						FixedWidthWeaknessView(viewModel: weakness)
 					}
 				}
 

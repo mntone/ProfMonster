@@ -172,28 +172,40 @@ struct FixedWidthWeaknessSectionView: View {
 
 struct FixedWidthWeaknessView: View {
 	let viewModel: WeaknessViewModel
-	let displayMode: WeaknessDisplayMode
 
 	var body: some View {
 		let headerHidden = viewModel.sections.count <= 1
 		return ForEach(viewModel.sections) { section in
 			FixedWidthWeaknessSectionView(viewModel: section,
-										  displayMode: displayMode,
+										  displayMode: viewModel.displayMode,
 										  headerHidden: headerHidden)
 		}
 	}
 }
 
 #Preview("Sign") {
-	Form {
-		FixedWidthWeaknessView(viewModel: WeaknessViewModel("mock", rawValue: MockDataSource.physiology1),
-							   displayMode: .sign)
+	let viewModel = WeaknessViewModel("mock",
+									  displayMode: .sign,
+									  rawValue: MockDataSource.physiology1)
+	return Form {
+		FixedWidthWeaknessView(viewModel: viewModel)
 	}
 }
 
 #Preview("Number") {
-	Form {
-		FixedWidthWeaknessView(viewModel: WeaknessViewModel("mock", rawValue: MockDataSource.physiology1),
-							   displayMode: .sign)
+	let viewModel = WeaknessViewModel("mock",
+									  displayMode: .number(fractionLength: 1),
+									  rawValue: MockDataSource.physiology1)
+	return Form {
+		FixedWidthWeaknessView(viewModel: viewModel)
+	}
+}
+
+#Preview("Number2") {
+	let viewModel = WeaknessViewModel("mock",
+									  displayMode: .number(fractionLength: 2),
+									  rawValue: MockDataSource.physiology1)
+	return Form {
+		FixedWidthWeaknessView(viewModel: viewModel)
 	}
 }
