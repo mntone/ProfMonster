@@ -15,6 +15,7 @@ struct PhysiologyViewModel: Identifiable {
 	let id: UInt32
 	let stateInfo: PhysiologyStateInfo
 	let header: String
+	let accessibilityHeader: String
 	let values: [PhysiologyValueViewModel]
 	let stun: Int8
 	let isReference: Bool
@@ -27,6 +28,7 @@ struct PhysiologyViewModel: Identifiable {
 		self.id = UInt32(exactly: id)!
 		self.stateInfo = rawValue.stateInfo
 		self.header = rawValue.isDefault ? partsLabel : rawValue.label
+		self.accessibilityHeader = "\(partsLabel) \(rawValue.label)"
 		self.values = zip(attacks, rawValue.value.values(of: attacks)).map(PhysiologyValueViewModel.init)
 		self.stun = rawValue.stun
 		self.isReference = isReference

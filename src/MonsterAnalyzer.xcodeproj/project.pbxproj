@@ -158,6 +158,8 @@
 		EBB4B2162B175DE7004D63EA /* Attack+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E42B16A6D4004D63EA /* Attack+Extensions.swift */; };
 		EBB4B2172B175DED004D63EA /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */; };
 		EBB4B21C2B176CE7004D63EA /* FixedWidthWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */; };
+		EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */; };
+		EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */; };
 		EBC85C612B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C622B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C712B2053B6008A16C6 /* WatchDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C702B2053B6008A16C6 /* WatchDevice.swift */; };
@@ -202,8 +204,8 @@
 		EBEA6F662B185ABE00734AAA /* Swinject-Dynamic in Embed Frameworks */ = {isa = PBXBuildFile; productRef = EBEA6F642B185ABE00734AAA /* Swinject-Dynamic */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		EBEA6F6A2B185AD300734AAA /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = EBEA6F692B185AD300734AAA /* Swinject-Dynamic */; };
 		EBEA6F6F2B185CDC00734AAA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF9282E2B1038CB007D59D4 /* Assets.xcassets */; };
-		EBEA6F712B1889A900734AAA /* PhysiologyScrollableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F702B1889A900734AAA /* PhysiologyScrollableView.swift */; };
-		EBEA6F722B1889A900734AAA /* PhysiologyScrollableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F702B1889A900734AAA /* PhysiologyScrollableView.swift */; };
+		EBEA6F712B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F702B1889A900734AAA /* ScrollablePhysiologyView.swift */; };
+		EBEA6F722B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F702B1889A900734AAA /* ScrollablePhysiologyView.swift */; };
 		EBEA6F742B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F732B18B56700734AAA /* UnevenRoundedRectangleBackport.swift */; };
 		EBEA6F752B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F732B18B56700734AAA /* UnevenRoundedRectangleBackport.swift */; };
 		EBEA6F7E2B1A1B2C00734AAA /* HBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */; };
@@ -422,6 +424,7 @@
 		EBB4B21E2B177691004D63EA /* MALanguageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MALanguageService.swift; sourceTree = "<group>"; };
 		EBB4B2222B17770E004D63EA /* LanguageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageService.swift; sourceTree = "<group>"; };
 		EBB4B22B2B178302004D63EA /* MHLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHLocalization.swift; sourceTree = "<group>"; };
+		EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyViewMetrics.swift; sourceTree = "<group>"; };
 		EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		EBC85C702B2053B6008A16C6 /* WatchDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDevice.swift; sourceTree = "<group>"; };
 		EBC85C722B205469008A16C6 /* WatchMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMetrics.swift; sourceTree = "<group>"; };
@@ -444,7 +447,7 @@
 		EBEA6F272B1858FA00734AAA /* MonsterAnalyserCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MonsterAnalyserCore.h; sourceTree = "<group>"; };
 		EBEA6F2E2B1858FB00734AAA /* MonsterAnalyzerCoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MonsterAnalyzerCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBEA6F352B1858FB00734AAA /* StorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageTests.swift; sourceTree = "<group>"; };
-		EBEA6F702B1889A900734AAA /* PhysiologyScrollableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyScrollableView.swift; sourceTree = "<group>"; };
+		EBEA6F702B1889A900734AAA /* ScrollablePhysiologyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollablePhysiologyView.swift; sourceTree = "<group>"; };
 		EBEA6F732B18B56700734AAA /* UnevenRoundedRectangleBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnevenRoundedRectangleBackport.swift; sourceTree = "<group>"; };
 		EBEA6F772B1A099000734AAA /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
 		EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HBorderView.swift; sourceTree = "<group>"; };
@@ -705,6 +708,7 @@
 				EB9620E02B1D6DFD00FD7115 /* Coordinators */,
 				EBCA22262B21A56C00C487AD /* Modifiers */,
 				EB31EEBE2B2C9EBF00FF8536 /* Navigations */,
+				EBBBAAAE2B3F7A7E00BBAB23 /* Physiologies */,
 				EBA66F162B355BF5009DE78C /* Settings */,
 				EBC85C6D2B204174008A16C6 /* Styles */,
 				EBC85C6E2B205397008A16C6 /* Utils */,
@@ -716,8 +720,6 @@
 				EB8778242B26B38200B3359C /* MonsterListItem.swift */,
 				EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */,
 				EBF9282C2B1038C9007D59D4 /* MonsterView.swift */,
-				EBEA6F702B1889A900734AAA /* PhysiologyScrollableView.swift */,
-				EBB4B1CF2B15E0C9004D63EA /* PhysiologyView.swift */,
 				EB645A632B2685D500D27500 /* Sidebar.swift */,
 				EBF928392B103CB0007D59D4 /* WeaknessView.swift */,
 			);
@@ -741,6 +743,16 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EBBBAAAE2B3F7A7E00BBAB23 /* Physiologies */ = {
+			isa = PBXGroup;
+			children = (
+				EBB4B1CF2B15E0C9004D63EA /* PhysiologyView.swift */,
+				EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */,
+				EBEA6F702B1889A900734AAA /* ScrollablePhysiologyView.swift */,
+			);
+			path = Physiologies;
 			sourceTree = "<group>";
 		};
 		EBC85C632B202DCD008A16C6 /* Utils */ = {
@@ -1238,10 +1250,11 @@
 				EB31EEBD2B2C9E4D00FF8536 /* NavigationPathSupport.swift in Sources */,
 				EB645A612B26749E00D27500 /* NavigationStackHost.swift in Sources */,
 				EB19D6722B1EBEC900C90417 /* ObservableHorizontalScrollView.swift in Sources */,
-				EBEA6F722B1889A900734AAA /* PhysiologyScrollableView.swift in Sources */,
+				EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */,
 				EB3B491D2B35E29400E89711 /* PreferredPicker.swift in Sources */,
 				EB9620F72B1DA50800FD7115 /* RouteHelper.swift in Sources */,
+				EBEA6F722B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
 				EBCA222C2B221E5700C487AD /* SettingsContainer.swift in Sources */,
 				EB99227B2B35686300DBA812 /* SettingsLabelStyle.swift in Sources */,
 				EB99227E2B357D6C00DBA812 /* SettingsPane.swift in Sources */,
@@ -1383,11 +1396,12 @@
 				EB8778212B26B1E600B3359C /* NavigationSplitViewHost.swift in Sources */,
 				EB645A652B269EF300D27500 /* NavigationStackHost.swift in Sources */,
 				EB19D6712B1EBE8400C90417 /* ObservableHorizontalScrollView.swift in Sources */,
-				EBEA6F712B1889A900734AAA /* PhysiologyScrollableView.swift in Sources */,
 				EBB4B1D02B15E0C9004D63EA /* PhysiologyView.swift in Sources */,
+				EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B1D22B15ED1B004D63EA /* PhysiologyViewModel.swift in Sources */,
 				EB3B491C2B35E29400E89711 /* PreferredPicker.swift in Sources */,
 				EB9620F62B1DA50800FD7115 /* RouteHelper.swift in Sources */,
+				EBEA6F712B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
 				EB2956412B310E28002C5CA8 /* SelectableListRowBackport.swift in Sources */,
 				EBCA222B2B221E5700C487AD /* SettingsContainer.swift in Sources */,
 				EB99227A2B35686300DBA812 /* SettingsLabelStyle.swift in Sources */,

@@ -1,7 +1,7 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
-struct PhysiologyRowView: View {
+private struct _PhysiologyRowView: View {
 	let viewModel: PhysiologyViewModel
 	let headerWidth: CGFloat
 	let itemWidth: CGFloat
@@ -11,7 +11,7 @@ struct PhysiologyRowView: View {
 			Text(verbatim: viewModel.header)
 				.fixedSize(horizontal: false, vertical: true)
 				.frame(width: headerWidth)
-				.accessibilityAddTraits(.isHeader)
+				.accessibilityHidden(true)
 
 			ForEach(viewModel.values) { item in
 				Spacer(minLength: PhysiologyViewMetrics.spacing)
@@ -33,11 +33,11 @@ struct PhysiologyRowView: View {
 		}
 		.foregroundStyle(viewModel.foregroundShape)
 		.accessibilityElement(children: .contain)
-		.accessibilityLabel(Text(verbatim: viewModel.header))
+		.accessibilityLabel(Text(verbatim: viewModel.accessibilityHeader))
 	}
 }
 
-private struct PhysiologyRowHeaderView: View {
+private struct _PhysiologyRowHeaderView: View {
 	let viewModel: [PhysiologyColumnViewModel]
 	let headerWidth: CGFloat
 	let itemWidth: CGFloat
@@ -56,10 +56,7 @@ private struct PhysiologyRowHeaderView: View {
 				.foregroundStyle(.thunder)
 				.frame(width: itemWidth)
 		}
-		.padding(EdgeInsets(top: PhysiologyViewMetrics.rowSpacing,
-							leading: PhysiologyViewMetrics.inset + headerWidth,
-							bottom: PhysiologyViewMetrics.rowSpacing,
-							trailing: PhysiologyViewMetrics.inset))
+		.padding(PhysiologyViewMetrics.padding.adding(leading: headerWidth))
 		.accessibilityHidden(true)
 	}
 }
@@ -83,33 +80,30 @@ struct PhysiologyView: View {
 			}
 
 #if os(macOS)
-			PhysiologyRowHeaderView(viewModel: viewModel.columns,
-									headerWidth: PhysiologyViewMetrics.headerBaseWidth,
-									itemWidth: PhysiologyViewMetrics.itemBaseWidth)
+			_PhysiologyRowHeaderView(viewModel: viewModel.columns,
+									 headerWidth: PhysiologyViewMetrics.headerBaseWidth,
+									 itemWidth: PhysiologyViewMetrics.itemBaseWidth)
 #else
-			PhysiologyRowHeaderView(viewModel: viewModel.columns,
-									headerWidth: headerWidth,
-									itemWidth: itemWidth)
+			_PhysiologyRowHeaderView(viewModel: viewModel.columns,
+									 headerWidth: headerWidth,
+									 itemWidth: itemWidth)
 #endif
 
 			ForEach(viewModel.groups) { group in
 				VStack(spacing: 0) {
 					ForEach(group.items) { item in
 #if os(macOS)
-						PhysiologyRowView(viewModel: item,
-										  headerWidth: PhysiologyViewMetrics.headerBaseWidth,
-										  itemWidth: PhysiologyViewMetrics.itemBaseWidth)
+						_PhysiologyRowView(viewModel: item,
+										   headerWidth: PhysiologyViewMetrics.headerBaseWidth,
+										   itemWidth: PhysiologyViewMetrics.itemBaseWidth)
 #else
-						PhysiologyRowView(viewModel: item,
-										  headerWidth: headerWidth,
-										  itemWidth: itemWidth)
+						_PhysiologyRowView(viewModel: item,
+										   headerWidth: headerWidth,
+										   itemWidth: itemWidth)
 #endif
 					}
 				}
-				.padding(EdgeInsets(top: PhysiologyViewMetrics.rowSpacing,
-									leading: PhysiologyViewMetrics.inset,
-									bottom: PhysiologyViewMetrics.rowSpacing,
-									trailing: PhysiologyViewMetrics.inset))
+				.padding(PhysiologyViewMetrics.padding)
 				.background(group.id % 2 != 0
 							? RoundedRectangle(cornerRadius: 4).foregroundColor(.physiologySecondary).accessibilityHidden(true)
 							: nil)

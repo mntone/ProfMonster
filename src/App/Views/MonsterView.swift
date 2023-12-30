@@ -59,11 +59,11 @@ struct MonsterView: View {
 								Text(verbatim: section.header)
 									.font(.system(.subheadline).weight(.medium))
 									.padding(.horizontal)
-								PhysiologyScrollableView(viewModel: section)
+								ScrollablePhysiologyView(viewModel: section)
 							}
 							.listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 0, trailing: 0))
 						} else {
-							PhysiologyScrollableView(viewModel: section)
+							ScrollablePhysiologyView(viewModel: section)
 								.listRowInsets(.zero)
 						}
 #endif
