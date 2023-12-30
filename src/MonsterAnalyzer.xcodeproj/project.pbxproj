@@ -162,6 +162,7 @@
 		EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */; };
 		EBBBAAB42B3FADEB00BBAB23 /* GameItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */; };
 		EBBBAAB52B3FADEB00BBAB23 /* GameItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */; };
+		EBBBAAB72B3FCB0300BBAB23 /* libswiftWatchKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBBAAB62B3FCB0200BBAB23 /* libswiftWatchKit.tbd */; platformFilters = (watchos, ); settings = {ATTRIBUTES = (Weak, ); }; };
 		EBC85C612B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C622B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C712B2053B6008A16C6 /* WatchDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C702B2053B6008A16C6 /* WatchDevice.swift */; };
@@ -428,6 +429,7 @@
 		EBB4B22B2B178302004D63EA /* MHLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHLocalization.swift; sourceTree = "<group>"; };
 		EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyViewMetrics.swift; sourceTree = "<group>"; };
 		EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemViewModel.swift; sourceTree = "<group>"; };
+		EBBBAAB62B3FCB0200BBAB23 /* libswiftWatchKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWatchKit.tbd; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS10.2.sdk/usr/lib/swift/libswiftWatchKit.tbd; sourceTree = DEVELOPER_DIR; };
 		EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		EBC85C702B2053B6008A16C6 /* WatchDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDevice.swift; sourceTree = "<group>"; };
 		EBC85C722B205469008A16C6 /* WatchMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMetrics.swift; sourceTree = "<group>"; };
@@ -483,6 +485,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBBBAAB72B3FCB0300BBAB23 /* libswiftWatchKit.tbd in Frameworks */,
 				EBEA6F822B1A205300734AAA /* MessagePacker in Frameworks */,
 				EBEA6F6A2B185AD300734AAA /* Swinject-Dynamic in Frameworks */,
 			);
@@ -745,6 +748,7 @@
 		EBB4B2282B1778C7004D63EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EBBBAAB62B3FCB0200BBAB23 /* libswiftWatchKit.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
