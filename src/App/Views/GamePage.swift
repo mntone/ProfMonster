@@ -21,10 +21,12 @@ struct GamePage<ItemView: View>: View {
 		let items = viewModel.state.data ?? []
 		if items.count > 1 || items.first?.type.isType == true {
 			List(items) { group in
-				Section(group.label) {
+				Section {
 					ForEach(group.items) { item in
 						content(item)
 					}
+				} header: {
+					Text(verbatim: group.label)
 				}
 			}
 		} else {

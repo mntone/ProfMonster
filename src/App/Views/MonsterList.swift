@@ -14,10 +14,12 @@ struct MonsterList: View {
 		let items = viewModel.state.data ?? []
 		if items.count > 1 || items.first?.type.isType == true {
 			List(items, id: \.id, selection: selection) { group in
-				Section(group.label) {
+				Section {
 					ForEach(group.items) { item in
 						MonsterListItem(viewModel: item)
 					}
+				} header: {
+					Text(verbatim: group.label)
 				}
 			}
 		} else {

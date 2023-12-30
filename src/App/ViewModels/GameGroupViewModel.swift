@@ -20,7 +20,7 @@ enum GameGroupType: Hashable {
 struct GameGroupViewModel: Identifiable {
 	let gameID: String
 	let type: GameGroupType
-	let label: LocalizedStringKey
+	let label: String
 	let sortkey: String
 	let items: [GameItemViewModel]
 
@@ -29,14 +29,14 @@ struct GameGroupViewModel: Identifiable {
 		self.type = type
 		switch type {
 		case .inGame, .byName:
-			self.label = LocalizedStringKey("")
+			self.label = String(localized: "")
 			self.sortkey = ""
 		case .favorite:
-			self.label = LocalizedStringKey("Favorite")
+			self.label = String(localized: "Favorite")
 			self.sortkey = ""
 		case let .type(id):
 			let baseKey = id.replacingOccurrences(of: "_", with: " ").capitalized
-			self.label = LocalizedStringKey(baseKey)
+			self.label = String(localized: String.LocalizationValue(baseKey))
 			self.sortkey = String(localized: String.LocalizationValue(baseKey + "_SORTKEY"))
 		}
 		self.items = items
