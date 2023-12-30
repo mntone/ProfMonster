@@ -24,7 +24,7 @@ struct MonsterListItem: View {
 					viewModel.isFavorited = false
 				}
 			} else {
-				Button("Add Favorite", systemImage: "star.fill") {
+				Button("Add to Favorites", systemImage: "star.fill") {
 					viewModel.isFavorited = true
 				}
 			}

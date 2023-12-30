@@ -102,10 +102,10 @@ struct MonsterView: View {
 				.help("Remove Favorite")
 				.foregroundStyle(.yellow)
 			} else {
-				Button("Add Favorite", systemImage: "star") {
+				Button("Add to Favorites", systemImage: "star") {
 					viewModel.isFavorited = true
 				}
-				.help("Add Favorite")
+				.help("Add to Favorites")
 				.foregroundStyle(.yellow)
 			}
 		}

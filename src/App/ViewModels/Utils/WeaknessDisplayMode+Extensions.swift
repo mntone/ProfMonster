@@ -5,7 +5,7 @@ extension WeaknessDisplayMode {
 	var label: LocalizedStringKey {
 		switch self {
 		case .none:
-			LocalizedStringKey("None")
+			LocalizedStringKey("Off")
 		case .sign:
 			LocalizedStringKey("Sign")
 		case let .number(fractionLength):
