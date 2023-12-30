@@ -1,9 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-
-    },
     "+" : {
       "localizations" : {
         "ar" : {
@@ -990,6 +987,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "お気に入りに追加"
+          }
+        }
+      }
+    },
+    "All Monsters" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All Monsters"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべてのモンスター"
           }
         }
       }
@@ -3607,22 +3620,6 @@
         }
       }
     },
-    "Favorite" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Favorite"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "お気に入り"
-          }
-        }
-      }
-    },
     "Favorited" : {
       "localizations" : {
         "en" : {
@@ -3635,6 +3632,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "お気に入り済み"
+          }
+        }
+      }
+    },
+    "Favorites" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorites"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お気に入り"
           }
         }
       }

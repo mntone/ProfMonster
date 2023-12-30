@@ -5,13 +5,8 @@ import MonsterAnalyzerCore
 final class GameViewModel: ObservableObject, Identifiable {
 	private let game: Game
 
-#if os(watchOS)
-	@Published
-	private(set) var state: StarSwingsState<[GameItemViewModel]> = .ready
-#else
 	@Published
 	private(set) var state: StarSwingsState<[GameGroupViewModel]> = .ready
-#endif
 
 	@Published
 	var sort: Sort {
@@ -28,68 +23,122 @@ final class GameViewModel: ObservableObject, Identifiable {
 		self.sort = game.app?.settings.sort ?? .inGame
 
 		let getState = game.$state
+			// Create view model from domain model
 			.mapData { monsters in
 				monsters.map(GameItemViewModel.init)
 			}
-		let updateSearchText = Just("").merge(with: $searchText.debounce(for: 0.333, scheduler: DispatchQueue.global(qos: .userInitiated)))
-#if os(watchOS)
-		getState.combineLatest(updateSearchText) { (state: StarSwingsState<[GameItemViewModel]>, searchText: String) -> StarSwingsState<[GameItemViewModel]> in
-			state.mapData { monsters in
-				Self.filter(searchText, from: monsters, languageService: game.languageService)
-			}
-		}
-		.receive(on: DispatchQueue.main)
-		.assign(to: &$state)
-#else
-		getState.combineLatest($sort) { (state: StarSwingsState<[GameItemViewModel]>, sort: Sort) -> StarSwingsState<[GameGroupViewModel]> in
-			state.mapData { (monsters: [GameItemViewModel]) -> [GameGroupViewModel] in
-				let groups: [GameGroupViewModel]
-				switch sort {
-				case .inGame:
-					groups = [GameGroupViewModel(gameID: game.id, type: .inGame, items: monsters)]
-				case .name:
-					groups = [GameGroupViewModel(gameID: game.id, type: .byName, items: monsters.sorted())]
-				case .type:
-					groups = monsters
-						.reduce(into: [:]) { (result: inout [String: [GameItemViewModel]], next: GameItemViewModel) in
-							if let items = result[next.type] {
-								result[next.type] = items + [next]
-							} else {
-								result[next.type] = [next]
+
+		// Favorite Group
+		let favorites = getState
+			.flatMap { state in
+				switch state {
+				case let .complete(data: monsters):
+					return monsters
+						.sorted()
+						.map { monster in
+							monster.$isFavorited.map { favorited -> GameItemViewModel? in
+								favorited ? monster : nil
 							}
 						}
-						.map { id, items in
-							GameGroupViewModel(gameID: game.id, type: .type(id: id), items: items.sorted())
+						.combineLatest
+						.map { monsters -> [GameItemViewModel] in
+							monsters.compactMap { monster in
+								monster
+							}
 						}
-						.sorted()
+						.eraseToAnyPublisher()
+				default:
+					return Just<[GameItemViewModel]>([])
+						.eraseToAnyPublisher()
 				}
-				return groups
 			}
-		}
-		.combineLatest($searchText) { (state: StarSwingsState<[GameGroupViewModel]>, searchText: String) -> StarSwingsState<[GameGroupViewModel]> in
-			state.mapData { groups in
-				groups.compactMap { group in
-					let monsters = Self.filter(searchText, from: group.items, languageService: game.languageService)
-					guard !monsters.isEmpty else {
-						return nil
+			.map { items -> GameGroupViewModel? in
+				guard !items.isEmpty else { return nil }
+
+				return GameGroupViewModel(gameID: game.id, type: .favorite, items: items)
+			}
+
+		// Search Text
+		let searchText = Just("")
+			.merge(with: $searchText.debounce(for: 0.333, scheduler: DispatchQueue.global(qos: .userInitiated)))
+			.removeDuplicates()
+
+		// All Groups
+		getState
+#if os(watchOS)
+			// Merge the fav group into groups
+			.combineLatest(favorites) { (state: StarSwingsState<[GameItemViewModel]>, fav: GameGroupViewModel?) -> StarSwingsState<[GameGroupViewModel]> in
+				state.mapData { monsters in
+					let groupsExceptFav = GameGroupViewModel(gameID: game.id, type: .inGame, items: monsters)
+
+					let groups: [GameGroupViewModel]
+					if let fav {
+						groups = [fav, groupsExceptFav]
+					} else {
+						groups = [groupsExceptFav]
 					}
-					return GameGroupViewModel(gameID: group.gameID, type: group.type, items: monsters)
+					return groups
 				}
 			}
-		}
-		.removeDuplicates { prev, cur in
-			switch (prev, cur) {
-			case (.ready, .ready), (.loading, .loading):
-				return true
-			case let (.complete(prevData), .complete(curData)):
-				return prevData == curData
-			default:
-				return false
+#else
+			// Merge the fav group into sorted or splited groups
+			.combineLatest(favorites, $sort) { (state: StarSwingsState<[GameItemViewModel]>, fav: GameGroupViewModel?, sort: Sort) -> StarSwingsState<[GameGroupViewModel]> in
+				state.mapData { (monsters: [GameItemViewModel]) -> [GameGroupViewModel] in
+					let groups: [GameGroupViewModel]
+					switch sort {
+					case .inGame:
+						let groupsExceptFav = GameGroupViewModel(gameID: game.id, type: .inGame, items: monsters)
+						if let fav {
+							groups = [fav, groupsExceptFav]
+						} else {
+							groups = [groupsExceptFav]
+						}
+					case .name:
+						let groupsExceptFav = GameGroupViewModel(gameID: game.id, type: .byName, items: monsters.sorted())
+						if let fav {
+							groups = [fav, groupsExceptFav]
+						} else {
+							groups = [groupsExceptFav]
+						}
+					case .type:
+						let otherGroups = monsters
+							.reduce(into: [:]) { (result: inout [String: [GameItemViewModel]], next: GameItemViewModel) in
+								if let items = result[next.type] {
+									result[next.type] = items + [next]
+								} else {
+									result[next.type] = [next]
+								}
+							}
+							.map { id, items in
+								GameGroupViewModel(gameID: game.id, type: .type(id: id), items: items.sorted())
+							}
+							.sorted()
+
+						if let fav {
+							groups = [fav] + otherGroups
+						} else {
+							groups = otherGroups
+						}
+					}
+					return groups
+				}
 			}
-		}
-		.receive(on: DispatchQueue.main)
-		.assign(to: &$state)
 #endif
+			// Filter search word
+			.combineLatest(searchText) { (state: StarSwingsState<[GameGroupViewModel]>, searchText: String) -> StarSwingsState<[GameGroupViewModel]> in
+				state.mapData { groups in
+					groups.compactMap { group in
+						let monsters = Self.filter(searchText, from: group.items, languageService: game.languageService)
+						guard !monsters.isEmpty else {
+							return nil
+						}
+						return GameGroupViewModel(gameID: group.gameID, type: group.type, items: monsters)
+					}
+				}
+			}
+			// Receive on the main dispatcher
+			.receive(on: DispatchQueue.main)
+			.assign(to: &$state)
 
 		game.fetchIfNeeded()
 	}

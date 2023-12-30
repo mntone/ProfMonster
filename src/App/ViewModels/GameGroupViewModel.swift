@@ -1,6 +1,4 @@
-import struct SwiftUI.LocalizedStringKey
 
-@available(watchOS, unavailable)
 enum GameGroupType: Hashable {
 	case inGame
 	case byName
@@ -16,7 +14,6 @@ enum GameGroupType: Hashable {
 	}
 }
 
-@available(watchOS, unavailable)
 struct GameGroupViewModel: Identifiable {
 	let gameID: String
 	let type: GameGroupType
@@ -29,11 +26,11 @@ struct GameGroupViewModel: Identifiable {
 		self.type = type
 		switch type {
 		case .inGame, .byName:
-			self.label = String(localized: "")
-			self.sortkey = ""
+			self.label = String(localized: "All Monsters")
+			self.sortkey = "1"
 		case .favorite:
-			self.label = String(localized: "Favorite")
-			self.sortkey = ""
+			self.label = String(localized: "Favorites")
+			self.sortkey = "0"
 		case let .type(id):
 			let baseKey = id.replacingOccurrences(of: "_", with: " ").capitalized
 			self.label = String(localized: String.LocalizationValue(baseKey))
@@ -50,14 +47,12 @@ struct GameGroupViewModel: Identifiable {
 	}
 }
 
-@available(watchOS, unavailable)
 extension GameGroupViewModel: Equatable {
 	static func == (lhs: GameGroupViewModel, rhs: GameGroupViewModel) -> Bool {
 		lhs.type == rhs.type && lhs.gameID == rhs.gameID && lhs.items == rhs.items
 	}
 }
 
-@available(watchOS, unavailable)
 extension GameGroupViewModel: Comparable {
 	static func <(lhs: GameGroupViewModel, rhs: GameGroupViewModel) -> Bool {
 		lhs.sortkey < rhs.sortkey

@@ -13,11 +13,6 @@ struct GamePage<ItemView: View>: View {
 
 	@ViewBuilder
 	private var list: some View {
-#if os(watchOS)
-		List(viewModel.state.data ?? []) { item in
-			content(item)
-		}
-#else
 		let items = viewModel.state.data ?? []
 		if items.count > 1 || items.first?.type.isType == true {
 			List(items) { group in
@@ -34,7 +29,6 @@ struct GamePage<ItemView: View>: View {
 				content(item)
 			}
 		}
-#endif
 	}
 
 	var body: some View {
