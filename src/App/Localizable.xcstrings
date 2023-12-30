@@ -2,6 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "+" : {
+      "comment": "Effective/Low",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -90,6 +91,7 @@
       }
     },
     "++" : {
+      "comment": "Effective/Middle",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -178,6 +180,7 @@
       }
     },
     "+++" : {
+      "comment": "Effective/High",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -266,6 +269,7 @@
       }
     },
     "0" : {
+      "comment": "Effective/None",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -354,7 +358,7 @@
       }
     },
     "1" : {
-      "comment" : "text.stun[100]",
+      "comment" : "Stun/100",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -443,7 +447,7 @@
       }
     },
     "1/2" : {
-      "comment" : "text.stun[50]",
+      "comment" : "Stun/50",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -532,7 +536,7 @@
       }
     },
     "3/4" : {
-      "comment" : "text.stun[75]",
+      "comment" : "Stun/75",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -621,7 +625,7 @@
       }
     },
     "4/5" : {
-      "comment" : "text.stun[80]",
+      "comment" : "Stun/80",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -710,7 +714,7 @@
       }
     },
     "6/5" : {
-      "comment" : "text.stun[120]",
+      "comment" : "Stun/120",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -975,7 +979,6 @@
       }
     },
     "Add to Favorites" : {
-      "comment" : "action.favorite.add",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -2532,7 +2535,6 @@
       }
     },
     "Cancel" : {
-      "comment" : "action.cancel",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -2801,7 +2803,6 @@
       }
     },
     "Close" : {
-      "comment" : "action.close",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -4216,7 +4217,7 @@
       }
     },
     "High" : {
-      "comment" : "text.effective.accessibility[high]",
+      "comment" : "Effective/High (Accessibility)",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4358,7 +4359,7 @@
       }
     },
     "In Game" : {
-      "comment" : "action.sort[ingame]",
+      "comment" : "Sort/In Game",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4656,7 +4657,7 @@
       }
     },
     "Low" : {
-      "comment" : "text.effective.accessibility[low]",
+      "comment" : "Effective/Low (Accessibility)",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4689,7 +4690,7 @@
       }
     },
     "Middle" : {
-      "comment" : "text.effective.accessibility[middle]",
+      "comment" : "Effective/Middle (Accessibility)",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4706,7 +4707,6 @@
       }
     },
     "Monster and Weakness" : {
-      "comment" : "action.search[long]",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4723,7 +4723,7 @@
       }
     },
     "Name" : {
-      "comment" : "action.sort[name]",
+      "comment" : "Sort/Name",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -4806,7 +4806,7 @@
       }
     },
     "None" : {
-      "comment" : "text.effective.accessibility[none]",
+      "comment" : "Effective/None (Accessibility)",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4839,7 +4839,7 @@
       }
     },
     "Number" : {
-      "comment" : "action.displayMode.number",
+      "comment" : "DisplayMode/Number",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -4857,6 +4857,7 @@
       }
     },
     "Number (%u decimal places)" : {
+      "comment" : "DisplayMode/NumberN",
       "localizations" : {
         "en" : {
           "variations" : {
@@ -4891,7 +4892,7 @@
       }
     },
     "Off" : {
-      "comment" : "action.displayMode.off",
+      "comment" : "DisplayMode/Off",
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
@@ -4942,7 +4943,6 @@
       }
     },
     "Physiology" : {
-      "comment" : "text.physiology",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -5211,7 +5211,6 @@
       }
     },
     "Prof. Monster" : {
-      "comment" : "title.appname",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -5300,7 +5299,6 @@
       }
     },
     "Remove All Caches" : {
-      "comment" : "action.removeAllCaches",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -5389,7 +5387,6 @@
       }
     },
     "Remove Caches" : {
-      "comment" : "title.removeCaches",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -5478,7 +5475,6 @@
       }
     },
     "Remove Favorite" : {
-      "comment" : "action.favorite.remote",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5495,7 +5491,6 @@
       }
     },
     "Search" : {
-      "comment" : "action.search[short]",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -5584,7 +5579,6 @@
       }
     },
     "Settings" : {
-      "comment" : "title[settings]",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -5914,7 +5908,7 @@
       }
     },
     "Sign" : {
-      "comment" : "action.displayMode.sign",
+      "comment" : "DisplayMode/Sign",
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
@@ -6075,7 +6069,6 @@
       }
     },
     "Sort" : {
-      "comment" : "action.sort",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -6318,6 +6311,7 @@
       }
     },
     "Type" : {
+      "comment" : "Sort/Type",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -6335,16 +6329,88 @@
     },
     "Version %@" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الإصدار %@"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %@"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Version %@"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versión %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versión %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Version %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versione %@"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "バージョン %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "버전 %@"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wersja %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versão %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Версия %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本 %@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "版本 %@"
           }
         }
       }
@@ -6475,7 +6541,6 @@
       }
     },
     "Weakness" : {
-      "comment" : "text.weakness",
       "localizations" : {
         "ar" : {
           "stringUnit" : {

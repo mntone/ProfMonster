@@ -22,9 +22,9 @@ private struct FixedWidthWeaknessSignItemView: View {
 		VStack(spacing: 0) {
 			Label(viewModel.attack.label, systemImage: viewModel.attack.imageName)
 				.foregroundStyle(viewModel.attack.color)
-				.accessibilityLabel(viewModel.attack.accessibilityLabel)
+				.accessibilityLabel(viewModel.attack.longLabel)
 
-			Text(viewModel.effective.label)
+			Text(verbatim: viewModel.effective.label)
 				.foregroundStyle(viewModel.signColor)
 #if os(watchOS)
 				.font(.systemBackport(.body,
@@ -38,7 +38,7 @@ private struct FixedWidthWeaknessSignItemView: View {
 #if !os(macOS)
 				.minimumScaleFactor(0.5)
 #endif
-				.accessibilityLabel(viewModel.effective.accessibilityLabel)
+				.accessibilityLabel(Text(verbatim: viewModel.effective.accessibilityLabel))
 		}
 		.accessibilityElement(children: .combine)
 	}
@@ -78,7 +78,7 @@ private struct FixedWidthWeaknessNumberItemView: View {
 		VStack(alignment: .leading, spacing: 0) {
 			Label(viewModel.attack.label, systemImage: viewModel.attack.imageName)
 				.foregroundStyle(viewModel.attack.color)
-				.accessibilityLabel(viewModel.attack.accessibilityLabel)
+				.accessibilityLabel(viewModel.attack.longLabel)
 
 			number
 #if !os(macOS)

@@ -19,7 +19,7 @@ private struct _PhysiologyRowView: View {
 				let text = Text(verbatim: String(item.value))
 				text
 					.frame(width: itemWidth)
-					.accessibilityLabel(item.attack.accessibilityLabel)
+					.accessibilityLabel(item.attack.longLabel)
 					.accessibilityValue(text)
 			}
 
@@ -47,12 +47,14 @@ private struct _PhysiologyRowHeaderView: View {
 			ForEach(viewModel) { item in
 				Spacer(minLength: PhysiologyViewMetrics.spacing)
 				Image(systemName: item.attack.imageName)
+					.help(item.attack.longLabel)
 					.foregroundStyle(item.attack.color)
 					.frame(width: itemWidth)
 			}
 
 			Spacer(minLength: PhysiologyViewMetrics.spacing)
 			Image(systemName: "star.fill")
+				.help("Stun")
 				.foregroundStyle(.thunder)
 				.frame(width: itemWidth)
 		}

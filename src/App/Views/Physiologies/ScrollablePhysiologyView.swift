@@ -22,11 +22,17 @@ private struct _ScrollablePhysiologyRowHeaderView: View {
 		HStack(spacing: spacing) {
 			ForEach(viewModel) { item in
 				Image(systemName: item.attack.imageName)
+#if !os(watchOS)
+					.help(item.attack.longLabel)
+#endif
 					.foregroundStyle(item.attack.color)
 			}
 			.frame(maxWidth: itemWidth)
 
 			Image(systemName: "star.fill")
+#if !os(watchOS)
+				.help("Stun")
+#endif
 				.foregroundStyle(.thunder)
 				.frame(width: itemWidth)
 		}
@@ -64,7 +70,7 @@ private struct _ScrollablePhysiologyContentView: View {
 			ForEach(viewModel.values) { item in
 				let text = Text(verbatim: String(item.value))
 				text
-					.accessibilityLabel(item.attack.accessibilityLabel)
+					.accessibilityLabel(item.attack.longLabel)
 					.accessibilityValue(text)
 			}
 			.frame(width: itemWidth)

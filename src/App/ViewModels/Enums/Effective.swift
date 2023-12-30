@@ -1,25 +1,34 @@
 import SwiftUI
 
-enum Effective: String {
-	case high = "+++"
-	case middle = "++"
-	case low = "+"
-	case none = "0"
+enum Effective: Int8 {
+	case high = 20
+	case middle = 10
+	case low = 5
+	case none = 0
 
-	var label: LocalizedStringKey {
-		LocalizedStringKey(rawValue)
-	}
-
-	var accessibilityLabel: LocalizedStringKey {
+	var label: String {
 		switch self {
 		case .high:
-			LocalizedStringKey("High")
+			String(localized: "+++", comment: "Effective/High")
 		case .middle:
-			LocalizedStringKey("Middle")
+			String(localized: "++", comment: "Effective/Middle")
 		case .low:
-			LocalizedStringKey("Low")
+			String(localized: "+", comment: "Effective/Low")
 		case .none:
-			LocalizedStringKey("None")
+			String(localized: "0", comment: "Effective/None")
+		}
+	}
+
+	var accessibilityLabel: String {
+		switch self {
+		case .high:
+			String(localized: "High", comment: "Effective/High (Accessibility)")
+		case .middle:
+			String(localized: "Middle", comment: "Effective/Middle (Accessibility)")
+		case .low:
+			String(localized: "Low", comment: "Effective/Low (Accessibility)")
+		case .none:
+			String(localized: "None", comment: "Effective/None (Accessibility)")
 		}
 	}
 }

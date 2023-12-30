@@ -13,9 +13,9 @@ struct SharedMonsterListModifier<Data>: ViewModifier {
 				ToolbarItem(placement: .primaryAction) {
 					Menu("Sort", systemImage: "arrow.up.arrow.down.circle") {
 						Picker(selection: sort) {
-							Text("In Game").tag(Sort.inGame)
-							Text("Name").tag(Sort.name)
-							Text("Type").tag(Sort.type)
+							Text("In Game", comment: "Sort/In Game").tag(Sort.inGame)
+							Text("Name", comment: "Sort/Name").tag(Sort.name)
+							Text("Type", comment: "Sort/Type").tag(Sort.type)
 						} label: {
 							EmptyView()
 						}

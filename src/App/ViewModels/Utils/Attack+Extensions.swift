@@ -44,7 +44,7 @@ extension Attack {
 		LocalizedStringKey(rawValue)
 	}
 
-	var accessibilityLabel: LocalizedStringKey {
+	var longLabel: LocalizedStringKey {
 		switch self {
 		case .slash:
 			LocalizedStringKey("Slash Element")

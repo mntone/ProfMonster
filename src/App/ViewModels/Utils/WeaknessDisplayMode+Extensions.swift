@@ -2,14 +2,15 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 extension WeaknessDisplayMode {
-	var label: LocalizedStringKey {
+	var label: String {
 		switch self {
 		case .none:
-			LocalizedStringKey("Off")
+			String(localized: "Off", comment: "DisplayMode/Off")
 		case .sign:
-			LocalizedStringKey("Sign")
+			String(localized: "Sign", comment: "DisplayMode/Sign")
 		case let .number(fractionLength):
-			LocalizedStringKey("Number (\(fractionLength) decimal places)")
+			String(localized: "Number (\(fractionLength) decimal places)",
+				   comment: "DisplayMode/NumberN")
 		}
 	}
 }
