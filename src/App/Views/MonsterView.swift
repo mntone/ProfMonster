@@ -94,6 +94,21 @@ struct MonsterView: View {
 			}
 			.headerProminence(.increased)
 		}
+		.toolbarItemBackport(alignment: .trailing) {
+			if viewModel.isFavorited {
+				Button("Remove Favorite", systemImage: "star.fill") {
+					viewModel.isFavorited = false
+				}
+				.help("Remove Favorite")
+				.foregroundStyle(.yellow)
+			} else {
+				Button("Add Favorite", systemImage: "star") {
+					viewModel.isFavorited = true
+				}
+				.help("Add Favorite")
+				.foregroundStyle(.yellow)
+			}
+		}
 		.navigationTitle(Text(verbatim: viewModel.name))
 	}
 }

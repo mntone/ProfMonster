@@ -2,25 +2,45 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct MonsterListItem: View {
-	let viewModel: GameItemViewModel
+	@ObservedObject
+	private(set) var viewModel: GameItemViewModel
 
 	var body: some View {
-		Text(verbatim: viewModel.name)
+		HStack(spacing: 0) {
+			Text(verbatim: viewModel.name)
+
+			Spacer()
+
+			if viewModel.isFavorited {
+				Image(systemName: "star.fill")
+					.foregroundStyle(.yellow)
+					.accessibilityLabel("Favorited")
+			}
+		}
+#if !os(watchOS)
+		.contextMenu {
+			if viewModel.isFavorited {
+				Button("Remove Favorite", systemImage: "star") {
+					viewModel.isFavorited = false
+				}
+			} else {
+				Button("Add Favorite", systemImage: "star.fill") {
+					viewModel.isFavorited = true
+				}
+			}
+		}
+#endif
 	}
 }
 
 #if DEBUG || targetEnvironment(simulator)
 #Preview {
-	AsyncPreviewSupport { viewModel in
-		List {
-			MonsterListItem(viewModel: viewModel)
-			MonsterListItem(viewModel: viewModel)
-			MonsterListItem(viewModel: viewModel)
-			MonsterListItem(viewModel: viewModel)
-		}
-	} task: {
-		let viewModel = await GameItemViewModel(id: "gulu_qoo", gameID: "mockgame")
-		return viewModel
+	let viewModel = GameItemViewModel(id: "gulu_qoo", gameID: "mockgame")!
+	return List {
+		MonsterListItem(viewModel: viewModel)
+		MonsterListItem(viewModel: viewModel)
+		MonsterListItem(viewModel: viewModel)
+		MonsterListItem(viewModel: viewModel)
 	}
 }
 #endif

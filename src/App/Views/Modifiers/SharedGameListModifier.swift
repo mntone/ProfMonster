@@ -8,7 +8,7 @@ struct SharedGameListModifier<Data>: ViewModifier {
 	func body(content: Content) -> some View {
 		content
 #if !os(macOS)
-			.leadingToolbarItemBackport {
+			.toolbarItemBackport(alignment: .leading) {
 				Button("Settings", systemImage: "gearshape.fill", action: settingsAction)
 #if !os(watchOS)
 				.keyboardShortcut(",", modifiers: [.command])

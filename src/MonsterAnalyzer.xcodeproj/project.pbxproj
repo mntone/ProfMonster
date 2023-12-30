@@ -160,6 +160,8 @@
 		EBB4B21C2B176CE7004D63EA /* FixedWidthWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */; };
 		EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */; };
 		EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */; };
+		EBBBAAB42B3FADEB00BBAB23 /* GameItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */; };
+		EBBBAAB52B3FADEB00BBAB23 /* GameItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */; };
 		EBC85C612B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C622B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C712B2053B6008A16C6 /* WatchDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C702B2053B6008A16C6 /* WatchDevice.swift */; };
@@ -169,10 +171,10 @@
 		EBC85C7B2B2063FF008A16C6 /* BottomCircularButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C792B206287008A16C6 /* BottomCircularButtonStyle.swift */; };
 		EBC85C7D2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C7C2B209D65008A16C6 /* EdgeInsets+Extensions.swift */; };
 		EBC85C7E2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C7C2B209D65008A16C6 /* EdgeInsets+Extensions.swift */; };
-		EBCA22292B21A58C00C487AD /* LeadingToolbarItemBackportModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA22282B21A58C00C487AD /* LeadingToolbarItemBackportModifier.swift */; };
+		EBCA22292B21A58C00C487AD /* ToolbarItemBackportModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA22282B21A58C00C487AD /* ToolbarItemBackportModifier.swift */; };
 		EBCA222B2B221E5700C487AD /* SettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA222A2B221E5700C487AD /* SettingsContainer.swift */; };
 		EBCA222C2B221E5700C487AD /* SettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA222A2B221E5700C487AD /* SettingsContainer.swift */; };
-		EBCA222D2B222ECB00C487AD /* LeadingToolbarItemBackportModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA22282B21A58C00C487AD /* LeadingToolbarItemBackportModifier.swift */; };
+		EBCA222D2B222ECB00C487AD /* ToolbarItemBackportModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA22282B21A58C00C487AD /* ToolbarItemBackportModifier.swift */; };
 		EBCA222E2B228C6800C487AD /* FixedWidthWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */; };
 		EBDEEF3D2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */; };
 		EBDEEF3E2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */; };
@@ -425,6 +427,7 @@
 		EBB4B2222B17770E004D63EA /* LanguageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageService.swift; sourceTree = "<group>"; };
 		EBB4B22B2B178302004D63EA /* MHLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHLocalization.swift; sourceTree = "<group>"; };
 		EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyViewMetrics.swift; sourceTree = "<group>"; };
+		EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemViewModel.swift; sourceTree = "<group>"; };
 		EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		EBC85C702B2053B6008A16C6 /* WatchDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDevice.swift; sourceTree = "<group>"; };
 		EBC85C722B205469008A16C6 /* WatchMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMetrics.swift; sourceTree = "<group>"; };
@@ -432,7 +435,7 @@
 		EBC85C762B205F67008A16C6 /* WatchMetricsKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMetricsKey.swift; sourceTree = "<group>"; };
 		EBC85C792B206287008A16C6 /* BottomCircularButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomCircularButtonStyle.swift; sourceTree = "<group>"; };
 		EBC85C7C2B209D65008A16C6 /* EdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
-		EBCA22282B21A58C00C487AD /* LeadingToolbarItemBackportModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingToolbarItemBackportModifier.swift; sourceTree = "<group>"; };
+		EBCA22282B21A58C00C487AD /* ToolbarItemBackportModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItemBackportModifier.swift; sourceTree = "<group>"; };
 		EBCA222A2B221E5700C487AD /* SettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContainer.swift; sourceTree = "<group>"; };
 		EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebounceNotifier.swift; sourceTree = "<group>"; };
 		EBDEEF3F2B3EDF3900835CBC /* Backport+ScrollContentBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ScrollContentBackground.swift"; sourceTree = "<group>"; };
@@ -689,6 +692,7 @@
 				EB2B05B92B3AAA0200E0BFD3 /* Enums */,
 				EBC85C632B202DCD008A16C6 /* Utils */,
 				EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */,
+				EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */,
 				EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */,
 				EB9620EA2B1D839B00FD7115 /* HomeViewModel.swift */,
 				EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */,
@@ -816,11 +820,11 @@
 		EBCA22262B21A56C00C487AD /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				EBCA22282B21A58C00C487AD /* LeadingToolbarItemBackportModifier.swift */,
 				EB97F6A72B31BCDE00E31602 /* SharedGameListModifier.swift */,
 				EB97F6A42B31B60700E31602 /* SharedMonsterListModifier.swift */,
 				EB3B49212B35EAD100E89711 /* SharedSettingsContainerModifier.swift */,
 				EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */,
+				EBCA22282B21A58C00C487AD /* ToolbarItemBackportModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -1230,6 +1234,7 @@
 				EBB4B20E2B175DE2004D63EA /* Effective.swift in Sources */,
 				EB8778292B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */,
 				EBB4B21C2B176CE7004D63EA /* FixedWidthWeaknessView.swift in Sources */,
+				EBBBAAB52B3FADEB00BBAB23 /* GameItemViewModel.swift in Sources */,
 				EBB4B2072B175DB8004D63EA /* GamePage.swift in Sources */,
 				EBB4B2142B175DE7004D63EA /* GameViewModel.swift in Sources */,
 				EBEA6F7F2B1A1B2D00734AAA /* HBorderView.swift in Sources */,
@@ -1237,7 +1242,6 @@
 				EB9620F42B1D90DB00FD7115 /* HomeViewModel.swift in Sources */,
 				EB3B49202B35E2B200E89711 /* LabeledContentBackport.swift in Sources */,
 				EB967A492B2AC6E80041A491 /* LazyView.swift in Sources */,
-				EBCA22292B21A58C00C487AD /* LeadingToolbarItemBackportModifier.swift in Sources */,
 				EB2B0FAE2B39260D004596A6 /* LicenseView.swift in Sources */,
 				EBB4B2062B175DAB004D63EA /* MAApp.swift in Sources */,
 				EB9620E32B1D6FCC00FD7115 /* MARoute.swift in Sources */,
@@ -1265,6 +1269,7 @@
 				EB6ADE752B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */,
 				EB693EA82B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
 				EB967A4C2B2AC7100041A491 /* StateView.swift in Sources */,
+				EBCA22292B21A58C00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
 				EBEA6F752B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
 				EB3B491A2B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
 				EB6297F32B37179200E830E6 /* View+Block.swift in Sources */,
@@ -1374,6 +1379,7 @@
 				EB8778282B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */,
 				EBCA222E2B228C6800C487AD /* FixedWidthWeaknessView.swift in Sources */,
 				EBDFD8512B3C112A00AF1832 /* GameGroupViewModel.swift in Sources */,
+				EBBBAAB42B3FADEB00BBAB23 /* GameItemViewModel.swift in Sources */,
 				EBB4B1CD2B15D0C7004D63EA /* GamePage.swift in Sources */,
 				EBB4B1CB2B15CC47004D63EA /* GameViewModel.swift in Sources */,
 				EBEA6F7E2B1A1B2C00734AAA /* HBorderView.swift in Sources */,
@@ -1381,7 +1387,6 @@
 				EB9620EB2B1D839B00FD7115 /* HomeViewModel.swift in Sources */,
 				EB3B491F2B35E2B200E89711 /* LabeledContentBackport.swift in Sources */,
 				EB967A482B2AC6E80041A491 /* LazyView.swift in Sources */,
-				EBCA222D2B222ECB00C487AD /* LeadingToolbarItemBackportModifier.swift in Sources */,
 				EB2B0FAD2B39260D004596A6 /* LicenseView.swift in Sources */,
 				EBF9282B2B1038C9007D59D4 /* MAApp.swift in Sources */,
 				EB9620E22B1D6E1000FD7115 /* MARoute.swift in Sources */,
@@ -1415,6 +1420,7 @@
 				EB693EA72B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
 				EB967A4B2B2AC7100041A491 /* StateView.swift in Sources */,
 				EB513ADF2B3C8B0400C8FB4A /* TabSettingsContainer.swift in Sources */,
+				EBCA222D2B222ECB00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
 				EBEA6F742B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
 				EB3B49192B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
 				EB6297F22B37179200E830E6 /* View+Block.swift in Sources */,

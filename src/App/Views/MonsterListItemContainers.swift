@@ -59,16 +59,12 @@ struct MonsterSelectableListItem: View {
 @available(macOS, unavailable)
 #Preview {
 	NavigationStack {
-		AsyncPreviewSupport { viewModel in
-			List {
-				MonsterListNavigatableItem(viewModel: viewModel)
-				MonsterListNavigatableItem(viewModel: viewModel)
-				MonsterListNavigatableItem(viewModel: viewModel)
-				MonsterListNavigatableItem(viewModel: viewModel)
-			}
-		} task: {
-			let viewModel = await GameItemViewModel(id: "gulu_qoo", gameID: "mockgame")
-			return viewModel
+		let viewModel = GameItemViewModel(id: "gulu_qoo", gameID: "mockgame")!
+		List {
+			MonsterListNavigatableItem(viewModel: viewModel)
+			MonsterListNavigatableItem(viewModel: viewModel)
+			MonsterListNavigatableItem(viewModel: viewModel)
+			MonsterListNavigatableItem(viewModel: viewModel)
 		}
 	}
 }

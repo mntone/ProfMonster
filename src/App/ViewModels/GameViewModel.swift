@@ -2,57 +2,6 @@ import Combine
 import Foundation
 import MonsterAnalyzerCore
 
-struct GameItemViewModel: Identifiable, Hashable {
-	let id: String
-	let type: String
-	let gameID: String
-	let name: String
-	let keywords: [String]
-
-	init(id: String, type: String, gameID: String, name: String, keywords: [String]) {
-		self.id = id
-		self.type = type
-		self.gameID = gameID
-		self.name = name
-		self.keywords = keywords
-	}
-
-	init(monster: Monster) {
-		self.id = monster.id
-		self.type = monster.type
-		self.gameID = monster.gameID
-		self.name = monster.name
-		self.keywords = monster.keywords
-	}
-
-#if DEBUG || targetEnvironment(simulator)
-	init(id monsterID: String, gameID: String) async {
-		guard let app = await MAApp.resolver.resolve(App.self),
-			  let game = await app.prefetch(of: gameID),
-			  let monster = await game.prefetch(of: monsterID) else {
-			fatalError()
-		}
-		self.id = monster.id
-		self.type = monster.type
-		self.gameID = monster.gameID
-		self.name = monster.name
-		self.keywords = monster.keywords
-	}
-#endif
-}
-
-extension GameItemViewModel: Equatable {
-	static func == (lhs: GameItemViewModel, rhs: GameItemViewModel) -> Bool {
-		lhs.id == rhs.id && lhs.gameID == rhs.gameID
-	}
-}
-
-extension GameItemViewModel: Comparable {
-	static func <(lhs: GameItemViewModel, rhs: GameItemViewModel) -> Bool {
-		lhs.name < rhs.name
-	}
-}
-
 final class GameViewModel: ObservableObject, Identifiable {
 	private let game: Game
 
