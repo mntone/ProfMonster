@@ -4,6 +4,7 @@ import MonsterAnalyzerCore
 
 final class GameViewModel: ObservableObject, Identifiable {
 	private let game: Game
+	private var cancellable: Cancellable?
 
 	@Published
 	private(set) var state: StarSwingsState<[GameGroupViewModel]> = .ready
@@ -27,10 +28,21 @@ final class GameViewModel: ObservableObject, Identifiable {
 			.mapData { monsters in
 				monsters.map(GameItemViewModel.init)
 			}
+			.multicast(subject: CurrentValueSubject(.ready))
 
 		// Favorite Group
 		let favorites = getState
-			.flatMap { state in
+			.removeDuplicates { prev, cur in
+				switch (prev, cur) {
+				case let (.complete(prevData), .complete(curData)):
+					return prevData == curData
+				case (.complete, _), (_, .complete):
+					return false
+				default:
+					return true
+				}
+			}
+			.map { state in
 				switch state {
 				case let .complete(data: monsters):
 					return monsters
@@ -41,22 +53,21 @@ final class GameViewModel: ObservableObject, Identifiable {
 							}
 						}
 						.combineLatest
-						.map { monsters -> [GameItemViewModel] in
-							monsters.compactMap { monster in
+						.map { monsters -> GameGroupViewModel? in
+							let items = monsters.compactMap { monster in
 								monster
 							}
+							guard !items.isEmpty else { return nil }
+
+							return GameGroupViewModel(gameID: game.id, type: .favorite, items: items)
 						}
 						.eraseToAnyPublisher()
 				default:
-					return Just<[GameItemViewModel]>([])
+					return Just<GameGroupViewModel?>(nil)
 						.eraseToAnyPublisher()
 				}
 			}
-			.map { items -> GameGroupViewModel? in
-				guard !items.isEmpty else { return nil }
-
-				return GameGroupViewModel(gameID: game.id, type: .favorite, items: items)
-			}
+			.switchToLatest()
 
 		// Search Text
 		let searchText = Just("")
@@ -139,6 +150,9 @@ final class GameViewModel: ObservableObject, Identifiable {
 			// Receive on the main dispatcher
 			.receive(on: DispatchQueue.main)
 			.assign(to: &$state)
+
+		// Connect to multicast publisher.
+		cancellable = getState.connect()
 
 		game.fetchIfNeeded()
 	}
