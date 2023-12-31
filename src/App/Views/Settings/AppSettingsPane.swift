@@ -27,6 +27,7 @@ struct AppSettingsPane: View {
 							.resizable()
 							.clipShape(RoundedRectangle(cornerRadius: 23.0))
 							.frame(width: 128.0, height: 128.0)
+							.accessibilityHidden(true)
 					}
 #else
 					if let appIcon = UIImage(named: "AppIcon") {
@@ -42,6 +43,7 @@ struct AppSettingsPane: View {
 							.clipShape(RoundedRectangle(cornerRadius: 13.5))
 							.frame(width: 60.0, height: 60.0)
 #endif
+							.accessibilityHidden(true)
 					}
 #endif
 

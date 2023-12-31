@@ -18,10 +18,13 @@ private struct FixedWidthWeaknessSignItemView: View {
 	let signFontSize: CGFloat
 #endif
 
+	let namespace: Namespace.ID
+
 	var body: some View {
 		VStack(spacing: 0) {
 			Label(viewModel.attack.label, systemImage: viewModel.attack.imageName)
 				.foregroundStyle(viewModel.attack.color)
+				.accessibilityLabeledPair(role: .label, id: viewModel.id, in: namespace)
 				.accessibilityLabel(viewModel.attack.longLabel)
 
 			Text(verbatim: viewModel.effective.label)
@@ -38,6 +41,7 @@ private struct FixedWidthWeaknessSignItemView: View {
 #if !os(macOS)
 				.minimumScaleFactor(0.5)
 #endif
+				.accessibilityLabeledPair(role: .content, id: viewModel.id, in: namespace)
 				.accessibilityLabel(Text(verbatim: viewModel.effective.accessibilityLabel))
 		}
 		.accessibilityElement(children: .combine)
@@ -49,6 +53,8 @@ private struct FixedWidthWeaknessNumberItemView: View {
 	let viewModel: WeaknessItemViewModel
 	let signFontSize: CGFloat
 	let fractionLength: Int
+
+	let namespace: Namespace.ID
 
 	private var integerFont: Font {
 		.system(size: signFontSize,
@@ -78,12 +84,14 @@ private struct FixedWidthWeaknessNumberItemView: View {
 		VStack(alignment: .leading, spacing: 0) {
 			Label(viewModel.attack.label, systemImage: viewModel.attack.imageName)
 				.foregroundStyle(viewModel.attack.color)
+				.accessibilityLabeledPair(role: .label, id: viewModel.id, in: namespace)
 				.accessibilityLabel(viewModel.attack.longLabel)
 
 			number
 #if !os(macOS)
 				.minimumScaleFactor(0.5)
 #endif
+				.accessibilityLabeledPair(role: .content, id: viewModel.id, in: namespace)
 		}
 		.accessibilityElement(children: .combine)
 	}
@@ -103,6 +111,9 @@ struct FixedWidthWeaknessSectionView: View {
 
 	@State
 	private var itemWidth: CGFloat?
+
+	@Namespace
+	var namespace
 
 	private func updateItemWidth(from containerSize: CGFloat) {
 		itemWidth = min(Self.maxItemWidth, containerSize / CGFloat(viewModel.items.count))
@@ -131,7 +142,7 @@ struct FixedWidthWeaknessSectionView: View {
 #if os(watchOS)
 				HStack(alignment: .firstTextBaseline, spacing: 0) {
 					ForEach(viewModel.items) { item in
-						FixedWidthWeaknessSignItemView(viewModel: item)
+						FixedWidthWeaknessSignItemView(viewModel: item, namespace: namespace)
 					}
 					.frame(width: itemWidth)
 				}
@@ -143,7 +154,9 @@ struct FixedWidthWeaknessSectionView: View {
 				case .sign:
 					DividedHStack(alignment: .firstTextBaseline, spacing: 0) {
 						ForEach(viewModel.items) { item in
-							FixedWidthWeaknessSignItemView(viewModel: item, signFontSize: signFontSize)
+							FixedWidthWeaknessSignItemView(viewModel: item,
+														   signFontSize: signFontSize,
+														   namespace: namespace)
 						}
 						.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth)
 					}
@@ -154,7 +167,8 @@ struct FixedWidthWeaknessSectionView: View {
 						ForEach(viewModel.items) { item in
 							FixedWidthWeaknessNumberItemView(viewModel: item,
 															 signFontSize: signFontSize,
-															 fractionLength: fractionLengthInt)
+															 fractionLength: fractionLengthInt,
+															 namespace: namespace)
 						}
 						.padding(.horizontal, 8)
 						.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth, alignment: .leading)

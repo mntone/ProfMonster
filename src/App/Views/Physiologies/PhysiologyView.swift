@@ -107,7 +107,7 @@ struct PhysiologyView: View {
 				}
 				.padding(PhysiologyViewMetrics.padding)
 				.background(group.id % 2 != 0
-							? RoundedRectangle(cornerRadius: 4).foregroundColor(.physiologySecondary).accessibilityHidden(true)
+							? RoundedRectangle(cornerRadius: 4).foregroundColor(.physiologySecondary)
 							: nil)
 			}
 		}
