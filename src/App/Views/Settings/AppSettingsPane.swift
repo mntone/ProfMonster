@@ -61,19 +61,26 @@ struct AppSettingsPane: View {
 #endif
 
 			Section("Build Info") {
+				let gitHash = AppUtil.gitHash
 				if #available(iOS 16.0, macOS 13.0, watchOS 9.0, *) {
 					LabeledContent("Git Difference") {
 						hashContent
 					}
 
-					LabeledContent("Git Commit Hash", value: AppUtil.gitHash)
+					LabeledContent("Git Commit Hash", value: String(gitHash.prefix(7)))
+#if !os(watchOS)
+						.help(gitHash)
+#endif
 					LabeledContent("Git Commit Date", value: AppUtil.gitDate.formatted(date: .numeric, time: .complete))
 				} else {
 					LabeledContentBackport("Git Difference") {
 						hashContent
 					}
 
-					LabeledContentBackport("Git Commit Hash", value: AppUtil.gitHash)
+					LabeledContentBackport("Git Commit Hash", value: String(gitHash.prefix(7)))
+#if !os(watchOS)
+						.help(gitHash)
+#endif
 					LabeledContentBackport("Git Commit Date", value: AppUtil.gitDate.formatted(date: .numeric, time: .complete))
 				}
 			}
