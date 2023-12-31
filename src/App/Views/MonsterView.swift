@@ -99,14 +99,26 @@ struct MonsterView: View {
 				Button("Remove Favorite", systemImage: "star.fill") {
 					viewModel.isFavorited = false
 				}
-				.help("Remove Favorite")
+#if os(watchOS)
 				.foregroundStyle(.yellow)
+#else
+				.help("Remove Favorite")
+#if os(iOS)
+				.tint(.yellow)
+#endif
+#endif
 			} else {
 				Button("Add to Favorites", systemImage: "star") {
 					viewModel.isFavorited = true
 				}
-				.help("Add to Favorites")
+#if os(watchOS)
 				.foregroundStyle(.yellow)
+#else
+				.help("Add to Favorites")
+#if os(iOS)
+				.tint(.yellow)
+#endif
+#endif
 			}
 		}
 		.navigationTitle(Text(verbatim: viewModel.name))
