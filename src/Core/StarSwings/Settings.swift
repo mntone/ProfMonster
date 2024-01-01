@@ -1,5 +1,10 @@
 
 public final class Settings {
+#if os(iOS)
+	@UserDefault("showTitle", initial: true)
+	public var showTitle: Bool
+#endif
+
 	@UserDefault("elemDisp", initial: .sign)
 	public var elementDisplay: WeaknessDisplayMode
 

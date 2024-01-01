@@ -9,6 +9,9 @@ struct MonsterView: View {
 	@ObservedObject
 	private(set) var viewModel: MonsterViewModel
 
+	@Environment(\.dynamicTypeSize.isAccessibilitySize)
+	private var isAccessibilitySize
+
 #if !os(watchOS)
 	@ViewBuilder
 	private var note: some View {
@@ -94,6 +97,20 @@ struct MonsterView: View {
 			}
 			.headerProminence(.increased)
 		}
+#if os(iOS)
+		.block { content in
+			if !isAccessibilitySize {
+				content.toolbar {
+					ToolbarItem(placement: .principal) {
+						MonsterNavigationBarHeader(viewModel: viewModel)
+							.dynamicTypeSize(...DynamicTypeSize.xxLarge) // Fix iOS 15
+					}
+				}
+			} else {
+				content
+			}
+		}
+#endif
 		.toolbarItemBackport(alignment: .trailing) {
 			if viewModel.isFavorited {
 				Button("Remove Favorite", systemImage: "star.fill") {

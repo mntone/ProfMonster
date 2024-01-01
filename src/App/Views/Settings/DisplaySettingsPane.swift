@@ -5,8 +5,19 @@ struct DisplaySettingsPane: View {
 	@ObservedObject
 	private(set) var viewModel: SettingsViewModel
 
+	@Environment(\.dynamicTypeSize.isAccessibilitySize)
+	private var isAccessibilitySize
+
 	var body: some View {
 		Form {
+#if os(iOS)
+			if !isAccessibilitySize {
+				Section {
+					Toggle("Show Monster’s Title", isOn: $viewModel.showTitle)
+				}
+			}
+#endif
+
 			Section("Weakness") {
 #if os(watchOS)
 				Toggle("Element Attack", isOn: Binding {

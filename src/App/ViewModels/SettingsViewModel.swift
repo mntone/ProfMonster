@@ -18,6 +18,15 @@ final class SettingsViewModel: ObservableObject {
 	@Published
 	var storageSize: String?
 
+#if os(iOS)
+	@Published
+	var showTitle: Bool {
+		didSet {
+			settings.showTitle = showTitle
+		}
+	}
+#endif
+
 	@Published
 	var elementDisplay: WeaknessDisplayMode {
 		didSet {
@@ -40,11 +49,18 @@ final class SettingsViewModel: ObservableObject {
 		self.rootViewModel = rootViewModel
 		self.settings = app.settings
 		self.storage = storage
+#if os(iOS)
+		self.showTitle = app.settings.showTitle
+#endif
 		self.elementDisplay = app.settings.elementDisplay
 		self.mergeParts = app.settings.mergeParts
 
-		settings.$elementDisplay.dropFirst().receive(on: DispatchQueue.main).assign(to: &$elementDisplay)
-		settings.$mergeParts.dropFirst().receive(on: DispatchQueue.main).assign(to: &$mergeParts)
+		let scheduler = DispatchQueue.main
+#if os(iOS)
+		settings.$showTitle.dropFirst().receive(on: scheduler).assign(to: &$showTitle)
+#endif
+		settings.$elementDisplay.dropFirst().receive(on: scheduler).assign(to: &$elementDisplay)
+		settings.$mergeParts.dropFirst().receive(on: scheduler).assign(to: &$mergeParts)
 	}
 
 	convenience init(rootViewModel: HomeViewModel) {

@@ -149,7 +149,6 @@
 		EBB4B2052B175D4A004D63EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B2032B175D49004D63EA /* ContentView.swift */; };
 		EBB4B2062B175DAB004D63EA /* MAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9282A2B1038C9007D59D4 /* MAApp.swift */; };
 		EBB4B2072B175DB8004D63EA /* GamePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CC2B15D0C7004D63EA /* GamePage.swift */; };
-		EBB4B2082B175DC0004D63EA /* MonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9282C2B1038C9007D59D4 /* MonsterView.swift */; };
 		EBB4B20E2B175DE2004D63EA /* Effective.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D42B161691004D63EA /* Effective.swift */; };
 		EBB4B2122B175DE7004D63EA /* MonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C62B15BF48004D63EA /* MonsterViewModel.swift */; };
 		EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D12B15ED1B004D63EA /* PhysiologyViewModel.swift */; };
@@ -217,6 +216,8 @@
 		EBEA6F7F2B1A1B2D00734AAA /* HBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */; };
 		EBEA6F822B1A205300734AAA /* MessagePacker in Frameworks */ = {isa = PBXBuildFile; productRef = EBEA6F812B1A205300734AAA /* MessagePacker */; };
 		EBEA6F842B1A208200734AAA /* DiskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F832B1A208200734AAA /* DiskStorage.swift */; };
+		EBEAB0C32B42378100CC25A8 /* MonsterNavigationBarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEAB0C22B42378100CC25A8 /* MonsterNavigationBarHeader.swift */; };
+		EBEAB0C42B423A7200CC25A8 /* MonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9282C2B1038C9007D59D4 /* MonsterView.swift */; };
 		EBF684A42B2D4C5D0071981F /* Physiology.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A32B2D4C5D0071981F /* Physiology.swift */; };
 		EBF684A72B2D50060071981F /* PhysiologyMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A62B2D50060071981F /* PhysiologyMapper.swift */; };
 		EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */; };
@@ -460,6 +461,7 @@
 		EBEA6F772B1A099000734AAA /* AppUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUtil.swift; sourceTree = "<group>"; };
 		EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HBorderView.swift; sourceTree = "<group>"; };
 		EBEA6F832B1A208200734AAA /* DiskStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskStorage.swift; sourceTree = "<group>"; };
+		EBEAB0C22B42378100CC25A8 /* MonsterNavigationBarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterNavigationBarHeader.swift; sourceTree = "<group>"; };
 		EBF684A32B2D4C5D0071981F /* Physiology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Physiology.swift; sourceTree = "<group>"; };
 		EBF684A62B2D50060071981F /* PhysiologyMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyMapper.swift; sourceTree = "<group>"; };
 		EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataViewModel.swift; sourceTree = "<group>"; };
@@ -717,6 +719,7 @@
 			children = (
 				EBEA6F7B2B1A1B0900734AAA /* Components */,
 				EB9620E02B1D6DFD00FD7115 /* Coordinators */,
+				EBEAB0C12B42376E00CC25A8 /* Details */,
 				EBCA22262B21A56C00C487AD /* Modifiers */,
 				EB31EEBE2B2C9EBF00FF8536 /* Navigations */,
 				EBBBAAAE2B3F7A7E00BBAB23 /* Physiologies */,
@@ -730,7 +733,6 @@
 				EB8778222B26B28500B3359C /* MonsterList.swift */,
 				EB8778242B26B38200B3359C /* MonsterListItem.swift */,
 				EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */,
-				EBF9282C2B1038C9007D59D4 /* MonsterView.swift */,
 				EB645A632B2685D500D27500 /* Sidebar.swift */,
 				EBF928392B103CB0007D59D4 /* WeaknessView.swift */,
 			);
@@ -925,6 +927,15 @@
 				EBEA6F732B18B56700734AAA /* UnevenRoundedRectangleBackport.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		EBEAB0C12B42376E00CC25A8 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				EBEAB0C22B42378100CC25A8 /* MonsterNavigationBarHeader.swift */,
+				EBF9282C2B1038C9007D59D4 /* MonsterView.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		EBF684A22B2D4C280071981F /* Objects */ = {
@@ -1257,7 +1268,7 @@
 				EBF684AA2B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
 				EB8778262B26B38200B3359C /* MonsterListItem.swift in Sources */,
 				EBF706F12B3C03F100AE88C4 /* MonsterListItemContainers.swift in Sources */,
-				EBB4B2082B175DC0004D63EA /* MonsterView.swift in Sources */,
+				EBEAB0C42B423A7200CC25A8 /* MonsterView.swift in Sources */,
 				EBB4B2122B175DE7004D63EA /* MonsterViewModel.swift in Sources */,
 				EBF684AB2B2D91A30071981F /* NavigationPathHost.swift in Sources */,
 				EB31EEBD2B2C9E4D00FF8536 /* NavigationPathSupport.swift in Sources */,
@@ -1404,6 +1415,7 @@
 				EB8778232B26B28500B3359C /* MonsterList.swift in Sources */,
 				EB8778252B26B38200B3359C /* MonsterListItem.swift in Sources */,
 				EBF706F02B3C03F100AE88C4 /* MonsterListItemContainers.swift in Sources */,
+				EBEAB0C32B42378100CC25A8 /* MonsterNavigationBarHeader.swift in Sources */,
 				EBF9282D2B1038C9007D59D4 /* MonsterView.swift in Sources */,
 				EBB4B1C72B15BF48004D63EA /* MonsterViewModel.swift in Sources */,
 				EB31EEB92B2C9DD000FF8536 /* NavigationPathHost.swift in Sources */,
