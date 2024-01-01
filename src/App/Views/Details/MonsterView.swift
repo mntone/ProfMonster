@@ -104,29 +104,9 @@ struct MonsterView: View {
 #endif
 		.toolbarItemBackport(alignment: .trailing) {
 			if viewModel.isFavorited {
-				Button("Remove Favorite", systemImage: "star.fill") {
-					viewModel.isFavorited = false
-				}
-#if os(watchOS)
-				.foregroundStyle(.yellow)
-#else
-				.help("Remove Favorite")
-#if os(iOS)
-				.tint(.yellow)
-#endif
-#endif
+				UnfavoriteButton(viewModel: viewModel)
 			} else {
-				Button("Add to Favorites", systemImage: "star") {
-					viewModel.isFavorited = true
-				}
-#if os(watchOS)
-				.foregroundStyle(.yellow)
-#else
-				.help("Add to Favorites")
-#if os(iOS)
-				.tint(.yellow)
-#endif
-#endif
+				FavoriteButton(viewModel: viewModel)
 			}
 		}
 		.navigationTitle(Text(verbatim: viewModel.name))
