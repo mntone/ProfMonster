@@ -3,7 +3,7 @@ import SwiftUI
 #if os(macOS)
 
 @available(iOS, unavailable)
-@available(macOS, introduced: 11.0, deprecated: 12.0, message: "Use ColumnSettingsContainer instead")
+@available(macOS, introduced: 12.0, deprecated: 13.0, message: "Use ColumnSettingsContainer instead")
 @available(watchOS, unavailable)
 struct TabSettingsContainer: View {
 	let viewModel: SettingsViewModel
