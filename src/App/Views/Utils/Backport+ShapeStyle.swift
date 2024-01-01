@@ -4,64 +4,64 @@ import SwiftUI
 // https://qiita.com/SNQ-2001/items/b60d55c7436efff24a65
 // TODO: Confirm actual implemenets on macOS 14
 extension Backport where Content: ShapeStyle {
-	var secondary: AnyShapeStyle {
+	var secondary: any ShapeStyle {
 		if #available(iOS 17.0, macOS 14.0, watchOS 10.0, *) {
-			AnyShapeStyle(content.secondary)
+			content.secondary
 		} else {
-			AnyShapeStyle(content.opacity(0.5))
+			content.opacity(0.5)
 		}
 	}
 
-	var tertiary: AnyShapeStyle {
+	var tertiary: any ShapeStyle {
 		if #available(iOS 17.0, macOS 14.0, watchOS 10.0, *) {
-			AnyShapeStyle(content.tertiary)
+			content.tertiary
 		} else {
-			AnyShapeStyle(content.opacity(0.25))
+			content.opacity(0.25)
 		}
 	}
 
-	var quaternary: AnyShapeStyle {
+	var quaternary: any ShapeStyle {
 		if #available(iOS 17.0, macOS 14.0, watchOS 10.0, *) {
-			AnyShapeStyle(content.quaternary)
+			content.quaternary
 		} else {
-			AnyShapeStyle(content.opacity(0.2))
+			content.opacity(0.2)
 		}
 	}
 
-	var quinary: AnyShapeStyle {
+	var quinary: any ShapeStyle {
 		if #available(iOS 17.0, macOS 14.0, watchOS 10.0, *) {
-			AnyShapeStyle(content.quinary)
+			content.quinary
 		} else {
-			AnyShapeStyle(content.opacity(0.175))
+			content.opacity(0.175)
 		}
 	}
 
-	func hierarchical(_ level: Int) -> AnyShapeStyle {
+	func hierarchical(_ level: Int) -> any ShapeStyle {
 		if #available(iOS 17.0, macOS 14.0, watchOS 10.0, *) {
 			switch level {
 			case 1:
-				AnyShapeStyle(content.secondary)
+				content.secondary
 			case 2:
-				AnyShapeStyle(content.tertiary)
+				content.tertiary
 			case 3:
-				AnyShapeStyle(content.quaternary)
+				content.quaternary
 			case 4...:
-				AnyShapeStyle(content.quinary)
+				content.quinary
 			default:
-				AnyShapeStyle(content)
+				content
 			}
 		} else {
 			switch level {
 			case 1:
-				AnyShapeStyle(content.opacity(0.5))
+				content.opacity(0.5)
 			case 2:
-				AnyShapeStyle(content.opacity(0.25))
+				content.opacity(0.25)
 			case 3:
-				AnyShapeStyle(content.opacity(0.2))
+				content.opacity(0.2)
 			case 4...:
-				AnyShapeStyle(content.opacity(0.175))
+				content.opacity(0.175)
 			default:
-				AnyShapeStyle(content)
+				content
 			}
 		}
 	}

@@ -18,7 +18,13 @@ private struct _PhysiologyRowView: View {
 
 				let text = Text(item.value, format: .number)
 				text
-					.foregroundStyle(item.foregroundStyle)
+					.block { content in
+						if #available(iOS 17.0, macOS 14.0, *) {
+							content.foregroundStyle(item.foregroundStyle)
+						} else {
+							content.foregroundStyle(AnyShapeStyle(item.foregroundStyle))
+						}
+					}
 					.frame(width: itemWidth)
 					.accessibilityLabel(item.attack.label(.long))
 					.accessibilityValue(text)

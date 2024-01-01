@@ -5,7 +5,7 @@ import SwiftUI
 struct PhysiologyValueViewModel: Identifiable {
 	let attack: Attack
 	let value: Int8
-	let foregroundStyle: AnyShapeStyle
+	let foregroundStyle: any ShapeStyle
 
 	init(attack: Attack, value: Int8, level: Int) {
 		self.attack = attack
