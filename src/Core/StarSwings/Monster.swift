@@ -77,7 +77,6 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 			self._syncLock.withLock {
 				self._syncing = true
 			}
-			debugPrint(self.id, change)
 
 			switch change {
 			case .add:
