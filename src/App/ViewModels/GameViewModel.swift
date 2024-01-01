@@ -34,12 +34,12 @@ final class GameViewModel: ObservableObject, Identifiable {
 		let favorites = getState
 			.removeDuplicates { prev, cur in
 				switch (prev, cur) {
+				case (.ready, .ready), (.loading, .loading):
+					return true
 				case let (.complete(prevData), .complete(curData)):
 					return prevData == curData
-				case (.complete, _), (_, .complete):
-					return false
 				default:
-					return true
+					return false
 				}
 			}
 			.map { state in
