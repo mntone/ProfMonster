@@ -5,6 +5,23 @@ import SwiftUI
 struct PhysiologyValueViewModel: Identifiable {
 	let attack: Attack
 	let value: Int8
+	let foregroundStyle: AnyShapeStyle
+
+	init(attack: Attack, value: Int8, level: Int) {
+		self.attack = attack
+		self.value = value
+		switch attack {
+		case .slash, .strike, .shell:
+			if value >= 45 {
+				self.foregroundStyle = TintShapeStyle().backport.hierarchical(level)
+			} else {
+				self.foregroundStyle = ForegroundStyle().backport.hierarchical(level)
+			}
+		case .fire, .water, .thunder, .ice, .dragon:
+			self.foregroundStyle = ForegroundStyle().backport.hierarchical(level)
+		}
+
+	}
 
 	var id: String {
 		attack.rawValue
@@ -19,19 +36,24 @@ struct PhysiologyViewModel: Identifiable {
 	let values: [PhysiologyValueViewModel]
 	let stun: Int8
 	let isReference: Bool
+	let hierarchical: HierarchicalShapeStyle
 
 	fileprivate init(id: Int,
 					 partsLabel: String,
 					 rawValue: Physiology,
 					 of attacks: [Attack],
 					 isReference: Bool) {
+		let level = Self.resolveHierarchicalLevel(rawValue.stateInfo, isReference: isReference)
 		self.id = UInt32(exactly: id)!
 		self.stateInfo = rawValue.stateInfo
 		self.header = rawValue.isDefault ? partsLabel : rawValue.label
 		self.accessibilityHeader = "\(partsLabel) \(rawValue.label)"
-		self.values = zip(attacks, rawValue.value.values(of: attacks)).map(PhysiologyValueViewModel.init)
+		self.values = zip(attacks, rawValue.value.values(of: attacks)).map { attack, value in
+			PhysiologyValueViewModel(attack: attack, value: value, level: level)
+		}
 		self.stun = rawValue.stun
 		self.isReference = isReference
+		self.hierarchical = .hierarchical(level)
 	}
 
 	var stunLabel: String {
@@ -51,14 +73,19 @@ struct PhysiologyViewModel: Identifiable {
 		}
 	}
 
-	var foregroundShape: AnyShapeStyle {
-		switch stateInfo {
-		case .default:
-			return AnyShapeStyle(isReference ? .secondary : .primary)
-		case .broken:
-			return AnyShapeStyle(.tint)
-		case .other:
-			return AnyShapeStyle(isReference ? .tertiary : .secondary)
+	private static func resolveHierarchicalLevel(_ stateInfo: PhysiologyStateInfo, isReference: Bool) -> Int {
+		if stateInfo == .default {
+			if isReference {
+				1
+			} else {
+				0
+			}
+		} else {
+			if isReference {
+				2
+			} else {
+				1
+			}
 		}
 	}
 }

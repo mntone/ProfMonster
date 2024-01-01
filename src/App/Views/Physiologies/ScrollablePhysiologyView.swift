@@ -48,7 +48,7 @@ private struct _ScrollablePhysiologyHeaderView: View {
 
 	var body: some View {
 		Text(verbatim: viewModel.header)
-			.foregroundStyle(viewModel.foregroundShape)
+			.foregroundStyle(viewModel.hierarchical)
 			.background(GeometryReader { proxy in
 				Color.clear.preference(key: PhysiologyHeaderHeightPreferenceKey.self,
 									   value: [viewModel.id: proxy.size.height])
@@ -69,8 +69,9 @@ private struct _ScrollablePhysiologyContentView: View {
 	var body: some View {
 		HStack(spacing: spacing) {
 			ForEach(viewModel.values) { item in
-				let text = Text(verbatim: String(item.value))
+				let text = Text(item.value, format: .number)
 				text
+					.foregroundStyle(item.foregroundStyle)
 					.accessibilityLabel(item.attack.label(.long))
 					.accessibilityValue(text)
 			}
@@ -82,7 +83,7 @@ private struct _ScrollablePhysiologyContentView: View {
 				.accessibilityValue(stunLabel)
 				.frame(width: itemWidth)
 		}
-		.foregroundStyle(viewModel.foregroundShape)
+		.foregroundStyle(viewModel.hierarchical)
 		.accessibilityElement(children: .contain)
 		.accessibilityLabel(Text(verbatim: viewModel.accessibilityHeader))
 	}

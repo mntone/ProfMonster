@@ -16,8 +16,9 @@ private struct _PhysiologyRowView: View {
 			ForEach(viewModel.values) { item in
 				Spacer(minLength: PhysiologyViewMetrics.spacing)
 
-				let text = Text(verbatim: String(item.value))
+				let text = Text(item.value, format: .number)
 				text
+					.foregroundStyle(item.foregroundStyle)
 					.frame(width: itemWidth)
 					.accessibilityLabel(item.attack.label(.long))
 					.accessibilityValue(text)
@@ -31,7 +32,7 @@ private struct _PhysiologyRowView: View {
 				.accessibilityLabel("Stun")
 				.accessibilityValue(stunLabel)
 		}
-		.foregroundStyle(viewModel.foregroundShape)
+		.foregroundStyle(viewModel.hierarchical)
 		.accessibilityElement(children: .contain)
 		.accessibilityLabel(Text(verbatim: viewModel.accessibilityHeader))
 	}

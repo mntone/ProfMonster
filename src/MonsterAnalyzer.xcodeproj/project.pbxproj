@@ -68,6 +68,10 @@
 		EB8778292B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778272B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift */; };
 		EB87782E2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */; };
 		EB87782F2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */; };
+		EB8AD06B2B42944800F1E96F /* Backport+ShapeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8AD06A2B42944800F1E96F /* Backport+ShapeStyle.swift */; };
+		EB8AD06C2B42944800F1E96F /* Backport+ShapeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8AD06A2B42944800F1E96F /* Backport+ShapeStyle.swift */; };
+		EB8AD06E2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8AD06D2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift */; };
+		EB8AD06F2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8AD06D2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift */; };
 		EB8CA0D82B31467500679CC0 /* Publisher+Get.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8CA0D72B31467500679CC0 /* Publisher+Get.swift */; };
 		EB8CA0DA2B3146A800679CC0 /* FetchableEntity+GetState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8CA0D92B3146A800679CC0 /* FetchableEntity+GetState.swift */; };
 		EB8F07DA2B2FB229006AC575 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB8F07D92B2FB229006AC575 /* Localizable.xcstrings */; };
@@ -357,6 +361,8 @@
 		EB8778242B26B38200B3359C /* MonsterListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListItem.swift; sourceTree = "<group>"; };
 		EB8778272B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+PresentSettingsSheetAction.swift"; sourceTree = "<group>"; };
 		EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnChangeBackport.swift"; sourceTree = "<group>"; };
+		EB8AD06A2B42944800F1E96F /* Backport+ShapeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ShapeStyle.swift"; sourceTree = "<group>"; };
+		EB8AD06D2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShapeStyle+Hierarchical.swift"; sourceTree = "<group>"; };
 		EB8CA0D72B31467500679CC0 /* Publisher+Get.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Get.swift"; sourceTree = "<group>"; };
 		EB8CA0D92B3146A800679CC0 /* FetchableEntity+GetState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FetchableEntity+GetState.swift"; sourceTree = "<group>"; };
 		EB8F07D92B2FB229006AC575 /* Localizable.xcstrings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -797,10 +803,12 @@
 				EB60764B2B33F5B900AF9121 /* macOS */,
 				EBC85C6F2B2053A5008A16C6 /* watchOS */,
 				EBDEEF3F2B3EDF3900835CBC /* Backport+ScrollContentBackground.swift */,
+				EB8AD06A2B42944800F1E96F /* Backport+ShapeStyle.swift */,
 				EB42495E2B332A230086E255 /* Backport.swift */,
 				EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */,
 				EBC85C7C2B209D65008A16C6 /* EdgeInsets+Extensions.swift */,
 				EB8778272B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift */,
+				EB8AD06D2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift */,
 				EB6297F12B37179200E830E6 /* View+Block.swift */,
 				EB0004D42B2CB668001C71D5 /* View+If.swift */,
 				EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */,
@@ -1240,6 +1248,7 @@
 				EBA66F1E2B355F38009DE78C /* AppSettingsPane.swift in Sources */,
 				EBF706F52B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift in Sources */,
 				EBB4B2162B175DE7004D63EA /* Attack+Extensions.swift in Sources */,
+				EB8AD06C2B42944800F1E96F /* Backport+ShapeStyle.swift in Sources */,
 				EB4249602B332A230086E255 /* Backport.swift in Sources */,
 				EBC85C7B2B2063FF008A16C6 /* BottomCircularButtonStyle.swift in Sources */,
 				EBB4B2172B175DED004D63EA /* Color+Extensions.swift in Sources */,
@@ -1283,6 +1292,7 @@
 				EB99227B2B35686300DBA812 /* SettingsLabelStyle.swift in Sources */,
 				EB99227E2B357D6C00DBA812 /* SettingsPane.swift in Sources */,
 				EB38D1FC2B2946A800CED9DB /* SettingsViewModel.swift in Sources */,
+				EB8AD06F2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift in Sources */,
 				EB97F6A92B31BCDE00E31602 /* SharedGameListModifier.swift in Sources */,
 				EB97F6A62B31B60700E31602 /* SharedMonsterListModifier.swift in Sources */,
 				EB3B49232B35EAD100E89711 /* SharedSettingsContainerModifier.swift in Sources */,
@@ -1385,6 +1395,7 @@
 				EB2550142B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift in Sources */,
 				EBDEEF402B3EDF3900835CBC /* Backport+ScrollContentBackground.swift in Sources */,
 				EB42495D2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift in Sources */,
+				EB8AD06B2B42944800F1E96F /* Backport+ShapeStyle.swift in Sources */,
 				EB42495F2B332A230086E255 /* Backport.swift in Sources */,
 				EBB4B1D72B161E94004D63EA /* Color+Extensions.swift in Sources */,
 				EBA66F182B355C07009DE78C /* ColumnSettingsContainer.swift in Sources */,
@@ -1434,6 +1445,7 @@
 				EB99227A2B35686300DBA812 /* SettingsLabelStyle.swift in Sources */,
 				EB99227D2B357D6C00DBA812 /* SettingsPane.swift in Sources */,
 				EB38D1FB2B2946A800CED9DB /* SettingsViewModel.swift in Sources */,
+				EB8AD06E2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift in Sources */,
 				EB97F6A82B31BCDE00E31602 /* SharedGameListModifier.swift in Sources */,
 				EB97F6A52B31B60700E31602 /* SharedMonsterListModifier.swift in Sources */,
 				EB3B49222B35EAD100E89711 /* SharedSettingsContainerModifier.swift in Sources */,
