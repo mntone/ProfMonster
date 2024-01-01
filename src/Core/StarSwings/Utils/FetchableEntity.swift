@@ -24,7 +24,8 @@ public class FetchableEntity<Data> {
 
 	@discardableResult
 	final func fetch(priority: TaskPriority) -> Task<Data?, Never> {
-		return Task(priority: priority) { @MainActor in
+		return Task.detached(priority: priority) { [weak self] in
+			guard let self else { return nil }
 			do {
 				let data = try await _fetch()
 				_lock.withLock {
