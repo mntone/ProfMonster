@@ -44,6 +44,7 @@ private struct _ScrollablePhysiologyRowHeaderView: View {
 @available(macOS, unavailable)
 private struct _ScrollablePhysiologyHeaderView: View {
 	let viewModel: PhysiologyViewModel
+	let spacing: CGFloat
 
 	var body: some View {
 		Text(verbatim: viewModel.header)
@@ -55,7 +56,7 @@ private struct _ScrollablePhysiologyHeaderView: View {
 			.padding(EdgeInsets(top: 0,
 								leading: PhysiologyViewMetrics.padding.leading,
 								bottom: 0,
-								trailing: PhysiologyViewMetrics.margin.trailing))
+								trailing: spacing))
 	}
 }
 
@@ -91,11 +92,6 @@ private struct _ScrollablePhysiologyContentView: View {
 struct ScrollablePhysiologyView: View {
 	let viewModel: PhysiologySectionViewModel
 
-#if os(iOS)
-	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
-	private var fontSize: CGFloat = PhysiologyViewMetrics.defaultFontSize
-#endif
-
 	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
 	private var headerWidth: CGFloat = PhysiologyViewMetrics.headerBaseWidth
 
@@ -112,20 +108,13 @@ struct ScrollablePhysiologyView: View {
 	private var offsetX: CGFloat = 0
 
 	var body: some View {
-#if os(iOS)
-		let cappedHeaderWidth = min(headerWidth, PhysiologyViewMetrics.maxScaleFactor * PhysiologyViewMetrics.headerBaseWidth)
-		let cappedItemWidth = min(itemWidth, PhysiologyViewMetrics.maxScaleFactor * PhysiologyViewMetrics.itemBaseWidth)
-		let cappedFontSize = min(fontSize, PhysiologyViewMetrics.maxScaleFactor * PhysiologyViewMetrics.defaultFontSize)
-		let cappedSpacing = min(spacing, PhysiologyViewMetrics.maxScaleFactor * PhysiologyViewMetrics.spacing)
-#endif
-
 		HStack(alignment: .bottom, spacing: 0) {
 			let headerBackground = Self.headerBackground
 			VStack(spacing: 0) {
 				ForEach(viewModel.groups) { group in
 					VStack(spacing: 0) {
 						ForEach(group.items) { item in
-							_ScrollablePhysiologyHeaderView(viewModel: item)
+							_ScrollablePhysiologyHeaderView(viewModel: item, spacing: spacing)
 						}
 					}
 					.padding(PhysiologyViewMetrics.padding.setting(horizontal: 0))
@@ -136,11 +125,7 @@ struct ScrollablePhysiologyView: View {
 			.multilineTextAlignment(.center)
 			.fixedSize(horizontal: false, vertical: true)
 			.accessibilityHidden(true)
-#if os(watchOS)
 			.frame(maxWidth: headerWidth)
-#else
-			.frame(maxWidth: cappedHeaderWidth)
-#endif
 			.padding(.bottom, PhysiologyViewMetrics.margin.bottom)
 			.onPreferenceChange(PhysiologyHeaderHeightPreferenceKey.self) { heights in
 				headerHeights = heights
@@ -149,30 +134,17 @@ struct ScrollablePhysiologyView: View {
 			let contentBackground = Self.contentBackground
 			ObservableHorizontalScrollView(offsetX: $offsetX) {
 				VStack(spacing: 0) {
-#if os(watchOS)
 					_ScrollablePhysiologyRowHeaderView(viewModel: viewModel.columns,
 													   itemWidth: itemWidth,
 													   spacing: spacing)
-#else
-					_ScrollablePhysiologyRowHeaderView(viewModel: viewModel.columns,
-													   itemWidth: cappedItemWidth,
-													   spacing: cappedSpacing)
-#endif
 
 					ForEach(viewModel.groups) { group in
 						VStack(spacing: 0) {
 							ForEach(group.items) { item in
-#if os(watchOS)
 								_ScrollablePhysiologyContentView(viewModel: item,
 																 itemWidth: itemWidth,
 																 spacing: spacing)
 									.frame(height: headerHeights[item.id])
-#else
-								_ScrollablePhysiologyContentView(viewModel: item,
-																 itemWidth: cappedItemWidth,
-																 spacing: cappedSpacing)
-									.frame(height: headerHeights[item.id])
-#endif
 							}
 						}
 						.padding(PhysiologyViewMetrics.padding.setting(leading: PhysiologyViewMetrics.margin.leading))
@@ -192,11 +164,7 @@ struct ScrollablePhysiologyView: View {
 			}
 		}
 		.padding(.leading, PhysiologyViewMetrics.margin.leading)
-#if os(watchOS)
 		.font(.system(PhysiologyViewMetrics.textStyle).monospacedDigit())
-#else
-		.font(.system(size: cappedFontSize).monospacedDigit())
-#endif
 		.minimumScaleFactor(0.5)
 	}
 
@@ -225,6 +193,24 @@ struct ScrollablePhysiologyView: View {
 												  corner: .right)
 				.foregroundColor(.physiologySecondary)
 				.flipsForRightToLeftLayoutDirection(true)
+		}
+	}
+}
+
+@available(macOS, unavailable)
+struct HeaderScrollablePhysiologyView: View {
+	let viewModel: PhysiologySectionViewModel
+	let headerHidden: Bool
+
+	var body: some View {
+		VStack(alignment: .leading, spacing: 0) {
+			if !headerHidden {
+				DetailItemHeader(header: viewModel.header)
+					.padding(PhysiologyViewMetrics.padding.setting(trailing: 0))
+			}
+
+			ScrollablePhysiologyView(viewModel: viewModel)
+				.dynamicTypeSize(...DynamicTypeSize.accessibility3)
 		}
 	}
 }
