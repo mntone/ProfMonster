@@ -7,7 +7,7 @@ struct WeaknessItemView: View {
 	var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
 			Label {
-				Text(viewModel.attack.label)
+				Text(viewModel.attack.label(.short))
 					.font(.callout.weight(.medium))
 					.lineLimit(1)
 			} icon: {

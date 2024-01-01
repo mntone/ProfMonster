@@ -23,7 +23,7 @@ private struct _ScrollablePhysiologyRowHeaderView: View {
 			ForEach(viewModel) { item in
 				Image(systemName: item.attack.imageName)
 #if !os(watchOS)
-					.help(item.attack.longLabel)
+					.help(item.attack.label(.long))
 #endif
 					.foregroundStyle(item.attack.color)
 			}
@@ -71,7 +71,7 @@ private struct _ScrollablePhysiologyContentView: View {
 			ForEach(viewModel.values) { item in
 				let text = Text(verbatim: String(item.value))
 				text
-					.accessibilityLabel(item.attack.longLabel)
+					.accessibilityLabel(item.attack.label(.long))
 					.accessibilityValue(text)
 			}
 			.frame(width: itemWidth)

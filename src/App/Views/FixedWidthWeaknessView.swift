@@ -22,10 +22,10 @@ private struct FixedWidthWeaknessSignItemView: View {
 
 	var body: some View {
 		VStack(spacing: 0) {
-			Label(viewModel.attack.label, systemImage: viewModel.attack.imageName)
+			Label(viewModel.attack.label(.short), systemImage: viewModel.attack.imageName)
 				.foregroundStyle(viewModel.attack.color)
 				.accessibilityLabeledPair(role: .label, id: viewModel.id, in: namespace)
-				.accessibilityLabel(viewModel.attack.longLabel)
+				.accessibilityLabel(viewModel.attack.label(.long))
 
 			Text(verbatim: viewModel.effective.label)
 				.foregroundStyle(viewModel.signColor)
@@ -82,10 +82,10 @@ private struct FixedWidthWeaknessNumberItemView: View {
 
 	var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
-			Label(viewModel.attack.label, systemImage: viewModel.attack.imageName)
+			Label(viewModel.attack.label(.short), systemImage: viewModel.attack.imageName)
 				.foregroundStyle(viewModel.attack.color)
 				.accessibilityLabeledPair(role: .label, id: viewModel.id, in: namespace)
-				.accessibilityLabel(viewModel.attack.longLabel)
+				.accessibilityLabel(viewModel.attack.label(.long))
 
 			number
 #if !os(macOS)
