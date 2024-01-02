@@ -40,7 +40,8 @@ struct HomeViewBackport: View {
 		List(viewModel.state.data ?? []) { item in
 			NavigationLink(tag: item.id, selection: selectedGameID) {
 				LazyView {
-					let viewModel = GameViewModel(id: item.id)!
+					let viewModel = GameViewModel()
+					let _ = viewModel.set(id: item.id)
 					GamePage(viewModel: viewModel) { item in
 						MonsterListNavigatableItemBackport(viewModel: item,
 														   selection: selectedMonsterID)

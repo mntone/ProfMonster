@@ -17,7 +17,7 @@ struct NavigationSplitViewHost: View {
 #endif
 
 	@State
-	private var gameViewModel: GameViewModel? = nil
+	private var gameViewModel = GameViewModel()
 
 	@State
 	private var monsterViewModel: MonsterViewModel? = nil
@@ -29,19 +29,9 @@ struct NavigationSplitViewHost: View {
 				.navigationSplitViewColumnWidth(min: 140, ideal: 160, max: 200)
 #endif
 		} content: {
+			MonsterList(viewModel: gameViewModel, selection: $selectedMonsterID)
 #if os(macOS)
-			Group {
-				if let gameViewModel {
-					MonsterList(viewModel: gameViewModel, selection: $selectedMonsterID)
-				} else {
-					Color.monsterListBackground.ignoresSafeArea()
-				}
-			}
-			.navigationSplitViewColumnWidth(min: 160, ideal: 200, max: 240)
-#else
-			if let gameViewModel {
-				MonsterList(viewModel: gameViewModel, selection: $selectedMonsterID)
-			}
+				.navigationSplitViewColumnWidth(min: 160, ideal: 200, max: 240)
 #endif
 		} detail: {
 #if os(iOS)
@@ -75,7 +65,7 @@ struct NavigationSplitViewHost: View {
 #endif
 		.onAppear {
 			if let selectedGameID {
-				gameViewModel = GameViewModel(id: selectedGameID)!
+				gameViewModel.set(id: selectedGameID)
 
 				if let selectedMonsterID {
 					monsterViewModel = MonsterViewModel(id: selectedMonsterID, for: selectedGameID)
@@ -90,21 +80,16 @@ struct NavigationSplitViewHost: View {
 			if let items = newValue.data {
 				let selectedGameID = items.first?.id
 				self.selectedGameID = selectedGameID
-				updateGameViewModel(of: selectedGameID)
+				if let selectedGameID {
+					gameViewModel.set(id: selectedGameID)
+				}
 			} else {
 				selectedGameID = nil
+				gameViewModel.set()
 			}
 		}
-		.onChange(of: selectedGameID, perform: updateGameViewModel)
+		.onChange(of: selectedGameID, perform: gameViewModel.set(id:))
 		.onChange(of: selectedMonsterID, perform: updateMonsterViewModel)
-	}
-
-	private func updateGameViewModel(of id: String?) {
-		if let id {
-			gameViewModel = GameViewModel(id: id)
-		} else {
-			gameViewModel = nil
-		}
 	}
 
 	private func updateMonsterViewModel(of id: String?) {
@@ -130,7 +115,7 @@ struct NavigationSplitViewHostBackport: View {
 	var selectedMonsterID: MonsterViewModel.ID?
 
 	@State
-	private var gameViewModel: GameViewModel? = nil
+	private var gameViewModel = GameViewModel()
 
 	@State
 	private var monsterViewModel: MonsterViewModel? = nil
@@ -139,6 +124,7 @@ struct NavigationSplitViewHostBackport: View {
 		NavigationView {
 #if os(macOS)
 			Sidebar(viewModel: viewModel, selection: $selectedGameID)
+			MonsterList(viewModel: gameViewModel, selection: $selectedMonsterID)
 
 			if let monsterViewModel {
 				MonsterView(viewModel: monsterViewModel)
@@ -148,12 +134,8 @@ struct NavigationSplitViewHostBackport: View {
 #else
 			SidebarBackport(viewModel: viewModel, selection: $selectedGameID)
 
-			if let gameViewModel {
-				GamePage(viewModel: gameViewModel) { item in
-					MonsterSelectableListItem(viewModel: item, selection: $selectedMonsterID)
-				}
-			} else {
-				Color.clear
+			GamePage(viewModel: gameViewModel) { item in
+				MonsterSelectableListItem(viewModel: item, selection: $selectedMonsterID)
 			}
 #endif
 
@@ -166,7 +148,7 @@ struct NavigationSplitViewHostBackport: View {
 		.navigationViewStyle(.columns)
 		.onAppear {
 			if let selectedGameID {
-				gameViewModel = GameViewModel(id: selectedGameID)!
+				gameViewModel.set(id: selectedGameID)
 
 				if let selectedMonsterID {
 					monsterViewModel = MonsterViewModel(id: selectedMonsterID, for: selectedGameID)
@@ -181,21 +163,16 @@ struct NavigationSplitViewHostBackport: View {
 			if let items = newValue.data {
 				let selectedGameID = items.first?.id
 				self.selectedGameID = selectedGameID
-				updateGameViewModel(of: selectedGameID)
+				if let selectedGameID {
+					gameViewModel.set(id: selectedGameID)
+				}
 			} else {
 				selectedGameID = nil
+				gameViewModel.set()
 			}
 		}
-		.onChange(of: selectedGameID, perform: updateGameViewModel)
+		.onChange(of: selectedGameID, perform: gameViewModel.set(id:))
 		.onChange(of: selectedMonsterID, perform: updateMonsterViewModel)
-	}
-
-	private func updateGameViewModel(of id: String?) {
-		if let id {
-			gameViewModel = GameViewModel(id: id)
-		} else {
-			gameViewModel = nil
-		}
 	}
 
 	private func updateMonsterViewModel(of id: String?) {

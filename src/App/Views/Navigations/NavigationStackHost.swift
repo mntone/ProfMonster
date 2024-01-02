@@ -1,4 +1,3 @@
-import Foundation
 import SwiftUI
 
 #if !os(macOS)
@@ -15,7 +14,8 @@ struct NavigationStackHost: View {
 				.navigationDestination(for: MARoute.self) { path in
 					switch path {
 					case let .game(gameId):
-						let viewModel = GameViewModel(id: gameId)!
+						let viewModel = GameViewModel()
+						let _ = viewModel.set(id: gameId)
 						GamePage(viewModel: viewModel) { item in
 							MonsterListNavigatableItem(viewModel: item)
 						}

@@ -37,7 +37,7 @@ struct GamePage<ItemView: View>: View {
 			.listStyle(.plain)
 			.backport.scrollDismissesKeyboard(.immediately)
 #endif
-			.navigationTitle(Text(verbatim: viewModel.name))
+			.navigationTitle(viewModel.name.map(Text.init(verbatim:)) ?? Text("Unknown"))
 			.modifier(StatusOverlayModifier(state: viewModel.state))
 			.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 												searchText: $viewModel.searchText))
@@ -47,7 +47,8 @@ struct GamePage<ItemView: View>: View {
 @available(iOS 16.0, watchOS 9.0, *)
 @available(macOS, unavailable)
 #Preview {
-	let viewModel = GameViewModel(id: "mockgame")!
+	let viewModel = GameViewModel()
+	viewModel.set(id: "mockgame")
 	return NavigationStack {
 		GamePage(viewModel: viewModel) { item in
 			MonsterListNavigatableItem(viewModel: item)

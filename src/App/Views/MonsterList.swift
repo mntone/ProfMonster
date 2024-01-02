@@ -39,7 +39,7 @@ struct MonsterList: View {
 #if os(iOS)
 			.scrollDismissesKeyboard(.immediately)
 #endif
-			.navigationTitle(Text(verbatim: viewModel.name))
+			.navigationTitle(viewModel.name.map(Text.init(verbatim:)) ?? Text("Unknown"))
 			.modifier(StatusOverlayModifier(state: viewModel.state))
 			.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 												searchText: $viewModel.searchText))
@@ -49,6 +49,7 @@ struct MonsterList: View {
 @available(iOS 16.0, *)
 @available(watchOS, unavailable)
 #Preview {
-	let viewModel = GameViewModel(id: "mockgame")!
+	let viewModel = GameViewModel()
+	viewModel.set(id: "mockgame")
 	return MonsterList(viewModel: viewModel, selection: .constant(nil))
 }

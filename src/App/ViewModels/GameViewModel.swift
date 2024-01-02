@@ -3,7 +3,9 @@ import Foundation
 import MonsterAnalyzerCore
 
 final class GameViewModel: ObservableObject {
-	private let game: Game
+	private let app: App
+
+	private var game: Game?
 	private var cancellable: Cancellable?
 
 	@Published
@@ -12,17 +14,38 @@ final class GameViewModel: ObservableObject {
 	@Published
 	var sort: Sort {
 		didSet {
-			game.app?.settings.sort = sort
+			app.settings.sort = sort
 		}
 	}
 
 	@Published
 	var searchText: String = ""
 
-	init(_ game: Game) {
-		self.game = game
-		self.sort = game.app?.settings.sort ?? .inGame
+	var name: String? {
+		@inline(__always)
+		get {
+			game?.name
+		}
+	}
 
+	private var searchTextPublisher: some Publisher<String, Never> {
+		@inline(__always)
+		get {
+			Just("")
+				.merge(with: $searchText.debounce(for: 0.333, scheduler: DispatchQueue.global(qos: .userInitiated)))
+				.removeDuplicates()
+		}
+	}
+
+	init() {
+		guard let app = MAApp.resolver.resolve(App.self) else {
+			fatalError()
+		}
+		self.app = app
+		self.sort = app.settings.sort // Do not track
+	}
+
+	func set(domain game: Game) {
 		let getState = game.$state
 			// Create view model from domain model
 			.mapData { monsters in
@@ -68,11 +91,6 @@ final class GameViewModel: ObservableObject {
 				}
 			}
 			.switchToLatest()
-
-		// Search Text
-		let searchText = Just("")
-			.merge(with: $searchText.debounce(for: 0.333, scheduler: DispatchQueue.global(qos: .userInitiated)))
-			.removeDuplicates()
 
 		// All Groups
 		getState
@@ -136,7 +154,7 @@ final class GameViewModel: ObservableObject {
 			}
 #endif
 			// Filter search word
-			.combineLatest(searchText) { (state: StarSwingsState<[GameGroupViewModel]>, searchText: String) -> StarSwingsState<[GameGroupViewModel]> in
+			.combineLatest(searchTextPublisher) { (state: StarSwingsState<[GameGroupViewModel]>, searchText: String) -> StarSwingsState<[GameGroupViewModel]> in
 				state.mapData { groups in
 					groups.compactMap { group in
 						let monsters = Self.filter(searchText, from: group.items, languageService: game.languageService)
@@ -155,17 +173,9 @@ final class GameViewModel: ObservableObject {
 		cancellable = getState.connect()
 
 		game.fetchIfNeeded()
-	}
 
-	convenience init?(id gameID: String) {
-		guard let app = MAApp.resolver.resolve(App.self) else {
-			fatalError()
-		}
-		guard let game = app.findGame(by: gameID) else {
-			// TODO: Logging. Game is not found
-			return nil
-		}
-		self.init(game)
+		// Set current
+		self.game = game
 	}
 
 	private static func filter(_ searchText: String,
@@ -183,27 +193,38 @@ final class GameViewModel: ObservableObject {
 			return filteredMonsters
 		}
 	}
+}
 
-	var name: String {
-		@inline(__always)
-		get {
-			game.name
+// MARK: - Set data
+
+extension GameViewModel {
+	func set() {
+		if let cancellable {
+			cancellable.cancel()
+			self.cancellable = nil
 		}
+
+		self.game = nil
+		self.state = .ready
 	}
-}
 
-// MARK: - Equatable
+	@discardableResult
+	@inline(__always)
+	func set(id: String) -> Bool {
+		guard let game = app.findGame(by: id) else {
+			return false
+		}
 
-extension GameViewModel: Equatable {
-	static func == (lhs: GameViewModel, rhs: GameViewModel) -> Bool {
-		lhs.game.id == rhs.game.id
+		set(domain: game)
+		return true
 	}
-}
 
-// MARK: - Hashable
-
-extension GameViewModel: Hashable {
-	func hash(into hasher: inout Hasher) {
-		hasher.combine(game.id)
+	@inline(__always)
+	func set(id: String?) {
+		if let id {
+			set(id: id)
+		} else {
+			set()
+		}
 	}
 }
