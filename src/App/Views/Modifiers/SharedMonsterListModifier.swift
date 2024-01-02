@@ -1,8 +1,7 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
-struct SharedMonsterListModifier<Data>: ViewModifier {
-	let state: StarSwingsState<Data>
+struct SharedMonsterListModifier: ViewModifier {
 	let sort: Binding<Sort>
 	let searchText: Binding<String>
 
@@ -36,17 +35,6 @@ struct SharedMonsterListModifier<Data>: ViewModifier {
 #else
 			.searchable(text: searchText, prompt: Text("Monster and Weakness"))
 #endif
-			.overlay {
-				switch state {
-				case .loading:
-					ProgressView()
-				case let .failure(_, error):
-					Text(error.label)
-						.scenePadding()
-				default:
-					EmptyView()
-				}
-			}
 #if os(iOS)
 			.navigationBarTitleDisplayMode(.inline)
 #endif

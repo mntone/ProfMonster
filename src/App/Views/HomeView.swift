@@ -17,7 +17,8 @@ struct HomeView: View {
 				Text(verbatim: item.name)
 			}
 		}
-		.modifier(SharedGameListModifier(state: viewModel.state) {
+		.modifier(StatusOverlayModifier(state: viewModel.state))
+		.modifier(SharedGameListModifier {
 			presentSettingsSheetAction()
 		})
 	}
@@ -49,7 +50,8 @@ struct HomeViewBackport: View {
 				Text(verbatim: item.name)
 			}
 		}
-		.modifier(SharedGameListModifier(state: viewModel.state) {
+		.modifier(StatusOverlayModifier(state: viewModel.state))
+		.modifier(SharedGameListModifier {
 			presentSettingsSheetAction()
 		})
 	}

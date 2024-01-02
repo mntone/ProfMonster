@@ -14,7 +14,8 @@ struct Sidebar: View {
 		List(viewModel.state.data ?? [], id: \.id, selection: selection) { item in
 			Text(verbatim: item.name)
 		}
-		.modifier(SharedGameListModifier(state: viewModel.state) {
+		.modifier(StatusOverlayModifier(state: viewModel.state))
+		.modifier(SharedGameListModifier {
 			presentSettingsSheetAction()
 		})
 	}
@@ -38,7 +39,8 @@ struct SidebarBackport: View {
 				Text(verbatim: item.name)
 			}
 		}
-		.modifier(SharedGameListModifier(state: viewModel.state) {
+		.modifier(StatusOverlayModifier(state: viewModel.state))
+		.modifier(SharedGameListModifier {
 			presentSettingsSheetAction()
 		})
 	}

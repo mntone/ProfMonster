@@ -40,8 +40,8 @@ struct MonsterList: View {
 			.scrollDismissesKeyboard(.immediately)
 #endif
 			.navigationTitle(Text(verbatim: viewModel.name))
-			.modifier(SharedMonsterListModifier(state: viewModel.state,
-												sort: $viewModel.sort,
+			.modifier(StatusOverlayModifier(state: viewModel.state))
+			.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 												searchText: $viewModel.searchText))
 	}
 }

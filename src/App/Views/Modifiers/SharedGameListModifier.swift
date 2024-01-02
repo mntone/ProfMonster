@@ -1,8 +1,7 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
-struct SharedGameListModifier<Data>: ViewModifier {
-	let state: StarSwingsState<Data>
+struct SharedGameListModifier: ViewModifier {
 	let settingsAction: () -> Void
 
 	func body(content: Content) -> some View {
@@ -15,17 +14,6 @@ struct SharedGameListModifier<Data>: ViewModifier {
 #endif
 			}
 #endif
-			.overlay {
-				switch state {
-				case .loading:
-					ProgressView()
-				case let .failure(_, error):
-					Text(error.label)
-						.scenePadding()
-				default:
-					EmptyView()
-				}
-			}
 			.navigationTitle("Prof. Monster")
 	}
 }

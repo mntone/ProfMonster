@@ -51,6 +51,8 @@
 		EB560BCF2B42F48800E91E01 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */; };
 		EB560BD12B42F4A900E91E01 /* UnfavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BD02B42F4A900E91E01 /* UnfavoriteButton.swift */; };
 		EB560BD22B42F4A900E91E01 /* UnfavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BD02B42F4A900E91E01 /* UnfavoriteButton.swift */; };
+		EB560BD42B4386D700E91E01 /* StatusOverlayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BD32B4386D700E91E01 /* StatusOverlayModifier.swift */; };
+		EB560BD52B4386D700E91E01 /* StatusOverlayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BD32B4386D700E91E01 /* StatusOverlayModifier.swift */; };
 		EB5941CE2B39ABD1005BC27C /* MonsterAnalyzerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EBB4B1F22B17593F004D63EA /* MonsterAnalyzerWatch.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB6297F22B37179200E830E6 /* View+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6297F12B37179200E830E6 /* View+Block.swift */; };
 		EB6297F32B37179200E830E6 /* View+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6297F12B37179200E830E6 /* View+Block.swift */; };
@@ -353,6 +355,7 @@
 		EB513ADE2B3C8B0400C8FB4A /* TabSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSettingsContainer.swift; sourceTree = "<group>"; };
 		EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		EB560BD02B42F4A900E91E01 /* UnfavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnfavoriteButton.swift; sourceTree = "<group>"; };
+		EB560BD32B4386D700E91E01 /* StatusOverlayModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusOverlayModifier.swift; sourceTree = "<group>"; };
 		EB6297F12B37179200E830E6 /* View+Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Block.swift"; sourceTree = "<group>"; };
 		EB645A602B26749E00D27500 /* NavigationStackHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStackHost.swift; sourceTree = "<group>"; };
 		EB645A632B2685D500D27500 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
@@ -839,6 +842,7 @@
 				EB97F6A42B31B60700E31602 /* SharedMonsterListModifier.swift */,
 				EB3B49212B35EAD100E89711 /* SharedSettingsContainerModifier.swift */,
 				EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */,
+				EB560BD32B4386D700E91E01 /* StatusOverlayModifier.swift */,
 				EBCA22282B21A58C00C487AD /* ToolbarItemBackportModifier.swift */,
 			);
 			path = Modifiers;
@@ -1290,6 +1294,7 @@
 				EB6ADE752B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */,
 				EB693EA82B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
 				EB967A4C2B2AC7100041A491 /* StateView.swift in Sources */,
+				EB560BD52B4386D700E91E01 /* StatusOverlayModifier.swift in Sources */,
 				EBCA22292B21A58C00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
 				EBEA6F752B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
 				EB560BD22B42F4A900E91E01 /* UnfavoriteButton.swift in Sources */,
@@ -1444,6 +1449,7 @@
 				EB645A642B2685D500D27500 /* Sidebar.swift in Sources */,
 				EB693EA72B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
 				EB967A4B2B2AC7100041A491 /* StateView.swift in Sources */,
+				EB560BD42B4386D700E91E01 /* StatusOverlayModifier.swift in Sources */,
 				EB513ADF2B3C8B0400C8FB4A /* TabSettingsContainer.swift in Sources */,
 				EBCA222D2B222ECB00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
 				EBEA6F742B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
