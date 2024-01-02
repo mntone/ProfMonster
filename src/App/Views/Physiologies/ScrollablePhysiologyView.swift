@@ -171,7 +171,7 @@ struct ScrollablePhysiologyView: View {
 			}
 		}
 		.padding(.leading, PhysiologyViewMetrics.margin.leading)
-		.font(.system(PhysiologyViewMetrics.textStyle).monospacedDigit())
+		.font(.system(PhysiologyViewMetrics.textStyle).monospacedDigit().leading(.tight))
 		.minimumScaleFactor(0.5)
 	}
 
@@ -213,7 +213,8 @@ struct HeaderScrollablePhysiologyView: View {
 		VStack(alignment: .leading, spacing: 0) {
 			if !headerHidden {
 				DetailItemHeader(header: viewModel.header)
-					.padding(PhysiologyViewMetrics.padding.setting(trailing: 0))
+					.padding(.top, PhysiologyViewMetrics.margin.top)
+					.scenePadding(.horizontal)
 			}
 
 			ScrollablePhysiologyView(viewModel: viewModel)

@@ -119,7 +119,7 @@ struct PhysiologyView: View {
 			}
 		}
 		.multilineTextAlignment(.center)
-		.font(Font.system(PhysiologyViewMetrics.textStyle).monospacedDigit())
+		.font(Font.system(PhysiologyViewMetrics.textStyle).monospacedDigit().leading(.tight))
 		.frame(idealWidth: PhysiologyViewMetrics.maxWidth,
 			   maxWidth: PhysiologyViewMetrics.maxWidth)
 		.accessibilityElement(children: .contain)

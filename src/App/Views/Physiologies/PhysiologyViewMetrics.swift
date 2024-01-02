@@ -18,7 +18,7 @@ enum PhysiologyViewMetrics {
 	static let itemBaseWidth: CGFloat = 20
 
 	static let margin: EdgeInsets = EdgeInsets(top: 6, leading: 4, bottom: 4, trailing: 4)
-	static let padding: EdgeInsets = EdgeInsets(top: 2, leading: 8, bottom: 2, trailing: 12)
+	static let padding: EdgeInsets = EdgeInsets(top: 2, leading: 8, bottom: 2, trailing: 8)
 	static let spacing: CGFloat = 4
 #else
 	static let maxScaleFactor: CGFloat = 1.9
