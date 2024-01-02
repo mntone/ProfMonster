@@ -98,7 +98,11 @@ private struct FixedWidthWeaknessNumberItemView: View {
 }
 
 struct FixedWidthWeaknessSectionView: View {
-	private static let maxItemWidth: CGFloat = 80
+#if os(macOS)
+	private static let maxItemWidth: CGFloat = 120
+#else
+	private static let maxItemWidth: CGFloat = 96
+#endif
 
 #if !os(watchOS)
 	@ScaledMetric(relativeTo: .title2)
