@@ -2,7 +2,7 @@ import Combine
 import Foundation
 import MonsterAnalyzerCore
 
-final class GameViewModel: ObservableObject, Identifiable {
+final class GameViewModel: ObservableObject {
 	private let game: Game
 	private var cancellable: Cancellable?
 
@@ -184,13 +184,6 @@ final class GameViewModel: ObservableObject, Identifiable {
 		}
 	}
 
-	var id: String {
-		@inline(__always)
-		get {
-			game.id
-		}
-	}
-
 	var name: String {
 		@inline(__always)
 		get {
@@ -203,7 +196,7 @@ final class GameViewModel: ObservableObject, Identifiable {
 
 extension GameViewModel: Equatable {
 	static func == (lhs: GameViewModel, rhs: GameViewModel) -> Bool {
-		lhs.id == rhs.id
+		lhs.game.id == rhs.game.id
 	}
 }
 
@@ -211,6 +204,6 @@ extension GameViewModel: Equatable {
 
 extension GameViewModel: Hashable {
 	func hash(into hasher: inout Hasher) {
-		hasher.combine(id)
+		hasher.combine(game.id)
 	}
 }

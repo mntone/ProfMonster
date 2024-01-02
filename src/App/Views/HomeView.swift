@@ -33,7 +33,7 @@ struct HomeViewBackport: View {
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
 
-	let selectedGameID: Binding<GameViewModel.ID?>
+	let selectedGameID: Binding<HomeItemViewModel.ID?>
 	let selectedMonsterID: Binding<MonsterViewModel.ID?>
 
 	var body: some View {

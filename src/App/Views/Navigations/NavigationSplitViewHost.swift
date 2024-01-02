@@ -6,7 +6,7 @@ struct NavigationSplitViewHost: View {
 	let viewModel: HomeViewModel
 
 	@Binding
-	var selectedGameID: GameViewModel.ID?
+	var selectedGameID: HomeItemViewModel.ID?
 
 	@Binding
 	var selectedMonsterID: MonsterViewModel.ID?
@@ -124,7 +124,7 @@ struct NavigationSplitViewHostBackport: View {
 	let viewModel: HomeViewModel
 
 	@Binding
-	var selectedGameID: GameViewModel.ID?
+	var selectedGameID: HomeItemViewModel.ID?
 
 	@Binding
 	var selectedMonsterID: MonsterViewModel.ID?

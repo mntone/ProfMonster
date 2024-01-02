@@ -7,7 +7,7 @@ struct MonsterList: View {
 	@ObservedObject
 	private(set) var viewModel: GameViewModel
 
-	let selection: Binding<GameViewModel.ID?>
+	let selection: Binding<GameItemViewModel.ID?>
 
 	@ViewBuilder
 	private var list: some View {

@@ -33,7 +33,7 @@ struct NavigationStackHost: View {
 @available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use NavigationStackHost instead")
 struct NavigationStackHostBackport: View {
 	let viewModel: HomeViewModel
-	let selectedGameID: Binding<GameViewModel.ID?>
+	let selectedGameID: Binding<HomeItemViewModel.ID?>
 	let selectedMonsterID: Binding<MonsterViewModel.ID?>
 
 	var body: some View {

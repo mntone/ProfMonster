@@ -8,7 +8,7 @@ struct Sidebar: View {
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
 
-	let selection: Binding<GameViewModel.ID?>
+	let selection: Binding<HomeItemViewModel.ID?>
 
 	var body: some View {
 		List(viewModel.state.data ?? [], id: \.id, selection: selection) { item in
@@ -31,7 +31,7 @@ struct SidebarBackport: View {
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
 
-	let selection: Binding<GameViewModel.ID?>
+	let selection: Binding<HomeItemViewModel.ID?>
 
 	var body: some View {
 		List(viewModel.state.data ?? []) { item in
