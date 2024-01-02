@@ -63,12 +63,14 @@ extension Publishers.CombineLatestCollection {
 			case var .prebuild(data):
 				data[input.index] = input.value
 				if data.allSatisfy({ $0 != nil }) {
-					storage = .complete(data as! [Upstreams.Element.Output])
+					let completeData = data as! [Upstreams.Element.Output]
+					storage = .complete(completeData)
+					return downstream.receive(completeData)
 				} else {
 					storage = .prebuild(data)
+					return .none
 				}
 			}
-			return .none
 		}
 
 		func receive(completion: Subscribers.Completion<Downstream.Failure>) {
