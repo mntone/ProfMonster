@@ -3,15 +3,18 @@ import Foundation
 struct MHLocalizationMonster: Codable, Sendable {
 	let id: String
 	let name: String
+	let sortkey: String?
 	let anotherName: String?
 	let keywords: [String]
 
 	init(id: String,
 		 name: String,
+		 sortkey: String? = nil,
 		 anotherName: String? = nil,
 		 keywords: [String] = []) {
 		self.id = id
 		self.name = name
+		self.sortkey = sortkey
 		self.anotherName = anotherName
 		self.keywords = keywords
 	}
@@ -19,6 +22,7 @@ struct MHLocalizationMonster: Codable, Sendable {
 	private enum CodingKeys: CodingKey {
 		case id
 		case name
+		case sortkey
 		case anotherName
 		case keywords
 	}
@@ -27,6 +31,7 @@ struct MHLocalizationMonster: Codable, Sendable {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
 		self.id = try container.decode(String.self, forKey: .id)
 		self.name = try container.decode(String.self, forKey: .name)
+		self.sortkey = try container.decodeIfPresent(String.self, forKey: .sortkey)
 		self.anotherName = try container.decodeIfPresent(String.self, forKey: .anotherName)
 		self.keywords = try container.decodeIfPresent([String].self, forKey: .keywords) ?? []
 	}
@@ -35,6 +40,7 @@ struct MHLocalizationMonster: Codable, Sendable {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 		try container.encode(id, forKey: .id)
 		try container.encode(name, forKey: .name)
+		try container.encodeIfPresent(sortkey, forKey: .sortkey)
 		try container.encodeIfPresent(anotherName, forKey: .anotherName)
 		if !keywords.isEmpty {
 			try container.encode(keywords, forKey: .keywords)

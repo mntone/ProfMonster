@@ -13,6 +13,7 @@ struct JapaneseTextProcessor: TextProcessor {
 	func latin(from text: String) -> String {
 		text.replacingOccurrences(of: "亜種$", with: "アシュ", options: .regularExpression)
 			.replacingOccurrences(of: "希少種$", with: "キショウシュ", options: .regularExpression)
+			.replacingOccurrences(of: "^傀異克服", with: "カイイコクフク", options: .regularExpression)
 			.precomposedStringWithCompatibilityMapping  // NFKC
 			.applyingTransform(.latinToKatakana, reverse: true)!
 	}

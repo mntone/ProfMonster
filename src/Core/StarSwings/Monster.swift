@@ -14,6 +14,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 	public let rawID: String
 	public let gameID: String
 	public let name: String
+	public let sortkey: String?
 	public let anotherName: String?
 	public let keywords: [String]
 
@@ -53,6 +54,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 		self.rawID = id
 		self.gameID = gameID
 		self.name = localization.name
+		self.sortkey = localization.sortkey
 		self.anotherName = localization.anotherName
 		self.keywords = MonsterLocalizationMapper.map(localization, languageService: languageService)
 

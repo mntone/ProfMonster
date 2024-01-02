@@ -68,6 +68,13 @@ final class GameItemViewModel: ObservableObject, Identifiable {
 			monster.keywords
 		}
 	}
+
+	private var sortkey: String {
+		@inline(__always)
+		get {
+			monster.sortkey ?? monster.name
+		}
+	}
 }
 
 extension GameItemViewModel: Equatable {
@@ -78,6 +85,6 @@ extension GameItemViewModel: Equatable {
 
 extension GameItemViewModel: Comparable {
 	static func <(lhs: GameItemViewModel, rhs: GameItemViewModel) -> Bool {
-		lhs.name < rhs.name
+		lhs.sortkey < rhs.sortkey
 	}
 }
