@@ -13,7 +13,7 @@ enum LanguageUtil {
 			}
 
 			// Try to remove hyphen (-)
-			if let index = lang.firstIndex(of: "-") {
+			if let index = lang.lastIndex(of: "-") {
 				let prefixLang = String(lang[..<index])
 				if keys.contains(prefixLang) {
 					return prefixLang
