@@ -66,12 +66,12 @@ struct MonsterView: View {
 
 #if os(watchOS)
 				if !viewModel.note.isEmpty {
-					Section("Note") {
+					Section("Notes") {
 						Text(verbatim: viewModel.note)
 					}
 				}
 #else
-				Section("Note") {
+				Section("Notes") {
 					note
 				}
 #endif
