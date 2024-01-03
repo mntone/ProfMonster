@@ -1,16 +1,28 @@
 import Combine
 import CoreData
 
+struct CoreDataUserDatabaseOptions {
+	let useCloud: Bool
+
+	public static let `default` = CoreDataUserDatabaseOptions(useCloud: true)
+}
+
 final class CoreDataUserDatabase: UserDatabase {
+	private let options: CoreDataUserDatabaseOptions
 	private var _historyToken: NSPersistentHistoryToken?
 
-	private lazy var _container: NSPersistentCloudKitContainer = {
+	private lazy var _container: NSPersistentContainer = {
 		guard let url = Bundle(for: CoreDataUserDatabase.self).url(forResource: "Model", withExtension: "momd"),
 			  let managedObjectModel = NSManagedObjectModel(contentsOf: url) else {
 			fatalError("Failed to get managed object model.")
 		}
 
-		let container = NSPersistentCloudKitContainer(name: "Model", managedObjectModel: managedObjectModel)
+		let container: NSPersistentContainer
+		if options.useCloud {
+			container = NSPersistentCloudKitContainer(name: "Model", managedObjectModel: managedObjectModel)
+		} else {
+			container = NSPersistentContainer(name: "Model", managedObjectModel: managedObjectModel)
+		}
 		guard let description = container.persistentStoreDescriptions.first else {
 			fatalError("Failed to retrieve a persistent store description.")
 		}
@@ -19,9 +31,11 @@ final class CoreDataUserDatabase: UserDatabase {
 		/// - Tag: persistentHistoryTracking
 		description.setOption(true as NSNumber, forKey: NSPersistentHistoryTrackingKey)
 
-		// Enable persistent store remote change notifications
-		/// - Tag: persistentStoreRemoteChange
-		description.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
+		if options.useCloud {
+			// Enable persistent store remote change notifications
+			/// - Tag: persistentStoreRemoteChange
+			description.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
+		}
 
 		container.loadPersistentStores { _, error in
 			if let error {
@@ -67,6 +81,10 @@ final class CoreDataUserDatabase: UserDatabase {
 		return publisher
 	}()
 
+	init(options: CoreDataUserDatabaseOptions = .default) {
+		self.options = options
+	}
+
 	func ensureState() {
 		let viewContext = _container.viewContext
 		if viewContext.hasChanges {
@@ -99,7 +117,7 @@ final class CoreDataUserDatabase: UserDatabase {
 	func getMonster(by id: String) -> UDMonster? {
 		let request = CDMonster.fetchRequest()
 		request.fetchLimit = 1
-		request.includesPropertyValues = true
+		request.includesPendingChanges = false
 		request.predicate = NSPredicate(format: "id=%@", id)
 		request.returnsObjectsAsFaults = false
 

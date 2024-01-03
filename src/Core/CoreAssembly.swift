@@ -32,7 +32,12 @@ public struct CoreAssembly: Assembly {
 			MALanguageService(keys)
 		}
 
-		let userDatabase = CoreDataUserDatabase()
+#if targetEnvironment(simulator)
+		let options = CoreDataUserDatabaseOptions(useCloud: false)
+#else
+		let options = CoreDataUserDatabaseOptions.default
+#endif
+		let userDatabase = CoreDataUserDatabase(options: options)
 		container.register(UserDatabase.self) { (_) in
 			userDatabase
 		}
