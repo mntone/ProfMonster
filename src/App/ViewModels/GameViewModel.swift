@@ -6,7 +6,6 @@ final class GameViewModel: ObservableObject {
 	private let app: App
 
 	private var game: Game?
-	private var cancellable: Cancellable?
 
 	@Published
 	private(set) var state: StarSwingsState<[GameGroupViewModel]> = .ready
@@ -46,21 +45,20 @@ final class GameViewModel: ObservableObject {
 	}
 
 	func set(domain game: Game) {
+		game.fetchIfNeeded()
+
 		let getState = game.$state
 			// Create view model from domain model
 			.mapData { monsters in
 				monsters.map(GameItemViewModel.init)
 			}
-			.multicast(subject: CurrentValueSubject(.ready))
 
 		// Favorite Group
 		let favorites = getState
 			.removeDuplicates { prev, cur in
 				switch (prev, cur) {
-				case (.ready, .ready), (.loading, .loading):
+				case (.ready, .ready), (.ready, .loading), (.loading, .loading):
 					return true
-				case let (.complete(prevData), .complete(curData)):
-					return prevData == curData
 				default:
 					return false
 				}
@@ -169,11 +167,6 @@ final class GameViewModel: ObservableObject {
 			.receive(on: DispatchQueue.main)
 			.assign(to: &$state)
 
-		// Connect to multicast publisher.
-		cancellable = getState.connect()
-
-		game.fetchIfNeeded()
-
 		// Set current
 		self.game = game
 	}
@@ -199,11 +192,6 @@ final class GameViewModel: ObservableObject {
 
 extension GameViewModel {
 	func set() {
-		if let cancellable {
-			cancellable.cancel()
-			self.cancellable = nil
-		}
-
 		self.game = nil
 		self.state = .ready
 	}
