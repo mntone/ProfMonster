@@ -39,7 +39,7 @@ struct MonsterView: View {
 
 	var body: some View {
 #if os(iOS)
-		let background: Color? = Color.systemGroupedBackground
+		let background: Color? = .monsterBackground
 #else
 		let background: Color? = nil
 #endif
