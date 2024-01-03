@@ -494,13 +494,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "△"
+            "value" : "½"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "△"
+            "value" : "½"
           }
         },
         "pl" : {
@@ -531,6 +531,95 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "1/2"
+          }
+        }
+      }
+    },
+    "1/4" : {
+      "comment" : "Stun/25",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1/4"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1/4"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1/4"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1/4"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1/4"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1/4"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1/4"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¼"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¼"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1/4"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1/4"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1/4"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1/4"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1/4"
           }
         }
       }
@@ -583,13 +672,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "3/4"
+            "value" : "¾"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "3/4"
+            "value" : "¾"
           }
         },
         "pl" : {
@@ -672,13 +761,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "4/5"
+            "value" : "⅘"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "4/5"
+            "value" : "⅘"
           }
         },
         "pl" : {

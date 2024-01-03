@@ -68,6 +68,8 @@ struct PhysiologyViewModel: Identifiable {
 			String(localized: "3/4", comment: "Stun/75")
 		case 50:
 			String(localized: "1/2", comment: "Stun/50")
+		case 25:
+			String(localized: "1/4", comment: "Stun/25")
 		default:
 			""
 		}
