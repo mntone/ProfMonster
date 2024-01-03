@@ -105,6 +105,9 @@ struct MonsterView: View {
 		.toolbarItemBackport(alignment: .trailing) {
 			FavoriteButton(viewModel: viewModel)
 		}
+#if os(iOS)
+		.navigationBarTitleDisplayMode(.inline)
+#endif
 		.navigationTitle(Text(verbatim: viewModel.name))
 	}
 }
