@@ -49,8 +49,6 @@
 		EB513ADF2B3C8B0400C8FB4A /* TabSettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB513ADE2B3C8B0400C8FB4A /* TabSettingsContainer.swift */; };
 		EB560BCE2B42F48800E91E01 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */; };
 		EB560BCF2B42F48800E91E01 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */; };
-		EB560BD12B42F4A900E91E01 /* UnfavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BD02B42F4A900E91E01 /* UnfavoriteButton.swift */; };
-		EB560BD22B42F4A900E91E01 /* UnfavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BD02B42F4A900E91E01 /* UnfavoriteButton.swift */; };
 		EB560BD42B4386D700E91E01 /* StatusOverlayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BD32B4386D700E91E01 /* StatusOverlayModifier.swift */; };
 		EB560BD52B4386D700E91E01 /* StatusOverlayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BD32B4386D700E91E01 /* StatusOverlayModifier.swift */; };
 		EB5941CE2B39ABD1005BC27C /* MonsterAnalyzerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EBB4B1F22B17593F004D63EA /* MonsterAnalyzerWatch.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -238,6 +236,9 @@
 		EBF9282D2B1038C9007D59D4 /* MonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9282C2B1038C9007D59D4 /* MonsterView.swift */; };
 		EBF9282F2B1038CB007D59D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF9282E2B1038CB007D59D4 /* Assets.xcassets */; };
 		EBF928332B1038CB007D59D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBF928322B1038CB007D59D4 /* Preview Assets.xcassets */; };
+		EBFEAB842B45A5DC005363F7 /* FavoriteContextMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFEAB832B45A5DC005363F7 /* FavoriteContextMenuButton.swift */; };
+		EBFEAB872B45A805005363F7 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFEAB862B45A805005363F7 /* FavoriteViewModel.swift */; };
+		EBFEAB882B45A805005363F7 /* FavoriteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBFEAB862B45A805005363F7 /* FavoriteViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -354,7 +355,6 @@
 		EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB513ADE2B3C8B0400C8FB4A /* TabSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSettingsContainer.swift; sourceTree = "<group>"; };
 		EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
-		EB560BD02B42F4A900E91E01 /* UnfavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnfavoriteButton.swift; sourceTree = "<group>"; };
 		EB560BD32B4386D700E91E01 /* StatusOverlayModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusOverlayModifier.swift; sourceTree = "<group>"; };
 		EB6297F12B37179200E830E6 /* View+Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Block.swift"; sourceTree = "<group>"; };
 		EB645A602B26749E00D27500 /* NavigationStackHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStackHost.swift; sourceTree = "<group>"; };
@@ -482,6 +482,8 @@
 		EBF9282E2B1038CB007D59D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBF928302B1038CB007D59D4 /* app.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = app.entitlements; sourceTree = "<group>"; };
 		EBF928322B1038CB007D59D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		EBFEAB832B45A5DC005363F7 /* FavoriteContextMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteContextMenuButton.swift; sourceTree = "<group>"; };
+		EBFEAB862B45A805005363F7 /* FavoriteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -707,6 +709,7 @@
 			isa = PBXGroup;
 			children = (
 				EB2B05B92B3AAA0200E0BFD3 /* Enums */,
+				EBFEAB852B45A7F7005363F7 /* Protocols */,
 				EBC85C632B202DCD008A16C6 /* Utils */,
 				EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */,
 				EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */,
@@ -734,6 +737,7 @@
 				EBC85C6D2B204174008A16C6 /* Styles */,
 				EBC85C6E2B205397008A16C6 /* Utils */,
 				EBB4B2032B175D49004D63EA /* ContentView.swift */,
+				EBFEAB832B45A5DC005363F7 /* FavoriteContextMenuButton.swift */,
 				EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */,
 				EBB4B1CC2B15D0C7004D63EA /* GamePage.swift */,
 				EB9620F12B1D8E1300FD7115 /* HomeView.swift */,
@@ -935,7 +939,6 @@
 				EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */,
 				EBEAB0C22B42378100CC25A8 /* MonsterNavigationBarHeader.swift */,
 				EBF9282C2B1038C9007D59D4 /* MonsterView.swift */,
-				EB560BD02B42F4A900E91E01 /* UnfavoriteButton.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -1014,6 +1017,14 @@
 				EBF928322B1038CB007D59D4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		EBFEAB852B45A7F7005363F7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				EBFEAB862B45A805005363F7 /* FavoriteViewModel.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1256,6 +1267,7 @@
 				EBB4B20E2B175DE2004D63EA /* Effective.swift in Sources */,
 				EB8778292B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */,
 				EB560BCF2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
+				EBFEAB882B45A805005363F7 /* FavoriteViewModel.swift in Sources */,
 				EBB4B21C2B176CE7004D63EA /* FixedWidthWeaknessView.swift in Sources */,
 				EBBBAABA2B3FE27000BBAB23 /* GameGroupViewModel.swift in Sources */,
 				EBBBAAB52B3FADEB00BBAB23 /* GameItemViewModel.swift in Sources */,
@@ -1297,7 +1309,6 @@
 				EB560BD52B4386D700E91E01 /* StatusOverlayModifier.swift in Sources */,
 				EBCA22292B21A58C00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
 				EBEA6F752B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
-				EB560BD22B42F4A900E91E01 /* UnfavoriteButton.swift in Sources */,
 				EB3B491A2B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
 				EB6297F32B37179200E830E6 /* View+Block.swift in Sources */,
 				EB0004D62B2CB668001C71D5 /* View+If.swift in Sources */,
@@ -1405,6 +1416,8 @@
 				EBB4B1D52B161691004D63EA /* Effective.swift in Sources */,
 				EB8778282B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */,
 				EB560BCE2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
+				EBFEAB842B45A5DC005363F7 /* FavoriteContextMenuButton.swift in Sources */,
+				EBFEAB872B45A805005363F7 /* FavoriteViewModel.swift in Sources */,
 				EBCA222E2B228C6800C487AD /* FixedWidthWeaknessView.swift in Sources */,
 				EBDFD8512B3C112A00AF1832 /* GameGroupViewModel.swift in Sources */,
 				EBBBAAB42B3FADEB00BBAB23 /* GameItemViewModel.swift in Sources */,
@@ -1453,7 +1466,6 @@
 				EB513ADF2B3C8B0400C8FB4A /* TabSettingsContainer.swift in Sources */,
 				EBCA222D2B222ECB00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
 				EBEA6F742B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
-				EB560BD12B42F4A900E91E01 /* UnfavoriteButton.swift in Sources */,
 				EB3B49192B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
 				EB6297F22B37179200E830E6 /* View+Block.swift in Sources */,
 				EB2B0FAB2B3925E3004596A6 /* View+Cursor.swift in Sources */,

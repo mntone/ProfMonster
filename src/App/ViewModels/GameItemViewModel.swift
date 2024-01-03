@@ -1,7 +1,7 @@
 import Foundation
 import MonsterAnalyzerCore
 
-final class GameItemViewModel: ObservableObject, Identifiable {
+final class GameItemViewModel: ObservableObject, Identifiable, FavoriteViewModel {
 	private let monster: Monster
 
 	@Published

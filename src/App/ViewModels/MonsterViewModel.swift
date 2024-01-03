@@ -2,7 +2,7 @@ import Combine
 import Foundation
 import MonsterAnalyzerCore
 
-final class MonsterViewModel: ObservableObject, Identifiable {
+final class MonsterViewModel: ObservableObject, Identifiable, FavoriteViewModel {
 	private let monster: Monster
 #if !os(watchOS)
 	private let notifier: DebounceNotifier<String>

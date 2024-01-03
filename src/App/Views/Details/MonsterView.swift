@@ -103,11 +103,7 @@ struct MonsterView: View {
 		}
 #endif
 		.toolbarItemBackport(alignment: .trailing) {
-			if viewModel.isFavorited {
-				UnfavoriteButton(viewModel: viewModel)
-			} else {
-				FavoriteButton(viewModel: viewModel)
-			}
+			FavoriteButton(viewModel: viewModel)
 		}
 		.navigationTitle(Text(verbatim: viewModel.name))
 	}

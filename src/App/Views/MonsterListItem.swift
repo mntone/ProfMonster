@@ -1,4 +1,3 @@
-import MonsterAnalyzerCore
 import SwiftUI
 
 struct MonsterListItem: View {
@@ -15,19 +14,12 @@ struct MonsterListItem: View {
 				Image(systemName: "star.fill")
 					.foregroundStyle(.yellow)
 					.accessibilityLabel("Favorited")
+					.transition(.opacity.animation(.easeInOut(duration: 0.1)))
 			}
 		}
 #if !os(watchOS)
 		.contextMenu {
-			if viewModel.isFavorited {
-				Button("Remove Favorite", systemImage: "star") {
-					viewModel.isFavorited = false
-				}
-			} else {
-				Button("Add to Favorites", systemImage: "star.fill") {
-					viewModel.isFavorited = true
-				}
-			}
+			FavoriteContextMenuButton(viewModel: viewModel)
 		}
 #endif
 	}
