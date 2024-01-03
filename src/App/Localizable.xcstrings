@@ -5395,6 +5395,22 @@
         }
       }
     },
+    "Include Favorite Group in Search Results" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Include Favorite Group in Search Results"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "検索結果にお気に入りグループを含める"
+          }
+        }
+      }
+    },
     "keyword.element.dragon" : {
       "extractionState" : "manual",
       "localizations" : {

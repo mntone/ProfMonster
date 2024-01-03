@@ -5,6 +5,14 @@ enum GameGroupType: Hashable {
 	case favorite
 	case type(id: String)
 
+	var isFavorite: Bool {
+		if case .favorite = self {
+			return true
+		} else {
+			return false
+		}
+	}
+
 	var isType: Bool {
 		if case .type = self {
 			return true

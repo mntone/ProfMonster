@@ -10,11 +10,16 @@ struct DisplaySettingsPane: View {
 
 	var body: some View {
 		Form {
+#if !os(watchOS)
+			Section {
+				Toggle("Include Favorite Group in Search Results",
+					   isOn: $viewModel.includesFavoriteGroupInSearchResult)
+
 #if os(iOS)
-			if !isAccessibilitySize {
-				Section {
+				if !isAccessibilitySize {
 					Toggle("Show Monster’s Title", isOn: $viewModel.showTitle)
 				}
+#endif
 			}
 #endif
 

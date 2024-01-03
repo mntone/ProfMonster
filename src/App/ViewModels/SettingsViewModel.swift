@@ -27,6 +27,15 @@ final class SettingsViewModel: ObservableObject {
 	}
 #endif
 
+#if !os(watchOS)
+	@Published
+	var includesFavoriteGroupInSearchResult: Bool {
+		didSet {
+			settings.includesFavoriteGroupInSearchResult = includesFavoriteGroupInSearchResult
+		}
+	}
+#endif
+
 	@Published
 	var elementDisplay: WeaknessDisplayMode {
 		didSet {
@@ -49,6 +58,9 @@ final class SettingsViewModel: ObservableObject {
 		self.rootViewModel = rootViewModel
 		self.settings = app.settings
 		self.storage = storage
+#if !os(watchOS)
+		self.includesFavoriteGroupInSearchResult = app.settings.includesFavoriteGroupInSearchResult
+#endif
 #if os(iOS)
 		self.showTitle = app.settings.showTitle
 #endif
@@ -56,6 +68,9 @@ final class SettingsViewModel: ObservableObject {
 		self.mergeParts = app.settings.mergeParts
 
 		let scheduler = DispatchQueue.main
+#if !os(watchOS)
+		settings.$includesFavoriteGroupInSearchResult.dropFirst().receive(on: scheduler).assign(to: &$includesFavoriteGroupInSearchResult)
+#endif
 #if os(iOS)
 		settings.$showTitle.dropFirst().receive(on: scheduler).assign(to: &$showTitle)
 #endif

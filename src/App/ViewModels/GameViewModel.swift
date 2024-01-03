@@ -154,7 +154,17 @@ final class GameViewModel: ObservableObject {
 			// Filter search word
 			.combineLatest(searchTextPublisher) { (state: StarSwingsState<[GameGroupViewModel]>, searchText: String) -> StarSwingsState<[GameGroupViewModel]> in
 				state.mapData { groups in
-					groups.compactMap { group in
+					if searchText.isEmpty {
+						return groups
+					}
+
+					return groups.compactMap { group in
+#if !os(watchOS)
+						if !(game.app?.settings.includesFavoriteGroupInSearchResult ?? false) && group.type.isFavorite {
+							return nil
+						}
+#endif
+
 						let monsters = Self.filter(searchText, from: group.items, languageService: game.languageService)
 						guard !monsters.isEmpty else {
 							return nil
