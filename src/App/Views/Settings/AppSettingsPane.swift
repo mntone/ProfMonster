@@ -70,20 +70,30 @@ struct AppSettingsPane: View {
 					}
 
 					LabeledContent("Git Commit Hash", value: String(gitHash.prefix(7)))
-#if !os(watchOS)
+#if os(watchOS)
+						.listRowBackground(EmptyView())
+#else
 						.help(gitHash)
 #endif
 					LabeledContent("Git Commit Date", value: AppUtil.gitDate.formatted(date: .numeric, time: .complete))
+#if os(watchOS)
+						.listRowBackground(EmptyView())
+#endif
 				} else {
 					LabeledContentBackport("Git Difference") {
 						hashContent
 					}
 
 					LabeledContentBackport("Git Commit Hash", value: String(gitHash.prefix(7)))
-#if !os(watchOS)
+#if os(watchOS)
+						.listRowBackground(EmptyView())
+#else
 						.help(gitHash)
 #endif
 					LabeledContentBackport("Git Commit Date", value: AppUtil.gitDate.formatted(date: .numeric, time: .complete))
+#if os(watchOS)
+						.listRowBackground(EmptyView())
+#endif
 				}
 			}
 
