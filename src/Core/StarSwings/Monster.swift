@@ -7,6 +7,9 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 	private let _syncLock: Lock = LockUtil.create()
 	private var _syncing: Bool = false
 
+	private let isFavoritedSubject: CurrentValueSubject<Bool, Never>
+	private let noteSubject: CurrentValueSubject<String, Never>
+
 	public weak var app: App?
 
 	public let id: String
@@ -18,17 +21,39 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 	public let anotherName: String?
 	public let keywords: [String]
 
-	@Published
 	public var isFavorited: Bool {
-		didSet {
+		@inline(__always)
+		get {
+			isFavoritedSubject.value
+		}
+		set {
+			isFavoritedSubject.value = newValue
 			uploadValue()
 		}
 	}
 
-	@Published
+	public var isFavoritedPublisher: AnyPublisher<Bool, Never> {
+		@inline(__always)
+		get {
+			isFavoritedSubject.eraseToAnyPublisher()
+		}
+	}
+
 	public var note: String {
-		didSet {
+		@inline(__always)
+		get {
+			noteSubject.value
+		}
+		set {
+			noteSubject.value = newValue
 			uploadValue()
+		}
+	}
+
+	public var notePublisher: AnyPublisher<String, Never> {
+		@inline(__always)
+		get {
+			noteSubject.eraseToAnyPublisher()
 		}
 	}
 
@@ -59,11 +84,11 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 		self.keywords = MonsterLocalizationMapper.map(localization, languageService: languageService)
 
 		if let userData {
-			self.isFavorited = userData.isFavorited
-			self.note = userData.note
+			self.isFavoritedSubject = CurrentValueSubject(userData.isFavorited)
+			self.noteSubject = CurrentValueSubject(userData.note)
 		} else {
-			self.isFavorited = false
-			self.note = ""
+			self.isFavoritedSubject = CurrentValueSubject(false)
+			self.noteSubject = CurrentValueSubject("")
 		}
 
 		super.init(dataSource: dataSource)
@@ -91,11 +116,11 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 					switch name {
 					case "isFavorited":
 						if self.isFavorited != userData.isFavorited {
-							self.isFavorited = userData.isFavorited
+							self.isFavoritedSubject.value = userData.isFavorited
 						}
 					case "note":
 						if self.note != userData.note {
-							self.note = userData.note
+							self.noteSubject.value = userData.note
 						}
 					default:
 						break

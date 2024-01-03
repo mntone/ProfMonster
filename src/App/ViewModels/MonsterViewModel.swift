@@ -60,8 +60,20 @@ final class MonsterViewModel: ObservableObject, Identifiable, FavoriteViewModel 
 			}
 			.receive(on: scheduler)
 			.assign(to: &$state)
-		monster.$isFavorited.dropFirst().receive(on: scheduler).assign(to: &$isFavorited)
-		monster.$note.dropFirst().receive(on: scheduler).assign(to: &$note)
+		monster.isFavoritedPublisher
+			.dropFirst()
+			.filter { [weak self] value in
+				self?.isFavorited != value
+			}
+			.receive(on: scheduler)
+			.assign(to: &$isFavorited)
+		monster.notePublisher
+			.dropFirst()
+			.filter { [weak self] value in
+				self?.note != value
+			}
+			.receive(on: scheduler)
+			.assign(to: &$note)
 
 		monster.fetchIfNeeded()
 	}

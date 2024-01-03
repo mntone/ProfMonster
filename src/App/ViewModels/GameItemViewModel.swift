@@ -17,7 +17,13 @@ final class GameItemViewModel: ObservableObject, Identifiable, FavoriteViewModel
 
 		// Receive data
 		let scheduler = DispatchQueue.main
-		monster.$isFavorited.dropFirst().receive(on: scheduler).assign(to: &$isFavorited)
+		monster.isFavoritedPublisher
+			.dropFirst()
+			.filter { [weak self] value in
+				self?.isFavorited != value
+			}
+			.receive(on: scheduler)
+			.assign(to: &$isFavorited)
 	}
 
 #if DEBUG || targetEnvironment(simulator)
