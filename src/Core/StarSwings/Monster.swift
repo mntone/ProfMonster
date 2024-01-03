@@ -37,6 +37,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 	init(app: App,
 		 id: String,
 		 type: String,
+		 rawID: String,
 		 gameID: String,
 		 dataSource: DataSource,
 		 languageService: LanguageService,
@@ -48,10 +49,9 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 		self._physiologyMapper = physiologyMapper
 		self._userDatabase = userDatabase
 
-		let myid = "\(gameID):\(id)"
-		self.id = myid
+		self.id = id
 		self.type = type
-		self.rawID = id
+		self.rawID = rawID
 		self.gameID = gameID
 		self.name = localization.name
 		self.sortkey = localization.sortkey
@@ -68,7 +68,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 
 		super.init(dataSource: dataSource)
 
-		self.cancellable = userDatabase.observeChange(of: myid).sink { [weak self] change in
+		self.cancellable = userDatabase.observeChange(of: id).sink { [weak self] change in
 			guard let self else { return }
 
 			defer {
@@ -82,11 +82,11 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 
 			switch change {
 			case .add:
-				guard let userData = userDatabase.getMonster(by: myid) else { return }
+				guard let userData = userDatabase.getMonster(by: id) else { return }
 				self.isFavorited = userData.isFavorited
 				self.note = userData.note
 			case let .update(names):
-				guard let userData = userDatabase.getMonster(by: myid) else { return }
+				guard let userData = userDatabase.getMonster(by: id) else { return }
 				names.forEach { name in
 					switch name {
 					case "isFavorited":

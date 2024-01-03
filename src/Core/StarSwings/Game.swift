@@ -55,18 +55,21 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 
 		let app = self.app!
 		let userdb = _resolver.resolve(UserDatabase.self)!
-		let udMonsters = userdb.getMonsters(by: "\(id):")
+		let idPrefix = "\(id):"
+		let udMonsters = userdb.getMonsters(by: idPrefix)
 		let monsters = game.monsters.map { monster in
-			Monster(app: app,
-					id: monster.id,
-					type: monster.type,
-					gameID: self.id,
-					dataSource: self._dataSource,
-					languageService: langsvc,
-					physiologyMapper: physiologyMapper,
-					localization: localization.monsters.first(where: { m in m.id == monster.id })!,
-					userDatabase: userdb,
-					userData: udMonsters.first { udMonster in udMonster.id == monster.id })
+			let id = idPrefix + monster.id
+			return Monster(app: app,
+						   id: id,
+						   type: monster.type,
+						   rawID: monster.id,
+						   gameID: self.id,
+						   dataSource: self._dataSource,
+						   languageService: langsvc,
+						   physiologyMapper: physiologyMapper,
+						   localization: localization.monsters.first(where: { m in m.id == monster.id })!,
+						   userDatabase: userdb,
+						   userData: udMonsters.first { udMonster in udMonster.id == id })
 		}
 		return monsters
 	}
