@@ -175,6 +175,8 @@
 		EBBBAAB92B3FDE8D00BBAB23 /* Publishers+CombineLatestCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB82B3FDE8D00BBAB23 /* Publishers+CombineLatestCollection.swift */; };
 		EBBBAABA2B3FE27000BBAB23 /* GameGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */; };
 		EBBF861E2B46546400F76D03 /* JapaneseTextProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF861D2B46546400F76D03 /* JapaneseTextProcessorTests.swift */; };
+		EBBF86202B4692D500F76D03 /* Sort+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF861F2B4692D500F76D03 /* Sort+Extensions.swift */; };
+		EBBF86212B4692D500F76D03 /* Sort+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF861F2B4692D500F76D03 /* Sort+Extensions.swift */; };
 		EBBF86242B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */; };
 		EBBF86252B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */; };
 		EBC85C612B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
@@ -453,6 +455,7 @@
 		EBBBAAB62B3FCB0200BBAB23 /* libswiftWatchKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWatchKit.tbd; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS10.2.sdk/usr/lib/swift/libswiftWatchKit.tbd; sourceTree = DEVELOPER_DIR; };
 		EBBBAAB82B3FDE8D00BBAB23 /* Publishers+CombineLatestCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+CombineLatestCollection.swift"; sourceTree = "<group>"; };
 		EBBF861D2B46546400F76D03 /* JapaneseTextProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseTextProcessorTests.swift; sourceTree = "<group>"; };
+		EBBF861F2B4692D500F76D03 /* Sort+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sort+Extensions.swift"; sourceTree = "<group>"; };
 		EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSwipeButton.swift; sourceTree = "<group>"; };
 		EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		EBC85C702B2053B6008A16C6 /* WatchDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDevice.swift; sourceTree = "<group>"; };
@@ -796,6 +799,7 @@
 			children = (
 				EBB4B1E42B16A6D4004D63EA /* Attack+Extensions.swift */,
 				EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */,
+				EBBF861F2B4692D500F76D03 /* Sort+Extensions.swift */,
 				EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */,
 				EB6437932B46EF5400E8D02B /* SwipeAction+Extensions.swift */,
 				EB99DBCC2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift */,
@@ -1319,6 +1323,7 @@
 				EB97F6A62B31B60700E31602 /* SharedMonsterListModifier.swift in Sources */,
 				EB3B49232B35EAD100E89711 /* SharedSettingsContainerModifier.swift in Sources */,
 				EB6ADE752B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */,
+				EBBF86212B4692D500F76D03 /* Sort+Extensions.swift in Sources */,
 				EB693EA82B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
 				EB967A4C2B2AC7100041A491 /* StateView.swift in Sources */,
 				EB560BD52B4386D700E91E01 /* StatusOverlayModifier.swift in Sources */,
@@ -1479,6 +1484,7 @@
 				EB3B49222B35EAD100E89711 /* SharedSettingsContainerModifier.swift in Sources */,
 				EB6ADE742B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */,
 				EB645A642B2685D500D27500 /* Sidebar.swift in Sources */,
+				EBBF86202B4692D500F76D03 /* Sort+Extensions.swift in Sources */,
 				EB693EA72B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
 				EB967A4B2B2AC7100041A491 /* StateView.swift in Sources */,
 				EB560BD42B4386D700E91E01 /* StatusOverlayModifier.swift in Sources */,
