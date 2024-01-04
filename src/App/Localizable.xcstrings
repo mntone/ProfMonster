@@ -269,7 +269,7 @@
       }
     },
     "0" : {
-      "comment" : "Effective/None",
+      "comment" : "Effective/Invalid",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -4337,6 +4337,23 @@
         }
       }
     },
+    "Favorite" : {
+      "comment" : "SwipeActions/Favorite",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favorite"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "お気に入り"
+          }
+        }
+      }
+    },
     "Favorited" : {
       "localizations" : {
         "en" : {
@@ -5411,6 +5428,23 @@
         }
       }
     },
+    "Invalid" : {
+      "comment" : "Effective/Invalid (Accessibility)",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "None"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "効果なし"
+          }
+        }
+      }
+    },
     "keyword.element.dragon" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5492,6 +5526,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "みずぞくせい,水属性,💧"
+          }
+        }
+      }
+    },
+    "Left Swipe" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Left Swipe"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "左にスワイプ"
           }
         }
       }
@@ -5709,18 +5759,18 @@
         }
       }
     },
-    "Merge parts with the same status" : {
+    "Merge Parts with Same Physiology*" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Merge parts with the same status"
+            "value" : "Merge Parts with Same Physiology*"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "同じステータスを持つ部位を結合する"
+            "value" : "同じ肉質を持つ部位を結合する※"
           }
         }
       }
@@ -5754,6 +5804,38 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "モンスター、弱点属性"
+          }
+        }
+      }
+    },
+    "Monster Detail" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monster Detail"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "モンスター詳細"
+          }
+        }
+      }
+    },
+    "Monster List" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monster List"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "モンスターリスト"
           }
         }
       }
@@ -5842,7 +5924,7 @@
       }
     },
     "None" : {
-      "comment" : "Effective/None (Accessibility)",
+      "comment" : "SwipeActions/None",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5853,7 +5935,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "効果なし"
+            "value" : "なし"
           }
         }
       }
@@ -7194,6 +7276,22 @@
         }
       }
     },
+    "Show Element Attack" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show Element Attack"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "属性攻撃を表示する"
+          }
+        }
+      }
+    },
     "Show Monster’s Title" : {
       "localizations" : {
         "en" : {
@@ -8006,18 +8104,18 @@
         }
       }
     },
-    "The settings will take effect when you restart the app." : {
+    "The asterisk (*) settings will take effect when you restart the app." : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "The settings will take effect when you restart the app."
+            "value" : "The asterisk (*) settings will take effect when you restart the app."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "設定を反映するには、アプリを再起動する必要があります"
+            "value" : "※印の設定を反映するには、アプリを再起動する必要があります"
           }
         }
       }

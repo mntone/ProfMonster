@@ -54,6 +54,11 @@
 		EB5941CE2B39ABD1005BC27C /* MonsterAnalyzerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EBB4B1F22B17593F004D63EA /* MonsterAnalyzerWatch.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB6297F22B37179200E830E6 /* View+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6297F12B37179200E830E6 /* View+Block.swift */; };
 		EB6297F32B37179200E830E6 /* View+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6297F12B37179200E830E6 /* View+Block.swift */; };
+		EB6437922B46EE3B00E8D02B /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6437912B46EE3B00E8D02B /* SwipeAction.swift */; };
+		EB6437942B46EF5400E8D02B /* SwipeAction+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6437932B46EF5400E8D02B /* SwipeAction+Extensions.swift */; };
+		EB6437952B46EF5400E8D02B /* SwipeAction+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6437932B46EF5400E8D02B /* SwipeAction+Extensions.swift */; };
+		EB6437972B4702DD00E8D02B /* EnvironmentValues+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6437962B4702DD00E8D02B /* EnvironmentValues+Settings.swift */; };
+		EB6437982B4702DD00E8D02B /* EnvironmentValues+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6437962B4702DD00E8D02B /* EnvironmentValues+Settings.swift */; };
 		EB645A612B26749E00D27500 /* NavigationStackHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A602B26749E00D27500 /* NavigationStackHost.swift */; };
 		EB645A642B2685D500D27500 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A632B2685D500D27500 /* Sidebar.swift */; };
 		EB645A652B269EF300D27500 /* NavigationStackHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A602B26749E00D27500 /* NavigationStackHost.swift */; };
@@ -170,6 +175,8 @@
 		EBBBAAB92B3FDE8D00BBAB23 /* Publishers+CombineLatestCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB82B3FDE8D00BBAB23 /* Publishers+CombineLatestCollection.swift */; };
 		EBBBAABA2B3FE27000BBAB23 /* GameGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */; };
 		EBBF861E2B46546400F76D03 /* JapaneseTextProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF861D2B46546400F76D03 /* JapaneseTextProcessorTests.swift */; };
+		EBBF86242B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */; };
+		EBBF86252B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */; };
 		EBC85C612B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C622B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C712B2053B6008A16C6 /* WatchDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C702B2053B6008A16C6 /* WatchDevice.swift */; };
@@ -356,6 +363,9 @@
 		EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		EB560BD32B4386D700E91E01 /* StatusOverlayModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusOverlayModifier.swift; sourceTree = "<group>"; };
 		EB6297F12B37179200E830E6 /* View+Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Block.swift"; sourceTree = "<group>"; };
+		EB6437912B46EE3B00E8D02B /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
+		EB6437932B46EF5400E8D02B /* SwipeAction+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipeAction+Extensions.swift"; sourceTree = "<group>"; };
+		EB6437962B4702DD00E8D02B /* EnvironmentValues+Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+Settings.swift"; sourceTree = "<group>"; };
 		EB645A602B26749E00D27500 /* NavigationStackHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStackHost.swift; sourceTree = "<group>"; };
 		EB645A632B2685D500D27500 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StarSwingsError+Extensions.swift"; sourceTree = "<group>"; };
@@ -443,6 +453,7 @@
 		EBBBAAB62B3FCB0200BBAB23 /* libswiftWatchKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWatchKit.tbd; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS10.2.sdk/usr/lib/swift/libswiftWatchKit.tbd; sourceTree = DEVELOPER_DIR; };
 		EBBBAAB82B3FDE8D00BBAB23 /* Publishers+CombineLatestCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+CombineLatestCollection.swift"; sourceTree = "<group>"; };
 		EBBF861D2B46546400F76D03 /* JapaneseTextProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseTextProcessorTests.swift; sourceTree = "<group>"; };
+		EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSwipeButton.swift; sourceTree = "<group>"; };
 		EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		EBC85C702B2053B6008A16C6 /* WatchDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDevice.swift; sourceTree = "<group>"; };
 		EBC85C722B205469008A16C6 /* WatchMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMetrics.swift; sourceTree = "<group>"; };
@@ -558,6 +569,7 @@
 				EB31EEB42B2BD7FA00FF8536 /* Sort.swift */,
 				EB967A412B29E8540041A491 /* StarSwingsError.swift */,
 				EB967A3F2B29E4650041A491 /* StarSwingsState.swift */,
+				EB6437912B46EE3B00E8D02B /* SwipeAction.swift */,
 				EB99DBCA2B36D0DD00A43552 /* WeaknessDisplayMode.swift */,
 			);
 			path = Enums;
@@ -737,6 +749,7 @@
 				EBC85C6E2B205397008A16C6 /* Utils */,
 				EBB4B2032B175D49004D63EA /* ContentView.swift */,
 				EBFEAB832B45A5DC005363F7 /* FavoriteContextMenuButton.swift */,
+				EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */,
 				EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */,
 				EBB4B1CC2B15D0C7004D63EA /* GamePage.swift */,
 				EB9620F12B1D8E1300FD7115 /* HomeView.swift */,
@@ -784,6 +797,7 @@
 				EBB4B1E42B16A6D4004D63EA /* Attack+Extensions.swift */,
 				EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */,
 				EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */,
+				EB6437932B46EF5400E8D02B /* SwipeAction+Extensions.swift */,
 				EB99DBCC2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift */,
 			);
 			path = Utils;
@@ -811,6 +825,7 @@
 				EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */,
 				EBC85C7C2B209D65008A16C6 /* EdgeInsets+Extensions.swift */,
 				EB8778272B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift */,
+				EB6437962B4702DD00E8D02B /* EnvironmentValues+Settings.swift */,
 				EB8AD06D2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift */,
 				EB6297F12B37179200E830E6 /* View+Block.swift */,
 				EB0004D42B2CB668001C71D5 /* View+If.swift */,
@@ -1265,7 +1280,9 @@
 				EBC85C7E2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */,
 				EBB4B20E2B175DE2004D63EA /* Effective.swift in Sources */,
 				EB8778292B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */,
+				EB6437982B4702DD00E8D02B /* EnvironmentValues+Settings.swift in Sources */,
 				EB560BCF2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
+				EBBF86252B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */,
 				EBB4B21C2B176CE7004D63EA /* FixedWidthWeaknessView.swift in Sources */,
 				EBBBAABA2B3FE27000BBAB23 /* GameGroupViewModel.swift in Sources */,
 				EBBBAAB52B3FADEB00BBAB23 /* GameItemViewModel.swift in Sources */,
@@ -1305,6 +1322,7 @@
 				EB693EA82B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
 				EB967A4C2B2AC7100041A491 /* StateView.swift in Sources */,
 				EB560BD52B4386D700E91E01 /* StatusOverlayModifier.swift in Sources */,
+				EB6437952B46EF5400E8D02B /* SwipeAction+Extensions.swift in Sources */,
 				EBCA22292B21A58C00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
 				EBEA6F752B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
 				EB3B491A2B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
@@ -1364,6 +1382,7 @@
 				EB967A422B29E8540041A491 /* StarSwingsError.swift in Sources */,
 				EB967A402B29E4650041A491 /* StarSwingsState.swift in Sources */,
 				EBEA6F492B185A0900734AAA /* Storage.swift in Sources */,
+				EB6437922B46EE3B00E8D02B /* SwipeAction.swift in Sources */,
 				EB967A282B299F9E0041A491 /* TextProcessor.swift in Sources */,
 				EB9C7E6D2B3D65F30045BBA8 /* UDMonster.swift in Sources */,
 				EB9C7E612B3D5C220045BBA8 /* UserDatabase.swift in Sources */,
@@ -1414,8 +1433,10 @@
 				EBC85C7D2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */,
 				EBB4B1D52B161691004D63EA /* Effective.swift in Sources */,
 				EB8778282B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */,
+				EB6437972B4702DD00E8D02B /* EnvironmentValues+Settings.swift in Sources */,
 				EB560BCE2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
 				EBFEAB842B45A5DC005363F7 /* FavoriteContextMenuButton.swift in Sources */,
+				EBBF86242B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */,
 				EBCA222E2B228C6800C487AD /* FixedWidthWeaknessView.swift in Sources */,
 				EBDFD8512B3C112A00AF1832 /* GameGroupViewModel.swift in Sources */,
 				EBBBAAB42B3FADEB00BBAB23 /* GameItemViewModel.swift in Sources */,
@@ -1461,6 +1482,7 @@
 				EB693EA72B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
 				EB967A4B2B2AC7100041A491 /* StateView.swift in Sources */,
 				EB560BD42B4386D700E91E01 /* StatusOverlayModifier.swift in Sources */,
+				EB6437942B46EF5400E8D02B /* SwipeAction+Extensions.swift in Sources */,
 				EB513ADF2B3C8B0400C8FB4A /* TabSettingsContainer.swift in Sources */,
 				EBCA222D2B222ECB00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
 				EBEA6F742B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,

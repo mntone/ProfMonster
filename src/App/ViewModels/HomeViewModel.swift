@@ -17,7 +17,7 @@ struct HomeItemViewModel: Identifiable, Hashable {
 }
 
 final class HomeViewModel: ObservableObject {
-	private let app: App
+	let app: App
 
 	@Published
 	private(set) var state: StarSwingsState<[HomeItemViewModel]> = .ready

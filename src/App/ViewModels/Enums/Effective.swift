@@ -4,7 +4,7 @@ enum Effective: Int8 {
 	case high = 20
 	case middle = 10
 	case low = 5
-	case none = 0
+	case invalid = 0
 
 	var label: String {
 		switch self {
@@ -14,8 +14,8 @@ enum Effective: Int8 {
 			String(localized: "++", comment: "Effective/Middle")
 		case .low:
 			String(localized: "+", comment: "Effective/Low")
-		case .none:
-			String(localized: "0", comment: "Effective/None")
+		case .invalid:
+			String(localized: "0", comment: "Effective/Invalid")
 		}
 	}
 
@@ -27,8 +27,8 @@ enum Effective: Int8 {
 			String(localized: "Middle", comment: "Effective/Middle (Accessibility)")
 		case .low:
 			String(localized: "Low", comment: "Effective/Low (Accessibility)")
-		case .none:
-			String(localized: "None", comment: "Effective/None (Accessibility)")
+		case .invalid:
+			String(localized: "Invalid", comment: "Effective/Invalid (Accessibility)")
 		}
 	}
 }

@@ -1,6 +1,11 @@
 import SwiftUI
 
 struct MonsterListItem: View {
+#if !os(macOS)
+	@Environment(\.settings)
+	private var settings
+#endif
+
 	@ObservedObject
 	private(set) var viewModel: GameItemViewModel
 
@@ -8,9 +13,8 @@ struct MonsterListItem: View {
 		HStack(spacing: 0) {
 			Text(verbatim: viewModel.name)
 
-			Spacer()
-
 			if viewModel.isFavorited {
+				Spacer()
 				Image(systemName: "star.fill")
 					.foregroundStyle(.yellow)
 					.accessibilityLabel("Favorited")
@@ -21,6 +25,16 @@ struct MonsterListItem: View {
 #if !os(watchOS)
 		.contextMenu {
 			FavoriteContextMenuButton(favorite: $viewModel.isFavorited)
+		}
+#endif
+#if !os(macOS)
+		.swipeActions(edge: .trailing, allowsFullSwipe: false) {
+			switch settings?.trailingSwipeAction {
+			case Optional.none, .some(.none):
+				EmptyView()
+			case .favorite:
+				FavoriteSwipeButton(favorite: $viewModel.isFavorited)
+			}
 		}
 #endif
 	}

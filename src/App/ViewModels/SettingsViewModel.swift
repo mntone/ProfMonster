@@ -27,6 +27,15 @@ final class SettingsViewModel: ObservableObject {
 	}
 #endif
 
+#if !os(macOS)
+	@Published
+	var trailingSwipeAction: SwipeAction {
+		didSet {
+			settings.trailingSwipeAction = trailingSwipeAction
+		}
+	}
+#endif
+
 #if !os(watchOS)
 	@Published
 	var includesFavoriteGroupInSearchResult: Bool {
@@ -58,6 +67,9 @@ final class SettingsViewModel: ObservableObject {
 		self.rootViewModel = rootViewModel
 		self.settings = app.settings
 		self.storage = storage
+#if !os(macOS)
+		self.trailingSwipeAction = app.settings.trailingSwipeAction
+#endif
 #if !os(watchOS)
 		self.includesFavoriteGroupInSearchResult = app.settings.includesFavoriteGroupInSearchResult
 #endif
@@ -68,6 +80,9 @@ final class SettingsViewModel: ObservableObject {
 		self.mergeParts = app.settings.mergeParts
 
 		let scheduler = DispatchQueue.main
+#if !os(macOS)
+		settings.$trailingSwipeAction.dropFirst().receive(on: scheduler).assign(to: &$trailingSwipeAction)
+#endif
 #if !os(watchOS)
 		settings.$includesFavoriteGroupInSearchResult.dropFirst().receive(on: scheduler).assign(to: &$includesFavoriteGroupInSearchResult)
 #endif

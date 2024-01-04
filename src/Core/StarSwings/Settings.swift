@@ -5,6 +5,11 @@ public final class Settings {
 	public var showTitle: Bool
 #endif
 
+#if !os(macOS)
+	@UserDefault("trgSwipe", initial: SwipeAction.none)
+	public var trailingSwipeAction: SwipeAction
+#endif
+
 #if os(macOS)
 	@UserDefault("incFavInSearch", initial: true)
 	public var includesFavoriteGroupInSearchResult: Bool

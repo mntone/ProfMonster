@@ -22,7 +22,7 @@ struct WeaknessItemViewModel: Identifiable {
 				self.effective = .middle
 			}
 		} else if value <= 0 {
-			self.effective = .none
+			self.effective = .invalid
 		} else {
 			self.effective = .low
 		}
@@ -37,7 +37,7 @@ struct WeaknessItemViewModel: Identifiable {
 		switch effective {
 		case .high, .middle:
 			return .accentColor
-		case .low, .none:
+		case .low, .invalid:
 			return .secondary
 		}
 	}
@@ -46,7 +46,7 @@ struct WeaknessItemViewModel: Identifiable {
 		switch effective {
 		case .high, .middle:
 			return .bold
-		case .low, .none:
+		case .low, .invalid:
 			return .semibold
 		}
 	}

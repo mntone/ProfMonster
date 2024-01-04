@@ -10,10 +10,19 @@ struct DisplaySettingsPane: View {
 
 	var body: some View {
 		Form {
+			Section("Monster List") {
+#if !os(macOS)
+				PreferredPicker("Left Swipe",
+								data: SwipeAction.allCases,
+								selection: $viewModel.trailingSwipeAction) { mode in
+					Text(verbatim: mode.label)
+				}
+#endif
+
 #if !os(watchOS)
-			Section {
 				Toggle("Include Favorite Group in Search Results",
 					   isOn: $viewModel.includesFavoriteGroupInSearchResult)
+#endif
 
 #if os(iOS)
 				if !isAccessibilitySize {
@@ -21,11 +30,10 @@ struct DisplaySettingsPane: View {
 				}
 #endif
 			}
-#endif
 
-			Section("Weakness") {
+			Section{
 #if os(watchOS)
-				Toggle("Element Attack", isOn: Binding {
+				Toggle("Show Element Attack", isOn: Binding {
 					viewModel.elementDisplay != .none
 				} set: { value in
 					viewModel.elementDisplay = value ? .sign : .none
@@ -37,14 +45,12 @@ struct DisplaySettingsPane: View {
 					Text(verbatim: mode.label)
 				}
 #endif
-			}
 
-			Section {
-				Toggle("Merge parts with the same status", isOn: $viewModel.mergeParts)
+				Toggle("Merge Parts with Same Physiology*", isOn: $viewModel.mergeParts)
 			} header: {
-				Text("Physiology")
+				Text("Monster Detail")
 			} footer: {
-				Text("The settings will take effect when you restart the app.")
+				Text("The asterisk (*) settings will take effect when you restart the app.")
 #if os(macOS)
 					.foregroundStyle(.secondary)
 #endif

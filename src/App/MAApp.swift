@@ -21,6 +21,7 @@ struct MAApp: SwiftUI.App {
 		WindowGroup {
 			ContentView(viewModel: viewModel)
 				.environmentObject(viewModel)
+				.environment(\.settings, viewModel.app.settings)
 		}
 #if os(watchOS)
 		.environment(\.watchMetrics, WatchUtil.getMetrics())
