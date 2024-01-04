@@ -1,14 +1,25 @@
 import Foundation
 
 struct KoreanTextProcessor: TextProcessor {
-	init() {
+	func normalize(forSearch searchText: String) -> String {
+		searchText.lowercased()
 	}
 
-	func normalize(_ text: String) -> String {
-		text.lowercased()
+	func normalize(fromReadable readableText: String) -> String {
+		readableText
 	}
 
-	func latin(from text: String) -> String {
-		text.applyingTransform(.latinToHangul, reverse: true)!
+	func readable(from text: String) -> String {
+		text.filter { char in
+			!char.isWhitespace
+		}
+	}
+
+	func latin(from readableText: String) -> String {
+		readableText.applyingTransform(.latinToHangul, reverse: true)!
+	}
+
+	func sortkey(from readableText: String) -> String {
+		readableText.applyingTransform(.latinToHangul, reverse: true)!
 	}
 }

@@ -9,8 +9,12 @@ public protocol LanguageService {
 	var localeKey: String { get }
 	var locale: Locale { get }
 
-	func normalize(_ text: String) -> String
-	func latin(from text: String) -> String
+	func normalize(forSearch searchText: String) -> String
+	func normalize(fromReadable readableText: String) -> String
+
+	func readable(from text: String) -> String
+	func latin(from readableText: String) -> String
+	func sortkey(from readableText: String) -> String
 
 	func register(dictionary: [String: String], for type: LanguageDictionary)
 	func getLocalizedString(of key: String, for type: LanguageDictionary) -> String
@@ -28,12 +32,24 @@ final class PassthroughtLanguageService: LanguageService {
 		"en"
 	}
 
-	func normalize(_ text: String) -> String {
+	func normalize(forSearch searchText: String) -> String {
+		searchText
+	}
+
+	func normalize(fromReadable readableText: String) -> String {
+		readableText
+	}
+
+	func readable(from text: String) -> String {
 		text
 	}
 
-	func latin(from text: String) -> String {
-		text
+	func latin(from readableText: String) -> String {
+		readableText
+	}
+
+	func sortkey(from readableText: String) -> String {
+		readableText
 	}
 
 	func register(dictionary: [String: String], for type: LanguageDictionary) {

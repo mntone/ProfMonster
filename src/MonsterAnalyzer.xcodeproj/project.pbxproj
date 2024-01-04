@@ -169,6 +169,7 @@
 		EBBBAAB72B3FCB0300BBAB23 /* libswiftWatchKit.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EBBBAAB62B3FCB0200BBAB23 /* libswiftWatchKit.tbd */; platformFilters = (watchos, ); settings = {ATTRIBUTES = (Weak, ); }; };
 		EBBBAAB92B3FDE8D00BBAB23 /* Publishers+CombineLatestCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB82B3FDE8D00BBAB23 /* Publishers+CombineLatestCollection.swift */; };
 		EBBBAABA2B3FE27000BBAB23 /* GameGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */; };
+		EBBF861E2B46546400F76D03 /* JapaneseTextProcessorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF861D2B46546400F76D03 /* JapaneseTextProcessorTests.swift */; };
 		EBC85C612B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C622B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C712B2053B6008A16C6 /* WatchDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C702B2053B6008A16C6 /* WatchDevice.swift */; };
@@ -443,6 +444,7 @@
 		EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemViewModel.swift; sourceTree = "<group>"; };
 		EBBBAAB62B3FCB0200BBAB23 /* libswiftWatchKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWatchKit.tbd; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS10.2.sdk/usr/lib/swift/libswiftWatchKit.tbd; sourceTree = DEVELOPER_DIR; };
 		EBBBAAB82B3FDE8D00BBAB23 /* Publishers+CombineLatestCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+CombineLatestCollection.swift"; sourceTree = "<group>"; };
+		EBBF861D2B46546400F76D03 /* JapaneseTextProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseTextProcessorTests.swift; sourceTree = "<group>"; };
 		EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		EBC85C702B2053B6008A16C6 /* WatchDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDevice.swift; sourceTree = "<group>"; };
 		EBC85C722B205469008A16C6 /* WatchMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMetrics.swift; sourceTree = "<group>"; };
@@ -908,6 +910,7 @@
 				EB8F07DB2B2FF3E1006AC575 /* Utils */,
 				EB433A392B2DEB050079AAD8 /* AppTests.swift */,
 				EB8F07E42B300BE4006AC575 /* GameTests.swift */,
+				EBBF861D2B46546400F76D03 /* JapaneseTextProcessorTests.swift */,
 				EB8F07E62B300F18006AC575 /* MonsterTests.swift */,
 				EBEA6F352B1858FB00734AAA /* StorageTests.swift */,
 			);
@@ -1382,6 +1385,7 @@
 				EB8F07E12B2FF423006AC575 /* ErredDataSource.swift in Sources */,
 				EB8CA0DA2B3146A800679CC0 /* FetchableEntity+GetState.swift in Sources */,
 				EB8F07E52B300BE4006AC575 /* GameTests.swift in Sources */,
+				EBBF861E2B46546400F76D03 /* JapaneseTextProcessorTests.swift in Sources */,
 				EB8F07E72B300F18006AC575 /* MonsterTests.swift in Sources */,
 				EB8CA0D82B31467500679CC0 /* Publisher+Get.swift in Sources */,
 				EB8F07E02B2FF421006AC575 /* StarSwingsState+Error.swift in Sources */,

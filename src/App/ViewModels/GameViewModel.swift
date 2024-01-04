@@ -187,7 +187,7 @@ final class GameViewModel: ObservableObject {
 		if searchText.isEmpty {
 			return monsters
 		} else {
-			let normalizedText = languageService.normalize(searchText)
+			let normalizedText = languageService.normalize(forSearch: searchText)
 			let filteredMonsters = monsters.filter { monster in
 				monster.keywords.contains { keyword in
 					keyword.contains(normalizedText)

@@ -18,12 +18,24 @@ final class MALanguageService: LanguageService {
 		self._textProcessor = LanguageUtil.getPreferredTextProcessor(self.localeKey)
 	}
 
-	func normalize(_ text: String) -> String {
-		_textProcessor.normalize(text)
+	func normalize(forSearch searchText: String) -> String {
+		_textProcessor.normalize(forSearch: searchText)
 	}
 
-	func latin(from text: String) -> String {
-		_textProcessor.latin(from: text)
+	func normalize(fromReadable readableText: String) -> String {
+		readableText
+	}
+
+	func readable(from text: String) -> String {
+		_textProcessor.readable(from: text)
+	}
+
+	func latin(from readableText: String) -> String {
+		_textProcessor.latin(from: readableText)
+	}
+
+	func sortkey(from readableText: String) -> String {
+		_textProcessor.sortkey(from: readableText)
 	}
 
 	func register(dictionary: [String: String], for type: LanguageDictionary) {

@@ -1,16 +1,27 @@
 import Foundation
 
 struct ChineseTextProcessor: TextProcessor {
-	init() {
+	func normalize(forSearch searchText: String) -> String {
+		searchText.lowercased()
 	}
 
-	func normalize(_ text: String) -> String {
-		text.lowercased()
+	func normalize(fromReadable readableText: String) -> String {
+		readableText
 	}
 
-	func latin(from text: String) -> String {
-		text.applyingTransform(.mandarinToLatin, reverse: false)!
+	func readable(from text: String) -> String {
+		text.filter { char in
+			!char.isWhitespace
+		}
+	}
+
+	func latin(from readableText: String) -> String {
+		readableText
+			.applyingTransform(.mandarinToLatin, reverse: false)!
 			.folding(options: .diacriticInsensitive, locale: nil)
-			.replacingOccurrences(of: " ", with: "")
+	}
+
+	func sortkey(from readableText: String) -> String {
+		readableText.applyingTransform(.mandarinToLatin, reverse: false)!
 	}
 }
