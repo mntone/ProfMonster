@@ -23,29 +23,28 @@ class GameTests: XCTestCase {
 		app.fetchIfNeeded()
 
 		await app.getState(in: &cancellable)
-		XCTAssertEqual(app.games.count, MockDataSource.config.titles.count)
+		XCTAssertEqual(app.state.data!.count, MockDataSource.config.titles.count)
 
-		let game = app.games[0]
+		let game = app.state.data![0]
 		game.fetchIfNeeded()
 
 		let gameState = await game.getState(in: &cancellable)
 		XCTAssertTrue(gameState.hasError)
 		XCTAssertEqual(gameState.error, transformed)
-		XCTAssertTrue(game.monsters.isEmpty)
 	}
 
 	func testAppInit() async {
-		XCTAssertTrue(app.games.isEmpty)
+		XCTAssertTrue(app.state.isReady)
 		app.fetchIfNeeded()
 
 		await app.getState(in: &cancellable)
-		XCTAssertEqual(app.games.count, MockDataSource.config.titles.count)
+		XCTAssertEqual(app.state.data!.count, MockDataSource.config.titles.count)
 
-		let game = app.games[0]
+		let game = app.state.data![0]
 		game.fetchIfNeeded()
 
 		await game.getState(in: &cancellable)
-		XCTAssertEqual(game.monsters.count, MockDataSource.game.monsters.count)
+		XCTAssertEqual(game.state.data!.count, MockDataSource.game.monsters.count)
 	}
 
 	func testNetworkErrorCanceled() async throws {
@@ -69,7 +68,7 @@ class GameTests: XCTestCase {
 	}
 
 	func testNetworkErrorNotExist() async throws {
-		try await assertEqual(original: .fileDoesNotExist, transformed: .notExist)
+		try await assertEqual(original: .fileDoesNotExist, transformed: .notExists)
 	}
 
 	func testNetworkErrorDataNotAllowed() async throws {

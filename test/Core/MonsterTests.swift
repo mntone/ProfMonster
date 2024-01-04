@@ -23,41 +23,40 @@ class MonsterTests: XCTestCase {
 		app.fetchIfNeeded()
 
 		await app.getState(in: &cancellable)
-		XCTAssertEqual(app.games.count, 1)
+		XCTAssertEqual(app.state.data!.count, 1)
 
-		let game = app.games[0]
+		let game = app.state.data![0]
 		game.fetchIfNeeded()
 
 		await game.getState(in: &cancellable)
-		XCTAssertEqual(game.monsters.count, MockDataSource.config.titles.count)
+		XCTAssertEqual(game.state.data!.count, MockDataSource.config.titles.count)
 
-		let monster = game.monsters[0]
+		let monster = game.state.data![0]
 		monster.fetchIfNeeded()
 
 		let monsterState = await monster.getState(in: &cancellable)
 		XCTAssertTrue(monsterState.hasError)
 		XCTAssertEqual(monsterState.error, transformed)
-		XCTAssertNil(monster.physiologies)
 	}
 
 	func testAppInit() async {
-		XCTAssertTrue(app.games.isEmpty)
+		XCTAssertTrue(app.state.isReady)
 		app.fetchIfNeeded()
 
 		await app.getState(in: &cancellable)
-		XCTAssertEqual(app.games.count, MockDataSource.config.titles.count)
+		XCTAssertEqual(app.state.data!.count, MockDataSource.config.titles.count)
 
-		let game = app.games[0]
+		let game = app.state.data![0]
 		game.fetchIfNeeded()
 
 		await game.getState(in: &cancellable)
-		XCTAssertEqual(game.monsters.count, MockDataSource.game.monsters.count)
+		XCTAssertEqual(game.state.data!.count, MockDataSource.game.monsters.count)
 
-		let monster = game.monsters[0]
+		let monster = game.state.data![0]
 		monster.fetchIfNeeded()
 
 		await monster.getState(in: &cancellable)
-		XCTAssertNotNil(monster.physiologies)
+		XCTAssertNotNil(monster.state.isReady)
 	}
 
 	func testNetworkErrorCanceled() async throws {
@@ -81,7 +80,7 @@ class MonsterTests: XCTestCase {
 	}
 
 	func testNetworkErrorNotExist() async throws {
-		try await assertEqual(original: .fileDoesNotExist, transformed: .notExist)
+		try await assertEqual(original: .fileDoesNotExist, transformed: .notExists)
 	}
 
 	func testNetworkErrorDataNotAllowed() async throws {

@@ -3,7 +3,7 @@ import Combine
 
 extension FetchableEntity {
 	@discardableResult
-	func getState(in set: inout Set<AnyCancellable>) async -> StarSwingsState {
+	func getState(in set: inout Set<AnyCancellable>) async -> StarSwingsState<Data> {
 		var result = state
 		if case .loading = state {
 			result = await $state.dropFirst().get(in: &set)

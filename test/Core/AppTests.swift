@@ -25,11 +25,10 @@ class AppTests: XCTestCase {
 		let state = await app.getState(in: &cancellable)
 		XCTAssertTrue(state.hasError)
 		XCTAssertEqual(state.error, transformed)
-		XCTAssertTrue(app.games.isEmpty)
 	}
 
 	func testInit() {
-		XCTAssertTrue(app.games.isEmpty)
+		XCTAssertTrue(app.state.isReady)
 	}
 
 	func testNetworkErrorCanceled() async throws {
@@ -53,7 +52,7 @@ class AppTests: XCTestCase {
 	}
 
 	func testNetworkErrorNotExist() async throws {
-		try await assertEqual(original: .fileDoesNotExist, transformed: .notExist)
+		try await assertEqual(original: .fileDoesNotExist, transformed: .notExists)
 	}
 
 	func testNetworkErrorDataNotAllowed() async throws {

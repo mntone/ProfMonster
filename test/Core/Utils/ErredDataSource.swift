@@ -16,7 +16,7 @@ final class ErredDataSource: DataSource {
 	var errorLevel: ErrorOfferLevel
 
 	init(dataSource: DataSource,
-		 error: Error = StarSwingsError.notExist,
+		 error: Error = StarSwingsError.notExists,
 		 errorLevel: ErrorOfferLevel = .none) {
 		self.dataSource = dataSource
 		self.error = error
