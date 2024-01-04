@@ -17,12 +17,21 @@ struct NavigationPathHost<Content: View>: View {
 	var body: some View {
 		content($path)
 			.task {
-				path = await RouteHelper.load(from: pathString)
+				await loadPath()
 			}
 			.onDisappear {
 				storePath()
 			}
 			.onReceive(NotificationCenter.default.publisher(for: .platformWillResignActiveNotification), perform: storePath(_:))
+	}
+
+	private func loadPath() async {
+		let path = await RouteHelper.load(from: pathString)
+		var transaction = Transaction()
+		transaction.disablesAnimations = true
+		withTransaction(transaction) {
+			self.path = path
+		}
 	}
 
 	private func storePath(_: Notification) {
