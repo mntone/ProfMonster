@@ -103,7 +103,7 @@ struct MonsterView: View {
 		}
 #endif
 		.toolbarItemBackport(alignment: .trailing) {
-			FavoriteButton(viewModel: viewModel)
+			FavoriteButton(favorite: $viewModel.isFavorited)
 		}
 #if os(iOS)
 		.navigationBarTitleDisplayMode(.inline)

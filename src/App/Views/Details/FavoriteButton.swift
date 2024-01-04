@@ -1,12 +1,12 @@
 import SwiftUI
 
-struct FavoriteButton<ViewModel: FavoriteViewModel>: View {
-	@ObservedObject
-	private(set) var viewModel: ViewModel
+struct FavoriteButton: View {
+	@Binding
+	private(set) var favorite: Bool
 
 	var body: some View {
 		let text: LocalizedStringKey, image: String
-		if viewModel.isFavorited {
+		if favorite {
 			text = "Remove Favorite"
 			image = "star.fill"
 		} else {
@@ -15,14 +15,9 @@ struct FavoriteButton<ViewModel: FavoriteViewModel>: View {
 		}
 
 		return Button(text, systemImage: image) {
-#if os(watchOS)
-			viewModel.isFavorited.toggle()
-#else
-			withAnimation {
-				viewModel.isFavorited.toggle()
-			}
-#endif
+			favorite.toggle()
 		}
+		.animation(.easeInOut, value: favorite)
 #if os(watchOS)
 		.foregroundStyle(.yellow)
 #else

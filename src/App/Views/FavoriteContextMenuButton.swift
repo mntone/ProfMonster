@@ -1,31 +1,23 @@
 import SwiftUI
 
 @available(watchOS, unavailable)
-struct FavoriteContextMenuButton<ViewModel: FavoriteViewModel>: View {
-	@ObservedObject
-	private(set) var viewModel: ViewModel
+struct FavoriteContextMenuButton: View {
+	@Binding
+	private(set) var favorite: Bool
 
 	var body: some View {
 		let text: LocalizedStringKey, image: String
-		if viewModel.isFavorited {
+		if favorite {
 			text = "Remove Favorite"
-			image = "star.fill"
+			image = "star.slash"
 		} else {
 			text = "Add to Favorites"
 			image = "star"
 		}
 
 		return Button(text, systemImage: image) {
-			viewModel.isFavorited.toggle()
+			favorite.toggle()
 		}
-	}
-}
-
-final class _PreviewFavoriteViewModel: FavoriteViewModel {
-	var isFavorited: Bool
-
-	init(isFavorited: Bool) {
-		self.isFavorited = isFavorited
 	}
 }
 
@@ -33,7 +25,7 @@ final class _PreviewFavoriteViewModel: FavoriteViewModel {
 	Text(verbatim: "Sample Context Menu")
 		.padding()
 		.contextMenu {
-			FavoriteContextMenuButton(viewModel: _PreviewFavoriteViewModel(isFavorited: false))
+			FavoriteContextMenuButton(favorite: .constant(false))
 		}
 }
 
@@ -41,6 +33,6 @@ final class _PreviewFavoriteViewModel: FavoriteViewModel {
 	Text(verbatim: "Sample Context Menu")
 		.padding()
 		.contextMenu {
-			FavoriteContextMenuButton(viewModel: _PreviewFavoriteViewModel(isFavorited: true))
+			FavoriteContextMenuButton(favorite: .constant(true))
 		}
 }

@@ -14,12 +14,13 @@ struct MonsterListItem: View {
 				Image(systemName: "star.fill")
 					.foregroundStyle(.yellow)
 					.accessibilityLabel("Favorited")
-					.transition(.opacity.animation(.easeInOut(duration: 0.1)))
+					.transition(.opacity)
 			}
 		}
+		.animation(.easeInOut(duration: 0.1), value: viewModel.isFavorited)
 #if !os(watchOS)
 		.contextMenu {
-			FavoriteContextMenuButton(viewModel: viewModel)
+			FavoriteContextMenuButton(favorite: $viewModel.isFavorited)
 		}
 #endif
 	}
