@@ -125,15 +125,8 @@ struct NavigationSplitViewHostBackport: View {
 #if os(macOS)
 			Sidebar(viewModel: viewModel, selection: $selectedGameID)
 			MonsterList(viewModel: gameViewModel, selection: $selectedMonsterID)
-
-			if let monsterViewModel {
-				MonsterView(viewModel: monsterViewModel)
-			} else {
-				Color.monsterBackground.ignoresSafeArea()
-			}
 #else
 			SidebarBackport(viewModel: viewModel, selection: $selectedGameID)
-
 			GamePage(viewModel: gameViewModel) { item in
 				MonsterSelectableListItem(viewModel: item, selection: $selectedMonsterID)
 			}

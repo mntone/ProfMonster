@@ -30,6 +30,7 @@ struct FavoriteButton<ViewModel: FavoriteViewModel>: View {
 #if os(iOS)
 		.tint(.yellow)
 #endif
+		.keyboardShortcut("F", modifiers: .command)
 #endif
 	}
 }

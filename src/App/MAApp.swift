@@ -27,6 +27,9 @@ struct MAApp: SwiftUI.App {
 #endif
 #if os(macOS)
 		.commands {
+			CommandGroup(replacing: .undoRedo) {
+			}
+
 			CommandGroup(replacing: .appInfo) {
 				Button("About Prof. Monster") {
 					NSApplication.shared.orderFrontStandardAboutPanel(options: [
