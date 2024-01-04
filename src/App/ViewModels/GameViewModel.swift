@@ -158,18 +158,24 @@ final class GameViewModel: ObservableObject {
 						return groups
 					}
 
-					return groups.compactMap { group in
+					let normalizedSearchText = game.languageService.normalize(forSearch: searchText)
+					return groups.compactMap { group -> GameGroupViewModel? in
 #if !os(watchOS)
 						if !(game.app?.settings.includesFavoriteGroupInSearchResult ?? false) && group.type.isFavorite {
 							return nil
 						}
 #endif
 
-						let monsters = Self.filter(searchText, from: group.items, languageService: game.languageService)
-						guard !monsters.isEmpty else {
+						let filtered = group.items.filter { monster in
+							monster.keywords.contains { keyword in
+								keyword.contains(normalizedSearchText)
+							}
+						}
+						guard !filtered.isEmpty else {
 							return nil
 						}
-						return GameGroupViewModel(gameID: group.gameID, type: group.type, items: monsters)
+
+						return GameGroupViewModel(gameID: group.gameID, type: group.type, items: filtered)
 					}
 				}
 			}
@@ -179,22 +185,6 @@ final class GameViewModel: ObservableObject {
 
 		// Set current
 		self.game = game
-	}
-
-	private static func filter(_ searchText: String,
-							   from monsters: [GameItemViewModel],
-							   languageService: LanguageService) -> [GameItemViewModel] {
-		if searchText.isEmpty {
-			return monsters
-		} else {
-			let normalizedText = languageService.normalize(forSearch: searchText)
-			let filteredMonsters = monsters.filter { monster in
-				monster.keywords.contains { keyword in
-					keyword.contains(normalizedText)
-				}
-			}
-			return filteredMonsters
-		}
 	}
 }
 
