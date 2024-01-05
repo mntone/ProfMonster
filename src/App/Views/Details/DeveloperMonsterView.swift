@@ -5,6 +5,7 @@ struct DeveloperMonsterView: View {
 
 	init(viewModel: MonsterViewModel) {
 		self.dict = [
+			("ID", viewModel.id),
 			("Type", viewModel.type),
 			("Name", viewModel.name),
 			("Readable Name", viewModel.readableName),
@@ -20,6 +21,9 @@ struct DeveloperMonsterView: View {
 				ForEach(dict, id: \.0) { (label, content) in
 					LabeledContent {
 						Text(verbatim: content)
+#if os(macOS)
+							.textSelection(.enabled)
+#endif
 					} label: {
 						Text(verbatim: label)
 					}
@@ -28,6 +32,9 @@ struct DeveloperMonsterView: View {
 				ForEach(dict, id: \.0) { (label, content) in
 					LabeledContentBackport {
 						Text(verbatim: content)
+#if os(macOS)
+							.textSelection(.enabled)
+#endif
 					} label: {
 						Text(verbatim: label)
 					}
