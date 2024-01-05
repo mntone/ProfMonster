@@ -97,7 +97,7 @@ struct MonsterView: View {
 		}
 #if os(iOS)
 		.block { content in
-			if !isAccessibilitySize {
+			if !isAccessibilitySize, settings?.showTitle ?? true {
 				content.toolbar {
 					ToolbarItem(placement: .principal) {
 						MonsterNavigationBarHeader(viewModel: viewModel)
