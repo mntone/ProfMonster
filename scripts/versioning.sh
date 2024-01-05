@@ -12,10 +12,12 @@ GIT_HASH_SHORT=$(git rev-parse --short HEAD)
 VERSION=$GIT_TAG-$GIT_HASH_SHORT
 echo "Current version: $VERSION"
 
-CACHED_VERSION="`cat $XCCONFIG_PATH | grep -m1 'INTERNAL_VERSION' | cut -d'=' -f2 | tr -d ';' | tr -d ' '`"
-if [ "$VERSION" = "$CACHED_VERSION" ]; then
-	echo "Skipped to update \"Versioning.xcconfig\"."
-	exit 0
+if [ "$CI" != "TRUE" ]; then
+	CACHED_VERSION="`cat $XCCONFIG_PATH | grep -m1 'INTERNAL_VERSION' | cut -d'=' -f2 | tr -d ';' | tr -d ' '`"
+	if [ "$VERSION" = "$CACHED_VERSION" ]; then
+		echo "Skipped to update \"Versioning.xcconfig\"."
+		exit 0
+	fi
 fi
 
 GIT_HASH=$(git rev-parse HEAD)
