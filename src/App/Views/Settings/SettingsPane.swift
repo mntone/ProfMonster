@@ -3,6 +3,7 @@ import SwiftUI
 enum SettingsPane: String, CaseIterable, Hashable, Identifiable {
 	case display = "Display"
 	case data = "Data"
+	case developer = "Developer"
 	case app = "About App"
 
 	var id: String {
@@ -15,6 +16,8 @@ enum SettingsPane: String, CaseIterable, Hashable, Identifiable {
 			return "character"
 		case .data:
 			return "doc.text"
+		case .developer:
+			return "hammer.fill"
 		case .app:
 #if os(watchOS)
 			return "info"
@@ -36,6 +39,8 @@ enum SettingsPane: String, CaseIterable, Hashable, Identifiable {
 			DisplaySettingsPane(viewModel: viewModel)
 		case .data:
 			DataSettingsPane(viewModel: viewModel)
+		case .developer:
+			DeveloperSettingsPane(viewModel: viewModel)
 		case .app:
 			AppSettingsPane()
 		}

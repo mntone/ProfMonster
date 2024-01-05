@@ -6,6 +6,9 @@ import SwiftUIIntrospect
 #endif
 
 struct MonsterView: View {
+	@Environment(\.settings)
+	private var settings
+
 	@ObservedObject
 	private(set) var viewModel: MonsterViewModel
 
@@ -75,6 +78,10 @@ struct MonsterView: View {
 					note
 				}
 #endif
+
+				if settings?.showInternalInformation ?? false {
+					DeveloperMonsterView(viewModel: viewModel)
+				}
 			}
 #if os(iOS)
 			.backport.scrollDismissesKeyboard(.interactively)

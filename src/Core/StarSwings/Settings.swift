@@ -26,4 +26,12 @@ public final class Settings {
 
 	@UserDefault("sort", initial: .inGame)
 	public var sort: Sort
+
+#if DEBUG
+	@UserDefault("intlInfo", initial: true)
+	public var showInternalInformation: Bool
+#else
+	@UserDefault("intlInfo", initial: false)
+	public var showInternalInformation: Bool
+#endif
 }

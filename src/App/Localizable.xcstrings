@@ -3055,6 +3055,22 @@
         }
       }
     },
+    "Developer" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Developer"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "開発"
+          }
+        }
+      }
+    },
     "Display" : {
       "localizations" : {
         "ar" : {
@@ -7288,6 +7304,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "属性攻撃を表示する"
+          }
+        }
+      }
+    },
+    "Show Internal Information" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show Internal Information"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "内部情報を表示する"
           }
         }
       }

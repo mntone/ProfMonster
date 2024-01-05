@@ -111,10 +111,31 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 		}
 	}
 
+	var type: String {
+		@inline(__always)
+		get {
+			monster.type
+		}
+	}
+
 	var name: String {
 		@inline(__always)
 		get {
 			monster.name
+		}
+	}
+
+	var readableName: String {
+		@inline(__always)
+		get {
+			monster.readableName
+		}
+	}
+
+	var sortkey: String {
+		@inline(__always)
+		get {
+			monster.sortkey
 		}
 	}
 

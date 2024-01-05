@@ -1,21 +1,21 @@
 import SwiftUI
 
-struct LabeledContentBackport<Content: View>: View {
-	let title: LocalizedStringKey
+struct LabeledContentBackport<Label, Content>: View where Label: View, Content: View {
+	let label: Label
 	let content: Content
 
 	@Namespace
 	var namespace
 
-	init(_ title: LocalizedStringKey, @ViewBuilder content: () -> Content) {
-		self.title = title
+	init(@ViewBuilder content: () -> Content, @ViewBuilder label: () -> Label) {
+		self.label = label()
 		self.content = content()
 	}
 
 	var body: some View {
 #if os(watchOS)
 		VStack(alignment: .leading) {
-			Text(title)
+			label
 				.accessibilityLabeledPair(role: .label, id: 0, in: namespace)
 
 			content
@@ -25,8 +25,8 @@ struct LabeledContentBackport<Content: View>: View {
 		.multilineTextAlignment(.leading)
 		.accessibilityElement(children: .combine)
 #else
-		HStack(alignment: .firstTextBaseline) {
-			Text(title)
+		HStack {
+			label
 				.accessibilityLabeledPair(role: .label, id: 0, in: namespace)
 
 			Spacer()
@@ -40,14 +40,26 @@ struct LabeledContentBackport<Content: View>: View {
 	}
 }
 
-extension LabeledContentBackport where Content == Text {
-	init(_ title: LocalizedStringKey, value: String) {
-		self.title = title
-		self.content = Text(verbatim: value)
+extension LabeledContentBackport where Label == Text {
+	init<S>(_ title: S, @ViewBuilder content: () -> Content) where S: StringProtocol {
+		self.label = Text(title)
+		self.content = content()
 	}
 
-	init(_ title: LocalizedStringKey, value: LocalizedStringKey) {
-		self.title = title
+	init(_ titleKey: LocalizedStringKey, @ViewBuilder content: () -> Content) {
+		self.label = Text(titleKey)
+		self.content = content()
+	}
+}
+
+extension LabeledContentBackport where Label == Text, Content == Text {
+	init<S1, S2>(_ title: S1, value: S2) where S1: StringProtocol, S2: StringProtocol {
+		self.label = Text(title)
+		self.content = Text(value)
+	}
+
+	init<S>(_ titleKey: LocalizedStringKey, value: S) where S: StringProtocol {
+		self.label = Text(titleKey)
 		self.content = Text(value)
 	}
 }

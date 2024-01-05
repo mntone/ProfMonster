@@ -59,6 +59,13 @@ final class SettingsViewModel: ObservableObject {
 		}
 	}
 
+	@Published
+	var showInternalInformation: Bool {
+		didSet {
+			settings.showInternalInformation = showInternalInformation
+		}
+	}
+
 	init(rootViewModel: HomeViewModel,
 		 storage: Storage) {
 		guard let app = MAApp.resolver.resolve(MonsterAnalyzerCore.App.self) else {
@@ -78,6 +85,7 @@ final class SettingsViewModel: ObservableObject {
 #endif
 		self.elementDisplay = app.settings.elementDisplay
 		self.mergeParts = app.settings.mergeParts
+		self.showInternalInformation = app.settings.showInternalInformation
 
 		let scheduler = DispatchQueue.main
 #if !os(macOS)
@@ -91,6 +99,7 @@ final class SettingsViewModel: ObservableObject {
 #endif
 		settings.$elementDisplay.dropFirst().receive(on: scheduler).assign(to: &$elementDisplay)
 		settings.$mergeParts.dropFirst().receive(on: scheduler).assign(to: &$mergeParts)
+		settings.$showInternalInformation.dropFirst().receive(on: scheduler).assign(to: &$showInternalInformation)
 	}
 
 	convenience init(rootViewModel: HomeViewModel) {

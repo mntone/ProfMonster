@@ -13,18 +13,18 @@ extension SettingsLabelMetrics {
 #if os(macOS)
 		switch sidebarRowSize {
 		case .small:
-			return 9.0
+			return 8.0
 		case .large:
-			return 21.0
+			return 20.0
 		case .medium:
 			fallthrough
 		@unknown default:
-			return 15.0
+			return 14.0
 		}
 #elseif os(watchOS)
-		return 12.0
+		return 11.0
 #else
-		return 20.0
+		return 19.0
 #endif
 	}
 

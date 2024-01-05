@@ -67,6 +67,10 @@
 		EB693EA82B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */; };
 		EB6ADE742B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */; };
 		EB6ADE752B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */; };
+		EB84A5BD2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */; };
+		EB84A5BE2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */; };
+		EB84A5C02B47910000291C6B /* DeveloperMonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BF2B47910000291C6B /* DeveloperMonsterView.swift */; };
+		EB84A5C12B47910000291C6B /* DeveloperMonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BF2B47910000291C6B /* DeveloperMonsterView.swift */; };
 		EB87781F2B26B0AB00B3359C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F12B1D8E1300FD7115 /* HomeView.swift */; };
 		EB8778212B26B1E600B3359C /* NavigationSplitViewHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778202B26B1E600B3359C /* NavigationSplitViewHost.swift */; };
 		EB8778232B26B28500B3359C /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778222B26B28500B3359C /* MonsterList.swift */; };
@@ -372,6 +376,8 @@
 		EB645A632B2685D500D27500 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StarSwingsError+Extensions.swift"; sourceTree = "<group>"; };
 		EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSettingsPaneModifier.swift; sourceTree = "<group>"; };
+		EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsPane.swift; sourceTree = "<group>"; };
+		EB84A5BF2B47910000291C6B /* DeveloperMonsterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperMonsterView.swift; sourceTree = "<group>"; };
 		EB8778202B26B1E600B3359C /* NavigationSplitViewHost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationSplitViewHost.swift; sourceTree = "<group>"; };
 		EB8778222B26B28500B3359C /* MonsterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
 		EB8778242B26B38200B3359C /* MonsterListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListItem.swift; sourceTree = "<group>"; };
@@ -709,6 +715,7 @@
 				EBA66F1C2B355F38009DE78C /* AppSettingsPane.swift */,
 				EBA66F172B355C07009DE78C /* ColumnSettingsContainer.swift */,
 				EBA66F1F2B355F3E009DE78C /* DataSettingsPane.swift */,
+				EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */,
 				EB99227F2B357D9400DBA812 /* DisplaySettingsPane.swift */,
 				EBA66F192B355EDE009DE78C /* DrillDownSettingsContainer.swift */,
 				EB2B0FAC2B39260D004596A6 /* LicenseView.swift */,
@@ -955,6 +962,7 @@
 		EBEAB0C12B42376E00CC25A8 /* Details */ = {
 			isa = PBXGroup;
 			children = (
+				EB84A5BF2B47910000291C6B /* DeveloperMonsterView.swift */,
 				EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */,
 				EBEAB0C22B42378100CC25A8 /* MonsterNavigationBarHeader.swift */,
 				EBF9282C2B1038C9007D59D4 /* MonsterView.swift */,
@@ -1279,6 +1287,8 @@
 				EBA66F212B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
 				EBDEEF3D2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */,
 				EBB154C12B3D03C000636DB0 /* DetailItemHeader.swift in Sources */,
+				EB84A5C12B47910000291C6B /* DeveloperMonsterView.swift in Sources */,
+				EB84A5BE2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */,
 				EB9922812B357D9400DBA812 /* DisplaySettingsPane.swift in Sources */,
 				EBA66F1B2B355EDE009DE78C /* DrillDownSettingsContainer.swift in Sources */,
 				EBC85C7E2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */,
@@ -1432,6 +1442,8 @@
 				EBA66F202B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
 				EBDEEF3E2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */,
 				EBB154C02B3D03C000636DB0 /* DetailItemHeader.swift in Sources */,
+				EB84A5C02B47910000291C6B /* DeveloperMonsterView.swift in Sources */,
+				EB84A5BD2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */,
 				EB9922802B357D9400DBA812 /* DisplaySettingsPane.swift in Sources */,
 				EB28F1B32B370F0700291055 /* DividedHStack.swift in Sources */,
 				EBA66F1A2B355EDE009DE78C /* DrillDownSettingsContainer.swift in Sources */,
