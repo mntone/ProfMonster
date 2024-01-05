@@ -15,13 +15,13 @@ struct DefaultTextProcessor: TextProcessor {
 	}
 
 	func normalize(fromReadable readableText: String) -> String {
-		readableText.lowercased()
+		readableText
 	}
 
 	func readable(from text: String) -> String {
 		text.filter { char in
-			!char.isWhitespace
-		}
+			!char.isWhitespace && char != "-"
+		}.lowercased()
 	}
 
 	func latin(from readableText: String) -> String {
@@ -29,8 +29,6 @@ struct DefaultTextProcessor: TextProcessor {
 	}
 
 	func sortkey(from readableText: String) -> String {
-		readableText
-			.lowercased()
-			.folding(options: .diacriticInsensitive, locale: nil)
+		readableText.folding(options: .diacriticInsensitive, locale: nil)
 	}
 }

@@ -60,7 +60,11 @@ struct JapaneseTextProcessor: TextProcessor {
 	}
 
 	func latin(from readableText: String) -> String {
-		readableText.applyingTransform(.latinToKatakana, reverse: true)!
+		readableText
+			.applyingTransform(.latinToKatakana, reverse: true)!
+			.filter { char in
+				char != "'"
+			}
 	}
 
 	func sortkey(from readableText: String) -> String {

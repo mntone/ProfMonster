@@ -5,11 +5,18 @@ enum MonsterLocalizationMapper {
 					readableName: String,
 					languageService: LanguageService) -> [String] {
 		var result: [String] = []
-		result.append(languageService.normalize(fromReadable: readableName))
+
+		let normalizedName = languageService.normalize(forSearch: src.name)
+		result.append(normalizedName)
+
+		let normalizedReadableName = languageService.normalize(fromReadable: readableName)
+		if normalizedName != normalizedReadableName {
+			result.append(normalizedReadableName)
+		}
 
 #if !os(watchOS)
 		let latinName = languageService.latin(from: readableName)
-		if src.name != latinName {
+		if normalizedReadableName != latinName {
 			result.append(latinName)
 		}
 #endif
