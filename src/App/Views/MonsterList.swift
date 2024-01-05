@@ -16,7 +16,7 @@ struct MonsterList: View {
 			List(items, id: \.id, selection: selection) { group in
 				Section {
 					ForEach(group.items) { item in
-						MonsterListItem(viewModel: item)
+						MonsterListItem(viewModel: item.content)
 					}
 				} header: {
 					Text(verbatim: group.label)
@@ -24,7 +24,7 @@ struct MonsterList: View {
 			}
 		} else {
 			List(items.first?.items ?? [], id: \.id, selection: selection) { item in
-				MonsterListItem(viewModel: item)
+				MonsterListItem(viewModel: item.content)
 			}
 		}
 	}

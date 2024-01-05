@@ -69,8 +69,8 @@ final class GameViewModel: ObservableObject {
 					return monsters
 						.sorted()
 						.map { monster in
-							monster.$isFavorited.map { favorited -> GameItemViewModel? in
-								favorited ? monster : nil
+							monster.$isFavorited.map { favorited -> IdentifyHolder<GameItemViewModel>? in
+								favorited ? IdentifyHolder(monster, prefix: "f") : nil
 							}
 						}
 						.combineLatest
@@ -92,9 +92,14 @@ final class GameViewModel: ObservableObject {
 
 		// All Groups
 		getState
+			.mapData { monsters in
+				monsters.map { monster in
+					IdentifyHolder(monster)
+				}
+			}
 #if os(watchOS)
 			// Merge the fav group into groups
-			.combineLatest(favorites) { (state: StarSwingsState<[GameItemViewModel]>, fav: GameGroupViewModel?) -> StarSwingsState<[GameGroupViewModel]> in
+			.combineLatest(favorites) { (state: StarSwingsState<[IdentifyHolder<GameItemViewModel>]>, fav: GameGroupViewModel?) -> StarSwingsState<[GameGroupViewModel]> in
 				state.mapData { monsters in
 					let groupsExceptFav = GameGroupViewModel(gameID: game.id, type: .inGame, items: monsters)
 
@@ -109,8 +114,8 @@ final class GameViewModel: ObservableObject {
 			}
 #else
 			// Merge the fav group into sorted or splited groups
-			.combineLatest(favorites, $sort) { (state: StarSwingsState<[GameItemViewModel]>, fav: GameGroupViewModel?, sort: Sort) -> StarSwingsState<[GameGroupViewModel]> in
-				state.mapData { (monsters: [GameItemViewModel]) -> [GameGroupViewModel] in
+			.combineLatest(favorites, $sort) { (state: StarSwingsState<[IdentifyHolder<GameItemViewModel>]>, fav: GameGroupViewModel?, sort: Sort) -> StarSwingsState<[GameGroupViewModel]> in
+				state.mapData { (monsters: [IdentifyHolder<GameItemViewModel>]) -> [GameGroupViewModel] in
 					let groups: [GameGroupViewModel]
 					switch sort {
 					case .inGame:
@@ -129,11 +134,11 @@ final class GameViewModel: ObservableObject {
 						}
 					case .type:
 						let otherGroups = monsters
-							.reduce(into: [:]) { (result: inout [String: [GameItemViewModel]], next: GameItemViewModel) in
-								if let items = result[next.type] {
-									result[next.type] = items + [next]
+							.reduce(into: [:]) { (result: inout [String: [IdentifyHolder<GameItemViewModel>]], next: IdentifyHolder<GameItemViewModel>) in
+								if let items = result[next.content.type] {
+									result[next.content.type] = items + [next]
 								} else {
-									result[next.type] = [next]
+									result[next.content.type] = [next]
 								}
 							}
 							.map { id, items in
@@ -167,7 +172,7 @@ final class GameViewModel: ObservableObject {
 #endif
 
 						let filtered = group.items.filter { monster in
-							monster.keywords.contains { keyword in
+							monster.content.keywords.contains { keyword in
 								keyword.contains(normalizedSearchText)
 							}
 						}

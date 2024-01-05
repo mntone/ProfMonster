@@ -94,7 +94,7 @@ struct NavigationSplitViewHost: View {
 
 	private func updateMonsterViewModel(of id: String?) {
 		if let selectedGameID,
-		   let id {
+		   let id = id?.split(separator: ";", maxSplits: 1).last.map(String.init) {
 			monsterViewModel = MonsterViewModel(id: id, for: selectedGameID)
 		} else {
 			monsterViewModel = nil
@@ -170,7 +170,7 @@ struct NavigationSplitViewHostBackport: View {
 
 	private func updateMonsterViewModel(of id: String?) {
 		if let selectedGameID,
-		   let id {
+		   let id = id?.split(separator: ";", maxSplits: 1).last.map(String.init) {
 			monsterViewModel = MonsterViewModel(id: id, for: selectedGameID)
 		} else {
 			monsterViewModel = nil

@@ -27,9 +27,9 @@ struct GameGroupViewModel: Identifiable {
 	let type: GameGroupType
 	let label: String
 	let sortkey: String
-	let items: [GameItemViewModel]
+	let items: [IdentifyHolder<GameItemViewModel>]
 
-	init(gameID: String, type: GameGroupType, items: [GameItemViewModel]) {
+	init(gameID: String, type: GameGroupType, items: [IdentifyHolder<GameItemViewModel>]) {
 		self.gameID = gameID
 		self.type = type
 		switch type {

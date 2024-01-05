@@ -78,7 +78,7 @@ final class GameItemViewModel: ObservableObject, Identifiable {
 	private var sortkey: String {
 		@inline(__always)
 		get {
-			monster.sortkey ?? monster.name
+			monster.sortkey
 		}
 	}
 }

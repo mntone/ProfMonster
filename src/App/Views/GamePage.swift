@@ -18,7 +18,7 @@ struct GamePage<ItemView: View>: View {
 			List(items) { group in
 				Section {
 					ForEach(group.items) { item in
-						content(item)
+						content(item.content)
 					}
 				} header: {
 					Text(verbatim: group.label)
@@ -26,7 +26,7 @@ struct GamePage<ItemView: View>: View {
 			}
 		} else {
 			List(items.first?.items ?? []) { item in
-				content(item)
+				content(item.content)
 			}
 		}
 	}
