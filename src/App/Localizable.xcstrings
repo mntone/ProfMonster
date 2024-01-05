@@ -2,7 +2,7 @@
   "sourceLanguage" : "en",
   "strings" : {
     "+" : {
-      "comment" : "Effective/Low",
+      "comment" : "Effective",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -91,7 +91,7 @@
       }
     },
     "++" : {
-      "comment" : "Effective/Middle",
+      "comment" : "Effective",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -180,7 +180,7 @@
       }
     },
     "+++" : {
-      "comment" : "Effective/High",
+      "comment" : "Effective",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -269,7 +269,7 @@
       }
     },
     "0" : {
-      "comment" : "Effective/Invalid",
+      "comment" : "Effective",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -3418,7 +3418,7 @@
       }
     },
     "Dragon Element" : {
-      "comment" : "Element/Dragon (Long)",
+      "comment" : "Elem/Long",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -3501,7 +3501,7 @@
       }
     },
     "Dragon_MEDIUM" : {
-      "comment" : "Element/Dragon (Medium)",
+      "comment" : "Elem/Medium",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -4354,7 +4354,7 @@
       }
     },
     "Favorite" : {
-      "comment" : "SwipeActions/Favorite",
+      "comment" : "SwipeAction",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4733,7 +4733,7 @@
       }
     },
     "Fire Element" : {
-      "comment" : "Element/Fire (Long)",
+      "comment" : "Elem/Long",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -4816,7 +4816,7 @@
       }
     },
     "Fire_MEDIUM" : {
-      "comment" : "Element/Fire (Medium)",
+      "comment" : "Elem/Medium",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -5133,7 +5133,7 @@
       }
     },
     "High" : {
-      "comment" : "Effective/High (Accessibility)",
+      "comment" : "Effective/Accessibility",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5240,7 +5240,7 @@
       }
     },
     "Ice Element" : {
-      "comment" : "Element/Ice (Long)",
+      "comment" : "Elem/Long",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -5323,7 +5323,7 @@
       }
     },
     "Ice_MEDIUM" : {
-      "comment" : "Element/Ice (Medium)",
+      "comment" : "Elem/Medium",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -5412,7 +5412,7 @@
       }
     },
     "In Game" : {
-      "comment" : "Sort/In Game",
+      "comment" : "Sort",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5445,7 +5445,7 @@
       }
     },
     "Invalid" : {
-      "comment" : "Effective/Invalid (Accessibility)",
+      "comment" : "Effective/Accessibility",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5759,7 +5759,7 @@
       }
     },
     "Low" : {
-      "comment" : "Effective/Low (Accessibility)",
+      "comment" : "Effective/Accessibility",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5792,7 +5792,7 @@
       }
     },
     "Middle" : {
-      "comment" : "Effective/Middle (Accessibility)",
+      "comment" : "Effective/Accessibility",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5857,7 +5857,7 @@
       }
     },
     "Name" : {
-      "comment" : "Sort/Name",
+      "comment" : "Sort",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -5940,7 +5940,7 @@
       }
     },
     "None" : {
-      "comment" : "SwipeActions/None",
+      "comment" : "SwipeAction",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -6063,7 +6063,7 @@
       }
     },
     "Number (%u decimal places)" : {
-      "comment" : "DisplayMode/NumberN",
+      "comment" : "DisplayMode",
       "localizations" : {
         "en" : {
           "variations" : {
@@ -7193,7 +7193,7 @@
       }
     },
     "Shell Element" : {
-      "comment" : "Element/Shell (Long)",
+      "comment" : "Elem/Long",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -7240,7 +7240,7 @@
       }
     },
     "Shell_MEDIUM" : {
-      "comment" : "Element/Shell (Medium)",
+      "comment" : "Elem/Medium",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -7581,7 +7581,7 @@
       }
     },
     "Slash Element" : {
-      "comment" : "Element/Slash (Long)",
+      "comment" : "Elem/Long",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -7628,7 +7628,7 @@
       }
     },
     "Slash_MEDIUM" : {
-      "comment" : "Element/Slash (Medium)",
+      "comment" : "Elem/Medium",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -7841,7 +7841,7 @@
       }
     },
     "Strike Element" : {
-      "comment" : "Element/Strike (Long)",
+      "comment" : "Elem/Long",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -7888,7 +7888,7 @@
       }
     },
     "Strike_MEDIUM" : {
-      "comment" : "Element/Strike (Medium)",
+      "comment" : "Elem/Medium",
       "localizations" : {
         "de" : {
           "stringUnit" : {
@@ -8153,7 +8153,7 @@
       }
     },
     "Thunder" : {
-      "comment" : "Element/Thunder (Short)",
+      "comment" : "Elem/Short",
       "localizations" : {
         "ar" : {
           "variations" : {
@@ -8410,7 +8410,7 @@
       }
     },
     "Thunder Element" : {
-      "comment" : "Element/Thunder (Long)",
+      "comment" : "Elem/Long",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -8493,7 +8493,7 @@
       }
     },
     "Thunder_MEDIUM" : {
-      "comment" : "Element/Thunder (Medium)",
+      "comment" : "Elem/Medium",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -8582,7 +8582,7 @@
       }
     },
     "Type" : {
-      "comment" : "Sort/Type",
+      "comment" : "Sort",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -9201,7 +9201,7 @@
       }
     },
     "Water Element" : {
-      "comment" : "Element/Water (Long)",
+      "comment" : "Elem/Long",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -9284,7 +9284,7 @@
       }
     },
     "Water_MEDIUM" : {
-      "comment" : "Element/Water (Medium)",
+      "comment" : "Elem/Medium",
       "localizations" : {
         "ar" : {
           "stringUnit" : {

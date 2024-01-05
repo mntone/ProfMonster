@@ -54,59 +54,59 @@ extension Attack {
 		case .short:
 			switch self {
 			case .slash:
-				String(localized: "Slash", comment: "Element/Slash (Short)")
+				String(localized: "Slash", comment: "Elem/Short")
 			case .strike:
-				String(localized: "Strike", comment: "Element/Strike (Short)")
+				String(localized: "Strike", comment: "Elem/Short")
 			case .shell:
-				String(localized: "Shell", comment: "Element/Shell (Short)")
+				String(localized: "Shell", comment: "Elem/Short")
 			case .fire:
-				String(localized: "Fire", comment: "Element/Fire (Short)")
+				String(localized: "Fire", comment: "Elem/Short")
 			case .water:
-				String(localized: "Water", comment: "Element/Water (Short)")
+				String(localized: "Water", comment: "Elem/Short")
 			case .thunder:
-				String(localized: "Thunder", comment: "Element/Thunder (Short)")
+				String(localized: "Thunder", comment: "Elem/Short")
 			case .ice:
-				String(localized: "Ice", comment: "Element/Ice (Short)")
+				String(localized: "Ice", comment: "Elem/Short")
 			case .dragon:
-				String(localized: "Dragon", comment: "Element/Dragon (Short)")
+				String(localized: "Dragon", comment: "Elem/Short")
 			}
 		case .medium:
 			switch self {
 			case .slash:
-				String(localized: "Slash_MEDIUM", comment: "Element/Slash (Medium)")
+				String(localized: "Slash_MEDIUM", comment: "Elem/Medium")
 			case .strike:
-				String(localized: "Strike_MEDIUM", comment: "Element/Strike (Medium)")
+				String(localized: "Strike_MEDIUM", comment: "Elem/Medium")
 			case .shell:
-				String(localized: "Shell_MEDIUM", comment: "Element/Shell (Medium)")
+				String(localized: "Shell_MEDIUM", comment: "Elem/Medium")
 			case .fire:
-				String(localized: "Fire_MEDIUM", comment: "Element/Fire (Medium)")
+				String(localized: "Fire_MEDIUM", comment: "Elem/Medium")
 			case .water:
-				String(localized: "Water_MEDIUM", comment: "Element/Water (Medium)")
+				String(localized: "Water_MEDIUM", comment: "Elem/Medium")
 			case .thunder:
-				String(localized: "Thunder_MEDIUM", comment: "Element/Thunder (Medium)")
+				String(localized: "Thunder_MEDIUM", comment: "Elem/Medium")
 			case .ice:
-				String(localized: "Ice_MEDIUM", comment: "Element/Ice (Medium)")
+				String(localized: "Ice_MEDIUM", comment: "Elem/Medium")
 			case .dragon:
-				String(localized: "Dragon_MEDIUM", comment: "Element/Dragon (Medium)")
+				String(localized: "Dragon_MEDIUM", comment: "Elem/Medium")
 			}
 		case .long:
 			switch self {
 			case .slash:
-				String(localized: "Slash Element", comment: "Element/Slash (Long)")
+				String(localized: "Slash Element", comment: "Elem/Long")
 			case .strike:
-				String(localized: "Strike Element", comment: "Element/Strike (Long)")
+				String(localized: "Strike Element", comment: "Elem/Long")
 			case .shell:
-				String(localized: "Shell Element", comment: "Element/Shell (Long)")
+				String(localized: "Shell Element", comment: "Elem/Long")
 			case .fire:
-				String(localized: "Fire Element", comment: "Element/Fire (Long)")
+				String(localized: "Fire Element", comment: "Elem/Long")
 			case .water:
-				String(localized: "Water Element", comment: "Element/Water (Long)")
+				String(localized: "Water Element", comment: "Elem/Long")
 			case .thunder:
-				String(localized: "Thunder Element", comment: "Element/Thunder (Long)")
+				String(localized: "Thunder Element", comment: "Elem/Long")
 			case .ice:
-				String(localized: "Ice Element", comment: "Element/Ice (Long)")
+				String(localized: "Ice Element", comment: "Elem/Long")
 			case .dragon:
-				String(localized: "Dragon Element", comment: "Element/Dragon (Long)")
+				String(localized: "Dragon Element", comment: "Elem/Long")
 			}
 		}
 	}

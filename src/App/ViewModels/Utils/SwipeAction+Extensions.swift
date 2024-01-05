@@ -4,9 +4,9 @@ extension SwipeAction {
 	var label: String {
 		switch self {
 		case .none:
-			String(localized: "None", comment: "SwipeActions/None")
+			String(localized: "None", comment: "SwipeAction")
 		case .favorite:
-			String(localized: "Favorite", comment: "SwipeActions/Favorite")
+			String(localized: "Favorite", comment: "SwipeAction")
 		}
 	}
 }

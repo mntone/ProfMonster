@@ -4,11 +4,11 @@ extension Sort {
 	var label: String {
 		switch self {
 		case .inGame:
-			String(localized: "In Game", comment: "Sort/In Game")
+			String(localized: "In Game", comment: "Sort")
 		case .name:
-			String(localized: "Name", comment: "Sort/Name")
+			String(localized: "Name", comment: "Sort")
 		case .type:
-			String(localized: "Type", comment: "Sort/Type")
+			String(localized: "Type", comment: "Sort")
 		}
 	}
 }

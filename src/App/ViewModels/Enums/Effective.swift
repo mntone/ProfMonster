@@ -9,26 +9,26 @@ enum Effective: Int8 {
 	var label: String {
 		switch self {
 		case .high:
-			String(localized: "+++", comment: "Effective/High")
+			String(localized: "+++", comment: "Effective")
 		case .middle:
-			String(localized: "++", comment: "Effective/Middle")
+			String(localized: "++", comment: "Effective")
 		case .low:
-			String(localized: "+", comment: "Effective/Low")
+			String(localized: "+", comment: "Effective")
 		case .invalid:
-			String(localized: "0", comment: "Effective/Invalid")
+			String(localized: "0", comment: "Effective")
 		}
 	}
 
 	var accessibilityLabel: String {
 		switch self {
 		case .high:
-			String(localized: "High", comment: "Effective/High (Accessibility)")
+			String(localized: "High", comment: "Effective/Accessibility")
 		case .middle:
-			String(localized: "Middle", comment: "Effective/Middle (Accessibility)")
+			String(localized: "Middle", comment: "Effective/Accessibility")
 		case .low:
-			String(localized: "Low", comment: "Effective/Low (Accessibility)")
+			String(localized: "Low", comment: "Effective/Accessibility")
 		case .invalid:
-			String(localized: "Invalid", comment: "Effective/Invalid (Accessibility)")
+			String(localized: "Invalid", comment: "Effective/Accessibility")
 		}
 	}
 }
