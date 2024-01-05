@@ -65,6 +65,8 @@
 		EB645A662B26A3C000D27500 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F12B1D8E1300FD7115 /* HomeView.swift */; };
 		EB693EA72B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */; };
 		EB693EA82B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */; };
+		EB6A4F442B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6A4F432B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift */; };
+		EB6A4F452B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6A4F432B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift */; };
 		EB6ADE742B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */; };
 		EB6ADE752B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */; };
 		EB84A5BD2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */; };
@@ -377,6 +379,7 @@
 		EB645A602B26749E00D27500 /* NavigationStackHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStackHost.swift; sourceTree = "<group>"; };
 		EB645A632B2685D500D27500 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StarSwingsError+Extensions.swift"; sourceTree = "<group>"; };
+		EB6A4F432B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ScrollBounceBehavior.swift"; sourceTree = "<group>"; };
 		EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSettingsPaneModifier.swift; sourceTree = "<group>"; };
 		EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsPane.swift; sourceTree = "<group>"; };
 		EB84A5BF2B47910000291C6B /* DeveloperMonsterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperMonsterView.swift; sourceTree = "<group>"; };
@@ -834,6 +837,7 @@
 				EB42495B2B3329E30086E255 /* iOS */,
 				EB60764B2B33F5B900AF9121 /* macOS */,
 				EBC85C6F2B2053A5008A16C6 /* watchOS */,
+				EB6A4F432B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift */,
 				EBDEEF3F2B3EDF3900835CBC /* Backport+ScrollContentBackground.swift */,
 				EB8AD06A2B42944800F1E96F /* Backport+ShapeStyle.swift */,
 				EB42495E2B332A230086E255 /* Backport.swift */,
@@ -1283,6 +1287,7 @@
 				EBA66F1E2B355F38009DE78C /* AppSettingsPane.swift in Sources */,
 				EBF706F52B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift in Sources */,
 				EBB4B2162B175DE7004D63EA /* Attack+Extensions.swift in Sources */,
+				EB6A4F452B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift in Sources */,
 				EB8AD06C2B42944800F1E96F /* Backport+ShapeStyle.swift in Sources */,
 				EB4249602B332A230086E255 /* Backport.swift in Sources */,
 				EBC85C7B2B2063FF008A16C6 /* BottomCircularButtonStyle.swift in Sources */,
@@ -1437,6 +1442,7 @@
 				EBF706F42B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift in Sources */,
 				EBB4B1E52B16A6D4004D63EA /* Attack+Extensions.swift in Sources */,
 				EB2550142B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift in Sources */,
+				EB6A4F442B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift in Sources */,
 				EBDEEF402B3EDF3900835CBC /* Backport+ScrollContentBackground.swift in Sources */,
 				EB42495D2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift in Sources */,
 				EB8AD06B2B42944800F1E96F /* Backport+ShapeStyle.swift in Sources */,

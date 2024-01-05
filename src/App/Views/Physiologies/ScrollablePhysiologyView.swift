@@ -161,6 +161,7 @@ struct ScrollablePhysiologyView: View {
 				.padding(PhysiologyViewMetrics.margin.setting(leading: 0))
 			}
 			.ignoresSafeArea(.all, edges: .leading)
+			.backport.scrollBounceBehavior(.basedOnSize, axes: .horizontal)
 			.overlay(alignment: .topLeading) {
 				Group {
 					if offsetX > 0 {
