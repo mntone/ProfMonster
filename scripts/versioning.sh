@@ -24,7 +24,7 @@ GIT_HASH=$(git rev-parse HEAD)
 GIT_HASH_ORIGIN=$(git rev-parse $GIT_TAG^{})
 if [ "$GIT_HASH" = "$GIT_HASH_ORIGIN" ]; then
 	GIT_CURRENT=$GIT_TAG
-	GIT_ORIGIN=$(git describe --tags --abbrev=0 --exclude '$GIT_TAG')
+	GIT_ORIGIN=$(git describe --tags --abbrev=0 --exclude $GIT_TAG)
 	GIT_HASH_ORIGIN=$(git rev-parse $GIT_ORIGIN^{})
 else
 	GIT_CURRENT=$GIT_HASH
