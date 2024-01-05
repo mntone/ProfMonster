@@ -17,6 +17,10 @@ public enum AppUtil {
 		info(key: "CFBundleShortVersionString") as! String
 	}
 
+	public static var copyright: String {
+		info(key: "NSHumanReadableCopyright") as! String
+	}
+
 #if os(watchOS)
 	@available(iOS, unavailable)
 	@available(macOS, unavailable)

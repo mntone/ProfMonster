@@ -49,8 +49,18 @@ struct AppSettingsPane: View {
 
 					Text("Prof. Monster")
 						.font(.headline)
-					Text("Version \(AppUtil.version)")
+					Text("Version \(AppUtil.version) (\(AppUtil.bundleShortVersion))")
 						.font(.subheadline)
+					Spacer()
+					Text(verbatim: AppUtil.copyright)
+#if os(watchOS)
+						.font(.footnote)
+#else
+						.font(.subheadline)
+#endif
+#if os(macOS)
+						.textSelection(.enabled)
+#endif
 				}
 				.scenePadding()
 				.frame(maxWidth: .infinity)
