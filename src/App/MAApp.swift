@@ -38,6 +38,9 @@ struct MAApp: SwiftUI.App {
 					])
 				}
 			}
+
+			ToolbarCommands()
+			SidebarCommands()
 		}
 #endif
 
@@ -49,7 +52,6 @@ struct MAApp: SwiftUI.App {
 				TabSettingsContainer(viewModel: SettingsViewModel(rootViewModel: viewModel))
 			}
 		}
-		.windowToolbarStyle(.expanded)
 #endif
 	}
 
