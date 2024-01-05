@@ -21,7 +21,7 @@ struct MonsterView: View {
 #if os(macOS)
 		TextEditor(text: $viewModel.note)
 			.font(.body)
-			.backport.scrollContentBackground(.hidden)
+			.backport.scrollContentBackground(.hidden, viewType: .textEditor)
 #else
 		if #available(iOS 16.0, *) {
 			TextField(text: $viewModel.note, axis: .vertical) {
