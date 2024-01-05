@@ -23,15 +23,15 @@ struct DisplaySettingsPane: View {
 				Toggle("Include Favorite Group in Search Results",
 					   isOn: $viewModel.includesFavoriteGroupInSearchResult)
 #endif
+			}
 
+			Section {
 #if os(iOS)
 				if !isAccessibilitySize {
 					Toggle("Show Monster’s Title", isOn: $viewModel.showTitle)
 				}
 #endif
-			}
 
-			Section{
 #if os(watchOS)
 				Toggle("Show Element Attack", isOn: Binding {
 					viewModel.elementDisplay != .none

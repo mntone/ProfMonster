@@ -88,7 +88,7 @@ struct SettingsLabelStyle: LabelStyle, SettingsLabelMetrics {
 #else
 				.background(.accent.gradient, in: RoundedRectangle(cornerRadius: cornerRadius))
 #endif
-				//.backgroundStyle(scenePhase == .active ? .primary : .secondary)
+				.environment(\.legibilityWeight, .regular)
 #if os(macOS)
 				.compositingGroup()
 				.shadow(radius: 0.5, y: 0.5)
@@ -147,6 +147,7 @@ struct SettingsLabelStyleBackport: LabelStyle, SettingsLabelMetrics {
 #else
 				.background(.accent, in: RoundedRectangle(cornerRadius: cornerRadius))
 #endif
+				.environment(\.legibilityWeight, .regular)
 			configuration.title
 				.multilineTextAlignment(.leading)
 		}

@@ -101,15 +101,15 @@ struct AppSettingsPane: View {
 				let mit = Self.loadLicense(of: "mit")!
 				LicenseView(name: "MessagePacker",
 							link: URL(string: "https://github.com/hirotakan/MessagePacker"),
-							text: mit.replacingOccurrences(of: "{Copyright}", with: "Copyright (c) 2018 hiro"))
+							text: mit.replacingOccurrences(of: "{Copyright}", with: "(c) 2018 hiro"))
 #if os(iOS) || os(macOS)
 				LicenseView(name: "SwiftUI Introspect",
 							link: URL(string: "https://github.com/siteline/swiftui-introspect"),
-							text: mit.replacingOccurrences(of: "{Copyright}", with: "Copyright 2019 Timber Software"))
+							text: mit.replacingOccurrences(of: "{Copyright}", with: "2019 Timber Software"))
 #endif
 				LicenseView(name: "Swinject",
 							link: URL(string: "https://github.com/Swinject/Swinject"),
-							text: mit.replacingOccurrences(of: "{Copyright}", with: "Copyright (c) 2015 Swinject Contributors"))
+							text: mit.replacingOccurrences(of: "{Copyright}", with: "(c) 2015 Swinject Contributors"))
 			}
 			.labelStyle(.iconOnly)
 		}
