@@ -11,10 +11,10 @@ public final class Settings {
 #endif
 
 #if os(macOS)
-	@UserDefault("incFavInSearch", initial: true)
+	@UserDefault("favInSearch", initial: true)
 	public var includesFavoriteGroupInSearchResult: Bool
 #elseif os(iOS)
-	@UserDefault("incFavInSearch", initial: false)
+	@UserDefault("favInSearch", initial: false)
 	public var includesFavoriteGroupInSearchResult: Bool
 #endif
 
