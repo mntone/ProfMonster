@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if [ "$CI" = "TRUE" ]; then
+	git fetch origin --tags
+fi
+
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 XCCONFIG_PATH=$SCRIPT_DIR/../src/App/Versioning.xcconfig
 
