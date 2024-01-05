@@ -39,10 +39,16 @@ struct DisplaySettingsPane: View {
 					viewModel.elementDisplay = value ? .sign : .none
 				})
 #else
+				let mock = MockData.physiology(.guluQoo)!
+				let baseViewModel = WeaknessSectionViewModel("settings", rawValue: mock.sections[0])
 				PreferredPicker("Element Attack",
 								data: WeaknessDisplayMode.allCases,
-								selection: $viewModel.elementDisplay) { mode in
+								selection: $viewModel.elementDisplay,
+								disablePreviews: [.none]) { mode in
 					Text(verbatim: mode.label)
+				} preview: { mode in
+					let viewModel = WeaknessViewModel(id: "settings", displayMode: mode, sections: [baseViewModel])
+					FixedWidthWeaknessView(viewModel: viewModel)
 				}
 #endif
 
