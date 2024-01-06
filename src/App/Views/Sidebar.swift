@@ -1,10 +1,8 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
+@available(watchOS, unavailable)
 struct Sidebar: View {
-	@Environment(\.presentSettingsSheetAction)
-	private var presentSettingsSheetAction
-
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
 
@@ -15,19 +13,16 @@ struct Sidebar: View {
 			Text(verbatim: item.name)
 		}
 		.modifier(StatusOverlayModifier(state: viewModel.state))
-		.modifier(SharedGameListModifier {
-			presentSettingsSheetAction()
-		})
+		.modifier(SharedGameListModifier(viewModel: viewModel))
 	}
 }
 
 #if os(iOS)
 
 @available(iOS, introduced: 15.0, deprecated: 16.0, message: "Use Sidebar instead")
+@available(macOS, unavailable)
+@available(watchOS, unavailable)
 struct SidebarBackport: View {
-	@Environment(\.presentSettingsSheetAction)
-	private var presentSettingsSheetAction
-
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
 
@@ -40,9 +35,7 @@ struct SidebarBackport: View {
 			}
 		}
 		.modifier(StatusOverlayModifier(state: viewModel.state))
-		.modifier(SharedGameListModifier {
-			presentSettingsSheetAction()
-		})
+		.modifier(SharedGameListModifier(viewModel: viewModel))
 	}
 }
 

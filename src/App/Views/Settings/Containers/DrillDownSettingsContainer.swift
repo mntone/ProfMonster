@@ -118,9 +118,8 @@ struct DrillDownSettingsContainerBackport: View {
 }
 
 @available(iOS 16.0, watchOS 9.0, *)
-@available(macOS, unavailable)
 #Preview {
-	let viewModel = SettingsViewModel(rootViewModel: HomeViewModel())
+	let viewModel = SettingsViewModel()
 	return DrillDownSettingsContainer(viewModel: viewModel, selection: .constant(nil))
 }
 

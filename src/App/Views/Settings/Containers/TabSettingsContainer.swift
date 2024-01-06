@@ -6,7 +6,8 @@ import SwiftUI
 @available(macOS, introduced: 12.0, deprecated: 13.0, message: "Use ColumnSettingsContainer instead")
 @available(watchOS, unavailable)
 struct TabSettingsContainer: View {
-	let viewModel: SettingsViewModel
+	@State
+	private var viewModel = SettingsViewModel()
 
 	@Environment(\.dismiss)
 	private var dismiss
@@ -36,8 +37,7 @@ struct TabSettingsContainer: View {
 @available(iOS, unavailable)
 @available(watchOS, unavailable)
 #Preview {
-	let viewModel = SettingsViewModel(rootViewModel: HomeViewModel())
-	return TabSettingsContainer(viewModel: viewModel)
+	return TabSettingsContainer()
 }
 
 #endif

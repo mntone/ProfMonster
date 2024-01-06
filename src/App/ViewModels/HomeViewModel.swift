@@ -34,12 +34,9 @@ final class HomeViewModel: ObservableObject {
 			}
 			.receive(on: DispatchQueue.main)
 			.assign(to: &$state)
-
-		app.fetchIfNeeded()
 	}
 
-	func resetData() {
-		app.resetMemoryCache()
+	func fetchData() {
 		app.fetchIfNeeded()
 	}
 }

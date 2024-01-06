@@ -39,6 +39,7 @@ struct DataSettingsPane: View {
 					Text("settings.cachesize(\(storageSize))")
 				}
 			}
+			.animation(.easeInOut(duration: 0.333), value: viewModel.storageSize)
 		}
 		.task {
 			await viewModel.updateStorageSize()

@@ -5,12 +5,13 @@ import SwiftUI
 
 @available(macOS, unavailable)
 struct SettingsContainer: View {
-	let viewModel: SettingsViewModel
-
 #if os(iOS)
 	@Environment(\.horizontalSizeClass)
 	private var horizontalSizeClass
 #endif
+
+	@State
+	private var viewModel = SettingsViewModel()
 
 	@State
 	private var selectedSettingsPane: SettingsPane?

@@ -71,7 +71,7 @@ struct ContentView: View {
 		}
 #if !os(macOS)
 		.sheet(isPresented: $isSettingsPresented) {
-			SettingsContainer(viewModel: SettingsViewModel(rootViewModel: viewModel))
+			SettingsContainer()
 		}
 		.setPresentSettingsSheetAction(isPresented: $isSettingsPresented)
 #endif

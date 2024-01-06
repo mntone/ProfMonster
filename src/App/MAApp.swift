@@ -47,9 +47,9 @@ struct MAApp: SwiftUI.App {
 #if os(macOS)
 		Settings {
 			if #available(macOS 13.0, *) {
-				ColumnSettingsContainer(viewModel: SettingsViewModel(rootViewModel: viewModel))
+				ColumnSettingsContainer()
 			} else {
-				TabSettingsContainer(viewModel: SettingsViewModel(rootViewModel: viewModel))
+				TabSettingsContainer()
 			}
 		}
 #endif

@@ -19,6 +19,17 @@ public final class App: FetchableEntity<[Game]>, Entity {
 		super.init(dataSource: dataSource)
 	}
 
+	public func resetAllData() -> Task<Void, Never> {
+		Task.detached(priority: .utility) { [weak self] in
+			guard let self else { return }
+			guard let storage = resolver.resolve(Storage.self) else {
+				fatalError()
+			}
+			storage.resetAll()
+			resetMemoryCache()
+		}
+	}
+
 	@discardableResult
 	public func prefetch(of gameID: String) async -> Game? {
 		guard let games = await fetch(priority: .userInitiated).value else {

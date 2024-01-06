@@ -4,32 +4,24 @@ import SwiftUI
 #if !os(macOS)
 
 @available(iOS 16.0, watchOS 9.0, *)
+@available(macOS, unavailable)
 struct HomeView: View {
-	@Environment(\.presentSettingsSheetAction)
-	private var presentSettingsSheetAction
-
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
 
 	var body: some View {
 		List(viewModel.state.data ?? []) { item in
-			NavigationLink(value: MARoute.game(gameID: item.id)) {
-				Text(verbatim: item.name)
-			}
+			NavigationLink(item.name, value: MARoute.game(gameID: item.id))
 		}
 		.modifier(StatusOverlayModifier(state: viewModel.state))
-		.modifier(SharedGameListModifier {
-			presentSettingsSheetAction()
-		})
+		.modifier(SharedGameListModifier(viewModel: viewModel))
 	}
 }
 
-@available(iOS, introduced: 13.0, deprecated: 16.0, message: "Use NavigationStackHost instead")
-@available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use NavigationStackHost instead")
+@available(iOS, introduced: 13.0, deprecated: 16.0, message: "Use HomeView instead")
+@available(macOS, unavailable)
+@available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use HomeView instead")
 struct HomeViewBackport: View {
-	@Environment(\.presentSettingsSheetAction)
-	private var presentSettingsSheetAction
-
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
 
@@ -38,7 +30,7 @@ struct HomeViewBackport: View {
 
 	var body: some View {
 		List(viewModel.state.data ?? []) { item in
-			NavigationLink(tag: item.id, selection: selectedGameID) {
+			NavigationLink(item.name, tag: item.id, selection: selectedGameID) {
 				LazyView {
 					let viewModel = GameViewModel()
 					let _ = viewModel.set(id: item.id)
@@ -47,14 +39,10 @@ struct HomeViewBackport: View {
 														   selection: selectedMonsterID)
 					}
 				}
-			} label: {
-				Text(verbatim: item.name)
 			}
 		}
 		.modifier(StatusOverlayModifier(state: viewModel.state))
-		.modifier(SharedGameListModifier {
-			presentSettingsSheetAction()
-		})
+		.modifier(SharedGameListModifier(viewModel: viewModel))
 	}
 }
 

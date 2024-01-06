@@ -7,15 +7,18 @@ import SwiftUIIntrospect
 @available(macOS 13.0, *)
 @available(watchOS, unavailable)
 struct ColumnSettingsContainer: View {
-	let viewModel: SettingsViewModel
-
 #if os(macOS)
 	@Environment(\.dismiss)
 	private var dismiss
 
 	@State
+	private var viewModel = SettingsViewModel()
+
+	@State
 	private var selectedSettingsPane: SettingsPane = .display
 #else
+	let viewModel: SettingsViewModel
+
 	@Binding
 	var selectedSettingsPane: SettingsPane?
 
@@ -109,15 +112,12 @@ struct ColumnSettingsContainer: View {
 	}
 }
 
+@available(macOS 13.0, *)
 #Preview {
-	let viewModel = SettingsViewModel(rootViewModel: HomeViewModel())
-	if #available(macOS 13.0, *) {
 #if os(macOS)
-		return ColumnSettingsContainer(viewModel: viewModel)
+	return ColumnSettingsContainer()
 #else
-		return ColumnSettingsContainer(viewModel: viewModel, selection: .constant(.display))
+	let viewModel = SettingsViewModel()
+	return ColumnSettingsContainer(viewModel: viewModel, selection: .constant(.display))
 #endif
-	} else {
-		return EmptyView()
-	}
 }

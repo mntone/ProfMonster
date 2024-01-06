@@ -11,7 +11,7 @@ final class SettingsViewModel: ObservableObject {
 		return formatter
 	}()
 
-	private let rootViewModel: HomeViewModel
+	private let app: MonsterAnalyzerCore.App
 	private let settings: MonsterAnalyzerCore.Settings
 	private let storage: Storage
 
@@ -66,12 +66,11 @@ final class SettingsViewModel: ObservableObject {
 		}
 	}
 
-	init(rootViewModel: HomeViewModel,
-		 storage: Storage) {
+	init(storage: Storage) {
 		guard let app = MAApp.resolver.resolve(MonsterAnalyzerCore.App.self) else {
 			fatalError()
 		}
-		self.rootViewModel = rootViewModel
+		self.app = app
 		self.settings = app.settings
 		self.storage = storage
 #if !os(macOS)
@@ -102,21 +101,19 @@ final class SettingsViewModel: ObservableObject {
 		settings.$showInternalInformation.dropFirst().receive(on: scheduler).assign(to: &$showInternalInformation)
 	}
 
-	convenience init(rootViewModel: HomeViewModel) {
+	convenience init() {
 		guard let storage = MAApp.resolver.resolve(Storage.self) else {
 			fatalError()
 		}
-		self.init(rootViewModel: rootViewModel, storage: storage)
+		self.init(storage: storage)
 	}
 
 	func resetAllCaches() {
 		Task(priority: .utility) {
-			storage.resetAll()
+			storageSize = nil
+			await app.resetAllData().value
+			await updateStorageSize()
 		}
-		rootViewModel.resetData()
-
-		storageSize = nil
-		Task(operation: updateStorageSize)
 	}
 
 	@Sendable
@@ -126,9 +123,7 @@ final class SettingsViewModel: ObservableObject {
 			return formatter.string(fromByteCount: Int64(clamping: size))
 		}.value
 		DispatchQueue.main.async {
-			withAnimation(.easeInOut(duration: 0.333)) {
-				self.storageSize = storageSize
-			}
+			self.storageSize = storageSize
 		}
 	}
 }
