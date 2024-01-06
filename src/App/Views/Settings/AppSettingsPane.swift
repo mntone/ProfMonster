@@ -18,7 +18,7 @@ struct AppSettingsPane: View {
 	}
 
 	var body: some View {
-		Form {
+		SettingsPreferredList {
 			Section {
 				VStack {
 #if os(macOS)
@@ -74,37 +74,20 @@ struct AppSettingsPane: View {
 
 			Section("Build Info") {
 				let gitHash = AppUtil.gitHash
-				if #available(iOS 16.0, macOS 13.0, watchOS 9.0, *) {
-					LabeledContent("Git Difference") {
-						hashContent
-					}
-
-					LabeledContent("Git Commit Hash", value: String(gitHash.prefix(7)))
-#if os(watchOS)
-						.listRowBackground(EmptyView())
-#else
-						.help(gitHash)
-#endif
-					LabeledContent("Git Commit Date", value: AppUtil.gitDate.formatted(date: .numeric, time: .complete))
-#if os(watchOS)
-						.listRowBackground(EmptyView())
-#endif
-				} else {
-					LabeledContentBackport("Git Difference") {
-						hashContent
-					}
-
-					LabeledContentBackport("Git Commit Hash", value: String(gitHash.prefix(7)))
-#if os(watchOS)
-						.listRowBackground(EmptyView())
-#else
-						.help(gitHash)
-#endif
-					LabeledContentBackport("Git Commit Date", value: AppUtil.gitDate.formatted(date: .numeric, time: .complete))
-#if os(watchOS)
-						.listRowBackground(EmptyView())
-#endif
+				SettingsLabeledContent(LocalizedStringKey("Git Difference")) {
+					hashContent
 				}
+
+				SettingsLabeledContent(LocalizedStringKey("Git Commit Hash"), value: String(gitHash.prefix(7)))
+#if os(watchOS)
+					.listRowBackground(EmptyView())
+#else
+					.help(gitHash)
+#endif
+				SettingsLabeledContent(LocalizedStringKey("Git Commit Date"), value: AppUtil.gitDate.formatted(date: .numeric, time: .complete))
+#if os(watchOS)
+					.listRowBackground(EmptyView())
+#endif
 			}
 
 			Section("LICENSES") {
@@ -123,15 +106,6 @@ struct AppSettingsPane: View {
 			}
 			.labelStyle(.iconOnly)
 		}
-#if os(watchOS)
-		.block { content in
-			if #available(watchOS 9.0, *) {
-				content.labeledContentStyle(.vertical)
-			} else {
-				content
-			}
-		}
-#endif
 		.navigationTitle("About App")
 		.modifier(SharedSettingsPaneModifier())
 	}

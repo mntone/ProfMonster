@@ -17,39 +17,18 @@ struct DeveloperMonsterView: View {
 
 	var body: some View {
 		Section("Developer") {
-			if #available(iOS 16.0, macOS 13.0, watchOS 9.0, *) {
-				ForEach(dict, id: \.0) { (label, content) in
-					LabeledContent {
-						Text(verbatim: content)
+			ForEach(dict, id: \.0) { (label, content) in
+				SettingsLabeledContent(label) {
+					Text(verbatim: content)
 #if os(macOS)
-							.textSelection(.enabled)
+						.textSelection(.enabled)
 #endif
-					} label: {
-						Text(verbatim: label)
-					}
-				}
-			} else {
-				ForEach(dict, id: \.0) { (label, content) in
-					LabeledContentBackport {
-						Text(verbatim: content)
-#if os(macOS)
-							.textSelection(.enabled)
-#endif
-					} label: {
-						Text(verbatim: label)
-					}
+						.foregroundStyle(.secondary)
 				}
 			}
 		}
 #if os(watchOS)
 		.listRowBackground(EmptyView())
-		.block { content in
-			if #available(watchOS 9.0, *) {
-				content.labeledContentStyle(.vertical)
-			} else {
-				content
-			}
-		}
 #endif
 	}
 }

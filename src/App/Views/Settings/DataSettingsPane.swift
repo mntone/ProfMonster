@@ -22,6 +22,7 @@ struct RemoveCacheButton: View {
 		} message: {
 			Text("settings.removeCache.message")
 		}
+		.settingsPadding()
 	}
 }
 
@@ -30,7 +31,7 @@ struct DataSettingsPane: View {
 	private(set) var viewModel: SettingsViewModel
 
 	var body: some View {
-		Form {
+		SettingsPreferredList {
 			Section {
 				RemoveCacheButton(viewModel: viewModel)
 			} footer: {

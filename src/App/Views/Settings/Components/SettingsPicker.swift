@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct PreferredPicker<Data: RandomAccessCollection, Content: View, Preview>: View where Data.Element: Hashable, Data.Element: Identifiable, Preview: View {
+struct SettingsPicker<Data: RandomAccessCollection, Content: View, Preview>: View where Data.Element: Hashable, Data.Element: Identifiable, Preview: View {
 	private let titleKey: LocalizedStringKey
 	private let data: Data
 	private let disablePreviews: [Data.Element]?
@@ -45,35 +45,34 @@ struct PreferredPicker<Data: RandomAccessCollection, Content: View, Preview>: Vi
 		}
 #else
 		NavigationLink {
-			Form {
-				Section {
-					Picker(selection: $selection) {
-						ForEach(data) { item in
-							content(item).tag(item)
-						}
-					} label: {
-						Never?.none
+			SettingsPreferredList {
+				// Apple Watch require THIS LEVEL.
+				// Inlined Picker is styled correctly only directly below Form.
+				Picker(selection: $selection) {
+					ForEach(data) { item in
+						content(item).tag(item)
 					}
-					.pickerStyle(.inline)
+#if os(iOS)
+					.settingsPadding()
+#endif
+				} label: {
+					Never?.none
 				}
+				.pickerStyle(.inline)
 
 				if let preview,
 				   !(disablePreviews?.contains(selection) ?? false) {
 					Section("Preview") {
 						preview(selection)
+							.settingsPadding()
 					}
 				}
 			}
 			.navigationTitle(titleKey)
 		} label: {
-			if #available(iOS 16.0, watchOS 9.0, *) {
-				LabeledContent(titleKey) {
-					content(selection)
-				}
-			} else {
-				LabeledContentBackport(titleKey) {
-					content(selection)
-				}
+			SettingsLabeledContent(titleKey) {
+				content(selection)
+					.foregroundStyle(.secondary)
 			}
 		}
 #endif

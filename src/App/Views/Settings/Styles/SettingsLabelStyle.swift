@@ -70,6 +70,11 @@ struct SettingsLabelStyle: LabelStyle, SettingsLabelMetrics {
 	//	@Environment(\.scenePhase)
 	//	private var scenePhase
 
+#if os(iOS)
+	@Environment(\.dynamicTypeSize)
+	private var dynamicTypeSize
+#endif
+
 #if os(macOS)
 	@Environment(\.sidebarRowSize)
 	fileprivate var sidebarRowSize
@@ -77,7 +82,7 @@ struct SettingsLabelStyle: LabelStyle, SettingsLabelMetrics {
 
 	@ViewBuilder
 	func makeBody(configuration: Configuration) -> some View {
-		HStack(spacing: spacing) {
+		let body = HStack(spacing: spacing) {
 			let iconSize = self.iconSize
 			configuration.icon
 				.font(.system(size: iconFontSize))
@@ -96,6 +101,16 @@ struct SettingsLabelStyle: LabelStyle, SettingsLabelMetrics {
 			configuration.title
 				.multilineTextAlignment(.leading)
 		}
+
+#if os(iOS)
+		if dynamicTypeSize >= .xxLarge {
+			body.padding(.vertical, 4)
+		} else {
+			body
+		}
+#else
+		body
+#endif
 	}
 
 	private var spacing: CGFloat {
@@ -129,6 +144,11 @@ extension LabelStyle where Self == SettingsLabelStyle {
 @available(watchOS, introduced: 8.0, deprecated: 9.0, message: "Use SettingsLabelStyle instead")
 @available(macOS, unavailable)
 struct SettingsLabelStyleBackport: LabelStyle, SettingsLabelMetrics {
+#if os(iOS)
+	@Environment(\.dynamicTypeSize)
+	private var dynamicTypeSize
+#endif
+
 #if os(watchOS)
 	@Environment(\.watchMetrics)
 	private var watchMetrics
@@ -136,7 +156,7 @@ struct SettingsLabelStyleBackport: LabelStyle, SettingsLabelMetrics {
 
 	@ViewBuilder
 	func makeBody(configuration: Configuration) -> some View {
-		HStack(spacing: spacing) {
+		let body = HStack(spacing: spacing) {
 			let iconSize = self.iconSize
 			configuration.icon
 				.font(.system(size: iconFontSize))
@@ -151,6 +171,16 @@ struct SettingsLabelStyleBackport: LabelStyle, SettingsLabelMetrics {
 			configuration.title
 				.multilineTextAlignment(.leading)
 		}
+
+#if os(iOS)
+		if dynamicTypeSize >= .xxLarge {
+			body.padding(.vertical, 4)
+		} else {
+			body
+		}
+#else
+		body
+#endif
 	}
 
 	private var spacing: CGFloat {

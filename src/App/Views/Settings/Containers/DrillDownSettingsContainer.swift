@@ -2,6 +2,21 @@ import SwiftUI
 
 #if !os(macOS)
 
+struct SettingsList<ItemView: View>: View {
+	@ViewBuilder
+	let content: (SettingsPane) -> ItemView
+
+	var body: some View {
+#if os(iOS)
+		List(SettingsPane.allCases, rowContent: content)
+#else
+		Form {
+			ForEach(SettingsPane.allCases, content: content)
+		}
+#endif
+	}
+}
+
 @available(iOS 16.0, watchOS 9.0, *)
 @available(macOS, unavailable)
 struct DrillDownSettingsContainer: View {
@@ -9,6 +24,9 @@ struct DrillDownSettingsContainer: View {
 
 	@Binding
 	var selectedSettingsPanes: [SettingsPane]
+
+	@Environment(\.dynamicTypeSize)
+	private var dynamicTypeSize
 
 	init(viewModel: SettingsViewModel,
 		 selection selectedSettingsPane: Binding<SettingsPane?>) {
@@ -29,11 +47,9 @@ struct DrillDownSettingsContainer: View {
 
 	var body: some View {
 		NavigationStack(path: $selectedSettingsPanes) {
-			Form {
-				ForEach(SettingsPane.allCases) { pane in
-					NavigationLink(value: pane) {
-						pane.label
-					}
+			SettingsList { pane in
+				NavigationLink(value: pane) {
+					pane.label
 				}
 			}
 			.navigationDestination(for: SettingsPane.self) { pane in
@@ -53,17 +69,22 @@ struct DrillDownSettingsContainer: View {
 			}
 		}
 #endif
+#if os(iOS)
+		.block { content in
+			switch dynamicTypeSize {
+			case .xxLarge, .xxxLarge:
+				content.listStyle(.grouped)
+			default:
+				content.listStyle(.insetGrouped)
+			}
+		}
+#endif
 	}
 }
 
 @available(macOS, unavailable)
 struct DrillDownSettingsContainerBackport: View {
 	private let viewModel: SettingsViewModel
-
-#if os(watchOS)
-	@Environment(\.dismiss)
-	private var dismiss
-#endif
 
 	@Binding
 	var selectedSettingsPane: SettingsPane?
@@ -76,14 +97,12 @@ struct DrillDownSettingsContainerBackport: View {
 
 	var body: some View {
 		NavigationView {
-			Form {
-				ForEach(SettingsPane.allCases) { pane in
-					NavigationLink(tag: pane, selection: $selectedSettingsPane) {
-						pane.view(viewModel)
-							.navigationBarTitleDisplayMode(.inline)
-					} label: {
-						pane.label
-					}
+			SettingsList { pane in
+				NavigationLink(tag: pane, selection: $selectedSettingsPane) {
+					pane.view(viewModel)
+						.navigationBarTitleDisplayMode(.inline)
+				} label: {
+					pane.label
 				}
 			}
 			.navigationBarTitleDisplayMode(.large)

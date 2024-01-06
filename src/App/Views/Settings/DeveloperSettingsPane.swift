@@ -6,10 +6,10 @@ struct DeveloperSettingsPane: View {
 	private(set) var viewModel: SettingsViewModel
 
 	var body: some View {
-		Form {
+		SettingsPreferredList {
 			Section {
-				Toggle("Show Internal Information",
-					   isOn: $viewModel.showInternalInformation)
+				SettingsToggle("Show Internal Information",
+							   isOn: $viewModel.showInternalInformation)
 			}
 		}
 		.navigationTitle("Developer")

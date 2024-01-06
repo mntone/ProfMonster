@@ -9,31 +9,31 @@ struct DisplaySettingsPane: View {
 	private var isAccessibilitySize
 
 	var body: some View {
-		Form {
+		SettingsPreferredList {
 			Section("Monster List") {
 #if !os(macOS)
-				PreferredPicker("Left Swipe",
-								data: SwipeAction.allCases,
-								selection: $viewModel.trailingSwipeAction) { mode in
+				SettingsPicker("Left Swipe",
+							   data: SwipeAction.allCases,
+							   selection: $viewModel.trailingSwipeAction) { mode in
 					Text(verbatim: mode.label)
 				}
 #endif
 
 #if !os(watchOS)
-				Toggle("Include Favorite Group in Search Results",
-					   isOn: $viewModel.includesFavoriteGroupInSearchResult)
+				SettingsToggle("Include Favorite Group in Search Results",
+							   isOn: $viewModel.includesFavoriteGroupInSearchResult)
 #endif
 			}
 
 			Section {
 #if os(iOS)
 				if !isAccessibilitySize {
-					Toggle("Show Monster’s Title", isOn: $viewModel.showTitle)
+					SettingsToggle("Show Monster’s Title", isOn: $viewModel.showTitle)
 				}
 #endif
 
 #if os(watchOS)
-				Toggle("Show Element Attack", isOn: Binding {
+				SettingsToggle("Show Element Attack", isOn: Binding {
 					viewModel.elementDisplay != .none
 				} set: { value in
 					viewModel.elementDisplay = value ? .sign : .none
@@ -41,10 +41,10 @@ struct DisplaySettingsPane: View {
 #else
 				let mock = MockData.physiology(.guluQoo)!
 				let baseViewModel = WeaknessSectionViewModel("settings", rawValue: mock.sections[0])
-				PreferredPicker("Element Attack",
-								data: WeaknessDisplayMode.allCases,
-								selection: $viewModel.elementDisplay,
-								disablePreviews: [.none]) { mode in
+				SettingsPicker("Element Attack",
+							   data: WeaknessDisplayMode.allCases,
+							   selection: $viewModel.elementDisplay,
+							   disablePreviews: [.none]) { mode in
 					Text(verbatim: mode.label)
 				} preview: { mode in
 					let viewModel = WeaknessViewModel(id: "settings", displayMode: mode, sections: [baseViewModel])
@@ -52,7 +52,7 @@ struct DisplaySettingsPane: View {
 				}
 #endif
 
-				Toggle("Merge Parts with Same Physiology*", isOn: $viewModel.mergeParts)
+				SettingsToggle("Merge Parts with Same Physiology*", isOn: $viewModel.mergeParts)
 			} header: {
 				Text("Monster Detail")
 			} footer: {
