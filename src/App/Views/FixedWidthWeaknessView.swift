@@ -22,10 +22,18 @@ private struct FixedWidthWeaknessSignItemView: View {
 
 	var body: some View {
 		VStack(spacing: 0) {
-			Label(viewModel.attack.label(.short), systemImage: viewModel.attack.imageName)
-				.foregroundStyle(viewModel.attack.color)
-				.accessibilityLabeledPair(role: .label, id: viewModel.id, in: namespace)
-				.accessibilityLabel(viewModel.attack.label(.long))
+			Spacer(minLength: 0)
+
+			Label {
+				Text(viewModel.attack.label(.short))
+			} icon: {
+				viewModel.attack.image
+			}
+			.foregroundStyle(viewModel.attack.color)
+			.accessibilityLabeledPair(role: .label, id: viewModel.id, in: namespace)
+			.accessibilityLabel(viewModel.attack.label(.long))
+
+			Spacer(minLength: 0)
 
 			Text(verbatim: viewModel.effective.label)
 				.foregroundStyle(viewModel.signColor)
@@ -82,10 +90,14 @@ private struct FixedWidthWeaknessNumberItemView: View {
 
 	var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
-			Label(viewModel.attack.label(.short), systemImage: viewModel.attack.imageName)
-				.foregroundStyle(viewModel.attack.color)
-				.accessibilityLabeledPair(role: .label, id: viewModel.id, in: namespace)
-				.accessibilityLabel(viewModel.attack.label(.long))
+			Label {
+				Text(viewModel.attack.label(.short))
+			} icon: {
+				viewModel.attack.image
+			}
+			.foregroundStyle(viewModel.attack.color)
+			.accessibilityLabeledPair(role: .label, id: viewModel.id, in: namespace)
+			.accessibilityLabel(viewModel.attack.label(.long))
 
 			number
 #if !os(macOS)
@@ -156,7 +168,7 @@ struct FixedWidthWeaknessSectionView: View {
 				case .none:
 					EmptyView()
 				case .sign:
-					DividedHStack(alignment: .firstTextBaseline, spacing: 0) {
+					DividedHStack(alignment: .lastTextBaseline, spacing: 0) {
 						ForEach(viewModel.items) { item in
 							FixedWidthWeaknessSignItemView(viewModel: item,
 														   signFontSize: signFontSize,
@@ -164,7 +176,6 @@ struct FixedWidthWeaknessSectionView: View {
 						}
 						.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth)
 					}
-					.labelStyle(.iconOnly)
 				case let .number(fractionLength):
 					let fractionLengthInt = Int(fractionLength)
 					DividedHStack(alignment: .firstTextBaseline, spacing: 0) {
@@ -177,7 +188,6 @@ struct FixedWidthWeaknessSectionView: View {
 						.padding(.horizontal, 8)
 						.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth, alignment: .leading)
 					}
-					.labelStyle(.titleOnly)
 					.padding(.horizontal, -8)
 				}
 #endif
@@ -198,6 +208,7 @@ struct FixedWidthWeaknessView: View {
 										  displayMode: viewModel.displayMode,
 										  headerHidden: headerHidden)
 		}
+		.labelStyle(.iconOnly)
 	}
 }
 

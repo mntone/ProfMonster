@@ -53,14 +53,14 @@ private struct _PhysiologyRowHeaderView: View {
 		HStack(spacing: 0) {
 			ForEach(viewModel) { item in
 				Spacer(minLength: PhysiologyViewMetrics.spacing)
-				Image(systemName: item.attack.imageName)
+				item.attack.image
 					.help(item.attack.label(.long))
 					.foregroundStyle(item.attack.color)
 					.frame(width: itemWidth)
 			}
 
 			Spacer(minLength: PhysiologyViewMetrics.spacing)
-			Image(systemName: "star.fill")
+			Image(.stun)
 				.help("Stun")
 				.foregroundStyle(.thunder)
 				.frame(width: itemWidth)

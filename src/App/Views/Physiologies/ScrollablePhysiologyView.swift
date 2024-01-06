@@ -21,7 +21,7 @@ private struct _ScrollablePhysiologyRowHeaderView: View {
 	var body: some View {
 		HStack(spacing: spacing) {
 			ForEach(viewModel) { item in
-				Image(systemName: item.attack.imageName)
+				item.attack.image
 #if !os(watchOS)
 					.help(item.attack.label(.long))
 #endif
@@ -29,7 +29,7 @@ private struct _ScrollablePhysiologyRowHeaderView: View {
 			}
 			.frame(maxWidth: itemWidth)
 
-			Image(systemName: "star.fill")
+			Image(.stun)
 #if !os(watchOS)
 				.help("Stun")
 #endif

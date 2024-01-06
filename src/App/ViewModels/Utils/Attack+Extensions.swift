@@ -28,24 +28,24 @@ extension Attack {
 		}
 	}
 
-	var imageName: String {
+	var image: Image {
 		switch self {
 		case .slash:
-			return "scissors"
+			return Image(systemName: "scissors")
 		case .strike:
-			return "hammer.fill"
+			return Image(systemName: "hammer.fill")
 		case .shell:
-			return "fossil.shell.fill"
+			return Image(systemName: "fossil.shell.fill")
 		case .fire:
-			return "flame.fill"
+			return Image(systemName: "flame.fill")
 		case .water:
-			return "drop.fill"
+			return Image(.water)
 		case .thunder:
-			return "bolt.fill"
+			return Image(.thunder)
 		case .ice:
-			return "snowflake"
+			return Image(systemName: "snowflake")
 		case .dragon:
-			return "atom"
+			return Image(.dragon)
 		}
 	}
 
