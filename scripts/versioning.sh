@@ -24,13 +24,19 @@ GIT_HASH=$(git rev-parse HEAD)
 GIT_HASH_ORIGIN=$(git rev-parse $GIT_TAG^{})
 if [ "$GIT_HASH" = "$GIT_HASH_ORIGIN" ]; then
 	GIT_CURRENT=$GIT_TAG
-	GIT_ORIGIN=$(git describe --tags --abbrev=0 --exclude $GIT_TAG)
+	GIT_ORIGIN=$(git describe --tags --abbrev=0 --tag "$GIT_TAG^")
 	GIT_HASH_ORIGIN=$(git rev-parse $GIT_ORIGIN^{})
 else
 	GIT_CURRENT=$GIT_HASH
 	GIT_ORIGIN=$GIT_TAG
 fi
 GIT_DATE=$(git log -1 --format='%ci')
+
+if [ "$CI" = "TRUE" ]; then
+	MARKETING_VERSION=$CI_BUILD_NUMBER
+else
+	MARKETING_VERSION=$GIT_TAG
+fi
 
 {
 	echo "CURRENT_PROJECT_VERSION = $GIT_TAG;"
@@ -40,5 +46,5 @@ GIT_DATE=$(git log -1 --format='%ci')
 	echo "GIT_HASH_ORIGIN         = $GIT_HASH_ORIGIN;"
 	echo "GIT_ORIGIN              = $GIT_ORIGIN;"
 	echo "INTERNAL_VERSION        = $VERSION;"
-	echo "MARKETING_VERSION       = $GIT_TAG;"
+	echo "MARKETING_VERSION       = $MARKETING_VERSION;"
 } > "$XCCONFIG_PATH"
