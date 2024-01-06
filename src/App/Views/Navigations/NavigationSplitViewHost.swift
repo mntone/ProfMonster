@@ -46,7 +46,7 @@ struct NavigationSplitViewHost: View {
 					MonsterView(viewModel: monsterViewModel)
 				}
 			}
-			.navigationSplitViewColumnWidth(min: 180, ideal: 375)
+			.navigationSplitViewColumnWidth(min: 480, ideal: 480)
 #endif
 		}
 #if os(iOS)
