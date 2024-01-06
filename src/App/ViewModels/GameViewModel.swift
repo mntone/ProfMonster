@@ -52,7 +52,6 @@ final class GameViewModel: ObservableObject {
 			.mapData { monsters in
 				monsters.map(GameItemViewModel.init)
 			}
-			.share()
 
 		// Favorite Group
 		let favorites = getState
