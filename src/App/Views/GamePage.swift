@@ -9,7 +9,7 @@ struct GamePage<ItemView: View>: View {
 	private(set) var viewModel: GameViewModel
 
 	@ViewBuilder
-	let content: (GameItemViewModel) -> ItemView
+	let content: (IdentifyHolder<GameItemViewModel>) -> ItemView
 
 	@ViewBuilder
 	private var list: some View {
@@ -18,7 +18,7 @@ struct GamePage<ItemView: View>: View {
 			List(items) { group in
 				Section {
 					ForEach(group.items) { item in
-						content(item.content)
+						content(item)
 					}
 				} header: {
 					Text(verbatim: group.label)
@@ -26,7 +26,7 @@ struct GamePage<ItemView: View>: View {
 			}
 		} else {
 			List(items.first?.items ?? []) { item in
-				content(item.content)
+				content(item)
 			}
 		}
 	}

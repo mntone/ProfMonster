@@ -5,11 +5,11 @@ import SwiftUI
 @available(iOS 16.0, watchOS 9.0, *)
 @available(macOS, unavailable)
 struct MonsterListNavigatableItem: View {
-	let viewModel: GameItemViewModel
+	let viewModel: IdentifyHolder<GameItemViewModel>
 
 	var body: some View {
-		NavigationLink(value: MARoute.monster(gameID: viewModel.gameID, monsterID: viewModel.id)) {
-			MonsterListItem(viewModel: viewModel)
+		NavigationLink(value: MARoute.monster(gameID: viewModel.content.gameID, monsterID: viewModel.content.id)) {
+			MonsterListItem(viewModel: viewModel.content)
 		}
 	}
 }
@@ -18,17 +18,17 @@ struct MonsterListNavigatableItem: View {
 @available(macOS, unavailable)
 @available(watchOS, introduced: 8.0, deprecated: 9.0, message: "Use MonsterListNavigatableItem instead")
 struct MonsterListNavigatableItemBackport: View {
-	let viewModel: GameItemViewModel
+	let viewModel: IdentifyHolder<GameItemViewModel>
 	let selection: Binding<GameItemViewModel.ID?>
 
 	var body: some View {
 		NavigationLink(tag: viewModel.id, selection: selection) {
 			LazyView {
-				let monsterViewModel = MonsterViewModel(id: viewModel.id, for: viewModel.gameID)!
+				let monsterViewModel = MonsterViewModel(id: viewModel.content.id, for: viewModel.content.gameID)!
 				MonsterView(viewModel: monsterViewModel)
 			}
 		} label: {
-			MonsterListItem(viewModel: viewModel)
+			MonsterListItem(viewModel: viewModel.content)
 		}
 	}
 }
@@ -42,12 +42,12 @@ struct MonsterListNavigatableItemBackport: View {
 @available(macOS, unavailable)
 @available(watchOS, unavailable)
 struct MonsterSelectableListItem: View {
-	let viewModel: GameItemViewModel
+	let viewModel: IdentifyHolder<GameItemViewModel>
 	let selection: Binding<GameItemViewModel.ID?>
 
 	var body: some View {
 		SelectableListRowBackport(tag: viewModel.id, selection: selection) {
-			MonsterListItem(viewModel: viewModel)
+			MonsterListItem(viewModel: viewModel.content)
 		}
 	}
 }
@@ -59,7 +59,7 @@ struct MonsterSelectableListItem: View {
 @available(macOS, unavailable)
 #Preview {
 	NavigationStack {
-		let viewModel = GameItemViewModel(id: "gulu_qoo", gameID: "mockgame")!
+		let viewModel = IdentifyHolder(GameItemViewModel(id: "gulu_qoo", gameID: "mockgame")!)
 		List {
 			MonsterListNavigatableItem(viewModel: viewModel)
 			MonsterListNavigatableItem(viewModel: viewModel)
