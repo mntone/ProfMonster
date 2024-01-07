@@ -7,6 +7,9 @@ import SwiftUI
 struct MonsterNavigationBarHeader: View {
 	let viewModel: MonsterViewModel
 
+	@Environment(\.verticalSizeClass)
+	private var verticalSizeClass
+
 	@ScaledMetric(relativeTo: .headline)
 	private var adjustedHeadline: CGFloat = 16
 
@@ -14,7 +17,8 @@ struct MonsterNavigationBarHeader: View {
 	private var adjustedSubheadline: CGFloat = 14
 
 	var body: some View {
-		if let anotherName = viewModel.anotherName {
+		if let anotherName = viewModel.anotherName,
+		   verticalSizeClass != .compact {
 			VStack(spacing: 2) {
 				Text(viewModel.name)
 					.font(.system(size: adjustedHeadline, weight: .semibold))
