@@ -8,14 +8,25 @@ struct DisplaySettingsPane: View {
 	@Environment(\.dynamicTypeSize.isAccessibilitySize)
 	private var isAccessibilitySize
 
+#if !os(watchOS)
+	private let mockData: [WeaknessSectionViewModel] = {
+		let mock = MockData.physiology(.guluQoo)!
+		let baseViewModel = WeaknessSectionViewModel("settings", rawValue: mock.sections[0])
+		return [baseViewModel]
+	}()
+#endif
+
 	var body: some View {
 		SettingsPreferredList {
 			Section("Monster List") {
 #if !os(macOS)
 				SettingsPicker("Left Swipe",
-							   data: SwipeAction.allCases,
-							   selection: $viewModel.trailingSwipeAction) { mode in
-					Text(verbatim: mode.label)
+							   selection: $viewModel.trailingSwipeAction) {
+					ForEach(SwipeAction.allCases) { mode in
+						Text(mode.label).tag(mode)
+					}
+				} label: { action in
+					Text(action.label)
 				}
 #endif
 
@@ -39,15 +50,16 @@ struct DisplaySettingsPane: View {
 					viewModel.elementDisplay = value ? .sign : .none
 				})
 #else
-				let mock = MockData.physiology(.guluQoo)!
-				let baseViewModel = WeaknessSectionViewModel("settings", rawValue: mock.sections[0])
 				SettingsPicker("Element Attack",
-							   data: WeaknessDisplayMode.allCases,
 							   selection: $viewModel.elementDisplay,
-							   disablePreviews: [.none]) { mode in
-					Text(verbatim: mode.label)
+							   disablePreviews: [.none]) {
+					ForEach(WeaknessDisplayMode.allCases) { mode in
+						Text(mode.label).tag(mode)
+					}
+				} label: { mode in
+					Text(mode.label)
 				} preview: { mode in
-					let viewModel = WeaknessViewModel(id: "settings", displayMode: mode, sections: [baseViewModel])
+					let viewModel = WeaknessViewModel(id: "settings", displayMode: mode, sections: mockData)
 					FixedWidthWeaknessView(viewModel: viewModel)
 				}
 #endif

@@ -1,5 +1,4 @@
 import MonsterAnalyzerCore
-import SwiftUI
 
 extension WeaknessDisplayMode {
 	var label: String {
@@ -11,6 +10,17 @@ extension WeaknessDisplayMode {
 		case let .number(fractionLength):
 			String(localized: "Number (\(fractionLength) decimal places)",
 				   comment: "DisplayMode")
+		}
+	}
+}
+
+// MARK: - Identifiable
+
+extension WeaknessDisplayMode: Identifiable {
+	public var id: String {
+		@inline(__always)
+		get {
+			rawValue
 		}
 	}
 }

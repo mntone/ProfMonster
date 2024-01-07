@@ -1,6 +1,6 @@
 import Foundation
 
-public enum WeaknessDisplayMode: CaseIterable, Identifiable, Hashable {
+public enum WeaknessDisplayMode: CaseIterable, Hashable {
 	case none
 	case sign
 	case number(fractionLength: UInt8)
@@ -22,10 +22,6 @@ public enum WeaknessDisplayMode: CaseIterable, Identifiable, Hashable {
 				return nil
 			}
 		}
-	}
-
-	public var id: String {
-		rawValue
 	}
 
 	public var rawValue: String {
