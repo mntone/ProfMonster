@@ -9,10 +9,10 @@ struct Sidebar: View {
 	let selection: Binding<HomeItemViewModel.ID?>
 
 	var body: some View {
-		List(viewModel.state.data ?? [], id: \.id, selection: selection) { item in
+		List(viewModel.items, id: \.id, selection: $selection) { item in
 			Text(item.name)
 		}
-		.modifier(StatusOverlayModifier(state: viewModel.state.removeData()))
+		.modifier(StatusOverlayModifier(state: viewModel.state))
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 	}
 }
@@ -29,12 +29,12 @@ struct SidebarBackport: View {
 	let selection: Binding<HomeItemViewModel.ID?>
 
 	var body: some View {
-		List(viewModel.state.data ?? []) { item in
-			SelectableListRowBackport(tag: item.id, selection: selection) {
+		List(viewModel.items) { item in
+			SelectableListRowBackport(tag: item.id, selection: $selection) {
 				Text(item.name)
 			}
 		}
-		.modifier(StatusOverlayModifier(state: viewModel.state.removeData()))
+		.modifier(StatusOverlayModifier(state: viewModel.state))
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 	}
 }

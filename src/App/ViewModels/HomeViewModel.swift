@@ -20,7 +20,10 @@ final class HomeViewModel: ObservableObject {
 	let app: App
 
 	@Published
-	private(set) var state: StarSwingsState<[HomeItemViewModel]> = .ready
+	private(set) var state: RequestState = .ready
+
+	@Published
+	private(set) var items: [HomeItemViewModel] = []
 
 	init() {
 		guard let app = MAApp.resolver.resolve(App.self) else {
@@ -28,12 +31,19 @@ final class HomeViewModel: ObservableObject {
 		}
 		self.app = app
 
+		let scheduler = DispatchQueue.main
+		app.$state.removeData().receive(on: scheduler).assign(to: &$state)
 		app.$state
-			.mapData { games in
-				games.map(HomeItemViewModel.init)
+			.map { state in
+				switch state {
+				case let .complete(data: games):
+					games.map(HomeItemViewModel.init)
+				default:
+					[]
+				}
 			}
-			.receive(on: DispatchQueue.main)
-			.assign(to: &$state)
+			.receive(on: scheduler)
+			.assign(to: &$items)
 	}
 
 	func fetchData() {

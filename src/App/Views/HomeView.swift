@@ -10,10 +10,10 @@ struct HomeView: View {
 	private(set) var viewModel: HomeViewModel
 
 	var body: some View {
-		List(viewModel.state.data ?? []) { item in
+		List(viewModel.items) { item in
 			NavigationLink(item.name, value: MARoute.game(gameID: item.id))
 		}
-		.modifier(StatusOverlayModifier(state: viewModel.state.removeData()))
+		.modifier(StatusOverlayModifier(state: viewModel.state))
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 	}
 }
@@ -29,7 +29,7 @@ struct HomeViewBackport: View {
 	let selectedMonsterID: Binding<MonsterViewModel.ID?>
 
 	var body: some View {
-		List(viewModel.state.data ?? []) { item in
+		List(viewModel.items) { item in
 			NavigationLink(item.name, tag: item.id, selection: selectedGameID) {
 				LazyView {
 					let viewModel = GameViewModel()
@@ -41,7 +41,7 @@ struct HomeViewBackport: View {
 				}
 			}
 		}
-		.modifier(StatusOverlayModifier(state: viewModel.state.removeData()))
+		.modifier(StatusOverlayModifier(state: viewModel.state))
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 	}
 }
