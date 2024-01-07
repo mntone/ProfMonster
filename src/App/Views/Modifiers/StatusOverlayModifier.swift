@@ -1,8 +1,8 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
-struct StatusOverlayModifier<Data>: ViewModifier {
-	let state: StarSwingsState<Data>
+struct StatusOverlayModifier: ViewModifier {
+	let state: RequestState
 
 	func body(content: Content) -> some View {
 		content.overlay {

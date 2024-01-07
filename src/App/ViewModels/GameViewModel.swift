@@ -6,9 +6,13 @@ final class GameViewModel: ObservableObject {
 	private let app: App
 
 	private var game: Game?
+	private var cancellable: Cancellable?
 
 	@Published
-	private(set) var state: StarSwingsState<[GameGroupViewModel]> = .ready
+	private(set) var state: RequestState = .ready
+
+	@Published
+	private(set) var items: [GameGroupViewModel] = []
 
 	@Published
 	var sort: Sort {
@@ -47,146 +51,127 @@ final class GameViewModel: ObservableObject {
 	func set(domain game: Game) {
 		game.fetchIfNeeded()
 
-		let getState = game.$state
-			// Create view model from domain model
-			.mapData { monsters in
-				monsters.map(GameItemViewModel.init)
-			}
+		let scheduler = DispatchQueue.main
+		game.$state.removeData().receive(on: scheduler).assign(to: &$state)
 
-		// Favorite Group
-		let favorites = getState
-			.removeDuplicates { prev, cur in
-				switch (prev, cur) {
-				case (.ready, .ready), (.ready, .loading), (.loading, .loading):
-					return true
-				default:
-					return false
-				}
-			}
-			.map { state in
+		let items = game.$state
+			// Create view model from domain model
+			.map { state -> [GameItemViewModel] in
 				switch state {
 				case let .complete(data: monsters):
-					return monsters
-						.sorted()
-						.map { monster in
-							monster.$isFavorited.map { favorited -> IdentifyHolder<GameItemViewModel>? in
-								favorited ? IdentifyHolder(monster, prefix: "f") : nil
-							}
-						}
-						.combineLatest
-						.map { monsters -> GameGroupViewModel? in
-							let items = monsters.compactMap { monster in
-								monster
-							}
-							guard !items.isEmpty else { return nil }
-
-							return GameGroupViewModel(gameID: game.id, type: .favorite, items: items)
-						}
-						.eraseToAnyPublisher()
+					monsters.map(GameItemViewModel.init)
 				default:
-					return Just<GameGroupViewModel?>(nil)
-						.eraseToAnyPublisher()
+					[]
 				}
+			}
+			.multicast(subject: PassthroughSubject())
+
+		// Favorite Group
+		let favorites = items
+			.map { (monsters: [GameItemViewModel]) in
+				monsters
+					.sorted()
+					.map { monster in
+						monster.$isFavorited.map { favorited -> IdentifyHolder<GameItemViewModel>? in
+							return favorited ? IdentifyHolder(monster, prefix: "f") : nil
+						}
+					}
+					.combineLatest
+					.map { monsters -> GameGroupViewModel? in
+						let items = monsters.compactMap { monster in
+							monster
+						}
+						guard !items.isEmpty else { return nil }
+
+						return GameGroupViewModel(gameID: game.id, type: .favorite, items: items)
+					}
 			}
 			.switchToLatest()
 
 		// All Groups
-		getState
-			.mapData { monsters in
-				monsters.map { monster in
+		items
+#if os(watchOS)
+			.map { (m: [GameItemViewModel]) -> [GameGroupViewModel] in
+				let monsters = m.map { monster in
 					IdentifyHolder(monster)
 				}
-			}
-#if os(watchOS)
-			// Merge the fav group into groups
-			.combineLatest(favorites) { (state: StarSwingsState<[IdentifyHolder<GameItemViewModel>]>, fav: GameGroupViewModel?) -> StarSwingsState<[GameGroupViewModel]> in
-				state.mapData { monsters in
-					let groupsExceptFav = GameGroupViewModel(gameID: game.id, type: .inGame, items: monsters)
-
-					let groups: [GameGroupViewModel]
-					if let fav {
-						groups = [fav, groupsExceptFav]
-					} else {
-						groups = [groupsExceptFav]
-					}
-					return groups
-				}
+				let group = GameGroupViewModel(gameID: game.id, type: .inGame, items: monsters)
+				return [group]
 			}
 #else
-			// Merge the fav group into sorted or splited groups
-			.combineLatest(favorites, $sort) { (state: StarSwingsState<[IdentifyHolder<GameItemViewModel>]>, fav: GameGroupViewModel?, sort: Sort) -> StarSwingsState<[GameGroupViewModel]> in
-				state.mapData { (monsters: [IdentifyHolder<GameItemViewModel>]) -> [GameGroupViewModel] in
-					let groups: [GameGroupViewModel]
-					switch sort {
-					case .inGame:
-						let groupsExceptFav = GameGroupViewModel(gameID: game.id, type: .inGame, items: monsters)
-						if let fav {
-							groups = [fav, groupsExceptFav]
-						} else {
-							groups = [groupsExceptFav]
-						}
-					case .name:
-						let groupsExceptFav = GameGroupViewModel(gameID: game.id, type: .byName, items: monsters.sorted())
-						if let fav {
-							groups = [fav, groupsExceptFav]
-						} else {
-							groups = [groupsExceptFav]
-						}
-					case .type:
-						let otherGroups = monsters
-							.reduce(into: [:]) { (result: inout [String: [IdentifyHolder<GameItemViewModel>]], next: IdentifyHolder<GameItemViewModel>) in
-								if let items = result[next.content.type] {
-									result[next.content.type] = items + [next]
-								} else {
-									result[next.content.type] = [next]
-								}
-							}
-							.map { id, items in
-								GameGroupViewModel(gameID: game.id, type: .type(id: id), items: items.sorted())
-							}
-							.sorted()
-
-						if let fav {
-							groups = [fav] + otherGroups
-						} else {
-							groups = otherGroups
-						}
-					}
-					return groups
+			// Sort and split groups
+			.combineLatest($sort) { (m: [GameItemViewModel], sort: Sort) -> [GameGroupViewModel] in
+				let monsters = m.map { monster in
+					IdentifyHolder(monster)
 				}
+
+				let groups: [GameGroupViewModel]
+				switch sort {
+				case .inGame:
+					let groupsExceptFav = GameGroupViewModel(gameID: game.id, type: .inGame, items: monsters)
+					groups = [groupsExceptFav]
+				case .name:
+					let groupsExceptFav = GameGroupViewModel(gameID: game.id, type: .byName, items: monsters.sorted())
+					groups = [groupsExceptFav]
+				case .type:
+					groups = monsters
+						.reduce(into: [:]) { (result: inout [String: [IdentifyHolder<GameItemViewModel>]], next: IdentifyHolder<GameItemViewModel>) in
+							if let items = result[next.content.type] {
+								result[next.content.type] = items + [next]
+							} else {
+								result[next.content.type] = [next]
+							}
+						}
+						.map { id, items in
+							GameGroupViewModel(gameID: game.id, type: .type(id: id), items: items.sorted())
+						}
+						.sorted()
+				}
+				return groups
 			}
 #endif
+			// Merge the fav group into groups
+			.combineLatest(favorites) { (groupsExceptFav: [GameGroupViewModel], fav: GameGroupViewModel?) -> [GameGroupViewModel] in
+				let groups: [GameGroupViewModel]
+				if let fav {
+					groups = [fav] + groupsExceptFav
+				} else {
+					groups = groupsExceptFav
+				}
+				return groups
+			}
 			// Filter search word
-			.combineLatest(searchTextPublisher) { (state: StarSwingsState<[GameGroupViewModel]>, searchText: String) -> StarSwingsState<[GameGroupViewModel]> in
-				state.mapData { groups in
-					if searchText.isEmpty {
-						return groups
-					}
+			.combineLatest(searchTextPublisher) { (groups: [GameGroupViewModel], searchText: String) -> [GameGroupViewModel] in
+				if searchText.isEmpty {
+					return groups
+				}
 
-					let normalizedSearchText = game.languageService.normalize(forSearch: searchText)
-					return groups.compactMap { group -> GameGroupViewModel? in
+				let normalizedSearchText = game.languageService.normalize(forSearch: searchText)
+				return groups.compactMap { group -> GameGroupViewModel? in
 #if !os(watchOS)
-						if !(game.app?.settings.includesFavoriteGroupInSearchResult ?? false) && group.type.isFavorite {
-							return nil
-						}
+					if !(game.app?.settings.includesFavoriteGroupInSearchResult ?? false) && group.type.isFavorite {
+						return nil
+					}
 #endif
 
-						let filtered = group.items.filter { monster in
-							monster.content.keywords.contains { keyword in
-								keyword.contains(normalizedSearchText)
-							}
+					let filtered = group.items.filter { monster in
+						monster.content.keywords.contains { keyword in
+							keyword.contains(normalizedSearchText)
 						}
-						guard !filtered.isEmpty else {
-							return nil
-						}
-
-						return GameGroupViewModel(gameID: group.gameID, type: group.type, items: filtered)
 					}
+					guard !filtered.isEmpty else {
+						return nil
+					}
+
+					return GameGroupViewModel(gameID: group.gameID, type: group.type, items: filtered)
 				}
 			}
 			// Receive on the main dispatcher
-			.receive(on: DispatchQueue.main)
-			.assign(to: &$state)
+			.receive(on: scheduler)
+			.assign(to: &$items)
+
+		// Connect to multicast publisher.
+		cancellable = items.connect()
 
 		// Set current
 		self.game = game
@@ -198,7 +183,7 @@ final class GameViewModel: ObservableObject {
 extension GameViewModel {
 	func set() {
 		self.game = nil
-		self.state = .ready
+		self.items = []
 	}
 
 	@discardableResult

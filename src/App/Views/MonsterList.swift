@@ -11,7 +11,7 @@ struct MonsterList: View {
 
 	@ViewBuilder
 	private var list: some View {
-		let items = viewModel.state.data ?? []
+		let items = viewModel.items
 		if items.count > 1 || items.first?.type.isType == true {
 			List(items, id: \.id, selection: selection) { group in
 				Section(group.label) {
@@ -32,7 +32,7 @@ struct MonsterList: View {
 #if os(macOS)
 			.backport.alternatingRowBackgrounds()
 			.animation(ProcessInfo.processInfo.isLowPowerModeEnabled ? nil : .default,
-					   value: viewModel.state.data)
+					   value: viewModel.items)
 #endif
 #if os(iOS)
 			.scrollDismissesKeyboard(.immediately)

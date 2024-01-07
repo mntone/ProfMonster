@@ -72,6 +72,8 @@
 		EB6A4F4C2B48A9FF008AB7CE /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6A4F4B2B48A9FF008AB7CE /* MockData.swift */; };
 		EB6ADE742B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */; };
 		EB6ADE752B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */; };
+		EB6EF7DE2B4A0DB200646BBD /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EF7DD2B4A0DB200646BBD /* RequestState.swift */; };
+		EB6EF7DF2B4A0DB200646BBD /* RequestState.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6EF7DD2B4A0DB200646BBD /* RequestState.swift */; };
 		EB6FF1D42B48CEFF00118E0F /* SettingsPreferredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1D32B48CEFF00118E0F /* SettingsPreferredList.swift */; };
 		EB6FF1D52B48CEFF00118E0F /* SettingsPreferredList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1D32B48CEFF00118E0F /* SettingsPreferredList.swift */; };
 		EB6FF1D72B48CFEE00118E0F /* DrillDownSettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA66F192B355EDE009DE78C /* DrillDownSettingsContainer.swift */; };
@@ -393,6 +395,7 @@
 		EB6A4F482B48A951008AB7CE /* gulu_qoo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gulu_qoo.json; sourceTree = "<group>"; };
 		EB6A4F4B2B48A9FF008AB7CE /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSettingsPaneModifier.swift; sourceTree = "<group>"; };
+		EB6EF7DD2B4A0DB200646BBD /* RequestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
 		EB6FF1D32B48CEFF00118E0F /* SettingsPreferredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreferredList.swift; sourceTree = "<group>"; };
 		EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggle.swift; sourceTree = "<group>"; };
 		EB6FF1DE2B48F03200118E0F /* SettingsPaddingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPaddingModifier.swift; sourceTree = "<group>"; };
@@ -580,6 +583,7 @@
 			isa = PBXGroup;
 			children = (
 				EBB4B1D42B161691004D63EA /* Effective.swift */,
+				EB6EF7DD2B4A0DB200646BBD /* RequestState.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -1393,6 +1397,7 @@
 				EB19D6722B1EBEC900C90417 /* ObservableHorizontalScrollView.swift in Sources */,
 				EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */,
+				EB6EF7DF2B4A0DB200646BBD /* RequestState.swift in Sources */,
 				EB9620F72B1DA50800FD7115 /* RouteHelper.swift in Sources */,
 				EBEA6F722B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
 				EB6FF1D82B48CFF600118E0F /* SettingsContainer.swift in Sources */,
@@ -1560,6 +1565,7 @@
 				EBB4B1D02B15E0C9004D63EA /* PhysiologyView.swift in Sources */,
 				EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B1D22B15ED1B004D63EA /* PhysiologyViewModel.swift in Sources */,
+				EB6EF7DE2B4A0DB200646BBD /* RequestState.swift in Sources */,
 				EB9620F62B1DA50800FD7115 /* RouteHelper.swift in Sources */,
 				EBEA6F712B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
 				EB2956412B310E28002C5CA8 /* SelectableListRowBackport.swift in Sources */,

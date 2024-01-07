@@ -12,7 +12,7 @@ struct Sidebar: View {
 		List(viewModel.state.data ?? [], id: \.id, selection: selection) { item in
 			Text(item.name)
 		}
-		.modifier(StatusOverlayModifier(state: viewModel.state))
+		.modifier(StatusOverlayModifier(state: viewModel.state.removeData()))
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 	}
 }
@@ -34,7 +34,7 @@ struct SidebarBackport: View {
 				Text(item.name)
 			}
 		}
-		.modifier(StatusOverlayModifier(state: viewModel.state))
+		.modifier(StatusOverlayModifier(state: viewModel.state.removeData()))
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 	}
 }

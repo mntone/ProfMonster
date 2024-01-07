@@ -13,7 +13,7 @@ struct GamePage<ItemView: View>: View {
 
 	@ViewBuilder
 	private var list: some View {
-		let items = viewModel.state.data ?? []
+		let items = viewModel.items
 		if items.count > 1 || items.first?.type.isType == true {
 			List(items) { group in
 				Section(group.label) {
