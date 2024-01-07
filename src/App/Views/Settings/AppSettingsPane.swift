@@ -11,9 +11,9 @@ struct AppSettingsPane: View {
 		let gitCurrent = AppUtil.gitCurrent
 		let gitOrigin = AppUtil.gitOrigin
 		return Link(destination: URL(string: "https://github.com/mntone/ProfMonster/compare/\(gitOrigin)...\(gitCurrent)")!) {
-			Text(verbatim: gitOrigin)
+			Text(gitOrigin)
 			+ Text(verbatim: "..")
-			+ Text(verbatim: gitCurrent.contains(".") ? gitCurrent : String(gitCurrent.prefix(7)))
+			+ Text(gitCurrent.contains(".") ? gitCurrent : String(gitCurrent.prefix(7)))
 		}
 	}
 
@@ -52,7 +52,7 @@ struct AppSettingsPane: View {
 					Text("Version \(AppUtil.version) (\(AppUtil.bundleShortVersion))")
 						.font(.subheadline)
 					Spacer()
-					Text(verbatim: AppUtil.copyright)
+					Text(AppUtil.copyright)
 #if os(watchOS)
 						.font(.footnote)
 #else

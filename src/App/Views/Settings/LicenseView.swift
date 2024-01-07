@@ -15,19 +15,17 @@ struct LicenseView: View {
 
 	var body: some View {
 #if os(watchOS)
-		NavigationLink {
+		NavigationLink(name) {
 			ScrollView {
-				Text(verbatim: text)
+				Text(text)
 					.font(.caption)
 					.scenePadding()
 			}
-			.navigationTitle(Text(verbatim: name))
-		} label: {
-			Text(verbatim: name)
+			.navigationTitle(Text(name))
 		}
 #else
 		DisclosureGroup(isExpanded: $isExpanded) {
-			Text(verbatim: text)
+			Text(text)
 				.font(.callout)
 				.foregroundStyle(.secondary)
 				.frame(maxWidth: .infinity, alignment: .leading)
@@ -46,20 +44,18 @@ struct LicenseView: View {
 		} label: {
 #if os(macOS)
 			if let link {
-				Link(destination: link) {
-					Text(verbatim: name)
-				}
-				.foregroundStyle(.primary)
-				.cursor(isHovering ? .pointingHand : .default)
-				.onHover { hovering in
-					isHovering = hovering
-				}
+				Link(name, destination: link)
+					.foregroundStyle(.primary)
+					.cursor(isHovering ? .pointingHand : .default)
+					.onHover { hovering in
+						isHovering = hovering
+					}
 			} else {
-				Text(verbatim: name)
+				Text(name)
 			}
 #else
 			HStack {
-				Text(verbatim: name)
+				Text(name)
 				if let link {
 					Link(destination: link) {
 						Label("Open Browser", systemImage: "safari")

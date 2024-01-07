@@ -11,7 +11,7 @@ struct MonsterListItem: View {
 
 	var body: some View {
 		HStack(spacing: 0) {
-			Text(verbatim: viewModel.name)
+			Text(viewModel.name)
 
 			if viewModel.isFavorited {
 				Spacer()

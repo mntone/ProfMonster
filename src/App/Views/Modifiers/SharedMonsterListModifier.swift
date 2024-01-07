@@ -13,7 +13,7 @@ struct SharedMonsterListModifier: ViewModifier {
 					Menu("Sort", systemImage: "arrow.up.arrow.down.circle") {
 						Picker(selection: sort) {
 							ForEach(Sort.allCases) { item in
-								Text(verbatim: item.label).tag(item)
+								Text(item.label).tag(item)
 							}
 						} label: {
 							EmptyView()

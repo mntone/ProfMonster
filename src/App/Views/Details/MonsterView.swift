@@ -70,7 +70,7 @@ struct MonsterView: View {
 #if os(watchOS)
 				if !viewModel.note.isEmpty {
 					Section("Notes") {
-						Text(verbatim: viewModel.note)
+						Text(viewModel.note)
 					}
 				}
 #else
@@ -115,7 +115,7 @@ struct MonsterView: View {
 #if os(iOS)
 		.navigationBarTitleDisplayMode(.inline)
 #endif
-		.navigationTitle(Text(verbatim: viewModel.name))
+		.navigationTitle(Text(viewModel.name))
 	}
 }
 

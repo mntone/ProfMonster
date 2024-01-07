@@ -16,16 +16,16 @@ struct MonsterNavigationBarHeader: View {
 	var body: some View {
 		if let anotherName = viewModel.anotherName {
 			VStack(spacing: 2) {
-				Text(verbatim: viewModel.name)
+				Text(viewModel.name)
 					.font(.system(size: adjustedHeadline, weight: .semibold))
 
-				Text(verbatim: anotherName)
+				Text(anotherName)
 					.font(.system(size: adjustedSubheadline, weight: .regular))
 					.foregroundStyle(.secondary)
 			}
 			.accessibilityElement(children: .combine)
 		} else {
-			Text(verbatim: viewModel.name)
+			Text(viewModel.name)
 				.font(.headline)
 		}
 	}

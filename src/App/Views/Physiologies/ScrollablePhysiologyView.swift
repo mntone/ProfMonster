@@ -47,7 +47,7 @@ private struct _ScrollablePhysiologyHeaderView: View {
 	let spacing: CGFloat
 
 	var body: some View {
-		Text(verbatim: viewModel.header)
+		Text(viewModel.header)
 			.foregroundStyle(viewModel.hierarchical)
 			.background(GeometryReader { proxy in
 				Color.clear.preference(key: PhysiologyHeaderHeightPreferenceKey.self,
@@ -84,14 +84,14 @@ private struct _ScrollablePhysiologyContentView: View {
 			.frame(width: itemWidth)
 
 			let stunLabel = viewModel.stunLabel
-			Text(verbatim: viewModel.stunLabel)
+			Text(viewModel.stunLabel)
 				.accessibilityLabel("Stun")
 				.accessibilityValue(stunLabel)
 				.frame(width: itemWidth)
 		}
 		.foregroundStyle(viewModel.hierarchical)
 		.accessibilityElement(children: .contain)
-		.accessibilityLabel(Text(verbatim: viewModel.accessibilityHeader))
+		.accessibilityLabel(Text(viewModel.accessibilityHeader))
 	}
 }
 

@@ -19,7 +19,7 @@ struct DeveloperMonsterView: View {
 		Section("Developer") {
 			ForEach(dict, id: \.0) { (label, content) in
 				SettingsLabeledContent(label) {
-					Text(verbatim: content)
+					Text(content)
 #if os(macOS)
 						.textSelection(.enabled)
 #endif

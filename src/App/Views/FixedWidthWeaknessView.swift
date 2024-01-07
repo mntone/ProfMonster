@@ -35,7 +35,7 @@ private struct FixedWidthWeaknessSignItemView: View {
 
 			Spacer(minLength: 0)
 
-			Text(verbatim: viewModel.effective.label)
+			Text(viewModel.effective.label)
 				.foregroundStyle(viewModel.signColor)
 #if os(watchOS)
 				.font(.systemBackport(.body,
@@ -50,7 +50,7 @@ private struct FixedWidthWeaknessSignItemView: View {
 				.minimumScaleFactor(0.5)
 #endif
 				.accessibilityLabeledPair(role: .content, id: viewModel.id, in: namespace)
-				.accessibilityLabel(Text(verbatim: viewModel.effective.accessibilityLabel))
+				.accessibilityLabel(Text(viewModel.effective.accessibilityLabel))
 		}
 		.accessibilityElement(children: .combine)
 	}

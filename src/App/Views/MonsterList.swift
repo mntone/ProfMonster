@@ -14,12 +14,10 @@ struct MonsterList: View {
 		let items = viewModel.state.data ?? []
 		if items.count > 1 || items.first?.type.isType == true {
 			List(items, id: \.id, selection: selection) { group in
-				Section {
+				Section(group.label) {
 					ForEach(group.items) { item in
 						MonsterListItem(viewModel: item.content)
 					}
-				} header: {
-					Text(verbatim: group.label)
 				}
 			}
 		} else {
@@ -39,7 +37,7 @@ struct MonsterList: View {
 #if os(iOS)
 			.scrollDismissesKeyboard(.immediately)
 #endif
-			.navigationTitle(viewModel.name.map(Text.init(verbatim:)) ?? Text("Unknown"))
+			.navigationTitle(viewModel.name.map(Text.init) ?? Text("Unknown"))
 			.modifier(StatusOverlayModifier(state: viewModel.state))
 			.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 												searchText: $viewModel.searchText))

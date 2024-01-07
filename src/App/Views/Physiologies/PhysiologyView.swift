@@ -8,7 +8,7 @@ private struct _PhysiologyRowView: View {
 
 	var body: some View {
 		HStack(spacing: 0) {
-			Text(verbatim: viewModel.header)
+			Text(viewModel.header)
 				.fixedSize(horizontal: false, vertical: true)
 				.frame(width: headerWidth)
 				.accessibilityHidden(true)
@@ -33,14 +33,14 @@ private struct _PhysiologyRowView: View {
 			Spacer(minLength: PhysiologyViewMetrics.spacing)
 
 			let stunLabel = viewModel.stunLabel
-			Text(verbatim: stunLabel)
+			Text(stunLabel)
 				.frame(width: itemWidth)
 				.accessibilityLabel("Stun")
 				.accessibilityValue(stunLabel)
 		}
 		.foregroundStyle(viewModel.hierarchical)
 		.accessibilityElement(children: .contain)
-		.accessibilityLabel(Text(verbatim: viewModel.accessibilityHeader))
+		.accessibilityLabel(Text(viewModel.accessibilityHeader))
 	}
 }
 
@@ -123,7 +123,7 @@ struct PhysiologyView: View {
 		.frame(idealWidth: PhysiologyViewMetrics.maxWidth,
 			   maxWidth: PhysiologyViewMetrics.maxWidth)
 		.accessibilityElement(children: .contain)
-		.accessibilityLabel(Text(verbatim: viewModel.header))
+		.accessibilityLabel(Text(viewModel.header))
 	}
 }
 
