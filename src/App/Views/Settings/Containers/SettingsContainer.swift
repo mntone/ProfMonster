@@ -10,7 +10,7 @@ struct SettingsContainer: View {
 	private var horizontalSizeClass
 #endif
 
-	@State
+	@StateObject
 	private var viewModel = SettingsViewModel()
 
 	@State

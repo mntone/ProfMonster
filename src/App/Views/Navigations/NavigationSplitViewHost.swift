@@ -16,7 +16,7 @@ struct NavigationSplitViewHost: View {
 	private var screenWidth: CGFloat = 0
 #endif
 
-	@State
+	@StateObject
 	private var gameViewModel = GameViewModel()
 
 	@State
@@ -114,7 +114,7 @@ struct NavigationSplitViewHostBackport: View {
 	@Binding
 	var selectedMonsterID: MonsterViewModel.ID?
 
-	@State
+	@StateObject
 	private var gameViewModel = GameViewModel()
 
 	@State
