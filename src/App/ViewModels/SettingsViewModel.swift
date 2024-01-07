@@ -13,7 +13,6 @@ final class SettingsViewModel: ObservableObject {
 
 	private let app: MonsterAnalyzerCore.App
 	private let settings: MonsterAnalyzerCore.Settings
-	private let storage: Storage
 
 	@Published
 	var storageSize: String?
@@ -66,13 +65,12 @@ final class SettingsViewModel: ObservableObject {
 		}
 	}
 
-	init(storage: Storage) {
+	init() {
 		guard let app = MAApp.resolver.resolve(MonsterAnalyzerCore.App.self) else {
 			fatalError()
 		}
 		self.app = app
 		self.settings = app.settings
-		self.storage = storage
 #if !os(macOS)
 		self.trailingSwipeAction = app.settings.trailingSwipeAction
 #endif
@@ -101,29 +99,21 @@ final class SettingsViewModel: ObservableObject {
 		settings.$showInternalInformation.dropFirst().receive(on: scheduler).assign(to: &$showInternalInformation)
 	}
 
-	convenience init() {
-		guard let storage = MAApp.resolver.resolve(Storage.self) else {
-			fatalError()
-		}
-		self.init(storage: storage)
-	}
-
 	func resetAllCaches() {
+		storageSize = nil
+
 		Task(priority: .utility) {
-			storageSize = nil
 			await app.resetAllData().value
 			await updateStorageSize()
 		}
 	}
 
-	@Sendable
 	func updateStorageSize() async {
-		let storageSize = await Task(priority: .utility) {
-			let size = storage.size
-			return formatter.string(fromByteCount: Int64(clamping: size))
-		}.value
+		let sizeString = await app.getCacheSize().map { size in
+			formatter.string(fromByteCount: Int64(clamping: size))
+		}
 		DispatchQueue.main.async {
-			self.storageSize = storageSize
+			self.storageSize = sizeString
 		}
 	}
 }

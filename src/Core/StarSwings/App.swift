@@ -3,7 +3,8 @@ import Foundation
 import protocol Swinject.Resolver
 
 public final class App: FetchableEntity<[Game]>, Entity {
-	let resolver: Resolver
+	private let resolver: Resolver
+	private let storage: Storage
 
 	public let settings = Settings()
 
@@ -12,21 +13,27 @@ public final class App: FetchableEntity<[Game]>, Entity {
 	}
 
 	public init(resolver: Resolver) {
-		guard let dataSource = resolver.resolve(DataSource.self) else {
+		guard let storage = resolver.resolve(Storage.self),
+			  let dataSource = resolver.resolve(DataSource.self) else {
 			fatalError()
 		}
 		self.resolver = resolver
+		self.storage = storage
 		super.init(dataSource: dataSource)
+	}
+
+	public func getCacheSize() async -> UInt64? {
+		await Task.detached(priority: .userInitiated) { [weak self] in
+			guard let self else { return nil }
+			return self.storage.size
+		}.value
 	}
 
 	public func resetAllData() -> Task<Void, Never> {
 		Task.detached(priority: .utility) { [weak self] in
 			guard let self else { return }
-			guard let storage = resolver.resolve(Storage.self) else {
-				fatalError()
-			}
-			storage.resetAll()
-			resetMemoryCache()
+			self.storage.resetAll()
+			self.resetMemoryCache()
 		}
 	}
 

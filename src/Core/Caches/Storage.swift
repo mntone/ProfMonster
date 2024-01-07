@@ -1,14 +1,14 @@
 import Foundation
 
-public enum StorageSizeMeasureMode {
+enum StorageSizeMeasureMode {
 	case actual
 	case estimated
 	case none
 }
 
-public struct StorageLoadOptions {
-	public let autoExtendExpire: Bool
-	public let groupKey: String?
+struct StorageLoadOptions {
+	let autoExtendExpire: Bool
+	let groupKey: String?
 
 	init(autoExtendExpire: Bool = true,
 		 groupKey: String? = nil) {
@@ -16,16 +16,16 @@ public struct StorageLoadOptions {
 		self.groupKey = groupKey
 	}
 
-	public static let `default` = StorageLoadOptions(autoExtendExpire: true, groupKey: nil)
+	static let `default` = StorageLoadOptions(autoExtendExpire: true, groupKey: nil)
 }
 
-public struct StorageStoreOptions {
-	public let groupKey: String?
+struct StorageStoreOptions {
+	let groupKey: String?
 
-	public static let `default` = StorageStoreOptions(groupKey: nil)
+	static let `default` = StorageStoreOptions(groupKey: nil)
 }
 
-public protocol Storage {
+protocol Storage {
 	typealias KeyType = String
 
 	var measureMode: StorageSizeMeasureMode { get }
