@@ -1,4 +1,3 @@
-import Combine
 import Foundation
 
 public struct NetworkDataSourceOptions {
@@ -13,26 +12,28 @@ public struct NetworkDataSourceOptions {
 
 final class NetworkDataSource {
 	private let source: URL
+	private let logger: Logger
 	private let decoder: JSONDecoder
 	private let session: URLSession
 	private let options: NetworkDataSourceOptions
 
-	init(source: URL, session: URLSession, options: NetworkDataSourceOptions = .default) {
+	init(source: URL, logger: Logger, session: URLSession, options: NetworkDataSourceOptions = .default) {
 		self.source = source
 		let decoder = JSONDecoder()
 		decoder.keyDecodingStrategy = .convertFromSnakeCase
+		self.logger = logger
 		self.decoder = decoder
 		self.session = session
 		self.options = options
 	}
 
-	convenience init(source: URL, options: NetworkDataSourceOptions = .default) {
+	convenience init(source: URL, logger: Logger, options: NetworkDataSourceOptions = .default) {
 		let conf = URLSessionConfiguration.ephemeral
 		conf.httpAdditionalHeaders = [
 			"Accept": "application/json",
 		]
 		let session = URLSession(configuration: conf)
-		self.init(source: source, session: session)
+		self.init(source: source, logger: logger, session: session)
 	}
 
 	private func getItem<Item: Decodable>(of url: URL, type: Item.Type) async throws -> Item {
@@ -89,28 +90,28 @@ final class NetworkDataSource {
 extension NetworkDataSource: DataSource {
 	func getConfig() async throws -> MHConfig {
 		guard let url = URL(string: "config.json", relativeTo: source) else {
-			fatalError()
+			logger.fault("Failed to build URL.")
 		}
 		return try await getItem(of: url, type: MHConfig.self)
 	}
 
 	func getGame(of titleId: String) async throws -> MHGame {
 		guard let url = URL(string: "\(titleId)/index.json", relativeTo: source) else {
-			fatalError()
+			logger.fault("Failed to build URL of the game (id: \(titleId)).")
 		}
 		return try await getItem(of: url, type: MHGame.self)
 	}
 
 	func getLocalization(of key: String, for titleId: String) async throws -> MHLocalization {
 		guard let url = URL(string: "\(titleId)/localization/\(key).json", relativeTo: source) else {
-			fatalError()
+			logger.fault("Failed to build URL.")
 		}
 		return try await getItem(of: url, type: MHLocalization.self)
 	}
 
 	func getMonster(of id: String, for titleId: String) async throws -> MHMonster {
 		guard let url = URL(string: "\(titleId)/monsters/\(id).json", relativeTo: source) else {
-			fatalError()
+			logger.fault("Failed to build URL of the monster (id: \(titleId):\(id).")
 		}
 		return try await getItem(of: url, type: MHMonster.self)
 	}

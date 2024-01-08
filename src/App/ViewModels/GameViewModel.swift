@@ -191,6 +191,7 @@ extension GameViewModel {
 	@inline(__always)
 	func set(id: String) -> Bool {
 		guard let game = app.findGame(by: id) else {
+			app.logger.notice("Failed to get the game (id: \(id))")
 			return false
 		}
 

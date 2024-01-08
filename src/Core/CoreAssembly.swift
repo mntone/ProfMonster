@@ -28,6 +28,11 @@ public struct CoreAssembly: Assembly {
 #endif
 
 	public func assemble(container: Container) {
+		let logger = AppleLogger()
+		container.register(Logger.self) { _ in
+			logger
+		}
+
 		container.register(LanguageService.self) { (_, keys: [String]) in
 			MALanguageService(keys)
 		}
@@ -37,7 +42,7 @@ public struct CoreAssembly: Assembly {
 #else
 		let options = CoreDataUserDatabaseOptions.default
 #endif
-		let userDatabase = CoreDataUserDatabase(options: options)
+		let userDatabase = CoreDataUserDatabase(logger: logger, options: options)
 		container.register(UserDatabase.self) { (_) in
 			userDatabase
 		}
@@ -48,25 +53,25 @@ public struct CoreAssembly: Assembly {
 			if AppUtil.isPreview {
 				assembleForDevelop(container: container)
 			} else {
-				assembleForProduct(container: container)
+				assembleForProduct(container: container, logger: logger)
 			}
 		case .develop:
 			assembleForDevelop(container: container)
 		case .product:
-			assembleForProduct(container: container)
+			assembleForProduct(container: container, logger: logger)
 		}
 #else
-		assembleForProduct(container: container)
+		assembleForProduct(container: container, logger: logger)
 #endif
 	}
 
-	private func assembleForProduct(container: Container) {
-		let storage = DiskStorage()
+	private func assembleForProduct(container: Container, logger: Logger) {
+		let storage = DiskStorage(logger: logger)
 		container.register(Storage.self) { _ in
 			storage
 		}
 
-		let dataSource: DataSource = CacheableDataSource(source: NetworkDataSource(source: self.source), storage: storage)
+		let dataSource: DataSource = CacheableDataSource(source: NetworkDataSource(source: self.source, logger: logger), storage: storage)
 		container.register(DataSource.self) { _ in
 			dataSource
 		}

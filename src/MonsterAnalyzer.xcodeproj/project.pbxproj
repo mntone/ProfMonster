@@ -212,6 +212,8 @@
 		EBCA222B2B221E5700C487AD /* SettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA222A2B221E5700C487AD /* SettingsContainer.swift */; };
 		EBCA222D2B222ECB00C487AD /* ToolbarItemBackportModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA22282B21A58C00C487AD /* ToolbarItemBackportModifier.swift */; };
 		EBCA222E2B228C6800C487AD /* FixedWidthWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */; };
+		EBD2FC242B4C20BE00F7B6FF /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD2FC232B4C20BE00F7B6FF /* Logger.swift */; };
+		EBD2FC262B4C260600F7B6FF /* AppleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD2FC252B4C260600F7B6FF /* AppleLogger.swift */; };
 		EBDEEF3D2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */; };
 		EBDEEF3E2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */; };
 		EBDEEF402B3EDF3900835CBC /* Backport+ScrollContentBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEEF3F2B3EDF3900835CBC /* Backport+ScrollContentBackground.swift */; };
@@ -496,6 +498,8 @@
 		EBC85C7C2B209D65008A16C6 /* EdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
 		EBCA22282B21A58C00C487AD /* ToolbarItemBackportModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItemBackportModifier.swift; sourceTree = "<group>"; };
 		EBCA222A2B221E5700C487AD /* SettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContainer.swift; sourceTree = "<group>"; };
+		EBD2FC232B4C20BE00F7B6FF /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		EBD2FC252B4C260600F7B6FF /* AppleLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLogger.swift; sourceTree = "<group>"; };
 		EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebounceNotifier.swift; sourceTree = "<group>"; };
 		EBDEEF3F2B3EDF3900835CBC /* Backport+ScrollContentBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ScrollContentBackground.swift"; sourceTree = "<group>"; };
 		EBDF0B5F2B24A68C003E2808 /* SigningHelper.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SigningHelper.xcconfig; sourceTree = "<group>"; };
@@ -950,6 +954,15 @@
 			path = Modifiers;
 			sourceTree = "<group>";
 		};
+		EBD2FC222B4C20B300F7B6FF /* Loggers */ = {
+			isa = PBXGroup;
+			children = (
+				EBD2FC252B4C260600F7B6FF /* AppleLogger.swift */,
+				EBD2FC232B4C20BE00F7B6FF /* Logger.swift */,
+			);
+			path = Loggers;
+			sourceTree = "<group>";
+		};
 		EBEA6F0A2B17F93900734AAA /* Caches */ = {
 			isa = PBXGroup;
 			children = (
@@ -992,6 +1005,7 @@
 				EBEA6F0A2B17F93900734AAA /* Caches */,
 				EBEA6F112B18295F00734AAA /* DataSources */,
 				EBB4B2212B1776F1004D63EA /* Languages */,
+				EBD2FC222B4C20B300F7B6FF /* Loggers */,
 				EBF684A52B2D4FEF0071981F /* Mappers */,
 				EB967A322B29D4C90041A491 /* StarSwings */,
 				EB9C7E5C2B3D58770045BBA8 /* UserDatabase */,
@@ -1439,6 +1453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB967A3C2B29DCC30041A491 /* App.swift in Sources */,
+				EBD2FC262B4C260600F7B6FF /* AppleLogger.swift in Sources */,
 				EB9620FA2B1DD6D500FD7115 /* AppUtil.swift in Sources */,
 				EBEA6F532B185A2900734AAA /* Attack.swift in Sources */,
 				EBEA6F4F2B185A1A00734AAA /* CacheableDataSource.swift in Sources */,
@@ -1455,6 +1470,7 @@
 				EBEA6F552B185A3B00734AAA /* LanguageService.swift in Sources */,
 				EB9620ED2B1D867E00FD7115 /* LanguageUtil.swift in Sources */,
 				EB9620DF2B1D616A00FD7115 /* Lock.swift in Sources */,
+				EBD2FC242B4C20BE00F7B6FF /* Logger.swift in Sources */,
 				EBEA6F562B185A4000734AAA /* MALanguageService.swift in Sources */,
 				EBEA6F482B185A0900734AAA /* MemoryStorage.swift in Sources */,
 				EBEA6F4D2B185A1600734AAA /* MHConfig.swift in Sources */,

@@ -8,13 +8,14 @@ struct CoreDataUserDatabaseOptions {
 }
 
 final class CoreDataUserDatabase: UserDatabase {
+	private let logger: Logger
 	private let options: CoreDataUserDatabaseOptions
 	private var _historyToken: NSPersistentHistoryToken?
 
 	private lazy var _container: NSPersistentContainer = {
 		guard let url = Bundle(for: CoreDataUserDatabase.self).url(forResource: "Model", withExtension: "momd"),
 			  let managedObjectModel = NSManagedObjectModel(contentsOf: url) else {
-			fatalError("Failed to get managed object model.")
+			logger.fault("Failed to get managed object model.")
 		}
 
 		let container: NSPersistentContainer
@@ -24,7 +25,7 @@ final class CoreDataUserDatabase: UserDatabase {
 			container = NSPersistentContainer(name: "Model", managedObjectModel: managedObjectModel)
 		}
 		guard let description = container.persistentStoreDescriptions.first else {
-			fatalError("Failed to retrieve a persistent store description.")
+			logger.fault("Failed to retrieve a persistent store description.")
 		}
 
 		// Enable persistent history tracking
@@ -37,9 +38,9 @@ final class CoreDataUserDatabase: UserDatabase {
 			description.setOption(true as NSNumber, forKey: NSPersistentStoreRemoteChangeNotificationPostOptionKey)
 		}
 
-		container.loadPersistentStores { _, error in
+		container.loadPersistentStores { [logger] _, error in
 			if let error {
-				fatalError("Unable to load persistent stores: \(error.localizedDescription)")
+				logger.fault("Unable to load persistent stores: \(error.localizedDescription)")
 			}
 		}
 
@@ -81,7 +82,9 @@ final class CoreDataUserDatabase: UserDatabase {
 		return publisher
 	}()
 
-	init(options: CoreDataUserDatabaseOptions = .default) {
+	init(logger: Logger,
+		 options: CoreDataUserDatabaseOptions = .default) {
+		self.logger = logger
 		self.options = options
 	}
 
@@ -107,7 +110,6 @@ final class CoreDataUserDatabase: UserDatabase {
 					UDMonster(coreData: item)
 				}
 			} catch {
-				// TODO: Log
 				return []
 			}
 		}
@@ -130,7 +132,6 @@ final class CoreDataUserDatabase: UserDatabase {
 					UDMonster(coreData: item)
 				}
 			} catch {
-				// TODO: Log
 				return nil
 			}
 		}
@@ -149,7 +150,6 @@ final class CoreDataUserDatabase: UserDatabase {
 			assert(coreDataObject?.isFault != true)
 			return coreDataObject
 		} catch {
-			// TODO: Log
 			return nil
 		}
 	}
@@ -170,7 +170,7 @@ final class CoreDataUserDatabase: UserDatabase {
 			do {
 				try context.save()
 			} catch {
-				// TODO: Log
+				self.logger.error("Failed to save context.")
 			}
 		}
 	}

@@ -144,7 +144,7 @@ extension MonsterViewModel {
 			fatalError()
 		}
 		guard let monster = app.findMonster(by: id) else {
-			// TODO: Logging. Game is not found
+			app.logger.notice("Failed to get the monster (id: \(id))")
 			return nil
 		}
 		self.init(monster)
@@ -156,7 +156,7 @@ extension MonsterViewModel {
 		}
 		guard let game = app.findGame(by: gameID),
 			  let monster = game.findMonster(by: monsterID) else {
-			// TODO: Logging. Game is not found
+			app.logger.notice("Failed to get the monster (id: \(gameID):\(monsterID))")
 			return nil
 		}
 		self.init(monster)

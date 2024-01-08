@@ -3,12 +3,14 @@ import MessagePacker
 
 final class DiskStorage: Storage {
 	private let fileManager: FileManager
+	private let logger: Logger
 	private let baseUrl: URL
 
 	private lazy var decoder = MessagePackDecoder()
 
-	init(fileManager: FileManager = FileManager.default) {
+	init(fileManager: FileManager = FileManager.default, logger: Logger) {
 		self.fileManager = fileManager
+		self.logger = logger
 		self.baseUrl = fileManager.urls(for: .cachesDirectory, in: .userDomainMask)[0]
 	}
 
@@ -50,8 +52,16 @@ final class DiskStorage: Storage {
 	}
 
 	func resetAll() {
-		try! fileManager.contentsOfDirectory(at: baseUrl, includingPropertiesForKeys: nil).forEach { url in
-			try! fileManager.removeItem(at: url)
+		do {
+			try fileManager.contentsOfDirectory(at: baseUrl, includingPropertiesForKeys: nil).forEach { url in
+				do {
+					try fileManager.removeItem(at: url)
+				} catch {
+					logger.error("Failed to delete \"\(url.lastPathComponent)\".")
+				}
+			}
+		} catch {
+			logger.error("Failed to retrieve items.")
 		}
 	}
 

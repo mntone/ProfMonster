@@ -6,14 +6,22 @@ public final class App: FetchableEntity<[Game]>, Entity {
 	private let resolver: Resolver
 	private let storage: Storage
 
+	public let logger: Logger
 	public let settings = Settings()
 
 	public init(resolver: Resolver) {
-		guard let storage = resolver.resolve(Storage.self),
-			  let dataSource = resolver.resolve(DataSource.self) else {
-			fatalError()
+		guard let logger = resolver.resolve(Logger.self) else {
+			fatalError("Failed to get Logger.")
 		}
+		guard let storage = resolver.resolve(Storage.self) else {
+			logger.fault("Failed to get Storage")
+		}
+		guard let dataSource = resolver.resolve(DataSource.self) else {
+			logger.fault("Failed to get DataSource")
+		}
+
 		self.resolver = resolver
+		self.logger = logger
 		self.storage = storage
 		super.init(dataSource: dataSource)
 	}
@@ -28,6 +36,7 @@ public final class App: FetchableEntity<[Game]>, Entity {
 	public func resetAllData() -> Task<Void, Never> {
 		Task.detached(priority: .utility) { [weak self] in
 			guard let self else { return }
+			self.logger.notice("Reset all data.")
 			self.storage.resetAll()
 			self.resetMemoryCache()
 		}
