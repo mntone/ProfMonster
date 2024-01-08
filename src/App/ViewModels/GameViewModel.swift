@@ -64,6 +64,7 @@ final class GameViewModel: ObservableObject {
 					[]
 				}
 			}
+			.removeDuplicates()
 			.multicast(subject: PassthroughSubject())
 
 		// Favorite Group

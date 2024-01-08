@@ -42,6 +42,7 @@ final class HomeViewModel: ObservableObject {
 					[]
 				}
 			}
+			.removeDuplicates()
 			.receive(on: scheduler)
 			.assign(to: &$items)
 	}
