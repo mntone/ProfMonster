@@ -24,12 +24,12 @@ struct NavigationSplitViewHost: View {
 		NavigationSplitView {
 			Sidebar(viewModel: viewModel, selection: $selectedGameID)
 #if os(macOS)
-				.navigationSplitViewColumnWidth(min: 120, ideal: 160, max: 200)
+				.navigationSplitViewColumnWidth(min: 120, ideal: 150, max: 180)
 #endif
 		} content: {
 			MonsterList(id: selectedGameID, selection: $selectedMonsterID)
 #if os(macOS)
-				.navigationSplitViewColumnWidth(min: 120, ideal: 200, max: 240)
+				.navigationSplitViewColumnWidth(min: 150, ideal: 200, max: 240)
 #endif
 		} detail: {
 #if os(iOS)
@@ -102,7 +102,9 @@ struct NavigationSplitViewHostBackport: View {
 		NavigationView {
 #if os(macOS)
 			Sidebar(viewModel: viewModel, selection: $selectedGameID)
+				.frame(minWidth: 120, idealWidth: 150, maxWidth: 180)
 			MonsterList(id: selectedGameID, selection: $selectedMonsterID)
+				.frame(minWidth: 150, idealWidth: 200, maxWidth: 240)
 #else
 			SidebarBackport(viewModel: viewModel, selection: $selectedGameID)
 			GamePage(id: selectedGameID) { item in
