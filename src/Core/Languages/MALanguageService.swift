@@ -14,7 +14,7 @@ final class MALanguageService: LanguageService {
 	init<C>(_ keys: C) where C: Collection, C.Element == String {
 		self.localeKey = LanguageUtil.getPreferredLanguageKey(keys)
 		self.locale = Locale(identifier: self.localeKey)
-		self.separator = String(localized: String.LocalizationValue("/"), bundle: Self.bundle, locale: locale)
+		self.separator = String(localized: "/", bundle: Self.bundle, locale: locale)
 		self._textProcessor = LanguageUtil.getPreferredTextProcessor(self.localeKey)
 	}
 
