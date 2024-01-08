@@ -95,12 +95,10 @@ struct SettingsLabeledContent<Label, Content>: View where Label: View, Content: 
 		if dynamicTypeSize.isAccessibilitySize {
 			VStack(alignment: .leading) {
 				label
-					.matchedGeometryEffect(id: "_l", in: namespace)
-					.accessibilityLabeledPair(role: .label, id: 0, in: namespace)
+					.accessibilityLabeledPair(role: .label, id: 1, in: namespace)
 
 				content
-					.matchedGeometryEffect(id: "_c", in: namespace)
-					.accessibilityLabeledPair(role: .content, id: 0, in: namespace)
+					.accessibilityLabeledPair(role: .content, id: 1, in: namespace)
 			}
 			.multilineTextAlignment(.leading)
 			.accessibilityElement(children: .combine)
@@ -108,13 +106,11 @@ struct SettingsLabeledContent<Label, Content>: View where Label: View, Content: 
 		} else {
 			let body = HStack {
 				label
-					.matchedGeometryEffect(id: "_l", in: namespace)
 					.accessibilityLabeledPair(role: .label, id: 0, in: namespace)
 
 				Spacer()
 
 				content
-					.matchedGeometryEffect(id: "_c", in: namespace)
 					.accessibilityLabeledPair(role: .content, id: 0, in: namespace)
 			}
 			.accessibilityElement(children: .combine)
