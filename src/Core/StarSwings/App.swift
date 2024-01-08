@@ -8,10 +8,6 @@ public final class App: FetchableEntity<[Game]>, Entity {
 
 	public let settings = Settings()
 
-	public var app: App? {
-		self
-	}
-
 	public init(resolver: Resolver) {
 		guard let storage = resolver.resolve(Storage.self),
 			  let dataSource = resolver.resolve(DataSource.self) else {

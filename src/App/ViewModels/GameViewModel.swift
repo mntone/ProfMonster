@@ -141,7 +141,7 @@ final class GameViewModel: ObservableObject {
 				return groups
 			}
 			// Filter search word
-			.combineLatest(searchTextPublisher) { (groups: [GameGroupViewModel], searchText: String) -> [GameGroupViewModel] in
+			.combineLatest(searchTextPublisher) { [settings = app.settings] (groups: [GameGroupViewModel], searchText: String) -> [GameGroupViewModel] in
 				if searchText.isEmpty {
 					return groups
 				}
@@ -149,7 +149,7 @@ final class GameViewModel: ObservableObject {
 				let normalizedSearchText = game.languageService.normalize(forSearch: searchText)
 				return groups.compactMap { group -> GameGroupViewModel? in
 #if !os(watchOS)
-					if !(game.app?.settings.includesFavoriteGroupInSearchResult ?? false) && group.type.isFavorite {
+					if !settings.includesFavoriteGroupInSearchResult && group.type.isFavorite {
 						return nil
 					}
 #endif

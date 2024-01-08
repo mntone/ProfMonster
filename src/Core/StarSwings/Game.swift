@@ -1,25 +1,15 @@
-import Combine
 import Foundation
 import protocol Swinject.Resolver
 
 public final class Game: FetchableEntity<[Monster]>, Entity {
 	private let _resolver: Resolver
 
-	public weak var app: App?
+	weak var app: App?
 
 	public let id: String
 	public let name: String
 
 	public private(set) var languageService: LanguageService = PassthroughtLanguageService()
-
-	public private(set) var hasChanges: Bool = false
-
-	@Published
-	public var isFavorite: Bool? = nil {
-		willSet {
-			hasChanges = true
-		}
-	}
 
 	init(app: App,
 		 resolver: Resolver,

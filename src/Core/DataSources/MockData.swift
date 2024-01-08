@@ -6,7 +6,7 @@ public enum MockMonsterKey: String, CaseIterable {
 }
 
 public enum MockData {
-	public static func monster(_ key: MockMonsterKey) -> MHMonster? {
+	static func monster(_ key: MockMonsterKey) -> MHMonster? {
 		let bundle = Bundle(for: NetworkDataSource.self)
 		guard let url = bundle.url(forResource: key.rawValue, withExtension: "json"),
 			  let data = try? Data(contentsOf: url),

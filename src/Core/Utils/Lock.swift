@@ -43,7 +43,7 @@ typealias Lock = TraceableLock<OSAllocatedUnfairLockBackport>
 
 #else
 
-public protocol Lock {
+protocol Lock {
 	func withLock<R>(_ body: @Sendable () throws -> R) rethrows -> R where R : Sendable
 }
 
@@ -56,7 +56,7 @@ extension OSAllocatedUnfairLockBackport: Lock {
 
 #endif
 
-public enum LockUtil {
+enum LockUtil {
 	static func create() -> some Lock {
 #if VERBOSE
 		return TraceableLock(baseLock: OSAllocatedUnfairLockBackport())
