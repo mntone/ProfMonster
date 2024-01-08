@@ -1,12 +1,12 @@
-import MonsterAnalyzerCore
 import SwiftUI
 
 @available(iOS 16.0, *)
 @available(watchOS, unavailable)
 struct MonsterList: View {
-	@ObservedObject
-	private(set) var viewModel: GameViewModel
+	@StateObject
+	var viewModel = GameViewModel()
 
+	let id: GameViewModel.ID
 	let selection: Binding<GameItemViewModel.ID?>
 
 	@ViewBuilder
@@ -41,13 +41,14 @@ struct MonsterList: View {
 			.modifier(StatusOverlayModifier(state: viewModel.state))
 			.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 												searchText: $viewModel.searchText))
+			.onChangeBackport(of: id, initial: true) { _, newValue in
+				viewModel.set(id: newValue)
+			}
 	}
 }
 
 @available(iOS 16.0, *)
 @available(watchOS, unavailable)
 #Preview {
-	let viewModel = GameViewModel()
-	viewModel.set(id: "mockgame")
-	return MonsterList(viewModel: viewModel, selection: .constant(nil))
+	MonsterList(id: "mockgame", selection: .constant(nil))
 }

@@ -6,7 +6,8 @@ struct Sidebar: View {
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
 
-	let selection: Binding<HomeItemViewModel.ID?>
+	@Binding
+	private(set) var selection: HomeItemViewModel.ID?
 
 	var body: some View {
 		List(viewModel.items, id: \.id, selection: $selection) { item in
@@ -14,6 +15,16 @@ struct Sidebar: View {
 		}
 		.modifier(StatusOverlayModifier(state: viewModel.state))
 		.modifier(SharedGameListModifier(viewModel: viewModel))
+
+		// Select the first item when new scene.
+		.onAppear {
+			if selection == nil {
+				selection = viewModel.items.first?.id
+			}
+		}
+		.onChangeBackport(of: viewModel.items) { _, newValue in
+			selection = newValue.first?.id
+		}
 	}
 }
 
@@ -26,7 +37,8 @@ struct SidebarBackport: View {
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
 
-	let selection: Binding<HomeItemViewModel.ID?>
+	@Binding
+	private(set) var selection: HomeItemViewModel.ID?
 
 	var body: some View {
 		List(viewModel.items) { item in
@@ -36,6 +48,16 @@ struct SidebarBackport: View {
 		}
 		.modifier(StatusOverlayModifier(state: viewModel.state))
 		.modifier(SharedGameListModifier(viewModel: viewModel))
+
+		// Select the first item when new scene.
+		.onAppear {
+			if selection == nil {
+				selection = viewModel.items.first?.id
+			}
+		}
+		.onChangeBackport(of: viewModel.items) { _, newValue in
+			selection = newValue.first?.id
+		}
 	}
 }
 

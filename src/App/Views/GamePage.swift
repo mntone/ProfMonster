@@ -5,8 +5,10 @@ import SwiftUI
 
 @available(macOS, unavailable)
 struct GamePage<ItemView: View>: View {
-	@ObservedObject
-	private(set) var viewModel: GameViewModel
+	@StateObject
+	var viewModel = GameViewModel()
+
+	let id: String?
 
 	@ViewBuilder
 	let content: (IdentifyHolder<GameItemViewModel>) -> ItemView
@@ -39,16 +41,17 @@ struct GamePage<ItemView: View>: View {
 			.modifier(StatusOverlayModifier(state: viewModel.state))
 			.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 												searchText: $viewModel.searchText))
+			.onChangeBackport(of: id, initial: true) { _, newValue in
+				viewModel.set(id: newValue)
+			}
 	}
 }
 
 @available(iOS 16.0, watchOS 9.0, *)
 @available(macOS, unavailable)
 #Preview {
-	let viewModel = GameViewModel()
-	viewModel.set(id: "mockgame")
-	return NavigationStack {
-		GamePage(viewModel: viewModel) { item in
+	NavigationStack {
+		GamePage(id: "mockgame") { item in
 			MonsterListNavigatableItem(viewModel: item)
 		}
 	}

@@ -206,3 +206,14 @@ extension GameViewModel {
 		}
 	}
 }
+
+// MARK: - Identifiable
+
+extension GameViewModel: Identifiable {
+	var id: String? {
+		@inline(__always)
+		get {
+			game?.id
+		}
+	}
+}

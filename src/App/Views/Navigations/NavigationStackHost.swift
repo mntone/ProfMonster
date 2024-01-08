@@ -5,7 +5,9 @@ import SwiftUI
 @available(iOS 16.0, watchOS 9.0, *)
 @available(macOS, unavailable)
 struct NavigationStackHost: View {
-	let viewModel: HomeViewModel
+	@StateObject
+	private var viewModel = HomeViewModel()
+
 	let path: Binding<[MARoute]>
 
 	var body: some View {
@@ -13,10 +15,8 @@ struct NavigationStackHost: View {
 			HomeView(viewModel: viewModel)
 				.navigationDestination(for: MARoute.self) { path in
 					switch path {
-					case let .game(gameId):
-						let viewModel = GameViewModel()
-						let _ = viewModel.set(id: gameId)
-						GamePage(viewModel: viewModel) { item in
+					case let .game(gameID):
+						GamePage(id: gameID) { item in
 							MonsterListNavigatableItem(viewModel: item)
 						}
 					case let .monster(gameId, monsterId):
@@ -25,6 +25,7 @@ struct NavigationStackHost: View {
 					}
 				}
 		}
+		.environment(\.settings, viewModel.app.settings)
 	}
 }
 
@@ -32,7 +33,9 @@ struct NavigationStackHost: View {
 @available(macOS, unavailable)
 @available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use NavigationStackHost instead")
 struct NavigationStackHostBackport: View {
-	let viewModel: HomeViewModel
+	@StateObject
+	private var viewModel = HomeViewModel()
+
 	let selectedGameID: Binding<HomeItemViewModel.ID?>
 	let selectedMonsterID: Binding<MonsterViewModel.ID?>
 
@@ -43,6 +46,7 @@ struct NavigationStackHostBackport: View {
 							 selectedMonsterID: selectedMonsterID)
 		}
 		.navigationViewStyle(.stack)
+		.environment(\.settings, viewModel.app.settings)
 	}
 }
 

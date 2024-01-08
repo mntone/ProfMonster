@@ -31,13 +31,9 @@ struct HomeViewBackport: View {
 	var body: some View {
 		List(viewModel.items) { item in
 			NavigationLink(item.name, tag: item.id, selection: selectedGameID) {
-				LazyView {
-					let viewModel = GameViewModel()
-					let _ = viewModel.set(id: item.id)
-					GamePage(viewModel: viewModel) { item in
-						MonsterListNavigatableItemBackport(viewModel: item,
-														   selection: selectedMonsterID)
-					}
+				GamePage(id: item.id) { item in
+					MonsterListNavigatableItemBackport(viewModel: item,
+													   selection: selectedMonsterID)
 				}
 			}
 		}
@@ -46,15 +42,15 @@ struct HomeViewBackport: View {
 	}
 }
 
-#Preview {
-	let viewModel = HomeViewModel()
-	if #available(iOS 16.0, watchOS 9.0, *) {
-		return HomeView(viewModel: viewModel)
-	} else {
-		return HomeViewBackport(viewModel: viewModel,
-								selectedGameID: .constant(nil),
-								selectedMonsterID: .constant(nil))
-	}
+@available(iOS 16.0, watchOS 9.0, *)
+#Preview("Default") {
+	HomeView(viewModel: HomeViewModel())
+}
+
+#Preview("Backport") {
+	HomeViewBackport(viewModel: HomeViewModel(),
+					 selectedGameID: .constant(nil),
+					 selectedMonsterID: .constant(nil))
 }
 
 #endif

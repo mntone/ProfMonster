@@ -1,8 +1,6 @@
 import SwiftUI
 
 struct ContentView: View {
-	let viewModel: HomeViewModel
-
 #if os(iOS)
 	@Environment(\.horizontalSizeClass)
 	private var horizontalSizeClass
@@ -21,24 +19,21 @@ struct ContentView: View {
 #if os(macOS)
 			NavigationPathSupport(pathString: $pathString) { gameID, monsterID in
 				if #available(macOS 13.0, *) {
-					NavigationSplitViewHost(viewModel: viewModel,
-											selectedGameID: gameID,
+					NavigationSplitViewHost(selectedGameID: gameID,
 											selectedMonsterID: monsterID)
 				} else {
-					NavigationSplitViewHostBackport(viewModel: viewModel,
-													selectedGameID: gameID,
+					NavigationSplitViewHostBackport(selectedGameID: gameID,
 													selectedMonsterID: monsterID)
 				}
 			}
 #elseif os(watchOS)
 			if #available(watchOS 9.0, *) {
 				NavigationPathHost(pathString: $pathString) { path in
-					NavigationStackHost(viewModel: viewModel, path: path)
+					NavigationStackHost(path: path)
 				}
 			} else {
 				NavigationPathSupport(pathString: $pathString) { gameID, monsterID in
-					NavigationStackHostBackport(viewModel: viewModel,
-												selectedGameID: gameID,
+					NavigationStackHostBackport(selectedGameID: gameID,
 												selectedMonsterID: monsterID)
 				}
 			}
@@ -47,23 +42,20 @@ struct ContentView: View {
 			   horizontalSizeClass == .regular {
 				NavigationPathSupport(pathString: $pathString) { gameID, monsterID in
 					if #available(iOS 16.0, *) {
-						NavigationSplitViewHost(viewModel: viewModel,
-												selectedGameID: gameID,
+						NavigationSplitViewHost(selectedGameID: gameID,
 												selectedMonsterID: monsterID)
 					} else {
-						NavigationSplitViewHostBackport(viewModel: viewModel,
-														selectedGameID: gameID,
+						NavigationSplitViewHostBackport(selectedGameID: gameID,
 														selectedMonsterID: monsterID)
 					}
 				}
 			} else if #available(iOS 16.0, *) {
 				NavigationPathHost(pathString: $pathString) { path in
-					NavigationStackHost(viewModel: viewModel, path: path)
+					NavigationStackHost(path: path)
 				}
 			} else {
 				NavigationPathSupport(pathString: $pathString) { gameID, monsterID in
-					NavigationStackHostBackport(viewModel: viewModel,
-												selectedGameID: gameID,
+					NavigationStackHostBackport(selectedGameID: gameID,
 												selectedMonsterID: monsterID)
 				}
 			}

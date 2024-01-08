@@ -15,13 +15,9 @@ struct MAApp: SwiftUI.App {
 	private var appDelegate: MAAppDelegate
 #endif
 
-	private let viewModel = HomeViewModel()
-
 	var body: some Scene {
 		WindowGroup {
-			ContentView(viewModel: viewModel)
-				.environmentObject(viewModel)
-				.environment(\.settings, viewModel.app.settings)
+			ContentView()
 		}
 #if os(watchOS)
 		.environment(\.watchMetrics, WatchUtil.getMetrics())
