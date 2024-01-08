@@ -19,6 +19,25 @@ struct DisplaySettingsPane: View {
 	var body: some View {
 		SettingsPreferredList {
 			Section("Monster List") {
+#if os(watchOS)
+				SettingsPicker("Sort﻿ by",
+							   selection: $viewModel.sort) {
+					ForEach(Sort.allOrderCases(reversed: viewModel.sort.isReversed)) { mode in
+						Text(mode.label).tag(mode)
+					}
+				} label: { action in
+					Text(action.fullLabel)
+				} more: {
+					Section {
+						SettingsToggle("Reverse", isOn: Binding {
+							viewModel.sort.isReversed
+						} set: { _ in
+							viewModel.sort = viewModel.sort.reversed()
+						})
+					}
+				}
+#endif
+
 #if !os(macOS)
 				SettingsPicker("Left Swipe",
 							   selection: $viewModel.trailingSwipeAction) {
@@ -51,16 +70,21 @@ struct DisplaySettingsPane: View {
 				})
 #else
 				SettingsPicker("Element Attack",
-							   selection: $viewModel.elementDisplay,
-							   disablePreviews: [.none]) {
+							   selection: $viewModel.elementDisplay) {
 					ForEach(WeaknessDisplayMode.allCases) { mode in
 						Text(mode.label).tag(mode)
 					}
 				} label: { mode in
 					Text(mode.label)
-				} preview: { mode in
-					let viewModel = WeaknessViewModel(id: "settings", displayMode: mode, sections: mockData)
-					FixedWidthWeaknessView(viewModel: viewModel)
+				} more: {
+					let mode = viewModel.elementDisplay
+					if mode != .none {
+						Section("Preview") {
+							let viewModel = WeaknessViewModel(id: "settings", displayMode: mode, sections: mockData)
+							FixedWidthWeaknessView(viewModel: viewModel)
+								.settingsPadding()
+						}
+					}
 				}
 #endif
 

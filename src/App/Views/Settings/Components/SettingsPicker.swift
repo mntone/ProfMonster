@@ -1,11 +1,10 @@
 import SwiftUI
 
-struct SettingsPicker<Content, SelectionValue, Preview>: View where Content: View, SelectionValue: Hashable, Preview: View {
+struct SettingsPicker<Content, SelectionValue, MoreContent>: View where Content: View, SelectionValue: Hashable, MoreContent: View {
 	private let titleKey: LocalizedStringKey
-	private let disablePreviews: [SelectionValue]?
 	private let label: (SelectionValue) -> Text
 	private let content: Content
-	private let preview: ((SelectionValue) -> Preview)?
+	private let moreContent: MoreContent?
 
 	@Binding
 	private var selection: SelectionValue
@@ -13,27 +12,24 @@ struct SettingsPicker<Content, SelectionValue, Preview>: View where Content: Vie
 	init(_ titleKey: LocalizedStringKey,
 		 selection: Binding<SelectionValue>,
 		 @ViewBuilder content: () -> Content,
-		 @ViewBuilder label: @escaping (SelectionValue) -> Text) where Preview == EmptyView {
+		 @ViewBuilder label: @escaping (SelectionValue) -> Text) where MoreContent == EmptyView {
 		self.titleKey = titleKey
-		self.disablePreviews = nil
 		self._selection = selection
 		self.content = content()
 		self.label = label
-		self.preview = nil
+		self.moreContent = nil
 	}
 
 	init(_ titleKey: LocalizedStringKey,
 		 selection: Binding<SelectionValue>,
-		 disablePreviews: [SelectionValue]? = nil,
 		 @ViewBuilder content: () -> Content,
 		 @ViewBuilder label: @escaping (SelectionValue) -> Text,
-		 @ViewBuilder preview: @escaping (SelectionValue) -> Preview) {
+		 @ViewBuilder more: () -> MoreContent) {
 		self.titleKey = titleKey
-		self.disablePreviews = disablePreviews
 		self._selection = selection
 		self.content = content()
 		self.label = label
-		self.preview = preview
+		self.moreContent = more()
 	}
 
 	var body: some View {
@@ -56,13 +52,7 @@ struct SettingsPicker<Content, SelectionValue, Preview>: View where Content: Vie
 				}
 				.pickerStyle(.inline)
 
-				if let preview,
-				   !(disablePreviews?.contains(selection) ?? false) {
-					Section("Preview") {
-						preview(selection)
-							.settingsPadding()
-					}
-				}
+				moreContent
 			}
 			.navigationTitle(titleKey)
 		} label: {

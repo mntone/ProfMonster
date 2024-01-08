@@ -14,12 +14,14 @@ final class GameViewModel: ObservableObject {
 	@Published
 	private(set) var items: [GameGroupViewModel] = []
 
+#if !os(watchOS)
 	@Published
 	var sort: Sort {
 		didSet {
 			app.settings.sort = sort
 		}
 	}
+#endif
 
 	@Published
 	var searchText: String = ""
@@ -45,7 +47,9 @@ final class GameViewModel: ObservableObject {
 			fatalError()
 		}
 		self.app = app
+#if !os(watchOS)
 		self.sort = app.settings.sort // Do not track
+#endif
 	}
 
 	func set(domain game: Game) {
@@ -91,43 +95,21 @@ final class GameViewModel: ObservableObject {
 
 		// All Groups
 		items
+			// Sort and split groups
 #if os(watchOS)
-			.map { (m: [GameItemViewModel]) -> [GameGroupViewModel] in
+			.map { [sort = app.settings.sort] (m: [GameItemViewModel]) -> [GameGroupViewModel] in
 				let monsters = m.map { monster in
 					IdentifyHolder(monster)
 				}
-				let group = GameGroupViewModel(gameID: game.id, type: .inGame, items: monsters)
-				return [group]
+				let groups = Self.sortMonsters(monsters, sort: sort, gameID: game.id)
+				return groups
 			}
 #else
-			// Sort and split groups
 			.combineLatest($sort) { (m: [GameItemViewModel], sort: Sort) -> [GameGroupViewModel] in
 				let monsters = m.map { monster in
 					IdentifyHolder(monster)
 				}
-
-				let groups: [GameGroupViewModel]
-				switch sort {
-				case .inGame:
-					let groupsExceptFav = GameGroupViewModel(gameID: game.id, type: .inGame, items: monsters)
-					groups = [groupsExceptFav]
-				case .name:
-					let groupsExceptFav = GameGroupViewModel(gameID: game.id, type: .byName, items: monsters.sorted())
-					groups = [groupsExceptFav]
-				case .type:
-					groups = monsters
-						.reduce(into: [:]) { (result: inout [String: [IdentifyHolder<GameItemViewModel>]], next: IdentifyHolder<GameItemViewModel>) in
-							if let items = result[next.content.type] {
-								result[next.content.type] = items + [next]
-							} else {
-								result[next.content.type] = [next]
-							}
-						}
-						.map { id, items in
-							GameGroupViewModel(gameID: game.id, type: .type(id: id), items: items.sorted())
-						}
-						.sorted()
-				}
+				let groups = Self.sortMonsters(monsters, sort: sort, gameID: game.id)
 				return groups
 			}
 #endif
@@ -176,6 +158,32 @@ final class GameViewModel: ObservableObject {
 
 		// Set current
 		self.game = game
+	}
+
+	private static func sortMonsters(_ monsters: [IdentifyHolder<GameItemViewModel>], sort: Sort, gameID: String) -> [GameGroupViewModel] {
+		let groups: [GameGroupViewModel]
+		switch sort {
+		case let .inGame(reversed):
+			let groupsExceptFav = GameGroupViewModel(gameID: gameID, type: .inGame(reversed: reversed), items: reversed ? monsters.reversed() : monsters)
+			groups = [groupsExceptFav]
+		case let .name(reversed):
+			let groupsExceptFav = GameGroupViewModel(gameID: gameID, type: .byName(reversed: reversed), items: reversed ? monsters.sorted(by: >) : monsters.sorted())
+			groups = [groupsExceptFav]
+		case let .type(reversed):
+			let unsortedGroups = monsters
+				.reduce(into: [:]) { (result: inout [String: [IdentifyHolder<GameItemViewModel>]], next: IdentifyHolder<GameItemViewModel>) in
+					if let items = result[next.content.type] {
+						result[next.content.type] = items + [next]
+					} else {
+						result[next.content.type] = [next]
+					}
+				}
+				.map { id, items in
+					GameGroupViewModel(gameID: gameID, type: .type(id: id, reversed: reversed), items: reversed ? items.sorted(by: >) : items.sorted())
+				}
+			groups = reversed ? unsortedGroups.sorted(by: >) : unsortedGroups.sorted()
+		}
+		return groups
 	}
 }
 

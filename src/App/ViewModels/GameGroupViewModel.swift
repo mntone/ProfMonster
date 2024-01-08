@@ -1,9 +1,9 @@
 
 enum GameGroupType: Hashable {
-	case inGame
-	case byName
+	case inGame(reversed: Bool)
+	case byName(reversed: Bool)
 	case favorite
-	case type(id: String)
+	case type(id: String, reversed: Bool)
 
 	var isFavorite: Bool {
 		if case .favorite = self {
@@ -39,7 +39,7 @@ struct GameGroupViewModel: Identifiable {
 		case .favorite:
 			self.label = String(localized: "Favorites")
 			self.sortkey = "0"
-		case let .type(id):
+		case let .type(id, _):
 			let baseKey = id.replacingOccurrences(of: "_", with: " ").capitalized
 			self.label = String(localized: String.LocalizationValue(baseKey))
 			self.sortkey = String(localized: String.LocalizationValue(baseKey + "_SORTKEY"))

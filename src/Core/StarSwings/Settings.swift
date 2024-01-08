@@ -24,7 +24,7 @@ public final class Settings {
 	@UserDefault("mrgPart", initial: true)
 	public var mergeParts: Bool
 
-	@UserDefault("sort", initial: .inGame)
+	@UserDefault("sort", initial: .inGame(reversed: false))
 	public var sort: Sort
 
 #if DEBUG

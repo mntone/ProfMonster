@@ -38,8 +38,12 @@ struct GamePage<ItemView: View>: View {
 #endif
 			.stateOverlay(viewModel.state)
 			.navigationTitle(viewModel.name.map(Text.init) ?? Text("Unknown"))
+#if os(watchOS)
+			.modifier(SharedMonsterListModifier(searchText: $viewModel.searchText))
+#else
 			.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 												searchText: $viewModel.searchText))
+#endif
 			.onChangeBackport(of: id, initial: true) { _, newValue in
 				viewModel.set(id: newValue)
 			}

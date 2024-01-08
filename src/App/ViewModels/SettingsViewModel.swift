@@ -1,7 +1,6 @@
 import Combine
 import Foundation
 import MonsterAnalyzerCore
-import SwiftUI
 
 final class SettingsViewModel: ObservableObject {
 	private let formatter = {
@@ -22,6 +21,15 @@ final class SettingsViewModel: ObservableObject {
 	var showTitle: Bool {
 		didSet {
 			settings.showTitle = showTitle
+		}
+	}
+#endif
+
+#if os(watchOS)
+	@Published
+	var sort: Sort {
+		didSet {
+			settings.sort = sort
 		}
 	}
 #endif
@@ -71,6 +79,9 @@ final class SettingsViewModel: ObservableObject {
 		}
 		self.app = app
 		self.settings = app.settings
+#if os(watchOS)
+		self.sort = app.settings.sort
+#endif
 #if !os(macOS)
 		self.trailingSwipeAction = app.settings.trailingSwipeAction
 #endif
@@ -85,6 +96,9 @@ final class SettingsViewModel: ObservableObject {
 		self.showInternalInformation = app.settings.showInternalInformation
 
 		let scheduler = DispatchQueue.main
+#if os(watchOS)
+		settings.$sort.dropFirst().receive(on: scheduler).assign(to: &$sort)
+#endif
 #if !os(macOS)
 		settings.$trailingSwipeAction.dropFirst().receive(on: scheduler).assign(to: &$trailingSwipeAction)
 #endif
