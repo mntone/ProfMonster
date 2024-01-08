@@ -3,7 +3,9 @@ import SwiftUI
 #if os(iOS)
 
 @available(iOS, introduced: 15.0, deprecated: 16.0, message: "Use native List instead")
-struct SelectableListRowBackport<Tag: Equatable, Content: View>: View {
+@available(macOS, unavailable)
+@available(watchOS, unavailable)
+struct RoundedRectangleSelectableListRowBackport<Tag: Equatable, Content: View>: View {
 	let tag: Tag
 	let content: Content
 
@@ -23,7 +25,8 @@ struct SelectableListRowBackport<Tag: Equatable, Content: View>: View {
 		let isSelected = tag == selection
 		content
 			.foregroundStyle(isSelected ? .white : .primary)
-			.padding(8)
+			.padding(.vertical, 8)
+			.padding(.horizontal)
 			.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
 			.background(isSelected ? Color.accentColor : .clear, in: shape)
 			.contentShape(shape) // Fix tap area
@@ -35,7 +38,9 @@ struct SelectableListRowBackport<Tag: Equatable, Content: View>: View {
 }
 
 @available(iOS, introduced: 15.0, deprecated: 16.0, message: "Use native List instead")
-struct SelectableInsetGroupedListRowBackport<Tag: Equatable, Content: View>: View {
+@available(macOS, unavailable)
+@available(watchOS, unavailable)
+struct SelectableListRowBackport<Tag: Equatable, Content: View>: View {
 	let tag: Tag
 	let content: Content
 

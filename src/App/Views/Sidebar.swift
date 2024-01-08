@@ -42,7 +42,7 @@ struct SidebarBackport: View {
 
 	var body: some View {
 		List(viewModel.items) { item in
-			SelectableListRowBackport(tag: item.id, selection: $selection) {
+			RoundedRectangleSelectableListRowBackport(tag: item.id, selection: $selection) {
 				Text(item.name)
 			}
 		}

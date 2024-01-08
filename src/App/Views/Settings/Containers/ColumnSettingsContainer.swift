@@ -87,7 +87,7 @@ struct ColumnSettingsContainer: View {
 #if os(iOS)
 			NavigationView {
 				List(SettingsPane.allCases) { pane in
-					SelectableInsetGroupedListRowBackport(tag: pane, selection: $selectedSettingsPane) {
+					SelectableListRowBackport(tag: pane, selection: $selectedSettingsPane) {
 						pane.label
 					}
 				}
