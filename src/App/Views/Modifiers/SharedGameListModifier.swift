@@ -16,7 +16,7 @@ struct SharedGameListModifier: ViewModifier {
 #if !os(macOS)
 			.toolbarItemBackport(alignment: .leading) {
 				Button("Settings",
-					   systemImage: "gearshape.fill",
+					   systemImage: "gearshape",
 					   action: presentSettingsSheetAction.callAsFunction)
 #if !os(watchOS)
 				.keyboardShortcut(",", modifiers: [.command])
