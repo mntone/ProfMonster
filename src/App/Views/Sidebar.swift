@@ -12,7 +12,7 @@ struct Sidebar: View {
 		List(viewModel.items, id: \.id, selection: $selection) { item in
 			Text(item.name)
 		}
-		.modifier(StatusOverlayModifier(state: viewModel.state))
+		.stateOverlay(viewModel.state)
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 
 		// Select the first item when new scene.
@@ -45,7 +45,7 @@ struct SidebarBackport: View {
 				Text(item.name)
 			}
 		}
-		.modifier(StatusOverlayModifier(state: viewModel.state))
+		.stateOverlay(viewModel.state)
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 
 		// Select the first item when new scene.

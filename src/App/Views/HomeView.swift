@@ -12,7 +12,7 @@ struct HomeView: View {
 		List(viewModel.items) { item in
 			NavigationLink(item.name, value: MARoute.game(id: item.id))
 		}
-		.modifier(StatusOverlayModifier(state: viewModel.state))
+		.stateOverlay(viewModel.state)
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 	}
 }
@@ -36,7 +36,7 @@ struct HomeViewBackport: View {
 				}
 			}
 		}
-		.modifier(StatusOverlayModifier(state: viewModel.state))
+		.stateOverlay(viewModel.state)
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 	}
 }

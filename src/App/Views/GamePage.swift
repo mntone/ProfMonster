@@ -36,8 +36,8 @@ struct GamePage<ItemView: View>: View {
 			.listStyle(.plain)
 			.backport.scrollDismissesKeyboard(.immediately)
 #endif
+			.stateOverlay(viewModel.state)
 			.navigationTitle(viewModel.name.map(Text.init) ?? Text("Unknown"))
-			.modifier(StatusOverlayModifier(state: viewModel.state))
 			.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 												searchText: $viewModel.searchText))
 			.onChangeBackport(of: id, initial: true) { _, newValue in

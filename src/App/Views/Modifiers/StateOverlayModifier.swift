@@ -1,7 +1,6 @@
-import MonsterAnalyzerCore
 import SwiftUI
 
-struct StatusOverlayModifier: ViewModifier {
+struct StateOverlayModifier: ViewModifier {
 	let state: RequestState
 
 	func body(content: Content) -> some View {
@@ -16,5 +15,13 @@ struct StatusOverlayModifier: ViewModifier {
 				EmptyView()
 			}
 		}
+	}
+}
+
+extension View {
+	@inline(__always)
+	@ViewBuilder
+	func stateOverlay(_ state: RequestState) -> ModifiedContent<Self, StateOverlayModifier> {
+		modifier(StateOverlayModifier(state: state))
 	}
 }
