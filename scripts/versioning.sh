@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Build Number Offset
+INTERNAL_SHORT_VERSION_OFFSET=1
+
 if [ "$CI" = "TRUE" ]; then
 	git fetch origin --tags
 fi
@@ -12,7 +15,7 @@ GIT_HASH_SHORT=$(git rev-parse --short HEAD)
 VERSION=$GIT_TAG-$GIT_HASH_SHORT
 echo "Current version: $VERSION"
 
-if [ "$CI" != "TRUE" ]; then
+if [ "$CI" != "TRUE" ] && [ "$1" != "-f" ]; then
 	CACHED_VERSION="`cat $XCCONFIG_PATH | grep -m1 'INTERNAL_VERSION' | cut -d'=' -f2 | tr -d ';' | tr -d ' '`"
 	if [ "$VERSION" = "$CACHED_VERSION" ]; then
 		echo "Skipped to update \"Versioning.xcconfig\"."
@@ -24,18 +27,18 @@ GIT_HASH=$(git rev-parse HEAD)
 GIT_HASH_ORIGIN=$(git rev-parse $GIT_TAG^{})
 if [ "$GIT_HASH" = "$GIT_HASH_ORIGIN" ]; then
 	GIT_CURRENT=$GIT_TAG
-	GIT_ORIGIN=$(git describe --tags --abbrev=0 --tag "$GIT_TAG^")
-	GIT_HASH_ORIGIN=$(git rev-parse $GIT_ORIGIN^{})
+	GIT_TAG_ORIGIN=$(git describe --abbrev=0 $GIT_TAG^)
+	GIT_HASH_ORIGIN=$(git rev-parse $GIT_TAG_ORIGIN^{})
 else
 	GIT_CURRENT=$GIT_HASH
-	GIT_ORIGIN=$GIT_TAG
+	GIT_TAG_ORIGIN=$GIT_TAG
 fi
 GIT_DATE=$(git log -1 --format='%ci')
 
 if [ "$CI" = "TRUE" ]; then
-	MARKETING_VERSION=$CI_BUILD_NUMBER
+	SHORT_VERSION=$CI_BUILD_NUMBER
 else
-	MARKETING_VERSION=$GIT_TAG
+	SHORT_VERSION=$(($(git tag | wc -l | tr -d '[:space:]') + $INTERNAL_SHORT_VERSION_OFFSET))
 fi
 
 {
@@ -44,7 +47,8 @@ fi
 	echo "GIT_DATE                = $GIT_DATE;"
 	echo "GIT_HASH                = $GIT_HASH;"
 	echo "GIT_HASH_ORIGIN         = $GIT_HASH_ORIGIN;"
-	echo "GIT_ORIGIN              = $GIT_ORIGIN;"
+	echo "GIT_ORIGIN              = $GIT_TAG_ORIGIN;"
 	echo "INTERNAL_VERSION        = $VERSION;"
-	echo "MARKETING_VERSION       = $MARKETING_VERSION;"
+	echo "INTERNAL_SHORT_VERSION  = $SHORT_VERSION;"
+	echo "MARKETING_VERSION       = $GIT_TAG;"
 } > "$XCCONFIG_PATH"

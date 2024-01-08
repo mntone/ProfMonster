@@ -49,7 +49,7 @@ struct AppSettingsPane: View {
 
 					Text("Prof. Monster")
 						.font(.headline)
-					Text("Version \(AppUtil.version) (\(AppUtil.bundleShortVersion))")
+					Text("Version \(AppUtil.version) (\(AppUtil.shortVersion))")
 						.font(.subheadline)
 					Spacer()
 					Text(AppUtil.copyright)

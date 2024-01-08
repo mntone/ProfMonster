@@ -31,6 +31,7 @@ struct MAApp: SwiftUI.App {
 				Button("About Prof. Monster") {
 					NSApplication.shared.orderFrontStandardAboutPanel(options: [
 						.applicationVersion: String(localized: "Version \(AppUtil.version)"),
+						.version: AppUtil.shortVersion,
 					])
 				}
 			}

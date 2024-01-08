@@ -30,7 +30,11 @@ public enum AppUtil {
 #endif
 
 	public static var version: String {
-		info(key: "MAInternalVersion") as! String
+		info(key: "MAVersion") as! String
+	}
+
+	public static var shortVersion: String {
+		info(key: "MAShortVersion") as! String
 	}
 
 	public static var gitCurrent: String {

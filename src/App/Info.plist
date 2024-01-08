@@ -14,8 +14,10 @@
 	<string>$(GIT_HASH_ORIGIN)</string>
 	<key>MAGitOrigin</key>
 	<string>$(GIT_ORIGIN)</string>
-	<key>MAInternalVersion</key>
+	<key>MAVersion</key>
 	<string>$(INTERNAL_VERSION)</string>
+	<key>MAShortVersion</key>
+	<string>$(INTERNAL_SHORT_VERSION)</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
