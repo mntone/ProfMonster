@@ -34,7 +34,7 @@ struct DeveloperMonsterView: View {
 }
 
 #Preview {
-	let viewModel = MonsterViewModel(id: "gulu_qoo", for: "mockgame")!
+	let viewModel = MonsterViewModel(id: "mockgame:gulu_qoo")!
 	return Form {
 		MonsterView(viewModel: viewModel)
 	}

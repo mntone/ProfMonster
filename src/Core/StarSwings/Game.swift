@@ -52,8 +52,6 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 			return Monster(app: app,
 						   id: id,
 						   type: monster.type,
-						   rawID: monster.id,
-						   gameID: self.id,
 						   dataSource: self._dataSource,
 						   languageService: langsvc,
 						   physiologyMapper: physiologyMapper,

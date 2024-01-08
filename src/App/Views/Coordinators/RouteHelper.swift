@@ -12,14 +12,14 @@ enum RouteHelper {
 			return nil
 		}
 
-		let route = [.game(gameID: gameID)] + pathComponents.dropFirst().map { pathComponent in
+		let route = [.game(id: gameID)] + pathComponents.dropFirst().map { pathComponent in
 			// In the future, navigate the id of other type to use prefix.
 			//let i0 = pathComponent.startIndex
 			//let i2 = pathComponent.index(i0, offsetBy: 2)
 			//switch pathComponent[i0..<i2] {
 			//case "w:":
 			//default:
-			return MARoute.monster(gameID: gameID, monsterID: String(pathComponent))
+			return MARoute.monster(id: String(pathComponent))
 			//}
 		}
 		return route
@@ -36,9 +36,8 @@ enum RouteHelper {
 			switch route {
 			case .game:
 				fatalError()
-			case let .monster(gameID, monsterID):
-				precondition(rootGameID == gameID) // Assume X == Y for root of .game(X) and .monster(Y, _)
-				return monsterID
+			case let .monster(id):
+				return id
 			}
 		}.joined(separator: "/")
 		return pathString
@@ -69,8 +68,8 @@ enum RouteHelper {
 			switch path {
 			case .game:
 				fatalError()
-			case let .monster(_, monsterID):
-				guard await game.prefetch(of: monsterID) != nil else {
+			case let .monster(id):
+				guard await game.prefetch(of: id) != nil else {
 					stopping = true
 					break
 				}

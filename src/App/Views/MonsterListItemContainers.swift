@@ -8,7 +8,7 @@ struct MonsterListNavigatableItem: View {
 	let viewModel: IdentifyHolder<GameItemViewModel>
 
 	var body: some View {
-		NavigationLink(value: MARoute.monster(gameID: viewModel.content.gameID, monsterID: viewModel.content.id)) {
+		NavigationLink(value: MARoute.monster(id: viewModel.content.id)) {
 			MonsterListItem(viewModel: viewModel.content)
 		}
 	}
@@ -24,7 +24,7 @@ struct MonsterListNavigatableItemBackport: View {
 	var body: some View {
 		NavigationLink(tag: viewModel.id, selection: selection) {
 			LazyView {
-				let monsterViewModel = MonsterViewModel(id: viewModel.content.id, for: viewModel.content.gameID)!
+				let monsterViewModel = MonsterViewModel(id: viewModel.content.id)!
 				MonsterView(viewModel: monsterViewModel)
 			}
 		} label: {
@@ -59,7 +59,7 @@ struct MonsterSelectableListItem: View {
 @available(macOS, unavailable)
 #Preview {
 	NavigationStack {
-		let viewModel = IdentifyHolder(GameItemViewModel(id: "gulu_qoo", gameID: "mockgame")!)
+		let viewModel = IdentifyHolder(GameItemViewModel(id: "mockgame:gulu_qoo")!)
 		List {
 			MonsterListNavigatableItem(viewModel: viewModel)
 			MonsterListNavigatableItem(viewModel: viewModel)

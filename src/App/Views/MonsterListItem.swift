@@ -42,7 +42,7 @@ struct MonsterListItem: View {
 
 #if DEBUG || targetEnvironment(simulator)
 #Preview {
-	let viewModel = GameItemViewModel(id: "gulu_qoo", gameID: "mockgame")!
+	let viewModel = GameItemViewModel(id: "mockgame:gulu_qoo")!
 	return List {
 		MonsterListItem(viewModel: viewModel)
 		MonsterListItem(viewModel: viewModel)

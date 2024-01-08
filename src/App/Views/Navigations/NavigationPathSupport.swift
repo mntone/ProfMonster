@@ -36,10 +36,9 @@ struct NavigationPathSupport<Content: View>: View {
 				selectedGameID = rootGameID
 
 				guard path.count >= 2,
-					  case let .monster(gameID, monsterID) = path[1] else {
+					  case let .monster(monsterID) = path[1] else {
 					return
 				}
-				precondition(rootGameID == gameID) // Assume X == Y for .game(X) and .monster(Y, _)
 				selectedMonsterID = monsterID
 			}
 		}
@@ -54,11 +53,11 @@ struct NavigationPathSupport<Content: View>: View {
 		if let selectedGameID {
 			if let selectedMonsterID {
 				path = [
-					.game(gameID: selectedGameID),
-					.monster(gameID: selectedGameID, monsterID: selectedMonsterID),
+					.game(id: selectedGameID),
+					.monster(id: selectedMonsterID),
 				]
 			} else {
-				path = [.game(gameID: selectedGameID)]
+				path = [.game(id: selectedGameID)]
 			}
 		} else {
 			path = []

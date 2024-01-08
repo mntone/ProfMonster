@@ -14,8 +14,6 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 
 	public let id: String
 	public let type: String
-	public let rawID: String
-	public let gameID: String
 	public let name: String
 	public let readableName: String
 	public let sortkey: String
@@ -63,8 +61,6 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 	init(app: App,
 		 id: String,
 		 type: String,
-		 rawID: String,
-		 gameID: String,
 		 dataSource: DataSource,
 		 languageService: LanguageService,
 		 physiologyMapper: PhysiologyMapper,
@@ -77,8 +73,6 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 
 		self.id = id
 		self.type = type
-		self.rawID = rawID
-		self.gameID = gameID
 		self.name = localization.name
 
 		let readableName = localization.readableName ?? languageService.readable(from: localization.name)
@@ -138,7 +132,10 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 	}
 
 	override func _fetch() async throws -> Physiologies {
-		let monster = try await _dataSource.getMonster(of: rawID, for: gameID)
+		let ids = id.split(separator: ":", maxSplits: 1).map(String.init)
+		assert(ids.count == 2)
+
+		let monster = try await _dataSource.getMonster(of: ids[1], for: ids[0])
 		let options = PhysiologyMapperOptions(mergeParts: app?.settings.mergeParts ?? true)
 		let physiologies = _physiologyMapper.map(json: monster, options: options)
 		return physiologies

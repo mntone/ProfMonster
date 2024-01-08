@@ -27,12 +27,11 @@ final class GameItemViewModel: ObservableObject, Identifiable {
 	}
 
 #if DEBUG || targetEnvironment(simulator)
-	convenience init?(id monsterID: String, gameID: String) {
+	convenience init?(id: String) {
 		guard let app = MAApp.resolver.resolve(App.self) else {
 			fatalError()
 		}
-		guard let game = app.findGame(by: gameID),
-			  let monster = game.findMonster(by: monsterID) else {
+		guard let monster = app.findMonster(by: id) else {
 			// TODO: Logging. Game is not found
 			return nil
 		}
@@ -51,13 +50,6 @@ final class GameItemViewModel: ObservableObject, Identifiable {
 		@inline(__always)
 		get {
 			monster.type
-		}
-	}
-
-	var gameID: String {
-		@inline(__always)
-		get {
-			monster.gameID
 		}
 	}
 

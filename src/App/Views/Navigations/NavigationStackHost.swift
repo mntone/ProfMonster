@@ -15,12 +15,12 @@ struct NavigationStackHost: View {
 			HomeView(viewModel: viewModel)
 				.navigationDestination(for: MARoute.self) { path in
 					switch path {
-					case let .game(gameID):
-						GamePage(id: gameID) { item in
+					case let .game(id):
+						GamePage(id: id) { item in
 							MonsterListNavigatableItem(viewModel: item)
 						}
-					case let .monster(gameId, monsterId):
-						let viewModel = MonsterViewModel(id: monsterId, for: gameId)!
+					case let .monster(id):
+						let viewModel = MonsterViewModel(id: id)!
 						MonsterView(viewModel: viewModel)
 					}
 				}

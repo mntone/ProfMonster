@@ -86,7 +86,11 @@ public extension App {
 		}
 	}
 
-	func findMonster(by id: String, of gameID: String) -> Monster? {
-		findGame(by: gameID)?.findMonster(by: id)
+	func findMonster(by id: String) -> Monster? {
+		guard let gameID = id.split(separator: ":", maxSplits: 1).first,
+			  let game = findGame(by: String(gameID)) else {
+			return nil
+		}
+		return game.findMonster(by: id)
 	}
 }

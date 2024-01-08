@@ -78,17 +78,6 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 		monster.fetchIfNeeded()
 	}
 
-	convenience init?(id monsterID: String, for gameID: String) {
-		guard let app = MAApp.resolver.resolve(App.self) else {
-			fatalError()
-		}
-		guard let monster = app.findMonster(by: monsterID, of: gameID) else {
-			// TODO: Logging. Game is not found
-			return nil
-		}
-		self.init(monster)
-	}
-
 #if !os(watchOS)
 	deinit {
 		if monster.note != note {
@@ -101,13 +90,6 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 		@inline(__always)
 		get {
 			monster.id
-		}
-	}
-
-	var gameID: String {
-		@inline(__always)
-		get {
-			monster.gameID
 		}
 	}
 
@@ -151,6 +133,33 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 		get {
 			monster.keywords
 		}
+	}
+}
+
+// MARK: - Convenience Initializers
+
+extension MonsterViewModel {
+	convenience init?(id: String) {
+		guard let app = MAApp.resolver.resolve(App.self) else {
+			fatalError()
+		}
+		guard let monster = app.findMonster(by: id) else {
+			// TODO: Logging. Game is not found
+			return nil
+		}
+		self.init(monster)
+	}
+
+	convenience init?(id monsterID: String, for gameID: String) {
+		guard let app = MAApp.resolver.resolve(App.self) else {
+			fatalError()
+		}
+		guard let game = app.findGame(by: gameID),
+			  let monster = game.findMonster(by: monsterID) else {
+			// TODO: Logging. Game is not found
+			return nil
+		}
+		self.init(monster)
 	}
 }
 

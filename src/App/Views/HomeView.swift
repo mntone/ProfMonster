@@ -10,7 +10,7 @@ struct HomeView: View {
 
 	var body: some View {
 		List(viewModel.items) { item in
-			NavigationLink(item.name, value: MARoute.game(gameID: item.id))
+			NavigationLink(item.name, value: MARoute.game(id: item.id))
 		}
 		.modifier(StatusOverlayModifier(state: viewModel.state))
 		.modifier(SharedGameListModifier(viewModel: viewModel))
