@@ -102,9 +102,9 @@ struct NavigationSplitViewHostBackport: View {
 		NavigationView {
 #if os(macOS)
 			Sidebar(viewModel: viewModel, selection: $selectedGameID)
-				.frame(minWidth: 120, idealWidth: 150, maxWidth: 180)
+				.frame(minWidth: 120, idealWidth: 150)
 			MonsterList(id: selectedGameID, selection: $selectedMonsterID)
-				.frame(minWidth: 150, idealWidth: 200, maxWidth: 240)
+				.frame(minWidth: 150, idealWidth: 200)
 #else
 			SidebarBackport(viewModel: viewModel, selection: $selectedGameID)
 			GamePage(id: selectedGameID) { item in
