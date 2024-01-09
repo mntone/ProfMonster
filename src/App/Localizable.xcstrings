@@ -1406,7 +1406,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "liǎngqīzhǒng"
+            "value" : "liangqizhong"
           }
         },
         "zh-Hant" : {
@@ -2416,7 +2416,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "niǎolóngzhǒng"
+            "value" : "niaolongzhong"
           }
         },
         "zh-Hant" : {
@@ -2596,7 +2596,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "shòulóngzhǒng"
+            "value" : "shoulongzhong"
           }
         },
         "zh-Hant" : {
@@ -2880,7 +2880,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "jiǎqiàozhǒng"
+            "value" : "jiaqiaozhong"
           }
         },
         "zh-Hant" : {
@@ -3785,7 +3785,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "gǔlóngzhǒng"
+            "value" : "gulongzhong"
           }
         },
         "zh-Hant" : {
@@ -4191,7 +4191,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "yáshòuzhǒng"
+            "value" : "yashouzhong"
           }
         },
         "zh-Hant" : {
@@ -4371,7 +4371,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "yálóngzhǒng"
+            "value" : "yalongzhong"
           }
         },
         "zh-Hant" : {
@@ -5102,7 +5102,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "fēilóngzhǒng"
+            "value" : "feilongzhong"
           }
         },
         "zh-Hant" : {
@@ -5872,7 +5872,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "hǎilóngzhǒng"
+            "value" : "hailongzhong"
           }
         },
         "zh-Hant" : {
@@ -6611,7 +6611,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "yúlóngzhǒng"
+            "value" : "yulongzhong"
           }
         },
         "zh-Hant" : {
@@ -8447,7 +8447,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "qiánjiǎozhǒng"
+            "value" : "qianjiaozhong"
           }
         },
         "zh-Hant" : {
