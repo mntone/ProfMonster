@@ -36,6 +36,15 @@ private extension String {
 }
 
 struct JapaneseTextProcessor: TextProcessor {
+	private static let prolongedDict: [String] = [
+		      "ア", "ア", "イ", "イ", "ウ", "ウ", "エ", "エ", "オ", "オ", "ア", "ア", "イ", "イ", "ウ",
+		"ウ", "エ", "エ", "オ", "オ", "ア", "ア", "イ", "イ", "ウ", "ウ", "エ", "エ", "オ", "オ", "ア",
+		"ア", "イ", "イ", "ウ", "ウ", "ウ", "エ", "エ", "オ", "オ", "ア", "イ", "ウ", "エ", "オ", "ア",
+		"ア", "ア", "イ", "イ", "イ", "ウ", "ウ", "ウ", "エ", "エ", "エ", "オ", "オ", "オ", "ア", "イ",
+		"ウ", "エ", "オ", "ア", "ア", "イ", "イ", "ウ", "ウ", "ア", "イ", "ウ", "エ", "オ", "ア", "ア",
+		"イ", "エ", "オ", "ン", "ウ", "ア", "エ", "ア", "イ", "エ", "オ"
+	]
+
 	func normalize(forSearch searchText: String) -> String {
 		searchText
 			.lowercased()
@@ -136,6 +145,16 @@ struct JapaneseTextProcessor: TextProcessor {
 			case 0x00B7, // latin dot
 				 0x30FB: // katakana dot
 				break
+
+			// Convert prolonged sound mark.
+			case 0x30FC where !output.isEmpty:
+				let prevChar = output[output.index(before: output.endIndex)].unicodeScalars.first.unsafelyUnwrapped.value
+				switch prevChar {
+				case 0x30A1...0x30FA:
+					output += Self.prolongedDict[Int(prevChar) - 0x30A1]
+				default:
+					output += String(char)
+				}
 
 			default:
 				output += String(char)
