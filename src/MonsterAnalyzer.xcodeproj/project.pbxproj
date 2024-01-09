@@ -218,6 +218,10 @@
 		EBDEEF3E2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */; };
 		EBDEEF402B3EDF3900835CBC /* Backport+ScrollContentBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEEF3F2B3EDF3900835CBC /* Backport+ScrollContentBackground.swift */; };
 		EBDFD8512B3C112A00AF1832 /* GameGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */; };
+		EBDFF9CE2B4D023400473634 /* Weakness.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFF9CD2B4D023400473634 /* Weakness.swift */; };
+		EBDFF9D12B4D2A2500473634 /* CompactWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFF9D02B4D2A2500473634 /* CompactWeaknessView.swift */; };
+		EBDFF9D22B4D2A2500473634 /* CompactWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFF9D02B4D2A2500473634 /* CompactWeaknessView.swift */; };
+		EBDFF9D42B4D2E8700473634 /* Effectiveness.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFF9D32B4D2E8700473634 /* Effectiveness.swift */; };
 		EBEA6F2F2B1858FB00734AAA /* MonsterAnalyzerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEA6F252B1858FA00734AAA /* MonsterAnalyzerCore.framework */; };
 		EBEA6F362B1858FB00734AAA /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F352B1858FB00734AAA /* StorageTests.swift */; };
 		EBEA6F372B1858FB00734AAA /* MonsterAnalyserCore.h in Headers */ = {isa = PBXBuildFile; fileRef = EBEA6F272B1858FA00734AAA /* MonsterAnalyserCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -504,6 +508,9 @@
 		EBDEEF3F2B3EDF3900835CBC /* Backport+ScrollContentBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ScrollContentBackground.swift"; sourceTree = "<group>"; };
 		EBDF0B5F2B24A68C003E2808 /* SigningHelper.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SigningHelper.xcconfig; sourceTree = "<group>"; };
 		EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGroupViewModel.swift; sourceTree = "<group>"; };
+		EBDFF9CD2B4D023400473634 /* Weakness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weakness.swift; sourceTree = "<group>"; };
+		EBDFF9D02B4D2A2500473634 /* CompactWeaknessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactWeaknessView.swift; sourceTree = "<group>"; };
+		EBDFF9D32B4D2E8700473634 /* Effectiveness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effectiveness.swift; sourceTree = "<group>"; };
 		EBEA6F0B2B17F9B300734AAA /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		EBEA6F0E2B1800E600734AAA /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 		EBEA6F132B1829EE00734AAA /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
@@ -604,6 +611,7 @@
 			isa = PBXGroup;
 			children = (
 				EBB4B1E22B163B0E004D63EA /* Attack.swift */,
+				EBDFF9D32B4D2E8700473634 /* Effectiveness.swift */,
 				EB31EEB42B2BD7FA00FF8536 /* Sort.swift */,
 				EB967A412B29E8540041A491 /* StarSwingsError.swift */,
 				EB967A3F2B29E4650041A491 /* StarSwingsState.swift */,
@@ -830,20 +838,15 @@
 				EB9620E02B1D6DFD00FD7115 /* Coordinators */,
 				EBEAB0C12B42376E00CC25A8 /* Details */,
 				EBCA22262B21A56C00C487AD /* Modifiers */,
+				EBDFF9CF2B4D2A0C00473634 /* MonsterLists */,
 				EB31EEBE2B2C9EBF00FF8536 /* Navigations */,
 				EBBBAAAE2B3F7A7E00BBAB23 /* Physiologies */,
 				EBA66F162B355BF5009DE78C /* Settings */,
 				EBC85C6D2B204174008A16C6 /* Styles */,
 				EBC85C6E2B205397008A16C6 /* Utils */,
 				EBB4B2032B175D49004D63EA /* ContentView.swift */,
-				EBFEAB832B45A5DC005363F7 /* FavoriteContextMenuButton.swift */,
-				EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */,
 				EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */,
-				EBB4B1CC2B15D0C7004D63EA /* GamePage.swift */,
 				EB9620F12B1D8E1300FD7115 /* HomeView.swift */,
-				EB8778222B26B28500B3359C /* MonsterList.swift */,
-				EB8778242B26B38200B3359C /* MonsterListItem.swift */,
-				EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */,
 				EB645A632B2685D500D27500 /* Sidebar.swift */,
 			);
 			path = Views;
@@ -963,6 +966,20 @@
 			path = Loggers;
 			sourceTree = "<group>";
 		};
+		EBDFF9CF2B4D2A0C00473634 /* MonsterLists */ = {
+			isa = PBXGroup;
+			children = (
+				EBDFF9D02B4D2A2500473634 /* CompactWeaknessView.swift */,
+				EBFEAB832B45A5DC005363F7 /* FavoriteContextMenuButton.swift */,
+				EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */,
+				EBB4B1CC2B15D0C7004D63EA /* GamePage.swift */,
+				EB8778222B26B28500B3359C /* MonsterList.swift */,
+				EB8778242B26B38200B3359C /* MonsterListItem.swift */,
+				EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */,
+			);
+			path = MonsterLists;
+			sourceTree = "<group>";
+		};
 		EBEA6F0A2B17F93900734AAA /* Caches */ = {
 			isa = PBXGroup;
 			children = (
@@ -1061,6 +1078,7 @@
 			isa = PBXGroup;
 			children = (
 				EBF684A32B2D4C5D0071981F /* Physiology.swift */,
+				EBDFF9CD2B4D023400473634 /* Weakness.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -1373,6 +1391,7 @@
 				EB4249602B332A230086E255 /* Backport.swift in Sources */,
 				EBC85C7B2B2063FF008A16C6 /* BottomCircularButtonStyle.swift in Sources */,
 				EBB4B2172B175DED004D63EA /* Color+Extensions.swift in Sources */,
+				EBDFF9D22B4D2A2500473634 /* CompactWeaknessView.swift in Sources */,
 				EBB4B2052B175D4A004D63EA /* ContentView.swift in Sources */,
 				EBA66F212B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
 				EBDEEF3D2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */,
@@ -1462,6 +1481,7 @@
 				EB9C7E6A2B3D5E2E0045BBA8 /* CoreDataUserDatabase.swift in Sources */,
 				EBEA6F502B185A1A00734AAA /* DataSource.swift in Sources */,
 				EBEA6F842B1A208200734AAA /* DiskStorage.swift in Sources */,
+				EBDFF9D42B4D2E8700473634 /* Effectiveness.swift in Sources */,
 				EB967A3E2B29DF100041A491 /* Entity.swift in Sources */,
 				EB967A462B2A0E980041A491 /* FetchableEntity.swift in Sources */,
 				EB967A342B29D5390041A491 /* Game.swift in Sources */,
@@ -1500,6 +1520,7 @@
 				EB9C7E6D2B3D65F30045BBA8 /* UDMonster.swift in Sources */,
 				EB9C7E612B3D5C220045BBA8 /* UserDatabase.swift in Sources */,
 				EB99DBD32B36D65600A43552 /* UserDefault.swift in Sources */,
+				EBDFF9CE2B4D023400473634 /* Weakness.swift in Sources */,
 				EB99DBCB2B36D0DD00A43552 /* WeaknessDisplayMode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1537,6 +1558,7 @@
 				EB42495F2B332A230086E255 /* Backport.swift in Sources */,
 				EBB4B1D72B161E94004D63EA /* Color+Extensions.swift in Sources */,
 				EBA66F182B355C07009DE78C /* ColumnSettingsContainer.swift in Sources */,
+				EBDFF9D12B4D2A2500473634 /* CompactWeaknessView.swift in Sources */,
 				EBB4B2042B175D4A004D63EA /* ContentView.swift in Sources */,
 				EBA66F202B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
 				EBDEEF3E2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */,

@@ -73,6 +73,13 @@ final class SettingsViewModel: ObservableObject {
 		}
 	}
 
+	@Published
+	var test: String {
+		didSet {
+			settings.test = test
+		}
+	}
+
 	init() {
 		guard let app = MAApp.resolver.resolve(MonsterAnalyzerCore.App.self) else {
 			fatalError()
@@ -94,6 +101,7 @@ final class SettingsViewModel: ObservableObject {
 		self.elementDisplay = app.settings.elementDisplay
 		self.mergeParts = app.settings.mergeParts
 		self.showInternalInformation = app.settings.showInternalInformation
+		self.test = app.settings.test
 
 		let scheduler = DispatchQueue.main
 #if os(watchOS)
@@ -111,6 +119,7 @@ final class SettingsViewModel: ObservableObject {
 		settings.$elementDisplay.dropFirst().receive(on: scheduler).assign(to: &$elementDisplay)
 		settings.$mergeParts.dropFirst().receive(on: scheduler).assign(to: &$mergeParts)
 		settings.$showInternalInformation.dropFirst().receive(on: scheduler).assign(to: &$showInternalInformation)
+		settings.$test.dropFirst().receive(on: scheduler).assign(to: &$test)
 	}
 
 	func resetAllCaches() {

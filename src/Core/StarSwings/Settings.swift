@@ -34,4 +34,7 @@ public final class Settings {
 	@UserDefault("intlInfo", initial: false)
 	public var showInternalInformation: Bool
 #endif
+
+	@UserDefault("_t", initial: "A")
+	public var test: String
 }

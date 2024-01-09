@@ -67,6 +67,13 @@ final class GameItemViewModel: ObservableObject, Identifiable {
 		}
 	}
 
+	var weaknesses: [String: Weakness]? {
+		@inline(__always)
+		get {
+			monster.weaknesses
+		}
+	}
+
 	private var sortkey: String {
 		@inline(__always)
 		get {

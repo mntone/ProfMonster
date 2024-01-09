@@ -14,6 +14,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 
 	public let id: String
 	public let type: String
+	public let weaknesses: [String: Weakness]?
 	public let name: String
 	public let readableName: String
 	public let sortkey: String
@@ -61,6 +62,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 	init(app: App,
 		 id: String,
 		 type: String,
+		 weaknesses: [String: Weakness]?,
 		 dataSource: DataSource,
 		 languageService: LanguageService,
 		 physiologyMapper: PhysiologyMapper,
@@ -73,6 +75,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 
 		self.id = id
 		self.type = type
+		self.weaknesses = weaknesses
 		self.name = localization.name
 
 		let readableName = localization.readableName ?? languageService.readable(from: localization.name)

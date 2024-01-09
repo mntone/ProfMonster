@@ -3589,6 +3589,35 @@
         }
       }
     },
+    "Effective" : {
+      "comment" : "Effectiveness",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Effective"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有効"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有效"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有效"
+          }
+        }
+      }
+    },
     "Elder Dragon" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -5132,19 +5161,31 @@
         }
       }
     },
-    "High" : {
-      "comment" : "Effective/Accessibility",
+    "Hardly Effective" : {
+      "comment" : "Effectiveness",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "High"
+            "value" : "Hardly Effective"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "最も有効"
+            "value" : "ほぼ無効"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "几乎无效"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "幾乎無效"
           }
         }
       }
@@ -5532,19 +5573,31 @@
         }
       }
     },
-    "Invalid" : {
-      "comment" : "Effective/Accessibility",
+    "Ineffective" : {
+      "comment" : "Effectiveness",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "None"
+            "value" : "Ineffective"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "効果なし"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无效"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無效"
           }
         }
       }
@@ -5846,23 +5899,6 @@
         }
       }
     },
-    "Low" : {
-      "comment" : "Effective/Accessibility",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Low"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ほぼ無効"
-          }
-        }
-      }
-    },
     "Merge Parts with Same Physiology*" : {
       "localizations" : {
         "en" : {
@@ -5875,23 +5911,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "同じ肉質を持つ部位を結合する※"
-          }
-        }
-      }
-    },
-    "Middle" : {
-      "comment" : "Effective/Accessibility",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Middle"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "有効"
           }
         }
       }
@@ -5940,6 +5959,35 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "モンスターリスト"
+          }
+        }
+      }
+    },
+    "Most Effective" : {
+      "comment" : "Effectiveness",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Most Effective"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最も有効"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最有效"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "最有效率"
           }
         }
       }

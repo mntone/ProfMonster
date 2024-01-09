@@ -52,6 +52,7 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 			return Monster(app: app,
 						   id: id,
 						   type: monster.type,
+						   weaknesses: monster.weakness?.compactMapValues(Weakness.init(string:)),
 						   dataSource: self._dataSource,
 						   languageService: langsvc,
 						   physiologyMapper: physiologyMapper,

@@ -22,13 +22,13 @@ enum Effective: Int8 {
 	var accessibilityLabel: String {
 		switch self {
 		case .high:
-			String(localized: "High", comment: "Effective/Accessibility")
+			String(localized: "Most Effective", comment: "Effectiveness")
 		case .middle:
-			String(localized: "Middle", comment: "Effective/Accessibility")
+			String(localized: "Effective", comment: "Effectiveness")
 		case .low:
-			String(localized: "Low", comment: "Effective/Accessibility")
+			String(localized: "Hardly Effective", comment: "Effectiveness")
 		case .invalid:
-			String(localized: "Invalid", comment: "Effective/Accessibility")
+			String(localized: "Ineffective", comment: "Effectiveness")
 		}
 	}
 }
