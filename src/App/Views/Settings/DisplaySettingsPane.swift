@@ -20,7 +20,7 @@ struct DisplaySettingsPane: View {
 		SettingsPreferredList {
 			Section("Monster List") {
 #if os(watchOS)
-				SettingsPicker("Sort﻿ by",
+				SettingsPicker("Sort by",
 							   selection: $viewModel.sort) {
 					ForEach(Sort.allOrderCases(reversed: viewModel.sort.isReversed)) { mode in
 						Text(mode.label).tag(mode)
