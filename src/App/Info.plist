@@ -4,6 +4,8 @@
 <dict>
 	<key>ITSAppUsesNonExemptEncryption</key>
 	<false/>
+	<key>MADataSourceURL</key>
+	<string>https://raw.githubusercontent.com/mntone/mhdata/main/</string>
 	<key>MAGitCurrent</key>
 	<string>$(GIT_CURRENT)</string>
 	<key>MAGitDate</key>

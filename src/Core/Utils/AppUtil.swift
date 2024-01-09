@@ -58,6 +58,10 @@ public enum AppUtil {
 		info(key: "MAGitOrigin") as! String
 	}
 
+	public static var dataSourceURL: URL {
+		URL(string: info(key: "MADataSourceURL") as! String)!
+	}
+
 	private static func info(key: String) -> Any? {
 		Bundle.main.object(forInfoDictionaryKey: key)
 	}

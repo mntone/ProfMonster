@@ -17,12 +17,12 @@ public struct CoreAssembly: Assembly {
 
 #if DEBUG || targetEnvironment(simulator)
 	public init(mode: CoreAssemblyMode = .auto,
-				source: URL = URL(string: "https://raw.githubusercontent.com/mntone/mhdata/main/")!) {
+				source: URL = AppUtil.dataSourceURL) {
 		self.mode = mode
 		self.source = source
 	}
 #else
-	public init(source: URL = URL(string: "https://raw.githubusercontent.com/mntone/mhdata/main/")!) {
+	public init(source: URL = AppUtil.dataSourceURL) {
 		self.source = source
 	}
 #endif

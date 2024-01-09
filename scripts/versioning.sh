@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Build Number Offset
-INTERNAL_SHORT_VERSION_OFFSET=2
+INTERNAL_SHORT_VERSION_OFFSET=3
 
 if [ "$CI" = "TRUE" ]; then
 	git fetch origin --tags
