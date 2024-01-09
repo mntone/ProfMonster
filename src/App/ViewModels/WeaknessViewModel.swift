@@ -5,15 +5,15 @@ import SwiftUI
 struct WeaknessItemViewModel: Identifiable {
 	let attack: Attack
 	let effective: Effective
-	let value: Float
+	let value: PhysiologySection.AverageFloat
 
-	init(attack: Attack, effective: Effective, value: Float) {
+	init(attack: Attack, effective: Effective, value: PhysiologySection.AverageFloat) {
 		self.attack = attack
 		self.effective = effective
 		self.value = value
 	}
 
-	init(attack: Attack, value: Float, top: Float) {
+	init(attack: Attack, value: PhysiologySection.AverageFloat, top: PhysiologySection.AverageFloat) {
 		self.attack = attack
 		if (value >= 10) {
 			if (value == top) {

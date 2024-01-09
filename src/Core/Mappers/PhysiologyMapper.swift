@@ -174,7 +174,7 @@ struct PhysiologyMapper {
 		}
 	}
 
-	private static func getAverage(_ data: [PhysiologyGroup], of attack: Attack) -> Float {
+	private static func getAverage(_ data: [PhysiologyGroup], of attack: Attack) -> PhysiologySection.AverageFloat {
 		let sum = data.map { group in
 			group.parts.count * group.items.map { physiology in
 				Int(physiology.value.value(of: attack))
@@ -190,10 +190,10 @@ struct PhysiologyMapper {
 		}.reduce(into: 0) { cur, next in
 			cur += next
 		}
-		return Float(sum) / Float(count)
+		return PhysiologySection.AverageFloat(Float32(sum) / Float32(count))
 	}
 
-	private static func getAverages(_ data: [PhysiologyGroup]) -> PhysiologyValue<Float> {
+	private static func getAverages(_ data: [PhysiologyGroup]) -> PhysiologyValue<PhysiologySection.AverageFloat> {
 		PhysiologyValue(slash: Self.getAverage(data, of: .slash),
 						strike: Self.getAverage(data, of: .strike),
 						shell: Self.getAverage(data, of: .shell),

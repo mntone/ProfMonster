@@ -74,9 +74,15 @@ public struct PhysiologyGroup {
 }
 
 public struct PhysiologySection {
+#if os(macOS)
+	public typealias AverageFloat = Float32
+#else
+	public typealias AverageFloat = Float16
+#endif
+
 	public let label: String
 	public let groups: [PhysiologyGroup]
-	public let average: PhysiologyValue<Float>
+	public let average: PhysiologyValue<AverageFloat>
 }
 
 public struct Physiologies: Identifiable {

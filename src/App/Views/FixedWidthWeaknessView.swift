@@ -77,8 +77,8 @@ private struct FixedWidthWeaknessNumberItemView: View {
 	}
 
 	private var number: some View {
-		let power = pow(10, Float(fractionLength))
-		let frac = (power * viewModel.value.truncatingRemainder(dividingBy: 1)).rounded()
+		let power = pow(10, Float32(fractionLength))
+		let frac = (power * Float32(viewModel.value).truncatingRemainder(dividingBy: 1)).rounded()
 		if frac == 0 {
 			return Text(Int(viewModel.value), format: .number).font(integerFont)
 			+ Text(verbatim: "." + String(repeating: "0", count: fractionLength)).font(fractionFont)
