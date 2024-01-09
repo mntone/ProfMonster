@@ -4,6 +4,7 @@ public enum Sort: CaseIterable, Hashable {
 	case inGame(reversed: Bool)
 	case name(reversed: Bool)
 	case type(reversed: Bool)
+	case weakness(reversed: Bool)
 
 	public init?(rawValue: String) {
 		switch rawValue {
@@ -19,6 +20,10 @@ public enum Sort: CaseIterable, Hashable {
 			self = .type(reversed: false)
 		case "TypeDesc":
 			self = .type(reversed: true)
+		case "Weakness":
+			self = .weakness(reversed: false)
+		case "WeaknessDesc":
+			self = .weakness(reversed: true)
 		default:
 			return nil
 		}
@@ -38,6 +43,10 @@ public enum Sort: CaseIterable, Hashable {
 			return "Type"
 		case .type(true):
 			return "TypeDesc"
+		case .weakness(false):
+			return "Weakness"
+		case .weakness(true):
+			return "WeaknessDesc"
 		}
 	}
 
@@ -65,9 +74,17 @@ public enum Sort: CaseIterable, Hashable {
 		}
 	}
 
+	public var isWeakness: Bool {
+		if case .weakness = self {
+			true
+		} else {
+			false
+		}
+	}
+
 	public var isReversed: Bool {
 		switch self {
-		case .inGame(true), .name(true), .type(true):
+		case .inGame(true), .name(true), .type(true), .weakness(true):
 			true
 		default:
 			false
@@ -88,6 +105,10 @@ public enum Sort: CaseIterable, Hashable {
 			.type(reversed: true)
 		case .type(true):
 			.type(reversed: false)
+		case .weakness(false):
+			.weakness(reversed: true)
+		case .weakness(true):
+			.weakness(reversed: false)
 		}
 	}
 
@@ -99,12 +120,14 @@ public enum Sort: CaseIterable, Hashable {
 		.inGame(reversed: false),
 		.name(reversed: false),
 		.type(reversed: false),
+		.weakness(reversed: false),
 	]
 
 	public static var allDescendingCases: [Sort] = [
 		.inGame(reversed: true),
 		.name(reversed: true),
 		.type(reversed: true),
+		.weakness(reversed: true),
 	]
 
 	public static var allCases: [Sort] = [
@@ -114,6 +137,8 @@ public enum Sort: CaseIterable, Hashable {
 		.name(reversed: true),
 		.type(reversed: false),
 		.type(reversed: true),
+		.weakness(reversed: false),
+		.weakness(reversed: true),
 	]
 }
 

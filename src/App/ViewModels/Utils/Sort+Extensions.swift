@@ -9,6 +9,8 @@ extension Sort {
 			String(localized: "Name", comment: "Sort")
 		case .type:
 			String(localized: "Type", comment: "Sort")
+		case .weakness:
+			String(localized: "Weakness", comment: "Sort")
 		}
 	}
 
@@ -26,6 +28,10 @@ extension Sort {
 			String(localized: "Type (Standard)", comment: "Sort")
 		case .type(true):
 			String(localized: "Type (Reverse)", comment: "Sort")
+		case .weakness(false):
+			String(localized: "Weakness (Standard)", comment: "Sort")
+		case .weakness(true):
+			String(localized: "Weakness (Reverse)", comment: "Sort")
 		}
 	}
 }

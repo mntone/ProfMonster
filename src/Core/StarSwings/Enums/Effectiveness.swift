@@ -17,3 +17,12 @@ public enum Effectiveness: UInt16 {
 		}
 	}
 }
+
+// MARK: - Comparable
+
+extension Effectiveness: Comparable {
+	@inline(__always)
+	public static func <(lhs: Effectiveness, rhs: Effectiveness) -> Bool {
+		lhs.rawValue < rhs.rawValue
+	}
+}

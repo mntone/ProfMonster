@@ -9698,6 +9698,7 @@
       }
     },
     "Weakness" : {
+      "comment" : "Sort",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -9781,6 +9782,76 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "弱點"
+          }
+        }
+      }
+    },
+    "Weakness (Reverse)" : {
+      "comment" : "Sort",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weakness (Reverse)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "弱点 (降順)"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "약점 (역순)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "弱点（降序）"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "弱點（降序）"
+          }
+        }
+      }
+    },
+    "Weakness (Standard)" : {
+      "comment" : "Sort",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Weakness"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "弱点 (昇順)"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "약점"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "弱点（升序）"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "弱點（升序）"
           }
         }
       }

@@ -83,6 +83,23 @@ struct SharedMonsterListModifier: ViewModifier {
 								Text("Type")
 							}
 						}
+
+						Toggle(isOn: Binding {
+							sort.isWeakness
+						} set: { newValue in
+							if !newValue {
+								sort = .weakness(reversed: !sort.isReversed)
+							} else {
+								sort = .weakness(reversed: false)
+							}
+						}) {
+							switch sort {
+							case let .weakness(reversed):
+								Label("Weakness", systemImage: reversed ? "chevron.up" : "chevron.down")
+							default:
+								Text("Weakness")
+							}
+						}
 #endif
 					}
 				}

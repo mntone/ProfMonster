@@ -97,18 +97,12 @@ final class GameViewModel: ObservableObject {
 		items
 			// Sort and split groups
 #if os(watchOS)
-			.map { [sort = app.settings.sort] (m: [GameItemViewModel]) -> [GameGroupViewModel] in
-				let monsters = m.map { monster in
-					IdentifyHolder(monster)
-				}
+			.map { [sort = app.settings.sort] (monsters: [GameItemViewModel]) -> [GameGroupViewModel] in
 				let groups = Self.sortMonsters(monsters, sort: sort, gameID: game.id)
 				return groups
 			}
 #else
-			.combineLatest($sort) { (m: [GameItemViewModel], sort: Sort) -> [GameGroupViewModel] in
-				let monsters = m.map { monster in
-					IdentifyHolder(monster)
-				}
+			.combineLatest($sort) { (monsters: [GameItemViewModel], sort: Sort) -> [GameGroupViewModel] in
 				let groups = Self.sortMonsters(monsters, sort: sort, gameID: game.id)
 				return groups
 			}
@@ -160,17 +154,26 @@ final class GameViewModel: ObservableObject {
 		self.game = game
 	}
 
-	private static func sortMonsters(_ monsters: [IdentifyHolder<GameItemViewModel>], sort: Sort, gameID: String) -> [GameGroupViewModel] {
+	private static func sortMonsters(_ baseMonsters: [GameItemViewModel], sort: Sort, gameID: String) -> [GameGroupViewModel] {
 		let groups: [GameGroupViewModel]
 		switch sort {
 		case let .inGame(reversed):
+			let monsters = baseMonsters.map { monster in
+				IdentifyHolder(monster)
+			}
 			let groupsExceptFav = GameGroupViewModel(gameID: gameID, type: .inGame(reversed: reversed), items: reversed ? monsters.reversed() : monsters)
 			groups = [groupsExceptFav]
 		case let .name(reversed):
+			let monsters = baseMonsters.map { monster in
+				IdentifyHolder(monster)
+			}
 			let groupsExceptFav = GameGroupViewModel(gameID: gameID, type: .byName(reversed: reversed), items: reversed ? monsters.sorted(by: >) : monsters.sorted())
 			groups = [groupsExceptFav]
 		case let .type(reversed):
-			let unsortedGroups = monsters
+			let unsortedGroups = baseMonsters
+				.map { monster in
+					IdentifyHolder(monster)
+				}
 				.reduce(into: [:]) { (result: inout [String: [IdentifyHolder<GameItemViewModel>]], next: IdentifyHolder<GameItemViewModel>) in
 					if let items = result[next.content.type] {
 						result[next.content.type] = items + [next]
@@ -180,6 +183,54 @@ final class GameViewModel: ObservableObject {
 				}
 				.map { id, items in
 					GameGroupViewModel(gameID: gameID, type: .type(id: id, reversed: reversed), items: reversed ? items.sorted(by: >) : items.sorted())
+				}
+			groups = reversed ? unsortedGroups.sorted(by: >) : unsortedGroups.sorted()
+		case let .weakness(reversed):
+			let unsortedGroups = baseMonsters
+				.reduce(into: [:]) { (result: inout [Attack: [GameItemViewModel]], next: GameItemViewModel) in
+					guard let weaknesses = next.weaknesses else { return }
+
+					if weaknesses.contains(where: { $0.1.fire >= .effective }) {
+						if let items = result[.fire] {
+							result[.fire] = items + [next]
+						} else {
+							result[.fire] = [next]
+						}
+					}
+					if weaknesses.contains(where: { $0.1.water >= .effective }) {
+						if let items = result[.water] {
+							result[.water] = items + [next]
+						} else {
+							result[.water] = [next]
+						}
+					}
+					if weaknesses.contains(where: { $0.1.thunder >= .effective }) {
+						if let items = result[.thunder] {
+							result[.thunder] = items + [next]
+						} else {
+							result[.thunder] = [next]
+						}
+					}
+					if weaknesses.contains(where: { $0.1.ice >= .effective }) {
+						if let items = result[.ice] {
+							result[.ice] = items + [next]
+						} else {
+							result[.ice] = [next]
+						}
+					}
+					if weaknesses.contains(where: { $0.1.dragon >= .effective }) {
+						if let items = result[.dragon] {
+							result[.dragon] = items + [next]
+						} else {
+							result[.dragon] = [next]
+						}
+					}
+				}
+				.map { element, baseItems in
+					let items = baseItems.map { monster in
+						IdentifyHolder(monster, prefix: element.prefix)
+					}
+					return GameGroupViewModel(gameID: gameID, type: .weakness(element: element, reversed: reversed), items: reversed ? items.sorted(by: >) : items.sorted())
 				}
 			groups = reversed ? unsortedGroups.sorted(by: >) : unsortedGroups.sorted()
 		}

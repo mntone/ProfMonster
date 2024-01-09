@@ -1,9 +1,11 @@
+import enum MonsterAnalyzerCore.Attack
 
 enum GameGroupType: Hashable {
 	case inGame(reversed: Bool)
 	case byName(reversed: Bool)
 	case favorite
 	case type(id: String, reversed: Bool)
+	case weakness(element: Attack?, reversed: Bool)
 
 	var isFavorite: Bool {
 		if case .favorite = self {
@@ -43,6 +45,12 @@ struct GameGroupViewModel: Identifiable {
 			let baseKey = id.replacingOccurrences(of: "_", with: " ").capitalized
 			self.label = String(localized: String.LocalizationValue(baseKey))
 			self.sortkey = String(localized: String.LocalizationValue(baseKey + "_SORTKEY"))
+		case .weakness(.none, _):
+			self.label = String(localized: "Ineffective")
+			self.sortkey = "1"
+		case let .weakness(.some(element), _):
+			self.label = element.label(.medium)
+			self.sortkey = element.sortkey
 		}
 		self.items = items
 	}

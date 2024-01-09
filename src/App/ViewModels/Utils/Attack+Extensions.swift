@@ -110,4 +110,46 @@ extension Attack {
 			}
 		}
 	}
+
+	var prefix: String {
+		switch self {
+		case .slash:
+			"s"
+		case .strike:
+			"i"
+		case .shell:
+			"p"
+		case .fire:
+			"f"
+		case .water:
+			"w"
+		case .thunder:
+			"t"
+		case .ice:
+			"i"
+		case .dragon:
+			"d"
+		}
+	}
+
+	var sortkey: String {
+		switch self {
+		case .slash:
+			"2"
+		case .strike:
+			"3"
+		case .shell:
+			"4"
+		case .fire:
+			"5"
+		case .water:
+			"6"
+		case .thunder:
+			"7"
+		case .ice:
+			"8"
+		case .dragon:
+			"9"
+		}
+	}
 }
