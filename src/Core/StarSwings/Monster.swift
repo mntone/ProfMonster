@@ -82,7 +82,10 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 		self.readableName = readableName
 		self.sortkey = languageService.sortkey(from: readableName)
 		self.anotherName = localization.anotherName
-		self.keywords = MonsterLocalizationMapper.map(localization, readableName: readableName, languageService: languageService)
+		self.keywords = MonsterLocalizationMapper.map(localization,
+													  readableName: readableName,
+													  weaknesses: weaknesses,
+													  languageService: languageService)
 
 		if let userData {
 			self.isFavoritedSubject = CurrentValueSubject(userData.isFavorited)

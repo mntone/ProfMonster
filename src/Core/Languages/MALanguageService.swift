@@ -14,7 +14,7 @@ final class MALanguageService: LanguageService {
 	init<C>(_ keys: C) where C: Collection, C.Element == String {
 		self.localeKey = LanguageUtil.getPreferredLanguageKey(keys)
 		self.locale = Locale(identifier: self.localeKey)
-		self.separator = String(localized: "/", bundle: Self.bundle, locale: locale)
+		self.separator = String(localized: "SEPARATOR", bundle: Self.bundle, locale: locale)
 		self._textProcessor = LanguageUtil.getPreferredTextProcessor(self.localeKey)
 	}
 
@@ -47,10 +47,16 @@ final class MALanguageService: LanguageService {
 		}
 	}
 
+	func getLocalizedKeywords(of key: Attack) -> [String] {
+		String(localized: String.LocalizationValue("KEYWORDS_" + key.rawValue.uppercased()), bundle: Self.bundle, locale: locale)
+			.split(separator: ",")
+			.map(String.init)
+	}
+
 	func getLocalizedString(of key: String, for type: LanguageDictionary) -> String {
 		switch type {
 		case .part:
-			return String(localized: String.LocalizationValue(key), bundle: Self.bundle, locale: locale)
+			return String(localized: String.LocalizationValue(key), table: "Parts", bundle: Self.bundle, locale: locale)
 		case .state:
 			if let dict = dictionaries[type],
 			   let val = dict[key] {

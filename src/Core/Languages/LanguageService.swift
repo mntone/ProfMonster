@@ -17,6 +17,7 @@ public protocol LanguageService {
 	func sortkey(from readableText: String) -> String
 
 	func register(dictionary: [String: String], for type: LanguageDictionary)
+	func getLocalizedKeywords(of key: Attack) -> [String]
 	func getLocalizedString(of key: String, for type: LanguageDictionary) -> String
 	func getLocalizedJoinedString(of keys: [String], for type: LanguageDictionary) -> String
 }
@@ -59,6 +60,10 @@ final class PassthroughtLanguageService: LanguageService {
 		case .state:
 			dictionaries[type] = dictionary
 		}
+	}
+
+	func getLocalizedKeywords(of key: Attack) -> [String] {
+		[key.rawValue.lowercased()]
 	}
 
 	func getLocalizedString(of key: String, for type: LanguageDictionary) -> String {
