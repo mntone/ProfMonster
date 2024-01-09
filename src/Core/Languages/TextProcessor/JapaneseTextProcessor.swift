@@ -74,6 +74,7 @@ struct JapaneseTextProcessor: TextProcessor {
 			.filter { char in
 				char != "'"
 			}
+			.folding(options: .diacriticInsensitive, locale: nil)
 	}
 
 	func sortkey(from readableText: String) -> String {
