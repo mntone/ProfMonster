@@ -408,6 +408,7 @@
 		EB6FF1DE2B48F03200118E0F /* SettingsPaddingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPaddingModifier.swift; sourceTree = "<group>"; };
 		EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsPane.swift; sourceTree = "<group>"; };
 		EB84A5BF2B47910000291C6B /* DeveloperMonsterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperMonsterView.swift; sourceTree = "<group>"; };
+		EB86E2802B4EC8CE00A06718 /* ci_post_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_xcodebuild.sh; sourceTree = "<group>"; };
 		EB8729B12B4D682000E0E5A1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB8778202B26B1E600B3359C /* NavigationSplitViewHost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationSplitViewHost.swift; sourceTree = "<group>"; };
 		EB8778222B26B28500B3359C /* MonsterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
@@ -698,6 +699,14 @@
 				EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */,
 			);
 			path = Modifiers;
+			sourceTree = "<group>";
+		};
+		EB86E27E2B4EC89100A06718 /* ci_scripts */ = {
+			isa = PBXGroup;
+			children = (
+				EB86E2802B4EC8CE00A06718 /* ci_post_xcodebuild.sh */,
+			);
+			path = ci_scripts;
 			sourceTree = "<group>";
 		};
 		EB8F07DB2B2FF3E1006AC575 /* Utils */ = {
@@ -1106,6 +1115,7 @@
 		EBF9281E2B1038C9007D59D4 = {
 			isa = PBXGroup;
 			children = (
+				EB86E27E2B4EC89100A06718 /* ci_scripts */,
 				EBEA6F262B1858FA00734AAA /* Core */,
 				EBEA6F342B1858FB00734AAA /* CoreTests */,
 				EBF928292B1038C9007D59D4 /* App */,

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/zsh
 
 # Build Number Offset
 INTERNAL_SHORT_VERSION_OFFSET=3
@@ -10,7 +10,12 @@ fi
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
 XCCONFIG_PATH=$SCRIPT_DIR/../src/App/Versioning.xcconfig
 
-GIT_TAG=$(git describe --tags --abbrev=0 || echo "0.8")
+if [ -v CI_TAG ]; then
+	GIT_TAG=$CI_TAG
+else
+	GIT_TAG=$(git describe --tags --abbrev=0 || echo "0.8")
+fi
+
 GIT_HASH_SHORT=$(git rev-parse --short HEAD)
 VERSION=$GIT_TAG-$GIT_HASH_SHORT
 echo "Current version: $VERSION"
