@@ -82,7 +82,7 @@ final class GameViewModel: ObservableObject {
 					.sorted()
 					.map { monster in
 						monster.$isFavorited.map { favorited -> IdentifyHolder<GameItemViewModel>? in
-							return favorited ? IdentifyHolder(monster, prefix: "f") : nil
+							return favorited ? IdentifyHolder(monster, prefix: "F") : nil
 						}
 					}
 					.combineLatest
