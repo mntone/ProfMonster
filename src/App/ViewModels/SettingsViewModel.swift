@@ -13,6 +13,8 @@ final class SettingsViewModel: ObservableObject {
 	private let app: MonsterAnalyzerCore.App
 	private let settings: MonsterAnalyzerCore.Settings
 
+	private var cancellable: AnyCancellable?
+
 	@Published
 	var storageSize: String?
 
@@ -42,6 +44,13 @@ final class SettingsViewModel: ObservableObject {
 		}
 	}
 #endif
+
+	@Published
+	var linkSubspecies: Bool {
+		didSet {
+			settings.linkSubspecies = linkSubspecies
+		}
+	}
 
 #if !os(watchOS)
 	@Published
@@ -92,6 +101,7 @@ final class SettingsViewModel: ObservableObject {
 #if !os(macOS)
 		self.trailingSwipeAction = app.settings.trailingSwipeAction
 #endif
+		self.linkSubspecies = app.settings.linkSubspecies
 #if !os(watchOS)
 		self.includesFavoriteGroupInSearchResult = app.settings.includesFavoriteGroupInSearchResult
 #endif
@@ -110,6 +120,7 @@ final class SettingsViewModel: ObservableObject {
 #if !os(macOS)
 		settings.$trailingSwipeAction.dropFirst().receive(on: scheduler).assign(to: &$trailingSwipeAction)
 #endif
+		settings.$linkSubspecies.dropFirst().receive(on: scheduler).assign(to: &$linkSubspecies)
 #if !os(watchOS)
 		settings.$includesFavoriteGroupInSearchResult.dropFirst().receive(on: scheduler).assign(to: &$includesFavoriteGroupInSearchResult)
 #endif
@@ -120,6 +131,20 @@ final class SettingsViewModel: ObservableObject {
 		settings.$mergeParts.dropFirst().receive(on: scheduler).assign(to: &$mergeParts)
 		settings.$showInternalInformation.dropFirst().receive(on: scheduler).assign(to: &$showInternalInformation)
 		settings.$test.dropFirst().receive(on: scheduler).assign(to: &$test)
+
+		// App should reload to change some settings.
+		cancellable = $linkSubspecies
+			.combineLatest($mergeParts)
+			.debounce(for: 2.0, scheduler: DispatchQueue.global(qos: .utility))
+			.removeDuplicates { oldValue, newValue in
+				let (oldLinkSubspecies, oldMergeParts) = oldValue
+				let (newLinkSubspecies, newMergeParts) = newValue
+				return oldLinkSubspecies == newLinkSubspecies && oldMergeParts == newMergeParts
+			}
+			.dropFirst()
+			.sink { _ in
+				app.resetMemoryData()
+			}
 	}
 
 	func resetAllCaches() {

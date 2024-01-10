@@ -42,6 +42,11 @@ public final class App: FetchableEntity<[Game]>, Entity {
 		}
 	}
 
+	public func resetMemoryData() {
+		self.logger.notice("Reset memory cache from user operation.")
+		self.resetMemoryCache()
+	}
+
 	@discardableResult
 	public func prefetch(of gameID: String) async -> Game? {
 		guard let games = await fetch(priority: .userInitiated).value else {
@@ -67,7 +72,7 @@ public final class App: FetchableEntity<[Game]>, Entity {
 		return games
 	}
 
-	public func resetMemoryCache() {
+	private func resetMemoryCache() {
 		_lock.withLock {
 			guard case .complete = state else { return }
 			defer { state = .ready }

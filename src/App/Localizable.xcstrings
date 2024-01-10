@@ -5814,18 +5814,18 @@
         }
       }
     },
-    "Merge Parts with Same Physiology*" : {
+    "Merge Parts with Same Physiology" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Merge Parts with Same Physiology*"
+            "value" : "Merge Parts with Same Physiology"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "同じ肉質を持つ部位を結合する※"
+            "value" : "同じ肉質を持つ部位を結合する"
           }
         }
       }
@@ -6533,6 +6533,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ㄩˊㄌㄨㄥˊㄓㄨㄥˇ"
+          }
+        }
+      }
+    },
+    "Place Subspecies near Original Species" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Place Subspecies near Original Species"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "亜種と原種を関連付けて表示する"
           }
         }
       }
@@ -8374,6 +8390,7 @@
       }
     },
     "The asterisk (*) settings will take effect when you restart the app." : {
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

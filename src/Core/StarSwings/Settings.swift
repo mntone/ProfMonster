@@ -10,6 +10,9 @@ public final class Settings {
 	public var trailingSwipeAction: SwipeAction
 #endif
 
+	@UserDefault("linkSub", initial: true)
+	public var linkSubspecies: Bool
+
 #if os(macOS)
 	@UserDefault("favInSearch", initial: true)
 	public var includesFavoriteGroupInSearchResult: Bool

@@ -38,6 +38,14 @@ struct DisplaySettingsPane: View {
 				}
 #endif
 
+				SettingsToggle("Place Subspecies near Original Species",
+							   isOn: $viewModel.linkSubspecies)
+
+#if !os(watchOS)
+				SettingsToggle("Include Favorite Group in Search Results",
+							   isOn: $viewModel.includesFavoriteGroupInSearchResult)
+#endif
+
 #if !os(macOS)
 				SettingsPicker("Left Swipe",
 							   selection: $viewModel.trailingSwipeAction) {
@@ -47,11 +55,6 @@ struct DisplaySettingsPane: View {
 				} label: { action in
 					Text(action.label)
 				}
-#endif
-
-#if !os(watchOS)
-				SettingsToggle("Include Favorite Group in Search Results",
-							   isOn: $viewModel.includesFavoriteGroupInSearchResult)
 #endif
 			}
 
@@ -88,14 +91,9 @@ struct DisplaySettingsPane: View {
 				}
 #endif
 
-				SettingsToggle("Merge Parts with Same Physiology*", isOn: $viewModel.mergeParts)
+				SettingsToggle("Merge Parts with Same Physiology", isOn: $viewModel.mergeParts)
 			} header: {
 				Text("Monster Detail")
-			} footer: {
-				Text("The asterisk (*) settings will take effect when you restart the app.")
-#if os(macOS)
-					.foregroundStyle(.secondary)
-#endif
 			}
 		}
 		.navigationTitle("Display")

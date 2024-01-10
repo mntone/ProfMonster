@@ -61,26 +61,34 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 
 	init(app: App,
 		 id: String,
-		 type: String,
-		 weaknesses: [String: Weakness]?,
+		 monster: MHGameMonster,
 		 dataSource: DataSource,
 		 languageService: LanguageService,
 		 physiologyMapper: PhysiologyMapper,
 		 localization: MHLocalizationMonster,
 		 userDatabase: UserDatabase,
-		 userData: UDMonster?) {
+		 userData: UDMonster?,
+		 prefix: String,
+		 reference: [Monster]) {
 		self.app = app
 		self._physiologyMapper = physiologyMapper
 		self._userDatabase = userDatabase
 
 		self.id = id
-		self.type = type
-		self.weaknesses = weaknesses
+		self.type = monster.type
+		self.weaknesses = monster.weakness?.compactMapValues(Weakness.init(string:))
 		self.name = localization.name
 
 		let readableName = localization.readableName ?? languageService.readable(from: localization.name)
 		self.readableName = readableName
-		self.sortkey = languageService.sortkey(from: readableName)
+		if app.settings.linkSubspecies,
+		   let linkedID = monster.linkedID.map({ prefix + $0 }),
+		   let linkedIndex = monster.linkedIndex,
+		   let referenceMonster = reference.last(where: { $0.id == linkedID }) {
+			self.sortkey = referenceMonster.sortkey + String(linkedIndex)
+		} else {
+			self.sortkey = languageService.sortkey(from: readableName)
+		}
 		self.anotherName = localization.anotherName
 		self.keywords = MonsterLocalizationMapper.map(localization,
 													  readableName: readableName,
