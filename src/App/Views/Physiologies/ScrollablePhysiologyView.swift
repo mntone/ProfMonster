@@ -165,10 +165,10 @@ struct ScrollablePhysiologyView: View {
 			.overlay(alignment: .topLeading) {
 				Group {
 					if offsetX > 0 {
-						HBorderView().offset(x: -HBorderView.length)
+						HBorderView()
 					}
-				}.animation(.easeInOut(duration: 0.1),
-							value: offsetX > 0)
+				}
+				.animation(.easeInOut(duration: 0.1), value: offsetX > 0)
 			}
 		}
 		.padding(.leading, PhysiologyViewMetrics.margin.leading)
