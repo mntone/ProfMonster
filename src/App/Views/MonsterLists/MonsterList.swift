@@ -39,6 +39,11 @@ struct MonsterList: View {
 #endif
 			.stateOverlay(viewModel.state)
 			.navigationTitle(viewModel.name.map(Text.init) ?? Text("Unknown"))
+#if os(macOS)
+			.navigationSubtitle(viewModel.state.isComplete
+								? Text("\(viewModel.itemsCount) Monsters")
+								: Text(verbatim: ""))
+#endif
 			.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 												searchText: $viewModel.searchText))
 			.onChangeBackport(of: id, initial: true) { _, newValue in

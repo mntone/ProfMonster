@@ -25,6 +25,14 @@ enum RequestState {
 		}
 	}
 
+	var isComplete: Bool {
+		if case .complete = self {
+			true
+		} else {
+			false
+		}
+	}
+
 	var hasError: Bool {
 		if case .failure = self {
 			true

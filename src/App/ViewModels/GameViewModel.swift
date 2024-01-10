@@ -14,6 +14,10 @@ final class GameViewModel: ObservableObject {
 	@Published
 	private(set) var items: [GameGroupViewModel] = []
 
+	var itemsCount: Int {
+		Set(items.lazy.flatMap(\.items).map(\.content.id)).count
+	}
+
 #if !os(watchOS)
 	@Published
 	var sort: Sort {
