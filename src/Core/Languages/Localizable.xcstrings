@@ -47,9 +47,21 @@
           }
         },
         "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ryuzokusei,リユウゾクセイ,竜属性,龍属性,doragon,ドラゴン,dragon,🐉,🐲"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "リユウゾクセイ,竜属性,龍属性,ドラゴン,🐉,🐲"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "ryuzokusei,リユウゾクセイ,竜属性,龍属性,doragon,ドラゴン,dragon,🐉,🐲"
+                }
+              }
+            }
           }
         },
         "ko" : {
@@ -77,15 +89,39 @@
           }
         },
         "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "long,龙,🐉,🐲"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "龙,🐉,🐲"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "long,龙,🐉,🐲"
+                }
+              }
+            }
           }
         },
         "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "long,龍,🐉,🐲"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "龍,🐉,🐲"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "long,龍,🐉,🐲"
+                }
+              }
+            }
           }
         }
       }
@@ -136,9 +172,21 @@
           }
         },
         "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "hizokusei,ヒゾクセイ,火属性,honozokusei,ホノオゾクセイ,ホノウゾクセイ,炎属性,fire,🔥"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "ヒゾクセイ,火属性,ホノオゾクセイ,ホノウゾクセイ,炎属性,🔥"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "hizokusei,ヒゾクセイ,火属性,honozokusei,ホノオゾクセイ,ホノウゾクセイ,炎属性,fire,🔥"
+                }
+              }
+            }
           }
         },
         "ko" : {
@@ -166,15 +214,39 @@
           }
         },
         "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "huo,火,🔥"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "火,🔥"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "huo,火,🔥"
+                }
+              }
+            }
           }
         },
         "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "huo,火,🔥"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "火,🔥"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "huo,火,🔥"
+                }
+              }
+            }
           }
         }
       }
@@ -225,9 +297,21 @@
           }
         },
         "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "korizokusei,コオリゾクセイ,氷属性,ice,🧊"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "コオリゾクセイ,氷属性,🧊"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "korizokusei,コオリゾクセイ,氷属性,ice,🧊"
+                }
+              }
+            }
           }
         },
         "ko" : {
@@ -255,15 +339,39 @@
           }
         },
         "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "bing,冰,🧊"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "冰,🧊"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "bing,冰,🧊"
+                }
+              }
+            }
           }
         },
         "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "bing,冰,🧊"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "冰,🧊"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "bing,冰,🧊"
+                }
+              }
+            }
           }
         }
       }
@@ -314,9 +422,21 @@
           }
         },
         "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "kaminarizokusei,カミナリゾクセイ,雷属性,denkizokusei,デンキゾクセイ,電気属性,thunder,⚡️"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "カミナリゾクセイ,雷属性,デンキゾクセイ,電気属性,⚡️"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "kaminarizokusei,カミナリゾクセイ,雷属性,denkizokusei,デンキゾクセイ,電気属性,thunder,⚡️"
+                }
+              }
+            }
           }
         },
         "ko" : {
@@ -344,15 +464,39 @@
           }
         },
         "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "lei,雷,shandian,闪电,⚡️"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "雷,闪电,⚡️"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "lei,雷,shandian,闪电,⚡️"
+                }
+              }
+            }
           }
         },
         "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "lei,雷,shandian,閃電,⚡️"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "雷,閃電,⚡️"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "lei,雷,shandian,閃電,⚡️"
+                }
+              }
+            }
           }
         }
       }
@@ -403,9 +547,21 @@
           }
         },
         "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ミズゾクセイ,水属性,💧"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "ミズゾクセイ,水属性,💧"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "mizuzokusei,ミズゾクセイ,水属性,water,💧"
+                }
+              }
+            }
           }
         },
         "ko" : {
@@ -433,15 +589,39 @@
           }
         },
         "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "shui,水,💧"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "水,💧"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "shui,水,💧"
+                }
+              }
+            }
           }
         },
         "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "shui,水,💧"
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "水,💧"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "shui,水,💧"
+                }
+              }
+            }
           }
         }
       }

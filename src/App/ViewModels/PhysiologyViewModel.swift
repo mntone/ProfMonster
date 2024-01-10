@@ -59,17 +59,17 @@ struct PhysiologyViewModel: Identifiable {
 	var stunLabel: String {
 		switch stun {
 		case 120:
-			String(localized: "6/5", comment: "Stun/120")
+			String(localized: "6/5", comment: "Stun")
 		case 100:
-			String(localized: "1", comment: "Stun/100")
+			String(localized: "1", comment: "Stun")
 		case 80:
-			String(localized: "4/5", comment: "Stun/80")
+			String(localized: "4/5", comment: "Stun")
 		case 75:
-			String(localized: "3/4", comment: "Stun/75")
+			String(localized: "3/4", comment: "Stun")
 		case 50:
-			String(localized: "1/2", comment: "Stun/50")
+			String(localized: "1/2", comment: "Stun")
 		case 25:
-			String(localized: "1/4", comment: "Stun/25")
+			String(localized: "1/4", comment: "Stun")
 		default:
 			""
 		}

@@ -20,7 +20,7 @@ struct RemoveCacheButton: View {
 				isConfirm = false
 			}
 		} message: {
-			Text("settings.removeCache.message")
+			Text("Are you sure you want to continue? This will remove all caches.")
 		}
 		.settingsPadding()
 	}
@@ -36,7 +36,8 @@ struct DataSettingsPane: View {
 				RemoveCacheButton(viewModel: viewModel)
 			} footer: {
 				if let storageSize = viewModel.storageSize {
-					Text("settings.cachesize(\(storageSize))")
+					Text("Cache Size: \(storageSize)")
+						.transition(.opacity)
 				}
 			}
 			.animation(.easeInOut(duration: 0.333), value: viewModel.storageSize)

@@ -154,15 +154,9 @@
           }
         },
         "ja" : {
-          "variations" : {
-            "plural" : {
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld体のモンスター"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld体のモンスター"
           }
         },
         "pl" : {
@@ -244,27 +238,15 @@
           }
         },
         "zh-Hans" : {
-          "variations" : {
-            "plural" : {
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld只怪物"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld只怪物"
           }
         },
         "zh-Hant" : {
-          "variations" : {
-            "plural" : {
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "%lld隻怪物"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld隻怪物"
           }
         }
       }
@@ -626,7 +608,7 @@
       }
     },
     "1" : {
-      "comment" : "Stun/100",
+      "comment" : "Stun",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -715,7 +697,7 @@
       }
     },
     "1/2" : {
-      "comment" : "Stun/50",
+      "comment" : "Stun",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -804,7 +786,7 @@
       }
     },
     "1/4" : {
-      "comment" : "Stun/25",
+      "comment" : "Stun",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -893,7 +875,7 @@
       }
     },
     "3/4" : {
-      "comment" : "Stun/75",
+      "comment" : "Stun",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -982,7 +964,7 @@
       }
     },
     "4/5" : {
-      "comment" : "Stun/80",
+      "comment" : "Stun",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1071,7 +1053,7 @@
       }
     },
     "6/5" : {
-      "comment" : "Stun/120",
+      "comment" : "Stun",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1476,13 +1458,13 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wszystkie Potwory"
+            "value" : "Wszystkie potwory"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Todos os Monstros"
+            "value" : "Todos os monstros"
           }
         },
         "ru" : {
@@ -1681,6 +1663,94 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ㄌㄧㄤˇㄑㄧㄓㄨㄥˇ"
+          }
+        }
+      }
+    },
+    "Are you sure you want to continue? This will remove all caches." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "هل ترغب بالتأكيد في المتابعة؟ سيتم إعادة تعيين جميع مخابئ."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Möchtest du wirklich fortfahren? Hiermit werden alle Caches zurückgesetzt."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to continue? This will remove all caches."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Seguro que quieres continuar? Se restablecerán todos los cachés."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Seguro que quieres continuar? Se restablecerá todas los cachés."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voulez-vous vraiment continuer ? Tous les caches seront réinitialisés."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confermi di voler continuare? Tutte le cache verranno ripristinate."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本当に続けますか? すべてのキャッシュを削除します。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계속하겠습니까? 이 작업은 모든 캐시를 재설정합니다."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Czy na pewno chcesz kontynuować? Spowoduje to wyzerowanie wszystkich pamięci podręczne."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tem a certeza de que pretende continuar? Todos os caches serão repostas."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы действительно хотите продолжить? Все кеши будут сброшены."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您确定要继续吗？这将还原所有缓存。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "確定要繼續嗎？這將重置所有快取。"
           }
         }
       }
@@ -2891,6 +2961,88 @@
         }
       }
     },
+    "Cache Size: %@" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cachegröße: %@"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cache Size: %@"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamaño del caché: %@"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamaño del caché: %@"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taille du cache: %@"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dimensione della cache: %@"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キャッシュ サイズ: %@"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "캐시 크기: %@"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rozmiar pamięci podręcznej: %@"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamanho da cache: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Размер кэша: %@"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "缓存大小：%@"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "快取大小：%@"
+          }
+        }
+      }
+    },
     "Cancel" : {
       "localizations" : {
         "ar" : {
@@ -3428,7 +3580,7 @@
       }
     },
     "Dragon" : {
-      "comment" : "Element/Dragon (Short)",
+      "comment" : "Elem/Short",
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
@@ -3558,39 +3710,15 @@
           }
         },
         "ja" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "龍"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "龍"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "龍"
           }
         },
         "ko" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "용"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "용"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "용"
           }
         },
         "pl" : {
@@ -3648,39 +3776,15 @@
           }
         },
         "zh-Hans" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "龙"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "龙"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "龙"
           }
         },
         "zh-Hant" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "龍"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "龍"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "龍"
           }
         }
       }
@@ -3745,7 +3849,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Dragão"
+            "value" : "Elemento dragão"
           }
         },
         "ru" : {
@@ -4772,7 +4876,7 @@
       }
     },
     "Fire" : {
-      "comment" : "Element/Fire (Short)",
+      "comment" : "Elem/Short",
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
@@ -4902,39 +5006,15 @@
           }
         },
         "ja" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "火"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "火"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "火"
           }
         },
         "ko" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "불"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "불"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "불"
           }
         },
         "pl" : {
@@ -4992,39 +5072,15 @@
           }
         },
         "zh-Hans" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "火"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "火"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "火"
           }
         },
         "zh-Hant" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "火"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "火"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "火"
           }
         }
       }
@@ -5089,7 +5145,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Fogo"
+            "value" : "Elemento fogo"
           }
         },
         "ru" : {
@@ -5459,7 +5515,7 @@
       }
     },
     "Ice" : {
-      "comment" : "Element/Ice (Short)",
+      "comment" : "Elem/Short",
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
@@ -5608,7 +5664,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Gelo"
+            "value" : "Elemento gelo"
           }
         },
         "ru" : {
@@ -6079,6 +6135,18 @@
             "state" : "translated",
             "value" : "ライセンス"
           }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "许可证"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "許可證"
+          }
         }
       }
     },
@@ -6100,10 +6168,46 @@
     },
     "Monster and Weakness" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الوحش والضعف"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monster und Schwäche"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Monster and Weakness"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monstruo y debilidad"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monstruo y debilidad"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monstre et faiblesse"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostro e debolezza"
           }
         },
         "ja" : {
@@ -6111,15 +6215,87 @@
             "state" : "translated",
             "value" : "モンスター、弱点属性"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "몬스터와 약점"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Potwór i słabość"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monstro e fraqueza"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Монстр и слабость"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "怪物和弱点"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "怪物和弱點"
+          }
         }
       }
     },
     "Monster Detail" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تفاصيل الوحش"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monster-Detail"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Monster Detail"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detalle del monstruo"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detalle del monstruo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Détail du monstre"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dettagli del mostro"
           }
         },
         "ja" : {
@@ -6127,21 +6303,129 @@
             "state" : "translated",
             "value" : "モンスター詳細"
           }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "몬스터 디테일"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Szczegóły potwora"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detalhe do monstro"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Деталь монстра"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "怪物细节"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "怪物細節"
+          }
         }
       }
     },
     "Monster List" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قائمة الوحوش"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Monsterliste"
+          }
+        },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Monster List"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista de monstruos"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista de monstruos"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Liste des monstres"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elenco dei mostri"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "モンスターリスト"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "몬스터 목록"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista potworów"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lista de monstros"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Список монстров"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "怪物列表"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "怪物列表"
           }
         }
       }
@@ -6473,15 +6757,9 @@
           }
         },
         "ja" : {
-          "variations" : {
-            "plural" : {
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "数値 (小数点第%u位まで)"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "数値 (小数点第%u位まで)"
           }
         }
       }
@@ -7321,178 +7599,8 @@
         }
       }
     },
-    "settings.cachesize(%@)" : {
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cachegröße: %@"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cache Size: %@"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tamaño del caché: %@"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tamaño del caché: %@"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Taille du cache: %@"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dimensione della cache: %@"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "キャッシュ サイズ: %@"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "캐시 크기: %@"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Rozmiar pamięci podręcznej: %@"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tamanho da cache: %@"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Размер кэша: %@"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "缓存大小：%@"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "快取大小：%@"
-          }
-        }
-      }
-    },
-    "settings.removeCache.message" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "هل ترغب بالتأكيد في المتابعة؟ سيتم إعادة تعيين جميع مخابئ."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Möchtest du wirklich fortfahren? Hiermit werden alle Caches zurückgesetzt."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Are you sure you want to continue? This will remove all caches."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¿Seguro que quieres continuar? Se restablecerán todos los cachés."
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "¿Seguro que quieres continuar? Se restablecerá todas los cachés."
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Voulez-vous vraiment continuer ? Tous les caches seront réinitialisés."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Confermi di voler continuare? Tutte le cache verranno ripristinate."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "本当に続けますか? すべてのキャッシュを削除します。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "계속하겠습니까? 이 작업은 모든 캐시를 재설정합니다."
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Czy na pewno chcesz kontynuować? Spowoduje to wyzerowanie wszystkich pamięci podręczne."
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tem a certeza de que pretende continuar? Todos os caches serão repostas."
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вы действительно хотите продолжить? Все кеши будут сброшены."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "您确定要继续吗？这将还原所有缓存。"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "確定要繼續嗎？這將重置所有快取。"
-          }
-        }
-      }
-    },
     "Shell" : {
-      "comment" : "Element/Shell (Short)",
+      "comment" : "Elem/Short",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -7880,7 +7988,7 @@
       }
     },
     "Slash" : {
-      "comment" : "Element/Slash (Short)",
+      "comment" : "Elem/Short",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -8212,7 +8320,7 @@
       }
     },
     "Strike" : {
-      "comment" : "Element/Strike (Short)",
+      "comment" : "Elem/Short",
       "extractionState" : "manual",
       "localizations" : {
         "de" : {
@@ -8804,21 +8912,9 @@
           }
         },
         "ja" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "雷"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "雷"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雷"
           }
         },
         "ko" : {
@@ -8894,39 +8990,15 @@
           }
         },
         "zh-Hans" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "雷"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "雷"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雷"
           }
         },
         "zh-Hant" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "雷"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "雷"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雷"
           }
         }
       }
@@ -8991,7 +9063,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Raio"
+            "value" : "Elemento raio"
           }
         },
         "ru" : {
@@ -9553,7 +9625,7 @@
       }
     },
     "Water" : {
-      "comment" : "Element/Water (Short)",
+      "comment" : "Elem/Short",
       "extractionState" : "manual",
       "localizations" : {
         "ar" : {
@@ -9683,39 +9755,15 @@
           }
         },
         "ja" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "水"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "水"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水"
           }
         },
         "ko" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "물"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "물"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "물"
           }
         },
         "pl" : {
@@ -9773,39 +9821,15 @@
           }
         },
         "zh-Hans" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "水"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "水"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水"
           }
         },
         "zh-Hant" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "水"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "水"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水"
           }
         }
       }
@@ -9870,7 +9894,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Água"
+            "value" : "Elemento água"
           }
         },
         "ru" : {
@@ -10140,6 +10164,9 @@
           }
         }
       }
+    },
+    "Weakness Display Mode in List" : {
+
     }
   },
   "version" : "1.0"
