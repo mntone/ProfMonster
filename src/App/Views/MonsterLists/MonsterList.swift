@@ -9,6 +9,11 @@ struct MonsterList: View {
 	let id: GameViewModel.ID
 	let selection: Binding<GameItemViewModel.ID?>
 
+#if os(macOS)
+	@Environment(\.accessibilityReduceMotion)
+	private var accessibilityReduceMotion
+#endif
+
 	@ViewBuilder
 	private var list: some View {
 		let items = viewModel.items
@@ -31,7 +36,7 @@ struct MonsterList: View {
 		list
 #if os(macOS)
 			.backport.alternatingRowBackgrounds()
-			.animation(ProcessInfo.processInfo.isLowPowerModeEnabled ? nil : .default,
+			.animation(ProcessInfo.processInfo.isLowPowerModeEnabled || accessibilityReduceMotion ? nil : .default,
 					   value: viewModel.items)
 #endif
 #if os(iOS)
