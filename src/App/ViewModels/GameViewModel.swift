@@ -254,6 +254,9 @@ extension GameViewModel {
 	@discardableResult
 	@inline(__always)
 	func set(id: String) -> Bool {
+		guard game?.id != id else {
+			return false
+		}
 		guard let game = app.findGame(by: id) else {
 			app.logger.notice("Failed to get the game (id: \(id))")
 			return false

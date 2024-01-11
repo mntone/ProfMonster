@@ -184,6 +184,10 @@ extension MonsterViewModel {
 	@discardableResult
 	@inline(__always)
 	func set(id: String) -> Bool {
+		guard monster?.id != id else {
+			return false
+		}
+
 #if !os(watchOS)
 		notifier = nil
 		flush()
