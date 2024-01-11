@@ -81,7 +81,8 @@ final class GameViewModel: ObservableObject {
 				monsters
 					.sorted()
 					.map { monster in
-						monster.$isFavorited.map { favorited -> IdentifyHolder<GameItemViewModel>? in
+						monster.$isFavorited.map { [weak monster] favorited -> IdentifyHolder<GameItemViewModel>? in
+							guard let monster else { return nil }
 							return favorited ? IdentifyHolder(monster, prefix: "F") : nil
 						}
 					}
