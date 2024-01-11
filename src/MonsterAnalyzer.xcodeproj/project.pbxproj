@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB0004D52B2CB668001C71D5 /* View+If.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0004D42B2CB668001C71D5 /* View+If.swift */; };
-		EB0004D62B2CB668001C71D5 /* View+If.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0004D42B2CB668001C71D5 /* View+If.swift */; };
 		EB10435B2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */; };
 		EB19D6712B1EBE8400C90417 /* ObservableHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */; };
 		EB19D6722B1EBEC900C90417 /* ObservableHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */; };
@@ -119,8 +117,6 @@
 		EB9620EB2B1D839B00FD7115 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620EA2B1D839B00FD7115 /* HomeViewModel.swift */; };
 		EB9620ED2B1D867E00FD7115 /* LanguageUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620EC2B1D867E00FD7115 /* LanguageUtil.swift */; };
 		EB9620F42B1D90DB00FD7115 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620EA2B1D839B00FD7115 /* HomeViewModel.swift */; };
-		EB9620F62B1DA50800FD7115 /* RouteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F52B1DA50800FD7115 /* RouteHelper.swift */; };
-		EB9620F72B1DA50800FD7115 /* RouteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F52B1DA50800FD7115 /* RouteHelper.swift */; };
 		EB9620F92B1DD41200FD7115 /* MockDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F82B1DD41200FD7115 /* MockDataSource.swift */; };
 		EB9620FA2B1DD6D500FD7115 /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F772B1A099000734AAA /* AppUtil.swift */; };
 		EB967A262B299BFC0041A491 /* MonsterLocalizationMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A252B299BFC0041A491 /* MonsterLocalizationMapper.swift */; };
@@ -137,8 +133,6 @@
 		EB967A462B2A0E980041A491 /* FetchableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A452B2A0E980041A491 /* FetchableEntity.swift */; };
 		EB967A482B2AC6E80041A491 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A472B2AC6E80041A491 /* LazyView.swift */; };
 		EB967A492B2AC6E80041A491 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A472B2AC6E80041A491 /* LazyView.swift */; };
-		EB967A4B2B2AC7100041A491 /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A4A2B2AC7100041A491 /* StateView.swift */; };
-		EB967A4C2B2AC7100041A491 /* StateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A4A2B2AC7100041A491 /* StateView.swift */; };
 		EB97F6A52B31B60700E31602 /* SharedMonsterListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97F6A42B31B60700E31602 /* SharedMonsterListModifier.swift */; };
 		EB97F6A62B31B60700E31602 /* SharedMonsterListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97F6A42B31B60700E31602 /* SharedMonsterListModifier.swift */; };
 		EB97F6A82B31BCDE00E31602 /* SharedGameListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97F6A72B31BCDE00E31602 /* SharedGameListModifier.swift */; };
@@ -365,7 +359,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		EB0004D42B2CB668001C71D5 /* View+If.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+If.swift"; sourceTree = "<group>"; };
 		EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extensions.swift"; sourceTree = "<group>"; };
 		EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableHorizontalScrollView.swift; sourceTree = "<group>"; };
 		EB19D6742B1EFF7700C90417 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -436,7 +429,6 @@
 		EB9620EA2B1D839B00FD7115 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		EB9620EC2B1D867E00FD7115 /* LanguageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageUtil.swift; sourceTree = "<group>"; };
 		EB9620F12B1D8E1300FD7115 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
-		EB9620F52B1DA50800FD7115 /* RouteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteHelper.swift; sourceTree = "<group>"; };
 		EB9620F82B1DD41200FD7115 /* MockDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSource.swift; sourceTree = "<group>"; };
 		EB967A252B299BFC0041A491 /* MonsterLocalizationMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterLocalizationMapper.swift; sourceTree = "<group>"; };
 		EB967A272B299F9E0041A491 /* TextProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProcessor.swift; sourceTree = "<group>"; };
@@ -451,7 +443,6 @@
 		EB967A412B29E8540041A491 /* StarSwingsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSwingsError.swift; sourceTree = "<group>"; };
 		EB967A452B2A0E980041A491 /* FetchableEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchableEntity.swift; sourceTree = "<group>"; };
 		EB967A472B2AC6E80041A491 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
-		EB967A4A2B2AC7100041A491 /* StateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateView.swift; sourceTree = "<group>"; };
 		EB97F6A42B31B60700E31602 /* SharedMonsterListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedMonsterListModifier.swift; sourceTree = "<group>"; };
 		EB97F6A72B31BCDE00E31602 /* SharedGameListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedGameListModifier.swift; sourceTree = "<group>"; };
 		EB9922792B35686300DBA812 /* SettingsLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabelStyle.swift; sourceTree = "<group>"; };
@@ -742,7 +733,6 @@
 			isa = PBXGroup;
 			children = (
 				EB9620E12B1D6E1000FD7115 /* MARoute.swift */,
-				EB9620F52B1DA50800FD7115 /* RouteHelper.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -937,7 +927,6 @@
 				EB6437962B4702DD00E8D02B /* EnvironmentValues+Settings.swift */,
 				EB8AD06D2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift */,
 				EB6297F12B37179200E830E6 /* View+Block.swift */,
-				EB0004D42B2CB668001C71D5 /* View+If.swift */,
 				EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */,
 			);
 			path = Utils;
@@ -1074,7 +1063,6 @@
 				EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */,
 				EB967A472B2AC6E80041A491 /* LazyView.swift */,
 				EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */,
-				EB967A4A2B2AC7100041A491 /* StateView.swift */,
 				EBEA6F732B18B56700734AAA /* UnevenRoundedRectangleBackport.swift */,
 			);
 			path = Components;
@@ -1453,7 +1441,6 @@
 				EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */,
 				EB6EF7DF2B4A0DB200646BBD /* RequestState.swift in Sources */,
-				EB9620F72B1DA50800FD7115 /* RouteHelper.swift in Sources */,
 				EBEA6F722B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
 				EB6FF1D82B48CFF600118E0F /* SettingsContainer.swift in Sources */,
 				EB3B49202B35E2B200E89711 /* SettingsLabeledContent.swift in Sources */,
@@ -1472,13 +1459,11 @@
 				EBBF86212B4692D500F76D03 /* Sort+Extensions.swift in Sources */,
 				EB693EA82B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
 				EB560BD52B4386D700E91E01 /* StateOverlayModifier.swift in Sources */,
-				EB967A4C2B2AC7100041A491 /* StateView.swift in Sources */,
 				EB6437952B46EF5400E8D02B /* SwipeAction+Extensions.swift in Sources */,
 				EBCA22292B21A58C00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
 				EBEA6F752B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
 				EB3B491A2B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
 				EB6297F32B37179200E830E6 /* View+Block.swift in Sources */,
-				EB0004D62B2CB668001C71D5 /* View+If.swift in Sources */,
 				EB87782F2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */,
 				EBC85C712B2053B6008A16C6 /* WatchDevice.swift in Sources */,
 				EBC85C732B205469008A16C6 /* WatchMetrics.swift in Sources */,
@@ -1628,7 +1613,6 @@
 				EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B1D22B15ED1B004D63EA /* PhysiologyViewModel.swift in Sources */,
 				EB6EF7DE2B4A0DB200646BBD /* RequestState.swift in Sources */,
-				EB9620F62B1DA50800FD7115 /* RouteHelper.swift in Sources */,
 				EBEA6F712B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
 				EB2956412B310E28002C5CA8 /* SelectableListRowBackport.swift in Sources */,
 				EBCA222B2B221E5700C487AD /* SettingsContainer.swift in Sources */,
@@ -1649,7 +1633,6 @@
 				EBBF86202B4692D500F76D03 /* Sort+Extensions.swift in Sources */,
 				EB693EA72B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
 				EB560BD42B4386D700E91E01 /* StateOverlayModifier.swift in Sources */,
-				EB967A4B2B2AC7100041A491 /* StateView.swift in Sources */,
 				EB6437942B46EF5400E8D02B /* SwipeAction+Extensions.swift in Sources */,
 				EB513ADF2B3C8B0400C8FB4A /* TabSettingsContainer.swift in Sources */,
 				EBCA222D2B222ECB00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
@@ -1657,7 +1640,6 @@
 				EB3B49192B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
 				EB6297F22B37179200E830E6 /* View+Block.swift in Sources */,
 				EB2B0FAB2B3925E3004596A6 /* View+Cursor.swift in Sources */,
-				EB0004D52B2CB668001C71D5 /* View+If.swift in Sources */,
 				EB87782E2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */,
 				EB99DBCD2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift in Sources */,
 				EBB4B1C52B15BDA7004D63EA /* WeaknessViewModel.swift in Sources */,
