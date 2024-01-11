@@ -1,6 +1,6 @@
-import SwiftUI
-
 #if !os(macOS)
+
+import SwiftUI
 
 @available(iOS 16.0, watchOS 9.0, *)
 @available(macOS, unavailable)
@@ -19,15 +19,11 @@ struct MonsterListNavigatableItem: View {
 @available(watchOS, introduced: 8.0, deprecated: 9.0, message: "Use MonsterListNavigatableItem instead")
 struct MonsterListNavigatableItemBackport: View {
 	let viewModel: IdentifyHolder<GameItemViewModel>
-	let selection: Binding<GameItemViewModel.ID?>
+	let selection: Binding<CoordinatorViewModel.MonsterIDType?>
 
 	var body: some View {
 		NavigationLink(tag: viewModel.id, selection: selection) {
-			LazyView {
-				let monsterViewModel = MonsterViewModel()
-				let _ = monsterViewModel.set(id: viewModel.content.id)
-				MonsterView(viewModel: monsterViewModel)
-			}
+			MonsterPage(id: viewModel.content.id)
 		} label: {
 			MonsterListItem(viewModel: viewModel.content)
 		}
@@ -44,7 +40,7 @@ struct MonsterListNavigatableItemBackport: View {
 @available(watchOS, unavailable)
 struct MonsterSelectableListItem: View {
 	let viewModel: IdentifyHolder<GameItemViewModel>
-	let selection: Binding<GameItemViewModel.ID?>
+	let selection: Binding<CoordinatorViewModel.MonsterIDType?>
 
 	var body: some View {
 		SelectableListRowBackport(tag: viewModel.id, selection: selection) {

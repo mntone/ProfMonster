@@ -32,7 +32,9 @@ struct RoundedRectangleSelectableListRowBackport<Tag: Equatable, Content: View>:
 			.contentShape(shape) // Fix tap area
 			.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
 			.onTapGesture {
-				selection = tag
+				if selection != tag {
+					selection = tag
+				}
 			}
 	}
 }
@@ -66,7 +68,9 @@ struct SelectableListRowBackport<Tag: Equatable, Content: View>: View {
 			.contentShape(Rectangle()) // Fix tap area
 			.listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
 			.onTapGesture {
-				selection = tag
+				if selection != tag {
+					selection = tag
+				}
 			}
 	}
 }

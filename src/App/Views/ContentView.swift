@@ -6,8 +6,8 @@ struct ContentView: View {
 	private var horizontalSizeClass
 #endif
 
-	@SceneStorage("_p")
-	private var pathString: String?
+	@StateObject
+	private var coord = CoordinatorViewModel()
 
 #if !os(macOS)
 	@State
@@ -17,47 +17,29 @@ struct ContentView: View {
 	var body: some View {
 		Group {
 #if os(macOS)
-			NavigationPathSupport(pathString: $pathString) { gameID, monsterID in
-				if #available(macOS 13.0, *) {
-					NavigationSplitViewHost(selectedGameID: gameID,
-											selectedMonsterID: monsterID)
-				} else {
-					NavigationSplitViewHostBackport(selectedGameID: gameID,
-													selectedMonsterID: monsterID)
-				}
+			if #available(macOS 13.0, *) {
+				NavigationSplitViewHost()
+			} else {
+				NavigationSplitViewHostBackport()
 			}
 #elseif os(watchOS)
 			if #available(watchOS 9.0, *) {
-				NavigationPathHost(pathString: $pathString) { path in
-					NavigationStackHost(path: path)
-				}
+				NavigationStackHost()
 			} else {
-				NavigationPathSupport(pathString: $pathString) { gameID, monsterID in
-					NavigationStackHostBackport(selectedGameID: gameID,
-												selectedMonsterID: monsterID)
-				}
+				NavigationStackHostBackport()
 			}
 #else
 			if UIDevice.current.userInterfaceIdiom == .pad,
 			   horizontalSizeClass == .regular {
-				NavigationPathSupport(pathString: $pathString) { gameID, monsterID in
-					if #available(iOS 16.0, *) {
-						NavigationSplitViewHost(selectedGameID: gameID,
-												selectedMonsterID: monsterID)
-					} else {
-						NavigationSplitViewHostBackport(selectedGameID: gameID,
-														selectedMonsterID: monsterID)
-					}
+				if #available(iOS 16.0, *) {
+					NavigationSplitViewHost()
+				} else {
+					NavigationSplitViewHostBackport()
 				}
 			} else if #available(iOS 16.0, *) {
-				NavigationPathHost(pathString: $pathString) { path in
-					NavigationStackHost(path: path)
-				}
+				NavigationStackHost()
 			} else {
-				NavigationPathSupport(pathString: $pathString) { gameID, monsterID in
-					NavigationStackHostBackport(selectedGameID: gameID,
-												selectedMonsterID: monsterID)
-				}
+				NavigationStackHostBackport()
 			}
 #endif
 		}
@@ -67,5 +49,6 @@ struct ContentView: View {
 		}
 		.setPresentSettingsSheetAction(isPresented: $isSettingsPresented)
 #endif
+		.environmentObject(coord)
 	}
 }

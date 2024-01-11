@@ -87,6 +87,7 @@ struct MonsterView: View {
 #else
 				Section("Notes") {
 					MonsterTextEditor(text: $viewModel.note)
+						.disabled(viewModel.isDisabled)
 				}
 #endif
 

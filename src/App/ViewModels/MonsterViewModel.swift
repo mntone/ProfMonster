@@ -120,7 +120,7 @@ final class MonsterViewModel: ObservableObject {
 	var isDisabled: Bool {
 		@inline(__always)
 		get {
-			monster == nil
+			monster == nil || !state.isComplete
 		}
 	}
 

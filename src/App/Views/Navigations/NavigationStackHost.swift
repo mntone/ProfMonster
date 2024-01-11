@@ -1,28 +1,25 @@
-import SwiftUI
-
 #if !os(macOS)
+
+import SwiftUI
 
 @available(iOS 16.0, watchOS 9.0, *)
 @available(macOS, unavailable)
 struct NavigationStackHost: View {
+	@EnvironmentObject
+	private var coord: CoordinatorViewModel
+
 	@StateObject
 	private var viewModel = HomeViewModel()
 
-	let path: Binding<[MARoute]>
-
 	var body: some View {
-		NavigationStack(path: path) {
-			HomeView(viewModel: viewModel)
+		NavigationStack(path: coord.path) {
+			HomePage(viewModel: viewModel)
 				.navigationDestination(for: MARoute.self) { path in
 					switch path {
 					case let .game(id):
-						GamePage(id: id) { item in
-							MonsterListNavigatableItem(viewModel: item)
-						}
+						GamePage(id: id)
 					case let .monster(id):
-						let viewModel = MonsterViewModel()
-						let _ = viewModel.set(id: id)
-						MonsterView(viewModel: viewModel)
+						MonsterPage(id: id)
 					}
 				}
 		}
@@ -37,14 +34,9 @@ struct NavigationStackHostBackport: View {
 	@StateObject
 	private var viewModel = HomeViewModel()
 
-	let selectedGameID: Binding<HomeItemViewModel.ID?>
-	let selectedMonsterID: Binding<GameItemViewModel.ID?>
-
 	var body: some View {
 		NavigationView {
-			HomeViewBackport(viewModel: viewModel,
-							 selectedGameID: selectedGameID,
-							 selectedMonsterID: selectedMonsterID)
+			HomePageBackport(viewModel: viewModel)
 		}
 		.navigationViewStyle(.stack)
 		.environment(\.settings, viewModel.app.settings)

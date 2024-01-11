@@ -3,40 +3,41 @@ import SwiftUI
 @available(iOS 16.0, macOS 13.0, *)
 @available(watchOS, unavailable)
 struct NavigationSplitViewHost: View {
+	@EnvironmentObject
+	private var coord: CoordinatorViewModel
+
+	@State
+	private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
+
 	@StateObject
 	private var viewModel = HomeViewModel()
 
-	@Binding
-	private(set) var selectedGameID: HomeItemViewModel.ID?
-
-	@Binding
-	private(set) var selectedMonsterID: GameItemViewModel.ID?
-
 #if os(iOS)
+	@Environment(\.horizontalSizeClass)
+	private var horizontalSizeClass
+
 	@State
 	private var screenWidth: CGFloat = 0
 #endif
 
-	@StateObject
-	private var monsterViewModel = MonsterViewModel()
-
 	var body: some View {
-		NavigationSplitView {
-			Sidebar(viewModel: viewModel, selection: $selectedGameID)
+		NavigationSplitView(columnVisibility: $columnVisibility) {
+			Sidebar(viewModel: viewModel)
 #if os(macOS)
 				.navigationSplitViewColumnWidth(min: 120, ideal: 150, max: 180)
 #endif
 		} content: {
-			MonsterList(id: selectedGameID, selection: $selectedMonsterID)
+			MonsterListColumn()
 #if os(macOS)
 				.navigationSplitViewColumnWidth(min: 150, ideal: 200, max: 240)
 #endif
 		} detail: {
-			MonsterView(viewModel: monsterViewModel)
+			MonsterColumn()
 #if os(macOS)
 				.navigationSplitViewColumnWidth(min: 480, ideal: 480)
 #endif
 		}
+		.environment(\.settings, viewModel.app.settings)
 #if os(iOS)
 		.background {
 			GeometryReader { proxy in
@@ -45,24 +46,40 @@ struct NavigationSplitViewHost: View {
 				}
 			}
 		}
-		.if(screenWidth >= 1000) { s in
-			s.navigationSplitViewStyle(.balanced)
-		} else: { s in
-			s.navigationSplitViewStyle(.prominentDetail)
-		}
-#endif
-		.onAppear {
-			if let selectedMonsterID {
-				monsterViewModel.set(id: selectedMonsterID)
+		.block { content in
+			if screenWidth >= 1000 {
+				content.navigationSplitViewStyle(.balanced)
+			} else{
+				content.navigationSplitViewStyle(.prominentDetail)
 			}
 		}
-		.onChange(of: selectedMonsterID, perform: updateMonsterViewModel)
-		.environment(\.settings, viewModel.app.settings)
-	}
+		.task {
+			if coord.selectedMonsterID != nil {
+				columnVisibility = .detailOnly
+			}
+		}
+		.onChange(of: screenWidth) { newValue in
+			if screenWidth >= 1000 {
+				if columnVisibility == .detailOnly {
+					columnVisibility = .doubleColumn
+				}
+			} else {
+				if columnVisibility == .doubleColumn,
+				   coord.selectedMonsterID != nil {
+					columnVisibility = .detailOnly
+				}
+			}
+		}
+		.onChange(of: coord.selectedMonsterID) { newValue in
+			guard screenWidth < 1000 else { return }
 
-	private func updateMonsterViewModel(of id: String?) {
-		let id = id?.split(separator: ";", maxSplits: 1).last.map(String.init)
-		monsterViewModel.set(id: id)
+			if newValue != nil {
+				columnVisibility = .detailOnly
+			} else {
+				columnVisibility = .doubleColumn
+			}
+		}
+#endif
 	}
 }
 
@@ -73,43 +90,21 @@ struct NavigationSplitViewHostBackport: View {
 	@StateObject
 	private var viewModel = HomeViewModel()
 
-	@Binding
-	private(set) var selectedGameID: HomeItemViewModel.ID?
-
-	@Binding
-	private(set) var selectedMonsterID: GameItemViewModel.ID?
-
-	@StateObject
-	private var monsterViewModel = MonsterViewModel()
-
 	var body: some View {
 		NavigationView {
 #if os(macOS)
-			Sidebar(viewModel: viewModel, selection: $selectedGameID)
+			Sidebar(viewModel: viewModel)
 				.frame(minWidth: 120, idealWidth: 150)
-			MonsterList(id: selectedGameID, selection: $selectedMonsterID)
+			MonsterListColumn()
 				.frame(minWidth: 150, idealWidth: 200)
 #else
-			SidebarBackport(viewModel: viewModel, selection: $selectedGameID)
-			GamePage(id: selectedGameID) { item in
-				MonsterSelectableListItem(viewModel: item, selection: $selectedMonsterID)
-			}
+			SidebarBackport(viewModel: viewModel)
+			MonsterListColumnBackport()
 #endif
 
-			MonsterView(viewModel: monsterViewModel)
+			MonsterColumn()
 		}
 		.navigationViewStyle(.columns)
-		.onAppear {
-			if let selectedMonsterID {
-				monsterViewModel.set(id: selectedMonsterID)
-			}
-		}
-		.onChange(of: selectedMonsterID, perform: updateMonsterViewModel)
 		.environment(\.settings, viewModel.app.settings)
-	}
-
-	private func updateMonsterViewModel(of id: String?) {
-		let id = id?.split(separator: ";", maxSplits: 1).last.map(String.init)
-		monsterViewModel.set(id: id)
 	}
 }

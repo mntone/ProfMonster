@@ -1,15 +1,16 @@
 import SwiftUI
 
+@available(iOS 16.0, *)
 @available(watchOS, unavailable)
 struct Sidebar: View {
+	@EnvironmentObject
+	private var coord: CoordinatorViewModel
+
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
 
-	@Binding
-	private(set) var selection: HomeItemViewModel.ID?
-
 	var body: some View {
-		List(viewModel.items, id: \.id, selection: $selection) { item in
+		List(viewModel.items, id: \.id, selection: $coord.selectedGameID) { item in
 			Text(item.name)
 		}
 		.stateOverlay(viewModel.state)
@@ -17,12 +18,12 @@ struct Sidebar: View {
 
 		// Select the first item when new scene.
 		.onAppear {
-			if selection == nil {
-				selection = viewModel.items.first?.id
+			if coord.selectedGameID == nil {
+				coord.selectedGameID = viewModel.items.first?.id
 			}
 		}
 		.onChangeBackport(of: viewModel.items) { _, newValue in
-			selection = newValue.first?.id
+			coord.selectedGameID = newValue.first?.id
 		}
 	}
 }
@@ -33,15 +34,15 @@ struct Sidebar: View {
 @available(macOS, unavailable)
 @available(watchOS, unavailable)
 struct SidebarBackport: View {
+	@EnvironmentObject
+	private var coord: CoordinatorViewModel
+
 	@ObservedObject
 	private(set) var viewModel: HomeViewModel
 
-	@Binding
-	private(set) var selection: HomeItemViewModel.ID?
-
 	var body: some View {
 		List(viewModel.items) { item in
-			RoundedRectangleSelectableListRowBackport(tag: item.id, selection: $selection) {
+			RoundedRectangleSelectableListRowBackport(tag: item.id, selection: $coord.selectedGameID) {
 				Text(item.name)
 			}
 		}
@@ -50,19 +51,32 @@ struct SidebarBackport: View {
 
 		// Select the first item when new scene.
 		.onAppear {
-			if selection == nil {
-				selection = viewModel.items.first?.id
+			if coord.selectedGameID == nil {
+				coord.selectedGameID = viewModel.items.first?.id
 			}
 		}
 		.onChangeBackport(of: viewModel.items) { _, newValue in
-			selection = newValue.first?.id
+			coord.selectedGameID = newValue.first?.id
 		}
 	}
 }
 
 #endif
 
-#Preview {
-	Sidebar(viewModel: HomeViewModel(),
-			selection: .constant(nil))
+@available(iOS 16.0, *)
+#Preview("Default") {
+	Sidebar(viewModel: HomeViewModel())
+#if os(macOS)
+		.frame(minWidth: 120, idealWidth: 150, maxWidth: 180)
+#endif
+		.environmentObject(CoordinatorViewModel())
 }
+
+#if os(iOS)
+
+#Preview("Backport") {
+	SidebarBackport(viewModel: HomeViewModel())
+		.environmentObject(CoordinatorViewModel())
+}
+
+#endif

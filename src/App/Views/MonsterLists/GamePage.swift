@@ -1,63 +1,87 @@
-import SwiftUI
-
 #if !os(macOS)
 
+import SwiftUI
+
+@available(iOS 16.0, watchOS 9.0, *)
 @available(macOS, unavailable)
-struct GamePage<ItemView: View>: View {
+struct GamePage: View {
+	let id: String
+
 	@StateObject
 	var viewModel = GameViewModel()
 
-	let id: String?
+	var body: some View {
+		MonsterList(viewModel: viewModel) { item in
+			MonsterListNavigatableItem(viewModel: item)
+		}
+		.task {
+			viewModel.set(id: id)
+		}
+	}
+}
 
-	@ViewBuilder
-	let content: (IdentifyHolder<GameItemViewModel>) -> ItemView
+@available(iOS, introduced: 15.0, deprecated: 16.0, message: "Use GamePage instead")
+@available(macOS, unavailable)
+@available(watchOS, introduced: 8.0, deprecated: 9.0, message: "Use GamePage instead")
+struct GamePageBackport: View {
+	let id: String
 
-	@ViewBuilder
-	private var list: some View {
-		let items = viewModel.items
-		if items.count > 1 || items.first?.type.isType == true {
-			List(items) { group in
-				Section(group.label) {
-					ForEach(group.items) { item in
-						content(item)
-					}
+	@EnvironmentObject
+	private var coord: CoordinatorViewModel
+
+	@StateObject
+	var viewModel = GameViewModel()
+
+	@State
+	var restoreMonsterID: CoordinatorViewModel.MonsterIDType?
+
+	var body: some View {
+		MonsterList(viewModel: viewModel) { item in
+			MonsterListNavigatableItemBackport(viewModel: item,
+											   selection: $coord.selectedMonsterID)
+		}
+		.background {
+			if let restoreMonsterID {
+				NavigationLink(destination: MonsterPage(id: restoreMonsterID), isActive: isActive) {
+					Never?.none
 				}
+				.tint(.clear)
 			}
-		} else {
-			List(items.first?.items ?? []) { item in
-				content(item)
+		}
+		.task {
+			viewModel.set(id: id)
+
+			if let selection = coord.selectedMonsterID {
+				restoreMonsterID = selection
 			}
 		}
 	}
 
-	var body: some View {
-		list
-#if os(iOS)
-			.listStyle(.plain)
-			.backport.scrollDismissesKeyboard(.immediately)
-#endif
-			.stateOverlay(viewModel.state)
-			.navigationTitle(viewModel.name.map(Text.init) ?? Text("Unknown"))
-#if os(watchOS)
-			.modifier(SharedMonsterListModifier(searchText: $viewModel.searchText))
-#else
-			.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
-												searchText: $viewModel.searchText))
-#endif
-			.onChangeBackport(of: id, initial: true) { _, newValue in
-				viewModel.set(id: newValue)
+	private var isActive: Binding<Bool> {
+		Binding {
+			restoreMonsterID != nil
+		} set: { newValue in
+			if !newValue {
+				restoreMonsterID = nil
 			}
+		}
 	}
 }
 
 @available(iOS 16.0, watchOS 9.0, *)
 @available(macOS, unavailable)
-#Preview {
+#Preview("Default") {
 	NavigationStack {
-		GamePage(id: "mockgame") { item in
-			MonsterListNavigatableItem(viewModel: item)
-		}
+		GamePage(id: "mockgame")
 	}
+}
+
+@available(macOS, unavailable)
+#Preview("Backport") {
+	NavigationView {
+		GamePageBackport(id: "mockgame")
+	}
+	.navigationViewStyle(.stack)
 }
 
 #endif

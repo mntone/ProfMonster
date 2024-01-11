@@ -24,9 +24,6 @@
 		EB2B0FAD2B39260D004596A6 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B0FAC2B39260D004596A6 /* LicenseView.swift */; };
 		EB2B0FAE2B39260D004596A6 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B0FAC2B39260D004596A6 /* LicenseView.swift */; };
 		EB31EEB72B2BEB4300FF8536 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB42B2BD7FA00FF8536 /* Sort.swift */; };
-		EB31EEB92B2C9DD000FF8536 /* NavigationPathHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB82B2C9DD000FF8536 /* NavigationPathHost.swift */; };
-		EB31EEBC2B2C9E4D00FF8536 /* NavigationPathSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEBB2B2C9E4D00FF8536 /* NavigationPathSupport.swift */; };
-		EB31EEBD2B2C9E4D00FF8536 /* NavigationPathSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEBB2B2C9E4D00FF8536 /* NavigationPathSupport.swift */; };
 		EB38D1FB2B2946A800CED9DB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */; };
 		EB38D1FC2B2946A800CED9DB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */; };
 		EB3B49192B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B49182B35DFA000E89711 /* VerticalLabeledContentStyle.swift */; };
@@ -62,7 +59,7 @@
 		EB645A612B26749E00D27500 /* NavigationStackHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A602B26749E00D27500 /* NavigationStackHost.swift */; };
 		EB645A642B2685D500D27500 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A632B2685D500D27500 /* Sidebar.swift */; };
 		EB645A652B269EF300D27500 /* NavigationStackHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A602B26749E00D27500 /* NavigationStackHost.swift */; };
-		EB645A662B26A3C000D27500 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F12B1D8E1300FD7115 /* HomeView.swift */; };
+		EB645A662B26A3C000D27500 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F12B1D8E1300FD7115 /* HomePage.swift */; };
 		EB693EA72B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */; };
 		EB693EA82B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */; };
 		EB6A4F442B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6A4F432B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift */; };
@@ -82,14 +79,21 @@
 		EB6FF1DB2B48DA5400118E0F /* SettingsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */; };
 		EB6FF1DF2B48F03200118E0F /* SettingsPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1DE2B48F03200118E0F /* SettingsPaddingModifier.swift */; };
 		EB6FF1E02B48F03200118E0F /* SettingsPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1DE2B48F03200118E0F /* SettingsPaddingModifier.swift */; };
+		EB7DAA572B4F7D040003210E /* CoordinatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA562B4F7D040003210E /* CoordinatorViewModel.swift */; };
+		EB7DAA582B4F7D040003210E /* CoordinatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA562B4F7D040003210E /* CoordinatorViewModel.swift */; };
+		EB7DAA5F2B4FCBF20003210E /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */; };
+		EB7DAA602B4FCBF20003210E /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */; };
+		EB7DAA662B4FD3410003210E /* MonsterColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA652B4FD3410003210E /* MonsterColumn.swift */; };
+		EB7DAA682B4FD36D0003210E /* MonsterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA672B4FD36D0003210E /* MonsterPage.swift */; };
+		EB7DAA692B4FD36D0003210E /* MonsterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA672B4FD36D0003210E /* MonsterPage.swift */; };
 		EB84A5BD2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */; };
 		EB84A5BE2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */; };
 		EB84A5C02B47910000291C6B /* DeveloperMonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BF2B47910000291C6B /* DeveloperMonsterView.swift */; };
 		EB84A5C12B47910000291C6B /* DeveloperMonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BF2B47910000291C6B /* DeveloperMonsterView.swift */; };
 		EB8729B22B4D682000E0E5A1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB8729B12B4D682000E0E5A1 /* Localizable.xcstrings */; };
-		EB87781F2B26B0AB00B3359C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F12B1D8E1300FD7115 /* HomeView.swift */; };
+		EB87781F2B26B0AB00B3359C /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F12B1D8E1300FD7115 /* HomePage.swift */; };
 		EB8778212B26B1E600B3359C /* NavigationSplitViewHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778202B26B1E600B3359C /* NavigationSplitViewHost.swift */; };
-		EB8778232B26B28500B3359C /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778222B26B28500B3359C /* MonsterList.swift */; };
+		EB8778232B26B28500B3359C /* MonsterListColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778222B26B28500B3359C /* MonsterListColumn.swift */; };
 		EB8778252B26B38200B3359C /* MonsterListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778242B26B38200B3359C /* MonsterListItem.swift */; };
 		EB8778262B26B38200B3359C /* MonsterListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778242B26B38200B3359C /* MonsterListItem.swift */; };
 		EB8778282B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778272B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift */; };
@@ -263,7 +267,6 @@
 		EBF684A72B2D50060071981F /* PhysiologyMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A62B2D50060071981F /* PhysiologyMapper.swift */; };
 		EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */; };
 		EBF684AA2B2D88450071981F /* MonsterDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */; };
-		EBF684AB2B2D91A30071981F /* NavigationPathHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB82B2C9DD000FF8536 /* NavigationPathHost.swift */; };
 		EBF706F02B3C03F100AE88C4 /* MonsterListItemContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */; };
 		EBF706F12B3C03F100AE88C4 /* MonsterListItemContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */; };
 		EBF706F42B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF706F32B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift */; };
@@ -375,8 +378,6 @@
 		EB2B0FAA2B3925E3004596A6 /* View+Cursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Cursor.swift"; sourceTree = "<group>"; };
 		EB2B0FAC2B39260D004596A6 /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
 		EB31EEB42B2BD7FA00FF8536 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
-		EB31EEB82B2C9DD000FF8536 /* NavigationPathHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPathHost.swift; sourceTree = "<group>"; };
-		EB31EEBB2B2C9E4D00FF8536 /* NavigationPathSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationPathSupport.swift; sourceTree = "<group>"; };
 		EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		EB3B49182B35DFA000E89711 /* VerticalLabeledContentStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabeledContentStyle.swift; sourceTree = "<group>"; };
 		EB3B491B2B35E29400E89711 /* SettingsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPicker.swift; sourceTree = "<group>"; };
@@ -406,12 +407,16 @@
 		EB6FF1D32B48CEFF00118E0F /* SettingsPreferredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreferredList.swift; sourceTree = "<group>"; };
 		EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggle.swift; sourceTree = "<group>"; };
 		EB6FF1DE2B48F03200118E0F /* SettingsPaddingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPaddingModifier.swift; sourceTree = "<group>"; };
+		EB7DAA562B4F7D040003210E /* CoordinatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorViewModel.swift; sourceTree = "<group>"; };
+		EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
+		EB7DAA652B4FD3410003210E /* MonsterColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterColumn.swift; sourceTree = "<group>"; };
+		EB7DAA672B4FD36D0003210E /* MonsterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterPage.swift; sourceTree = "<group>"; };
 		EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsPane.swift; sourceTree = "<group>"; };
 		EB84A5BF2B47910000291C6B /* DeveloperMonsterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperMonsterView.swift; sourceTree = "<group>"; };
 		EB86E2802B4EC8CE00A06718 /* ci_post_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_xcodebuild.sh; sourceTree = "<group>"; };
 		EB8729B12B4D682000E0E5A1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB8778202B26B1E600B3359C /* NavigationSplitViewHost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationSplitViewHost.swift; sourceTree = "<group>"; };
-		EB8778222B26B28500B3359C /* MonsterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
+		EB8778222B26B28500B3359C /* MonsterListColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListColumn.swift; sourceTree = "<group>"; };
 		EB8778242B26B38200B3359C /* MonsterListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListItem.swift; sourceTree = "<group>"; };
 		EB8778272B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+PresentSettingsSheetAction.swift"; sourceTree = "<group>"; };
 		EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnChangeBackport.swift"; sourceTree = "<group>"; };
@@ -430,7 +435,7 @@
 		EB9620E12B1D6E1000FD7115 /* MARoute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MARoute.swift; sourceTree = "<group>"; };
 		EB9620EA2B1D839B00FD7115 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		EB9620EC2B1D867E00FD7115 /* LanguageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageUtil.swift; sourceTree = "<group>"; };
-		EB9620F12B1D8E1300FD7115 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		EB9620F12B1D8E1300FD7115 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		EB9620F52B1DA50800FD7115 /* RouteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteHelper.swift; sourceTree = "<group>"; };
 		EB9620F82B1DD41200FD7115 /* MockDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSource.swift; sourceTree = "<group>"; };
 		EB967A252B299BFC0041A491 /* MonsterLocalizationMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterLocalizationMapper.swift; sourceTree = "<group>"; };
@@ -627,8 +632,6 @@
 		EB31EEBE2B2C9EBF00FF8536 /* Navigations */ = {
 			isa = PBXGroup;
 			children = (
-				EB31EEB82B2C9DD000FF8536 /* NavigationPathHost.swift */,
-				EB31EEBB2B2C9E4D00FF8536 /* NavigationPathSupport.swift */,
 				EB8778202B26B1E600B3359C /* NavigationSplitViewHost.swift */,
 				EB645A602B26749E00D27500 /* NavigationStackHost.swift */,
 			);
@@ -829,6 +832,7 @@
 				EB2B05B92B3AAA0200E0BFD3 /* Enums */,
 				EBFEAB852B45A7F7005363F7 /* Protocols */,
 				EBC85C632B202DCD008A16C6 /* Utils */,
+				EB7DAA562B4F7D040003210E /* CoordinatorViewModel.swift */,
 				EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */,
 				EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */,
 				EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */,
@@ -857,7 +861,7 @@
 				EBC85C6E2B205397008A16C6 /* Utils */,
 				EBB4B2032B175D49004D63EA /* ContentView.swift */,
 				EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */,
-				EB9620F12B1D8E1300FD7115 /* HomeView.swift */,
+				EB9620F12B1D8E1300FD7115 /* HomePage.swift */,
 				EB645A632B2685D500D27500 /* Sidebar.swift */,
 			);
 			path = Views;
@@ -985,7 +989,8 @@
 				EBFEAB832B45A5DC005363F7 /* FavoriteContextMenuButton.swift */,
 				EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */,
 				EBB4B1CC2B15D0C7004D63EA /* GamePage.swift */,
-				EB8778222B26B28500B3359C /* MonsterList.swift */,
+				EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */,
+				EB8778222B26B28500B3359C /* MonsterListColumn.swift */,
 				EB8778242B26B38200B3359C /* MonsterListItem.swift */,
 				EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */,
 			);
@@ -1080,7 +1085,9 @@
 			children = (
 				EB84A5BF2B47910000291C6B /* DeveloperMonsterView.swift */,
 				EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */,
+				EB7DAA652B4FD3410003210E /* MonsterColumn.swift */,
 				EBEAB0C22B42378100CC25A8 /* MonsterNavigationBarHeader.swift */,
+				EB7DAA672B4FD36D0003210E /* MonsterPage.swift */,
 				EBF9282C2B1038C9007D59D4 /* MonsterView.swift */,
 			);
 			path = Details;
@@ -1407,6 +1414,7 @@
 				EBB4B2172B175DED004D63EA /* Color+Extensions.swift in Sources */,
 				EBDFF9D22B4D2A2500473634 /* CompactWeaknessView.swift in Sources */,
 				EBB4B2052B175D4A004D63EA /* ContentView.swift in Sources */,
+				EB7DAA582B4F7D040003210E /* CoordinatorViewModel.swift in Sources */,
 				EBA66F212B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
 				EBDEEF3D2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */,
 				EBB154C12B3D03C000636DB0 /* DetailItemHeader.swift in Sources */,
@@ -1426,7 +1434,7 @@
 				EBB4B2072B175DB8004D63EA /* GamePage.swift in Sources */,
 				EBB4B2142B175DE7004D63EA /* GameViewModel.swift in Sources */,
 				EBEA6F7F2B1A1B2D00734AAA /* HBorderView.swift in Sources */,
-				EB87781F2B26B0AB00B3359C /* HomeView.swift in Sources */,
+				EB87781F2B26B0AB00B3359C /* HomePage.swift in Sources */,
 				EB9620F42B1D90DB00FD7115 /* HomeViewModel.swift in Sources */,
 				EBB057552B47A77500AC08F5 /* IdentifyHolder.swift in Sources */,
 				EB967A492B2AC6E80041A491 /* LazyView.swift in Sources */,
@@ -1434,12 +1442,12 @@
 				EBB4B2062B175DAB004D63EA /* MAApp.swift in Sources */,
 				EB9620E32B1D6FCC00FD7115 /* MARoute.swift in Sources */,
 				EBF684AA2B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
+				EB7DAA602B4FCBF20003210E /* MonsterList.swift in Sources */,
 				EB8778262B26B38200B3359C /* MonsterListItem.swift in Sources */,
 				EBF706F12B3C03F100AE88C4 /* MonsterListItemContainers.swift in Sources */,
+				EB7DAA692B4FD36D0003210E /* MonsterPage.swift in Sources */,
 				EBEAB0C42B423A7200CC25A8 /* MonsterView.swift in Sources */,
 				EBB4B2122B175DE7004D63EA /* MonsterViewModel.swift in Sources */,
-				EBF684AB2B2D91A30071981F /* NavigationPathHost.swift in Sources */,
-				EB31EEBD2B2C9E4D00FF8536 /* NavigationPathSupport.swift in Sources */,
 				EB645A612B26749E00D27500 /* NavigationStackHost.swift in Sources */,
 				EB19D6722B1EBEC900C90417 /* ObservableHorizontalScrollView.swift in Sources */,
 				EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
@@ -1574,6 +1582,7 @@
 				EBA66F182B355C07009DE78C /* ColumnSettingsContainer.swift in Sources */,
 				EBDFF9D12B4D2A2500473634 /* CompactWeaknessView.swift in Sources */,
 				EBB4B2042B175D4A004D63EA /* ContentView.swift in Sources */,
+				EB7DAA572B4F7D040003210E /* CoordinatorViewModel.swift in Sources */,
 				EBA66F202B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
 				EBDEEF3E2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */,
 				EBB154C02B3D03C000636DB0 /* DetailItemHeader.swift in Sources */,
@@ -1595,22 +1604,23 @@
 				EBB4B1CD2B15D0C7004D63EA /* GamePage.swift in Sources */,
 				EBB4B1CB2B15CC47004D63EA /* GameViewModel.swift in Sources */,
 				EBEA6F7E2B1A1B2C00734AAA /* HBorderView.swift in Sources */,
-				EB645A662B26A3C000D27500 /* HomeView.swift in Sources */,
+				EB645A662B26A3C000D27500 /* HomePage.swift in Sources */,
 				EB9620EB2B1D839B00FD7115 /* HomeViewModel.swift in Sources */,
 				EBB057542B47A77500AC08F5 /* IdentifyHolder.swift in Sources */,
 				EB967A482B2AC6E80041A491 /* LazyView.swift in Sources */,
 				EB2B0FAD2B39260D004596A6 /* LicenseView.swift in Sources */,
 				EBF9282B2B1038C9007D59D4 /* MAApp.swift in Sources */,
 				EB9620E22B1D6E1000FD7115 /* MARoute.swift in Sources */,
+				EB7DAA662B4FD3410003210E /* MonsterColumn.swift in Sources */,
 				EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
-				EB8778232B26B28500B3359C /* MonsterList.swift in Sources */,
+				EB7DAA5F2B4FCBF20003210E /* MonsterList.swift in Sources */,
+				EB8778232B26B28500B3359C /* MonsterListColumn.swift in Sources */,
 				EB8778252B26B38200B3359C /* MonsterListItem.swift in Sources */,
 				EBF706F02B3C03F100AE88C4 /* MonsterListItemContainers.swift in Sources */,
 				EBEAB0C32B42378100CC25A8 /* MonsterNavigationBarHeader.swift in Sources */,
+				EB7DAA682B4FD36D0003210E /* MonsterPage.swift in Sources */,
 				EBF9282D2B1038C9007D59D4 /* MonsterView.swift in Sources */,
 				EBB4B1C72B15BF48004D63EA /* MonsterViewModel.swift in Sources */,
-				EB31EEB92B2C9DD000FF8536 /* NavigationPathHost.swift in Sources */,
-				EB31EEBC2B2C9E4D00FF8536 /* NavigationPathSupport.swift in Sources */,
 				EB8778212B26B1E600B3359C /* NavigationSplitViewHost.swift in Sources */,
 				EB645A652B269EF300D27500 /* NavigationStackHost.swift in Sources */,
 				EB19D6712B1EBE8400C90417 /* ObservableHorizontalScrollView.swift in Sources */,
