@@ -8,12 +8,10 @@ struct NavigationStackHost: View {
 	@EnvironmentObject
 	private var coord: CoordinatorViewModel
 
-	@StateObject
-	private var viewModel = HomeViewModel()
 
 	var body: some View {
 		NavigationStack(path: coord.path) {
-			HomePage(viewModel: viewModel)
+			HomePage()
 				.navigationDestination(for: MARoute.self) { path in
 					switch path {
 					case let .game(id):
@@ -23,7 +21,6 @@ struct NavigationStackHost: View {
 					}
 				}
 		}
-		.environment(\.settings, viewModel.app.settings)
 	}
 }
 
@@ -31,15 +28,11 @@ struct NavigationStackHost: View {
 @available(macOS, unavailable)
 @available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use NavigationStackHost instead")
 struct NavigationStackHostBackport: View {
-	@StateObject
-	private var viewModel = HomeViewModel()
-
 	var body: some View {
 		NavigationView {
-			HomePageBackport(viewModel: viewModel)
+			HomePageBackport()
 		}
 		.navigationViewStyle(.stack)
-		.environment(\.settings, viewModel.app.settings)
 	}
 }
 

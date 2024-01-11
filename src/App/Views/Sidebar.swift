@@ -6,8 +6,8 @@ struct Sidebar: View {
 	@EnvironmentObject
 	private var coord: CoordinatorViewModel
 
-	@ObservedObject
-	private(set) var viewModel: HomeViewModel
+	@StateObject
+	private var viewModel = HomeViewModel()
 
 	var body: some View {
 		List(viewModel.items, id: \.id, selection: $coord.selectedGameID) { item in
@@ -37,8 +37,8 @@ struct SidebarBackport: View {
 	@EnvironmentObject
 	private var coord: CoordinatorViewModel
 
-	@ObservedObject
-	private(set) var viewModel: HomeViewModel
+	@StateObject
+	private var viewModel = HomeViewModel()
 
 	var body: some View {
 		List(viewModel.items) { item in
@@ -65,7 +65,7 @@ struct SidebarBackport: View {
 
 @available(iOS 16.0, *)
 #Preview("Default") {
-	Sidebar(viewModel: HomeViewModel())
+	Sidebar()
 #if os(macOS)
 		.frame(minWidth: 120, idealWidth: 150, maxWidth: 180)
 #endif
@@ -75,7 +75,7 @@ struct SidebarBackport: View {
 #if os(iOS)
 
 #Preview("Backport") {
-	SidebarBackport(viewModel: HomeViewModel())
+	SidebarBackport()
 		.environmentObject(CoordinatorViewModel())
 }
 

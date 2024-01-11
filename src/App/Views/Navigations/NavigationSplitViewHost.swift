@@ -9,9 +9,6 @@ struct NavigationSplitViewHost: View {
 	@State
 	private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
 
-	@StateObject
-	private var viewModel = HomeViewModel()
-
 #if os(iOS)
 	@Environment(\.horizontalSizeClass)
 	private var horizontalSizeClass
@@ -22,7 +19,7 @@ struct NavigationSplitViewHost: View {
 
 	var body: some View {
 		NavigationSplitView(columnVisibility: $columnVisibility) {
-			Sidebar(viewModel: viewModel)
+			Sidebar()
 #if os(macOS)
 				.navigationSplitViewColumnWidth(min: 120, ideal: 150, max: 180)
 #endif
@@ -37,7 +34,6 @@ struct NavigationSplitViewHost: View {
 				.navigationSplitViewColumnWidth(min: 480, ideal: 480)
 #endif
 		}
-		.environment(\.settings, viewModel.app.settings)
 #if os(iOS)
 		.background {
 			GeometryReader { proxy in
@@ -87,24 +83,20 @@ struct NavigationSplitViewHost: View {
 @available(macOS, introduced: 12.0, deprecated: 13.0, message: "Use NavigationSplitViewHost instead")
 @available(watchOS, unavailable)
 struct NavigationSplitViewHostBackport: View {
-	@StateObject
-	private var viewModel = HomeViewModel()
-
 	var body: some View {
 		NavigationView {
 #if os(macOS)
-			Sidebar(viewModel: viewModel)
+			Sidebar()
 				.frame(minWidth: 120, idealWidth: 150)
 			MonsterListColumn()
 				.frame(minWidth: 150, idealWidth: 200)
 #else
-			SidebarBackport(viewModel: viewModel)
+			SidebarBackport()
 			MonsterListColumnBackport()
 #endif
 
 			MonsterColumn()
 		}
 		.navigationViewStyle(.columns)
-		.environment(\.settings, viewModel.app.settings)
 	}
 }

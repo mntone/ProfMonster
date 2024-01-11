@@ -1,3 +1,4 @@
+import MonsterAnalyzerCore
 import SwiftUI
 
 struct ContentView: View {
@@ -50,5 +51,11 @@ struct ContentView: View {
 		.setPresentSettingsSheetAction(isPresented: $isSettingsPresented)
 #endif
 		.environmentObject(coord)
+		.environment(\.settings, Self.getSettings())
+	}
+
+	private static func getSettings() -> MonsterAnalyzerCore.Settings {
+		let settings = MAApp.resolver.resolve(MonsterAnalyzerCore.App.self)!.settings
+		return settings
 	}
 }

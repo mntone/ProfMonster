@@ -5,8 +5,8 @@ import SwiftUI
 @available(iOS 16.0, watchOS 9.0, *)
 @available(macOS, unavailable)
 struct HomePage: View {
-	@ObservedObject
-	private(set) var viewModel: HomeViewModel
+	@StateObject
+	private var viewModel = HomeViewModel()
 
 	var body: some View {
 		List(viewModel.items) { item in
@@ -24,8 +24,8 @@ struct HomePageBackport: View {
 	@EnvironmentObject
 	private var coord: CoordinatorViewModel
 
-	@ObservedObject
-	private(set) var viewModel: HomeViewModel
+	@StateObject
+	private var viewModel = HomeViewModel()
 
 	var body: some View {
 		List(viewModel.items) { item in
@@ -41,14 +41,14 @@ struct HomePageBackport: View {
 @available(iOS 16.0, watchOS 9.0, *)
 #Preview("Default") {
 	NavigationStack {
-		HomePage(viewModel: HomeViewModel())
+		HomePage()
 	}
 	.environmentObject(CoordinatorViewModel())
 }
 
 #Preview("Backport") {
 	NavigationView {
-		HomePageBackport(viewModel: HomeViewModel())
+		HomePageBackport()
 	}
 	.navigationViewStyle(.stack)
 	.environmentObject(CoordinatorViewModel())
