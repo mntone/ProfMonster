@@ -17,6 +17,7 @@ struct MonsterListColumn: View {
 	@ViewBuilder
 	private var list: some View {
 		let items = viewModel.items
+#if os(macOS)
 		if items.count > 1 || items.first?.type.isType == true {
 			List(items, id: \.id, selection: $coord.selectedMonsterID) { group in
 				Section(group.label) {
@@ -30,6 +31,19 @@ struct MonsterListColumn: View {
 				MonsterListItem(viewModel: item.content)
 			}
 		}
+#else
+		List(items, id: \.id, selection: $coord.selectedMonsterID) { group in
+			Section {
+				ForEach(group.items) { item in
+					MonsterListItem(viewModel: item.content)
+				}
+			} header: {
+				if items.count > 1 {
+					Text(group.label)
+				}
+			}
+		}
+#endif
 	}
 
 	var body: some View {
