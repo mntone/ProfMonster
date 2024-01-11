@@ -1,23 +1,11 @@
 import SwiftUI
 
 struct DeveloperMonsterView: View {
-	let dict: [(String, String)]
-
-	init(viewModel: MonsterViewModel) {
-		self.dict = [
-			("ID", viewModel.id),
-			("Type", viewModel.type),
-			("Name", viewModel.name),
-			("Readable Name", viewModel.readableName),
-			("Sortkey", viewModel.sortkey),
-			("Another Name", viewModel.anotherName ?? "None"),
-			("Keywords", viewModel.keywords.joined(separator: ", "))
-		]
-	}
+	let pairs: [(String, String)]
 
 	var body: some View {
 		Section("Developer") {
-			ForEach(dict, id: \.0) { (label, content) in
+			ForEach(pairs, id: \.0) { (label, content) in
 				SettingsLabeledContent(label) {
 					Text(content)
 #if os(macOS)
@@ -33,17 +21,13 @@ struct DeveloperMonsterView: View {
 	}
 }
 
+@available(iOS 16.0, macOS 13.0, watchOS 9.0, *)
 #Preview {
-	let viewModel = MonsterViewModel(id: "mockgame:gulu_qoo")!
+	let viewModel = MonsterViewModel()
+	viewModel.set(id: "mockgame:gulu_qoo")
 	return Form {
-		MonsterView(viewModel: viewModel)
+		DeveloperMonsterView(pairs: viewModel.pairs)
 	}
-	.block {
-		if #available(iOS 16.0, macOS 13.0, watchOS 9.0, *) {
-			$0.formStyle(.grouped)
-		} else {
-			$0
-		}
-	}
+	.formStyle(.grouped)
 	.headerProminence(.increased)
 }

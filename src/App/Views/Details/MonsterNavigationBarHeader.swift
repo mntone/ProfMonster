@@ -17,20 +17,22 @@ struct MonsterNavigationBarHeader: View {
 	private var adjustedSubheadline: CGFloat = 14
 
 	var body: some View {
-		if let anotherName = viewModel.anotherName,
-		   verticalSizeClass != .compact {
-			VStack(spacing: 2) {
-				Text(viewModel.name)
-					.font(.system(size: adjustedHeadline, weight: .semibold))
+		if let name = viewModel.name {
+			if let anotherName = viewModel.anotherName,
+			   verticalSizeClass != .compact {
+				VStack(spacing: 2) {
+					Text(name)
+						.font(.system(size: adjustedHeadline, weight: .semibold))
 
-				Text(anotherName)
-					.font(.system(size: adjustedSubheadline, weight: .regular))
-					.foregroundStyle(.secondary)
+					Text(anotherName)
+						.font(.system(size: adjustedSubheadline, weight: .regular))
+						.foregroundStyle(.secondary)
+				}
+				.accessibilityElement(children: .combine)
+			} else {
+				Text(name)
+					.font(.headline)
 			}
-			.accessibilityElement(children: .combine)
-		} else {
-			Text(viewModel.name)
-				.font(.headline)
 		}
 	}
 }
@@ -39,7 +41,8 @@ struct MonsterNavigationBarHeader: View {
 @available(macOS, unavailable)
 @available(watchOS, unavailable)
 #Preview {
-	let viewModel = MonsterViewModel(id: "gulu_qoo", for: "mockgame")!
+	let viewModel = MonsterViewModel()
+	viewModel.set(id: "mockgame:gulu_qoo")
 	return NavigationStack {
 		EmptyView().toolbar {
 			ToolbarItem(placement: .principal) {

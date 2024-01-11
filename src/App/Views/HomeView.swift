@@ -25,7 +25,7 @@ struct HomeViewBackport: View {
 	private(set) var viewModel: HomeViewModel
 
 	let selectedGameID: Binding<HomeItemViewModel.ID?>
-	let selectedMonsterID: Binding<MonsterViewModel.ID?>
+	let selectedMonsterID: Binding<GameItemViewModel.ID?>
 
 	var body: some View {
 		List(viewModel.items) { item in

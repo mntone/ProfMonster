@@ -2,64 +2,95 @@ import Combine
 import Foundation
 import MonsterAnalyzerCore
 
-final class MonsterViewModel: ObservableObject, Identifiable {
-	private let monster: Monster
-#if !os(watchOS)
-	private let notifier: DebounceNotifier<String>
-#endif
+final class MonsterViewModel: ObservableObject {
+	private let app: App
+
+	private var monster: Monster?
 
 	@Published
-	private(set) var state: StarSwingsState<MonsterDataViewModel>
+	private(set) var state: RequestState = .ready
 
 	@Published
-	var isFavorited: Bool {
+	private(set) var item: MonsterDataViewModel? = nil
+
+	@Published
+	var isFavorited: Bool = false {
 		didSet {
-			monster.isFavorited = isFavorited
+			monster?.isFavorited = isFavorited
 		}
 	}
 
 #if os(watchOS)
 	@Published
-	var note: String
+	var note: String = ""
 #else
+	private var notifier: DebounceNotifier<String>? = nil
+
 	@Published
-	var note: String {
+	var note: String = "" {
 		didSet {
-			notifier.send(note)
+			notifier?.send(note)
 		}
 	}
 #endif
 
-	init(_ monster: Monster) {
-		self.monster = monster
-
-		let elementDisplay = monster.app?.settings.elementDisplay ?? .sign
-		self.state = monster.state.mapData { physiology in
-			MonsterDataViewModel(monster.id,
-								 displayMode: elementDisplay,
-								 rawValue: physiology)
+	init() {
+		guard let app = MAApp.resolver.resolve(App.self) else {
+			fatalError()
 		}
+		self.app = app
+	}
+
+#if !os(watchOS)
+	deinit {
+		notifier = nil
+		flush()
+	}
+#endif
+
+	func set(domain monster: Monster) {
+		self.monster = nil
+
+		monster.fetchIfNeeded()
+
+		// Load current data.
+		let elementDisplay = app.settings.elementDisplay
+		switch monster.state {
+		case .ready:
+			state = .ready
+		case .loading:
+			state = .loading
+		case let .complete(data: physiology):
+			state = .complete
+			item = MonsterDataViewModel(monster.id,
+										displayMode: elementDisplay,
+										rawValue: physiology)
+		case let .failure(date, error):
+			state = .failure(date: date, error: error)
+			item = nil
+		}
+
 		self.isFavorited = monster.isFavorited
 		self.note = monster.note
 
-		// Send data
-#if !os(watchOS)
-		self.notifier = DebounceNotifier(interval: 5.0) { note in
-			monster.note = note
-		}
-#endif
-
-		// Receive data
 		let scheduler = DispatchQueue.main
+		monster.$state.removeData().receive(on: scheduler).assign(to: &$state)
+
 		monster.$state
 			.dropFirst()
-			.mapData { physiologies in
-				MonsterDataViewModel(monster.id,
-									 displayMode: elementDisplay,
-									 rawValue: physiologies)
+			.map { state -> MonsterDataViewModel? in
+				switch state {
+				case let .complete(data: physiology):
+					MonsterDataViewModel(monster.id,
+										 displayMode: elementDisplay,
+										 rawValue: physiology)
+				default:
+					nil
+				}
 			}
 			.receive(on: scheduler)
-			.assign(to: &$state)
+			.assign(to: &$item)
+
 		monster.isFavoritedPublisher
 			.dropFirst()
 			.filter { [weak self] value in
@@ -67,6 +98,7 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 			}
 			.receive(on: scheduler)
 			.assign(to: &$isFavorited)
+
 		monster.notePublisher
 			.dropFirst()
 			.filter { [weak self] value in
@@ -75,106 +107,103 @@ final class MonsterViewModel: ObservableObject, Identifiable {
 			.receive(on: scheduler)
 			.assign(to: &$note)
 
-		monster.fetchIfNeeded()
-	}
+		// Set current
+		self.monster = monster
 
 #if !os(watchOS)
-	deinit {
-		if monster.note != note {
+		self.notifier = DebounceNotifier(interval: 3.0) { note in
 			monster.note = note
 		}
-	}
 #endif
+	}
 
-	var id: String {
+	var isDisabled: Bool {
 		@inline(__always)
 		get {
-			monster.id
+			monster == nil
 		}
 	}
 
-	var type: String {
+	var name: String? {
 		@inline(__always)
 		get {
-			monster.type
-		}
-	}
-
-	var name: String {
-		@inline(__always)
-		get {
-			monster.name
-		}
-	}
-
-	var readableName: String {
-		@inline(__always)
-		get {
-			monster.readableName
-		}
-	}
-
-	var sortkey: String {
-		@inline(__always)
-		get {
-			monster.sortkey
+			monster?.name
 		}
 	}
 
 	var anotherName: String? {
 		@inline(__always)
 		get {
-			monster.anotherName
+			monster?.anotherName
 		}
 	}
 
-	var keywords: [String] {
+	var pairs: [(String, String)] {
 		@inline(__always)
 		get {
-			monster.keywords
+			guard let monster else { return [] }
+
+			return [
+				("ID", monster.id),
+				("Type", monster.type),
+				("Name", monster.name),
+				("Readable Name", monster.readableName),
+				("Sortkey", monster.sortkey),
+				("Another Name", monster.anotherName ?? "None"),
+				("Keywords", monster.keywords.joined(separator: ", "))
+			]
 		}
 	}
+
+#if !os(watchOS)
+	private func flush() {
+		if let monster,
+		   monster.note != note {
+			monster.note = note
+		}
+	}
+#endif
 }
 
-// MARK: - Convenience Initializers
+// MARK: - Set data
 
 extension MonsterViewModel {
-	convenience init?(id: String) {
-		guard let app = MAApp.resolver.resolve(App.self) else {
-			fatalError()
-		}
+	func set() {
+#if !os(watchOS)
+		notifier = nil
+		flush()
+#endif
+
+		monster = nil
+		state = .ready
+		item = nil
+		isFavorited = false
+		note = ""
+	}
+
+	@discardableResult
+	@inline(__always)
+	func set(id: String) -> Bool {
+#if !os(watchOS)
+		notifier = nil
+		flush()
+#endif
+
 		guard let monster = app.findMonster(by: id) else {
 			app.logger.notice("Failed to get the monster (id: \(id))")
-			return nil
+			return false
 		}
-		self.init(monster)
+
+		set(domain: monster)
+		return true
 	}
 
-	convenience init?(id monsterID: String, for gameID: String) {
-		guard let app = MAApp.resolver.resolve(App.self) else {
-			fatalError()
+	@inline(__always)
+	func set(id: String?) {
+		if let id {
+			set(id: id)
+		} else {
+			set()
 		}
-		guard let game = app.findGame(by: gameID),
-			  let monster = game.findMonster(by: monsterID) else {
-			app.logger.notice("Failed to get the monster (id: \(gameID):\(monsterID))")
-			return nil
-		}
-		self.init(monster)
-	}
-}
-
-// MARK: - Equatable
-
-extension MonsterViewModel: Equatable {
-	static func == (lhs: MonsterViewModel, rhs: MonsterViewModel) -> Bool {
-		lhs.id == rhs.id
-	}
-}
-
-// MARK: - Hashable
-
-extension MonsterViewModel: Hashable {
-	func hash(into hasher: inout Hasher) {
-		hasher.combine(id)
 	}
 }

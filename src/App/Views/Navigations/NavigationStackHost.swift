@@ -20,7 +20,8 @@ struct NavigationStackHost: View {
 							MonsterListNavigatableItem(viewModel: item)
 						}
 					case let .monster(id):
-						let viewModel = MonsterViewModel(id: id)!
+						let viewModel = MonsterViewModel()
+						let _ = viewModel.set(id: id)
 						MonsterView(viewModel: viewModel)
 					}
 				}
@@ -37,7 +38,7 @@ struct NavigationStackHostBackport: View {
 	private var viewModel = HomeViewModel()
 
 	let selectedGameID: Binding<HomeItemViewModel.ID?>
-	let selectedMonsterID: Binding<MonsterViewModel.ID?>
+	let selectedMonsterID: Binding<GameItemViewModel.ID?>
 
 	var body: some View {
 		NavigationView {

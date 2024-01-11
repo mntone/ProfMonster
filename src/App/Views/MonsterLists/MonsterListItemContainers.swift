@@ -24,7 +24,8 @@ struct MonsterListNavigatableItemBackport: View {
 	var body: some View {
 		NavigationLink(tag: viewModel.id, selection: selection) {
 			LazyView {
-				let monsterViewModel = MonsterViewModel(id: viewModel.content.id)!
+				let monsterViewModel = MonsterViewModel()
+				let _ = monsterViewModel.set(id: viewModel.content.id)
 				MonsterView(viewModel: monsterViewModel)
 			}
 		} label: {

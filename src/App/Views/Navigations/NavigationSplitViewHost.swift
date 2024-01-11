@@ -10,15 +10,15 @@ struct NavigationSplitViewHost: View {
 	private(set) var selectedGameID: HomeItemViewModel.ID?
 
 	@Binding
-	private(set) var selectedMonsterID: MonsterViewModel.ID?
+	private(set) var selectedMonsterID: GameItemViewModel.ID?
 
 #if os(iOS)
 	@State
 	private var screenWidth: CGFloat = 0
 #endif
 
-	@State
-	private var monsterViewModel: MonsterViewModel? = nil
+	@StateObject
+	private var monsterViewModel = MonsterViewModel()
 
 	var body: some View {
 		NavigationSplitView {
@@ -32,19 +32,9 @@ struct NavigationSplitViewHost: View {
 				.navigationSplitViewColumnWidth(min: 150, ideal: 200, max: 240)
 #endif
 		} detail: {
-#if os(iOS)
-			if let monsterViewModel {
-				MonsterView(viewModel: monsterViewModel)
-			} else {
-				Color.monsterBackground.ignoresSafeArea()
-			}
-#else
-			Group {
-				if let monsterViewModel {
-					MonsterView(viewModel: monsterViewModel)
-				}
-			}
-			.navigationSplitViewColumnWidth(min: 480, ideal: 480)
+			MonsterView(viewModel: monsterViewModel)
+#if os(macOS)
+				.navigationSplitViewColumnWidth(min: 480, ideal: 480)
 #endif
 		}
 #if os(iOS)
@@ -62,10 +52,8 @@ struct NavigationSplitViewHost: View {
 		}
 #endif
 		.onAppear {
-			if let selectedGameID {
-				if let selectedMonsterID {
-					monsterViewModel = MonsterViewModel(id: selectedMonsterID, for: selectedGameID)
-				}
+			if let selectedMonsterID {
+				monsterViewModel.set(id: selectedMonsterID)
 			}
 		}
 		.onChange(of: selectedMonsterID, perform: updateMonsterViewModel)
@@ -73,12 +61,8 @@ struct NavigationSplitViewHost: View {
 	}
 
 	private func updateMonsterViewModel(of id: String?) {
-		if let selectedGameID,
-		   let id = id?.split(separator: ";", maxSplits: 1).last.map(String.init) {
-			monsterViewModel = MonsterViewModel(id: id, for: selectedGameID)
-		} else {
-			monsterViewModel = nil
-		}
+		let id = id?.split(separator: ";", maxSplits: 1).last.map(String.init)
+		monsterViewModel.set(id: id)
 	}
 }
 
@@ -93,10 +77,10 @@ struct NavigationSplitViewHostBackport: View {
 	private(set) var selectedGameID: HomeItemViewModel.ID?
 
 	@Binding
-	private(set) var selectedMonsterID: MonsterViewModel.ID?
+	private(set) var selectedMonsterID: GameItemViewModel.ID?
 
-	@State
-	private var monsterViewModel: MonsterViewModel? = nil
+	@StateObject
+	private var monsterViewModel = MonsterViewModel()
 
 	var body: some View {
 		NavigationView {
@@ -112,18 +96,12 @@ struct NavigationSplitViewHostBackport: View {
 			}
 #endif
 
-			if let monsterViewModel {
-				MonsterView(viewModel: monsterViewModel)
-			} else {
-				Color.monsterBackground.ignoresSafeArea()
-			}
+			MonsterView(viewModel: monsterViewModel)
 		}
 		.navigationViewStyle(.columns)
 		.onAppear {
-			if let selectedGameID {
-				if let selectedMonsterID {
-					monsterViewModel = MonsterViewModel(id: selectedMonsterID, for: selectedGameID)
-				}
+			if let selectedMonsterID {
+				monsterViewModel.set(id: selectedMonsterID)
 			}
 		}
 		.onChange(of: selectedMonsterID, perform: updateMonsterViewModel)
@@ -131,11 +109,7 @@ struct NavigationSplitViewHostBackport: View {
 	}
 
 	private func updateMonsterViewModel(of id: String?) {
-		if let selectedGameID,
-		   let id = id?.split(separator: ";", maxSplits: 1).last.map(String.init) {
-			monsterViewModel = MonsterViewModel(id: id, for: selectedGameID)
-		} else {
-			monsterViewModel = nil
-		}
+		let id = id?.split(separator: ";", maxSplits: 1).last.map(String.init)
+		monsterViewModel.set(id: id)
 	}
 }
