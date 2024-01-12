@@ -14,63 +14,44 @@ struct MonsterListColumn: View {
 	private var accessibilityReduceMotion
 #endif
 
-	@ViewBuilder
-	private var list: some View {
+	var body: some View {
 		let items = viewModel.items
-#if os(macOS)
-		if items.count > 1 || items.first?.type.isType == true {
-			List(items, id: \.id, selection: $coord.selectedMonsterID) { group in
-				Section(group.label) {
-					ForEach(group.items) { item in
-						MonsterListItem(viewModel: item.content)
-					}
-				}
-			}
-		} else {
-			List(items.first?.items ?? [], id: \.id, selection: $coord.selectedMonsterID) { item in
-				MonsterListItem(viewModel: item.content)
-			}
-		}
-#else
-		List(items, id: \.id, selection: $coord.selectedMonsterID) { group in
+		let isHeaderShow = items.count > 1 || items.first?.type.isType == true
+		List(items, id: \.id, selection: $selectedMonsterID) { group in
 			Section {
 				ForEach(group.items) { item in
 					MonsterListItem(viewModel: item.content)
 				}
 			} header: {
-				if items.count > 1 {
+				if isHeaderShow {
 					Text(group.label)
 				}
 			}
 		}
-#endif
-	}
-
-	var body: some View {
-		list
-#if os(macOS)
-			.backport.alternatingRowBackgrounds()
-			.animation(ProcessInfo.processInfo.isLowPowerModeEnabled || accessibilityReduceMotion ? nil : .default,
-					   value: viewModel.items)
-#endif
 #if os(iOS)
-			.scrollDismissesKeyboard(.immediately)
+		.listStyle(.plain)
+		.scrollDismissesKeyboard(.immediately)
 #endif
-			.stateOverlay(viewModel.state)
-			.navigationTitle(viewModel.name.map(Text.init) ?? Text("Unknown"))
 #if os(macOS)
-			.navigationSubtitle(viewModel.state.isComplete
-								? Text("\(viewModel.itemsCount) Monsters")
-								: Text(verbatim: ""))
+		.backport.alternatingRowBackgrounds()
+		.animation(ProcessInfo.processInfo.isLowPowerModeEnabled || accessibilityReduceMotion ? nil : .default,
+				   value: viewModel.items)
 #endif
-			.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
-												searchText: $viewModel.searchText))
-			.task {
-				viewModel.set(id: coord.selectedGameID)
-			}
-			.onChangeBackport(of: coord.selectedGameID) { _, newValue in
-				viewModel.set(id: newValue)
-			}
+		.stateOverlay(viewModel.state)
+		.navigationTitle(viewModel.name.map(Text.init) ?? Text("Unknown"))
+#if os(macOS)
+		.navigationSubtitle(viewModel.state.isComplete
+							? Text("\(viewModel.itemsCount) Monsters")
+							: Text(verbatim: ""))
+#endif
+		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
+											searchText: $viewModel.searchText))
+		.task {
+			viewModel.set(id: coord.selectedGameID)
+		}
+		.onChangeBackport(of: coord.selectedGameID) { _, newValue in
+			viewModel.set(id: newValue)
+		}
 	}
 }
 

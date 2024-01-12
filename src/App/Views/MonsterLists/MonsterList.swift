@@ -12,13 +12,14 @@ struct MonsterList<ItemView: View>: View {
 
 	var body: some View {
 		let items = viewModel.items
+		let isHeaderShow = items.count > 1 || items.first?.type.isType == true
 		List(items) { group in
 			Section {
 				ForEach(group.items) { item in
 					content(item)
 				}
 			} header: {
-				if items.count > 1 {
+				if isHeaderShow {
 					Text(group.label)
 				}
 			}
