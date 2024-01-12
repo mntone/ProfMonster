@@ -1,11 +1,12 @@
-import SwiftUI
-
 #if os(iOS)
+
+import SwiftUI
 
 @available(macOS, unavailable)
 @available(watchOS, unavailable)
 struct MonsterNavigationBarHeader: View {
-	let viewModel: MonsterViewModel
+	let name: String
+	let anotherName: String
 
 	@Environment(\.verticalSizeClass)
 	private var verticalSizeClass
@@ -17,21 +18,24 @@ struct MonsterNavigationBarHeader: View {
 	private var adjustedSubheadline: CGFloat = 14
 
 	var body: some View {
-		if let name = viewModel.name {
-			if let anotherName = viewModel.anotherName,
-			   verticalSizeClass != .compact {
-				VStack(spacing: 2) {
-					Text(name)
-						.font(.system(size: adjustedHeadline, weight: .semibold))
-
-					Text(anotherName)
-						.font(.system(size: adjustedSubheadline, weight: .regular))
-						.foregroundStyle(.secondary)
-				}
-				.accessibilityElement(children: .combine)
-			} else {
+		if verticalSizeClass != .compact {
+			let content = VStack(spacing: 2) {
 				Text(name)
-					.font(.headline)
+					.font(.system(size: adjustedHeadline, weight: .semibold))
+
+				Text(anotherName)
+					.font(.system(size: adjustedSubheadline, weight: .regular))
+					.foregroundStyle(.secondary)
+			}
+			.accessibilityElement(children: .combine)
+
+			if #available(iOS 16.0, *) {
+				content
+			} else if UIDevice.current.userInterfaceIdiom == .pad {
+				// Fix title are cut off on iPadOS 15.
+				content.frame(maxWidth: 240.0)
+			} else {
+				content
 			}
 		}
 	}
@@ -41,12 +45,11 @@ struct MonsterNavigationBarHeader: View {
 @available(macOS, unavailable)
 @available(watchOS, unavailable)
 #Preview {
-	let viewModel = MonsterViewModel()
-	viewModel.set(id: "mockgame:gulu_qoo")
-	return NavigationStack {
+	NavigationStack {
 		EmptyView().toolbar {
 			ToolbarItem(placement: .principal) {
-				MonsterNavigationBarHeader(viewModel: viewModel)
+				MonsterNavigationBarHeader(name: "Powered Lime Gulu Qoo",
+										   anotherName: "Loudest Piyopiyo")
 			}
 		}
 	}

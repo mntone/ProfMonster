@@ -115,10 +115,13 @@ struct MonsterView: View {
 		.headerProminence(.increased)
 #if os(iOS)
 		.block { content in
-			if !isAccessibilitySize, settings?.showTitle ?? true {
+			if !isAccessibilitySize,
+			   settings?.showTitle ?? true,
+			   let name = viewModel.name,
+			   let anotherName = viewModel.anotherName {
 				content.toolbar {
 					ToolbarItem(placement: .principal) {
-						MonsterNavigationBarHeader(viewModel: viewModel)
+						MonsterNavigationBarHeader(name: name, anotherName: anotherName)
 							.dynamicTypeSize(...DynamicTypeSize.xxLarge) // Fix iOS 15
 					}
 				}
