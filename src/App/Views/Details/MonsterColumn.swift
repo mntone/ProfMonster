@@ -10,15 +10,12 @@ struct MonsterColumn: View {
 
 	var body: some View {
 		MonsterView(viewModel: viewModel)
-			.task {
-				if let selection {
-					let id = selection.split(separator: ";", maxSplits: 1).last.map(String.init)
+			.task(id: selection) {
+				if let id = selection?.split(separator: ";", maxSplits: 1).last.map(String.init) {
 					viewModel.set(id: id)
+				} else {
+					viewModel.set()
 				}
-			}
-			.onChangeBackport(of: selection) { _, newValue in
-				let id = newValue?.split(separator: ";", maxSplits: 1).last.map(String.init)
-				viewModel.set(id: id)
 			}
 	}
 }

@@ -44,6 +44,8 @@ typealias Lock = TraceableLock<OSAllocatedUnfairLockBackport>
 #else
 
 protocol Lock {
+	func lock()
+	func unlock()
 	func withLock<R>(_ body: @Sendable () throws -> R) rethrows -> R where R : Sendable
 }
 

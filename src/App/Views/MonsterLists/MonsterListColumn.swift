@@ -49,13 +49,8 @@ struct MonsterListColumn: View {
 #endif
 		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 											searchText: $viewModel.searchText))
-		.task {
-			if let selectedGameID {
-				viewModel.set(id: selectedGameID)
-			}
-		}
-		.onChangeBackport(of: selectedGameID) { _, newValue in
-			viewModel.set(id: newValue)
+		.task(id: selectedGameID) {
+			viewModel.set(id: selectedGameID)
 		}
 	}
 }
@@ -80,11 +75,8 @@ struct MonsterListColumnBackport: View {
 			MonsterSelectableListItem(viewModel: item,
 									  selection: $selectedMonsterID)
 		}
-		.task {
+		.task(id: selectedGameID) {
 			viewModel.set(id: selectedGameID)
-		}
-		.onChange(of: selectedGameID) { newValue in
-			viewModel.set(id: newValue)
 		}
 	}
 }

@@ -150,6 +150,10 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 		assert(ids.count == 2)
 
 		let monster = try await _dataSource.getMonster(of: ids[1], for: ids[0])
+		if Task.isCancelled {
+			throw StarSwingsError.cancelled
+		}
+
 		let options = PhysiologyMapperOptions(mergeParts: app?.settings.mergeParts ?? true)
 		let physiologies = _physiologyMapper.map(json: monster, options: options)
 		return physiologies

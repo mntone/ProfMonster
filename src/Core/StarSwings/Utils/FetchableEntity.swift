@@ -13,29 +13,42 @@ public class FetchableEntity<Data> {
 	}
 
 	public final func fetchIfNeeded() {
-		let needToFetch = _lock.withLock {
-			guard case .ready = state else { return false }
-			state = .loading
-			return true
+		Task {
+			await fetch(priority: .utility)
 		}
-		guard needToFetch else { return }
-		fetch(priority: .userInitiated)
 	}
 
-	@discardableResult
-	final func fetch(priority: TaskPriority) -> Task<Data?, Never> {
-		return Task.detached(priority: priority) { [weak self] in
-			guard let self else { return nil }
-			do {
-				let data = try await _fetch()
-				_lock.withLock {
-					self.state = .complete(data: data)
+	public final func fetch() async -> Data? {
+		await fetch(priority: .utility)
+	}
+
+	final func fetch(priority: TaskPriority) async -> Data? {
+		_lock.lock()
+
+		switch state {
+		case let .loading(task):
+			_lock.unlock()
+			return await task.value
+		case let .complete(data):
+			_lock.unlock()
+			return data
+		case .ready, .failure:
+			let task = Task.detached(priority: priority) { [weak self] () -> Data? in
+				guard let self else { return nil }
+				do {
+					let data = try await _fetch()
+					self._lock.withLock {
+						self.state = .complete(data: data)
+					}
+					return data
+				} catch {
+					_handle(error: error)
+					return nil
 				}
-				return data
-			} catch {
-				_handle(error: error)
-				return nil
 			}
+			state = .loading(task: task)
+			_lock.unlock()
+			return await task.value
 		}
 	}
 

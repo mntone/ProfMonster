@@ -6,6 +6,7 @@ final class GameViewModel: ObservableObject {
 	private let app: App
 
 	private var game: Game?
+	private var task: Task<Void, Never>?
 	private var cancellable: Cancellable?
 
 	@Published
@@ -54,6 +55,13 @@ final class GameViewModel: ObservableObject {
 #if !os(watchOS)
 		self.sort = app.settings.sort // Do not track
 #endif
+	}
+
+	deinit {
+		if let task {
+			self.task = nil
+			task.cancel()
+		}
 	}
 
 	func set(domain game: Game) {
@@ -248,22 +256,43 @@ final class GameViewModel: ObservableObject {
 extension GameViewModel {
 	func set() {
 		self.game = nil
+
+		if let task {
+			self.task = nil
+			task.cancel()
+		}
+
 		self.items = []
 	}
 
-	@discardableResult
 	@inline(__always)
-	func set(id: String) -> Bool {
+	func set(id: String) {
 		guard game?.id != id else {
-			return false
-		}
-		guard let game = app.findGame(by: id) else {
-			app.logger.notice("Failed to get the game (id: \(id))")
-			return false
+			return
 		}
 
-		set(domain: game)
-		return true
+		if let task {
+			self.task = nil
+			task.cancel()
+		}
+
+		if let game = app.findGame(by: id) {
+			set(domain: game)
+			return
+		}
+
+		self.task = Task.detached(priority: .userInitiated) { [weak self] in
+			guard let self else { return }
+
+			guard let game = await app.prefetch(of: id) else {
+				app.logger.notice("Failed to get the game (id: \(id))")
+				return
+			}
+
+			DispatchQueue.main.async {
+				self.set(domain: game)
+			}
+		}
 	}
 
 	@inline(__always)
