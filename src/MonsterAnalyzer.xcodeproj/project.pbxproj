@@ -35,6 +35,8 @@
 		EB42495D2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42495C2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift */; };
 		EB42495F2B332A230086E255 /* Backport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42495E2B332A230086E255 /* Backport.swift */; };
 		EB4249602B332A230086E255 /* Backport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42495E2B332A230086E255 /* Backport.swift */; };
+		EB42B7822B5045D0001CFACA /* CoordinatorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42B7802B50455B001CFACA /* CoordinatorUtil.swift */; };
+		EB42B7832B5045D1001CFACA /* CoordinatorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42B7802B50455B001CFACA /* CoordinatorUtil.swift */; };
 		EB433A3A2B2DEB050079AAD8 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB433A392B2DEB050079AAD8 /* AppTests.swift */; };
 		EB433A3C2B2DEF750079AAD8 /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = EB433A3B2B2DEF750079AAD8 /* Swinject-Dynamic */; };
 		EB44EF492B1C017100DD47B5 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44EF482B1C017100DD47B5 /* CoreAssembly.swift */; };
@@ -77,8 +79,6 @@
 		EB6FF1DB2B48DA5400118E0F /* SettingsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */; };
 		EB6FF1DF2B48F03200118E0F /* SettingsPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1DE2B48F03200118E0F /* SettingsPaddingModifier.swift */; };
 		EB6FF1E02B48F03200118E0F /* SettingsPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1DE2B48F03200118E0F /* SettingsPaddingModifier.swift */; };
-		EB7DAA572B4F7D040003210E /* CoordinatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA562B4F7D040003210E /* CoordinatorViewModel.swift */; };
-		EB7DAA582B4F7D040003210E /* CoordinatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA562B4F7D040003210E /* CoordinatorViewModel.swift */; };
 		EB7DAA5F2B4FCBF20003210E /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */; };
 		EB7DAA602B4FCBF20003210E /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */; };
 		EB7DAA662B4FD3410003210E /* MonsterColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA652B4FD3410003210E /* MonsterColumn.swift */; };
@@ -378,6 +378,7 @@
 		EB3B49212B35EAD100E89711 /* SharedSettingsContainerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSettingsContainerModifier.swift; sourceTree = "<group>"; };
 		EB42495C2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ScrollDismissesKeyboard.swift"; sourceTree = "<group>"; };
 		EB42495E2B332A230086E255 /* Backport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backport.swift; sourceTree = "<group>"; };
+		EB42B7802B50455B001CFACA /* CoordinatorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorUtil.swift; sourceTree = "<group>"; };
 		EB433A392B2DEB050079AAD8 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
 		EB44EF482B1C017100DD47B5 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -400,7 +401,6 @@
 		EB6FF1D32B48CEFF00118E0F /* SettingsPreferredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreferredList.swift; sourceTree = "<group>"; };
 		EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggle.swift; sourceTree = "<group>"; };
 		EB6FF1DE2B48F03200118E0F /* SettingsPaddingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPaddingModifier.swift; sourceTree = "<group>"; };
-		EB7DAA562B4F7D040003210E /* CoordinatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorViewModel.swift; sourceTree = "<group>"; };
 		EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
 		EB7DAA652B4FD3410003210E /* MonsterColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterColumn.swift; sourceTree = "<group>"; };
 		EB7DAA672B4FD36D0003210E /* MonsterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterPage.swift; sourceTree = "<group>"; };
@@ -623,6 +623,8 @@
 		EB31EEBE2B2C9EBF00FF8536 /* Navigations */ = {
 			isa = PBXGroup;
 			children = (
+				EB42B7802B50455B001CFACA /* CoordinatorUtil.swift */,
+				EB9620E12B1D6E1000FD7115 /* MARoute.swift */,
 				EB8778202B26B1E600B3359C /* NavigationSplitViewHost.swift */,
 				EB645A602B26749E00D27500 /* NavigationStackHost.swift */,
 			);
@@ -729,14 +731,6 @@
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		EB9620E02B1D6DFD00FD7115 /* Coordinators */ = {
-			isa = PBXGroup;
-			children = (
-				EB9620E12B1D6E1000FD7115 /* MARoute.swift */,
-			);
-			path = Coordinators;
-			sourceTree = "<group>";
-		};
 		EB967A292B29A0AF0041A491 /* TextProcessor */ = {
 			isa = PBXGroup;
 			children = (
@@ -822,7 +816,6 @@
 				EB2B05B92B3AAA0200E0BFD3 /* Enums */,
 				EBFEAB852B45A7F7005363F7 /* Protocols */,
 				EBC85C632B202DCD008A16C6 /* Utils */,
-				EB7DAA562B4F7D040003210E /* CoordinatorViewModel.swift */,
 				EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */,
 				EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */,
 				EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */,
@@ -840,7 +833,6 @@
 			isa = PBXGroup;
 			children = (
 				EBEA6F7B2B1A1B0900734AAA /* Components */,
-				EB9620E02B1D6DFD00FD7115 /* Coordinators */,
 				EBEAB0C12B42376E00CC25A8 /* Details */,
 				EBCA22262B21A56C00C487AD /* Modifiers */,
 				EBDFF9CF2B4D2A0C00473634 /* MonsterLists */,
@@ -1402,7 +1394,7 @@
 				EBB4B2172B175DED004D63EA /* Color+Extensions.swift in Sources */,
 				EBDFF9D22B4D2A2500473634 /* CompactWeaknessView.swift in Sources */,
 				EBB4B2052B175D4A004D63EA /* ContentView.swift in Sources */,
-				EB7DAA582B4F7D040003210E /* CoordinatorViewModel.swift in Sources */,
+				EB42B7822B5045D0001CFACA /* CoordinatorUtil.swift in Sources */,
 				EBA66F212B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
 				EBDEEF3D2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */,
 				EBB154C12B3D03C000636DB0 /* DetailItemHeader.swift in Sources */,
@@ -1567,7 +1559,7 @@
 				EBA66F182B355C07009DE78C /* ColumnSettingsContainer.swift in Sources */,
 				EBDFF9D12B4D2A2500473634 /* CompactWeaknessView.swift in Sources */,
 				EBB4B2042B175D4A004D63EA /* ContentView.swift in Sources */,
-				EB7DAA572B4F7D040003210E /* CoordinatorViewModel.swift in Sources */,
+				EB42B7832B5045D1001CFACA /* CoordinatorUtil.swift in Sources */,
 				EBA66F202B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
 				EBDEEF3E2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */,
 				EBB154C02B3D03C000636DB0 /* DetailItemHeader.swift in Sources */,

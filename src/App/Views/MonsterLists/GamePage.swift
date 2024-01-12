@@ -8,7 +8,7 @@ struct GamePage: View {
 	let id: String
 
 	@StateObject
-	var viewModel = GameViewModel()
+	private var viewModel = GameViewModel()
 
 	var body: some View {
 		MonsterList(viewModel: viewModel) { item in
@@ -26,19 +26,19 @@ struct GamePage: View {
 struct GamePageBackport: View {
 	let id: String
 
-	@EnvironmentObject
-	private var coord: CoordinatorViewModel
+	@SceneStorage(CoordinatorUtil.MONSTER_ID_STORAGE_NAME)
+	private var selection: CoordinatorUtil.MonsterIDType?
 
 	@StateObject
-	var viewModel = GameViewModel()
+	private var viewModel = GameViewModel()
 
 	@State
-	var restoreMonsterID: CoordinatorViewModel.MonsterIDType?
+	private var restoreMonsterID: CoordinatorUtil.MonsterIDType?
 
 	var body: some View {
 		MonsterList(viewModel: viewModel) { item in
 			MonsterListNavigatableItemBackport(viewModel: item,
-											   selection: $coord.selectedMonsterID)
+											   selection: $selection)
 		}
 		.background {
 			if let restoreMonsterID {
@@ -51,7 +51,7 @@ struct GamePageBackport: View {
 		.task {
 			viewModel.set(id: id)
 
-			if let selection = coord.selectedMonsterID {
+			if let selection {
 				restoreMonsterID = selection
 			}
 		}

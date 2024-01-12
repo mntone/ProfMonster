@@ -3,8 +3,10 @@ import SwiftUI
 @available(iOS 16.0, macOS 13.0, *)
 @available(watchOS, unavailable)
 struct NavigationSplitViewHost: View {
-	@EnvironmentObject
-	private var coord: CoordinatorViewModel
+#if os(iOS)
+	@SceneStorage(CoordinatorUtil.MONSTER_ID_STORAGE_NAME)
+	private var selectedMonsterID: String?
+#endif
 
 	@State
 	private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
@@ -50,7 +52,7 @@ struct NavigationSplitViewHost: View {
 			}
 		}
 		.task {
-			if coord.selectedMonsterID != nil {
+			if selectedMonsterID != nil {
 				columnVisibility = .detailOnly
 			}
 		}
@@ -61,12 +63,12 @@ struct NavigationSplitViewHost: View {
 				}
 			} else {
 				if columnVisibility == .doubleColumn,
-				   coord.selectedMonsterID != nil {
+				   selectedMonsterID != nil {
 					columnVisibility = .detailOnly
 				}
 			}
 		}
-		.onChange(of: coord.selectedMonsterID) { newValue in
+		.onChange(of: selectedMonsterID) { newValue in
 			guard screenWidth < 1000 else { return }
 
 			if newValue != nil {

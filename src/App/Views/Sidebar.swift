@@ -3,27 +3,27 @@ import SwiftUI
 @available(iOS 16.0, *)
 @available(watchOS, unavailable)
 struct Sidebar: View {
-	@EnvironmentObject
-	private var coord: CoordinatorViewModel
+	@SceneStorage(CoordinatorUtil.GAME_ID_STORAGE_NAME)
+	private var selection: String?
 
 	@StateObject
 	private var viewModel = HomeViewModel()
 
 	var body: some View {
-		List(viewModel.items, id: \.id, selection: $coord.selectedGameID) { item in
+		List(viewModel.items, id: \.id, selection: $selection) { item in
 			Text(item.name)
 		}
 		.stateOverlay(viewModel.state)
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 
 		// Select the first item when new scene.
-		.onAppear {
-			if coord.selectedGameID == nil {
-				coord.selectedGameID = viewModel.items.first?.id
+		.task {
+			if selection == nil {
+				selection = viewModel.items.first?.id
 			}
 		}
 		.onChangeBackport(of: viewModel.items) { _, newValue in
-			coord.selectedGameID = newValue.first?.id
+			selection = newValue.first?.id
 		}
 	}
 }
@@ -34,15 +34,15 @@ struct Sidebar: View {
 @available(macOS, unavailable)
 @available(watchOS, unavailable)
 struct SidebarBackport: View {
-	@EnvironmentObject
-	private var coord: CoordinatorViewModel
+	@SceneStorage(CoordinatorUtil.GAME_ID_STORAGE_NAME)
+	private var selection: String?
 
 	@StateObject
 	private var viewModel = HomeViewModel()
 
 	var body: some View {
 		List(viewModel.items) { item in
-			RoundedRectangleSelectableListRowBackport(tag: item.id, selection: $coord.selectedGameID) {
+			RoundedRectangleSelectableListRowBackport(tag: item.id, selection: $selection) {
 				Text(item.name)
 			}
 		}
@@ -50,13 +50,13 @@ struct SidebarBackport: View {
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 
 		// Select the first item when new scene.
-		.onAppear {
-			if coord.selectedGameID == nil {
-				coord.selectedGameID = viewModel.items.first?.id
+		.task {
+			if selection == nil {
+				selection = viewModel.items.first?.id
 			}
 		}
-		.onChangeBackport(of: viewModel.items) { _, newValue in
-			coord.selectedGameID = newValue.first?.id
+		.onChange(of: viewModel.items) { newValue in
+			selection = newValue.first?.id
 		}
 	}
 }
@@ -69,14 +69,12 @@ struct SidebarBackport: View {
 #if os(macOS)
 		.frame(minWidth: 120, idealWidth: 150, maxWidth: 180)
 #endif
-		.environmentObject(CoordinatorViewModel())
 }
 
 #if os(iOS)
 
 #Preview("Backport") {
 	SidebarBackport()
-		.environmentObject(CoordinatorViewModel())
 }
 
 #endif

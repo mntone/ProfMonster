@@ -5,12 +5,14 @@ import SwiftUI
 @available(iOS 16.0, watchOS 9.0, *)
 @available(macOS, unavailable)
 struct NavigationStackHost: View {
-	@EnvironmentObject
-	private var coord: CoordinatorViewModel
+	@SceneStorage(CoordinatorUtil.GAME_ID_STORAGE_NAME)
+	private var selectedGameID: String?
 
+	@SceneStorage(CoordinatorUtil.MONSTER_ID_STORAGE_NAME)
+	private var selectedMonsterID: String?
 
 	var body: some View {
-		NavigationStack(path: coord.path) {
+		NavigationStack(path: path) {
 			HomePage()
 				.navigationDestination(for: MARoute.self) { path in
 					switch path {
@@ -20,6 +22,41 @@ struct NavigationStackHost: View {
 						MonsterPage(id: id)
 					}
 				}
+		}
+	}
+
+	private var path: Binding<[MARoute]> {
+		Binding {
+			if let selectedGameID {
+				if let selectedMonsterID {
+					return [
+						.game(id: selectedGameID),
+						.monster(id: selectedMonsterID)
+					]
+				} else {
+					return [
+						.game(id: selectedGameID),
+					]
+				}
+			}
+			return []
+		} set: { newValue in
+			guard case let .game(gameID) = newValue.first else {
+				return
+			}
+			if selectedGameID != gameID {
+				selectedGameID = gameID
+			}
+
+			guard newValue.count >= 2,
+				  case let .monster(monsterID) = newValue[1] else {
+				selectedMonsterID = nil
+				return
+			}
+
+			if selectedMonsterID != monsterID {
+				selectedMonsterID = monsterID
+			}
 		}
 	}
 }

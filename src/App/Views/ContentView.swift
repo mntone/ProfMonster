@@ -7,9 +7,6 @@ struct ContentView: View {
 	private var horizontalSizeClass
 #endif
 
-	@StateObject
-	private var coord = CoordinatorViewModel()
-
 #if !os(macOS)
 	@State
 	private var isSettingsPresented: Bool = false
@@ -50,7 +47,6 @@ struct ContentView: View {
 		}
 		.setPresentSettingsSheetAction(isPresented: $isSettingsPresented)
 #endif
-		.environmentObject(coord)
 		.environment(\.settings, Self.getSettings())
 	}
 

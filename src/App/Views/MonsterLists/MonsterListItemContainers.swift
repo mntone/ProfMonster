@@ -19,7 +19,7 @@ struct MonsterListNavigatableItem: View {
 @available(watchOS, introduced: 8.0, deprecated: 9.0, message: "Use MonsterListNavigatableItem instead")
 struct MonsterListNavigatableItemBackport: View {
 	let viewModel: IdentifyHolder<GameItemViewModel>
-	let selection: Binding<CoordinatorViewModel.MonsterIDType?>
+	let selection: Binding<CoordinatorUtil.MonsterIDType?>
 
 	var body: some View {
 		NavigationLink(tag: viewModel.id, selection: selection) {
@@ -40,7 +40,7 @@ struct MonsterListNavigatableItemBackport: View {
 @available(watchOS, unavailable)
 struct MonsterSelectableListItem: View {
 	let viewModel: IdentifyHolder<GameItemViewModel>
-	let selection: Binding<CoordinatorViewModel.MonsterIDType?>
+	let selection: Binding<CoordinatorUtil.MonsterIDType?>
 
 	var body: some View {
 		SelectableListRowBackport(tag: viewModel.id, selection: selection) {

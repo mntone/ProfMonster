@@ -21,15 +21,15 @@ struct HomePage: View {
 @available(macOS, unavailable)
 @available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use HomePage instead")
 struct HomePageBackport: View {
-	@EnvironmentObject
-	private var coord: CoordinatorViewModel
-
 	@StateObject
 	private var viewModel = HomeViewModel()
 
+	@SceneStorage(CoordinatorUtil.GAME_ID_STORAGE_NAME)
+	private var selection: String?
+
 	var body: some View {
 		List(viewModel.items) { item in
-			NavigationLink(item.name, tag: item.id, selection: $coord.selectedGameID) {
+			NavigationLink(item.name, tag: item.id, selection: $selection) {
 				GamePageBackport(id: item.id)
 			}
 		}
@@ -43,7 +43,6 @@ struct HomePageBackport: View {
 	NavigationStack {
 		HomePage()
 	}
-	.environmentObject(CoordinatorViewModel())
 }
 
 #Preview("Backport") {
@@ -51,7 +50,6 @@ struct HomePageBackport: View {
 		HomePageBackport()
 	}
 	.navigationViewStyle(.stack)
-	.environmentObject(CoordinatorViewModel())
 }
 
 #endif

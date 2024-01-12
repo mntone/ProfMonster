@@ -3,16 +3,19 @@ import SwiftUI
 @available(iOS 16.0, *)
 @available(watchOS, unavailable)
 struct MonsterListColumn: View {
-	@EnvironmentObject
-	private var coord: CoordinatorViewModel
-
-	@StateObject
-	private var viewModel = GameViewModel()
-
 #if os(macOS)
 	@Environment(\.accessibilityReduceMotion)
 	private var accessibilityReduceMotion
 #endif
+
+	@SceneStorage(CoordinatorUtil.GAME_ID_STORAGE_NAME)
+	private var selectedGameID: CoordinatorUtil.GameIDType?
+
+	@SceneStorage(CoordinatorUtil.MONSTER_ID_STORAGE_NAME)
+	private var selectedMonsterID: CoordinatorUtil.MonsterIDType?
+
+	@StateObject
+	private var viewModel = GameViewModel()
 
 	var body: some View {
 		let items = viewModel.items
@@ -47,9 +50,11 @@ struct MonsterListColumn: View {
 		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
 											searchText: $viewModel.searchText))
 		.task {
-			viewModel.set(id: coord.selectedGameID)
+			if let selectedGameID {
+				viewModel.set(id: selectedGameID)
+			}
 		}
-		.onChangeBackport(of: coord.selectedGameID) { _, newValue in
+		.onChangeBackport(of: selectedGameID) { _, newValue in
 			viewModel.set(id: newValue)
 		}
 	}
@@ -57,10 +62,15 @@ struct MonsterListColumn: View {
 
 #if os(iOS)
 
+@available(iOS, introduced: 15.0, deprecated: 16.0, message: "Use MonsterListColumn instead")
+@available(macOS, unavailable)
 @available(watchOS, unavailable)
 struct MonsterListColumnBackport: View {
-	@EnvironmentObject
-	private var coord: CoordinatorViewModel
+	@SceneStorage(CoordinatorUtil.GAME_ID_STORAGE_NAME)
+	private var selectedGameID: CoordinatorUtil.GameIDType?
+
+	@SceneStorage(CoordinatorUtil.MONSTER_ID_STORAGE_NAME)
+	private var selectedMonsterID: CoordinatorUtil.MonsterIDType?
 
 	@StateObject
 	private var viewModel = GameViewModel()
@@ -68,12 +78,12 @@ struct MonsterListColumnBackport: View {
 	var body: some View {
 		MonsterList(viewModel: viewModel) { item in
 			MonsterSelectableListItem(viewModel: item,
-									  selection: $coord.selectedMonsterID)
+									  selection: $selectedMonsterID)
 		}
 		.task {
-			viewModel.set(id: coord.selectedGameID)
+			viewModel.set(id: selectedGameID)
 		}
-		.onChangeBackport(of: coord.selectedGameID) { _, newValue in
+		.onChange(of: selectedGameID) { newValue in
 			viewModel.set(id: newValue)
 		}
 	}
@@ -87,14 +97,12 @@ struct MonsterListColumnBackport: View {
 #if os(macOS)
 		.frame(minWidth: 150, idealWidth: 200, maxWidth: 240)
 #endif
-		.environmentObject(CoordinatorViewModel(gameID: "mockgame"))
 }
 
 #if os(iOS)
 
 #Preview("Backport") {
 	MonsterListColumnBackport()
-		.environmentObject(CoordinatorViewModel(gameID: "mockgame"))
 }
 
 #endif

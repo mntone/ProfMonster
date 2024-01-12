@@ -1,8 +1,9 @@
 import SwiftUI
 
+@available(watchOS, unavailable)
 struct MonsterColumn: View {
-	@EnvironmentObject
-	private var coord: CoordinatorViewModel
+	@SceneStorage("m")
+	private var selection: String?
 
 	@StateObject
 	private var viewModel = MonsterViewModel()
@@ -10,10 +11,12 @@ struct MonsterColumn: View {
 	var body: some View {
 		MonsterView(viewModel: viewModel)
 			.task {
-				let id = coord.selectedMonsterID?.split(separator: ";", maxSplits: 1).last.map(String.init)
-				viewModel.set(id: id)
+				if let selection {
+					let id = selection.split(separator: ";", maxSplits: 1).last.map(String.init)
+					viewModel.set(id: id)
+				}
 			}
-			.onChange(of: coord.selectedMonsterID) { newValue in
+			.onChangeBackport(of: selection) { _, newValue in
 				let id = newValue?.split(separator: ";", maxSplits: 1).last.map(String.init)
 				viewModel.set(id: id)
 			}
