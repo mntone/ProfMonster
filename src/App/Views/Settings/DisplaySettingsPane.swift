@@ -46,7 +46,6 @@ struct DisplaySettingsPane: View {
 							   isOn: $viewModel.includesFavoriteGroupInSearchResult)
 #endif
 
-#if !os(macOS)
 				SettingsPicker("Left Swipe",
 							   selection: $viewModel.trailingSwipeAction) {
 					ForEach(SwipeAction.allCases) { mode in
@@ -55,7 +54,6 @@ struct DisplaySettingsPane: View {
 				} label: { action in
 					Text(action.label)
 				}
-#endif
 			}
 
 			Section {

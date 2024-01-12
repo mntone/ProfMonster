@@ -1,8 +1,5 @@
 import SwiftUI
 
-#if !os(macOS)
-
-@available(macOS, unavailable)
 struct FavoriteSwipeButton: View {
 	@Binding
 	private(set) var favorite: Bool
@@ -41,5 +38,3 @@ struct FavoriteSwipeButton: View {
 			}
 	}
 }
-
-#endif

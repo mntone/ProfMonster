@@ -36,14 +36,12 @@ final class SettingsViewModel: ObservableObject {
 	}
 #endif
 
-#if !os(macOS)
 	@Published
 	var trailingSwipeAction: SwipeAction {
 		didSet {
 			settings.trailingSwipeAction = trailingSwipeAction
 		}
 	}
-#endif
 
 	@Published
 	var linkSubspecies: Bool {
@@ -98,9 +96,7 @@ final class SettingsViewModel: ObservableObject {
 #if os(watchOS)
 		self.sort = app.settings.sort
 #endif
-#if !os(macOS)
 		self.trailingSwipeAction = app.settings.trailingSwipeAction
-#endif
 		self.linkSubspecies = app.settings.linkSubspecies
 #if !os(watchOS)
 		self.includesFavoriteGroupInSearchResult = app.settings.includesFavoriteGroupInSearchResult
@@ -117,9 +113,7 @@ final class SettingsViewModel: ObservableObject {
 #if os(watchOS)
 		settings.$sort.dropFirst().receive(on: scheduler).assign(to: &$sort)
 #endif
-#if !os(macOS)
 		settings.$trailingSwipeAction.dropFirst().receive(on: scheduler).assign(to: &$trailingSwipeAction)
-#endif
 		settings.$linkSubspecies.dropFirst().receive(on: scheduler).assign(to: &$linkSubspecies)
 #if !os(watchOS)
 		settings.$includesFavoriteGroupInSearchResult.dropFirst().receive(on: scheduler).assign(to: &$includesFavoriteGroupInSearchResult)

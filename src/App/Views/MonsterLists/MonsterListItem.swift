@@ -93,7 +93,6 @@ struct MonsterListItem: View {
 			FavoriteContextMenuButton(favorite: $viewModel.isFavorited)
 		}
 #endif
-#if !os(macOS)
 		.swipeActions(edge: .trailing, allowsFullSwipe: false) {
 			switch settings?.trailingSwipeAction {
 			case Optional.none, .some(.none):
@@ -102,7 +101,6 @@ struct MonsterListItem: View {
 				FavoriteSwipeButton(favorite: $viewModel.isFavorited)
 			}
 		}
-#endif
 	}
 }
 

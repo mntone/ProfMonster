@@ -5,10 +5,8 @@ public final class Settings {
 	public var showTitle: Bool
 #endif
 
-#if !os(macOS)
 	@UserDefault("trgSwipe", initial: SwipeAction.none)
 	public var trailingSwipeAction: SwipeAction
-#endif
 
 	@UserDefault("linkSub", initial: true)
 	public var linkSubspecies: Bool
