@@ -8,7 +8,7 @@ struct FavoriteContextMenuButton: View {
 	var body: some View {
 		let text: LocalizedStringKey, image: String
 		if favorite {
-			text = "Remove Favorite"
+			text = "Delete Favorite"
 			image = "star.slash"
 		} else {
 			text = "Add to Favorites"

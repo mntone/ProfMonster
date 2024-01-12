@@ -7,7 +7,7 @@ struct FavoriteButton: View {
 	var body: some View {
 		let text: LocalizedStringKey, image: String
 		if favorite {
-			text = "Remove Favorite"
+			text = "Delete Favorite"
 			image = "star.fill"
 		} else {
 			text = "Add to Favorites"
