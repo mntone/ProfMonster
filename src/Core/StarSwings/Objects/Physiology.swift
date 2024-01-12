@@ -74,7 +74,7 @@ public struct PhysiologyGroup {
 }
 
 public struct PhysiologySection {
-#if os(macOS)
+#if os(macOS) || arch(x86_64)
 	public typealias AverageFloat = Float32
 #else
 	public typealias AverageFloat = Float16
