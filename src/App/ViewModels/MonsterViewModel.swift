@@ -75,7 +75,11 @@ final class MonsterViewModel: ObservableObject {
 		self.note = monster.note
 
 		let scheduler = DispatchQueue.main
-		monster.$state.removeData().receive(on: scheduler).assign(to: &$state)
+		monster.$state
+			.dropFirst()
+			.removeData()
+			.receive(on: scheduler)
+			.assign(to: &$state)
 
 		monster.$state
 			.dropFirst()
