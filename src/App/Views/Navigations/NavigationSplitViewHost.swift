@@ -6,12 +6,10 @@ struct NavigationSplitViewHost: View {
 #if os(iOS)
 	@SceneStorage(CoordinatorUtil.MONSTER_ID_STORAGE_NAME)
 	private var selectedMonsterID: String?
-#endif
 
 	@State
 	private var columnVisibility: NavigationSplitViewVisibility = .doubleColumn
 
-#if os(iOS)
 	@Environment(\.horizontalSizeClass)
 	private var horizontalSizeClass
 
@@ -20,23 +18,25 @@ struct NavigationSplitViewHost: View {
 #endif
 
 	var body: some View {
-		NavigationSplitView(columnVisibility: $columnVisibility) {
-			Sidebar()
 #if os(macOS)
+		NavigationSplitView {
+			Sidebar()
 				.navigationSplitViewColumnWidth(min: 120, ideal: 150, max: 180)
-#endif
 		} content: {
 			MonsterListColumn()
-#if os(macOS)
 				.navigationSplitViewColumnWidth(min: 150, ideal: 200, max: 240)
-#endif
 		} detail: {
 			MonsterColumn()
-#if os(macOS)
 				.navigationSplitViewColumnWidth(min: 480, ideal: 480)
-#endif
 		}
-#if os(iOS)
+#else
+		NavigationSplitView(columnVisibility: $columnVisibility) {
+			Sidebar()
+		} content: {
+			MonsterListColumn()
+		} detail: {
+			MonsterColumn()
+		}
 		.background {
 			GeometryReader { proxy in
 				Color.clear.onChangeBackport(of: proxy.size.width, initial: true) { _, newValue in
@@ -62,7 +62,7 @@ struct NavigationSplitViewHost: View {
 					columnVisibility = .doubleColumn
 				}
 			} else {
-				if columnVisibility == .doubleColumn,
+				if columnVisibility != .detailOnly,
 				   selectedMonsterID != nil {
 					columnVisibility = .detailOnly
 				}
