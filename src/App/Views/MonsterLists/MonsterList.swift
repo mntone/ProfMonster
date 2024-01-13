@@ -35,7 +35,7 @@ struct MonsterList<ItemView: View>: View {
 											searchText: $viewModel.searchText))
 #endif
 		.stateOverlay(viewModel.state)
-		.navigationTitle(viewModel.name.map(Text.init) ?? Text("Unknown"))
+		.navigationTitle(viewModel.name)
 	}
 }
 

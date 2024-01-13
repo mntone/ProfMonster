@@ -31,10 +31,10 @@ final class GameViewModel: ObservableObject {
 	@Published
 	var searchText: String = ""
 
-	var name: String? {
+	var name: String {
 		@inline(__always)
 		get {
-			game?.name
+			game?.name ?? ""
 		}
 	}
 

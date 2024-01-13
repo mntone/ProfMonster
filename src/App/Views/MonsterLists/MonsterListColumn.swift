@@ -41,7 +41,7 @@ struct MonsterListColumn: View {
 				   value: viewModel.items)
 #endif
 		.stateOverlay(viewModel.state)
-		.navigationTitle(viewModel.name.map(Text.init) ?? Text("Unknown"))
+		.navigationTitle(viewModel.name)
 #if os(macOS)
 		.navigationSubtitle(viewModel.state.isComplete
 							? Text("\(viewModel.itemsCount) Monsters")
