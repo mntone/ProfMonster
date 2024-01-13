@@ -5,12 +5,12 @@ enum PhysiologyViewMetrics {
 	static let textStyle: Font.TextStyle = .body
 	static let defaultFontSize: CGFloat = 13
 	static let headerBaseWidth: CGFloat = 100
-	static let itemBaseWidth: CGFloat = 24
+	static let itemBaseWidth: CGFloat = 28
 	static let maxWidth: CGFloat = 600
 
 	static let margin: EdgeInsets = EdgeInsets(top: 8, leading: 4, bottom: 4, trailing: 4)
 	static let padding: EdgeInsets = EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12)
-	static let spacing: CGFloat = 8
+	static let spacing: CGFloat = 4
 #elseif os(watchOS)
 	static let textStyle: Font.TextStyle = .caption2
 	static let defaultFontSize: CGFloat = 14
