@@ -77,8 +77,8 @@
 		EB6FF1D82B48CFF600118E0F /* SettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA222A2B221E5700C487AD /* SettingsContainer.swift */; };
 		EB6FF1DA2B48DA5400118E0F /* SettingsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */; };
 		EB6FF1DB2B48DA5400118E0F /* SettingsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */; };
-		EB6FF1DF2B48F03200118E0F /* SettingsPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1DE2B48F03200118E0F /* SettingsPaddingModifier.swift */; };
-		EB6FF1E02B48F03200118E0F /* SettingsPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1DE2B48F03200118E0F /* SettingsPaddingModifier.swift */; };
+		EB6FF1DF2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */; };
+		EB6FF1E02B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */; };
 		EB7DAA5F2B4FCBF20003210E /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */; };
 		EB7DAA602B4FCBF20003210E /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */; };
 		EB7DAA662B4FD3410003210E /* MonsterColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA652B4FD3410003210E /* MonsterColumn.swift */; };
@@ -400,7 +400,7 @@
 		EB6EF7DD2B4A0DB200646BBD /* RequestState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestState.swift; sourceTree = "<group>"; };
 		EB6FF1D32B48CEFF00118E0F /* SettingsPreferredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreferredList.swift; sourceTree = "<group>"; };
 		EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggle.swift; sourceTree = "<group>"; };
-		EB6FF1DE2B48F03200118E0F /* SettingsPaddingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPaddingModifier.swift; sourceTree = "<group>"; };
+		EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredVerticalPaddingModifier.swift; sourceTree = "<group>"; };
 		EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
 		EB7DAA652B4FD3410003210E /* MonsterColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterColumn.swift; sourceTree = "<group>"; };
 		EB7DAA672B4FD36D0003210E /* MonsterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterPage.swift; sourceTree = "<group>"; };
@@ -690,7 +690,6 @@
 		EB6FF1DD2B48F01D00118E0F /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
-				EB6FF1DE2B48F03200118E0F /* SettingsPaddingModifier.swift */,
 				EB3B49212B35EAD100E89711 /* SharedSettingsContainerModifier.swift */,
 				EB6ADE732B3660340010BD64 /* SharedSettingsPaneModifier.swift */,
 			);
@@ -946,6 +945,7 @@
 		EBCA22262B21A56C00C487AD /* Modifiers */ = {
 			isa = PBXGroup;
 			children = (
+				EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */,
 				EB97F6A72B31BCDE00E31602 /* SharedGameListModifier.swift */,
 				EB97F6A42B31B60700E31602 /* SharedMonsterListModifier.swift */,
 				EB560BD32B4386D700E91E01 /* StateOverlayModifier.swift */,
@@ -1432,12 +1432,12 @@
 				EB19D6722B1EBEC900C90417 /* ObservableHorizontalScrollView.swift in Sources */,
 				EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */,
+				EB6FF1E02B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */,
 				EB6EF7DF2B4A0DB200646BBD /* RequestState.swift in Sources */,
 				EBEA6F722B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
 				EB6FF1D82B48CFF600118E0F /* SettingsContainer.swift in Sources */,
 				EB3B49202B35E2B200E89711 /* SettingsLabeledContent.swift in Sources */,
 				EB99227B2B35686300DBA812 /* SettingsLabelStyle.swift in Sources */,
-				EB6FF1E02B48F03200118E0F /* SettingsPaddingModifier.swift in Sources */,
 				EB99227E2B357D6C00DBA812 /* SettingsPane.swift in Sources */,
 				EB3B491D2B35E29400E89711 /* SettingsPicker.swift in Sources */,
 				EB6FF1D52B48CEFF00118E0F /* SettingsPreferredList.swift in Sources */,
@@ -1604,13 +1604,13 @@
 				EBB4B1D02B15E0C9004D63EA /* PhysiologyView.swift in Sources */,
 				EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B1D22B15ED1B004D63EA /* PhysiologyViewModel.swift in Sources */,
+				EB6FF1DF2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */,
 				EB6EF7DE2B4A0DB200646BBD /* RequestState.swift in Sources */,
 				EBEA6F712B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
 				EB2956412B310E28002C5CA8 /* SelectableListRowBackport.swift in Sources */,
 				EBCA222B2B221E5700C487AD /* SettingsContainer.swift in Sources */,
 				EB3B491F2B35E2B200E89711 /* SettingsLabeledContent.swift in Sources */,
 				EB99227A2B35686300DBA812 /* SettingsLabelStyle.swift in Sources */,
-				EB6FF1DF2B48F03200118E0F /* SettingsPaddingModifier.swift in Sources */,
 				EB99227D2B357D6C00DBA812 /* SettingsPane.swift in Sources */,
 				EB3B491C2B35E29400E89711 /* SettingsPicker.swift in Sources */,
 				EB6FF1D42B48CEFF00118E0F /* SettingsPreferredList.swift in Sources */,

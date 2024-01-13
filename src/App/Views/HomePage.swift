@@ -10,7 +10,14 @@ struct HomePage: View {
 
 	var body: some View {
 		List(viewModel.items) { item in
+#if os(iOS)
+			NavigationLink(value: MARoute.game(id: item.id)) {
+				Text(item.name)
+					.preferredVerticalPadding()
+			}
+#else
 			NavigationLink(item.name, value: MARoute.game(id: item.id))
+#endif
 		}
 		.stateOverlay(viewModel.state)
 		.modifier(SharedGameListModifier(viewModel: viewModel))
@@ -29,9 +36,18 @@ struct HomePageBackport: View {
 
 	var body: some View {
 		List(viewModel.items) { item in
+#if os(iOS)
+			NavigationLink(tag: item.id, selection: $selection) {
+				GamePageBackport(id: item.id)
+			} label: {
+				Text(item.name)
+					.preferredVerticalPadding()
+			}
+#else
 			NavigationLink(item.name, tag: item.id, selection: $selection) {
 				GamePageBackport(id: item.id)
 			}
+#endif
 		}
 		.stateOverlay(viewModel.state)
 		.modifier(SharedGameListModifier(viewModel: viewModel))

@@ -63,7 +63,7 @@ struct LicenseView: View {
 					.buttonStyle(.borderless)
 				}
 			}
-			.settingsPadding()
+			.preferredVerticalPadding()
 #endif
 		}
 #endif

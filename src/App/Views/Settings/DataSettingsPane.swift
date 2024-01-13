@@ -11,6 +11,7 @@ struct RemoveCacheButton: View {
 			isConfirm = true
 		}
 		.foregroundColor(.blue)
+		.preferredVerticalPadding()
 		.alert("Remove Caches", isPresented: $isConfirm) {
 			Button("Remove All Caches", role: .destructive) {
 				viewModel.resetAllCaches()
@@ -22,7 +23,6 @@ struct RemoveCacheButton: View {
 		} message: {
 			Text("Are you sure you want to continue? This will remove all caches.")
 		}
-		.settingsPadding()
 	}
 }
 

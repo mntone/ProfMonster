@@ -83,7 +83,7 @@ struct DisplaySettingsPane: View {
 						Section("Preview") {
 							let viewModel = WeaknessViewModel(id: "settings", displayMode: mode, sections: mockData)
 							FixedWidthWeaknessView(viewModel: viewModel)
-								.settingsPadding()
+								.preferredVerticalPadding()
 						}
 					}
 				}

@@ -45,7 +45,7 @@ struct SettingsPicker<Content, SelectionValue, MoreContent>: View where Content:
 				Picker(selection: $selection) {
 					content
 #if os(iOS)
-					.settingsPadding()
+					.preferredVerticalPadding()
 #endif
 				} label: {
 					Never?.none
