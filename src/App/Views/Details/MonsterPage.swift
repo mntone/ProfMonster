@@ -1,8 +1,5 @@
-#if !os(macOS)
-
 import SwiftUI
 
-@available(macOS, unavailable)
 struct MonsterPage: View {
 	let id: CoordinatorUtil.MonsterIDType
 
@@ -16,5 +13,3 @@ struct MonsterPage: View {
 			}
 	}
 }
-
-#endif

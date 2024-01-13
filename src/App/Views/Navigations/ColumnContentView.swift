@@ -45,19 +45,21 @@ private struct _NavigationSplitViewHost: View {
 			}
 		}
 		.block { content in
-			if screenWidth >= 1000 {
+			if screenWidth >= 1024 {
 				content.navigationSplitViewStyle(.balanced)
 			} else{
 				content.navigationSplitViewStyle(.prominentDetail)
 			}
 		}
-		.task {
+		.onAppear {
+			guard screenWidth < 1024 else { return }
+
 			if selectedMonsterID != nil {
 				columnVisibility = .detailOnly
 			}
 		}
 		.onChange(of: screenWidth) { newValue in
-			if screenWidth >= 1000 {
+			if screenWidth >= 1024 {
 				if columnVisibility == .detailOnly {
 					columnVisibility = .doubleColumn
 				}
@@ -69,7 +71,7 @@ private struct _NavigationSplitViewHost: View {
 			}
 		}
 		.onChange(of: selectedMonsterID) { newValue in
-			guard screenWidth < 1000 else { return }
+			guard screenWidth < 1024 else { return }
 
 			if newValue != nil {
 				columnVisibility = .detailOnly

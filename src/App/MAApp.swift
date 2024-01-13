@@ -19,6 +19,7 @@ struct MAApp: SwiftUI.App {
 		WindowGroup {
 			ContentView()
 		}
+		.environment(\.settings, Self.settings)
 #if os(watchOS)
 		.environment(\.watchMetrics, WatchUtil.getMetrics())
 #endif
@@ -39,9 +40,33 @@ struct MAApp: SwiftUI.App {
 			ToolbarCommands()
 			SidebarCommands()
 		}
+		.defaultSizeBackport(width: 860.0, height: 720.0)
+#endif
+
+#if os(iOS)
+		if #available(iOS 16.0, *) {
+			WindowGroup(id: "monster", for: String.self) { $id in
+				if let id {
+					MonsterWindow(id: id)
+				}
+			}
+			.defaultSizeBackport(MonsterWindow.defaultSize)
+			.environment(\.settings, Self.settings)
+		}
 #endif
 
 #if os(macOS)
+		if #available(macOS 13.0, *) {
+			WindowGroup(id: "monster", for: String.self) { $id in
+				if let id {
+					MonsterWindow(id: id)
+				}
+			}
+			.commandsRemoved()
+			.defaultSize(MonsterWindow.defaultSize)
+			.environment(\.settings, Self.settings)
+		}
+
 		Settings {
 			if #available(macOS 13.0, *) {
 				ColumnSettingsContainer()
@@ -63,6 +88,11 @@ struct MAApp: SwiftUI.App {
 			CoreAssembly(),
 			AppAssembly(),
 		]).resolver
+	}()
+
+	private static var settings: MonsterAnalyzerCore.Settings = {
+		let settings = MAApp.resolver.resolve(MonsterAnalyzerCore.App.self)!.settings
+		return settings
 	}()
 }
 

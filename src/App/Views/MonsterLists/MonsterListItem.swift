@@ -91,6 +91,10 @@ struct MonsterListItem: View {
 #if !os(watchOS)
 		.contextMenu {
 			FavoriteContextMenuButton(favorite: $viewModel.isFavorited)
+
+			if #available(iOS 16.0, macOS 13.0, *) {
+				OpenWindowButton(id: viewModel.id)
+			}
 		}
 #endif
 		.swipeActions(edge: .trailing, allowsFullSwipe: false) {

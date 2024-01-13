@@ -3298,6 +3298,22 @@
         }
       }
     },
+    "Close This Window" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close This Window"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "このウィンドウを閉じる"
+          }
+        }
+      }
+    },
     "Data" : {
       "localizations" : {
         "ar" : {
@@ -7181,6 +7197,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ブラウザーで開く"
+          }
+        }
+      }
+    },
+    "Open In New Window" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Open In New Window"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新しいウィンドウで開く"
           }
         }
       }

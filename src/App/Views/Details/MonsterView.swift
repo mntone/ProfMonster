@@ -127,6 +127,9 @@ struct MonsterView: View {
 		.navigationBarTitleDisplayMode(.inline)
 #endif
 		.navigationTitle(viewModel.name)
+#if os(macOS)
+		.navigationSubtitle(viewModel.anotherName ?? "")
+#endif
 	}
 }
 

@@ -33,11 +33,5 @@ struct ContentView: View {
 		}
 		.setPresentSettingsSheetAction(isPresented: $isSettingsPresented)
 #endif
-		.environment(\.settings, Self.getSettings())
-	}
-
-	private static func getSettings() -> MonsterAnalyzerCore.Settings {
-		let settings = MAApp.resolver.resolve(MonsterAnalyzerCore.App.self)!.settings
-		return settings
 	}
 }
