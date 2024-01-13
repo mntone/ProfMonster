@@ -5,9 +5,6 @@ struct DisplaySettingsPane: View {
 	@ObservedObject
 	private(set) var viewModel: SettingsViewModel
 
-	@Environment(\.dynamicTypeSize.isAccessibilitySize)
-	private var isAccessibilitySize
-
 #if !os(watchOS)
 	private let mockData: [WeaknessSectionViewModel] = {
 		let mock = MockData.physiology(.guluQoo)!
@@ -58,9 +55,7 @@ struct DisplaySettingsPane: View {
 
 			Section {
 #if os(iOS)
-				if !isAccessibilitySize {
-					SettingsToggle("Show Monster’s Title", isOn: $viewModel.showTitle)
-				}
+				SettingsToggle("Show Monster’s Title", isOn: $viewModel.showTitle)
 #endif
 
 #if os(watchOS)

@@ -70,9 +70,6 @@ struct MonsterView: View {
 	@ObservedObject
 	private(set) var viewModel: MonsterViewModel
 
-	@Environment(\.dynamicTypeSize.isAccessibilitySize)
-	private var isAccessibilitySize
-
 	var body: some View {
 		Form {
 			if let item = viewModel.item {
@@ -114,19 +111,10 @@ struct MonsterView: View {
 		}
 		.headerProminence(.increased)
 #if os(iOS)
-		.block { content in
-			if !isAccessibilitySize,
-			   settings?.showTitle ?? true,
-			   let name = viewModel.name,
-			   let anotherName = viewModel.anotherName {
-				content.toolbar {
-					ToolbarItem(placement: .principal) {
-						MonsterNavigationBarHeader(name: name, anotherName: anotherName)
-							.dynamicTypeSize(...DynamicTypeSize.xxLarge) // Fix iOS 15
-					}
-				}
-			} else {
-				content
+		.toolbar {
+			ToolbarItem(placement: .principal) {
+				MonsterNavigationBarHeader(name: viewModel.name,
+										   anotherName: viewModel.anotherName)
 			}
 		}
 #endif
@@ -138,7 +126,7 @@ struct MonsterView: View {
 #if os(iOS)
 		.navigationBarTitleDisplayMode(.inline)
 #endif
-		.navigationTitle(viewModel.name.map(Text.init) ?? Text(verbatim: ""))
+		.navigationTitle(viewModel.name)
 	}
 }
 

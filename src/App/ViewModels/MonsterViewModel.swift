@@ -139,10 +139,10 @@ final class MonsterViewModel: ObservableObject {
 		}
 	}
 
-	var name: String? {
+	var name: String {
 		@inline(__always)
 		get {
-			monster?.name
+			monster?.name ?? ""
 		}
 	}
 

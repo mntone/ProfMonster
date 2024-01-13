@@ -44,6 +44,7 @@
 		EB44EF4C2B1C0BCB00DD47B5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */; };
 		EB47FA402B331F1700044DEE /* SwiftUIIntrospect-Static in Frameworks */ = {isa = PBXBuildFile; productRef = EB47FA3F2B331F1700044DEE /* SwiftUIIntrospect-Static */; };
 		EB513ADF2B3C8B0400C8FB4A /* TabSettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB513ADE2B3C8B0400C8FB4A /* TabSettingsContainer.swift */; };
+		EB5445542B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5445532B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift */; };
 		EB560BCE2B42F48800E91E01 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */; };
 		EB560BCF2B42F48800E91E01 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */; };
 		EB560BD42B4386D700E91E01 /* StateOverlayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BD32B4386D700E91E01 /* StateOverlayModifier.swift */; };
@@ -383,6 +384,7 @@
 		EB44EF482B1C017100DD47B5 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB513ADE2B3C8B0400C8FB4A /* TabSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSettingsContainer.swift; sourceTree = "<group>"; };
+		EB5445532B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleViewSupport.swift; sourceTree = "<group>"; };
 		EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		EB560BD32B4386D700E91E01 /* StateOverlayModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOverlayModifier.swift; sourceTree = "<group>"; };
 		EB6297F12B37179200E830E6 /* View+Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Block.swift"; sourceTree = "<group>"; };
@@ -1054,6 +1056,7 @@
 				EB28F1B22B370F0700291055 /* DividedHStack.swift */,
 				EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */,
 				EB967A472B2AC6E80041A491 /* LazyView.swift */,
+				EB5445532B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift */,
 				EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */,
 				EBEA6F732B18B56700734AAA /* UnevenRoundedRectangleBackport.swift */,
 			);
@@ -1599,6 +1602,7 @@
 				EB7DAA682B4FD36D0003210E /* MonsterPage.swift in Sources */,
 				EBF9282D2B1038C9007D59D4 /* MonsterView.swift in Sources */,
 				EBB4B1C72B15BF48004D63EA /* MonsterViewModel.swift in Sources */,
+				EB5445542B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift in Sources */,
 				EB19D6712B1EBE8400C90417 /* ObservableHorizontalScrollView.swift in Sources */,
 				EBB4B1D02B15E0C9004D63EA /* PhysiologyView.swift in Sources */,
 				EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,

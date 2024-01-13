@@ -6,10 +6,10 @@ import SwiftUI
 @available(watchOS, unavailable)
 struct MonsterNavigationBarHeader: View {
 	let name: String
-	let anotherName: String
+	let anotherName: String?
 
-	@Environment(\.verticalSizeClass)
-	private var verticalSizeClass
+	@Environment(\.settings)
+	private var settings
 
 	@ScaledMetric(relativeTo: .headline)
 	private var adjustedHeadline: CGFloat = 16
@@ -18,24 +18,19 @@ struct MonsterNavigationBarHeader: View {
 	private var adjustedSubheadline: CGFloat = 14
 
 	var body: some View {
-		if verticalSizeClass != .compact {
-			let content = VStack(spacing: 2) {
-				Text(name)
-					.font(.system(size: adjustedHeadline, weight: .semibold))
+		if settings?.showTitle ?? true,
+		   let anotherName {
+			NavigationBarTitleViewSupport {
+				VStack(spacing: 2) {
+					Text(name)
+						.font(.system(size: adjustedHeadline, weight: .semibold))
 
-				Text(anotherName)
-					.font(.system(size: adjustedSubheadline, weight: .regular))
-					.foregroundStyle(.secondary)
-			}
-			.accessibilityElement(children: .combine)
-
-			if #available(iOS 16.0, *) {
-				content
-			} else if UIDevice.current.userInterfaceIdiom == .pad {
-				// Fix title are cut off on iPadOS 15.
-				content.frame(maxWidth: 240.0)
-			} else {
-				content
+					Text(anotherName)
+						.font(.system(size: adjustedSubheadline, weight: .regular))
+						.foregroundStyle(.secondary)
+				}
+				.lineLimit(1)
+				.accessibilityElement(children: .combine)
 			}
 		}
 	}
