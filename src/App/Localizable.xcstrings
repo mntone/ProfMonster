@@ -8314,22 +8314,6 @@
         }
       }
     },
-    "Show Monster’s Title" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Show Monster’s Title"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "モンスターの別名を表示する"
-          }
-        }
-      }
-    },
     "Sign" : {
       "comment" : "DisplayMode/Sign",
       "extractionState" : "manual",

@@ -54,10 +54,6 @@ struct DisplaySettingsPane: View {
 			}
 
 			Section {
-#if os(iOS)
-				SettingsToggle("Show Monster’s Title", isOn: $viewModel.showTitle)
-#endif
-
 #if os(watchOS)
 				SettingsToggle("Show Element Attack", isOn: Binding {
 					viewModel.elementDisplay != .none

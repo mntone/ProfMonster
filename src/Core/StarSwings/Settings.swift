@@ -1,10 +1,5 @@
 
 public final class Settings {
-#if os(iOS)
-	@UserDefault("showTitle", initial: true)
-	public var showTitle: Bool
-#endif
-
 	@UserDefault("trgSwipe", initial: SwipeAction.none)
 	public var trailingSwipeAction: SwipeAction
 

@@ -18,15 +18,6 @@ final class SettingsViewModel: ObservableObject {
 	@Published
 	var storageSize: String?
 
-#if os(iOS)
-	@Published
-	var showTitle: Bool {
-		didSet {
-			settings.showTitle = showTitle
-		}
-	}
-#endif
-
 #if os(watchOS)
 	@Published
 	var sort: Sort {
@@ -101,9 +92,6 @@ final class SettingsViewModel: ObservableObject {
 #if !os(watchOS)
 		self.includesFavoriteGroupInSearchResult = app.settings.includesFavoriteGroupInSearchResult
 #endif
-#if os(iOS)
-		self.showTitle = app.settings.showTitle
-#endif
 		self.elementDisplay = app.settings.elementDisplay
 		self.mergeParts = app.settings.mergeParts
 		self.showInternalInformation = app.settings.showInternalInformation
@@ -117,9 +105,6 @@ final class SettingsViewModel: ObservableObject {
 		settings.$linkSubspecies.dropFirst().receive(on: scheduler).assign(to: &$linkSubspecies)
 #if !os(watchOS)
 		settings.$includesFavoriteGroupInSearchResult.dropFirst().receive(on: scheduler).assign(to: &$includesFavoriteGroupInSearchResult)
-#endif
-#if os(iOS)
-		settings.$showTitle.dropFirst().receive(on: scheduler).assign(to: &$showTitle)
 #endif
 		settings.$elementDisplay.dropFirst().receive(on: scheduler).assign(to: &$elementDisplay)
 		settings.$mergeParts.dropFirst().receive(on: scheduler).assign(to: &$mergeParts)

@@ -8,9 +8,6 @@ struct MonsterNavigationBarHeader: View {
 	let name: String
 	let anotherName: String?
 
-	@Environment(\.settings)
-	private var settings
-
 	@ScaledMetric(relativeTo: .headline)
 	private var adjustedHeadline: CGFloat = 16
 
@@ -18,8 +15,7 @@ struct MonsterNavigationBarHeader: View {
 	private var adjustedSubheadline: CGFloat = 14
 
 	var body: some View {
-		if settings?.showTitle ?? true,
-		   let anotherName {
+		if let anotherName {
 			NavigationBarTitleViewSupport {
 				VStack(spacing: 2) {
 					Text(name)
