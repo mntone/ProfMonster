@@ -98,6 +98,9 @@ private struct _NavigationSplitViewHostBackport: View {
 #endif
 
 			MonsterColumn()
+#if os(macOS)
+				.frame(minWidth: 480, idealWidth: 480)
+#endif
 		}
 		.navigationViewStyle(.columns)
 	}
