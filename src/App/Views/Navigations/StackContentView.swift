@@ -4,7 +4,7 @@ import SwiftUI
 
 @available(iOS 16.0, watchOS 9.0, *)
 @available(macOS, unavailable)
-struct NavigationStackHost: View {
+private struct _NavigationStackHost: View {
 	@SceneStorage(CoordinatorUtil.GAME_ID_STORAGE_NAME)
 	private var selectedGameID: String?
 
@@ -61,15 +61,26 @@ struct NavigationStackHost: View {
 	}
 }
 
-@available(iOS, introduced: 13.0, deprecated: 16.0, message: "Use NavigationStackHost instead")
+@available(iOS, introduced: 13.0, deprecated: 16.0, message: "Use _NavigationStackHost instead")
 @available(macOS, unavailable)
-@available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use NavigationStackHost instead")
-struct NavigationStackHostBackport: View {
+@available(watchOS, introduced: 7.0, deprecated: 9.0, message: "Use _NavigationStackHost instead")
+private struct _NavigationStackHostBackport: View {
 	var body: some View {
 		NavigationView {
 			HomePageBackport()
 		}
 		.navigationViewStyle(.stack)
+	}
+}
+
+@available(macOS, unavailable)
+struct StackContentView: View {
+	var body: some View {
+		if #available(iOS 16.0, watchOS 9.0, *) {
+			_NavigationStackHost()
+		} else {
+			_NavigationStackHostBackport()
+		}
 	}
 }
 

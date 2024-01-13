@@ -2,7 +2,7 @@ import SwiftUI
 
 @available(iOS 16.0, macOS 13.0, *)
 @available(watchOS, unavailable)
-struct NavigationSplitViewHost: View {
+private struct _NavigationSplitViewHost: View {
 #if os(iOS)
 	@SceneStorage(CoordinatorUtil.MONSTER_ID_STORAGE_NAME)
 	private var selectedMonsterID: String?
@@ -81,10 +81,10 @@ struct NavigationSplitViewHost: View {
 	}
 }
 
-@available(iOS, introduced: 15.0, deprecated: 16.0, message: "Use NavigationSplitViewHost instead")
-@available(macOS, introduced: 12.0, deprecated: 13.0, message: "Use NavigationSplitViewHost instead")
+@available(iOS, introduced: 15.0, deprecated: 16.0, message: "Use _NavigationSplitViewHost instead")
+@available(macOS, introduced: 12.0, deprecated: 13.0, message: "Use _NavigationSplitViewHost instead")
 @available(watchOS, unavailable)
-struct NavigationSplitViewHostBackport: View {
+private struct _NavigationSplitViewHostBackport: View {
 	var body: some View {
 		NavigationView {
 #if os(macOS)
@@ -100,5 +100,16 @@ struct NavigationSplitViewHostBackport: View {
 			MonsterColumn()
 		}
 		.navigationViewStyle(.columns)
+	}
+}
+
+@available(watchOS, unavailable)
+struct ColumnContentView: View {
+	var body: some View {
+		if #available(iOS 16.0, macOS 13.0, *) {
+			_NavigationSplitViewHost()
+		} else {
+			_NavigationSplitViewHostBackport()
+		}
 	}
 }

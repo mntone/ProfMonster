@@ -15,29 +15,15 @@ struct ContentView: View {
 	var body: some View {
 		Group {
 #if os(macOS)
-			if #available(macOS 13.0, *) {
-				NavigationSplitViewHost()
-			} else {
-				NavigationSplitViewHostBackport()
-			}
+			ColumnContentView()
 #elseif os(watchOS)
-			if #available(watchOS 9.0, *) {
-				NavigationStackHost()
-			} else {
-				NavigationStackHostBackport()
-			}
+			StackContentView()
 #else
 			if UIDevice.current.userInterfaceIdiom == .pad,
 			   horizontalSizeClass == .regular {
-				if #available(iOS 16.0, *) {
-					NavigationSplitViewHost()
-				} else {
-					NavigationSplitViewHostBackport()
-				}
-			} else if #available(iOS 16.0, *) {
-				NavigationStackHost()
+				ColumnContentView()
 			} else {
-				NavigationStackHostBackport()
+				StackContentView()
 			}
 #endif
 		}
