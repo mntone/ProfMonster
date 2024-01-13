@@ -2,8 +2,8 @@ import SwiftUI
 
 @available(watchOS, unavailable)
 struct MonsterColumn: View {
-	@SceneStorage("m")
-	private var selection: String?
+	@SceneStorage(CoordinatorUtil.MONSTER_ID_STORAGE_NAME)
+	private var selection: CoordinatorUtil.MonsterIDType?
 
 	@StateObject
 	private var viewModel = MonsterViewModel()

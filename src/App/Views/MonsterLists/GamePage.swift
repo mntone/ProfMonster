@@ -5,7 +5,7 @@ import SwiftUI
 @available(iOS 16.0, watchOS 9.0, *)
 @available(macOS, unavailable)
 struct GamePage: View {
-	let id: String
+	let id: CoordinatorUtil.GameIDType
 
 	@StateObject
 	private var viewModel = GameViewModel()
@@ -24,7 +24,7 @@ struct GamePage: View {
 @available(macOS, unavailable)
 @available(watchOS, introduced: 8.0, deprecated: 9.0, message: "Use GamePage instead")
 struct GamePageBackport: View {
-	let id: String
+	let id: CoordinatorUtil.GameIDType
 
 	@SceneStorage(CoordinatorUtil.MONSTER_ID_STORAGE_NAME)
 	private var selection: CoordinatorUtil.MonsterIDType?

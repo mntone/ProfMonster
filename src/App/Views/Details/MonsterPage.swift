@@ -4,7 +4,7 @@ import SwiftUI
 
 @available(macOS, unavailable)
 struct MonsterPage: View {
-	let id: String
+	let id: CoordinatorUtil.MonsterIDType
 
 	@StateObject
 	private var viewModel = MonsterViewModel()
