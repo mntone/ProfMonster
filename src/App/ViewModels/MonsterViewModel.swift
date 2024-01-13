@@ -50,11 +50,21 @@ final class MonsterViewModel: ObservableObject {
 #endif
 
 	func set(domain monster: Monster) {
+		// Reset current states.
+#if !os(watchOS)
+		notifier = nil
+		flush()
+#endif
+
 		self.monster = nil
+		if let task {
+			self.task = nil
+			task.cancel()
+		}
 
 		monster.fetchIfNeeded()
 
-		// Load current data.
+		// Load current data from domain.
 		let elementDisplay = app.settings.elementDisplay
 		switch monster.state {
 		case .ready:
@@ -174,6 +184,7 @@ final class MonsterViewModel: ObservableObject {
 
 extension MonsterViewModel {
 	func set() {
+		monster = nil
 		if let task {
 			self.task = nil
 			task.cancel()
@@ -184,7 +195,6 @@ extension MonsterViewModel {
 		flush()
 #endif
 
-		monster = nil
 		state = .ready
 		item = nil
 		isFavorited = false
@@ -196,16 +206,6 @@ extension MonsterViewModel {
 		guard monster?.id != id else {
 			return
 		}
-
-		if let task {
-			self.task = nil
-			task.cancel()
-		}
-
-#if !os(watchOS)
-		notifier = nil
-		flush()
-#endif
 
 		if let monster = app.findMonster(by: id) {
 			set(domain: monster)

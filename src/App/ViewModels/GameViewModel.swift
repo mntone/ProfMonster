@@ -65,10 +65,20 @@ final class GameViewModel: ObservableObject {
 	}
 
 	func set(domain game: Game) {
+		// Reset current states.
+		self.game = nil
+		if let task {
+			self.task = nil
+			task.cancel()
+		}
+
 		game.fetchIfNeeded()
 
+		// Load current data from domain.
+		self.state = game.state.removeData()
+
 		let scheduler = DispatchQueue.main
-		game.$state.removeData().receive(on: scheduler).assign(to: &$state)
+		game.$state.dropFirst().removeData().receive(on: scheduler).assign(to: &$state)
 
 		let items = game.$state
 			// Create view model from domain model
@@ -269,11 +279,6 @@ extension GameViewModel {
 	func set(id: String) {
 		guard game?.id != id else {
 			return
-		}
-
-		if let task {
-			self.task = nil
-			task.cancel()
 		}
 
 		if let game = app.findGame(by: id) {
