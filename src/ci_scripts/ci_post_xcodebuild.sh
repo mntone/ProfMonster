@@ -26,6 +26,7 @@ RELEASE_NOTE_0=$(printf '%s' $RELEASE_NOTE_T0 | head -n $(($(printf '%s' $RELEAS
 
 MESSAGE=`getSection "MESSAGE" "$RELEASE_NOTE_T0" | grep -v '^[[:space:]]*$'`
 KNOWN_ISSUES=`getSection "KNOWN_ISSUES" "$RELEASE_NOTE_T0" "YES" | perl -pe 's/^###\s+(.+?)$/$1/'`
+NOTES=`getSection "NOTES" "$RELEASE_NOTE_T0" | grep -v '^[[:space:]]*$'`
 
 VERSION_1=$(printf '%s' "$LATEST_RELEASES" | jq -r '.[1].name')
 RELEASE_NOTE_T1=$(printf '%s' "$LATEST_RELEASES" | jq -r '.[1].body' | tr -d '\r')
@@ -50,6 +51,8 @@ $RELEASE_NOTE_2
 
 [Known Issues]
 $KNOWN_ISSUES
+
+$NOTES
 EOS
 )
 
