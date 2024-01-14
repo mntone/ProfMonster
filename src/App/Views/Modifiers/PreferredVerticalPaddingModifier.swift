@@ -16,7 +16,7 @@ struct _PreferredVerticalPaddingModifier: ViewModifier {
 		case .xxLarge, .xxxLarge:
 			return 8.0
 		default:
-			return 0.0
+			return 4.0
 		}
 	}
 #else

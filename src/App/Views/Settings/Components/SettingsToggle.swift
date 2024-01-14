@@ -14,15 +14,22 @@ struct SettingsToggle: View {
 
 	var body: some View {
 #if os(iOS)
-		if dynamicTypeSize >= .accessibility1 {
-			content.padding(.vertical, 16)
-		} else if dynamicTypeSize >= .xxLarge {
-			content.padding(.vertical, 4)
-		} else {
-			content
-		}
+		content.padding(.vertical, verticalPadding)
 #else
 		content
 #endif
 	}
+
+#if os(iOS)
+	private var verticalPadding: CGFloat {
+		switch dynamicTypeSize {
+		case .accessibility1...:
+			return 16.0
+		case .xxLarge, .xxxLarge:
+			return 4.0
+		default:
+			return 0.0
+		}
+	}
+#endif
 }
