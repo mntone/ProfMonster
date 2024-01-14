@@ -215,7 +215,7 @@ extension MonsterViewModel {
 		self.task = Task.detached(priority: .userInitiated) { [weak self] in
 			guard let self else { return }
 
-			guard let monster = await app.prefetch(monsterOf: id) else {
+			guard let monster = try? await app.prefetch(monsterOf: id) else {
 				app.logger.notice("Failed to get the monster (id: \(id))")
 				return
 			}

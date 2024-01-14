@@ -48,8 +48,8 @@ public final class App: FetchableEntity<[Game]>, Entity {
 	}
 
 	@discardableResult
-	public func prefetch(of gameID: String) async -> Game? {
-		guard let games = await fetch() else {
+	public func prefetch(of gameID: String) async throws -> Game? {
+		guard let games = try await fetch() else {
 			return nil
 		}
 		let game = games.first { game in
@@ -108,13 +108,13 @@ public extension App {
 		return game.findMonster(by: id)
 	}
 
-	func prefetch(monsterOf monsterID: String) async -> Monster? {
+	func prefetch(monsterOf monsterID: String) async throws -> Monster? {
 		guard let gameID = monsterID.split(separator: ":", maxSplits: 1).first,
-			  let game = await prefetch(of: String(gameID)) else {
+			  let game = try await prefetch(of: String(gameID)) else {
 			return nil
 		}
 
-		let monster = await game.prefetch(of: monsterID)
+		let monster = try await game.prefetch(of: monsterID)
 		return monster
 	}
 }

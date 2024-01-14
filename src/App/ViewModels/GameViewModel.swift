@@ -289,7 +289,7 @@ extension GameViewModel {
 		self.task = Task.detached(priority: .userInitiated) { [weak self] in
 			guard let self else { return }
 
-			guard let game = await app.prefetch(of: id) else {
+			guard let game = try? await app.prefetch(of: id) else {
 				app.logger.notice("Failed to get the game (id: \(id))")
 				return
 			}

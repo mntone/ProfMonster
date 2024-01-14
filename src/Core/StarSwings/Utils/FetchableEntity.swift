@@ -14,41 +14,51 @@ public class FetchableEntity<Data> {
 
 	public final func fetchIfNeeded() {
 		Task {
-			await fetch(priority: .utility)
+			try await fetch(priority: .utility)
 		}
 	}
 
-	public final func fetch() async -> Data? {
-		await fetch(priority: .utility)
+	public final func fetch() async throws -> Data? {
+		try await fetch(priority: .utility)
 	}
 
-	final func fetch(priority: TaskPriority) async -> Data? {
+	final func fetch(priority: TaskPriority) async throws -> Data? {
 		_lock.lock()
 
 		switch state {
-		case let .loading(task):
+		case let .loading(publisher):
 			_lock.unlock()
-			return await task.value
+			return try await publisher.value
 		case let .complete(data):
 			_lock.unlock()
 			return data
 		case .ready, .failure:
-			let task = Task.detached(priority: priority) { [weak self] () -> Data? in
-				guard let self else { return nil }
-				do {
-					let data = try await _fetch()
-					self._lock.withLock {
-						self.state = .complete(data: data)
+			let publisher = Deferred { [weak self] () in
+				let subject = PassthroughSubject<Data?, StarSwingsError>()
+				Task.detached(priority: priority) { [weak self] in
+					guard let self else {
+						subject.send(completion: .failure(.cancelled))
+						return
 					}
-					return data
-				} catch {
-					_handle(error: error)
-					return nil
+
+					do {
+						let data = try await _fetch()
+						self._lock.withLock {
+							self.state = .complete(data: data)
+						}
+						subject.send(data)
+						subject.send(completion: .finished)
+					} catch {
+						let ssError = _handle(error: error)
+						subject.send(completion: .failure(ssError))
+					}
 				}
+				return subject
 			}
-			state = .loading(task: task)
+			.buffer(size: 1, prefetch: .keepFull, whenFull: .dropOldest)
+			state = .loading(publisher: publisher)
 			_lock.unlock()
-			return await task.value
+			return try await publisher.value
 		}
 	}
 
@@ -56,21 +66,25 @@ public class FetchableEntity<Data> {
 		preconditionFailure("This function must be override.")
 	}
 
-	func _handle(error: Error) {
+	func _handle(error: Error) -> StarSwingsError {
 #if DEBUG
 		debugPrint(error)
 #endif
 
+		let retError: StarSwingsError
 		if let urlError = error as? URLError {
-			_handle(urlError: urlError)
+			retError = _handle(urlError: urlError)
 		} else if let ssError = error as? StarSwingsError {
+			retError = ssError
 			_handle(ssError: ssError)
 		} else {
-			_handle(ssError: .other(error))
+			retError = .other(error)
+			_handle(ssError: retError)
 		}
+		return retError
 	}
 
-	func _handle(urlError: URLError) {
+	func _handle(urlError: URLError) -> StarSwingsError {
 #if DEBUG
 		debugPrint(urlError)
 #endif
@@ -91,6 +105,7 @@ public class FetchableEntity<Data> {
 			ssError = .other(urlError)
 		}
 		_handle(ssError: ssError)
+		return ssError
 	}
 
 	func _handle(ssError: StarSwingsError) {

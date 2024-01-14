@@ -215,6 +215,7 @@
 		EBCA222B2B221E5700C487AD /* SettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA222A2B221E5700C487AD /* SettingsContainer.swift */; };
 		EBCA222D2B222ECB00C487AD /* ToolbarItemBackportModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA22282B21A58C00C487AD /* ToolbarItemBackportModifier.swift */; };
 		EBCA222E2B228C6800C487AD /* FixedWidthWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */; };
+		EBD0A3F02B53669F006D7E6A /* Publisher+Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD0A3EF2B53669F006D7E6A /* Publisher+Value.swift */; };
 		EBD2FC242B4C20BE00F7B6FF /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD2FC232B4C20BE00F7B6FF /* Logger.swift */; };
 		EBD2FC262B4C260600F7B6FF /* AppleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD2FC252B4C260600F7B6FF /* AppleLogger.swift */; };
 		EBDEEF3D2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */; };
@@ -509,6 +510,7 @@
 		EBC85C7C2B209D65008A16C6 /* EdgeInsets+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EdgeInsets+Extensions.swift"; sourceTree = "<group>"; };
 		EBCA22282B21A58C00C487AD /* ToolbarItemBackportModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItemBackportModifier.swift; sourceTree = "<group>"; };
 		EBCA222A2B221E5700C487AD /* SettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContainer.swift; sourceTree = "<group>"; };
+		EBD0A3EF2B53669F006D7E6A /* Publisher+Value.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publisher+Value.swift"; sourceTree = "<group>"; };
 		EBD2FC232B4C20BE00F7B6FF /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		EBD2FC252B4C260600F7B6FF /* AppleLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLogger.swift; sourceTree = "<group>"; };
 		EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebounceNotifier.swift; sourceTree = "<group>"; };
@@ -732,6 +734,7 @@
 				EB9620DE2B1D616A00FD7115 /* Lock.swift */,
 				EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */,
 				EB9620DC2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift */,
+				EBD0A3EF2B53669F006D7E6A /* Publisher+Value.swift */,
 				EBBBAAB82B3FDE8D00BBAB23 /* Publishers+CombineLatestCollection.swift */,
 				EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */,
 				EB99DBD22B36D65600A43552 /* UserDefault.swift */,
@@ -1519,6 +1522,7 @@
 				EB9620DD2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift in Sources */,
 				EBF684A42B2D4C5D0071981F /* Physiology.swift in Sources */,
 				EBF684A72B2D50060071981F /* PhysiologyMapper.swift in Sources */,
+				EBD0A3F02B53669F006D7E6A /* Publisher+Value.swift in Sources */,
 				EBBBAAB92B3FDE8D00BBAB23 /* Publishers+CombineLatestCollection.swift in Sources */,
 				EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */,
 				EB99DBC92B36D0A200A43552 /* Settings.swift in Sources */,

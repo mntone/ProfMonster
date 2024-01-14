@@ -32,6 +32,8 @@ final class NetworkDataSource {
 		conf.httpAdditionalHeaders = [
 			"Accept": "application/json",
 		]
+		conf.httpShouldSetCookies = false
+		conf.waitsForConnectivity = false
 		let session = URLSession(configuration: conf)
 		self.init(source: source, logger: logger, session: session)
 	}
@@ -66,7 +68,7 @@ final class NetworkDataSource {
 				}
 
 				if retry {
-					return try await getItem(ofRequest: urlRequest, type: type, count: options.retryCount)
+					return try await getItem(ofRequest: urlRequest, type: type, count: options.retryCount - 1)
 				}
 			}
 			throw error

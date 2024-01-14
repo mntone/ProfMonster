@@ -3,7 +3,7 @@ import Foundation
 
 public enum StarSwingsState<Data> {
 	case ready
-	case loading(task: Task<Data?, Never>)
+	case loading(publisher: Publishers.Buffer<Deferred<PassthroughSubject<Data?, StarSwingsError>>>)
 	case complete(data: Data)
 	case failure(date: Date, error: StarSwingsError)
 

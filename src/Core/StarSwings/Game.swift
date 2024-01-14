@@ -25,8 +25,8 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 	}
 
 	@discardableResult
-	public func prefetch(of monsterID: String) async -> Monster? {
-		guard let monsters = await fetch() else {
+	public func prefetch(of monsterID: String) async throws -> Monster? {
+		guard let monsters = try await fetch() else {
 			return nil
 		}
 		let monster = monsters.first { monster in

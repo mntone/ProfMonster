@@ -6,8 +6,6 @@ final class DiskStorage: Storage {
 	private let logger: Logger
 	private let baseUrl: URL
 
-	private lazy var decoder = MessagePackDecoder()
-
 	init(fileManager: FileManager = FileManager.default, logger: Logger) {
 		self.fileManager = fileManager
 		self.logger = logger
@@ -75,6 +73,8 @@ final class DiskStorage: Storage {
 			  let data = try? Data(contentsOf: url) else {
 			return nil
 		}
+
+		let decoder = MessagePackDecoder()
 		return try? decoder.decode(type, from: data)
 	}
 
