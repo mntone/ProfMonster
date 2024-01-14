@@ -64,6 +64,15 @@ final class SettingsViewModel: ObservableObject {
 		}
 	}
 
+#if DEBUG
+	@Published
+	var delayNetworkRequest: Bool {
+		didSet {
+			settings.delayNetworkRequest = delayNetworkRequest
+		}
+	}
+#endif
+
 	@Published
 	var showInternalInformation: Bool {
 		didSet {
@@ -94,6 +103,7 @@ final class SettingsViewModel: ObservableObject {
 #endif
 		self.elementDisplay = app.settings.elementDisplay
 		self.mergeParts = app.settings.mergeParts
+		self.delayNetworkRequest = app.settings.delayNetworkRequest
 		self.showInternalInformation = app.settings.showInternalInformation
 		self.test = app.settings.test
 
@@ -108,6 +118,7 @@ final class SettingsViewModel: ObservableObject {
 #endif
 		settings.$elementDisplay.dropFirst().receive(on: scheduler).assign(to: &$elementDisplay)
 		settings.$mergeParts.dropFirst().receive(on: scheduler).assign(to: &$mergeParts)
+		settings.$delayNetworkRequest.dropFirst().receive(on: scheduler).assign(to: &$delayNetworkRequest)
 		settings.$showInternalInformation.dropFirst().receive(on: scheduler).assign(to: &$showInternalInformation)
 		settings.$test.dropFirst().receive(on: scheduler).assign(to: &$test)
 

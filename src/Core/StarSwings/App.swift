@@ -23,7 +23,11 @@ public final class App: FetchableEntity<[Game]>, Entity {
 		self.resolver = resolver
 		self.logger = logger
 		self.storage = storage
+#if DEBUG
+		super.init(dataSource: dataSource, delayed: settings.delayNetworkRequest)
+#else
 		super.init(dataSource: dataSource)
+#endif
 	}
 
 	public func getCacheSize() async -> UInt64? {

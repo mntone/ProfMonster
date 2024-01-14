@@ -5,12 +5,23 @@ public class FetchableEntity<Data> {
 	let _dataSource: DataSource
 	let _lock: Lock = LockUtil.create()
 
+#if DEBUG
+	let delayRequest: Bool
+#endif
+
 	@Published
 	public internal(set) var state: StarSwingsState<Data> = .ready
 
+#if DEBUG
+	init(dataSource: DataSource, delayed delayRequest: Bool) {
+		self._dataSource = dataSource
+		self.delayRequest = delayRequest
+	}
+#else
 	init(dataSource: DataSource) {
 		self._dataSource = dataSource
 	}
+#endif
 
 	public final func fetchIfNeeded() {
 		Task {
@@ -40,6 +51,12 @@ public class FetchableEntity<Data> {
 						subject.send(completion: .failure(.cancelled))
 						return
 					}
+
+#if DEBUG
+					if delayRequest {
+						try? await Task.sleep(nanoseconds: 1_500_000_000)
+					}
+#endif
 
 					do {
 						let data = try await _fetch()

@@ -12,6 +12,10 @@ struct SettingsToggle: View {
 		self.content = Toggle(titleKey, isOn: isOn)
 	}
 
+	init<S>(verbatim title: S, isOn: Binding<Bool>) where S: StringProtocol {
+		self.content = Toggle.init(title, isOn: isOn)
+	}
+
 	var body: some View {
 #if os(iOS)
 		content.padding(.vertical, verticalPadding)

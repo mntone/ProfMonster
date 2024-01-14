@@ -24,6 +24,9 @@ public final class Settings {
 	public var sort: Sort
 
 #if DEBUG
+	@UserDefault("delayReq", initial: false)
+	public var delayNetworkRequest: Bool
+
 	@UserDefault("intlInfo", initial: true)
 	public var showInternalInformation: Bool
 #else

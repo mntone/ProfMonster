@@ -8,6 +8,11 @@ struct DeveloperSettingsPane: View {
 	var body: some View {
 		SettingsPreferredList {
 			Section {
+#if DEBUG
+				SettingsToggle(verbatim: "Delay Network Request",
+							   isOn: $viewModel.delayNetworkRequest)
+#endif
+
 				SettingsToggle("Show Internal Information",
 							   isOn: $viewModel.showInternalInformation)
 

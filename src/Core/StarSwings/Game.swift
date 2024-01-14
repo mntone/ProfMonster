@@ -21,7 +21,11 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 
 		let preferredLocale = LanguageUtil.getPreferredLanguageKey(json.names.keys)
 		self.name = json.names[preferredLocale]!
+#if DEBUG
+		super.init(dataSource: dataSource, delayed: app.delayRequest)
+#else
 		super.init(dataSource: dataSource)
+#endif
 	}
 
 	@discardableResult

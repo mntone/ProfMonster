@@ -103,7 +103,11 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 			self.noteSubject = CurrentValueSubject("")
 		}
 
+#if DEBUG
+		super.init(dataSource: dataSource, delayed: app.delayRequest)
+#else
 		super.init(dataSource: dataSource)
+#endif
 
 		self.cancellable = userDatabase.observeChange(of: id).sink { [weak self] change in
 			guard let self else { return }
