@@ -103,7 +103,9 @@ final class SettingsViewModel: ObservableObject {
 #endif
 		self.elementDisplay = app.settings.elementDisplay
 		self.mergeParts = app.settings.mergeParts
+#if DEBUG
 		self.delayNetworkRequest = app.settings.delayNetworkRequest
+#endif
 		self.showInternalInformation = app.settings.showInternalInformation
 		self.test = app.settings.test
 
@@ -118,7 +120,9 @@ final class SettingsViewModel: ObservableObject {
 #endif
 		settings.$elementDisplay.dropFirst().receive(on: scheduler).assign(to: &$elementDisplay)
 		settings.$mergeParts.dropFirst().receive(on: scheduler).assign(to: &$mergeParts)
+#if DEBUG
 		settings.$delayNetworkRequest.dropFirst().receive(on: scheduler).assign(to: &$delayNetworkRequest)
+#endif
 		settings.$showInternalInformation.dropFirst().receive(on: scheduler).assign(to: &$showInternalInformation)
 		settings.$test.dropFirst().receive(on: scheduler).assign(to: &$test)
 
