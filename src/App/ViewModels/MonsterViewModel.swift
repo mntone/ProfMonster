@@ -6,12 +6,10 @@ final class MonsterViewModel: ObservableObject {
 	private let app: App
 
 	private var monster: Monster?
+	private var cancellable: AnyCancellable?
 	private var task: Task<Void, Never>?
 
-	@Published
 	private(set) var state: RequestState = .ready
-
-	@Published
 	private(set) var item: MonsterDataViewModel? = nil
 
 	@Published
@@ -49,65 +47,51 @@ final class MonsterViewModel: ObservableObject {
 	}
 #endif
 
-	func set(domain monster: Monster) {
-		// Reset current states.
-#if !os(watchOS)
-		notifier = nil
-		flush()
-#endif
-
+	// Reset current states.
+	private func resetState() {
 		self.monster = nil
+		if let cancellable {
+			self.cancellable = nil
+			cancellable.cancel()
+		}
 		if let task {
 			self.task = nil
 			task.cancel()
 		}
 
+#if !os(watchOS)
+		notifier = nil
+		flush()
+#endif
+	}
+
+	func set(domain monster: Monster) {
+		resetState()
 		monster.fetchIfNeeded()
 
-		// Load current data from domain.
-		let elementDisplay = app.settings.elementDisplay
-		switch monster.state {
-		case .ready:
-			state = .ready
-		case .loading:
-			state = .loading
-		case let .complete(data: physiology):
-			state = .complete
-			item = MonsterDataViewModel(monster.id,
-										displayMode: elementDisplay,
-										rawValue: physiology)
-		case let .failure(date, error):
-			state = .failure(date: date, error: error)
-			item = nil
-		}
-
-		self.isFavorited = monster.isFavorited
-		self.note = monster.note
-
+		// Load data from domain.
 		let scheduler = DispatchQueue.main
-		monster.$state
-			.dropFirst()
-			.removeData()
+		let elementDisplay = app.settings.elementDisplay
+		cancellable = monster.$state
 			.receive(on: scheduler)
-			.assign(to: &$state)
-
-		monster.$state
-			.dropFirst()
-			.map { state -> MonsterDataViewModel? in
+			.sink { [weak self] state in
+				guard let self else { return }
 				switch state {
-				case let .complete(data: physiology):
-					MonsterDataViewModel(monster.id,
-										 displayMode: elementDisplay,
-										 rawValue: physiology)
-				default:
-					nil
+				case .ready, .loading:
+					self.state = .loading
+				case let .complete(physiology):
+					self.state = .complete
+					self.item = MonsterDataViewModel(monster.id,
+													 displayMode: elementDisplay,
+													 rawValue: physiology)
+				case let .failure(date, error):
+					self.state = .failure(date: date, error: error)
+					self.item = nil
 				}
+				self.objectWillChange.send()
 			}
-			.receive(on: scheduler)
-			.assign(to: &$item)
 
 		monster.isFavoritedPublisher
-			.dropFirst()
 			.filter { [weak self] value in
 				self?.isFavorited != value
 			}
@@ -115,7 +99,6 @@ final class MonsterViewModel: ObservableObject {
 			.assign(to: &$isFavorited)
 
 		monster.notePublisher
-			.dropFirst()
 			.filter { [weak self] value in
 				self?.note != value
 			}
@@ -184,16 +167,7 @@ final class MonsterViewModel: ObservableObject {
 
 extension MonsterViewModel {
 	func set() {
-		monster = nil
-		if let task {
-			self.task = nil
-			task.cancel()
-		}
-
-#if !os(watchOS)
-		notifier = nil
-		flush()
-#endif
+		resetState()
 
 		state = .ready
 		item = nil

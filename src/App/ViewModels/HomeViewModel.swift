@@ -1,3 +1,4 @@
+import Combine
 import Foundation
 import MonsterAnalyzerCore
 
@@ -19,10 +20,9 @@ struct HomeItemViewModel: Identifiable, Hashable {
 final class HomeViewModel: ObservableObject {
 	let app: App
 
-	@Published
-	private(set) var state: RequestState = .ready
+	private var cancellable: AnyCancellable?
 
-	@Published
+	private(set) var state: RequestState = .ready
 	private(set) var items: [HomeItemViewModel] = []
 
 	init() {
@@ -31,20 +31,23 @@ final class HomeViewModel: ObservableObject {
 		}
 		self.app = app
 
-		let scheduler = DispatchQueue.main
-		app.$state.removeData().receive(on: scheduler).assign(to: &$state)
-		app.$state
-			.map { state in
+		cancellable = app.$state
+			.receive(on: DispatchQueue.main)
+			.sink { [weak self] state in
+				guard let self else { return }
 				switch state {
-				case let .complete(data: games):
-					games.map(HomeItemViewModel.init)
-				default:
-					[]
+				case .ready, .loading:
+					self.state = .loading
+					self.items = []
+				case let .complete(games):
+					self.state = .complete
+					self.items = games.map(HomeItemViewModel.init)
+				case let .failure(date, error):
+					self.state = .failure(date: date, error: error)
+					self.items = []
 				}
+				self.objectWillChange.send()
 			}
-			.removeDuplicates()
-			.receive(on: scheduler)
-			.assign(to: &$items)
 	}
 
 	func fetchData() {

@@ -74,11 +74,9 @@ final class GameViewModel: ObservableObject {
 
 		game.fetchIfNeeded()
 
-		// Load current data from domain.
-		self.state = game.state.removeData()
-
+		// Load data from domain.
 		let scheduler = DispatchQueue.main
-		game.$state.dropFirst().removeData().receive(on: scheduler).assign(to: &$state)
+		game.$state.removeData().receive(on: scheduler).assign(to: &$state)
 
 		let items = game.$state
 			// Create view model from domain model
