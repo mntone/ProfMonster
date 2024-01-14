@@ -42,13 +42,13 @@ public final class App: FetchableEntity<[Game]>, Entity {
 			guard let self else { return }
 			self.logger.notice("Reset all data.")
 			self.storage.resetAll()
-			self.resetMemoryCache()
+			self.resetState()
 		}
 	}
 
 	public func resetMemoryData() {
 		self.logger.notice("Reset memory cache from user operation.")
-		self.resetMemoryCache()
+		self.resetState()
 	}
 
 	@discardableResult
@@ -76,17 +76,12 @@ public final class App: FetchableEntity<[Game]>, Entity {
 		return games
 	}
 
-	private func resetMemoryCache() {
-		_lock.withLock {
-			guard case .complete = state else { return }
-			defer { state = .ready }
-
-			if var games = state.data {
-				games.forEach { game in
-					game.resetMemoryCache()
-				}
-				games.removeAll()
+	override func _resetChildStates() {
+		if var games = state.data {
+			games.forEach { game in
+				game.resetState()
 			}
+			games.removeAll()
 		}
 	}
 }

@@ -12,6 +12,10 @@ public class FetchableEntity<Data> {
 	@Published
 	public internal(set) var state: StarSwingsState<Data> = .ready
 
+	var requireReset: Bool {
+		true
+	}
+
 #if DEBUG
 	init(dataSource: DataSource, delayed delayRequest: Bool) {
 		self._dataSource = dataSource
@@ -83,7 +87,7 @@ public class FetchableEntity<Data> {
 		preconditionFailure("This function must be override.")
 	}
 
-	func _handle(error: Error) -> StarSwingsError {
+	final func _handle(error: Error) -> StarSwingsError {
 #if DEBUG
 		debugPrint(error)
 #endif
@@ -101,7 +105,7 @@ public class FetchableEntity<Data> {
 		return retError
 	}
 
-	func _handle(urlError: URLError) -> StarSwingsError {
+	final func _handle(urlError: URLError) -> StarSwingsError {
 #if DEBUG
 		debugPrint(urlError)
 #endif
@@ -125,9 +129,23 @@ public class FetchableEntity<Data> {
 		return ssError
 	}
 
-	func _handle(ssError: StarSwingsError) {
+	final func _handle(ssError: StarSwingsError) {
 		_lock.withLock {
 			state = .failure(date: Date.now, error: ssError)
 		}
+	}
+
+	final func resetState() {
+		guard requireReset else { return }
+
+		_lock.withLock {
+			if case .complete = state {
+				_resetChildStates()
+				state = .ready
+			}
+		}
+	}
+
+	func _resetChildStates() {
 	}
 }

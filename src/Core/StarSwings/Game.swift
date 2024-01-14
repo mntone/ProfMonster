@@ -76,14 +76,12 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 		return monsters
 	}
 
-	public func resetMemoryCache() {
-		_lock.withLock {
-			guard case .complete = state else { return }
-			defer { state = .ready }
-
-			if var monsters = state.data {
-				monsters.removeAll()
+	override func _resetChildStates() {
+		if var monsters = state.data {
+			monsters.forEach { monster in
+				monster.resetState()
 			}
+			monsters.removeAll()
 		}
 	}
 }

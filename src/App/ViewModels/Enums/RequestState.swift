@@ -3,7 +3,7 @@ import struct Foundation.Date
 import enum MonsterAnalyzerCore.StarSwingsError
 import enum MonsterAnalyzerCore.StarSwingsState
 
-enum RequestState {
+enum RequestState: Equatable {
 	case ready
 	case loading
 	case complete
@@ -37,6 +37,15 @@ enum RequestState {
 		if case .failure = self {
 			true
 		} else {
+			false
+		}
+	}
+
+	static func == (lhs: RequestState, rhs: RequestState) -> Bool {
+		switch (lhs, rhs) {
+		case (.ready, .ready), (.loading, .loading), (.complete, .complete):
+			true
+		default:
 			false
 		}
 	}

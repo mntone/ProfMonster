@@ -36,22 +36,25 @@ final class HomeViewModel: ObservableObject {
 			.sink { [weak self] state in
 				guard let self else { return }
 				switch state {
-				case .ready, .loading:
+				case .ready:
 					self.state = .loading
 					self.items = []
+					self.objectWillChange.send()
+					self.app.fetchIfNeeded()
+				case .loading:
+					if self.state != .loading {
+						self.state = .loading
+						self.objectWillChange.send()
+					}
 				case let .complete(games):
 					self.state = .complete
 					self.items = games.map(HomeItemViewModel.init)
+					self.objectWillChange.send()
 				case let .failure(date, error):
 					self.state = .failure(date: date, error: error)
-					self.items = []
+					self.objectWillChange.send()
 				}
-				self.objectWillChange.send()
 			}
-	}
-
-	func fetchData() {
-		app.fetchIfNeeded()
 	}
 }
 

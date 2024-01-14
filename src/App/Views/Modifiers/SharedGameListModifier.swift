@@ -8,11 +8,6 @@ struct SharedGameListModifier: ViewModifier {
 
 	func body(content: Content) -> some View {
 		content
-			.onChangeBackport(of: viewModel.state.isReady, initial: true) { _, newValue in
-				if newValue {
-					viewModel.fetchData()
-				}
-			}
 #if !os(macOS)
 			.toolbarItemBackport(alignment: .leading) {
 				Button("Settings",

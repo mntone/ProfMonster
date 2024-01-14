@@ -59,6 +59,10 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 
 	private var cancellable: AnyCancellable?
 
+	override var requireReset: Bool {
+		false
+	}
+
 	init(app: App,
 		 id: String,
 		 monster: MHGameMonster,
