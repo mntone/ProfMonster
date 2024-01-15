@@ -22,7 +22,7 @@ struct MAApp: SwiftUI.App {
 	}
 #endif
 
-	var body: some Scene {
+	private var defaultWindowGroup: some Scene {
 		WindowGroup {
 			ContentView()
 		}
@@ -47,33 +47,41 @@ struct MAApp: SwiftUI.App {
 			ToolbarCommands()
 			SidebarCommands()
 		}
-		.defaultSizeBackport(width: 860.0, height: 720.0)
+		// Issue: "Swift runtime failure"
+		//.defaultSizeBackport(width: 860.0, height: 720.0)
+#endif
+	}
+
+#if !os(watchOS)
+	@available(iOS 16.0, macOS 13.0, *)
+	@available(watchOS, unavailable)
+	private var monsterWindowGroup: some Scene {
+		WindowGroup(id: "monster", for: String.self) { $id in
+			if let id {
+				MonsterWindow(id: id)
+			}
+		}
+#if os(macOS)
+		.commandsRemoved()
+		.defaultSize(MonsterWindow.defaultSize)
+#else
+		// Issue: "Swift runtime failure"
+		//.defaultSizeBackport(MonsterWindow.defaultSize)
+#endif
+		.environment(\.settings, Self.settings)
+	}
 #endif
 
-#if os(iOS)
-		if #available(iOS 16.0, *) {
-			WindowGroup(id: "monster", for: String.self) { $id in
-				if let id {
-					MonsterWindow(id: id)
-				}
-			}
-			.defaultSizeBackport(MonsterWindow.defaultSize)
-			.environment(\.settings, Self.settings)
+	var body: some Scene {
+		defaultWindowGroup
+
+#if !os(watchOS)
+		if #available(iOS 16.0, macOS 13.0, *) {
+			monsterWindowGroup
 		}
 #endif
 
 #if os(macOS)
-		if #available(macOS 13.0, *) {
-			WindowGroup(id: "monster", for: String.self) { $id in
-				if let id {
-					MonsterWindow(id: id)
-				}
-			}
-			.commandsRemoved()
-			.defaultSize(MonsterWindow.defaultSize)
-			.environment(\.settings, Self.settings)
-		}
-
 		Settings {
 			if #available(macOS 13.0, *) {
 				ColumnSettingsContainer()
