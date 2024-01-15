@@ -40,15 +40,22 @@ struct MonsterListColumn: View {
 		.animation(viewModel.disableAnimations || ProcessInfo.processInfo.isLowPowerModeEnabled || accessibilityReduceMotion ? nil : .default,
 				   value: viewModel.items)
 #endif
+		.toolbar {
+			ToolbarItem(placement: .primaryAction) {
+				SortToolbarMenu(sort: $viewModel.sort)
+			}
+		}
+		.searchable(text: $viewModel.searchText, prompt: Text("Monster and Weakness"))
 		.stateOverlay(viewModel.state)
+#if os(iOS)
+		.navigationBarTitleDisplayMode(.inline)
+#endif
 		.navigationTitle(viewModel.name)
 #if os(macOS)
 		.navigationSubtitle(viewModel.state.isComplete
 							? Text("\(viewModel.itemsCount) Monsters")
 							: Text(verbatim: ""))
 #endif
-		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
-											searchText: $viewModel.searchText))
 		.task(id: selectedGameID) {
 			viewModel.set(id: selectedGameID)
 		}

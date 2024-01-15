@@ -29,12 +29,26 @@ struct MonsterList<ItemView: View>: View {
 		.backport.scrollDismissesKeyboard(.immediately)
 #endif
 #if os(watchOS)
-		.modifier(SharedMonsterListModifier(searchText: $viewModel.searchText))
+		.block { content in
+			if #available(watchOS 10.2, *) {
+				// The "searchable" is broken on watchOS 10.2.
+				content
+			} else {
+				content.searchable(text: $viewModel.searchText, prompt: Text("Search"))
+			}
+		}
 #else
-		.modifier(SharedMonsterListModifier(sort: $viewModel.sort,
-											searchText: $viewModel.searchText))
+		.toolbar {
+			ToolbarItem(placement: .primaryAction) {
+				SortToolbarMenu(sort: $viewModel.sort)
+			}
+		}
+		.searchable(text: $viewModel.searchText, prompt: Text("Monster and Weakness"))
 #endif
 		.stateOverlay(viewModel.state)
+#if os(iOS)
+		.navigationBarTitleDisplayMode(.inline)
+#endif
 		.navigationTitle(viewModel.name)
 	}
 }

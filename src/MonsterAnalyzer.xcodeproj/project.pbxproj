@@ -137,8 +137,6 @@
 		EB967A462B2A0E980041A491 /* FetchableEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A452B2A0E980041A491 /* FetchableEntity.swift */; };
 		EB967A482B2AC6E80041A491 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A472B2AC6E80041A491 /* LazyView.swift */; };
 		EB967A492B2AC6E80041A491 /* LazyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A472B2AC6E80041A491 /* LazyView.swift */; };
-		EB97F6A52B31B60700E31602 /* SharedMonsterListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97F6A42B31B60700E31602 /* SharedMonsterListModifier.swift */; };
-		EB97F6A62B31B60700E31602 /* SharedMonsterListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97F6A42B31B60700E31602 /* SharedMonsterListModifier.swift */; };
 		EB97F6A82B31BCDE00E31602 /* SharedGameListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97F6A72B31BCDE00E31602 /* SharedGameListModifier.swift */; };
 		EB97F6A92B31BCDE00E31602 /* SharedGameListModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB97F6A72B31BCDE00E31602 /* SharedGameListModifier.swift */; };
 		EB99227A2B35686300DBA812 /* SettingsLabelStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9922792B35686300DBA812 /* SettingsLabelStyle.swift */; };
@@ -202,6 +200,7 @@
 		EBBF86212B4692D500F76D03 /* Sort+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF861F2B4692D500F76D03 /* Sort+Extensions.swift */; };
 		EBBF86242B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */; };
 		EBBF86252B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */; };
+		EBC051102B54C8A200D084E2 /* SortToolbarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC0510F2B54C8A200D084E2 /* SortToolbarMenu.swift */; };
 		EBC85C612B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C622B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C712B2053B6008A16C6 /* WatchDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C702B2053B6008A16C6 /* WatchDevice.swift */; };
@@ -452,7 +451,6 @@
 		EB967A412B29E8540041A491 /* StarSwingsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarSwingsError.swift; sourceTree = "<group>"; };
 		EB967A452B2A0E980041A491 /* FetchableEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchableEntity.swift; sourceTree = "<group>"; };
 		EB967A472B2AC6E80041A491 /* LazyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LazyView.swift; sourceTree = "<group>"; };
-		EB97F6A42B31B60700E31602 /* SharedMonsterListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedMonsterListModifier.swift; sourceTree = "<group>"; };
 		EB97F6A72B31BCDE00E31602 /* SharedGameListModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedGameListModifier.swift; sourceTree = "<group>"; };
 		EB9922792B35686300DBA812 /* SettingsLabelStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabelStyle.swift; sourceTree = "<group>"; };
 		EB99227C2B357D6C00DBA812 /* SettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPane.swift; sourceTree = "<group>"; };
@@ -501,6 +499,7 @@
 		EBBF861D2B46546400F76D03 /* JapaneseTextProcessorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseTextProcessorTests.swift; sourceTree = "<group>"; };
 		EBBF861F2B4692D500F76D03 /* Sort+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sort+Extensions.swift"; sourceTree = "<group>"; };
 		EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSwipeButton.swift; sourceTree = "<group>"; };
+		EBC0510F2B54C8A200D084E2 /* SortToolbarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortToolbarMenu.swift; sourceTree = "<group>"; };
 		EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		EBC85C702B2053B6008A16C6 /* WatchDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDevice.swift; sourceTree = "<group>"; };
 		EBC85C722B205469008A16C6 /* WatchMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMetrics.swift; sourceTree = "<group>"; };
@@ -959,7 +958,6 @@
 			children = (
 				EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */,
 				EB97F6A72B31BCDE00E31602 /* SharedGameListModifier.swift */,
-				EB97F6A42B31B60700E31602 /* SharedMonsterListModifier.swift */,
 				EB560BD32B4386D700E91E01 /* StateOverlayModifier.swift */,
 				EBCA22282B21A58C00C487AD /* ToolbarItemBackportModifier.swift */,
 			);
@@ -987,6 +985,7 @@
 				EB8778242B26B38200B3359C /* MonsterListItem.swift */,
 				EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */,
 				EB5445592B527F80008E7A48 /* OpenWindowButton.swift */,
+				EBC0510F2B54C8A200D084E2 /* SortToolbarMenu.swift */,
 			);
 			path = MonsterLists;
 			sourceTree = "<group>";
@@ -1459,7 +1458,6 @@
 				EB38D1FC2B2946A800CED9DB /* SettingsViewModel.swift in Sources */,
 				EB8AD06F2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift in Sources */,
 				EB97F6A92B31BCDE00E31602 /* SharedGameListModifier.swift in Sources */,
-				EB97F6A62B31B60700E31602 /* SharedMonsterListModifier.swift in Sources */,
 				EB3B49232B35EAD100E89711 /* SharedSettingsContainerModifier.swift in Sources */,
 				EB6ADE752B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */,
 				EBBF86212B4692D500F76D03 /* Sort+Extensions.swift in Sources */,
@@ -1637,11 +1635,11 @@
 				EB38D1FB2B2946A800CED9DB /* SettingsViewModel.swift in Sources */,
 				EB8AD06E2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift in Sources */,
 				EB97F6A82B31BCDE00E31602 /* SharedGameListModifier.swift in Sources */,
-				EB97F6A52B31B60700E31602 /* SharedMonsterListModifier.swift in Sources */,
 				EB3B49222B35EAD100E89711 /* SharedSettingsContainerModifier.swift in Sources */,
 				EB6ADE742B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */,
 				EB645A642B2685D500D27500 /* Sidebar.swift in Sources */,
 				EBBF86202B4692D500F76D03 /* Sort+Extensions.swift in Sources */,
+				EBC051102B54C8A200D084E2 /* SortToolbarMenu.swift in Sources */,
 				EB645A652B269EF300D27500 /* StackContentView.swift in Sources */,
 				EB693EA72B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
 				EB560BD42B4386D700E91E01 /* StateOverlayModifier.swift in Sources */,
