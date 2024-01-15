@@ -11,7 +11,7 @@
 		EB19D6712B1EBE8400C90417 /* ObservableHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */; };
 		EB19D6722B1EBEC900C90417 /* ObservableHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */; };
 		EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */; };
-		EB2550142B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2550132B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift */; };
+		EB2550142B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2550132B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift */; };
 		EB28F1B32B370F0700291055 /* DividedHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28F1B22B370F0700291055 /* DividedHStack.swift */; };
 		EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
 		EB29563B2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
@@ -368,7 +368,7 @@
 		EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableHorizontalScrollView.swift; sourceTree = "<group>"; };
 		EB19D6742B1EFF7700C90417 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+RetryIf.swift"; sourceTree = "<group>"; };
-		EB2550132B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+AlternatingRowBackgrounds.swift"; sourceTree = "<group>"; };
+		EB2550132B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ListStyleInsetAlternatingRowBackgrounds.swift"; sourceTree = "<group>"; };
 		EB28F1B22B370F0700291055 /* DividedHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividedHStack.swift; sourceTree = "<group>"; };
 		EB2956392B30139A002C5CA8 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
 		EB2956402B310E28002C5CA8 /* SelectableListRowBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectableListRowBackport.swift; sourceTree = "<group>"; };
@@ -653,7 +653,7 @@
 		EB60764B2B33F5B900AF9121 /* macOS */ = {
 			isa = PBXGroup;
 			children = (
-				EB2550132B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift */,
+				EB2550132B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift */,
 				EB2B0FAA2B3925E3004596A6 /* View+Cursor.swift */,
 			);
 			path = macOS;
@@ -1565,7 +1565,7 @@
 				EBA66F1D2B355F38009DE78C /* AppSettingsPane.swift in Sources */,
 				EBF706F42B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift in Sources */,
 				EBB4B1E52B16A6D4004D63EA /* Attack+Extensions.swift in Sources */,
-				EB2550142B288C84004823BA /* Backport+AlternatingRowBackgrounds.swift in Sources */,
+				EB2550142B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift in Sources */,
 				EB6A4F442B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift in Sources */,
 				EBDEEF402B3EDF3900835CBC /* Backport+ScrollContentBackground.swift in Sources */,
 				EB42495D2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift in Sources */,

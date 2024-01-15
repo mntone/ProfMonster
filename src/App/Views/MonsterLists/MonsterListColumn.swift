@@ -36,7 +36,7 @@ struct MonsterListColumn: View {
 		.scrollDismissesKeyboard(.immediately)
 #endif
 #if os(macOS)
-		.backport.alternatingRowBackgrounds()
+		.backport.listStyleInsetAlternatingRowBackgrounds()
 		.animation(ProcessInfo.processInfo.isLowPowerModeEnabled || accessibilityReduceMotion ? nil : .default,
 				   value: viewModel.items)
 #endif

@@ -36,9 +36,9 @@ public enum AlternatingRowBackgroundBehaviorBackport {
 @available(macOS 12.0, *)
 extension Backport where Content: View {
 	@ViewBuilder
-	public func alternatingRowBackgrounds(_ behavior: AlternatingRowBackgroundBehaviorBackport = .enabled) -> some View {
+	public func listStyleInsetAlternatingRowBackgrounds(_ behavior: AlternatingRowBackgroundBehaviorBackport = .enabled) -> some View {
 		if #available(macOS 14.0, *) {
-			content.alternatingRowBackgrounds(behavior.nativeValue)
+			content.listStyle(.inset).alternatingRowBackgrounds(behavior.nativeValue)
 		} else {
 			content.listStyle(.inset(alternatesRowBackgrounds: behavior.backportValue))
 		}
