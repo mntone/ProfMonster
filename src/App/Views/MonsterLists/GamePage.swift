@@ -49,11 +49,12 @@ struct GamePageBackport: View {
 			}
 		}
 		.task {
-			viewModel.set(id: id)
-
 			if let selection {
 				restoreMonsterID = selection
+				self.selection = nil
 			}
+
+			viewModel.set(id: id)
 		}
 	}
 
