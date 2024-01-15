@@ -9,6 +9,11 @@ final class GameViewModel: ObservableObject {
 	private var task: Task<Void, Never>?
 	private var cancellable: Cancellable?
 
+#if os(macOS)
+	@Published
+	private(set) var disableAnimations: Bool = true
+#endif
+
 	@Published
 	private(set) var state: RequestState = .ready
 
@@ -44,6 +49,14 @@ final class GameViewModel: ObservableObject {
 			Just("")
 				.merge(with: $searchText.debounce(for: 0.333, scheduler: DispatchQueue.global(qos: .userInitiated)))
 				.removeDuplicates()
+#if os(macOS)
+				.handleEvents(receiveOutput: { [weak self] _ in
+					guard let self else { return }
+					DispatchQueue.main.async {
+						self.disableAnimations = false
+					}
+				})
+#endif
 		}
 	}
 
@@ -138,6 +151,15 @@ final class GameViewModel: ObservableObject {
 				}
 				return groups
 			}
+#if os(macOS)
+			// Disable animations
+			.handleEvents(receiveOutput: { [weak self] _ in
+				guard let self else { return }
+				DispatchQueue.main.async {
+					self.disableAnimations = true
+				}
+			})
+#endif
 			// Filter search word
 			.combineLatest(searchTextPublisher) { [settings = app.settings] (groups: [GameGroupViewModel], searchText: String) -> [GameGroupViewModel] in
 				if searchText.isEmpty {

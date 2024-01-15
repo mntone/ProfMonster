@@ -37,7 +37,7 @@ struct MonsterListColumn: View {
 #endif
 #if os(macOS)
 		.backport.listStyleInsetAlternatingRowBackgrounds()
-		.animation(ProcessInfo.processInfo.isLowPowerModeEnabled || accessibilityReduceMotion ? nil : .default,
+		.animation(viewModel.disableAnimations || ProcessInfo.processInfo.isLowPowerModeEnabled || accessibilityReduceMotion ? nil : .default,
 				   value: viewModel.items)
 #endif
 		.stateOverlay(viewModel.state)
