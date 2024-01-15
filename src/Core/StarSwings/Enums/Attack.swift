@@ -2,8 +2,8 @@ import Foundation
 
 public enum Attack: String, CaseIterable {
 	case slash = "Slash"
-	case strike = "Strike"
-	case shell = "Shell"
+	case impact = "Impact"
+	case shot = "Shot"
 
 	case fire = "Fire"
 	case water = "Water"

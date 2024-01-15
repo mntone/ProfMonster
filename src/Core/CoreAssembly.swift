@@ -33,8 +33,9 @@ public struct CoreAssembly: Assembly {
 			logger
 		}
 
-		container.register(LanguageService.self) { (_, keys: [String]) in
-			MALanguageService(keys)
+		container.register(LanguageServiceInternal.self) { (_, localeKey: String, localization: MHLocalization) in
+			MALanguageService(localeKey: localeKey,
+							  localization: localization)
 		}
 
 #if targetEnvironment(simulator)

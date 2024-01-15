@@ -11,7 +11,7 @@ struct PhysiologyValueViewModel: Identifiable {
 		self.attack = attack
 		self.value = value
 		switch attack {
-		case .slash, .strike, .shell:
+		case .slash, .impact, .shot:
 			if value >= 45 {
 				self.foregroundStyle = TintShapeStyle().backport.hierarchical(level)
 			} else {

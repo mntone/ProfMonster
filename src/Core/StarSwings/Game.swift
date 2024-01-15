@@ -2,25 +2,33 @@ import Foundation
 import protocol Swinject.Resolver
 
 public final class Game: FetchableEntity<[Monster]>, Entity {
-	private let _resolver: Resolver
+	private let _logger: Logger
+	private let _userDatabase: UserDatabase
+	private let _languageService: LanguageServiceInternal
 
 	weak var app: App?
 
 	public let id: String
 	public let name: String
 
-	public private(set) var languageService: LanguageService = PassthroughtLanguageService()
-
 	init(app: App,
 		 resolver: Resolver,
 		 dataSource: DataSource,
-		 json: MHConfigTitle) {
-		self.app = app
-		self._resolver = resolver
-		self.id = json.id
+		 logger: Logger,
+		 languageService: LanguageServiceInternal,
+		 id: String,
+		 localization: MHLocalizationGame) {
+		guard let userDatabase = resolver.resolve(UserDatabase.self) else {
+			logger.fault("Failed to get UserDatabase.")
+		}
 
-		let preferredLocale = LanguageUtil.getPreferredLanguageKey(json.names.keys)
-		self.name = json.names[preferredLocale]!
+		self._logger = logger
+		self._userDatabase = userDatabase
+		self._languageService = languageService
+
+		self.app = app
+		self.id = id
+		self.name = localization.name
 #if DEBUG
 		super.init(dataSource: dataSource, delayed: app.delayRequest)
 #else
@@ -45,16 +53,10 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 			throw StarSwingsError.cancelled
 		}
 
-		let langsvc = _resolver.resolve(LanguageService.self, argument: game.localization)!
-		let localization = try await _dataSource.getLocalization(of: langsvc.localeKey, for: id)
-		langsvc.register(dictionary: localization.states, for: .state)
-		languageService = langsvc
-		let physiologyMapper = PhysiologyMapper(languageService: languageService)
-
 		let app = self.app!
-		let userdb = _resolver.resolve(UserDatabase.self)!
 		let idPrefix = "\(id):"
-		let udMonsters = userdb.getMonsters(by: idPrefix)
+		let udMonsters = _userDatabase.getMonsters(by: idPrefix)
+		let physiologyMapper = PhysiologyMapper(languageService: _languageService)
 
 		var monsters: [Monster] = []
 		monsters.reserveCapacity(game.monsters.count)
@@ -64,10 +66,10 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 								  id: id,
 								  monster: jsonMonster,
 								  dataSource: self._dataSource,
-								  languageService: langsvc,
+								  languageService: _languageService,
 								  physiologyMapper: physiologyMapper,
-								  localization: localization.monsters.first(where: { m in m.id == jsonMonster.id })!,
-								  userDatabase: userdb,
+								  localization: _languageService.getMonster(of: jsonMonster.id)!,
+								  userDatabase: _userDatabase,
 								  userData: udMonsters.first { udMonster in udMonster.id == id },
 								  prefix: idPrefix,
 								  reference: monsters)

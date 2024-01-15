@@ -4,7 +4,7 @@ enum MonsterLocalizationMapper {
 	static func map(_ src: MHLocalizationMonster,
 					readableName: String,
 					weaknesses: [String: Weakness]?,
-					languageService: LanguageService) -> [String] {
+					languageService: LanguageServiceInternal) -> [String] {
 		var result: [String] = []
 
 		let normalizedName = languageService.normalize(forSearch: src.name)

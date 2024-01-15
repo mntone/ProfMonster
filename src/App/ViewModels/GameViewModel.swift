@@ -49,6 +49,7 @@ final class GameViewModel: ObservableObject {
 			Just("")
 				.merge(with: $searchText.debounce(for: 0.333, scheduler: DispatchQueue.global(qos: .userInitiated)))
 				.removeDuplicates()
+				.map(app.languageService.unsafelyUnwrapped.normalize(forSearch:))
 #if os(macOS)
 				.handleEvents(receiveOutput: { [weak self] _ in
 					guard let self else { return }
@@ -166,7 +167,6 @@ final class GameViewModel: ObservableObject {
 					return groups
 				}
 
-				let normalizedSearchText = game.languageService.normalize(forSearch: searchText)
 				return groups.compactMap { group -> GameGroupViewModel? in
 #if !os(watchOS)
 					if !settings.includesFavoriteGroupInSearchResult && group.type.isFavorite {
@@ -176,7 +176,7 @@ final class GameViewModel: ObservableObject {
 
 					let filtered = group.items.filter { monster in
 						monster.content.keywords.contains { keyword in
-							keyword.contains(normalizedSearchText)
+							keyword.contains(searchText)
 						}
 					}
 					guard !filtered.isEmpty else {

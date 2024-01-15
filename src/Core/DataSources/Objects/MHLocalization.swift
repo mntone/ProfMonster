@@ -1,5 +1,11 @@
 import Foundation
 
+struct MHLocalizationGame: Codable, Sendable {
+	let id: String
+	let name: String
+	let fullName: String?
+}
+
 struct MHLocalizationMonster: Codable, Sendable {
 	let id: String
 	let name: String
@@ -49,28 +55,34 @@ struct MHLocalizationMonster: Codable, Sendable {
 }
 
 struct MHLocalization: Codable, Sendable {
+	let games: [MHLocalizationGame]
 	let monsters: [MHLocalizationMonster]
 	let states: [String: String]
 
-	init(monsters: [MHLocalizationMonster],
+	init(games: [MHLocalizationGame],
+		 monsters: [MHLocalizationMonster],
 		 states: [String: String]) {
+		self.games = games
 		self.monsters = monsters
 		self.states = states
 	}
 
 	private enum CodingKeys: CodingKey {
+		case games
 		case monsters
 		case states
 	}
 
 	init(from decoder: Decoder) throws {
 		let container = try decoder.container(keyedBy: CodingKeys.self)
+		self.games = try container.decode([MHLocalizationGame].self, forKey: .games)
 		self.monsters = try container.decode([MHLocalizationMonster].self, forKey: .monsters)
 		self.states = try container.decodeIfPresent([String: String].self, forKey: .states) ?? [:]
 	}
 
 	func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
+		try container.encode(self.games, forKey: .games)
 		try container.encode(self.monsters, forKey: .monsters)
 		if !states.isEmpty {
 			try container.encode(self.states, forKey: .states)

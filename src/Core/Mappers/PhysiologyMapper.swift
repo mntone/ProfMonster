@@ -18,8 +18,8 @@ struct PhysiologyMapper {
 		return Physiology(stateInfo: Self.getStateInfo(baseStates),
 						  label: statesLabel,
 						  value: PhysiologyValue(slash: src.slash,
-												 strike: src.strike,
-												 shell: src.shell,
+												 impact: src.impact,
+												 shot: src.shot,
 												 fire: src.fire,
 												 water: src.water,
 												 thunder: src.thunder,
@@ -195,8 +195,8 @@ struct PhysiologyMapper {
 
 	private static func getAverages(_ data: [PhysiologyGroup]) -> PhysiologyValue<PhysiologySection.AverageFloat> {
 		PhysiologyValue(slash: Self.getAverage(data, of: .slash),
-						strike: Self.getAverage(data, of: .strike),
-						shell: Self.getAverage(data, of: .shell),
+						impact: Self.getAverage(data, of: .impact),
+						shot: Self.getAverage(data, of: .shot),
 						fire: Self.getAverage(data, of: .fire),
 						water: Self.getAverage(data, of: .water),
 						thunder: Self.getAverage(data, of: .thunder),

@@ -39,12 +39,11 @@ extension CacheableDataSource: DataSource {
 		return game
 	}
 
-	func getLocalization(of key: String, for titleId: String) async throws -> MHLocalization {
-		let groupKey = "\(titleId)/\(Self.localizationKey)"
-		let loadOptions = StorageLoadOptions(groupKey: groupKey)
+	func getLocalization(of key: String) async throws -> MHLocalization {
+		let loadOptions = StorageLoadOptions(groupKey: Self.localizationKey)
 		guard let localization = storage.load(of: MHLocalization.self, for: key, options: loadOptions) else {
-			let localization = try await source.getLocalization(of: key, for: titleId)
-			let storeOptions = StorageStoreOptions(groupKey: groupKey)
+			let localization = try await source.getLocalization(of: key)
+			let storeOptions = StorageStoreOptions(groupKey: Self.localizationKey)
 			storage.store(localization, for: key, options: storeOptions)
 			return localization
 		}

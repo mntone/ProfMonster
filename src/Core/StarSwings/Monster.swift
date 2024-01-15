@@ -67,7 +67,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 		 id: String,
 		 monster: MHGameMonster,
 		 dataSource: DataSource,
-		 languageService: LanguageService,
+		 languageService: LanguageServiceInternal,
 		 physiologyMapper: PhysiologyMapper,
 		 localization: MHLocalizationMonster,
 		 userDatabase: UserDatabase,

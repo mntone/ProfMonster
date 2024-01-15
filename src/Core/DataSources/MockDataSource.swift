@@ -2,40 +2,41 @@ import Combine
 import Foundation
 
 public struct MockDataSource {
-	static let configTitle = MHConfigTitle(id: "mockgame", names: [
-		"en": "Mock",
-		"ja": "モック",
-	], fullNames: [
-		"en": "Mock Game",
-		"ja": "モックゲーム",
-	])
+	static let config = MHConfig(version: 3, games: ["mockgame"], languages: ["en", "ja"])
 
-	static let config = MHConfig(version: 2, titles: [configTitle])
+	static let localizationEnglish = MHLocalization(
+		games: [
+			MHLocalizationGame(id: "mockgame", name: "H.Fest!", fullName: "Hunster Festival!")
+		],
+		monsters: [
+			MHLocalizationMonster(id: "gulu_qoo",
+								  name: "Gulu Qoo",
+								  anotherName: nil,
+								  keywords: []),
+			MHLocalizationMonster(id: "bucha_cat",
+								  name: "Bucha Cat",
+								  anotherName: nil,
+								  keywords: [])
+		],
+		states: [:])
 
-	static let localizationEnglish = MHLocalization(monsters: [
-		MHLocalizationMonster(id: "gulu_qoo",
-							  name: "Gulu Qoo",
-							  anotherName: nil,
-							  keywords: []),
-		MHLocalizationMonster(id: "bucha_cat",
-							  name: "Bucha Cat",
-							  anotherName: nil,
-							  keywords: [])
-	], states: [:])
-
-	static let localizationJapanese = MHLocalization(monsters: [
-		MHLocalizationMonster(id: "gulu_qoo",
-							  name: "グークー",
-							  anotherName: nil,
-							  keywords: []),
-		MHLocalizationMonster(id: "bucha_cat",
-							  name: "ブチャネコ",
-							  anotherName: nil,
-							  keywords: [])
-	], states: [:])
+	static let localizationJapanese = MHLocalization(
+		games: [
+			MHLocalizationGame(id: "mockgame", name: "狩りカニ！", fullName: "狩り狩りカーニバル！")
+		],
+		monsters: [
+			MHLocalizationMonster(id: "gulu_qoo",
+								  name: "グークー",
+								  anotherName: nil,
+								  keywords: []),
+			MHLocalizationMonster(id: "bucha_cat",
+								  name: "ブチャネコ",
+								  anotherName: nil,
+								  keywords: [])
+		],
+		states: [:])
 
 	static let game = MHGame(id: "mockgame",
-							 localization: ["en"],
 							 monsters: [MHGameMonster(id: "gulu_qoo", type: "piyopiyo")])
 
 	public static var physiology1: Physiologies {
@@ -59,7 +60,7 @@ extension MockDataSource: DataSource {
 		Self.game
 	}
 
-	func getLocalization(of key: String, for titleId: String) async throws -> MHLocalization {
+	func getLocalization(of key: String) async throws -> MHLocalization {
 		if key == "ja" {
 			return Self.localizationJapanese
 		} else {

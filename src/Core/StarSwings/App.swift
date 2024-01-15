@@ -1,28 +1,29 @@
-import Combine
 import Foundation
 import protocol Swinject.Resolver
 
 public final class App: FetchableEntity<[Game]>, Entity {
-	private let resolver: Resolver
-	private let storage: Storage
+	private let _resolver: Resolver
+	private let _storage: Storage
 
 	public let logger: Logger
 	public let settings = Settings()
+
+	public private(set) var languageService: LanguageService?
 
 	public init(resolver: Resolver) {
 		guard let logger = resolver.resolve(Logger.self) else {
 			fatalError("Failed to get Logger.")
 		}
 		guard let storage = resolver.resolve(Storage.self) else {
-			logger.fault("Failed to get Storage")
+			logger.fault("Failed to get Storage.")
 		}
 		guard let dataSource = resolver.resolve(DataSource.self) else {
-			logger.fault("Failed to get DataSource")
+			logger.fault("Failed to get DataSource.")
 		}
 
-		self.resolver = resolver
+		self._resolver = resolver
+		self._storage = storage
 		self.logger = logger
-		self.storage = storage
 #if DEBUG
 		super.init(dataSource: dataSource, delayed: settings.delayNetworkRequest)
 #else
@@ -33,7 +34,7 @@ public final class App: FetchableEntity<[Game]>, Entity {
 	public func getCacheSize() async -> UInt64? {
 		await Task.detached(priority: .userInitiated) { [weak self] in
 			guard let self else { return nil }
-			return self.storage.size
+			return self._storage.size
 		}.value
 	}
 
@@ -41,7 +42,7 @@ public final class App: FetchableEntity<[Game]>, Entity {
 		Task.detached(priority: .utility) { [weak self] in
 			guard let self else { return }
 			self.logger.notice("Reset all data.")
-			self.storage.resetAll()
+			self._storage.resetAll()
 			self.resetState()
 		}
 	}
@@ -70,8 +71,22 @@ public final class App: FetchableEntity<[Game]>, Entity {
 			throw StarSwingsError.notSupported
 		}
 
-		let games = config.titles.map { title in
-			Game(app: self, resolver: resolver, dataSource: _dataSource, json: title)
+		// Get localization.
+		let preferredLocaleKey = LanguageUtil.getPreferredLanguageKey(config.languages)
+		let localization = try await _dataSource.getLocalization(of: preferredLocaleKey)
+
+		// Inititalize LanguageService.
+		let langsvc = _resolver.resolve(LanguageServiceInternal.self, arguments: preferredLocaleKey, localization)!
+		self.languageService = langsvc
+
+		let games = config.games.map { gameID in
+			Game(app: self,
+				 resolver: _resolver,
+				 dataSource: _dataSource,
+				 logger: logger,
+				 languageService: langsvc,
+				 id: gameID,
+				 localization: localization.games.first(where: { g in g.id == gameID })!)
 		}
 		return games
 	}

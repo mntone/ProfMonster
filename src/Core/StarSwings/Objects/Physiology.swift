@@ -8,8 +8,8 @@ public enum PhysiologyStateInfo: Int8 {
 
 public struct PhysiologyValue<Number>: Hashable where Number: Hashable, Number: Numeric {
 	public let slash: Number
-	public let strike: Number
-	public let shell: Number
+	public let impact: Number
+	public let shot: Number
 
 	public let fire: Number
 	public let water: Number
@@ -21,10 +21,10 @@ public struct PhysiologyValue<Number>: Hashable where Number: Hashable, Number: 
 		switch attack {
 		case .slash:
 			return slash
-		case .strike:
-			return strike
-		case .shell:
-			return shell
+		case .impact:
+			return impact
+		case .shot:
+			return shot
 		case .fire:
 			return fire
 		case .water:

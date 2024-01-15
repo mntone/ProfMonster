@@ -74,6 +74,7 @@ struct MHGameMonster: Codable, Sendable {
 
 struct MHGame: Codable, Sendable {
 	let id: String
-	let localization: [String]
+	let copyright: String?
+	let url: String?
 	let monsters: [MHGameMonster]
 }

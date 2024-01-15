@@ -4,8 +4,8 @@ struct MHMonsterPhysiologyValue: Codable, Sendable {
 	let states: [String]
 
 	let slash: Int8
-	let strike: Int8
-	let shell: Int8
+	let impact: Int8
+	let shot: Int8
 
 	let fire: Int8
 	let water: Int8

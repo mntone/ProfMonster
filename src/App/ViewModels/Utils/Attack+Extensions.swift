@@ -13,7 +13,7 @@ enum AttackLabelStyle {
 extension Attack {
 	var color: Color {
 		switch self {
-		case .slash, .strike, .shell:
+		case .slash, .impact, .shot:
 			return .primary
 		case .fire:
 			return .fire
@@ -32,9 +32,9 @@ extension Attack {
 		switch self {
 		case .slash:
 			return Image(systemName: "scissors")
-		case .strike:
+		case .impact:
 			return Image(systemName: "hammer.fill")
-		case .shell:
+		case .shot:
 			return Image(systemName: "fossil.shell.fill")
 		case .fire:
 			return Image(systemName: "flame.fill")
@@ -55,9 +55,9 @@ extension Attack {
 			switch self {
 			case .slash:
 				String(localized: "Slash", comment: "Elem/Short")
-			case .strike:
+			case .impact:
 				String(localized: "Strike", comment: "Elem/Short")
-			case .shell:
+			case .shot:
 				String(localized: "Shell", comment: "Elem/Short")
 			case .fire:
 				String(localized: "Fire", comment: "Elem/Short")
@@ -74,9 +74,9 @@ extension Attack {
 			switch self {
 			case .slash:
 				String(localized: "Slash_MEDIUM", comment: "Elem/Medium")
-			case .strike:
+			case .impact:
 				String(localized: "Strike_MEDIUM", comment: "Elem/Medium")
-			case .shell:
+			case .shot:
 				String(localized: "Shell_MEDIUM", comment: "Elem/Medium")
 			case .fire:
 				String(localized: "Fire_MEDIUM", comment: "Elem/Medium")
@@ -93,9 +93,9 @@ extension Attack {
 			switch self {
 			case .slash:
 				String(localized: "Slash Element", comment: "Elem/Long")
-			case .strike:
+			case .impact:
 				String(localized: "Strike Element", comment: "Elem/Long")
-			case .shell:
+			case .shot:
 				String(localized: "Shell Element", comment: "Elem/Long")
 			case .fire:
 				String(localized: "Fire Element", comment: "Elem/Long")
@@ -115,9 +115,9 @@ extension Attack {
 		switch self {
 		case .slash:
 			"s"
-		case .strike:
+		case .impact:
 			"i"
-		case .shell:
+		case .shot:
 			"p"
 		case .fire:
 			"f"
@@ -136,9 +136,9 @@ extension Attack {
 		switch self {
 		case .slash:
 			"2"
-		case .strike:
+		case .impact:
 			"3"
-		case .shell:
+		case .shot:
 			"4"
 		case .fire:
 			"5"

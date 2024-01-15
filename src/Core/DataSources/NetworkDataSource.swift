@@ -104,8 +104,8 @@ extension NetworkDataSource: DataSource {
 		return try await getItem(of: url, type: MHGame.self)
 	}
 
-	func getLocalization(of key: String, for titleId: String) async throws -> MHLocalization {
-		guard let url = URL(string: "\(titleId)/localization/\(key).json", relativeTo: source) else {
+	func getLocalization(of key: String) async throws -> MHLocalization {
+		guard let url = URL(string: "localization/\(key).json", relativeTo: source) else {
 			logger.fault("Failed to build URL.")
 		}
 		return try await getItem(of: url, type: MHLocalization.self)
