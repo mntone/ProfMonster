@@ -3,24 +3,21 @@ import Foundation
 public enum WeaknessDisplayMode: CaseIterable, Hashable {
 	case none
 	case sign
-	case number(fractionLength: UInt8)
+	case number
+	case number2
 
 	public init?(rawValue: String) {
 		switch rawValue {
 		case "None":
 			self = .none
-		case "Sign":
-			self = .sign
 		case "Number":
-			self = .number(fractionLength: 1)
+			self = .number
+		case "Number2":
+			self = .number2
+		case "Sign":
+			fallthrough
 		default:
-			if rawValue.count == 7,
-			   rawValue.starts(with: "Number"),
-			   let fractionLength = rawValue[rawValue.index(before: rawValue.endIndex)].wholeNumberValue.flatMap(UInt8.init) {
-				self = .number(fractionLength: fractionLength)
-			} else {
-				return nil
-			}
+			self = .sign
 		}
 	}
 
@@ -30,14 +27,12 @@ public enum WeaknessDisplayMode: CaseIterable, Hashable {
 			return "None"
 		case .sign:
 			return "Sign"
-		case .number(1):
+		case .number:
 			return "Number"
-		case let .number(fractionLength):
-			return "Number\(fractionLength)"
+		case .number2:
+			return "Number2"
 		}
 	}
-
-	public static var allCases: [WeaknessDisplayMode] = [.none, .sign, .number(fractionLength: 1), .number(fractionLength: 2)]
 }
 
 extension WeaknessDisplayMode: UserDefaultable {

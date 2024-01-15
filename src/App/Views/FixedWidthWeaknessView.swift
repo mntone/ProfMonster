@@ -176,8 +176,8 @@ struct FixedWidthWeaknessSectionView: View {
 						}
 						.frame(minWidth: 0, idealWidth: itemWidth, maxWidth: Self.maxItemWidth)
 					}
-				case let .number(fractionLength):
-					let fractionLengthInt = Int(fractionLength)
+				case .number, .number2:
+					let fractionLengthInt = displayMode == .number2 ? 2 : 1
 					DividedHStack(alignment: .firstTextBaseline, spacing: 0) {
 						ForEach(viewModel.items) { item in
 							FixedWidthWeaknessNumberItemView(viewModel: item,
@@ -223,7 +223,7 @@ struct FixedWidthWeaknessView: View {
 
 #Preview("Number") {
 	let viewModel = WeaknessViewModel("mock",
-									  displayMode: .number(fractionLength: 1),
+									  displayMode: .number,
 									  rawValue: MockDataSource.physiology1)
 	return Form {
 		FixedWidthWeaknessView(viewModel: viewModel)
@@ -232,7 +232,7 @@ struct FixedWidthWeaknessView: View {
 
 #Preview("Number2") {
 	let viewModel = WeaknessViewModel("mock",
-									  displayMode: .number(fractionLength: 2),
+									  displayMode: .number2,
 									  rawValue: MockDataSource.physiology1)
 	return Form {
 		FixedWidthWeaknessView(viewModel: viewModel)
