@@ -15,6 +15,13 @@ struct MAApp: SwiftUI.App {
 	private var appDelegate: MAAppDelegate
 #endif
 
+#if os(iOS)
+	init() {
+		// Apply patches to UIKit.
+		UIView.swizzleNavigationBarContentView()
+	}
+#endif
+
 	var body: some Scene {
 		WindowGroup {
 			ContentView()

@@ -201,6 +201,7 @@
 		EBBF86242B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */; };
 		EBBF86252B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */; };
 		EBC051102B54C8A200D084E2 /* SortToolbarMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC0510F2B54C8A200D084E2 /* SortToolbarMenu.swift */; };
+		EBC051122B5503DC00D084E2 /* UIView+Swizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC051112B5503DC00D084E2 /* UIView+Swizzle.swift */; };
 		EBC85C612B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C622B201939008A16C6 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */; };
 		EBC85C712B2053B6008A16C6 /* WatchDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC85C702B2053B6008A16C6 /* WatchDevice.swift */; };
@@ -500,6 +501,7 @@
 		EBBF861F2B4692D500F76D03 /* Sort+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sort+Extensions.swift"; sourceTree = "<group>"; };
 		EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteSwipeButton.swift; sourceTree = "<group>"; };
 		EBC0510F2B54C8A200D084E2 /* SortToolbarMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortToolbarMenu.swift; sourceTree = "<group>"; };
+		EBC051112B5503DC00D084E2 /* UIView+Swizzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Swizzle.swift"; sourceTree = "<group>"; };
 		EBC85C602B201939008A16C6 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		EBC85C702B2053B6008A16C6 /* WatchDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDevice.swift; sourceTree = "<group>"; };
 		EBC85C722B205469008A16C6 /* WatchMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchMetrics.swift; sourceTree = "<group>"; };
@@ -645,6 +647,7 @@
 			isa = PBXGroup;
 			children = (
 				EB42495C2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift */,
+				EBC051112B5503DC00D084E2 /* UIView+Swizzle.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -1646,6 +1649,7 @@
 				EB6437942B46EF5400E8D02B /* SwipeAction+Extensions.swift in Sources */,
 				EB513ADF2B3C8B0400C8FB4A /* TabSettingsContainer.swift in Sources */,
 				EBCA222D2B222ECB00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
+				EBC051122B5503DC00D084E2 /* UIView+Swizzle.swift in Sources */,
 				EBEA6F742B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
 				EB3B49192B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
 				EB6297F22B37179200E830E6 /* View+Block.swift in Sources */,

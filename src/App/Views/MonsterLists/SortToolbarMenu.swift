@@ -101,8 +101,19 @@ struct SortToolbarMenu: View {
 		}
 #endif
 #if os(iOS)
-		Menu("Sort by", systemImage: "arrow.up.arrow.down.circle") {
-			menuContent
+		if #available(iOS 17.0, *) {
+			Menu("Sort by", systemImage: "arrow.up.arrow.down.circle") {
+				menuContent
+			}
+		} else {
+			Menu {
+				menuContent
+			} label: {
+				Image(systemName: "arrow.up.arrow.down.circle")
+					.frame(height: 36)
+					.padding(.leading, 8)
+					.padding(.trailing)
+			}
 		}
 #endif
 	}
