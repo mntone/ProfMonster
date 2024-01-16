@@ -40,7 +40,8 @@ struct MonsterList<ItemView: View>: View {
 #else
 		.toolbar {
 			ToolbarItem(placement: .primaryAction) {
-				SortToolbarMenu(sort: $viewModel.sort)
+				SortToolbarMenu(sort: $viewModel.sort,
+								groupOption: $viewModel.groupOption)
 			}
 		}
 		.searchable(text: $viewModel.searchText, prompt: Text("Monster and Weakness"))

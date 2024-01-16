@@ -23,6 +23,9 @@ public final class Settings {
 	@UserDefault("sort", initial: .inGame(reversed: false))
 	public var sort: Sort
 
+	@UserDefault("group", initial: GroupOption.none)
+	public var groupOption: GroupOption
+
 #if DEBUG
 	@UserDefault("delayReq", initial: false)
 	public var delayNetworkRequest: Bool

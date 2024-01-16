@@ -25,6 +25,13 @@ final class SettingsViewModel: ObservableObject {
 			settings.sort = sort
 		}
 	}
+
+	@Published
+	var groupOption: GroupOption {
+		didSet {
+			settings.groupOption = groupOption
+		}
+	}
 #endif
 
 	@Published
@@ -95,6 +102,7 @@ final class SettingsViewModel: ObservableObject {
 		self.settings = app.settings
 #if os(watchOS)
 		self.sort = app.settings.sort
+		self.groupOption = app.settings.groupOption
 #endif
 		self.trailingSwipeAction = app.settings.trailingSwipeAction
 		self.linkSubspecies = app.settings.linkSubspecies
@@ -112,6 +120,7 @@ final class SettingsViewModel: ObservableObject {
 		let scheduler = DispatchQueue.main
 #if os(watchOS)
 		settings.$sort.dropFirst().receive(on: scheduler).assign(to: &$sort)
+		settings.$groupOption.dropFirst().receive(on: scheduler).assign(to: &$groupOption)
 #endif
 		settings.$trailingSwipeAction.dropFirst().receive(on: scheduler).assign(to: &$trailingSwipeAction)
 		settings.$linkSubspecies.dropFirst().receive(on: scheduler).assign(to: &$linkSubspecies)

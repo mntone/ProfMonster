@@ -7,10 +7,6 @@ extension Sort {
 			String(localized: "In Game", comment: "Sort")
 		case .name:
 			String(localized: "Name", comment: "Sort")
-		case .type:
-			String(localized: "Type", comment: "Sort")
-		case .weakness:
-			String(localized: "Weakness", comment: "Sort")
 		}
 	}
 
@@ -21,17 +17,9 @@ extension Sort {
 		case .inGame(true):
 			String(localized: "In Game (Reverse)", comment: "Sort")
 		case .name(false):
-			String(localized: "Name (Standard)", comment: "Sort")
+			String(localized: "Name (A to Z)", comment: "Sort")
 		case .name(true):
-			String(localized: "Name (Reverse)", comment: "Sort")
-		case .type(false):
-			String(localized: "Type (Standard)", comment: "Sort")
-		case .type(true):
-			String(localized: "Type (Reverse)", comment: "Sort")
-		case .weakness(false):
-			String(localized: "Weakness (Standard)", comment: "Sort")
-		case .weakness(true):
-			String(localized: "Weakness (Reverse)", comment: "Sort")
+			String(localized: "Name (Z to A)", comment: "Sort")
 		}
 	}
 }

@@ -17,20 +17,44 @@ struct DisplaySettingsPane: View {
 		SettingsPreferredList {
 			Section("Monster List") {
 #if os(watchOS)
-				SettingsPicker("Sort by",
-							   selection: $viewModel.sort) {
-					ForEach(Sort.allOrderCases(reversed: viewModel.sort.isReversed)) { mode in
-						Text(mode.label).tag(mode)
-					}
-				} label: { action in
-					Text(action.fullLabel)
-				} more: {
-					Section {
-						SettingsToggle("Reverse", isOn: Binding {
+				NavigationLink {
+					Form {
+						Picker("Sort By:", selection: $viewModel.sort) {
+							ForEach(Sort.allOrderCases(reversed: viewModel.sort.isReversed)) { item in
+								Text(item.label).tag(item)
+							}
+						}
+						.pickerStyle(.inline)
+
+						Toggle("Reverse", isOn: Binding {
 							viewModel.sort.isReversed
 						} set: { _ in
 							viewModel.sort = viewModel.sort.reversed()
 						})
+
+						Picker("Group By:", selection: $viewModel.groupOption) {
+							ForEach(GroupOption.allCases) { item in
+								Text(item.label).tag(item)
+							}
+						}
+						.pickerStyle(.inline)
+					}
+					.navigationTitle("View Options")
+				} label: {
+					SettingsLabeledContent("View Options") {
+						VStack(alignment: .leading, spacing: 0) {
+							HStack(alignment: .firstTextBaseline) {
+								Text("Sort By:")
+								Text(viewModel.sort.fullLabel)
+							}
+							HStack(alignment: .firstTextBaseline) {
+								Text("Group By:")
+								Text(viewModel.groupOption.label)
+							}
+						}
+						.font(.caption2)
+						.foregroundStyle(.secondary)
+						.lineLimit(1)
 					}
 				}
 #endif
