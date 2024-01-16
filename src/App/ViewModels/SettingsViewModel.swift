@@ -41,13 +41,6 @@ final class SettingsViewModel: ObservableObject {
 		}
 	}
 
-	@Published
-	var linkSubspecies: Bool {
-		didSet {
-			settings.linkSubspecies = linkSubspecies
-		}
-	}
-
 #if !os(watchOS)
 	@Published
 	var includesFavoriteGroupInSearchResult: Bool {
@@ -105,7 +98,6 @@ final class SettingsViewModel: ObservableObject {
 		self.groupOption = app.settings.groupOption
 #endif
 		self.trailingSwipeAction = app.settings.trailingSwipeAction
-		self.linkSubspecies = app.settings.linkSubspecies
 #if !os(watchOS)
 		self.includesFavoriteGroupInSearchResult = app.settings.includesFavoriteGroupInSearchResult
 #endif
@@ -123,7 +115,6 @@ final class SettingsViewModel: ObservableObject {
 		settings.$groupOption.dropFirst().receive(on: scheduler).assign(to: &$groupOption)
 #endif
 		settings.$trailingSwipeAction.dropFirst().receive(on: scheduler).assign(to: &$trailingSwipeAction)
-		settings.$linkSubspecies.dropFirst().receive(on: scheduler).assign(to: &$linkSubspecies)
 #if !os(watchOS)
 		settings.$includesFavoriteGroupInSearchResult.dropFirst().receive(on: scheduler).assign(to: &$includesFavoriteGroupInSearchResult)
 #endif
@@ -136,13 +127,10 @@ final class SettingsViewModel: ObservableObject {
 		settings.$test.dropFirst().receive(on: scheduler).assign(to: &$test)
 
 		// App should reload to change some settings.
-		cancellable = $linkSubspecies
-			.combineLatest($mergeParts)
+		cancellable = $mergeParts
 			.debounce(for: 2.0, scheduler: DispatchQueue.global(qos: .utility))
-			.removeDuplicates { oldValue, newValue in
-				let (oldLinkSubspecies, oldMergeParts) = oldValue
-				let (newLinkSubspecies, newMergeParts) = newValue
-				return oldLinkSubspecies == newLinkSubspecies && oldMergeParts == newMergeParts
+			.removeDuplicates { oldMergeParts, newMergeParts in
+				return oldMergeParts == newMergeParts
 			}
 			.dropFirst()
 			.sink { _ in

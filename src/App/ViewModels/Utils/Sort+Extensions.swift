@@ -16,9 +16,9 @@ extension Sort {
 			String(localized: "In Game (Standard)", comment: "Sort")
 		case .inGame(true):
 			String(localized: "In Game (Reverse)", comment: "Sort")
-		case .name(false):
+		case .name(false, _):
 			String(localized: "Name (A to Z)", comment: "Sort")
-		case .name(true):
+		case .name(true, _):
 			String(localized: "Name (Z to A)", comment: "Sort")
 		}
 	}

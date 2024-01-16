@@ -18,6 +18,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 	public let name: String
 	public let readableName: String
 	public let sortkey: String
+	public let linkedSortkey: String
 	public let anotherName: String?
 	public let keywords: [String]
 
@@ -86,13 +87,15 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 
 		let readableName = localization.readableName ?? languageService.readable(from: localization.name)
 		self.readableName = readableName
-		if app.settings.linkSubspecies,
-		   let linkedID = monster.linkedID.map({ prefix + $0 }),
+		if let linkedID = monster.linkedID.map({ prefix + $0 }),
 		   let linkedIndex = monster.linkedIndex,
 		   let referenceMonster = reference.last(where: { $0.id == linkedID }) {
-			self.sortkey = referenceMonster.sortkey + String(linkedIndex)
-		} else {
 			self.sortkey = languageService.sortkey(from: readableName)
+			self.linkedSortkey = referenceMonster.sortkey + String(linkedIndex)
+		} else {
+			let sortkey = languageService.sortkey(from: readableName)
+			self.sortkey = sortkey
+			self.linkedSortkey = sortkey
 		}
 		self.anotherName = localization.anotherName
 		self.keywords = MonsterLocalizationMapper.map(localization,

@@ -34,13 +34,13 @@ struct SortToolbarMenu: View {
 				sort.isName
 			} set: { newValue in
 				if !newValue {
-					sort = .name(reversed: !sort.isReversed)
+					sort = .name(reversed: !sort.isReversed, linked: sort.isLinked)
 				} else {
-					sort = .name(reversed: false)
+					sort = .name(reversed: false, linked: sort.isLinked)
 				}
 			}) {
 				switch sort {
-				case let .name(reversed):
+				case let .name(reversed, _):
 					Label("Name", systemImage: reversed ? "chevron.up" : "chevron.down")
 				default:
 					Text("Name")
@@ -48,7 +48,13 @@ struct SortToolbarMenu: View {
 			}
 		}
 
-		Divider()
+		if sort.isName {
+			Toggle("Variant After Original", isOn: Binding {
+				sort.isLinked
+			} set: { _ in
+				sort = sort.toggleLinked()
+			})
+		}
 
 		Section("Group By:") {
 			Toggle("None", isOn: Binding {
@@ -82,11 +88,19 @@ struct SortToolbarMenu: View {
 #if os(macOS)
 		Menu("View Options", systemImage: "arrow.up.arrow.down.circle") {
 			Picker("Sort By:", selection: $sort) {
-				ForEach(Sort.allOrderCases(reversed: sort.isReversed)) { item in
+				ForEach(Sort.allOrderCases(reversed: sort.isReversed, linked: sort.isLinked)) { item in
 					Text(item.label).tag(item)
 				}
 			}
 			.pickerStyle(.inline)
+
+			if sort.isName {
+				Toggle("Variant After Original", isOn: Binding {
+					sort.isLinked
+				} set: { _ in
+					sort = sort.toggleLinked()
+				})
+			}
 
 			Toggle("Reverse", isOn: Binding {
 				sort.isReversed

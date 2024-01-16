@@ -2,7 +2,7 @@ import class Foundation.UserDefaults
 
 public enum Sort: CaseIterable, Hashable {
 	case inGame(reversed: Bool)
-	case name(reversed: Bool)
+	case name(reversed: Bool, linked: Bool)
 
 	public init?(rawValue: String) {
 		switch rawValue {
@@ -11,9 +11,13 @@ public enum Sort: CaseIterable, Hashable {
 		case "InGameDesc":
 			self = .inGame(reversed: true)
 		case "Name":
-			self = .name(reversed: false)
+			self = .name(reversed: false, linked: true)
 		case "NameDesc":
-			self = .name(reversed: true)
+			self = .name(reversed: true, linked: true)
+		case "NameSimple":
+			self = .name(reversed: false, linked: false)
+		case "NameDescSimple":
+			self = .name(reversed: true, linked: false)
 		default:
 			return nil
 		}
@@ -25,10 +29,14 @@ public enum Sort: CaseIterable, Hashable {
 			return "InGame"
 		case .inGame(true):
 			return "InGameDesc"
-		case .name(false):
+		case .name(false, true):
 			return "Name"
-		case .name(true):
+		case .name(true, true):
 			return "NameDesc"
+		case .name(false, false):
+			return "NameSimple"
+		case .name(true, false):
+			return "NameDescSimple"
 		}
 	}
 
@@ -50,7 +58,7 @@ public enum Sort: CaseIterable, Hashable {
 
 	public var isReversed: Bool {
 		switch self {
-		case .inGame(true), .name(true):
+		case .inGame(true), .name(true, _):
 			true
 		default:
 			false
@@ -63,32 +71,64 @@ public enum Sort: CaseIterable, Hashable {
 			.inGame(reversed: true)
 		case .inGame(true):
 			.inGame(reversed: false)
-		case .name(false):
-			.name(reversed: true)
-		case .name(true):
-			.name(reversed: false)
+		case let .name(false, linked):
+			.name(reversed: true, linked: linked)
+		case let .name(true, linked):
+			.name(reversed: false, linked: linked)
 		}
 	}
 
-	public static func allOrderCases(reversed: Bool) -> [Sort] {
-		reversed ? allDescendingCases : allAscendingCases
+	public var isLinked: Bool {
+		switch self {
+		case let .name(_, linked):
+			linked
+		default:
+			true
+		}
+	}
+
+	public func toggleLinked() -> Self {
+		switch self {
+		case let .name(reversed, linked):
+			.name(reversed: reversed, linked: !linked)
+		default:
+			self
+		}
+	}
+
+	public static func allOrderCases(reversed: Bool, linked: Bool) -> [Sort] {
+		reversed
+			? (linked ? allDescendingCases : allSimpleDescendingCases)
+			: (linked ? allAscendingCases : allSimpleAscendingCases)
 	}
 
 	public static var allAscendingCases: [Sort] = [
 		.inGame(reversed: false),
-		.name(reversed: false),
+		.name(reversed: false, linked: true),
+	]
+
+	public static var allSimpleAscendingCases: [Sort] = [
+		.inGame(reversed: false),
+		.name(reversed: false, linked: false),
 	]
 
 	public static var allDescendingCases: [Sort] = [
 		.inGame(reversed: true),
-		.name(reversed: true),
+		.name(reversed: true, linked: true),
+	]
+
+	public static var allSimpleDescendingCases: [Sort] = [
+		.inGame(reversed: true),
+		.name(reversed: true, linked: false),
 	]
 
 	public static var allCases: [Sort] = [
 		.inGame(reversed: false),
 		.inGame(reversed: true),
-		.name(reversed: false),
-		.name(reversed: true),
+		.name(reversed: false, linked: true),
+		.name(reversed: true, linked: true),
+		.name(reversed: false, linked: false),
+		.name(reversed: true, linked: false),
 	]
 }
 

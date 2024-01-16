@@ -74,10 +74,17 @@ final class GameItemViewModel: ObservableObject, Identifiable {
 		}
 	}
 
-	private var sortkey: String {
+	fileprivate var sortkey: String {
 		@inline(__always)
 		get {
 			monster.sortkey
+		}
+	}
+
+	private var linkedSortkey: String {
+		@inline(__always)
+		get {
+			monster.linkedSortkey
 		}
 	}
 }
@@ -90,6 +97,20 @@ extension GameItemViewModel: Equatable {
 
 extension GameItemViewModel: Comparable {
 	static func <(lhs: GameItemViewModel, rhs: GameItemViewModel) -> Bool {
+		lhs.linkedSortkey < rhs.linkedSortkey
+	}
+}
+
+// MARK: - Sort using simple sortkey
+
+enum AscendingSimpleSortkeyComparator {
+	static func compare(lhs: GameItemViewModel, rhs: GameItemViewModel) -> Bool {
 		lhs.sortkey < rhs.sortkey
+	}
+}
+
+enum DescendingSimpleSortkeyComparator {
+	static func compare(lhs: GameItemViewModel, rhs: GameItemViewModel) -> Bool {
+		lhs.sortkey > rhs.sortkey
 	}
 }

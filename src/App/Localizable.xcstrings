@@ -7895,18 +7895,30 @@
         }
       }
     },
-    "Place Subspecies near Original Species" : {
+    "Place Variant After Original" : {
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Place Subspecies near Original Species"
+            "value" : "Place Variant After Original"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "亜種と原種を関連付けて表示する"
+            "value" : "亜種を原種の後に配置する"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将亚种置于原种之后"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將亞種置於原種之後"
           }
         }
       }
@@ -10580,6 +10592,34 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "???"
+          }
+        }
+      }
+    },
+    "Variant After Original" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Variant After Original"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "原種の後に亜種"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "原种之后的亚种"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "原種之後的亞種"
           }
         }
       }

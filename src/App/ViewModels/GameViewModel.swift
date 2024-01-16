@@ -219,10 +219,14 @@ final class GameViewModel: ObservableObject {
 			monsters = baseMonsters
 		case .inGame(true):
 			monsters = baseMonsters.reversed()
-		case .name(false):
+		case .name(false, true):
 			monsters = baseMonsters.sorted()
-		case .name(true):
+		case .name(true, true):
 			monsters = baseMonsters.sorted(by: >)
+		case .name(false, false):
+			monsters = baseMonsters.sorted(by: AscendingSimpleSortkeyComparator.compare)
+		case .name(true, false):
+			monsters = baseMonsters.sorted(by: DescendingSimpleSortkeyComparator.compare)
 		}
 		return monsters
 	}

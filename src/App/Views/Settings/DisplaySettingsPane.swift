@@ -20,11 +20,19 @@ struct DisplaySettingsPane: View {
 				NavigationLink {
 					Form {
 						Picker("Sort By:", selection: $viewModel.sort) {
-							ForEach(Sort.allOrderCases(reversed: viewModel.sort.isReversed)) { item in
+							ForEach(Sort.allOrderCases(reversed: viewModel.sort.isReversed, linked: viewModel.sort.isLinked)) { item in
 								Text(item.label).tag(item)
 							}
 						}
 						.pickerStyle(.inline)
+
+						if viewModel.sort.isName {
+							Toggle("Place Variant After Original", isOn: Binding {
+								viewModel.sort.isLinked
+							} set: { _ in
+								viewModel.sort = viewModel.sort.toggleLinked()
+							})
+						}
 
 						Toggle("Reverse", isOn: Binding {
 							viewModel.sort.isReversed
@@ -41,26 +49,30 @@ struct DisplaySettingsPane: View {
 					}
 					.navigationTitle("View Options")
 				} label: {
-					SettingsLabeledContent("View Options") {
+					SettingsLabeledContent(LocalizedStringKey("View Options")) {
 						VStack(alignment: .leading, spacing: 0) {
 							HStack(alignment: .firstTextBaseline) {
 								Text("Sort By:")
 								Text(viewModel.sort.fullLabel)
 							}
-							HStack(alignment: .firstTextBaseline) {
-								Text("Group By:")
-								Text(viewModel.groupOption.label)
+
+							if viewModel.sort.isName,
+							   viewModel.sort.isLinked {
+								Text("Variant After Original")
+							}
+
+							if !viewModel.groupOption.isNone {
+								HStack(alignment: .firstTextBaseline) {
+									Text("Group By:")
+									Text(viewModel.groupOption.label)
+								}
 							}
 						}
-						.font(.caption2)
+						.font(.caption)
 						.foregroundStyle(.secondary)
-						.lineLimit(1)
 					}
 				}
 #endif
-
-				SettingsToggle("Place Subspecies near Original Species",
-							   isOn: $viewModel.linkSubspecies)
 
 #if !os(watchOS)
 				SettingsToggle("Include Favorite Group in Search Results",
