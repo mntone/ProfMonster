@@ -1,7 +1,10 @@
 import SwiftUI
 
-struct _PreferredVerticalPaddingModifier: ViewModifier {
 #if os(iOS)
+
+@available(macOS, unavailable)
+@available(watchOS, unavailable)
+struct _PreferredVerticalPaddingModifier: ViewModifier {
 	@Environment(\.dynamicTypeSize)
 	private var dynamicTypeSize
 
@@ -19,16 +22,19 @@ struct _PreferredVerticalPaddingModifier: ViewModifier {
 			return 4.0
 		}
 	}
-#else
-	func body(content: Content) -> some View {
-		content
-	}
-#endif
 }
 
+#endif
+
 extension View {
+#if os(iOS)
 	@ViewBuilder
 	func preferredVerticalPadding() -> ModifiedContent<Self, _PreferredVerticalPaddingModifier> {
 		modifier(_PreferredVerticalPaddingModifier())
 	}
+#else
+	func preferredVerticalPadding() -> Self {
+		self
+	}
+#endif
 }
