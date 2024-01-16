@@ -37,6 +37,8 @@ public struct MockDataSource {
 		states: [:])
 
 	static let game = MHGame(id: "mockgame",
+							 copyright: nil,
+							 url: nil,
 							 monsters: [MHGameMonster(id: "gulu_qoo", type: "piyopiyo")])
 
 	public static var physiology1: Physiologies {

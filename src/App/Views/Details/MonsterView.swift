@@ -46,7 +46,7 @@ struct MonsterDataView: View {
 			}
 		}
 
-		Section("Physiology") {
+		Section {
 			let headerHidden = viewModel.physiologies.sections.count <= 1
 			ForEach(viewModel.physiologies.sections) { section in
 #if os(macOS)
@@ -59,6 +59,15 @@ struct MonsterDataView: View {
 #if !os(macOS)
 			.listRowInsets(.zero)
 #endif
+		} header: {
+			Text("Physiology")
+		} footer: {
+			if let copyright = viewModel.copyright {
+				Text(copyright)
+#if os(macOS)
+					.foregroundStyle(.secondary)
+#endif
+			}
 		}
 	}
 }

@@ -11,6 +11,9 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 	public let id: String
 	public let name: String
 
+	public var copyright: String?
+	public var url: URL?
+
 	init(app: App,
 		 resolver: Resolver,
 		 dataSource: DataSource,
@@ -49,6 +52,9 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 
 	override func _fetch() async throws -> [Monster] {
 		let game = try await _dataSource.getGame(of: id)
+		self.copyright = game.copyright
+		self.url = game.url.flatMap(URL.init(string:))
+
 		if Task.isCancelled {
 			throw StarSwingsError.cancelled
 		}
@@ -63,6 +69,7 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 		for jsonMonster in game.monsters {
 			let id = idPrefix + jsonMonster.id
 			let monster = Monster(app: app,
+								  game: self,
 								  id: id,
 								  monster: jsonMonster,
 								  dataSource: self._dataSource,

@@ -82,6 +82,7 @@ final class MonsterViewModel: ObservableObject {
 				case let .complete(physiology):
 					self.state = .complete
 					self.item = MonsterDataViewModel(monster.id,
+													 copyright: monster.game?.copyright,
 													 displayMode: elementDisplay,
 													 rawValue: physiology)
 				case let .failure(date, error):

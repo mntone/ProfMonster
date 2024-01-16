@@ -10,7 +10,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 	private let isFavoritedSubject: CurrentValueSubject<Bool, Never>
 	private let noteSubject: CurrentValueSubject<String, Never>
 
-	public weak var app: App?
+	public weak var game: Game?
 
 	public let id: String
 	public let type: String
@@ -64,6 +64,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 	}
 
 	init(app: App,
+		 game: Game,
 		 id: String,
 		 monster: MHGameMonster,
 		 dataSource: DataSource,
@@ -74,7 +75,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 		 userData: UDMonster?,
 		 prefix: String,
 		 reference: [Monster]) {
-		self.app = app
+		self.game = game
 		self._physiologyMapper = physiologyMapper
 		self._userDatabase = userDatabase
 
@@ -162,7 +163,7 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 			throw StarSwingsError.cancelled
 		}
 
-		let options = PhysiologyMapperOptions(mergeParts: app?.settings.mergeParts ?? true)
+		let options = PhysiologyMapperOptions(mergeParts: game?.app?.settings.mergeParts ?? true)
 		let physiologies = _physiologyMapper.map(json: monster, options: options)
 		return physiologies
 	}
