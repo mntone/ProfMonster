@@ -3,8 +3,7 @@ import SwiftUI
 @available(macOS 13.0, *)
 struct SharedSettingsContainerModifier: ViewModifier {
 #if os(iOS) || os(watchOS)
-	@Environment(\.dismiss)
-	private var dismiss
+	let dismiss: () -> Void
 #endif
 
 	func body(content: Content) -> some View {
@@ -23,7 +22,7 @@ struct SharedSettingsContainerModifier: ViewModifier {
 #if os(iOS)
 			.toolbar {
 				ToolbarItem(placement: .cancellationAction) {
-					Button("Close", role: .cancel, action: dismiss.callAsFunction)
+					Button("Close", role: .cancel, action: dismiss)
 				}
 			}
 #elseif os(watchOS)
@@ -33,7 +32,7 @@ struct SharedSettingsContainerModifier: ViewModifier {
 				} else {
 					content.toolbar {
 						ToolbarItem(placement: .cancellationAction) {
-							Button("Close", role: .cancel, action: dismiss.callAsFunction)
+							Button("Close", role: .cancel, action: dismiss)
 						}
 					}
 				}

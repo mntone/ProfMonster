@@ -7,10 +7,11 @@ import SwiftUIIntrospect
 @available(macOS 13.0, *)
 @available(watchOS, unavailable)
 struct ColumnSettingsContainer: View {
-#if os(macOS)
+	// iPadOS 15 requires "dismiss" to be defined at this level.
 	@Environment(\.dismiss)
 	private var dismiss
 
+#if os(macOS)
 	@StateObject
 	private var viewModel = SettingsViewModel()
 
@@ -56,7 +57,11 @@ struct ColumnSettingsContainer: View {
 #endif
 					}
 				}
+#if os(macOS)
 				.modifier(SharedSettingsContainerModifier())
+#else
+				.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction))
+#endif
 			} detail: {
 				NavigationStack {
 #if os(macOS)
@@ -92,7 +97,7 @@ struct ColumnSettingsContainer: View {
 					}
 				}
 				.listStyle(.insetGrouped)
-				.modifier(SharedSettingsContainerModifier())
+				.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction))
 
 				selectedSettingsPane?.view(viewModel)
 			}

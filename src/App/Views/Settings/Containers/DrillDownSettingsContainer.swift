@@ -25,8 +25,14 @@ struct DrillDownSettingsContainer: View {
 	@Binding
 	var selectedSettingsPanes: [SettingsPane]
 
+	// watchOS 9 requires "dismiss" to be defined at this level.
+	@Environment(\.dismiss)
+	private var dismiss
+
+#if os(iOS)
 	@Environment(\.dynamicTypeSize)
 	private var dynamicTypeSize
+#endif
 
 	init(viewModel: SettingsViewModel,
 		 selection selectedSettingsPane: Binding<SettingsPane?>) {
@@ -56,7 +62,7 @@ struct DrillDownSettingsContainer: View {
 				pane.view(viewModel)
 			}
 			.navigationBarTitleDisplayMode(.large)
-			.modifier(SharedSettingsContainerModifier())
+			.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction))
 		}
 #if os(watchOS)
 		.block { content in
@@ -89,6 +95,9 @@ struct DrillDownSettingsContainerBackport: View {
 	@Binding
 	var selectedSettingsPane: SettingsPane?
 
+	@Environment(\.dismiss)
+	private var dismiss
+
 	init(viewModel: SettingsViewModel,
 		 selection selectedSettingsPane: Binding<SettingsPane?> = .constant(nil)) {
 		self.viewModel = viewModel
@@ -106,7 +115,7 @@ struct DrillDownSettingsContainerBackport: View {
 				}
 			}
 			.navigationBarTitleDisplayMode(.large)
-			.modifier(SharedSettingsContainerModifier())
+			.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction))
 		}
 		.navigationViewStyle(.stack)
 #if os(watchOS)
