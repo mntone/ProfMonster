@@ -42,6 +42,7 @@ private struct _NavigationStackHost: View {
 			return []
 		} set: { newValue in
 			guard case let .game(gameID) = newValue.first else {
+				selectedGameID = nil
 				return
 			}
 			if selectedGameID != gameID {

@@ -23,7 +23,13 @@ struct Sidebar: View {
 			}
 		}
 		.onChangeBackport(of: viewModel.items) { _, newValue in
-			selection = newValue.first?.id
+			if selection != nil {
+				if !newValue.contains(where: { item in item.id == selection }) {
+					selection = newValue.first?.id
+				}
+			} else {
+				selection = newValue.first?.id
+			}
 		}
 	}
 }
@@ -56,7 +62,13 @@ struct SidebarBackport: View {
 			}
 		}
 		.onChange(of: viewModel.items) { newValue in
-			selection = newValue.first?.id
+			if selection != nil {
+				if !newValue.contains(where: { item in item.id == selection }) {
+					selection = newValue.first?.id
+				}
+			} else {
+				selection = newValue.first?.id
+			}
 		}
 	}
 }
