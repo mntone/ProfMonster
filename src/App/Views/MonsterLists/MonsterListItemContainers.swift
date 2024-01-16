@@ -8,8 +8,10 @@ struct MonsterListNavigatableItem: View {
 	let viewModel: IdentifyHolder<GameItemViewModel>
 
 	var body: some View {
-		NavigationLink(value: MARoute.monster(id: viewModel.content.id)) {
-			MonsterListItem(viewModel: viewModel.content)
+		MonsterListItem(viewModel: viewModel.content) { content in
+			NavigationLink(value: MARoute.monster(id: viewModel.content.id)) {
+				content
+			}
 		}
 	}
 }
@@ -22,10 +24,12 @@ struct MonsterListNavigatableItemBackport: View {
 	let selection: Binding<CoordinatorUtil.MonsterIDType?>
 
 	var body: some View {
-		NavigationLink(tag: viewModel.id, selection: selection) {
-			MonsterPage(id: viewModel.content.id)
-		} label: {
-			MonsterListItem(viewModel: viewModel.content)
+		MonsterListItem(viewModel: viewModel.content) { content in
+			NavigationLink(tag: viewModel.id, selection: selection) {
+				MonsterPage(id: viewModel.content.id)
+			} label: {
+				content
+			}
 		}
 	}
 }
@@ -43,8 +47,10 @@ struct MonsterSelectableListItem: View {
 	let selection: Binding<CoordinatorUtil.MonsterIDType?>
 
 	var body: some View {
-		SelectableListRowBackport(tag: viewModel.id, selection: selection) {
-			MonsterListItem(viewModel: viewModel.content)
+		MonsterListItem(viewModel: viewModel.content) { content in
+			SelectableListRowBackport(tag: viewModel.id, selection: selection) {
+				content
+			}
 		}
 	}
 }

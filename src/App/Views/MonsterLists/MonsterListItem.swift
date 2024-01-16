@@ -70,12 +70,11 @@ struct MonsterListItem_TestB: View {
 	}
 }
 
-struct MonsterListItem: View {
+struct _MonsterListItemStatic: View {
+	let viewModel: GameItemViewModel
+
 	@Environment(\.settings)
 	private var settings
-
-	@ObservedObject
-	private(set) var viewModel: GameItemViewModel
 
 	var body: some View {
 		HStack(spacing: 0) {
@@ -88,23 +87,50 @@ struct MonsterListItem: View {
 			}
 		}
 		.animation(.easeInOut(duration: 0.1), value: viewModel.isFavorited)
-#if !os(watchOS)
-		.contextMenu {
-			FavoriteContextMenuButton(favorite: $viewModel.isFavorited)
+	}
+}
 
-			if #available(iOS 16.0, macOS 13.0, *) {
-				OpenWindowButton(id: viewModel.id)
+struct MonsterListItem<Container: View>: View {
+	@Environment(\.settings)
+	private var settings
+
+	@ObservedObject
+	private(set) var viewModel: GameItemViewModel
+
+	let container: (_MonsterListItemStatic) -> Container
+
+	init(viewModel: GameItemViewModel) where Container == _MonsterListItemStatic {
+		self.viewModel = viewModel
+		self.container = { content in content }
+	}
+
+	init(viewModel: GameItemViewModel,
+		 container: @escaping (_MonsterListItemStatic) -> Container) {
+		self.viewModel = viewModel
+		self.container = container
+	}
+
+	var body: some View {
+		container(_MonsterListItemStatic(viewModel: viewModel))
+#if !os(watchOS)
+			.contextMenu {
+				FavoriteContextMenuButton(favorite: $viewModel.isFavorited)
+
+				if #available(iOS 16.0, macOS 13.0, *) {
+					OpenWindowButton(id: viewModel.id)
+				}
 			}
-		}
 #endif
-		.swipeActions(edge: .trailing, allowsFullSwipe: false) {
-			switch settings?.trailingSwipeAction {
-			case Optional.none, .some(.none):
-				EmptyView()
-			case .favorite:
-				FavoriteSwipeButton(favorite: $viewModel.isFavorited)
+			.block { content in
+				switch settings?.trailingSwipeAction {
+				case Optional.none, .some(.none):
+					content
+				case .favorite:
+					content.swipeActions(edge: .trailing, allowsFullSwipe: false) {
+						FavoriteSwipeButton(favorite: $viewModel.isFavorited)
+					}
+				}
 			}
-		}
 	}
 }
 
