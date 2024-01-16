@@ -1194,7 +1194,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Informações do app"
+            "value" : "Informações do App"
           }
         },
         "ru" : {
@@ -1458,7 +1458,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Todos os monstros"
+            "value" : "Todos os Monstros"
           }
         },
         "ru" : {
@@ -2925,7 +2925,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tamanho da cache: %@"
+            "value" : "Tamanho da Cache: %@"
           }
         },
         "ru" : {
@@ -3461,7 +3461,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Apagar favorito"
+            "value" : "Apagar Favorito"
           }
         },
         "ru" : {
@@ -3753,8 +3753,8 @@
             "device" : {
               "applewatch" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Dragão"
+                  "state" : "translated",
+                  "value" : "Dr."
                 }
               },
               "other" : {
@@ -3822,7 +3822,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Draco"
+            "value" : "Elemento draco"
           }
         },
         "es-419" : {
@@ -3834,7 +3834,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elément Dragon"
+            "value" : "Elément dragon"
           }
         },
         "it" : {
@@ -3858,7 +3858,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento dragão"
+            "value" : "Elemento Dragão"
           }
         },
         "ru" : {
@@ -5139,8 +5139,8 @@
             "device" : {
               "applewatch" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Fogo"
+                  "state" : "translated",
+                  "value" : "Fo."
                 }
               },
               "other" : {
@@ -5208,7 +5208,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Fuego"
+            "value" : "Elemento fuego"
           }
         },
         "es-419" : {
@@ -5220,7 +5220,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elément Feu"
+            "value" : "Elément feu"
           }
         },
         "it" : {
@@ -5244,7 +5244,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento fogo"
+            "value" : "Elemento Fogo"
           }
         },
         "ru" : {
@@ -5565,7 +5565,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Date de Validation Git"
+            "value" : "Date de validation Git"
           }
         },
         "it" : {
@@ -5589,7 +5589,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Data Zatwierdzenia Git"
+            "value" : "Data zatwierdzenia Git"
           }
         },
         "pt-BR" : {
@@ -5647,7 +5647,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hachage de Validation Git"
+            "value" : "Hachage de validation Git"
           }
         },
         "it" : {
@@ -5671,7 +5671,7 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hash Zatwierdzenia Git"
+            "value" : "Hash zatwierdzenia Git"
           }
         },
         "pt-BR" : {
@@ -5947,7 +5947,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Hielo"
+            "value" : "Elemento hielo"
           }
         },
         "es-419" : {
@@ -5959,7 +5959,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elément Glace"
+            "value" : "Elément glace"
           }
         },
         "it" : {
@@ -5983,7 +5983,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento gelo"
+            "value" : "Elemento Gelo"
           }
         },
         "ru" : {
@@ -6638,7 +6638,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Monstro e fraqueza"
+            "value" : "Monstro e Fraqueza"
           }
         },
         "ru" : {
@@ -6726,7 +6726,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Detalhe do monstro"
+            "value" : "Detalhe do Monstro"
           }
         },
         "ru" : {
@@ -6814,7 +6814,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Lista de monstros"
+            "value" : "Lista de Monstros"
           }
         },
         "ru" : {
@@ -8080,7 +8080,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Repor todos os caches"
+            "value" : "Repor Todos os ﻿Caches"
           }
         },
         "ru" : {
@@ -8168,7 +8168,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Repor caches"
+            "value" : "Repor Caches"
           }
         },
         "ru" : {
@@ -8465,6 +8465,48 @@
             }
           }
         },
+        "es" : {
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ti."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tiro"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Ti."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Tiro"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tir"
+          }
+        },
         "it" : {
           "variations" : {
             "device" : {
@@ -8507,13 +8549,13 @@
               "applewatch" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "탄"
+                  "value" : "사"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "탄"
+                  "value" : "사격"
                 }
               }
             }
@@ -8590,6 +8632,24 @@
             "value" : "Shot Element"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento de tiro"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento de tiro"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elément tir"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8599,13 +8659,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "弾属性"
+            "value" : "射撃属性"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "탄속성"
+            "value" : "사격속성"
           }
         },
         "zh-Hans" : {
@@ -8637,6 +8697,24 @@
             "value" : "Shot"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiro"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiro"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tir"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8646,13 +8724,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "弾属性"
+            "value" : "射撃属性"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "탄속성"
+            "value" : "사격속성"
           }
         },
         "ru" : {
@@ -8837,6 +8915,60 @@
             }
           }
         },
+        "es" : {
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Co."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Cortar"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Co."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Cortar"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Cp"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Couper"
+                }
+              }
+            }
+          }
+        },
         "it" : {
           "variations" : {
             "device" : {
@@ -8879,13 +9011,13 @@
               "applewatch" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "절단"
+                  "value" : "참"
                 }
               },
               "other" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "절단"
+                  "value" : "참격"
                 }
               }
             }
@@ -8962,6 +9094,24 @@
             "value" : "Slash Element"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento de corte"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento de corte"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elément couper"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8971,13 +9121,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "斬属性"
+            "value" : "斬撃属性"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "절단속성"
+            "value" : "참격속성"
           }
         },
         "zh-Hans" : {
@@ -9009,6 +9159,24 @@
             "value" : "Slash"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cortar"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cortar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couper"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9018,13 +9186,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "斬属性"
+            "value" : "斬撃属性"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "절단속성"
+            "value" : "참격속성"
           }
         },
         "zh-Hans" : {
@@ -9169,6 +9337,60 @@
             }
           }
         },
+        "es" : {
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Im."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Impacto"
+                }
+              }
+            }
+          }
+        },
+        "es-419" : {
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Im."
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Impacto"
+                }
+              }
+            }
+          }
+        },
+        "fr" : {
+          "variations" : {
+            "device" : {
+              "applewatch" : {
+                "stringUnit" : {
+                  "state" : "new",
+                  "value" : "Imp"
+                }
+              },
+              "other" : {
+                "stringUnit" : {
+                  "state" : "translated",
+                  "value" : "Impact"
+                }
+              }
+            }
+          }
+        },
         "it" : {
           "variations" : {
             "device" : {
@@ -9211,7 +9433,7 @@
               "applewatch" : {
                 "stringUnit" : {
                   "state" : "translated",
-                  "value" : "타격"
+                  "value" : "타"
                 }
               },
               "other" : {
@@ -9294,6 +9516,24 @@
             "value" : "Impact Element"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento de impacto"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento de impacto"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elément impact"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9303,7 +9543,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "打属性"
+            "value" : "打撃属性"
           }
         },
         "ko" : {
@@ -9341,6 +9581,24 @@
             "value" : "Impact"
           }
         },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impacto"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impacto"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impact"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9350,7 +9608,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "打属性"
+            "value" : "打撃属性"
           }
         },
         "ko" : {
@@ -9840,8 +10098,8 @@
             "device" : {
               "applewatch" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Raio"
+                  "state" : "translated",
+                  "value" : "Ra."
                 }
               },
               "other" : {
@@ -9909,7 +10167,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Rayo"
+            "value" : "Elemento rayo"
           }
         },
         "es-419" : {
@@ -9921,7 +10179,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elément Foudre"
+            "value" : "Elément foudre"
           }
         },
         "it" : {
@@ -9945,7 +10203,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento raio"
+            "value" : "Elemento Raio"
           }
         },
         "ru" : {
@@ -10285,7 +10543,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "？？？"
+            "value" : "???"
           }
         },
         "ko" : {
@@ -10315,13 +10573,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "？？？"
+            "value" : "???"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "？？？"
+            "value" : "???"
           }
         }
       }
@@ -10755,8 +11013,8 @@
             "device" : {
               "applewatch" : {
                 "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Água"
+                  "state" : "translated",
+                  "value" : "Ág."
                 }
               },
               "other" : {
@@ -10824,7 +11082,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Agua"
+            "value" : "Elemento agua"
           }
         },
         "es-419" : {
@@ -10836,7 +11094,7 @@
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elément Eau"
+            "value" : "Elément eau"
           }
         },
         "it" : {
@@ -10860,7 +11118,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento água"
+            "value" : "Elemento Água"
           }
         },
         "ru" : {
