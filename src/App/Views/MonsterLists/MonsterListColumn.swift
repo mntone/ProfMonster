@@ -64,6 +64,9 @@ struct MonsterListColumn: View {
 
 #if os(iOS)
 
+// List doesn't support selection on iPadOS 15.
+// This is back-ported selection.
+
 @available(iOS, introduced: 15.0, deprecated: 16.0, message: "Use MonsterListColumn instead")
 @available(macOS, unavailable)
 @available(watchOS, unavailable)
@@ -79,8 +82,11 @@ struct MonsterListColumnBackport: View {
 
 	var body: some View {
 		MonsterList(viewModel: viewModel) { item in
-			MonsterSelectableListItem(viewModel: item,
-									  selection: $selectedMonsterID)
+			MonsterListItem(viewModel: item.content) { content in
+				SelectableListRowBackport(tag: item.id, selection: $selectedMonsterID) {
+					content
+				}
+			}
 		}
 		.task(id: selectedGameID) {
 			viewModel.set(id: selectedGameID)

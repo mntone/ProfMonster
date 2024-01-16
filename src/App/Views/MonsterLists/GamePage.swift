@@ -12,7 +12,11 @@ struct GamePage: View {
 
 	var body: some View {
 		MonsterList(viewModel: viewModel) { item in
-			MonsterListNavigatableItem(viewModel: item)
+			MonsterListItem(viewModel: item.content) { content in
+				NavigationLink(value: MARoute.monster(id: item.content.id)) {
+					content
+				}
+			}
 		}
 		.task {
 			viewModel.set(id: id)
@@ -37,8 +41,13 @@ struct GamePageBackport: View {
 
 	var body: some View {
 		MonsterList(viewModel: viewModel) { item in
-			MonsterListNavigatableItemBackport(viewModel: item,
-											   selection: $selection)
+			MonsterListItem(viewModel: item.content) { content in
+				NavigationLink(tag: item.id, selection: $selection) {
+					MonsterPage(id: item.content.id)
+				} label: {
+					content
+				}
+			}
 		}
 		.background {
 			if let restoreMonsterID {

@@ -266,8 +266,6 @@
 		EBF684A72B2D50060071981F /* PhysiologyMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A62B2D50060071981F /* PhysiologyMapper.swift */; };
 		EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */; };
 		EBF684AA2B2D88450071981F /* MonsterDataViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */; };
-		EBF706F02B3C03F100AE88C4 /* MonsterListItemContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */; };
-		EBF706F12B3C03F100AE88C4 /* MonsterListItemContainers.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */; };
 		EBF706F42B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF706F32B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift */; };
 		EBF706F52B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF706F32B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift */; };
 		EBF9282B2B1038C9007D59D4 /* MAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9282A2B1038C9007D59D4 /* MAApp.swift */; };
@@ -539,7 +537,6 @@
 		EBF684A32B2D4C5D0071981F /* Physiology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Physiology.swift; sourceTree = "<group>"; };
 		EBF684A62B2D50060071981F /* PhysiologyMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyMapper.swift; sourceTree = "<group>"; };
 		EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterDataViewModel.swift; sourceTree = "<group>"; };
-		EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListItemContainers.swift; sourceTree = "<group>"; };
 		EBF706F32B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncPreviewSupport.swift; sourceTree = "<group>"; };
 		EBF928272B1038C9007D59D4 /* MonsterAnalyzer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterAnalyzer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBF9282A2B1038C9007D59D4 /* MAApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAApp.swift; sourceTree = "<group>"; };
@@ -986,7 +983,6 @@
 				EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */,
 				EB8778222B26B28500B3359C /* MonsterListColumn.swift */,
 				EB8778242B26B38200B3359C /* MonsterListItem.swift */,
-				EBF706EF2B3C03F100AE88C4 /* MonsterListItemContainers.swift */,
 				EB5445592B527F80008E7A48 /* OpenWindowButton.swift */,
 				EBC0510F2B54C8A200D084E2 /* SortToolbarMenu.swift */,
 			);
@@ -1441,7 +1437,6 @@
 				EBF684AA2B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
 				EB7DAA602B4FCBF20003210E /* MonsterList.swift in Sources */,
 				EB8778262B26B38200B3359C /* MonsterListItem.swift in Sources */,
-				EBF706F12B3C03F100AE88C4 /* MonsterListItemContainers.swift in Sources */,
 				EB7DAA692B4FD36D0003210E /* MonsterPage.swift in Sources */,
 				EBEAB0C42B423A7200CC25A8 /* MonsterView.swift in Sources */,
 				EBB4B2122B175DE7004D63EA /* MonsterViewModel.swift in Sources */,
@@ -1611,7 +1606,6 @@
 				EB7DAA5F2B4FCBF20003210E /* MonsterList.swift in Sources */,
 				EB8778232B26B28500B3359C /* MonsterListColumn.swift in Sources */,
 				EB8778252B26B38200B3359C /* MonsterListItem.swift in Sources */,
-				EBF706F02B3C03F100AE88C4 /* MonsterListItemContainers.swift in Sources */,
 				EBEAB0C32B42378100CC25A8 /* MonsterNavigationBarHeader.swift in Sources */,
 				EB7DAA682B4FD36D0003210E /* MonsterPage.swift in Sources */,
 				EBF9282D2B1038C9007D59D4 /* MonsterView.swift in Sources */,
