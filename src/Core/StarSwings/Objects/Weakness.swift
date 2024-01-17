@@ -1,16 +1,19 @@
 import Foundation
 
 public struct Weakness {
+	public let state: String
 	public let packedValue: UInt16
 
-	init(packedValue: UInt16) {
+	init(state: String, packedValue: UInt16) {
+		self.state = state
 		self.packedValue = packedValue
 	}
 
-	init?(string: String) {
+	init?(state: String, string: String) {
 		guard string.count >= 5 else {
 			return nil
 		}
+		self.state = state
 
 		var index = string.startIndex
 		var packedValue: UInt16 = 0
@@ -66,6 +69,23 @@ public struct Weakness {
 		}
 	}
 
+	public func value(of attack: Attack) -> Effectiveness {
+		switch attack {
+		case .fire:
+			return fire
+		case .water:
+			return water
+		case .thunder:
+			return thunder
+		case .ice:
+			return ice
+		case .dragon:
+			return dragon
+		default:
+			fatalError("Failed to get value.")
+		}
+	}
+
 	private static func getEffectiveness(_ value: Character,
 										 effective: Character,
 										 mostEffective: Character) -> UInt16 {
@@ -73,6 +93,8 @@ public struct Weakness {
 		case mostEffective:
 			0b11
 		case effective:
+			0b10
+		case "_":
 			0b01
 		default:
 			0b00

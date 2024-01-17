@@ -6,9 +6,9 @@ struct DisplaySettingsPane: View {
 	private(set) var viewModel: SettingsViewModel
 
 #if !os(watchOS)
-	private let mockData: [WeaknessSectionViewModel] = {
+	private let mockData: [NumberWeaknessSectionViewModel] = {
 		let mock = MockData.physiology(.guluQoo)!
-		let baseViewModel = WeaknessSectionViewModel("settings", rawValue: mock.sections[0])
+		let baseViewModel = NumberWeaknessSectionViewModel(prefixID: "settings", rawValue: mock.sections[0])
 		return [baseViewModel]
 	}()
 #endif
@@ -108,9 +108,8 @@ struct DisplaySettingsPane: View {
 					let mode = viewModel.elementDisplay
 					if mode != .none {
 						Section("Preview") {
-							let viewModel = WeaknessViewModel(id: "settings", displayMode: mode, sections: mockData)
-							FixedWidthWeaknessView(viewModel: viewModel)
-								.preferredVerticalPadding()
+							let viewModel = NumberWeaknessViewModel(id: "settings", displayMode: mode, sections: mockData)
+							WeaknessView(viewModel: viewModel)
 						}
 					}
 				}

@@ -42,23 +42,23 @@ struct MonsterDataView: View {
 	var body: some View {
 		if let weakness = viewModel.weakness {
 			Section("Weakness") {
-				FixedWidthWeaknessView(viewModel: weakness)
+				WeaknessView(viewModel: weakness)
 			}
 		}
 
 		Section {
-			let headerHidden = viewModel.physiologies.sections.count <= 1
-			ForEach(viewModel.physiologies.sections) { section in
+			if let physiologies = viewModel.physiologies {
+				let headerHidden = physiologies.sections.count <= 1
+				ForEach(physiologies.sections) { section in
 #if os(macOS)
-				PhysiologyView(viewModel: section, headerHidden: headerHidden)
+					PhysiologyView(viewModel: section, headerHidden: headerHidden)
 #else
-				HeaderScrollablePhysiologyView(viewModel: section,
-											   headerHidden: headerHidden)
+					HeaderScrollablePhysiologyView(viewModel: section,
+												   headerHidden: headerHidden)
+						.listRowInsets(.zero)
 #endif
+				}
 			}
-#if !os(macOS)
-			.listRowInsets(.zero)
-#endif
 		} header: {
 			Text("Physiology")
 		} footer: {

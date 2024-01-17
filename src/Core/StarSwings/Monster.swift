@@ -82,7 +82,15 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 
 		self.id = id
 		self.type = monster.type
-		self.weaknesses = monster.weakness?.compactMapValues(Weakness.init(string:))
+		self.weaknesses = monster.weakness.map { weakness in
+			Dictionary(uniqueKeysWithValues: weakness.compactMap { key, value in
+				let localizedStateName = languageService.getLocalizedString(of: key, for: .state)
+				guard let weakness = Weakness(state: localizedStateName, string: value) else {
+					return nil
+				}
+				return (key, weakness)
+			})
+		}
 		self.name = localization.name
 
 		let readableName = localization.readableName ?? languageService.readable(from: localization.name)

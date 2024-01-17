@@ -80,6 +80,7 @@ public struct PhysiologySection {
 	public typealias AverageFloat = Float16
 #endif
 
+	public let key: String
 	public let label: String
 	public let groups: [PhysiologyGroup]
 	public let average: PhysiologyValue<AverageFloat>

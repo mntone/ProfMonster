@@ -12,8 +12,10 @@ public enum Effectiveness: UInt16 {
 			mostEffective
 		case .effective:
 			effective
-		case .hardlyEffective, .ineffective:
+		case .hardlyEffective:
 			"_"
+		case .ineffective:
+			" "
 		}
 	}
 }

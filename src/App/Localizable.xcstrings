@@ -240,7 +240,7 @@
       }
     },
     "+" : {
-      "comment" : "Effective",
+      "comment" : "Effectiveness",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -329,7 +329,7 @@
       }
     },
     "++" : {
-      "comment" : "Effective",
+      "comment" : "Effectiveness",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -418,7 +418,7 @@
       }
     },
     "+++" : {
-      "comment" : "Effective",
+      "comment" : "Effectiveness",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -507,7 +507,7 @@
       }
     },
     "0" : {
-      "comment" : "Effective",
+      "comment" : "Effectiveness",
       "localizations" : {
         "ar" : {
           "stringUnit" : {

@@ -131,13 +131,15 @@ struct PhysiologyMapper {
 								   items: items,
 								   isReference: false)
 		}
-		let defaultSection = PhysiologySection(label: _languageService.getLocalizedString(of: "default", for: .state),
+		let defaultSection = PhysiologySection(key: "default",
+											   label: _languageService.getLocalizedString(of: "default", for: .state),
 											   groups: defaultSectionData,
 											   average: Self.getAverages(defaultSectionData))
 
 		var abnormalSections = filteredAllAbnormalStates.map { targetState in
 			let sectionData = map(targetState, of: src.physiologies, merge: options.mergeParts)
-			return PhysiologySection(label: _languageService.getLocalizedString(of: targetState, for: .state),
+			return PhysiologySection(key: targetState,
+									 label: _languageService.getLocalizedString(of: targetState, for: .state),
 									 groups: sectionData,
 									 average: Self.getAverages(sectionData))
 		}

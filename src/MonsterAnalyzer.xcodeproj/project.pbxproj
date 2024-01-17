@@ -52,6 +52,20 @@
 		EB560BCF2B42F48800E91E01 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */; };
 		EB560BD42B4386D700E91E01 /* StateOverlayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BD32B4386D700E91E01 /* StateOverlayModifier.swift */; };
 		EB560BD52B4386D700E91E01 /* StateOverlayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BD32B4386D700E91E01 /* StateOverlayModifier.swift */; };
+		EB5672022B5747ED00592413 /* WeaknessItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672002B5746EA00592413 /* WeaknessItemViewModel.swift */; };
+		EB5672032B5747ED00592413 /* WeaknessItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672002B5746EA00592413 /* WeaknessItemViewModel.swift */; };
+		EB5672052B574B7800592413 /* WeaknessSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672042B574B7800592413 /* WeaknessSectionViewModel.swift */; };
+		EB5672062B574B7800592413 /* WeaknessSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672042B574B7800592413 /* WeaknessSectionViewModel.swift */; };
+		EB56720C2B57870200592413 /* SignWeaknessItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56720B2B57870200592413 /* SignWeaknessItemView.swift */; };
+		EB56720D2B57870200592413 /* SignWeaknessItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56720B2B57870200592413 /* SignWeaknessItemView.swift */; };
+		EB56720F2B5787DA00592413 /* NumberWeaknessItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56720E2B5787DA00592413 /* NumberWeaknessItemView.swift */; };
+		EB5672112B578FFD00592413 /* SignWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672102B578FFD00592413 /* SignWeaknessSectionView.swift */; };
+		EB5672122B578FFD00592413 /* SignWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672102B578FFD00592413 /* SignWeaknessSectionView.swift */; };
+		EB5672142B5790BF00592413 /* NumberWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672132B5790BF00592413 /* NumberWeaknessSectionView.swift */; };
+		EB5672182B57935300592413 /* WeaknessViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672172B57935300592413 /* WeaknessViewMetrics.swift */; };
+		EB5672192B57935300592413 /* WeaknessViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672172B57935300592413 /* WeaknessViewMetrics.swift */; };
+		EB56722E2B580E3700592413 /* WidthChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722D2B580E3700592413 /* WidthChangeModifier.swift */; };
+		EB56722F2B580E3700592413 /* WidthChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722D2B580E3700592413 /* WidthChangeModifier.swift */; };
 		EB5941CE2B39ABD1005BC27C /* MonsterAnalyzerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EBB4B1F22B17593F004D63EA /* MonsterAnalyzerWatch.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB6297F22B37179200E830E6 /* View+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6297F12B37179200E830E6 /* View+Block.swift */; };
 		EB6297F32B37179200E830E6 /* View+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6297F12B37179200E830E6 /* View+Block.swift */; };
@@ -173,7 +187,7 @@
 		EBB4B1CD2B15D0C7004D63EA /* GamePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CC2B15D0C7004D63EA /* GamePage.swift */; };
 		EBB4B1D02B15E0C9004D63EA /* PhysiologyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CF2B15E0C9004D63EA /* PhysiologyView.swift */; };
 		EBB4B1D22B15ED1B004D63EA /* PhysiologyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D12B15ED1B004D63EA /* PhysiologyViewModel.swift */; };
-		EBB4B1D52B161691004D63EA /* Effective.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D42B161691004D63EA /* Effective.swift */; };
+		EBB4B1D52B161691004D63EA /* Effectiveness+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D42B161691004D63EA /* Effectiveness+Extensions.swift */; };
 		EBB4B1D72B161E94004D63EA /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */; };
 		EBB4B1E52B16A6D4004D63EA /* Attack+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E42B16A6D4004D63EA /* Attack+Extensions.swift */; };
 		EBB4B1ED2B1737EF004D63EA /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBB4B1EC2B1737EF004D63EA /* Colors.xcassets */; };
@@ -183,14 +197,14 @@
 		EBB4B2052B175D4A004D63EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B2032B175D49004D63EA /* ContentView.swift */; };
 		EBB4B2062B175DAB004D63EA /* MAApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9282A2B1038C9007D59D4 /* MAApp.swift */; };
 		EBB4B2072B175DB8004D63EA /* GamePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CC2B15D0C7004D63EA /* GamePage.swift */; };
-		EBB4B20E2B175DE2004D63EA /* Effective.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D42B161691004D63EA /* Effective.swift */; };
+		EBB4B20E2B175DE2004D63EA /* Effectiveness+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D42B161691004D63EA /* Effectiveness+Extensions.swift */; };
 		EBB4B2122B175DE7004D63EA /* MonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C62B15BF48004D63EA /* MonsterViewModel.swift */; };
 		EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D12B15ED1B004D63EA /* PhysiologyViewModel.swift */; };
 		EBB4B2142B175DE7004D63EA /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */; };
 		EBB4B2152B175DE7004D63EA /* WeaknessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C42B15BDA7004D63EA /* WeaknessViewModel.swift */; };
 		EBB4B2162B175DE7004D63EA /* Attack+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E42B16A6D4004D63EA /* Attack+Extensions.swift */; };
 		EBB4B2172B175DED004D63EA /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */; };
-		EBB4B21C2B176CE7004D63EA /* FixedWidthWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */; };
+		EBB4B21C2B176CE7004D63EA /* WeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* WeaknessView.swift */; };
 		EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */; };
 		EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */; };
 		EBBBAAB42B3FADEB00BBAB23 /* GameItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */; };
@@ -217,7 +231,7 @@
 		EBCA22292B21A58C00C487AD /* ToolbarItemBackportModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA22282B21A58C00C487AD /* ToolbarItemBackportModifier.swift */; };
 		EBCA222B2B221E5700C487AD /* SettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA222A2B221E5700C487AD /* SettingsContainer.swift */; };
 		EBCA222D2B222ECB00C487AD /* ToolbarItemBackportModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBCA22282B21A58C00C487AD /* ToolbarItemBackportModifier.swift */; };
-		EBCA222E2B228C6800C487AD /* FixedWidthWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */; };
+		EBCA222E2B228C6800C487AD /* WeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* WeaknessView.swift */; };
 		EBD0A3F02B53669F006D7E6A /* Publisher+Value.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD0A3EF2B53669F006D7E6A /* Publisher+Value.swift */; };
 		EBD2FC242B4C20BE00F7B6FF /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD2FC232B4C20BE00F7B6FF /* Logger.swift */; };
 		EBD2FC262B4C260600F7B6FF /* AppleLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD2FC252B4C260600F7B6FF /* AppleLogger.swift */; };
@@ -395,6 +409,14 @@
 		EB5445592B527F80008E7A48 /* OpenWindowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWindowButton.swift; sourceTree = "<group>"; };
 		EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		EB560BD32B4386D700E91E01 /* StateOverlayModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOverlayModifier.swift; sourceTree = "<group>"; };
+		EB5672002B5746EA00592413 /* WeaknessItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaknessItemViewModel.swift; sourceTree = "<group>"; };
+		EB5672042B574B7800592413 /* WeaknessSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaknessSectionViewModel.swift; sourceTree = "<group>"; };
+		EB56720B2B57870200592413 /* SignWeaknessItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignWeaknessItemView.swift; sourceTree = "<group>"; };
+		EB56720E2B5787DA00592413 /* NumberWeaknessItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberWeaknessItemView.swift; sourceTree = "<group>"; };
+		EB5672102B578FFD00592413 /* SignWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignWeaknessSectionView.swift; sourceTree = "<group>"; };
+		EB5672132B5790BF00592413 /* NumberWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberWeaknessSectionView.swift; sourceTree = "<group>"; };
+		EB5672172B57935300592413 /* WeaknessViewMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaknessViewMetrics.swift; sourceTree = "<group>"; };
+		EB56722D2B580E3700592413 /* WidthChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidthChangeModifier.swift; sourceTree = "<group>"; };
 		EB6297F12B37179200E830E6 /* View+Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Block.swift"; sourceTree = "<group>"; };
 		EB6437912B46EE3B00E8D02B /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
 		EB6437932B46EF5400E8D02B /* SwipeAction+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipeAction+Extensions.swift"; sourceTree = "<group>"; };
@@ -485,14 +507,14 @@
 		EBB4B1CC2B15D0C7004D63EA /* GamePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GamePage.swift; sourceTree = "<group>"; };
 		EBB4B1CF2B15E0C9004D63EA /* PhysiologyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyView.swift; sourceTree = "<group>"; };
 		EBB4B1D12B15ED1B004D63EA /* PhysiologyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyViewModel.swift; sourceTree = "<group>"; };
-		EBB4B1D42B161691004D63EA /* Effective.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effective.swift; sourceTree = "<group>"; };
+		EBB4B1D42B161691004D63EA /* Effectiveness+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Effectiveness+Extensions.swift"; sourceTree = "<group>"; };
 		EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		EBB4B1E22B163B0E004D63EA /* Attack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Attack.swift; sourceTree = "<group>"; };
 		EBB4B1E42B16A6D4004D63EA /* Attack+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Attack+Extensions.swift"; sourceTree = "<group>"; };
 		EBB4B1EC2B1737EF004D63EA /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		EBB4B1F22B17593F004D63EA /* MonsterAnalyzerWatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonsterAnalyzerWatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBB4B2032B175D49004D63EA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FixedWidthWeaknessView.swift; sourceTree = "<group>"; };
+		EBB4B21B2B176CE7004D63EA /* WeaknessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaknessView.swift; sourceTree = "<group>"; };
 		EBB4B21E2B177691004D63EA /* MALanguageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MALanguageService.swift; sourceTree = "<group>"; };
 		EBB4B2222B17770E004D63EA /* LanguageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageService.swift; sourceTree = "<group>"; };
 		EBB4B22B2B178302004D63EA /* MHLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHLocalization.swift; sourceTree = "<group>"; };
@@ -605,7 +627,6 @@
 		EB2B05B92B3AAA0200E0BFD3 /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				EBB4B1D42B161691004D63EA /* Effective.swift */,
 				EB6EF7DD2B4A0DB200646BBD /* RequestState.swift */,
 			);
 			path = Enums;
@@ -653,6 +674,29 @@
 				EBC051112B5503DC00D084E2 /* UIView+Swizzle.swift */,
 			);
 			path = iOS;
+			sourceTree = "<group>";
+		};
+		EB5671FF2B5746AA00592413 /* Weaknesses */ = {
+			isa = PBXGroup;
+			children = (
+				EB5672002B5746EA00592413 /* WeaknessItemViewModel.swift */,
+				EB5672042B574B7800592413 /* WeaknessSectionViewModel.swift */,
+				EBB4B1C42B15BDA7004D63EA /* WeaknessViewModel.swift */,
+			);
+			path = Weaknesses;
+			sourceTree = "<group>";
+		};
+		EB56720A2B5786EC00592413 /* Weaknesses */ = {
+			isa = PBXGroup;
+			children = (
+				EB56720E2B5787DA00592413 /* NumberWeaknessItemView.swift */,
+				EB5672132B5790BF00592413 /* NumberWeaknessSectionView.swift */,
+				EB56720B2B57870200592413 /* SignWeaknessItemView.swift */,
+				EB5672102B578FFD00592413 /* SignWeaknessSectionView.swift */,
+				EBB4B21B2B176CE7004D63EA /* WeaknessView.swift */,
+				EB5672172B57935300592413 /* WeaknessViewMetrics.swift */,
+			);
+			path = Weaknesses;
 			sourceTree = "<group>";
 		};
 		EB60764B2B33F5B900AF9121 /* macOS */ = {
@@ -832,6 +876,7 @@
 				EB2B05B92B3AAA0200E0BFD3 /* Enums */,
 				EBFEAB852B45A7F7005363F7 /* Protocols */,
 				EBC85C632B202DCD008A16C6 /* Utils */,
+				EB5671FF2B5746AA00592413 /* Weaknesses */,
 				EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */,
 				EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */,
 				EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */,
@@ -840,7 +885,6 @@
 				EBB4B1C62B15BF48004D63EA /* MonsterViewModel.swift */,
 				EBB4B1D12B15ED1B004D63EA /* PhysiologyViewModel.swift */,
 				EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */,
-				EBB4B1C42B15BDA7004D63EA /* WeaknessViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -857,7 +901,7 @@
 				EBA66F162B355BF5009DE78C /* Settings */,
 				EBC85C6D2B204174008A16C6 /* Styles */,
 				EBC85C6E2B205397008A16C6 /* Utils */,
-				EBB4B21B2B176CE7004D63EA /* FixedWidthWeaknessView.swift */,
+				EB56720A2B5786EC00592413 /* Weaknesses */,
 				EB9620F12B1D8E1300FD7115 /* HomePage.swift */,
 				EB645A632B2685D500D27500 /* Sidebar.swift */,
 			);
@@ -900,6 +944,7 @@
 			children = (
 				EBB4B1E42B16A6D4004D63EA /* Attack+Extensions.swift */,
 				EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */,
+				EBB4B1D42B161691004D63EA /* Effectiveness+Extensions.swift */,
 				EB95FFD32B5658EF009BE15E /* GroupOption+Extensions.swift */,
 				EBB057532B47A77500AC08F5 /* IdentifyHolder.swift */,
 				EBBF861F2B4692D500F76D03 /* Sort+Extensions.swift */,
@@ -967,6 +1012,7 @@
 				EB97F6A72B31BCDE00E31602 /* SharedGameListModifier.swift */,
 				EB560BD32B4386D700E91E01 /* StateOverlayModifier.swift */,
 				EBCA22282B21A58C00C487AD /* ToolbarItemBackportModifier.swift */,
+				EB56722D2B580E3700592413 /* WidthChangeModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -1423,12 +1469,11 @@
 				EB9922812B357D9400DBA812 /* DisplaySettingsPane.swift in Sources */,
 				EB6FF1D72B48CFEE00118E0F /* DrillDownSettingsContainer.swift in Sources */,
 				EBC85C7E2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */,
-				EBB4B20E2B175DE2004D63EA /* Effective.swift in Sources */,
+				EBB4B20E2B175DE2004D63EA /* Effectiveness+Extensions.swift in Sources */,
 				EB8778292B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */,
 				EB6437982B4702DD00E8D02B /* EnvironmentValues+Settings.swift in Sources */,
 				EB560BCF2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
 				EBBF86252B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */,
-				EBB4B21C2B176CE7004D63EA /* FixedWidthWeaknessView.swift in Sources */,
 				EBBBAABA2B3FE27000BBAB23 /* GameGroupViewModel.swift in Sources */,
 				EBBBAAB52B3FADEB00BBAB23 /* GameItemViewModel.swift in Sources */,
 				EBB4B2072B175DB8004D63EA /* GamePage.swift in Sources */,
@@ -1466,6 +1511,8 @@
 				EB97F6A92B31BCDE00E31602 /* SharedGameListModifier.swift in Sources */,
 				EB3B49232B35EAD100E89711 /* SharedSettingsContainerModifier.swift in Sources */,
 				EB6ADE752B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */,
+				EB56720D2B57870200592413 /* SignWeaknessItemView.swift in Sources */,
+				EB5672122B578FFD00592413 /* SignWeaknessSectionView.swift in Sources */,
 				EBBF86212B4692D500F76D03 /* Sort+Extensions.swift in Sources */,
 				EB645A612B26749E00D27500 /* StackContentView.swift in Sources */,
 				EB693EA82B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
@@ -1481,7 +1528,12 @@
 				EBC85C772B205F67008A16C6 /* WatchMetricsKey.swift in Sources */,
 				EBC85C752B205DE0008A16C6 /* WatchUtil.swift in Sources */,
 				EB99DBCE2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift in Sources */,
+				EB5672022B5747ED00592413 /* WeaknessItemViewModel.swift in Sources */,
+				EB5672062B574B7800592413 /* WeaknessSectionViewModel.swift in Sources */,
+				EBB4B21C2B176CE7004D63EA /* WeaknessView.swift in Sources */,
+				EB5672192B57935300592413 /* WeaknessViewMetrics.swift in Sources */,
 				EBB4B2152B175DE7004D63EA /* WeaknessViewModel.swift in Sources */,
+				EB56722F2B580E3700592413 /* WidthChangeModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1591,13 +1643,12 @@
 				EB28F1B32B370F0700291055 /* DividedHStack.swift in Sources */,
 				EBA66F1A2B355EDE009DE78C /* DrillDownSettingsContainer.swift in Sources */,
 				EBC85C7D2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */,
-				EBB4B1D52B161691004D63EA /* Effective.swift in Sources */,
+				EBB4B1D52B161691004D63EA /* Effectiveness+Extensions.swift in Sources */,
 				EB8778282B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */,
 				EB6437972B4702DD00E8D02B /* EnvironmentValues+Settings.swift in Sources */,
 				EB560BCE2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
 				EBFEAB842B45A5DC005363F7 /* FavoriteContextMenuButton.swift in Sources */,
 				EBBF86242B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */,
-				EBCA222E2B228C6800C487AD /* FixedWidthWeaknessView.swift in Sources */,
 				EBDFD8512B3C112A00AF1832 /* GameGroupViewModel.swift in Sources */,
 				EBBBAAB42B3FADEB00BBAB23 /* GameItemViewModel.swift in Sources */,
 				EBB4B1CD2B15D0C7004D63EA /* GamePage.swift in Sources */,
@@ -1622,6 +1673,8 @@
 				EBB4B1C72B15BF48004D63EA /* MonsterViewModel.swift in Sources */,
 				EB5445582B527D12008E7A48 /* MonsterWindow.swift in Sources */,
 				EB5445542B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift in Sources */,
+				EB56720F2B5787DA00592413 /* NumberWeaknessItemView.swift in Sources */,
+				EB5672142B5790BF00592413 /* NumberWeaknessSectionView.swift in Sources */,
 				EB19D6712B1EBE8400C90417 /* ObservableHorizontalScrollView.swift in Sources */,
 				EB54455A2B527F80008E7A48 /* OpenWindowButton.swift in Sources */,
 				EBB4B1D02B15E0C9004D63EA /* PhysiologyView.swift in Sources */,
@@ -1645,6 +1698,8 @@
 				EB3B49222B35EAD100E89711 /* SharedSettingsContainerModifier.swift in Sources */,
 				EB6ADE742B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */,
 				EB645A642B2685D500D27500 /* Sidebar.swift in Sources */,
+				EB56720C2B57870200592413 /* SignWeaknessItemView.swift in Sources */,
+				EB5672112B578FFD00592413 /* SignWeaknessSectionView.swift in Sources */,
 				EBBF86202B4692D500F76D03 /* Sort+Extensions.swift in Sources */,
 				EBC051102B54C8A200D084E2 /* SortToolbarMenu.swift in Sources */,
 				EB645A652B269EF300D27500 /* StackContentView.swift in Sources */,
@@ -1660,7 +1715,12 @@
 				EB2B0FAB2B3925E3004596A6 /* View+Cursor.swift in Sources */,
 				EB87782E2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */,
 				EB99DBCD2B36D16B00A43552 /* WeaknessDisplayMode+Extensions.swift in Sources */,
+				EB5672032B5747ED00592413 /* WeaknessItemViewModel.swift in Sources */,
+				EB5672052B574B7800592413 /* WeaknessSectionViewModel.swift in Sources */,
+				EBCA222E2B228C6800C487AD /* WeaknessView.swift in Sources */,
+				EB5672182B57935300592413 /* WeaknessViewMetrics.swift in Sources */,
 				EBB4B1C52B15BDA7004D63EA /* WeaknessViewModel.swift in Sources */,
+				EB56722E2B580E3700592413 /* WidthChangeModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -78,18 +78,31 @@ final class MonsterViewModel: ObservableObject {
 				guard let self else { return }
 				switch state {
 				case .ready, .loading:
-					self.state = .loading
+					if self.state != .loading {
+						self.state = .loading
+
+						if let weaknesses = monster.weaknesses {
+							self.item = MonsterDataViewModel(monster.id,
+															 copyright: monster.game?.copyright,
+															 displayMode: elementDisplay,
+															 weaknesses: weaknesses)
+						} else {
+							self.item = nil
+						}
+						self.objectWillChange.send()
+					}
 				case let .complete(physiology):
 					self.state = .complete
 					self.item = MonsterDataViewModel(monster.id,
 													 copyright: monster.game?.copyright,
 													 displayMode: elementDisplay,
 													 rawValue: physiology)
+					self.objectWillChange.send()
 				case let .failure(date, error):
 					self.state = .failure(date: date, error: error)
 					self.item = nil
+					self.objectWillChange.send()
 				}
-				self.objectWillChange.send()
 			}
 
 		monster.isFavoritedPublisher
