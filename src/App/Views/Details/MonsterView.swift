@@ -58,11 +58,16 @@ struct MonsterDataView: View {
 						.listRowInsets(.zero)
 #endif
 				}
+			} else {
+				ProgressIndicatorView()
+					.padding(.vertical, 20)
+					.frame(maxWidth: .infinity)
 			}
 		} header: {
 			Text("Physiology")
 		} footer: {
-			if let copyright = viewModel.copyright {
+			if viewModel.physiologies != nil,
+			   let copyright = viewModel.copyright {
 				Text(copyright)
 #if os(macOS)
 					.foregroundStyle(.secondary)
@@ -127,7 +132,6 @@ struct MonsterView: View {
 			}
 		}
 #endif
-		.stateOverlay(viewModel.state)
 		.toolbarItemBackport(alignment: .trailing) {
 			FavoriteButton(favorite: $viewModel.isFavorited)
 				.disabled(viewModel.isDisabled)

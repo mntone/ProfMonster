@@ -56,6 +56,8 @@
 		EB5672032B5747ED00592413 /* WeaknessItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672002B5746EA00592413 /* WeaknessItemViewModel.swift */; };
 		EB5672052B574B7800592413 /* WeaknessSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672042B574B7800592413 /* WeaknessSectionViewModel.swift */; };
 		EB5672062B574B7800592413 /* WeaknessSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672042B574B7800592413 /* WeaknessSectionViewModel.swift */; };
+		EB5672082B57748D00592413 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672072B57748D00592413 /* ProgressIndicatorView.swift */; };
+		EB5672092B57748D00592413 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672072B57748D00592413 /* ProgressIndicatorView.swift */; };
 		EB56720C2B57870200592413 /* SignWeaknessItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56720B2B57870200592413 /* SignWeaknessItemView.swift */; };
 		EB56720D2B57870200592413 /* SignWeaknessItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56720B2B57870200592413 /* SignWeaknessItemView.swift */; };
 		EB56720F2B5787DA00592413 /* NumberWeaknessItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56720E2B5787DA00592413 /* NumberWeaknessItemView.swift */; };
@@ -411,6 +413,7 @@
 		EB560BD32B4386D700E91E01 /* StateOverlayModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOverlayModifier.swift; sourceTree = "<group>"; };
 		EB5672002B5746EA00592413 /* WeaknessItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaknessItemViewModel.swift; sourceTree = "<group>"; };
 		EB5672042B574B7800592413 /* WeaknessSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaknessSectionViewModel.swift; sourceTree = "<group>"; };
+		EB5672072B57748D00592413 /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
 		EB56720B2B57870200592413 /* SignWeaknessItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignWeaknessItemView.swift; sourceTree = "<group>"; };
 		EB56720E2B5787DA00592413 /* NumberWeaknessItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberWeaknessItemView.swift; sourceTree = "<group>"; };
 		EB5672102B578FFD00592413 /* SignWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignWeaknessSectionView.swift; sourceTree = "<group>"; };
@@ -1120,6 +1123,7 @@
 				EB967A472B2AC6E80041A491 /* LazyView.swift */,
 				EB5445532B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift */,
 				EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */,
+				EB5672072B57748D00592413 /* ProgressIndicatorView.swift */,
 				EBEA6F732B18B56700734AAA /* UnevenRoundedRectangleBackport.swift */,
 			);
 			path = Components;
@@ -1497,6 +1501,7 @@
 				EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */,
 				EB6FF1E02B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */,
+				EB5672092B57748D00592413 /* ProgressIndicatorView.swift in Sources */,
 				EB6EF7DF2B4A0DB200646BBD /* RequestState.swift in Sources */,
 				EBEA6F722B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
 				EB6FF1D82B48CFF600118E0F /* SettingsContainer.swift in Sources */,
@@ -1681,6 +1686,7 @@
 				EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B1D22B15ED1B004D63EA /* PhysiologyViewModel.swift in Sources */,
 				EB6FF1DF2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */,
+				EB5672082B57748D00592413 /* ProgressIndicatorView.swift in Sources */,
 				EB6EF7DE2B4A0DB200646BBD /* RequestState.swift in Sources */,
 				EB5445562B527CE2008E7A48 /* Scene+Extensions.swift in Sources */,
 				EBEA6F712B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,

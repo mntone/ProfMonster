@@ -1,20 +1,5 @@
 import SwiftUI
 
-#if !os(macOS)
-
-@available(macOS, unavailable)
-private struct ProgressIndicatorView: View {
-	var body: some View {
-		Color.clear
-		VStack(spacing: 10) {
-			ProgressView()
-			Text("Loading…")
-		}
-	}
-}
-
-#endif
-
 #if !os(watchOS)
 
 @available(watchOS, unavailable)
@@ -46,8 +31,15 @@ private struct DelayedProgressIndicatorView: View {
 
 #endif
 
-struct StateOverlayModifier: ViewModifier {
+struct StateOverlayModifier<ProgressIndicator: View>: ViewModifier {
 	let state: RequestState
+	let progressIndicator: ProgressIndicator
+
+	fileprivate init(state: RequestState,
+					 progressIndicator: ProgressIndicator) {
+		self.state = state
+		self.progressIndicator = progressIndicator
+	}
 
 	func body(content: Content) -> some View {
 		content.overlay {
@@ -59,10 +51,8 @@ struct StateOverlayModifier: ViewModifier {
 				} else {
 					ProgressIndicatorView()
 				}
-#elseif os(macOS)
-				DelayedProgressIndicatorView()
 #else
-				ProgressIndicatorView()
+				progressIndicator
 #endif
 			case let .failure(_, error):
 				Text(error.label)
@@ -77,7 +67,18 @@ struct StateOverlayModifier: ViewModifier {
 extension View {
 	@inline(__always)
 	@ViewBuilder
-	func stateOverlay(_ state: RequestState) -> ModifiedContent<Self, StateOverlayModifier> {
-		modifier(StateOverlayModifier(state: state))
+	func stateOverlay(_ state: RequestState) -> ModifiedContent<Self, StateOverlayModifier<Group<TupleView<(Color, ProgressIndicatorView)>>>> {
+		modifier(StateOverlayModifier(state: state, progressIndicator: Group {
+			Color.clear
+			ProgressIndicatorView()
+		}))
+	}
+
+	@inline(__always)
+	@ViewBuilder
+	func stateOverlay<ProgressIndicator>(
+		_ state: RequestState,
+		@ViewBuilder progressIndicator: () -> ProgressIndicator) -> ModifiedContent<Self, StateOverlayModifier<ProgressIndicator>> {
+		modifier(StateOverlayModifier(state: state, progressIndicator: progressIndicator()))
 	}
 }
