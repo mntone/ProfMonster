@@ -3,7 +3,7 @@ import Swinject
 
 struct AppAssembly: Assembly {
 	func assemble(container: Container) {
-		let app = App(resolver: container)
+		let app = App(resolver: container.synchronize())
 		container.register(App.self) { _ in
 			app
 		}
