@@ -5,10 +5,10 @@ struct NumberWeaknessSectionView: View {
 	let fractionLength: Int
 	let viewModel: NumberWeaknessSectionViewModel
 
-#if !os(macOS)
-	@Environment(\.dynamicTypeSize.isAccessibilitySize)
-	private var isAccessibilitySize
+	@Environment(\.horizontalLayoutMargin)
+	private var horizontalLayoutMargin
 
+#if !os(macOS)
 	@ScaledMetric(relativeTo: .title2)
 	private var signFontSize: CGFloat = 22.0
 #endif
@@ -20,29 +20,31 @@ struct NumberWeaknessSectionView: View {
 	private var namespace
 
 	var body: some View {
-#if os(macOS)
-		let signFontSize = 22.0
-#endif
-		VStack(alignment: .leading, spacing: 5) {
+		VStack(alignment: .leading, spacing: MAFormMetrics.verticalRowInset) {
 			if !viewModel.isDefault {
-				DetailItemHeader(header: viewModel.header)
+				MAItemHeader(header: viewModel.header)
 			}
 
-			DividedHStack(alignment: .lastTextBaseline, spacing: 0) {
+#if os(macOS)
+			let signFontSize = 22.0
+			let padding = horizontalLayoutMargin
+#else
+			let padding = 0.5 * horizontalLayoutMargin
+#endif
+			DividedHStack(alignment: .bottom, spacing: 0) {
 				ForEach(viewModel.items) { item in
 					NumberWeaknessItemView(fractionLength: fractionLength,
 										   signFontSize: signFontSize,
 										   namespace: namespace,
 										   viewModel: item)
 				}
-				.padding(.horizontal, 8)
+				.padding(.horizontal, padding)
 				.frame(minWidth: 0,
 					   idealWidth: itemWidth,
 					   maxWidth: WeaknessViewMetrics.maxItemWidth,
 					   alignment: .leading)
 			}
-			.padding(.horizontal, -8)
-			.fixedSize(horizontal: false, vertical: true)
+			.padding(.horizontal, -padding)
 			.onWidthChange { width in
 				updateItemWidth(from: width)
 			}

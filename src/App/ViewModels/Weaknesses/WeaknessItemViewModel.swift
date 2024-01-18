@@ -4,7 +4,7 @@ import struct MonsterAnalyzerCore.PhysiologySection
 import SwiftUI
 
 protocol WeaknessItemViewModel: Identifiable {
-	typealias AverageFloat = PhysiologySection.AverageFloat
+	typealias AverageFloat = MonsterAnalyzerCore.PhysiologySection.AverageFloat
 
 	var attack: Attack { get }
 	var effectiveness: Effectiveness { get }

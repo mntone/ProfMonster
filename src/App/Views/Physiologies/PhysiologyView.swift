@@ -85,7 +85,7 @@ struct PhysiologyView: View {
 	var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
 			if !headerHidden {
-				DetailItemHeader(header: viewModel.header)
+				MAItemHeader(header: viewModel.header)
 			}
 
 #if os(macOS)

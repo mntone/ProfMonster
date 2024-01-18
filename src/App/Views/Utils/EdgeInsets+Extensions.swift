@@ -1,6 +1,14 @@
 import SwiftUI
 
 extension EdgeInsets {
+	init(vertical: CGFloat,
+		 horizontal: CGFloat) {
+		self.init(top: vertical,
+				  leading: horizontal,
+				  bottom: vertical,
+				  trailing: horizontal)
+	}
+
 	@inline(__always)
 	static var zero: EdgeInsets {
 		EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)

@@ -1,23 +1,14 @@
 import SwiftUI
 
-struct DeveloperMonsterView: View {
+struct DeveloperSection: View {
 	let pairs: [(String, String)]
 
 	var body: some View {
-		Section("Developer") {
+		MASection("Developer") {
 			ForEach(pairs, id: \.0) { (label, content) in
-				SettingsLabeledContent(label) {
-					Text(content)
-#if os(macOS)
-						.textSelection(.enabled)
-#endif
-						.foregroundStyle(.secondary)
-				}
+				MALabeledString(label, value: content)
 			}
 		}
-#if os(watchOS)
-		.listRowBackground(EmptyView())
-#endif
 	}
 }
 
@@ -26,7 +17,7 @@ struct DeveloperMonsterView: View {
 	let viewModel = MonsterViewModel()
 	viewModel.set(id: "mockgame:gulu_qoo")
 	return Form {
-		DeveloperMonsterView(pairs: viewModel.pairs)
+		DeveloperSection(pairs: viewModel.pairs)
 	}
 	.formStyle(.grouped)
 	.headerProminence(.increased)

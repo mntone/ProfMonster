@@ -1,53 +1,18 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
-#if os(iOS)
-import SwiftUIIntrospect
-#endif
-
-#if !os(watchOS)
-
-@available(watchOS, unavailable)
-struct MonsterTextEditor: View {
-	let text: Binding<String>
+struct PhysiologySection: View {
+	let physiologies: PhysiologiesViewModel?
+	let copyright: String?
 
 	var body: some View {
 #if os(macOS)
-		TextEditor(text: text)
-			.font(.body)
-			.backport.scrollContentBackground(.hidden, viewType: .textEditor)
+		let physiologyStyle: MASectionBackgroundStyle = .separatedInsetGrouped(rowInsets: nil)
 #else
-		if #available(iOS 16.0, *) {
-			TextField(text: text, axis: .vertical) {
-				EmptyView()
-			}
-		} else {
-			TextEditor(text: text)
-				.font(.body)
-				.listRowInsets(.zero)
-				.introspect(.textEditor, on: .iOS(.v15)) { (textView: UITextView) in
-					textView.showsVerticalScrollIndicator = false
-					textView.textContainerInset = UIEdgeInsets(top: 8, left: 16, bottom: 8, right: 16)
-				}
-		}
+		let physiologyStyle: MASectionBackgroundStyle = .separatedInsetGrouped(rowInsets: .zero)
 #endif
-	}
-}
-
-#endif
-
-struct MonsterDataView: View {
-	let viewModel: MonsterDataViewModel
-
-	var body: some View {
-		if let weakness = viewModel.weakness {
-			Section("Weakness") {
-				WeaknessView(viewModel: weakness)
-			}
-		}
-
-		Section {
-			if let physiologies = viewModel.physiologies {
+		MASection("Physiology", background: physiologyStyle) {
+			if let physiologies {
 				let headerHidden = physiologies.sections.count <= 1
 				ForEach(physiologies.sections) { section in
 #if os(macOS)
@@ -55,7 +20,6 @@ struct MonsterDataView: View {
 #else
 					HeaderScrollablePhysiologyView(viewModel: section,
 												   headerHidden: headerHidden)
-						.listRowInsets(.zero)
 #endif
 				}
 			} else {
@@ -63,15 +27,10 @@ struct MonsterDataView: View {
 					.padding(.vertical, 20)
 					.frame(maxWidth: .infinity)
 			}
-		} header: {
-			Text("Physiology")
 		} footer: {
-			if viewModel.physiologies != nil,
-			   let copyright = viewModel.copyright {
+			if physiologies != nil,
+			   let copyright {
 				Text(copyright)
-#if os(macOS)
-					.foregroundStyle(.secondary)
-#endif
 			}
 		}
 	}
@@ -85,46 +44,31 @@ struct MonsterView: View {
 	private(set) var viewModel: MonsterViewModel
 
 	var body: some View {
-		Form {
+		MAForm {
 			if let item = viewModel.item {
-				MonsterDataView(viewModel: item)
-
-#if os(watchOS)
-				if !viewModel.note.isEmpty {
-					Section("Notes") {
-						Text(viewModel.note)
+				if let weakness = item.weakness {
+					MASection("Weakness", background: .separatedInsetGrouped(rowInsets: nil)) {
+						WeaknessView(viewModel: weakness)
 					}
 				}
+
+				PhysiologySection(physiologies: item.physiologies,
+								  copyright: item.copyright)
+
+#if os(watchOS)
+				NotesSection(note: viewModel.note)
 #else
-				Section("Notes") {
-					MonsterTextEditor(text: $viewModel.note)
-						.disabled(viewModel.isDisabled)
-				}
+				NotesSection(note: $viewModel.note)
+					.disabled(viewModel.isDisabled)
 #endif
 
 				if settings?.showInternalInformation ?? false {
-					DeveloperMonsterView(pairs: viewModel.pairs)
-				}
-			} else {
-				Section {
-					Never?.none
-				} header: {
-					Color.clear
+					DeveloperSection(pairs: viewModel.pairs)
 				}
 			}
 		}
 #if os(iOS)
-		.backport.scrollDismissesKeyboard(.interactively)
-#endif
-		.block {
-			if #available(iOS 16.0, macOS 13.0, watchOS 9.0, *) {
-				$0.formStyle(.grouped)
-			} else {
-				$0
-			}
-		}
-		.headerProminence(.increased)
-#if os(iOS)
+		.backport.scrollViewScrollDismissesKeyboard(.interactively)
 		.toolbar {
 			ToolbarItem(placement: .principal) {
 				MonsterNavigationBarHeader(name: viewModel.name,

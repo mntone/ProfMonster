@@ -56,6 +56,17 @@ extension Backport where Content: View {
 			}
 		}
 	}
+
+	@ViewBuilder
+	public func scrollViewScrollDismissesKeyboard(_ mode: ScrollDismissesKeyboardModeBackport) -> some View {
+		if #available(iOS 16.0, *) {
+			content.scrollDismissesKeyboard(mode.nativeValue)
+		} else {
+			content.introspect(.scrollView, on: .iOS(.v14, .v15)) { scrollView in
+				scrollView.keyboardDismissMode = mode.backportValue
+			}
+		}
+	}
 }
 
 #endif

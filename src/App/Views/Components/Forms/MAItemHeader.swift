@@ -1,11 +1,11 @@
 import SwiftUI
 
-struct DetailItemHeader: View {
+struct MAItemHeader: View {
 	let header: String
 
 	var body: some View {
 		Text(header)
-			.font(.system(.subheadline).weight(.medium))
+			.font(.system(.headline))
 			.accessibilityAddTraits(.isHeader)
 	}
 }

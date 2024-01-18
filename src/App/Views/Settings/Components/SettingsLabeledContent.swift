@@ -36,7 +36,7 @@ private struct _HorizontalLabeledContent<Label, Content>: View where Label: View
 	let label: Label
 
 	@Namespace
-	var namespace
+	private var namespace
 
 	var body: some View {
 		HStack {
@@ -77,14 +77,14 @@ struct SettingsLabeledContent<Label, Content>: View where Label: View, Content: 
 #if os(iOS)
 
 struct SettingsLabeledContent<Label, Content>: View where Label: View, Content: View {
-	@Environment(\.dynamicTypeSize)
-	private var dynamicTypeSize
-
 	let content: Content
 	let label: Label
 
+	@Environment(\.dynamicTypeSize)
+	private var dynamicTypeSize
+
 	@Namespace
-	var namespace
+	private var namespace
 
 	init(@ViewBuilder content: () -> Content, @ViewBuilder label: () -> Label) {
 		self.label = label()
@@ -104,7 +104,7 @@ struct SettingsLabeledContent<Label, Content>: View where Label: View, Content: 
 			.accessibilityElement(children: .combine)
 			.padding(.vertical, 16)
 		} else {
-			let body = HStack {
+			HStack {
 				label
 					.accessibilityLabeledPair(role: .label, id: 0, in: namespace)
 
@@ -114,12 +114,7 @@ struct SettingsLabeledContent<Label, Content>: View where Label: View, Content: 
 					.accessibilityLabeledPair(role: .content, id: 0, in: namespace)
 			}
 			.accessibilityElement(children: .combine)
-
-			if dynamicTypeSize >= .xxLarge {
-				body.padding(.vertical, 8)
-			} else {
-				body
-			}
+			.padding(.vertical, dynamicTypeSize >= .xxLarge ? 8.0 : 4.0)
 		}
 	}
 }

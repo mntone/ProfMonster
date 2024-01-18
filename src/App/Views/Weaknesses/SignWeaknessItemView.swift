@@ -28,7 +28,9 @@ struct SignWeaknessItemView<ViewModel: WeaknessItemViewModel>: View {
 				.accessibilityLabeledPair(role: .label, id: viewModel.id, in: namespace)
 				.accessibilityLabel(viewModel.attack.label(.long))
 
+#if !os(watchOS)
 			Spacer(minLength: 0)
+#endif
 
 			Text(viewModel.effectiveness.label)
 				.foregroundStyle(viewModel.signColor)

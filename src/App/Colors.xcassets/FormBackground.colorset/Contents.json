@@ -5,14 +5,14 @@
         "platform" : "ios",
         "reference" : "systemGroupedBackgroundColor"
       },
-      "idiom" : "ipad"
+      "idiom" : "iphone"
     },
     {
       "color" : {
-        "platform" : "osx",
-        "reference" : "windowBackgroundColor"
+        "platform" : "ios",
+        "reference" : "systemGroupedBackgroundColor"
       },
-      "idiom" : "mac"
+      "idiom" : "ipad"
     }
   ],
   "info" : {

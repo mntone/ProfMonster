@@ -4,6 +4,10 @@ import SwiftUI
 struct WeaknessView: View {
 	let viewModel: any WeaknessViewModel
 
+#if os(iOS)
+
+#endif
+
 	var body: some View {
 #if os(watchOS)
 		switch viewModel {

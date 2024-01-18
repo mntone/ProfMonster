@@ -123,7 +123,7 @@ struct PhysiologySectionViewModel: Identifiable {
 	let columns: [PhysiologyColumnViewModel]
 	let groups: [PhysiologyGroupViewModel]
 
-	init(rawValue: PhysiologySection, of attacks: [Attack]) {
+	init(rawValue: MonsterAnalyzerCore.PhysiologySection, of attacks: [Attack]) {
 		self.header = rawValue.label
 		self.columns = attacks.map(PhysiologyColumnViewModel.init(attack:))
 		self.groups = rawValue.groups.enumerated().map { i, group in

@@ -10,6 +10,11 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 	private var itemWidth: CGFloat?
 
 #if !os(watchOS)
+	@Environment(\.horizontalLayoutMargin)
+	private var horizontalLayoutMargin
+#endif
+
+#if os(iOS)
 	@ScaledMetric(relativeTo: .title2)
 	private var signFontSize: CGFloat = 22
 #endif
@@ -18,9 +23,9 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 	private var namespace
 
 	var body: some View {
-		VStack(alignment: .leading, spacing: 5) {
+		VStack(alignment: .leading, spacing: MAFormMetrics.verticalRowInset) {
 			if !viewModel.isDefault {
-				DetailItemHeader(header: viewModel.header)
+				MAItemHeader(header: viewModel.header)
 			}
 
 #if os(watchOS)
@@ -31,11 +36,16 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 				}
 				.frame(width: itemWidth)
 			}
-			.fixedSize(horizontal: false, vertical: true)
 			.onWidthChange { width in
 				updateItemWidth(from: width)
 			}
 #else
+#if os(macOS)
+			let signFontSize = 22.0
+			let padding = horizontalLayoutMargin
+#else
+			let padding = 0.5 * horizontalLayoutMargin
+#endif
 			DividedHStack(alignment: .bottom, spacing: 0) {
 				ForEach(viewModel.items) { item in
 					SignWeaknessItemView(alignment: alignment,
@@ -43,14 +53,13 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 										 namespace: namespace,
 										 viewModel: item)
 				}
-				.padding(.horizontal, 8)
+				.padding(.horizontal, padding)
 				.frame(minWidth: 0,
 					   idealWidth: itemWidth,
 					   maxWidth: WeaknessViewMetrics.maxItemWidth,
 					   alignment: Alignment(horizontal: alignment, vertical: .center))
 			}
-			.padding(.horizontal, -8)
-			.fixedSize(horizontal: false, vertical: true)
+			.padding(.horizontal, -padding)
 			.onWidthChange { width in
 				updateItemWidth(from: width)
 			}

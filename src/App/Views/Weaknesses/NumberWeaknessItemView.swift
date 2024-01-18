@@ -14,6 +14,8 @@ struct NumberWeaknessItemView: View {
 				.accessibilityLabeledPair(role: .label, id: viewModel.id, in: namespace)
 				.accessibilityLabel(viewModel.attack.label(.long))
 
+			Spacer(minLength: 0)
+
 			WeaknessViewMetrics
 				.getComplexNumberText(Float32(viewModel.averageValue),
 									  length: fractionLength,

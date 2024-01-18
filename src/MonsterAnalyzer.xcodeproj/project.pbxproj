@@ -39,6 +39,11 @@
 		EB42B7832B5045D1001CFACA /* CoordinatorUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB42B7802B50455B001CFACA /* CoordinatorUtil.swift */; };
 		EB433A3A2B2DEB050079AAD8 /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB433A392B2DEB050079AAD8 /* AppTests.swift */; };
 		EB433A3C2B2DEF750079AAD8 /* Swinject-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = EB433A3B2B2DEF750079AAD8 /* Swinject-Dynamic */; };
+		EB4426AE2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4426AD2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift */; };
+		EB4426AF2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4426AD2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift */; };
+		EB4426B12B58C23B0074B1FF /* MAFormNoBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4426B02B58C23B0074B1FF /* MAFormNoBackground.swift */; };
+		EB4426B32B58C9E60074B1FF /* NotesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4426B22B58C9E60074B1FF /* NotesSection.swift */; };
+		EB4426B42B58C9E60074B1FF /* NotesSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4426B22B58C9E60074B1FF /* NotesSection.swift */; };
 		EB44EF492B1C017100DD47B5 /* CoreAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB44EF482B1C017100DD47B5 /* CoreAssembly.swift */; };
 		EB44EF4B2B1C0BCB00DD47B5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */; };
 		EB44EF4C2B1C0BCB00DD47B5 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */; };
@@ -66,6 +71,14 @@
 		EB5672142B5790BF00592413 /* NumberWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672132B5790BF00592413 /* NumberWeaknessSectionView.swift */; };
 		EB5672182B57935300592413 /* WeaknessViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672172B57935300592413 /* WeaknessViewMetrics.swift */; };
 		EB5672192B57935300592413 /* WeaknessViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672172B57935300592413 /* WeaknessViewMetrics.swift */; };
+		EB56721C2B57C92C00592413 /* MAFormRoundedBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56721B2B57C92C00592413 /* MAFormRoundedBackground.swift */; };
+		EB56721E2B57C96A00592413 /* MASectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56721D2B57C96A00592413 /* MASectionHeader.swift */; };
+		EB56721F2B57C96A00592413 /* MASectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56721D2B57C96A00592413 /* MASectionHeader.swift */; };
+		EB5672212B57C9A200592413 /* MASection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672202B57C9A200592413 /* MASection.swift */; };
+		EB5672222B57C9A200592413 /* MASection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672202B57C9A200592413 /* MASection.swift */; };
+		EB5672242B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672232B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift */; };
+		EB5672272B57D60D00592413 /* MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672262B57D60D00592413 /* MAForm.swift */; };
+		EB5672282B57D60D00592413 /* MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672262B57D60D00592413 /* MAForm.swift */; };
 		EB56722E2B580E3700592413 /* WidthChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722D2B580E3700592413 /* WidthChangeModifier.swift */; };
 		EB56722F2B580E3700592413 /* WidthChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722D2B580E3700592413 /* WidthChangeModifier.swift */; };
 		EB5941CE2B39ABD1005BC27C /* MonsterAnalyzerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EBB4B1F22B17593F004D63EA /* MonsterAnalyzerWatch.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -106,8 +119,8 @@
 		EB7DAA692B4FD36D0003210E /* MonsterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA672B4FD36D0003210E /* MonsterPage.swift */; };
 		EB84A5BD2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */; };
 		EB84A5BE2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */; };
-		EB84A5C02B47910000291C6B /* DeveloperMonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BF2B47910000291C6B /* DeveloperMonsterView.swift */; };
-		EB84A5C12B47910000291C6B /* DeveloperMonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BF2B47910000291C6B /* DeveloperMonsterView.swift */; };
+		EB84A5C02B47910000291C6B /* DeveloperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BF2B47910000291C6B /* DeveloperSection.swift */; };
+		EB84A5C12B47910000291C6B /* DeveloperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BF2B47910000291C6B /* DeveloperSection.swift */; };
 		EB8729B22B4D682000E0E5A1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB8729B12B4D682000E0E5A1 /* Localizable.xcstrings */; };
 		EB87781F2B26B0AB00B3359C /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F12B1D8E1300FD7115 /* HomePage.swift */; };
 		EB8778212B26B1E600B3359C /* ColumnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778202B26B1E600B3359C /* ColumnContentView.swift */; };
@@ -181,8 +194,8 @@
 		EBA66F212B355F3E009DE78C /* DataSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA66F1F2B355F3E009DE78C /* DataSettingsPane.swift */; };
 		EBB057542B47A77500AC08F5 /* IdentifyHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB057532B47A77500AC08F5 /* IdentifyHolder.swift */; };
 		EBB057552B47A77500AC08F5 /* IdentifyHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB057532B47A77500AC08F5 /* IdentifyHolder.swift */; };
-		EBB154C02B3D03C000636DB0 /* DetailItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB154BF2B3D03C000636DB0 /* DetailItemHeader.swift */; };
-		EBB154C12B3D03C000636DB0 /* DetailItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB154BF2B3D03C000636DB0 /* DetailItemHeader.swift */; };
+		EBB154C02B3D03C000636DB0 /* MAItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB154BF2B3D03C000636DB0 /* MAItemHeader.swift */; };
+		EBB154C12B3D03C000636DB0 /* MAItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB154BF2B3D03C000636DB0 /* MAItemHeader.swift */; };
 		EBB4B1C52B15BDA7004D63EA /* WeaknessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C42B15BDA7004D63EA /* WeaknessViewModel.swift */; };
 		EBB4B1C72B15BF48004D63EA /* MonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C62B15BF48004D63EA /* MonsterViewModel.swift */; };
 		EBB4B1CB2B15CC47004D63EA /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */; };
@@ -207,6 +220,11 @@
 		EBB4B2162B175DE7004D63EA /* Attack+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1E42B16A6D4004D63EA /* Attack+Extensions.swift */; };
 		EBB4B2172B175DED004D63EA /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */; };
 		EBB4B21C2B176CE7004D63EA /* WeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* WeaknessView.swift */; };
+		EBB883742B58F32900D40F90 /* MAFormMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB883732B58F32900D40F90 /* MAFormMetrics.swift */; };
+		EBB883752B58F32900D40F90 /* MAFormMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB883732B58F32900D40F90 /* MAFormMetrics.swift */; };
+		EBB883772B59133F00D40F90 /* MAHDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB883762B59133F00D40F90 /* MAHDivider.swift */; };
+		EBB8837A2B5917B000D40F90 /* MALabeledString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB883792B5917B000D40F90 /* MALabeledString.swift */; };
+		EBB8837B2B5917B000D40F90 /* MALabeledString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB883792B5917B000D40F90 /* MALabeledString.swift */; };
 		EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */; };
 		EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */; };
 		EBBBAAB42B3FADEB00BBAB23 /* GameItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */; };
@@ -402,6 +420,9 @@
 		EB42495E2B332A230086E255 /* Backport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backport.swift; sourceTree = "<group>"; };
 		EB42B7802B50455B001CFACA /* CoordinatorUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorUtil.swift; sourceTree = "<group>"; };
 		EB433A392B2DEB050079AAD8 /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
+		EB4426AD2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLayoutMargin.swift; sourceTree = "<group>"; };
+		EB4426B02B58C23B0074B1FF /* MAFormNoBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAFormNoBackground.swift; sourceTree = "<group>"; };
+		EB4426B22B58C9E60074B1FF /* NotesSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesSection.swift; sourceTree = "<group>"; };
 		EB44EF482B1C017100DD47B5 /* CoreAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreAssembly.swift; sourceTree = "<group>"; };
 		EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB513ADE2B3C8B0400C8FB4A /* TabSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSettingsContainer.swift; sourceTree = "<group>"; };
@@ -419,6 +440,11 @@
 		EB5672102B578FFD00592413 /* SignWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignWeaknessSectionView.swift; sourceTree = "<group>"; };
 		EB5672132B5790BF00592413 /* NumberWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberWeaknessSectionView.swift; sourceTree = "<group>"; };
 		EB5672172B57935300592413 /* WeaknessViewMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaknessViewMetrics.swift; sourceTree = "<group>"; };
+		EB56721B2B57C92C00592413 /* MAFormRoundedBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAFormRoundedBackground.swift; sourceTree = "<group>"; };
+		EB56721D2B57C96A00592413 /* MASectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MASectionHeader.swift; sourceTree = "<group>"; };
+		EB5672202B57C9A200592413 /* MASection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MASection.swift; sourceTree = "<group>"; };
+		EB5672232B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAFormSeparatedRoundedBackground.swift; sourceTree = "<group>"; };
+		EB5672262B57D60D00592413 /* MAForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAForm.swift; sourceTree = "<group>"; };
 		EB56722D2B580E3700592413 /* WidthChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidthChangeModifier.swift; sourceTree = "<group>"; };
 		EB6297F12B37179200E830E6 /* View+Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Block.swift"; sourceTree = "<group>"; };
 		EB6437912B46EE3B00E8D02B /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
@@ -440,7 +466,7 @@
 		EB7DAA652B4FD3410003210E /* MonsterColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterColumn.swift; sourceTree = "<group>"; };
 		EB7DAA672B4FD36D0003210E /* MonsterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterPage.swift; sourceTree = "<group>"; };
 		EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsPane.swift; sourceTree = "<group>"; };
-		EB84A5BF2B47910000291C6B /* DeveloperMonsterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperMonsterView.swift; sourceTree = "<group>"; };
+		EB84A5BF2B47910000291C6B /* DeveloperSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSection.swift; sourceTree = "<group>"; };
 		EB86E2802B4EC8CE00A06718 /* ci_post_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_xcodebuild.sh; sourceTree = "<group>"; };
 		EB8729B12B4D682000E0E5A1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB8778202B26B1E600B3359C /* ColumnContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnContentView.swift; sourceTree = "<group>"; };
@@ -498,7 +524,7 @@
 		EBA66F1C2B355F38009DE78C /* AppSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsPane.swift; sourceTree = "<group>"; };
 		EBA66F1F2B355F3E009DE78C /* DataSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSettingsPane.swift; sourceTree = "<group>"; };
 		EBB057532B47A77500AC08F5 /* IdentifyHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyHolder.swift; sourceTree = "<group>"; };
-		EBB154BF2B3D03C000636DB0 /* DetailItemHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailItemHeader.swift; sourceTree = "<group>"; };
+		EBB154BF2B3D03C000636DB0 /* MAItemHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAItemHeader.swift; sourceTree = "<group>"; };
 		EBB4A3FE2B3491C400D8C024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBB4B1B92B158D14004D63EA /* MHConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHConfig.swift; sourceTree = "<group>"; };
 		EBB4B1BB2B158E38004D63EA /* MHMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHMonster.swift; sourceTree = "<group>"; };
@@ -521,6 +547,9 @@
 		EBB4B21E2B177691004D63EA /* MALanguageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MALanguageService.swift; sourceTree = "<group>"; };
 		EBB4B2222B17770E004D63EA /* LanguageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageService.swift; sourceTree = "<group>"; };
 		EBB4B22B2B178302004D63EA /* MHLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHLocalization.swift; sourceTree = "<group>"; };
+		EBB883732B58F32900D40F90 /* MAFormMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAFormMetrics.swift; sourceTree = "<group>"; };
+		EBB883762B59133F00D40F90 /* MAHDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAHDivider.swift; sourceTree = "<group>"; };
+		EBB883792B5917B000D40F90 /* MALabeledString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MALabeledString.swift; sourceTree = "<group>"; };
 		EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyViewMetrics.swift; sourceTree = "<group>"; };
 		EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemViewModel.swift; sourceTree = "<group>"; };
 		EBBBAAB62B3FCB0200BBAB23 /* libswiftWatchKit.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswiftWatchKit.tbd; path = Platforms/WatchOS.platform/Developer/SDKs/WatchOS10.2.sdk/usr/lib/swift/libswiftWatchKit.tbd; sourceTree = DEVELOPER_DIR; };
@@ -700,6 +729,23 @@
 				EB5672172B57935300592413 /* WeaknessViewMetrics.swift */,
 			);
 			path = Weaknesses;
+			sourceTree = "<group>";
+		};
+		EB56721A2B57C91E00592413 /* Forms */ = {
+			isa = PBXGroup;
+			children = (
+				EB5672262B57D60D00592413 /* MAForm.swift */,
+				EBB883732B58F32900D40F90 /* MAFormMetrics.swift */,
+				EB4426B02B58C23B0074B1FF /* MAFormNoBackground.swift */,
+				EB56721B2B57C92C00592413 /* MAFormRoundedBackground.swift */,
+				EB5672232B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift */,
+				EBB883762B59133F00D40F90 /* MAHDivider.swift */,
+				EBB154BF2B3D03C000636DB0 /* MAItemHeader.swift */,
+				EBB883792B5917B000D40F90 /* MALabeledString.swift */,
+				EB5672202B57C9A200592413 /* MASection.swift */,
+				EB56721D2B57C96A00592413 /* MASectionHeader.swift */,
+			);
+			path = Forms;
 			sourceTree = "<group>";
 		};
 		EB60764B2B33F5B900AF9121 /* macOS */ = {
@@ -981,6 +1027,7 @@
 				EBC85C7C2B209D65008A16C6 /* EdgeInsets+Extensions.swift */,
 				EB8778272B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift */,
 				EB6437962B4702DD00E8D02B /* EnvironmentValues+Settings.swift */,
+				EB4426AD2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift */,
 				EB5445552B527CE2008E7A48 /* Scene+Extensions.swift */,
 				EB8AD06D2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift */,
 				EB6297F12B37179200E830E6 /* View+Block.swift */,
@@ -1115,9 +1162,9 @@
 		EBEA6F7B2B1A1B0900734AAA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EB56721A2B57C91E00592413 /* Forms */,
 				EB29563F2B310E1D002C5CA8 /* iOS */,
 				EBF706F22B3C0C9D00AE88C4 /* Previews */,
-				EBB154BF2B3D03C000636DB0 /* DetailItemHeader.swift */,
 				EB28F1B22B370F0700291055 /* DividedHStack.swift */,
 				EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */,
 				EB967A472B2AC6E80041A491 /* LazyView.swift */,
@@ -1132,13 +1179,14 @@
 		EBEAB0C12B42376E00CC25A8 /* Details */ = {
 			isa = PBXGroup;
 			children = (
-				EB84A5BF2B47910000291C6B /* DeveloperMonsterView.swift */,
+				EB84A5BF2B47910000291C6B /* DeveloperSection.swift */,
 				EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */,
 				EB7DAA652B4FD3410003210E /* MonsterColumn.swift */,
 				EBEAB0C22B42378100CC25A8 /* MonsterNavigationBarHeader.swift */,
 				EB7DAA672B4FD36D0003210E /* MonsterPage.swift */,
 				EBF9282C2B1038C9007D59D4 /* MonsterView.swift */,
 				EB5445572B527D12008E7A48 /* MonsterWindow.swift */,
+				EB4426B22B58C9E60074B1FF /* NotesSection.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -1467,8 +1515,7 @@
 				EB42B7822B5045D0001CFACA /* CoordinatorUtil.swift in Sources */,
 				EBA66F212B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
 				EBDEEF3D2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */,
-				EBB154C12B3D03C000636DB0 /* DetailItemHeader.swift in Sources */,
-				EB84A5C12B47910000291C6B /* DeveloperMonsterView.swift in Sources */,
+				EB84A5C12B47910000291C6B /* DeveloperSection.swift in Sources */,
 				EB84A5BE2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */,
 				EB9922812B357D9400DBA812 /* DisplaySettingsPane.swift in Sources */,
 				EB6FF1D72B48CFEE00118E0F /* DrillDownSettingsContainer.swift in Sources */,
@@ -1486,17 +1533,25 @@
 				EBEA6F7F2B1A1B2D00734AAA /* HBorderView.swift in Sources */,
 				EB87781F2B26B0AB00B3359C /* HomePage.swift in Sources */,
 				EB9620F42B1D90DB00FD7115 /* HomeViewModel.swift in Sources */,
+				EB4426AF2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift in Sources */,
 				EBB057552B47A77500AC08F5 /* IdentifyHolder.swift in Sources */,
 				EB967A492B2AC6E80041A491 /* LazyView.swift in Sources */,
 				EB2B0FAE2B39260D004596A6 /* LicenseView.swift in Sources */,
 				EBB4B2062B175DAB004D63EA /* MAApp.swift in Sources */,
+				EB5672282B57D60D00592413 /* MAForm.swift in Sources */,
+				EBB883752B58F32900D40F90 /* MAFormMetrics.swift in Sources */,
+				EBB154C12B3D03C000636DB0 /* MAItemHeader.swift in Sources */,
+				EBB8837B2B5917B000D40F90 /* MALabeledString.swift in Sources */,
 				EB9620E32B1D6FCC00FD7115 /* MARoute.swift in Sources */,
+				EB5672222B57C9A200592413 /* MASection.swift in Sources */,
+				EB56721F2B57C96A00592413 /* MASectionHeader.swift in Sources */,
 				EBF684AA2B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
 				EB7DAA602B4FCBF20003210E /* MonsterList.swift in Sources */,
 				EB8778262B26B38200B3359C /* MonsterListItem.swift in Sources */,
 				EB7DAA692B4FD36D0003210E /* MonsterPage.swift in Sources */,
 				EBEAB0C42B423A7200CC25A8 /* MonsterView.swift in Sources */,
 				EBB4B2122B175DE7004D63EA /* MonsterViewModel.swift in Sources */,
+				EB4426B42B58C9E60074B1FF /* NotesSection.swift in Sources */,
 				EB19D6722B1EBEC900C90417 /* ObservableHorizontalScrollView.swift in Sources */,
 				EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */,
@@ -1641,8 +1696,7 @@
 				EB42B7832B5045D1001CFACA /* CoordinatorUtil.swift in Sources */,
 				EBA66F202B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
 				EBDEEF3E2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */,
-				EBB154C02B3D03C000636DB0 /* DetailItemHeader.swift in Sources */,
-				EB84A5C02B47910000291C6B /* DeveloperMonsterView.swift in Sources */,
+				EB84A5C02B47910000291C6B /* DeveloperSection.swift in Sources */,
 				EB84A5BD2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */,
 				EB9922802B357D9400DBA812 /* DisplaySettingsPane.swift in Sources */,
 				EB28F1B32B370F0700291055 /* DividedHStack.swift in Sources */,
@@ -1662,11 +1716,22 @@
 				EBEA6F7E2B1A1B2C00734AAA /* HBorderView.swift in Sources */,
 				EB645A662B26A3C000D27500 /* HomePage.swift in Sources */,
 				EB9620EB2B1D839B00FD7115 /* HomeViewModel.swift in Sources */,
+				EB4426AE2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift in Sources */,
 				EBB057542B47A77500AC08F5 /* IdentifyHolder.swift in Sources */,
 				EB967A482B2AC6E80041A491 /* LazyView.swift in Sources */,
 				EB2B0FAD2B39260D004596A6 /* LicenseView.swift in Sources */,
 				EBF9282B2B1038C9007D59D4 /* MAApp.swift in Sources */,
+				EB5672272B57D60D00592413 /* MAForm.swift in Sources */,
+				EBB883742B58F32900D40F90 /* MAFormMetrics.swift in Sources */,
+				EB4426B12B58C23B0074B1FF /* MAFormNoBackground.swift in Sources */,
+				EB56721C2B57C92C00592413 /* MAFormRoundedBackground.swift in Sources */,
+				EB5672242B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift in Sources */,
+				EBB883772B59133F00D40F90 /* MAHDivider.swift in Sources */,
+				EBB154C02B3D03C000636DB0 /* MAItemHeader.swift in Sources */,
+				EBB8837A2B5917B000D40F90 /* MALabeledString.swift in Sources */,
 				EB9620E22B1D6E1000FD7115 /* MARoute.swift in Sources */,
+				EB5672212B57C9A200592413 /* MASection.swift in Sources */,
+				EB56721E2B57C96A00592413 /* MASectionHeader.swift in Sources */,
 				EB7DAA662B4FD3410003210E /* MonsterColumn.swift in Sources */,
 				EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
 				EB7DAA5F2B4FCBF20003210E /* MonsterList.swift in Sources */,
@@ -1678,6 +1743,7 @@
 				EBB4B1C72B15BF48004D63EA /* MonsterViewModel.swift in Sources */,
 				EB5445582B527D12008E7A48 /* MonsterWindow.swift in Sources */,
 				EB5445542B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift in Sources */,
+				EB4426B32B58C9E60074B1FF /* NotesSection.swift in Sources */,
 				EB56720F2B5787DA00592413 /* NumberWeaknessItemView.swift in Sources */,
 				EB5672142B5790BF00592413 /* NumberWeaknessSectionView.swift in Sources */,
 				EB19D6712B1EBE8400C90417 /* ObservableHorizontalScrollView.swift in Sources */,
