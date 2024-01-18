@@ -71,6 +71,7 @@ struct JapaneseTextProcessor: TextProcessor {
 	func latin(from readableText: String) -> String {
 		readableText
 			.applyingTransform(.latinToKatakana, reverse: true)!
+			.replacingOccurrences(of: "vu~e", with: "ve")
 			.filter { char in
 				char != "'"
 			}
