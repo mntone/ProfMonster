@@ -110,6 +110,7 @@ struct DisplaySettingsPane: View {
 						Section("Preview") {
 							let viewModel = NumberWeaknessViewModel(id: "settings", displayMode: mode, sections: mockData)
 							WeaknessView(viewModel: viewModel)
+								.fixedSize(horizontal: false, vertical: true)
 						}
 					}
 				}
