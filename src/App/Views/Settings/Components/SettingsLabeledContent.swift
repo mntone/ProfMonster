@@ -102,7 +102,7 @@ struct SettingsLabeledContent<Label, Content>: View where Label: View, Content: 
 			}
 			.multilineTextAlignment(.leading)
 			.accessibilityElement(children: .combine)
-			.padding(.vertical, 16)
+			.padding(.vertical, 15.0)
 		} else {
 			HStack {
 				label
@@ -114,7 +114,7 @@ struct SettingsLabeledContent<Label, Content>: View where Label: View, Content: 
 					.accessibilityLabeledPair(role: .content, id: 0, in: namespace)
 			}
 			.accessibilityElement(children: .combine)
-			.padding(.vertical, dynamicTypeSize >= .xxLarge ? 8.0 : 4.0)
+			.padding(.vertical, dynamicTypeSize >= .xxLarge ? 10.0 : 5.0)
 		}
 	}
 }
