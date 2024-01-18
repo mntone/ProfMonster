@@ -68,7 +68,14 @@ struct MonsterView: View {
 			}
 		}
 #if os(iOS)
-		.backport.scrollViewScrollDismissesKeyboard(.interactively)
+		.block { content in
+			switch settings?.keyboardDismissMode {
+			case .scroll, .swipe:
+				content.backport.scrollViewScrollDismissesKeyboard(settings?.keyboardDismissMode == .scroll ? .immediately : .interactively)
+			default:
+				content
+			}
+		}
 		.toolbar {
 			ToolbarItem(placement: .principal) {
 				MonsterNavigationBarHeader(name: viewModel.name,

@@ -2866,6 +2866,23 @@
         }
       }
     },
+    "Button" : {
+      "comment" : "KeyboardDismissMode",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Button"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ボタン"
+          }
+        }
+      }
+    },
     "Cache Size: %@" : {
       "localizations" : {
         "de" : {
@@ -3600,6 +3617,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "螢幕顯示"
+          }
+        }
+      }
+    },
+    "Done" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Done"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "完了"
           }
         }
       }
@@ -6261,6 +6294,22 @@
         }
       }
     },
+    "Keyboard Dismiss" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keyboard Dismiss"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "キーボードの閉じ方"
+          }
+        }
+      }
+    },
     "Left Swipe" : {
       "localizations" : {
         "en" : {
@@ -8277,6 +8326,23 @@
         }
       }
     },
+    "Scroll" : {
+      "comment" : "KeyboardDismissMode",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Scroll"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スクロール"
+          }
+        }
+      }
+    },
     "Search" : {
       "localizations" : {
         "ar" : {
@@ -9749,6 +9815,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "昏厥"
+          }
+        }
+      }
+    },
+    "Swipe" : {
+      "comment" : "KeyboardDismissMode",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Swipe"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "スワイプ"
           }
         }
       }

@@ -24,8 +24,14 @@ struct NotesSection: View {
 	let note: Binding<String>
 
 #if !os(macOS)
+	@FocusState
+	private var isActive: Bool
+
 	@Environment(\.horizontalLayoutMargin)
 	private var horizontalLayoutMargin
+
+	@Environment(\.settings)
+	private var settings
 #endif
 
 	var body: some View {
@@ -41,10 +47,23 @@ struct NotesSection: View {
 				TextField(text: note, axis: .vertical) {
 					Never?.none
 				}
+				.focused($isActive)
+				.toolbar {
+					if settings?.keyboardDismissMode == .button {
+						ToolbarItemGroup(placement: .keyboard) {
+							Spacer(minLength: 0.0)
+							Button("Done") {
+								isActive = false
+							}
+							.font(.body.bold())
+						}
+					}
+				}
 			}
 		} else {
 			MASection("Notes", background: .none(rowInsets: .zero)) {
 				TextEditor(text: note)
+					.focused($isActive)
 					.clipShape(.rect(cornerRadius: MAFormMetrics.cornerRadius))
 					.introspect(.textEditor, on: .iOS(.v15)) { (textView: UITextView) in
 						// Disable scroll behavior.
@@ -52,9 +71,24 @@ struct NotesSection: View {
 
 						// Set current context insets.
 						textView.textContainerInset = UIEdgeInsets(top: MAFormMetrics.verticalRowInset,
-																   left: horizontalLayoutMargin,
+																   left: horizontalLayoutMargin - 6.0,
 																   bottom: MAFormMetrics.verticalRowInset,
-																   right: horizontalLayoutMargin)
+																   right: horizontalLayoutMargin - 6.0)
+					}
+					.block { content in
+						if settings?.keyboardDismissMode == .button {
+							content.toolbar {
+								ToolbarItemGroup(placement: .keyboard) {
+									Spacer(minLength: 0.0)
+									Button("Done") {
+										isActive = false
+									}
+									.font(.body.bold())
+								}
+							}
+						} else {
+							content
+						}
 					}
 			}
 		}

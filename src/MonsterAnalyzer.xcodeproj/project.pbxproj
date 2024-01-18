@@ -21,6 +21,8 @@
 		EB2B0FAB2B3925E3004596A6 /* View+Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B0FAA2B3925E3004596A6 /* View+Cursor.swift */; };
 		EB2B0FAD2B39260D004596A6 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B0FAC2B39260D004596A6 /* LicenseView.swift */; };
 		EB2B0FAE2B39260D004596A6 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B0FAC2B39260D004596A6 /* LicenseView.swift */; };
+		EB2B2A632B5966EE008D66DF /* KeyboardDismissMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B2A612B596684008D66DF /* KeyboardDismissMode.swift */; };
+		EB2B2A652B596A49008D66DF /* KeyboardDismissMode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B2A642B596A49008D66DF /* KeyboardDismissMode+Extensions.swift */; };
 		EB31EEB72B2BEB4300FF8536 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB42B2BD7FA00FF8536 /* Sort.swift */; };
 		EB38D1FB2B2946A800CED9DB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */; };
 		EB38D1FC2B2946A800CED9DB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */; };
@@ -410,6 +412,8 @@
 		EB2B0FA52B390FCE004596A6 /* mit.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = mit.txt; sourceTree = "<group>"; };
 		EB2B0FAA2B3925E3004596A6 /* View+Cursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Cursor.swift"; sourceTree = "<group>"; };
 		EB2B0FAC2B39260D004596A6 /* LicenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseView.swift; sourceTree = "<group>"; };
+		EB2B2A612B596684008D66DF /* KeyboardDismissMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissMode.swift; sourceTree = "<group>"; };
+		EB2B2A642B596A49008D66DF /* KeyboardDismissMode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardDismissMode+Extensions.swift"; sourceTree = "<group>"; };
 		EB31EEB42B2BD7FA00FF8536 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		EB3B49182B35DFA000E89711 /* VerticalLabeledContentStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabeledContentStyle.swift; sourceTree = "<group>"; };
@@ -678,6 +682,7 @@
 				EBB4B1E22B163B0E004D63EA /* Attack.swift */,
 				EBDFF9D32B4D2E8700473634 /* Effectiveness.swift */,
 				EB95FFD12B5657AF009BE15E /* GroupOption.swift */,
+				EB2B2A612B596684008D66DF /* KeyboardDismissMode.swift */,
 				EB31EEB42B2BD7FA00FF8536 /* Sort.swift */,
 				EB967A412B29E8540041A491 /* StarSwingsError.swift */,
 				EB967A3F2B29E4650041A491 /* StarSwingsState.swift */,
@@ -996,6 +1001,7 @@
 				EBB4B1D42B161691004D63EA /* Effectiveness+Extensions.swift */,
 				EB95FFD32B5658EF009BE15E /* GroupOption+Extensions.swift */,
 				EBB057532B47A77500AC08F5 /* IdentifyHolder.swift */,
+				EB2B2A642B596A49008D66DF /* KeyboardDismissMode+Extensions.swift */,
 				EBBF861F2B4692D500F76D03 /* Sort+Extensions.swift */,
 				EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */,
 				EB6437932B46EF5400E8D02B /* SwipeAction+Extensions.swift */,
@@ -1617,6 +1623,7 @@
 				EB967A342B29D5390041A491 /* Game.swift in Sources */,
 				EB95FFD22B5657AF009BE15E /* GroupOption.swift in Sources */,
 				EB967A2B2B29A0BA0041A491 /* JapaneseTextProcessor.swift in Sources */,
+				EB2B2A632B5966EE008D66DF /* KeyboardDismissMode.swift in Sources */,
 				EB967A2D2B29AB500041A491 /* KoreanTextProcessor.swift in Sources */,
 				EBEA6F552B185A3B00734AAA /* LanguageService.swift in Sources */,
 				EB9620ED2B1D867E00FD7115 /* LanguageUtil.swift in Sources */,
@@ -1718,6 +1725,7 @@
 				EB9620EB2B1D839B00FD7115 /* HomeViewModel.swift in Sources */,
 				EB4426AE2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift in Sources */,
 				EBB057542B47A77500AC08F5 /* IdentifyHolder.swift in Sources */,
+				EB2B2A652B596A49008D66DF /* KeyboardDismissMode+Extensions.swift in Sources */,
 				EB967A482B2AC6E80041A491 /* LazyView.swift in Sources */,
 				EB2B0FAD2B39260D004596A6 /* LicenseView.swift in Sources */,
 				EBF9282B2B1038C9007D59D4 /* MAApp.swift in Sources */,

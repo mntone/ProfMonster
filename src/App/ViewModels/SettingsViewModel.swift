@@ -64,6 +64,15 @@ final class SettingsViewModel: ObservableObject {
 		}
 	}
 
+#if os(iOS)
+	@Published
+	var keyboardDismissMode: KeyboardDismissMode {
+		didSet {
+			settings.keyboardDismissMode = keyboardDismissMode
+		}
+	}
+#endif
+
 #if DEBUG
 	@Published
 	var delayNetworkRequest: Bool {
@@ -103,6 +112,9 @@ final class SettingsViewModel: ObservableObject {
 #endif
 		self.elementDisplay = app.settings.elementDisplay
 		self.mergeParts = app.settings.mergeParts
+#if os(iOS)
+		self.keyboardDismissMode = app.settings.keyboardDismissMode
+#endif
 #if DEBUG
 		self.delayNetworkRequest = app.settings.delayNetworkRequest
 #endif
@@ -120,6 +132,9 @@ final class SettingsViewModel: ObservableObject {
 #endif
 		settings.$elementDisplay.dropFirst().receive(on: scheduler).assign(to: &$elementDisplay)
 		settings.$mergeParts.dropFirst().receive(on: scheduler).assign(to: &$mergeParts)
+#if os(iOS)
+		settings.$keyboardDismissMode.dropFirst().receive(on: scheduler).assign(to: &$keyboardDismissMode)
+#endif
 #if DEBUG
 		settings.$delayNetworkRequest.dropFirst().receive(on: scheduler).assign(to: &$delayNetworkRequest)
 #endif

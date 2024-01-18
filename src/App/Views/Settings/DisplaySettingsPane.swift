@@ -116,6 +116,17 @@ struct DisplaySettingsPane: View {
 #endif
 
 				SettingsToggle("Merge Parts with Same Physiology", isOn: $viewModel.mergeParts)
+
+#if os(iOS)
+				SettingsPicker("Keyboard Dismiss",
+							   selection: $viewModel.keyboardDismissMode) {
+					ForEach(KeyboardDismissMode.allCases) { mode in
+						Text(mode.label).tag(mode)
+					}
+				} label: { mode in
+					Text(mode.label)
+				}
+#endif
 			} header: {
 				Text("Monster Detail")
 			}

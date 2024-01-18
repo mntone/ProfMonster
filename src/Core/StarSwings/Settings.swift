@@ -17,6 +17,11 @@ public final class Settings {
 	@UserDefault("mrgPart", initial: true)
 	public var mergeParts: Bool
 
+#if os(iOS)
+	@UserDefault("kbdDismiss", initial: .button)
+	public var keyboardDismissMode: KeyboardDismissMode
+#endif
+
 	@UserDefault("sort", initial: .inGame(reversed: false))
 	public var sort: Sort
 
