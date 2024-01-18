@@ -76,4 +76,10 @@ struct NumberWeaknessSectionViewModel: WeaknessSectionViewModel {
 		}
 		self.isDefault = rawValue.key == "default"
 	}
+
+	static func compareEffectiveness(lhs: NumberWeaknessSectionViewModel, rhs: NumberWeaknessSectionViewModel) -> Bool {
+		zip(lhs.items, rhs.items).allSatisfy { lhs, rhs in
+			NumberWeaknessItemViewModel.compareEffectiveness(lhs: lhs, rhs: rhs)
+		}
+	}
 }

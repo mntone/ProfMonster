@@ -34,12 +34,16 @@ struct EffectivenessWeaknessViewModel: WeaknessViewModel {
 		let id = "\(prefixID):w"
 		self.id = id
 		self.displayMode = displayMode
-		self.sections = rawValue.map { key, weakness in
-			EffectivenessWeaknessSectionViewModel(prefixID: id,
-												  key: key,
-												  rawValue: weakness,
-												  of: attacks)
-		}
+		self.sections = rawValue
+			.map { key, weakness in
+				EffectivenessWeaknessSectionViewModel(prefixID: id,
+													  key: key,
+													  rawValue: weakness,
+													  of: attacks)
+			}
+			.sorted { lhs, rhs in
+				lhs.isDefault && !rhs.isDefault
+			}
 	}
 }
 

@@ -97,4 +97,8 @@ struct NumberWeaknessItemViewModel: WeaknessItemViewModel {
 		}
 		self.averageValue = averageValue
 	}
+
+	static func compareEffectiveness(lhs: NumberWeaknessItemViewModel, rhs: NumberWeaknessItemViewModel) -> Bool {
+		lhs.effectiveness == rhs.effectiveness
+	}
 }

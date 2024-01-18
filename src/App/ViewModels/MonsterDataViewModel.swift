@@ -39,9 +39,22 @@ struct MonsterDataViewModel {
 		self.id = id
 		self.copyright = copyright
 		if displayMode != .none {
-			self.weakness = NumberWeaknessViewModel(prefixID: id,
-													displayMode: displayMode,
-													rawValue: rawValue)
+			let weakness = NumberWeaknessViewModel(prefixID: id,
+												   displayMode: displayMode,
+												   rawValue: rawValue)
+			if displayMode == .sign {
+				if let defaultWeakness = weakness.sections.first(where: { $0.isDefault }) {
+					self.weakness = NumberWeaknessViewModel(id: weakness.id,
+															displayMode: displayMode,
+															sections: weakness.sections.filter {
+						$0.isDefault || !NumberWeaknessSectionViewModel.compareEffectiveness(lhs: $0, rhs: defaultWeakness)
+					})
+				} else {
+					self.weakness = weakness
+				}
+			} else {
+				self.weakness = weakness
+			}
 		} else {
 			self.weakness = nil
 		}
