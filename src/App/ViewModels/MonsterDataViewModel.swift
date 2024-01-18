@@ -35,7 +35,7 @@ struct MonsterDataViewModel {
 	init(_ id: String,
 		 copyright: String?,
 		 displayMode: WeaknessDisplayMode,
-		 rawValue: Physiologies) {
+		 rawValue: Physiology) {
 		self.id = id
 		self.copyright = copyright
 		if displayMode != .none {

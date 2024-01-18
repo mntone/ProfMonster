@@ -1,5 +1,5 @@
 import enum MonsterAnalyzerCore.Attack
-import struct MonsterAnalyzerCore.Physiologies
+import struct MonsterAnalyzerCore.Physiology
 import struct MonsterAnalyzerCore.Weakness
 import enum MonsterAnalyzerCore.WeaknessDisplayMode
 
@@ -64,7 +64,7 @@ struct NumberWeaknessViewModel: WeaknessViewModel {
 
 	init(prefixID: String,
 		 displayMode: WeaknessDisplayMode,
-		 rawValue: Physiologies,
+		 rawValue: Physiology,
 		 of attacks: [Attack] = Attack.allElements) {
 		precondition(displayMode != .none)
 

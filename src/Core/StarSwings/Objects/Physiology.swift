@@ -43,7 +43,7 @@ public struct PhysiologyValue<Number>: Hashable where Number: Hashable, Number: 
 	}
 }
 
-public struct Physiology: Hashable {
+public struct PhysiologyPart: Hashable {
 	public let stateInfo: PhysiologyStateInfo
 	public let label: String
 	public let value: PhysiologyValue<Int8>
@@ -66,14 +66,14 @@ public struct Physiology: Hashable {
 	}
 }
 
-public struct PhysiologyGroup {
+public struct PhysiologyParts {
 	public let parts: [String]
 	public let label: String
-	public let items: [Physiology]
+	public let items: [PhysiologyPart]
 	public let isReference: Bool
 }
 
-public struct PhysiologySection {
+public struct PhysiologyStateGroup {
 #if os(macOS) || arch(x86_64)
 	public typealias AverageFloat = Float32
 #else
@@ -82,11 +82,11 @@ public struct PhysiologySection {
 
 	public let key: String
 	public let label: String
-	public let groups: [PhysiologyGroup]
+	public let groups: [PhysiologyParts]
 	public let average: PhysiologyValue<AverageFloat>
 }
 
-public struct Physiologies: Identifiable {
+public struct Physiology: Identifiable {
 	public let id: String
-	public let sections: [PhysiologySection]
+	public let sections: [PhysiologyStateGroup]
 }

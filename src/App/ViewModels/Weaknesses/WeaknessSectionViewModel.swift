@@ -1,5 +1,5 @@
 import enum MonsterAnalyzerCore.Attack
-import struct MonsterAnalyzerCore.PhysiologySection
+import struct MonsterAnalyzerCore.PhysiologyStateGroup
 import struct MonsterAnalyzerCore.Weakness
 
 protocol WeaknessSectionViewModel: Identifiable {
@@ -60,7 +60,7 @@ struct NumberWeaknessSectionViewModel: WeaknessSectionViewModel {
 	}
 
 	init(prefixID: String,
-		 rawValue: MonsterAnalyzerCore.PhysiologySection,
+		 rawValue: MonsterAnalyzerCore.PhysiologyStateGroup,
 		 of attacks: [Attack] = Attack.allElements) {
 		let id = "\(prefixID):\(rawValue.label)"
 		self.id = id

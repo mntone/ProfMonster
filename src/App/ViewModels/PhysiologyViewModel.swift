@@ -40,7 +40,7 @@ struct PhysiologyViewModel: Identifiable {
 
 	fileprivate init(id: Int,
 					 partsLabel: String,
-					 rawValue: Physiology,
+					 rawValue: PhysiologyPart,
 					 of attacks: [Attack],
 					 isReference: Bool) {
 		let level = Self.resolveHierarchicalLevel(rawValue.stateInfo, isReference: isReference)
@@ -97,7 +97,7 @@ struct PhysiologyGroupViewModel: Identifiable {
 	let label: String
 	let items: [PhysiologyViewModel]
 
-	fileprivate init(id: Int, rawValue: PhysiologyGroup, of attacks: [Attack]) {
+	fileprivate init(id: Int, rawValue: PhysiologyParts, of attacks: [Attack]) {
 		self.id = UInt16(exactly: id)!
 		self.label = rawValue.label
 		self.items = rawValue.items.enumerated().map { i, item in
@@ -123,7 +123,7 @@ struct PhysiologySectionViewModel: Identifiable {
 	let columns: [PhysiologyColumnViewModel]
 	let groups: [PhysiologyGroupViewModel]
 
-	init(rawValue: MonsterAnalyzerCore.PhysiologySection, of attacks: [Attack]) {
+	init(rawValue: MonsterAnalyzerCore.PhysiologyStateGroup, of attacks: [Attack]) {
 		self.header = rawValue.label
 		self.columns = attacks.map(PhysiologyColumnViewModel.init(attack:))
 		self.groups = rawValue.groups.enumerated().map { i, group in
@@ -140,7 +140,7 @@ struct PhysiologiesViewModel: Identifiable {
 	let id: String
 	let sections: [PhysiologySectionViewModel]
 
-	init(rawValue: Physiologies, of attacks: [Attack] = Attack.allCases) {
+	init(rawValue: Physiology, of attacks: [Attack] = Attack.allCases) {
 		self.id = rawValue.id
 		self.sections = rawValue.sections.map { section in
 			PhysiologySectionViewModel(rawValue: section, of: attacks)

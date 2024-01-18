@@ -1,10 +1,10 @@
 import enum MonsterAnalyzerCore.Attack
 import enum MonsterAnalyzerCore.Effectiveness
-import struct MonsterAnalyzerCore.PhysiologySection
+import struct MonsterAnalyzerCore.PhysiologyStateGroup
 import SwiftUI
 
 protocol WeaknessItemViewModel: Identifiable {
-	typealias AverageFloat = MonsterAnalyzerCore.PhysiologySection.AverageFloat
+	typealias AverageFloat = PhysiologyStateGroup.AverageFloat
 
 	var attack: Attack { get }
 	var effectiveness: Effectiveness { get }

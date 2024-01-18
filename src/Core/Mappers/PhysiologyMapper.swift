@@ -12,24 +12,24 @@ struct PhysiologyMapper {
 	}
 
 	private func map(_ src: MHMonsterPhysiologyValue,
-					 states: [String]? = nil) -> Physiology {
+					 states: [String]? = nil) -> PhysiologyPart {
 		let baseStates = states ?? src.states
 		let statesLabel = _languageService.getLocalizedJoinedString(of: baseStates, for: .state)
-		return Physiology(stateInfo: Self.getStateInfo(baseStates),
-						  label: statesLabel,
-						  value: PhysiologyValue(slash: src.slash,
-												 impact: src.impact,
-												 shot: src.shot,
-												 fire: src.fire,
-												 water: src.water,
-												 thunder: src.thunder,
-												 ice: src.ice,
-												 dragon: src.dragon),
-						  stun: src.stun)
+		return PhysiologyPart(stateInfo: Self.getStateInfo(baseStates),
+							  label: statesLabel,
+							  value: PhysiologyValue(slash: src.slash,
+													 impact: src.impact,
+													 shot: src.shot,
+													 fire: src.fire,
+													 water: src.water,
+													 thunder: src.thunder,
+													 ice: src.ice,
+													 dragon: src.dragon),
+							  stun: src.stun)
 	}
 
-	private func getGroup(of targetState: String, from values: [MHMonsterPhysiologyValue]) -> [Physiology] {
-		values.compactMap { value -> Physiology? in
+	private func getGroup(of targetState: String, from values: [MHMonsterPhysiologyValue]) -> [PhysiologyPart] {
+		values.compactMap { value -> PhysiologyPart? in
 			guard value.states.contains(targetState) else {
 				return nil
 			}
@@ -43,15 +43,15 @@ struct PhysiologyMapper {
 		}
 	}
 
-	private func map(_ targetState: String, of physiologies: [MHMonsterPhysiology], merge: Bool) -> [PhysiologyGroup] {
+	private func map(_ targetState: String, of physiologies: [MHMonsterPhysiology], merge: Bool) -> [PhysiologyParts] {
 		if merge {
-			var result: [PhysiologyGroup] = []
+			var result: [PhysiologyParts] = []
 			for physiology in physiologies {
 				let abnormalItems = getGroup(of: targetState, from: physiology.values)
 				guard !abnormalItems.isEmpty else {
 					let partsLabel = _languageService.getLocalizedJoinedString(of: physiology.parts, for: .part)
 					let defaultItems = getGroup(of: "default", from: physiology.values)
-					let defaultGroup = PhysiologyGroup(parts: physiology.parts,
+					let defaultGroup = PhysiologyParts(parts: physiology.parts,
 													   label: partsLabel,
 													   items: defaultItems,
 													   isReference: true)
@@ -65,7 +65,7 @@ struct PhysiologyMapper {
 					let targetGroup = result[matchedIndex]
 					let mergedParts = targetGroup.parts + physiology.parts
 					let mergedPartsLabel = _languageService.getLocalizedJoinedString(of: mergedParts, for: .part)
-					let mergedGroup = PhysiologyGroup(parts: mergedParts,
+					let mergedGroup = PhysiologyParts(parts: mergedParts,
 													  label: mergedPartsLabel,
 													  items: targetGroup.items,
 													  isReference: false)
@@ -74,7 +74,7 @@ struct PhysiologyMapper {
 				}
 
 				let partsLabel = _languageService.getLocalizedJoinedString(of: physiology.parts, for: .part)
-				let abnormalGroup = PhysiologyGroup(parts: physiology.parts,
+				let abnormalGroup = PhysiologyParts(parts: physiology.parts,
 													label: partsLabel,
 													items: abnormalItems,
 													isReference: false)
@@ -85,7 +85,7 @@ struct PhysiologyMapper {
 			if result.count == 1 {
 				let allLabel = _languageService.getLocalizedJoinedString(of: ["all"], for: .part)
 				let allGroup = result[0]
-				result[0] = PhysiologyGroup(parts: allGroup.parts,
+				result[0] = PhysiologyParts(parts: allGroup.parts,
 											label: allLabel,
 											items: allGroup.items,
 											isReference: allGroup.isReference)
@@ -97,12 +97,12 @@ struct PhysiologyMapper {
 				let partsLabel = _languageService.getLocalizedJoinedString(of: physiology.parts, for: .part)
 				guard !abnormalItems.isEmpty else {
 					let defaultItems = getGroup(of: "default", from: physiology.values)
-					return PhysiologyGroup(parts: physiology.parts,
+					return PhysiologyParts(parts: physiology.parts,
 										   label: partsLabel,
 										   items: defaultItems,
 										   isReference: true)
 				}
-				return PhysiologyGroup(parts: physiology.parts,
+				return PhysiologyParts(parts: physiology.parts,
 									   label: partsLabel,
 									   items: abnormalItems,
 									   isReference: false)
@@ -111,14 +111,14 @@ struct PhysiologyMapper {
 		}
 	}
 
-	func map(json src: MHMonster, options: PhysiologyMapperOptions) -> Physiologies {
+	func map(json src: MHMonster, options: PhysiologyMapperOptions) -> Physiology {
 		let allAbnormalStates = Set(src.physiologies.flatMap { physiologies in
 			Set(physiologies.values.flatMap(\.states))
 		}).subtracting(Self.removingState)
 		let filteredAllAbnormalStates = Self.filter(allAbnormalStates, by: src.physiologies, in: 500000)
 
 		let defaultSectionData = src.physiologies.map { physiology in
-			let items = physiology.values.compactMap { physiologyValue -> Physiology? in
+			let items = physiology.values.compactMap { physiologyValue -> PhysiologyPart? in
 				guard !physiologyValue.states.contains(where: { s in filteredAllAbnormalStates.contains(s) }) else {
 					return nil
 				}
@@ -126,26 +126,26 @@ struct PhysiologyMapper {
 			}
 
 			let partsLabel = _languageService.getLocalizedJoinedString(of: physiology.parts, for: .part)
-			return PhysiologyGroup(parts: physiology.parts,
+			return PhysiologyParts(parts: physiology.parts,
 								   label: partsLabel,
 								   items: items,
 								   isReference: false)
 		}
-		let defaultSection = PhysiologySection(key: "default",
-											   label: _languageService.getLocalizedString(of: "default", for: .state),
-											   groups: defaultSectionData,
-											   average: Self.getAverages(defaultSectionData))
+		let defaultSection = PhysiologyStateGroup(key: "default",
+												  label: _languageService.getLocalizedString(of: "default", for: .state),
+												  groups: defaultSectionData,
+												  average: Self.getAverages(defaultSectionData))
 
 		var abnormalSections = filteredAllAbnormalStates.map { targetState in
 			let sectionData = map(targetState, of: src.physiologies, merge: options.mergeParts)
-			return PhysiologySection(key: targetState,
-									 label: _languageService.getLocalizedString(of: targetState, for: .state),
-									 groups: sectionData,
-									 average: Self.getAverages(sectionData))
+			return PhysiologyStateGroup(key: targetState,
+										label: _languageService.getLocalizedString(of: targetState, for: .state),
+										groups: sectionData,
+										average: Self.getAverages(sectionData))
 		}
 		abnormalSections.insert(defaultSection, at: 0)
 
-		return Physiologies(id: src.id, sections: abnormalSections)
+		return Physiology(id: src.id, sections: abnormalSections)
 	}
 
 
@@ -176,7 +176,7 @@ struct PhysiologyMapper {
 		}
 	}
 
-	private static func getAverage(_ data: [PhysiologyGroup], of attack: Attack) -> PhysiologySection.AverageFloat {
+	private static func getAverage(_ data: [PhysiologyParts], of attack: Attack) -> PhysiologyStateGroup.AverageFloat {
 		let sum = data.map { group in
 			group.parts.count * group.items.map { physiology in
 				Int(physiology.value.value(of: attack))
@@ -192,10 +192,10 @@ struct PhysiologyMapper {
 		}.reduce(into: 0) { cur, next in
 			cur += next
 		}
-		return PhysiologySection.AverageFloat(Float32(sum) / Float32(count))
+		return PhysiologyStateGroup.AverageFloat(Float32(sum) / Float32(count))
 	}
 
-	private static func getAverages(_ data: [PhysiologyGroup]) -> PhysiologyValue<PhysiologySection.AverageFloat> {
+	private static func getAverages(_ data: [PhysiologyParts]) -> PhysiologyValue<PhysiologyStateGroup.AverageFloat> {
 		PhysiologyValue(slash: Self.getAverage(data, of: .slash),
 						impact: Self.getAverage(data, of: .impact),
 						shot: Self.getAverage(data, of: .shot),
