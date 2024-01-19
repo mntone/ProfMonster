@@ -60,7 +60,7 @@ struct NumberWeaknessSectionViewModel: WeaknessSectionViewModel {
 	}
 
 	init(prefixID: String,
-		 rawValue: MonsterAnalyzerCore.PhysiologyStateGroup,
+		 rawValue: PhysiologyStateGroup,
 		 of attacks: [Attack] = Attack.allElements) {
 		let id = "\(prefixID):\(rawValue.label)"
 		self.id = id

@@ -99,6 +99,9 @@ private struct _ScrollablePhysiologyContentView: View {
 struct ScrollablePhysiologyView: View {
 	let viewModel: PhysiologySectionViewModel
 
+	@Environment(\.horizontalLayoutMargin)
+	private var horizontalLayoutMargin
+
 	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
 	private var headerWidth: CGFloat = PhysiologyViewMetrics.headerBaseWidth
 
@@ -171,9 +174,9 @@ struct ScrollablePhysiologyView: View {
 				.animation(.easeInOut(duration: 0.1), value: offsetX > 0)
 			}
 		}
-		.padding(.leading, PhysiologyViewMetrics.margin.leading)
 		.font(.system(PhysiologyViewMetrics.textStyle).monospacedDigit().leading(.tight))
 		.minimumScaleFactor(0.5)
+		.padding(.leading, PhysiologyViewMetrics.margin.leading)
 	}
 
 	private static var headerBackground: some View {
@@ -212,10 +215,9 @@ struct HeaderScrollablePhysiologyView: View {
 
 	var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
-			if !headerHidden {
+			if !viewModel.isDefault {
 				MAItemHeader(header: viewModel.header)
-					.padding(.top, PhysiologyViewMetrics.margin.top)
-					.scenePadding(.horizontal)
+					.padding(.top, MAFormMetrics.verticalRowInset)
 			}
 
 			ScrollablePhysiologyView(viewModel: viewModel)

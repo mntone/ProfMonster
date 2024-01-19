@@ -122,13 +122,15 @@ struct PhysiologySectionViewModel: Identifiable {
 	let header: String
 	let columns: [PhysiologyColumnViewModel]
 	let groups: [PhysiologyGroupViewModel]
+	let isDefault: Bool
 
-	init(rawValue: MonsterAnalyzerCore.PhysiologyStateGroup, of attacks: [Attack]) {
+	init(rawValue: PhysiologyStateGroup, of attacks: [Attack]) {
 		self.header = rawValue.label
 		self.columns = attacks.map(PhysiologyColumnViewModel.init(attack:))
 		self.groups = rawValue.groups.enumerated().map { i, group in
 			PhysiologyGroupViewModel(id: i, rawValue: group, of: attacks)
 		}
+		self.isDefault = rawValue.key == "default"
 	}
 
 	var id: String {
