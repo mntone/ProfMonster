@@ -43,12 +43,15 @@ struct NumberWeaknessSectionView: View {
 					   idealWidth: itemWidth,
 					   maxWidth: WeaknessViewMetrics.maxItemWidth,
 					   alignment: .leading)
+			} divider: {
+				MAVDivider()
 			}
 			.padding(.horizontal, -padding)
 			.onWidthChange { width in
 				updateItemWidth(from: width)
 			}
 		}
+		.padding(.vertical, MAFormMetrics.verticalRowInset)
 	}
 
 	private func updateItemWidth(from containerSize: CGFloat) {

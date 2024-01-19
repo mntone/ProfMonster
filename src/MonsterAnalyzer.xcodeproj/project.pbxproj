@@ -114,6 +114,9 @@
 		EB6FF1DB2B48DA5400118E0F /* SettingsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */; };
 		EB6FF1DF2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */; };
 		EB6FF1E02B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */; };
+		EB71F8722B5A0D4300999269 /* EnvironmentValues+MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8712B5A0D4300999269 /* EnvironmentValues+MAForm.swift */; };
+		EB71F8752B5A323500999269 /* MASectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8742B5A323500999269 /* MASectionFooter.swift */; };
+		EB71F8772B5A35A500999269 /* MASectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8742B5A323500999269 /* MASectionFooter.swift */; };
 		EB7DAA5F2B4FCBF20003210E /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */; };
 		EB7DAA602B4FCBF20003210E /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */; };
 		EB7DAA662B4FD3410003210E /* MonsterColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA652B4FD3410003210E /* MonsterColumn.swift */; };
@@ -224,7 +227,7 @@
 		EBB4B21C2B176CE7004D63EA /* WeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B21B2B176CE7004D63EA /* WeaknessView.swift */; };
 		EBB883742B58F32900D40F90 /* MAFormMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB883732B58F32900D40F90 /* MAFormMetrics.swift */; };
 		EBB883752B58F32900D40F90 /* MAFormMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB883732B58F32900D40F90 /* MAFormMetrics.swift */; };
-		EBB883772B59133F00D40F90 /* MAHDivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB883762B59133F00D40F90 /* MAHDivider.swift */; };
+		EBB883772B59133F00D40F90 /* MADivider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB883762B59133F00D40F90 /* MADivider.swift */; };
 		EBB8837A2B5917B000D40F90 /* MALabeledString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB883792B5917B000D40F90 /* MALabeledString.swift */; };
 		EBB8837B2B5917B000D40F90 /* MALabeledString.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB883792B5917B000D40F90 /* MALabeledString.swift */; };
 		EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */; };
@@ -466,6 +469,8 @@
 		EB6FF1D32B48CEFF00118E0F /* SettingsPreferredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreferredList.swift; sourceTree = "<group>"; };
 		EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggle.swift; sourceTree = "<group>"; };
 		EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredVerticalPaddingModifier.swift; sourceTree = "<group>"; };
+		EB71F8712B5A0D4300999269 /* EnvironmentValues+MAForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+MAForm.swift"; sourceTree = "<group>"; };
+		EB71F8742B5A323500999269 /* MASectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MASectionFooter.swift; sourceTree = "<group>"; };
 		EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
 		EB7DAA652B4FD3410003210E /* MonsterColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterColumn.swift; sourceTree = "<group>"; };
 		EB7DAA672B4FD36D0003210E /* MonsterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterPage.swift; sourceTree = "<group>"; };
@@ -552,7 +557,7 @@
 		EBB4B2222B17770E004D63EA /* LanguageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageService.swift; sourceTree = "<group>"; };
 		EBB4B22B2B178302004D63EA /* MHLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHLocalization.swift; sourceTree = "<group>"; };
 		EBB883732B58F32900D40F90 /* MAFormMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAFormMetrics.swift; sourceTree = "<group>"; };
-		EBB883762B59133F00D40F90 /* MAHDivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAHDivider.swift; sourceTree = "<group>"; };
+		EBB883762B59133F00D40F90 /* MADivider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MADivider.swift; sourceTree = "<group>"; };
 		EBB883792B5917B000D40F90 /* MALabeledString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MALabeledString.swift; sourceTree = "<group>"; };
 		EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologyViewMetrics.swift; sourceTree = "<group>"; };
 		EBBBAAB32B3FADEB00BBAB23 /* GameItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameItemViewModel.swift; sourceTree = "<group>"; };
@@ -739,15 +744,17 @@
 		EB56721A2B57C91E00592413 /* Forms */ = {
 			isa = PBXGroup;
 			children = (
+				EB71F8712B5A0D4300999269 /* EnvironmentValues+MAForm.swift */,
+				EBB883762B59133F00D40F90 /* MADivider.swift */,
 				EB5672262B57D60D00592413 /* MAForm.swift */,
 				EBB883732B58F32900D40F90 /* MAFormMetrics.swift */,
 				EB4426B02B58C23B0074B1FF /* MAFormNoBackground.swift */,
 				EB56721B2B57C92C00592413 /* MAFormRoundedBackground.swift */,
 				EB5672232B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift */,
-				EBB883762B59133F00D40F90 /* MAHDivider.swift */,
 				EBB154BF2B3D03C000636DB0 /* MAItemHeader.swift */,
 				EBB883792B5917B000D40F90 /* MALabeledString.swift */,
 				EB5672202B57C9A200592413 /* MASection.swift */,
+				EB71F8742B5A323500999269 /* MASectionFooter.swift */,
 				EB56721D2B57C96A00592413 /* MASectionHeader.swift */,
 			);
 			path = Forms;
@@ -1550,6 +1557,7 @@
 				EBB8837B2B5917B000D40F90 /* MALabeledString.swift in Sources */,
 				EB9620E32B1D6FCC00FD7115 /* MARoute.swift in Sources */,
 				EB5672222B57C9A200592413 /* MASection.swift in Sources */,
+				EB71F8772B5A35A500999269 /* MASectionFooter.swift in Sources */,
 				EB56721F2B57C96A00592413 /* MASectionHeader.swift in Sources */,
 				EBF684AA2B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
 				EB7DAA602B4FCBF20003210E /* MonsterList.swift in Sources */,
@@ -1710,6 +1718,7 @@
 				EBA66F1A2B355EDE009DE78C /* DrillDownSettingsContainer.swift in Sources */,
 				EBC85C7D2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */,
 				EBB4B1D52B161691004D63EA /* Effectiveness+Extensions.swift in Sources */,
+				EB71F8722B5A0D4300999269 /* EnvironmentValues+MAForm.swift in Sources */,
 				EB8778282B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */,
 				EB6437972B4702DD00E8D02B /* EnvironmentValues+Settings.swift in Sources */,
 				EB560BCE2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
@@ -1729,16 +1738,17 @@
 				EB967A482B2AC6E80041A491 /* LazyView.swift in Sources */,
 				EB2B0FAD2B39260D004596A6 /* LicenseView.swift in Sources */,
 				EBF9282B2B1038C9007D59D4 /* MAApp.swift in Sources */,
+				EBB883772B59133F00D40F90 /* MADivider.swift in Sources */,
 				EB5672272B57D60D00592413 /* MAForm.swift in Sources */,
 				EBB883742B58F32900D40F90 /* MAFormMetrics.swift in Sources */,
 				EB4426B12B58C23B0074B1FF /* MAFormNoBackground.swift in Sources */,
 				EB56721C2B57C92C00592413 /* MAFormRoundedBackground.swift in Sources */,
 				EB5672242B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift in Sources */,
-				EBB883772B59133F00D40F90 /* MAHDivider.swift in Sources */,
 				EBB154C02B3D03C000636DB0 /* MAItemHeader.swift in Sources */,
 				EBB8837A2B5917B000D40F90 /* MALabeledString.swift in Sources */,
 				EB9620E22B1D6E1000FD7115 /* MARoute.swift in Sources */,
 				EB5672212B57C9A200592413 /* MASection.swift in Sources */,
+				EB71F8752B5A323500999269 /* MASectionFooter.swift in Sources */,
 				EB56721E2B57C96A00592413 /* MASectionHeader.swift in Sources */,
 				EB7DAA662B4FD3410003210E /* MonsterColumn.swift in Sources */,
 				EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */,

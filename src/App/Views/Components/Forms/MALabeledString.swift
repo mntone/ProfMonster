@@ -53,6 +53,7 @@ struct _MAHorizontalLabeledString<Label>: View where Label: View {
 				.textSelection(.enabled)
 				.accessibilityLabeledPair(role: .content, id: 0, in: namespace)
 		}
+		.padding(.vertical, 10.0)
 		.accessibilityElement(children: .combine)
 #else
 		HStack(spacing: 0.0) {
@@ -97,12 +98,12 @@ struct MALabeledString<Label>: View where Label: View {
 		HStack(spacing: 0.0) {
 			if dynamicTypeSize.isAccessibilitySize {
 				_MAVerticalLabeledString(label: label, value: value)
-					.padding(.vertical, 10.0)
+					.padding(.vertical, 20.0)
 
 				Spacer(minLength: 0.0)
 			} else {
 				_MAHorizontalLabeledString(label: label, value: value)
-					.padding(.vertical, dynamicTypeSize >= .xxLarge ? 5.0 : 0.0)
+					.padding(.vertical, dynamicTypeSize >= .xxLarge ? 15.0 : 10.0)
 			}
 
 			Button {
@@ -113,10 +114,10 @@ struct MALabeledString<Label>: View where Label: View {
 			}
 			.buttonStyle(.borderless)
 			.frame(width: 48.0, height: defaultMinListRowHeight)
-			.padding(.vertical, -MAFormMetrics.verticalRowInset)
 		}
 		.padding(.trailing, dynamicTypeSize.isAccessibilitySize ? 0.0 : -horizontalLayoutMargin)
 		.frame(maxWidth: .infinity)
+		.accessibilityElement(children: .combine)
 #elseif os(watchOS)
 		_MAVerticalLabeledString(label: label, value: value)
 #else

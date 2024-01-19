@@ -6,12 +6,7 @@ struct PhysiologySection: View {
 	let copyright: String?
 
 	var body: some View {
-#if os(macOS)
-		let physiologyStyle: MASectionBackgroundStyle = .separatedInsetGrouped(rowInsets: nil)
-#else
-		let physiologyStyle: MASectionBackgroundStyle = .separatedInsetGrouped(rowInsets: .zero)
-#endif
-		MASection("Physiology", background: physiologyStyle) {
+		MASection("Physiology", background: .separatedInsetGrouped) {
 			if let physiologies {
 				let headerHidden = physiologies.sections.count <= 1
 				ForEach(physiologies.sections) { section in
@@ -30,9 +25,12 @@ struct PhysiologySection: View {
 		} footer: {
 			if physiologies != nil,
 			   let copyright {
-				Text(copyright)
+				MASectionFooter(copyright)
 			}
 		}
+#if os(iOS)
+		.ignoreLayoutMargin()
+#endif
 	}
 }
 
@@ -47,7 +45,7 @@ struct MonsterView: View {
 		MAForm {
 			if let item = viewModel.item {
 				if let weakness = item.weakness {
-					MASection("Weakness", background: .separatedInsetGrouped(rowInsets: nil)) {
+					MASection("Weakness", background: .separatedInsetGrouped) {
 						WeaknessView(viewModel: weakness)
 					}
 				}
@@ -67,6 +65,7 @@ struct MonsterView: View {
 				}
 			}
 		}
+		.headerProminence(.increased)
 #if os(iOS)
 		.block { content in
 			switch settings?.keyboardDismissMode {

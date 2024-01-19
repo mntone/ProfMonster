@@ -22,7 +22,7 @@ struct MAForm<Content: View>: View {
 		.headerProminence(.increased)
 #else
 		ScrollView {
-			VStack(alignment: .leading, spacing: 0) {
+			LazyVStack(alignment: .leading, spacing: 0) {
 				content
 					.layoutMargin()
 					.fixedSize(horizontal: false, vertical: true)
@@ -32,6 +32,7 @@ struct MAForm<Content: View>: View {
 #endif
 			}
 		}
+		.frame(maxWidth: .infinity)
 #if os(iOS)
 		.background(.formBackground)
 #endif

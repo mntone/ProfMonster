@@ -1,9 +1,10 @@
 import SwiftUI
 
-struct DividedHStack<Content: View>: View {
+struct DividedHStack<Content: View, Divider: View>: View {
 	struct _Proxy: _VariadicView_MultiViewRoot {
 		let alignment: VerticalAlignment
 		let spacing: CGFloat?
+		let divider: Divider
 
 		@ViewBuilder
 		func body(children: _VariadicView.Children) -> some View {
@@ -12,7 +13,7 @@ struct DividedHStack<Content: View>: View {
 					first
 					ForEach(children.dropFirst()) { child in
 						child.background(alignment: .leading) {
-							Divider()
+							divider
 						}
 					}
 				}
@@ -24,8 +25,15 @@ struct DividedHStack<Content: View>: View {
 
 	init(alignment: VerticalAlignment = .center,
 		 spacing: CGFloat? = nil,
-		 @ViewBuilder content: () -> Content) {
-		_tree = _VariadicView.Tree(_Proxy(alignment: alignment, spacing: spacing), content: content)
+		 @ViewBuilder content: () -> Content,
+		 @ViewBuilder divider: () -> Divider) {
+		_tree = _VariadicView.Tree(_Proxy(alignment: alignment, spacing: spacing, divider: divider()), content: content)
+	}
+
+	init(alignment: VerticalAlignment = .center,
+		 spacing: CGFloat? = nil,
+		 @ViewBuilder content: () -> Content) where Divider == SwiftUI.Divider {
+		_tree = _VariadicView.Tree(_Proxy(alignment: alignment, spacing: spacing, divider: SwiftUI.Divider()), content: content)
 	}
 
 	var body: some View {

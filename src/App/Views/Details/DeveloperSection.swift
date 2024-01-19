@@ -9,6 +9,9 @@ struct DeveloperSection: View {
 				MALabeledString(label, value: content)
 			}
 		}
+#if os(watchOS)
+		.listRowBackground(EmptyView())
+#endif
 	}
 }
 

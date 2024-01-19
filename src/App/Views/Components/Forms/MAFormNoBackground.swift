@@ -1,65 +1,45 @@
 import SwiftUI
 
 @available(watchOS, unavailable)
-struct MAFormNoBackground<Content: View>: View {
+struct MAFormNoBackground<Content: View, Footer: View>: View {
 	private struct _Proxy: _VariadicView_MultiViewRoot {
-#if os(iOS)
-		let rowInsets: EdgeInsets?
-#else
-		let rowInsets: EdgeInsets
-#endif
-		let rowSpacing: CGFloat
-		let sectionSpacing: CGFloat
-
-		@Environment(\.defaultMinListRowHeight)
-		private var defaultMinListRowHeight
-
-		@Environment(\.horizontalLayoutMargin)
-		private var horizontalLayoutMargin
+		let footer: Footer?
+		let metrics: MAFormLayoutMetrics
 
 		@ViewBuilder
 		func body(children: _VariadicView.Children) -> some View {
 			if let last = children.last {
-#if os(iOS)
-				let overrideRowInsets = rowInsets ?? EdgeInsets(vertical: MAFormMetrics.verticalRowInset,
-																horizontal: horizontalLayoutMargin)
-#else
-				let overrideRowInsets = rowInsets
-#endif
 				ForEach(children.dropLast()) { child in
 					child
-						.padding(overrideRowInsets)
-						.frame(minHeight: defaultMinListRowHeight)
-						.padding(.bottom, rowSpacing)
+						.frame(minHeight: metrics.minRowHeight)
+						.padding(.bottom, metrics.rowSpacing ?? 0.0)
 				}
 
 				last
-					.padding(overrideRowInsets)
-					.frame(minHeight: defaultMinListRowHeight)
-					.padding(.bottom, sectionSpacing)
+				footer
+				Color.clear.frame(height: metrics.sectionSpacing)
 			}
 		}
 	}
 
 	private let _tree: _VariadicView.Tree<_Proxy, Content>
 
-	init(rowInsets: EdgeInsets? = nil,
-		 rowSpacing: CGFloat? = nil,
-		 sectionSpacing: CGFloat? = nil,
+	init(_ metrics: MAFormLayoutMetrics,
+		 @ViewBuilder content: () -> Content) where Footer == Never {
+		_tree = _VariadicView.Tree(_Proxy(footer: nil, metrics: metrics), content: content)
+	}
+
+	init(_ metrics: MAFormLayoutMetrics,
+		 @ViewBuilder content: () -> Content,
+		 @ViewBuilder footer: () -> Footer) {
+		_tree = _VariadicView.Tree(_Proxy(footer: footer(), metrics: metrics), content: content)
+	}
+
+	// Use for Internal
+	init(_ metrics: MAFormLayoutMetrics,
+		 footer: Footer?,
 		 @ViewBuilder content: () -> Content) {
-#if os(iOS)
-		_tree = _VariadicView.Tree(
-			_Proxy(rowInsets: rowInsets,
-				   rowSpacing: rowSpacing ?? MAFormMetrics.rowSpacing,
-				   sectionSpacing: sectionSpacing ?? MAFormMetrics.sectionSpacing),
-			content: content)
-#else
-		_tree = _VariadicView.Tree(
-			_Proxy(rowInsets: rowInsets ?? MAFormMetrics.rowInsets,
-				   rowSpacing: rowSpacing ?? MAFormMetrics.rowSpacing,
-				   sectionSpacing: sectionSpacing ?? MAFormMetrics.sectionSpacing),
-			content: content)
-#endif
+		_tree = _VariadicView.Tree(_Proxy(footer: footer, metrics: metrics), content: content)
 	}
 
 	var body: some View {

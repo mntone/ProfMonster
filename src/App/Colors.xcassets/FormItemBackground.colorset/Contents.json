@@ -2,8 +2,11 @@
   "colors" : [
     {
       "color" : {
-        "platform" : "ios",
-        "reference" : "systemBackgroundColor"
+        "color-space" : "gray-gamma-22",
+        "components" : {
+          "alpha" : "1.000",
+          "white" : "1.000"
+        }
       },
       "idiom" : "iphone"
     },
@@ -15,8 +18,13 @@
         }
       ],
       "color" : {
-        "platform" : "ios",
-        "reference" : "systemBackgroundColor"
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.120",
+          "green" : "0.110",
+          "red" : "0.110"
+        }
       },
       "idiom" : "iphone"
     },
@@ -28,8 +36,11 @@
         }
       ],
       "color" : {
-        "platform" : "ios",
-        "reference" : "systemBackgroundColor"
+        "color-space" : "gray-gamma-22",
+        "components" : {
+          "alpha" : "1.000",
+          "white" : "1.000"
+        }
       },
       "idiom" : "iphone"
     },
@@ -45,15 +56,23 @@
         }
       ],
       "color" : {
-        "platform" : "ios",
-        "reference" : "systemBackgroundColor"
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.150",
+          "green" : "0.140",
+          "red" : "0.140"
+        }
       },
       "idiom" : "iphone"
     },
     {
       "color" : {
-        "platform" : "ios",
-        "reference" : "systemBackgroundColor"
+        "color-space" : "gray-gamma-22",
+        "components" : {
+          "alpha" : "1.000",
+          "white" : "1.000"
+        }
       },
       "idiom" : "ipad"
     },
@@ -65,8 +84,13 @@
         }
       ],
       "color" : {
-        "platform" : "ios",
-        "reference" : "systemBackgroundColor"
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.120",
+          "green" : "0.110",
+          "red" : "0.110"
+        }
       },
       "idiom" : "ipad"
     },
@@ -78,8 +102,11 @@
         }
       ],
       "color" : {
-        "platform" : "ios",
-        "reference" : "systemBackgroundColor"
+        "color-space" : "gray-gamma-22",
+        "components" : {
+          "alpha" : "1.000",
+          "white" : "1.000"
+        }
       },
       "idiom" : "ipad"
     },
@@ -95,8 +122,13 @@
         }
       ],
       "color" : {
-        "platform" : "ios",
-        "reference" : "systemBackgroundColor"
+        "color-space" : "srgb",
+        "components" : {
+          "alpha" : "1.000",
+          "blue" : "0.150",
+          "green" : "0.140",
+          "red" : "0.140"
+        }
       },
       "idiom" : "ipad"
     },

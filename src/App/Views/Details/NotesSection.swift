@@ -36,14 +36,14 @@ struct NotesSection: View {
 
 	var body: some View {
 #if os(macOS)
-		MASection("Notes", background: .separatedInsetGrouped(rowInsets: nil)) {
+		MASection("Notes", background: .separatedInsetGrouped) {
 			TextEditor(text: note)
 				.font(.body)
 				.backport.scrollContentBackground(.hidden, viewType: .textEditor)
 		}
 #else
 		if #available(iOS 16.0, *) {
-			MASection("Notes", background: .separatedInsetGrouped(rowInsets: nil)) {
+			MASection("Notes", background: .separatedInsetGrouped) {
 				TextField(text: note, axis: .vertical) {
 					Never?.none
 				}
@@ -61,7 +61,7 @@ struct NotesSection: View {
 				}
 			}
 		} else {
-			MASection("Notes", background: .none(rowInsets: .zero)) {
+			MASection("Notes", background: MASectionBackgroundStyle.none) {
 				TextEditor(text: note)
 					.focused($isActive)
 					.clipShape(.rect(cornerRadius: MAFormMetrics.cornerRadius))

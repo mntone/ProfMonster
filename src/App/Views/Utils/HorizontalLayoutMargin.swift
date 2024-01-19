@@ -1,7 +1,7 @@
 import SwiftUI
 
-struct HorizontalLayoutMarginKey: EnvironmentKey {
-	public static var defaultValue: CGFloat {
+private struct _HorizontalLayoutMarginKey: EnvironmentKey {
+	static var defaultValue: CGFloat {
 #if os(macOS)
 		20.0
 #else
@@ -12,10 +12,12 @@ struct HorizontalLayoutMarginKey: EnvironmentKey {
 
 extension EnvironmentValues {
 	var horizontalLayoutMargin: CGFloat {
-		get { self[HorizontalLayoutMarginKey.self] }
-		set { self[HorizontalLayoutMarginKey.self] = newValue }
+		get { self[_HorizontalLayoutMarginKey.self] }
+		set { self[_HorizontalLayoutMarginKey.self] = newValue }
 	}
 }
+
+#if !os(watchOS)
 
 @available(watchOS, unavailable)
 struct _HorizontalLayoutMarginModifier: ViewModifier {
@@ -26,6 +28,8 @@ struct _HorizontalLayoutMarginModifier: ViewModifier {
 		content.padding(.horizontal, horizontalLayoutMargin)
 	}
 }
+
+#endif
 
 #if os(iOS)
 
@@ -39,9 +43,19 @@ struct _HorizontalLayoutMarginInjectModifier: ViewModifier {
 		content
 			.background {
 				GeometryReader { proxy in
-					Color.clear.onChange(of: proxy.size.width >= 400) { newValue in
-						horizontalLayoutMargin = newValue ? 20 : 16
-					}
+					Color.clear
+						.onAppear {
+							let layoutMargin: CGFloat = proxy.size.width >= 400 ? 20 : 16
+							if horizontalLayoutMargin != layoutMargin {
+								horizontalLayoutMargin = layoutMargin
+							}
+						}
+						.onChange(of: proxy.size.width >= 400) { newValue in
+							let layoutMargin: CGFloat = newValue ? 20 : 16
+							if horizontalLayoutMargin != layoutMargin {
+								horizontalLayoutMargin = layoutMargin
+							}
+						}
 				}
 			}
 			.environment(\.horizontalLayoutMargin, horizontalLayoutMargin)

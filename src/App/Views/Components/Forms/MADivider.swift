@@ -10,3 +10,14 @@ struct MAHDivider: View {
 			.frame(height: pixelLength)
 	}
 }
+
+@available(watchOS, unavailable)
+struct MAVDivider: View {
+	@Environment(\.pixelLength)
+	private var pixelLength
+
+	var body: some View {
+		Color.formItemSeparator
+			.frame(width: pixelLength)
+	}
+}
