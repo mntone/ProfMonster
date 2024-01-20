@@ -13,7 +13,7 @@ private struct _MAListSectionSpacingKey: EnvironmentKey {
 #if os(macOS)
 		10.0
 #else
-		18.0
+		24.0
 #endif
 	}
 }

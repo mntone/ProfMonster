@@ -3,7 +3,7 @@ import SwiftUI
 enum MAFormMetrics {
 #if os(iOS)
 	static let cornerRadius: CGFloat = 10.0
-	static let verticalRowInset: CGFloat = 10.0
+	static let verticalRowInset: CGFloat = 11.0
 #endif
 #if os(macOS)
 	static let cornerRadius: CGFloat = 6.0

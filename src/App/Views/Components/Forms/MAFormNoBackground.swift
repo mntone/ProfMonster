@@ -16,8 +16,11 @@ struct MAFormNoBackground<Content: View, Footer: View>: View {
 				}
 
 				last
-				footer
-				Color.clear.frame(height: metrics.sectionSpacing)
+
+				ZStack(alignment: .topLeading) {
+					Color.clear.frame(height: metrics.sectionSpacing)
+					footer
+				}
 			}
 		}
 	}

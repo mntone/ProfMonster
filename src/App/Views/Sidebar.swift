@@ -12,6 +12,9 @@ struct Sidebar: View {
 	var body: some View {
 		List(viewModel.items, id: \.id, selection: $selection) { item in
 			Text(item.name)
+#if os(iOS)
+				.differentialPreferredVerticalPadding()
+#endif
 		}
 		.stateOverlay(viewModel.state)
 		.modifier(SharedGameListModifier(viewModel: viewModel))
@@ -49,7 +52,7 @@ struct SidebarBackport: View {
 	var body: some View {
 		List(viewModel.items) { item in
 			RoundedRectangleSelectableListRowBackport(tag: item.id, selection: $selection) {
-				Text(item.name)
+				Text(item.name).insetGroupedDifferentialPreferredVerticalPaddingBackport3()
 			}
 		}
 		.stateOverlay(viewModel.state)

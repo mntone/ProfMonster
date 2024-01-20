@@ -2,20 +2,48 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 #if os(iOS)
+
 import class UIKit.UIPasteboard
+
+@available(macOS, unavailable)
+@available(watchOS, unavailable)
+private struct CopyButton: View {
+	let value: String
+
+	@Environment(\.defaultMinListRowHeight)
+	private var defaultMinListRowHeight
+
+	var body: some View {
+		Button {
+			UIPasteboard.general.setValue(value, forPasteboardType: UTType.plainText.identifier)
+		} label: {
+			SwiftUI.Label("Copy", systemImage: "doc.on.doc")
+				.labelStyle(.iconOnly)
+		}
+		.buttonStyle(.borderless)
+		.frame(height: defaultMinListRowHeight)
+	}
+}
+
 #endif
 
 #if !os(macOS)
 
 @available(macOS, unavailable)
-struct _MAVerticalLabeledString<Label>: View where Label: View {
+private struct _MAVerticalLabeledString<Label>: View where Label: View {
 	let label: Label
 	let value: String
+
+#if os(iOS)
+	@Environment(\.horizontalLayoutMargin)
+	private var horizontalLayoutMargin
+#endif
 
 	@Namespace
 	private var namespace
 
 	var body: some View {
+#if os(watchOS)
 		VStack(alignment: .leading) {
 			label.accessibilityLabeledPair(role: .label, id: 0, in: namespace)
 
@@ -25,6 +53,24 @@ struct _MAVerticalLabeledString<Label>: View where Label: View {
 		}
 		.multilineTextAlignment(.leading)
 		.accessibilityElement(children: .combine)
+#else
+		HStack(spacing: 0.0) {
+			VStack(alignment: .leading) {
+				label.accessibilityLabeledPair(role: .label, id: 0, in: namespace)
+
+				Text(value)
+					.foregroundStyle(.secondary)
+					.accessibilityLabeledPair(role: .content, id: 0, in: namespace)
+			}
+			.preferredVerticalPadding()
+
+			Spacer(minLength: 0.5 * horizontalLayoutMargin)
+
+			CopyButton(value: value)
+		}
+		.multilineTextAlignment(.leading)
+		.accessibilityElement(children: .combine)
+#endif
 	}
 }
 
@@ -33,19 +79,24 @@ struct _MAVerticalLabeledString<Label>: View where Label: View {
 #if !os(watchOS)
 
 @available(watchOS, unavailable)
-struct _MAHorizontalLabeledString<Label>: View where Label: View {
+private struct _MAHorizontalLabeledString<Label>: View where Label: View {
 	let label: Label
 	let value: String
+
+#if os(iOS)
+	@Environment(\.horizontalLayoutMargin)
+	private var horizontalLayoutMargin
+#endif
 
 	@Namespace
 	private var namespace
 
 	var body: some View {
 #if os(macOS)
-		HStack(alignment: .firstTextBaseline) {
+		HStack(alignment: .firstTextBaseline, spacing: 0.0) {
 			label.accessibilityLabeledPair(role: .label, id: 0, in: namespace)
 
-			Spacer()
+			Spacer(minLength: 8.0)
 
 			Text(value)
 				.foregroundStyle(.secondary)
@@ -56,15 +107,20 @@ struct _MAHorizontalLabeledString<Label>: View where Label: View {
 		.padding(.vertical, 10.0)
 		.accessibilityElement(children: .combine)
 #else
-		HStack(spacing: 0.0) {
-			label.accessibilityLabeledPair(role: .label, id: 0, in: namespace)
+		HStack(spacing: 0.5 * horizontalLayoutMargin) {
+			label
+				.accessibilityLabeledPair(role: .label, id: 0, in: namespace)
+				.preferredVerticalPadding()
 
-			Spacer()
+			Spacer(minLength: 0.0)
 
 			Text(value)
 				.foregroundStyle(.secondary)
 				.multilineTextAlignment(.leading)
 				.accessibilityLabeledPair(role: .content, id: 0, in: namespace)
+				.preferredVerticalPadding()
+
+			CopyButton(value: value)
 		}
 		.accessibilityElement(children: .combine)
 #endif
@@ -78,14 +134,8 @@ struct MALabeledString<Label>: View where Label: View {
 	let label: Label
 
 #if os(iOS)
-	@Environment(\.defaultMinListRowHeight)
-	private var defaultMinListRowHeight
-
-	@Environment(\.dynamicTypeSize)
-	private var dynamicTypeSize
-
-	@Environment(\.horizontalLayoutMargin)
-	private var horizontalLayoutMargin
+	@Environment(\.dynamicTypeSize.isAccessibilitySize)
+	private var isAccessibilitySize
 #endif
 
 	init(_ value: String, @ViewBuilder label: () -> Label) {
@@ -95,29 +145,11 @@ struct MALabeledString<Label>: View where Label: View {
 
 	var body: some View {
 #if os(iOS)
-		HStack(spacing: 0.0) {
-			if dynamicTypeSize.isAccessibilitySize {
-				_MAVerticalLabeledString(label: label, value: value)
-					.padding(.vertical, 20.0)
-
-				Spacer(minLength: 0.0)
-			} else {
-				_MAHorizontalLabeledString(label: label, value: value)
-					.padding(.vertical, dynamicTypeSize >= .xxLarge ? 15.0 : 10.0)
-			}
-
-			Button {
-				UIPasteboard.general.setValue(value, forPasteboardType: UTType.plainText.identifier)
-			} label: {
-				SwiftUI.Label("Copy", systemImage: "doc.on.doc")
-					.labelStyle(.iconOnly)
-			}
-			.buttonStyle(.borderless)
-			.frame(width: 48.0, height: defaultMinListRowHeight)
+		if isAccessibilitySize {
+			_MAVerticalLabeledString(label: label, value: value)
+		} else {
+			_MAHorizontalLabeledString(label: label, value: value)
 		}
-		.padding(.trailing, dynamicTypeSize.isAccessibilitySize ? 0.0 : -horizontalLayoutMargin)
-		.frame(maxWidth: .infinity)
-		.accessibilityElement(children: .combine)
 #elseif os(watchOS)
 		_MAVerticalLabeledString(label: label, value: value)
 #else

@@ -120,6 +120,7 @@ struct PhysiologyView: View {
 		}
 		.multilineTextAlignment(.center)
 		.font(Font.system(PhysiologyViewMetrics.textStyle).monospacedDigit().leading(.tight))
+		.preferredVerticalPadding()
 		.frame(idealWidth: PhysiologyViewMetrics.maxWidth,
 			   maxWidth: PhysiologyViewMetrics.maxWidth)
 		.accessibilityElement(children: .contain)

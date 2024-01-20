@@ -113,7 +113,6 @@
 		EB6FF1DA2B48DA5400118E0F /* SettingsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */; };
 		EB6FF1DB2B48DA5400118E0F /* SettingsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */; };
 		EB6FF1DF2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */; };
-		EB6FF1E02B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */; };
 		EB71F8722B5A0D4300999269 /* EnvironmentValues+MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8712B5A0D4300999269 /* EnvironmentValues+MAForm.swift */; };
 		EB71F8752B5A323500999269 /* MASectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8742B5A323500999269 /* MASectionFooter.swift */; };
 		EB71F8772B5A35A500999269 /* MASectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8742B5A323500999269 /* MASectionFooter.swift */; };
@@ -1569,7 +1568,6 @@
 				EB19D6722B1EBEC900C90417 /* ObservableHorizontalScrollView.swift in Sources */,
 				EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */,
-				EB6FF1E02B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */,
 				EB5672092B57748D00592413 /* ProgressIndicatorView.swift in Sources */,
 				EB6EF7DF2B4A0DB200646BBD /* RequestState.swift in Sources */,
 				EBEA6F722B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,

@@ -42,8 +42,10 @@ struct MAFormRoundedBackground<Content: View, Footer: View>: View {
 				.background(.formItemBackground, in: backgroundShape)
 #endif
 
-				footer
-				Color.clear.frame(height: metrics.sectionSpacing)
+				ZStack(alignment: .topLeading) {
+					Color.clear.frame(height: metrics.sectionSpacing)
+					footer
+				}
 			}
 		}
 	}

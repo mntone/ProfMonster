@@ -37,30 +37,21 @@ struct MASectionHeader: View {
 		if headerProminence == .increased {
 			header
 				.font(.title3.bold())
-				.padding(EdgeInsets(top: 0.0,
+				.frame(minHeight: defaultMinListHeaderHeight)
+				.padding(EdgeInsets(top: 5.0,
 									leading: horizontalLayoutMargin,
-									bottom: 12.0,
+									bottom: 11.0,
 									trailing: horizontalLayoutMargin))
-				.frame(minHeight: defaultMinListHeaderHeight ?? defaultMinListRowHeight,
-					   alignment: .bottomLeading)
-				// [SwiftUI.ListStyle.insetGrouped default style, not Apple Design Resources]
-				//.padding(EdgeInsets(top: 0.0,
-				//					leading: horizontalLayoutMargin,
-				//					bottom: 11.0,
-				//					trailing: horizontalLayoutMargin))
-				//.frame(minHeight: max((defaultMinListHeaderHeight ?? defaultMinListRowHeight) - 1.0, 0.0),
-				//	   alignment: .bottomLeading)
 		} else {
 			header
 				.textCase(.uppercase)
 				.font(.footnote)
 				.foregroundStyle(.secondary)
-				.padding(EdgeInsets(top: 0.0,
+				.frame(minHeight: defaultMinListHeaderHeight)
+				.padding(EdgeInsets(top: 18.0,
 									leading: horizontalLayoutMargin,
-									bottom: 8.0,
+									bottom: 5.0,
 									trailing: horizontalLayoutMargin))
-				.frame(minHeight: defaultMinListHeaderHeight ?? defaultMinListRowHeight,
-					   alignment: .bottomLeading)
 		}
 #elseif os(macOS)
 		header

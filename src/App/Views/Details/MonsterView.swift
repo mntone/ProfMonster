@@ -47,6 +47,9 @@ struct MonsterView: View {
 				if let weakness = item.weakness {
 					MASection("Weakness", background: .separatedInsetGrouped) {
 						WeaknessView(viewModel: weakness)
+#if !os(watchOS)
+							.preferredVerticalPadding()
+#endif
 					}
 				}
 

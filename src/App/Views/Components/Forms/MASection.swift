@@ -97,10 +97,17 @@ struct MASection<Content: View, Footer: View>: View {
 			footer
 		}
 #else
+#if os(macOS)
+		let metrics = MAFormLayoutMetrics(layoutMargin: ignoreLayoutMargin ? 0.0 : MAFormMetrics.horizontalRowInset,
+										  minRowHeight: defaultMinListRowHeight,
+										  rowSpacing: defaultListRowSpacing,
+										  sectionSpacing: defaultListSectionSpacing)
+#else
 		let metrics = MAFormLayoutMetrics(layoutMargin: ignoreLayoutMargin ? 0.0 : horizontalLayoutMargin,
 										  minRowHeight: defaultMinListRowHeight,
 										  rowSpacing: defaultListRowSpacing,
 										  sectionSpacing: defaultListSectionSpacing)
+#endif
 		switch backgroundStyle {
 		case .none:
 			Group {

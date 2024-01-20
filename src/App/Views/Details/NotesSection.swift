@@ -40,13 +40,17 @@ struct NotesSection: View {
 			TextEditor(text: note)
 				.font(.body)
 				.backport.scrollContentBackground(.hidden, viewType: .textEditor)
+				.preferredVerticalPadding()
+				.padding(.horizontal, 6.0)
 		}
+		.ignoreLayoutMargin()
 #else
 		if #available(iOS 16.0, *) {
 			MASection("Notes", background: .separatedInsetGrouped) {
 				TextField(text: note, axis: .vertical) {
 					Never?.none
 				}
+				.preferredVerticalPadding()
 				.focused($isActive)
 				.toolbar {
 					if settings?.keyboardDismissMode == .button {

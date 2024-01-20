@@ -67,9 +67,6 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 			}
 #endif
 		}
-#if !os(watchOS)
-		.padding(.vertical, MAFormMetrics.verticalRowInset)
-#endif
 	}
 
 	private func updateItemWidth(from containerSize: CGFloat) {

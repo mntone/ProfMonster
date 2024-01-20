@@ -51,7 +51,6 @@ struct NumberWeaknessSectionView: View {
 				updateItemWidth(from: width)
 			}
 		}
-		.padding(.vertical, MAFormMetrics.verticalRowInset)
 	}
 
 	private func updateItemWidth(from containerSize: CGFloat) {

@@ -67,14 +67,6 @@ extension SettingsLabelMetrics {
 
 @available(iOS 16.0, macOS 13.0, watchOS 9.0, *)
 struct SettingsLabelStyle: LabelStyle, SettingsLabelMetrics {
-	//	@Environment(\.scenePhase)
-	//	private var scenePhase
-
-#if os(iOS)
-	@Environment(\.dynamicTypeSize)
-	private var dynamicTypeSize
-#endif
-
 #if os(macOS)
 	@Environment(\.sidebarRowSize)
 	fileprivate var sidebarRowSize
@@ -82,7 +74,7 @@ struct SettingsLabelStyle: LabelStyle, SettingsLabelMetrics {
 
 	@ViewBuilder
 	func makeBody(configuration: Configuration) -> some View {
-		let body = HStack(spacing: spacing) {
+		HStack(spacing: spacing) {
 			let iconSize = self.iconSize
 			configuration.icon
 				.font(.system(size: iconFontSize))
@@ -100,17 +92,10 @@ struct SettingsLabelStyle: LabelStyle, SettingsLabelMetrics {
 #endif
 			configuration.title
 				.multilineTextAlignment(.leading)
-		}
-
 #if os(iOS)
-		if dynamicTypeSize >= .xxLarge {
-			body.padding(.vertical, 4)
-		} else {
-			body
-		}
-#else
-		body
+				.differentialPreferredVerticalPadding()
 #endif
+		}
 	}
 
 	private var spacing: CGFloat {
@@ -144,11 +129,6 @@ extension LabelStyle where Self == SettingsLabelStyle {
 @available(watchOS, introduced: 8.0, deprecated: 9.0, message: "Use SettingsLabelStyle instead")
 @available(macOS, unavailable)
 struct SettingsLabelStyleBackport: LabelStyle, SettingsLabelMetrics {
-#if os(iOS)
-	@Environment(\.dynamicTypeSize)
-	private var dynamicTypeSize
-#endif
-
 #if os(watchOS)
 	@Environment(\.watchMetrics)
 	private var watchMetrics
@@ -156,7 +136,7 @@ struct SettingsLabelStyleBackport: LabelStyle, SettingsLabelMetrics {
 
 	@ViewBuilder
 	func makeBody(configuration: Configuration) -> some View {
-		let body = HStack(spacing: spacing) {
+		HStack(spacing: spacing) {
 			let iconSize = self.iconSize
 			configuration.icon
 				.font(.system(size: iconFontSize))
@@ -170,17 +150,10 @@ struct SettingsLabelStyleBackport: LabelStyle, SettingsLabelMetrics {
 				.environment(\.legibilityWeight, .regular)
 			configuration.title
 				.multilineTextAlignment(.leading)
-		}
-
 #if os(iOS)
-		if dynamicTypeSize >= .xxLarge {
-			body.padding(.vertical, 4)
-		} else {
-			body
-		}
-#else
-		body
+				.insetGroupedDifferentialPreferredVerticalPaddingBackport3()
 #endif
+		}
 	}
 
 	private var spacing: CGFloat {
@@ -191,7 +164,7 @@ struct SettingsLabelStyleBackport: LabelStyle, SettingsLabelMetrics {
 			return 9.0
 		}
 #else
-		return 13.0
+		return 15.0
 #endif
 	}
 }

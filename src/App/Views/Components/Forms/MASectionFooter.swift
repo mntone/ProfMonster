@@ -26,7 +26,7 @@ struct MASectionFooter: View {
 			.foregroundStyle(.secondary)
 			.padding(EdgeInsets(top: 5.0,
 								leading: horizontalLayoutMargin,
-								bottom: 0.0,
+								bottom: 18.0,
 								trailing: horizontalLayoutMargin))
 #elseif os(macOS)
 			.foregroundStyle(.secondary)

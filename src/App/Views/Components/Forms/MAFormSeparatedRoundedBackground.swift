@@ -38,8 +38,10 @@ struct MAFormSeparatedRoundedBackground<Content: View, Footer: View>: View {
 #endif
 					.containerShape(backgroundShape)
 
-				footer
-				Color.clear.frame(height: metrics.sectionSpacing)
+				ZStack(alignment: .topLeading) {
+					Color.clear.frame(height: metrics.sectionSpacing)
+					footer
+				}
 			}
 		}
 	}
