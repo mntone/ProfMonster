@@ -14,6 +14,15 @@ enum GameGroupType: Hashable {
 		}
 	}
 
+	var isValidType: Bool {
+		switch self {
+		case .type, .weakness:
+			return true
+		default:
+			return false
+		}
+	}
+
 	var isType: Bool {
 		if case .type = self {
 			return true

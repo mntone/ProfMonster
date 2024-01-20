@@ -281,15 +281,17 @@ final class GameViewModel: ObservableObject {
 				.sorted()
 		case .weakness:
 			groups = baseMonsters
-				.reduce(into: [:]) { (result: inout [Attack: [GameItemViewModel]], next: GameItemViewModel) in
+				.reduce(into: [:]) { (result: inout [Attack?: [GameItemViewModel]], next: GameItemViewModel) in
 					guard let weaknesses = next.weaknesses else { return }
 
+					var added: Bool = false
 					if weaknesses.contains(where: { $0.1.fire >= .effective }) {
 						if let items = result[.fire] {
 							result[.fire] = items + [next]
 						} else {
 							result[.fire] = [next]
 						}
+						added = true
 					}
 					if weaknesses.contains(where: { $0.1.water >= .effective }) {
 						if let items = result[.water] {
@@ -297,6 +299,7 @@ final class GameViewModel: ObservableObject {
 						} else {
 							result[.water] = [next]
 						}
+						added = true
 					}
 					if weaknesses.contains(where: { $0.1.thunder >= .effective }) {
 						if let items = result[.thunder] {
@@ -304,6 +307,7 @@ final class GameViewModel: ObservableObject {
 						} else {
 							result[.thunder] = [next]
 						}
+						added = true
 					}
 					if weaknesses.contains(where: { $0.1.ice >= .effective }) {
 						if let items = result[.ice] {
@@ -311,6 +315,7 @@ final class GameViewModel: ObservableObject {
 						} else {
 							result[.ice] = [next]
 						}
+						added = true
 					}
 					if weaknesses.contains(where: { $0.1.dragon >= .effective }) {
 						if let items = result[.dragon] {
@@ -318,11 +323,19 @@ final class GameViewModel: ObservableObject {
 						} else {
 							result[.dragon] = [next]
 						}
+						added = true
+					}
+					if !added {
+						if let items = result[.none] {
+							result[.none] = items + [next]
+						} else {
+							result[.none] = [next]
+						}
 					}
 				}
 				.map { element, baseItems in
 					let items = baseItems.map { monster in
-						IdentifyHolder(monster, prefix: element.prefix)
+						IdentifyHolder(monster, prefix: element?.prefix ?? "n")
 					}
 					return GameGroupViewModel(gameID: gameID, type: .weakness(element: element), items: items)
 				}
