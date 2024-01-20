@@ -9,6 +9,9 @@ struct NumberWeaknessSectionView: View {
 	private var horizontalLayoutMargin
 
 #if !os(macOS)
+	@ScaledMetric(relativeTo: .body)
+	private var spacing: CGFloat = 11
+
 	@ScaledMetric(relativeTo: .title2)
 	private var signFontSize: CGFloat = 22.0
 #endif
@@ -20,7 +23,10 @@ struct NumberWeaknessSectionView: View {
 	private var namespace
 
 	var body: some View {
-		VStack(alignment: .leading, spacing: MAFormMetrics.verticalRowInset) {
+#if os(macOS)
+		let spacing = 5.0
+#endif
+		VStack(alignment: .leading, spacing: spacing) {
 			if !viewModel.isDefault {
 				MAItemHeader(header: viewModel.header)
 			}

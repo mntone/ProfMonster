@@ -4,23 +4,36 @@ import SwiftUI
 struct WeaknessView: View {
 	let viewModel: any WeaknessViewModel
 
-#if os(iOS)
-
+#if os(iOS) || os(watchOS)
+	@Environment(\.dynamicTypeSize.isAccessibilitySize)
+	private var isAccessibilitySize
 #endif
 
 	var body: some View {
 #if os(watchOS)
 		switch viewModel {
 		case let effectivenessViewModel as EffectivenessWeaknessViewModel:
-			ForEach(effectivenessViewModel.sections) { section in
-				SignWeaknessSectionView(viewModel: section)
+			if isAccessibilitySize {
+				ForEach(effectivenessViewModel.sections) { section in
+					AccessibilitySignWeaknessSectionView(viewModel: section)
+				}
+			} else {
+				ForEach(effectivenessViewModel.sections) { section in
+					SignWeaknessSectionView(viewModel: section)
+				}
+				.lineLimit(1)
 			}
-			.lineLimit(1)
 		case let numberViewModel as NumberWeaknessViewModel:
-			ForEach(numberViewModel.sections) { section in
-				SignWeaknessSectionView(viewModel: section)
+			if isAccessibilitySize {
+				ForEach(numberViewModel.sections) { section in
+					AccessibilitySignWeaknessSectionView(viewModel: section)
+				}
+			} else {
+				ForEach(numberViewModel.sections) { section in
+					SignWeaknessSectionView(viewModel: section)
+				}
+				.lineLimit(1)
 			}
-			.lineLimit(1)
 		default:
 			Never?.none
 		}
@@ -28,29 +41,103 @@ struct WeaknessView: View {
 		switch viewModel {
 		case let effectiveness as EffectivenessWeaknessViewModel:
 			let alignment: HorizontalAlignment = viewModel.displayMode == .sign ? .center : .leading
-			ForEach(effectiveness.sections) { section in
-				SignWeaknessSectionView(
-					alignment: alignment,
-					viewModel: section)
+#if os(macOS)
+			MAFormMetricsBuilder { metrics in
+				MAFormSeparatedRoundedBackground(metrics) {
+					ForEach(effectiveness.sections) { section in
+						SignWeaknessSectionView(
+							alignment: alignment,
+							viewModel: section)
+					}
+					.preferredVerticalPadding()
+				}
 			}
 			.lineLimit(1)
+#else
+			if isAccessibilitySize {
+				ForEach(effectiveness.sections) { section in
+					AccessibilitySignWeaknessSectionView(viewModel: section)
+				}
+			} else {
+				MAFormMetricsBuilder { metrics in
+					MAFormSeparatedRoundedBackground(metrics) {
+						ForEach(effectiveness.sections) { section in
+							SignWeaknessSectionView(
+								alignment: alignment,
+								viewModel: section)
+						}
+						.preferredVerticalPadding()
+					}
+				}
+				.lineLimit(1)
+			}
+#endif
 		case let number as NumberWeaknessViewModel:
 			switch viewModel.displayMode {
 			case .none:
 				Never?.none
 			case .sign:
-				ForEach(number.sections) { section in
-					SignWeaknessSectionView(alignment: .center,
-											viewModel: section)
+#if os(macOS)
+				MAFormMetricsBuilder { metrics in
+					MAFormSeparatedRoundedBackground(metrics) {
+						ForEach(number.sections) { section in
+							SignWeaknessSectionView(alignment: .center,
+													viewModel: section)
+						}
+						.preferredVerticalPadding()
+					}
 				}
 				.lineLimit(1)
+#else
+				if isAccessibilitySize {
+					ForEach(number.sections) { section in
+						AccessibilitySignWeaknessSectionView(viewModel: section)
+					}
+				} else {
+					MAFormMetricsBuilder { metrics in
+						MAFormSeparatedRoundedBackground(metrics) {
+							ForEach(number.sections) { section in
+								SignWeaknessSectionView(alignment: .center,
+														viewModel: section)
+							}
+							.preferredVerticalPadding()
+						}
+					}
+					.lineLimit(1)
+				}
+#endif
 			case .number, .number2:
 				let fractionLength: Int = viewModel.displayMode == .number2 ? 2 : 1
-				ForEach(number.sections) { section in
-					NumberWeaknessSectionView(fractionLength: fractionLength,
-											  viewModel: section)
+#if os(macOS)
+				MAFormMetricsBuilder { metrics in
+					MAFormSeparatedRoundedBackground(metrics) {
+						ForEach(number.sections) { section in
+							NumberWeaknessSectionView(fractionLength: fractionLength,
+													  viewModel: section)
+						}
+						.preferredVerticalPadding()
+					}
 				}
 				.lineLimit(1)
+#else
+				if isAccessibilitySize {
+					ForEach(number.sections) { section in
+						AccessibilityNumberWeaknessSectionView(fractionLength: fractionLength,
+															   viewModel: section)
+					}
+				} else {
+					MAFormMetricsBuilder { metrics in
+						MAFormSeparatedRoundedBackground(metrics) {
+							ForEach(number.sections) { section in
+								NumberWeaknessSectionView(fractionLength: fractionLength,
+														  viewModel: section)
+							}
+							.preferredVerticalPadding()
+						}
+					}
+					.lineLimit(1)
+				}
+#endif
 			}
 		default:
 			Never?.none

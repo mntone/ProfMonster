@@ -81,6 +81,7 @@
 		EB5672242B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672232B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift */; };
 		EB5672272B57D60D00592413 /* MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672262B57D60D00592413 /* MAForm.swift */; };
 		EB5672282B57D60D00592413 /* MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672262B57D60D00592413 /* MAForm.swift */; };
+		EB56722C2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722B2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift */; };
 		EB56722E2B580E3700592413 /* WidthChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722D2B580E3700592413 /* WidthChangeModifier.swift */; };
 		EB56722F2B580E3700592413 /* WidthChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722D2B580E3700592413 /* WidthChangeModifier.swift */; };
 		EB5941CE2B39ABD1005BC27C /* MonsterAnalyzerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EBB4B1F22B17593F004D63EA /* MonsterAnalyzerWatch.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -113,6 +114,10 @@
 		EB6FF1DA2B48DA5400118E0F /* SettingsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */; };
 		EB6FF1DB2B48DA5400118E0F /* SettingsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */; };
 		EB6FF1DF2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */; };
+		EB71C1382B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1372B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift */; };
+		EB71C1392B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1372B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift */; };
+		EB71C13B2B5B60CA0013FBBC /* MAFormMetricsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C13A2B5B60CA0013FBBC /* MAFormMetricsBuilder.swift */; };
+		EB71C13C2B5B6FF10013FBBC /* EnvironmentValues+MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8712B5A0D4300999269 /* EnvironmentValues+MAForm.swift */; };
 		EB71F8722B5A0D4300999269 /* EnvironmentValues+MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8712B5A0D4300999269 /* EnvironmentValues+MAForm.swift */; };
 		EB71F8752B5A323500999269 /* MASectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8742B5A323500999269 /* MASectionFooter.swift */; };
 		EB71F8772B5A35A500999269 /* MASectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8742B5A323500999269 /* MASectionFooter.swift */; };
@@ -451,6 +456,7 @@
 		EB5672202B57C9A200592413 /* MASection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MASection.swift; sourceTree = "<group>"; };
 		EB5672232B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAFormSeparatedRoundedBackground.swift; sourceTree = "<group>"; };
 		EB5672262B57D60D00592413 /* MAForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAForm.swift; sourceTree = "<group>"; };
+		EB56722B2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityNumberWeaknessSectionView.swift; sourceTree = "<group>"; };
 		EB56722D2B580E3700592413 /* WidthChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidthChangeModifier.swift; sourceTree = "<group>"; };
 		EB6297F12B37179200E830E6 /* View+Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Block.swift"; sourceTree = "<group>"; };
 		EB6437912B46EE3B00E8D02B /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
@@ -468,6 +474,8 @@
 		EB6FF1D32B48CEFF00118E0F /* SettingsPreferredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreferredList.swift; sourceTree = "<group>"; };
 		EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggle.swift; sourceTree = "<group>"; };
 		EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredVerticalPaddingModifier.swift; sourceTree = "<group>"; };
+		EB71C1372B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilitySignWeaknessSectionView.swift; sourceTree = "<group>"; };
+		EB71C13A2B5B60CA0013FBBC /* MAFormMetricsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAFormMetricsBuilder.swift; sourceTree = "<group>"; };
 		EB71F8712B5A0D4300999269 /* EnvironmentValues+MAForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+MAForm.swift"; sourceTree = "<group>"; };
 		EB71F8742B5A323500999269 /* MASectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MASectionFooter.swift; sourceTree = "<group>"; };
 		EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
@@ -730,6 +738,8 @@
 		EB56720A2B5786EC00592413 /* Weaknesses */ = {
 			isa = PBXGroup;
 			children = (
+				EB56722B2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift */,
+				EB71C1372B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift */,
 				EB56720E2B5787DA00592413 /* NumberWeaknessItemView.swift */,
 				EB5672132B5790BF00592413 /* NumberWeaknessSectionView.swift */,
 				EB56720B2B57870200592413 /* SignWeaknessItemView.swift */,
@@ -747,6 +757,7 @@
 				EBB883762B59133F00D40F90 /* MADivider.swift */,
 				EB5672262B57D60D00592413 /* MAForm.swift */,
 				EBB883732B58F32900D40F90 /* MAFormMetrics.swift */,
+				EB71C13A2B5B60CA0013FBBC /* MAFormMetricsBuilder.swift */,
 				EB4426B02B58C23B0074B1FF /* MAFormNoBackground.swift */,
 				EB56721B2B57C92C00592413 /* MAFormRoundedBackground.swift */,
 				EB5672232B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift */,
@@ -1513,6 +1524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB71C1392B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift in Sources */,
 				EB29563B2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBA66F1E2B355F38009DE78C /* AppSettingsPane.swift in Sources */,
 				EBF706F52B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift in Sources */,
@@ -1533,6 +1545,7 @@
 				EB6FF1D72B48CFEE00118E0F /* DrillDownSettingsContainer.swift in Sources */,
 				EBC85C7E2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */,
 				EBB4B20E2B175DE2004D63EA /* Effectiveness+Extensions.swift in Sources */,
+				EB71C13C2B5B6FF10013FBBC /* EnvironmentValues+MAForm.swift in Sources */,
 				EB8778292B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */,
 				EB6437982B4702DD00E8D02B /* EnvironmentValues+Settings.swift in Sources */,
 				EB560BCF2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
@@ -1691,6 +1704,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB56722C2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift in Sources */,
+				EB71C1382B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift in Sources */,
 				EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBA66F1D2B355F38009DE78C /* AppSettingsPane.swift in Sources */,
 				EBF706F42B3C0CAC00AE88C4 /* AsyncPreviewSupport.swift in Sources */,
@@ -1739,6 +1754,7 @@
 				EBB883772B59133F00D40F90 /* MADivider.swift in Sources */,
 				EB5672272B57D60D00592413 /* MAForm.swift in Sources */,
 				EBB883742B58F32900D40F90 /* MAFormMetrics.swift in Sources */,
+				EB71C13B2B5B60CA0013FBBC /* MAFormMetricsBuilder.swift in Sources */,
 				EB4426B12B58C23B0074B1FF /* MAFormNoBackground.swift in Sources */,
 				EB56721C2B57C92C00592413 /* MAFormRoundedBackground.swift in Sources */,
 				EB5672242B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift in Sources */,

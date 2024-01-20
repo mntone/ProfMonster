@@ -28,7 +28,7 @@ struct PhysiologySection: View {
 				MASectionFooter(copyright)
 			}
 		}
-#if os(iOS)
+#if os(iOS) || os(watchOS)
 		.ignoreLayoutMargin()
 #endif
 	}
@@ -45,11 +45,8 @@ struct MonsterView: View {
 		MAForm {
 			if let item = viewModel.item {
 				if let weakness = item.weakness {
-					MASection("Weakness", background: .separatedInsetGrouped) {
+					MASection("Weakness", background: MASectionBackgroundStyle.none) {
 						WeaknessView(viewModel: weakness)
-#if !os(watchOS)
-							.preferredVerticalPadding()
-#endif
 					}
 				}
 

@@ -15,21 +15,12 @@ struct MASection<Content: View, Footer: View>: View {
 	let header: MASectionHeader
 	let footer: Footer?
 
-#if !os(watchOS)
-	@Environment(\.defaultListRowSpacing)
-	private var defaultListRowSpacing
-
-	@Environment(\.defaultListSectionSpacing)
-	private var defaultListSectionSpacing
-
-	@Environment(\.defaultMinListRowHeight)
-	private var defaultMinListRowHeight
-
-	@Environment(\.horizontalLayoutMargin)
-	private var horizontalLayoutMargin
-
+#if os(watchOS)
 	@Environment(\._ignoreLayoutMargin)
 	private var ignoreLayoutMargin
+#else
+	@Environment(\.defaultListSectionSpacing)
+	private var defaultListSectionSpacing
 #endif
 
 	init(_ titleKey: LocalizedStringKey,
@@ -82,65 +73,46 @@ struct MASection<Content: View, Footer: View>: View {
 
 	var body: some View {
 #if os(watchOS)
-		Section {
-			switch backgroundStyle {
-			case .none:
-				content
-					.listRowBackground(EmptyView())
-					.listRowInsets(.zero)
-			case .separatedInsetGrouped:
-				content
-			}
-		} header: {
-			header
-		} footer: {
-			footer
-		}
-#else
-#if os(macOS)
-		let metrics = MAFormLayoutMetrics(layoutMargin: ignoreLayoutMargin ? 0.0 : MAFormMetrics.horizontalRowInset,
-										  minRowHeight: defaultMinListRowHeight,
-										  rowSpacing: defaultListRowSpacing,
-										  sectionSpacing: defaultListSectionSpacing)
-#else
-		let metrics = MAFormLayoutMetrics(layoutMargin: ignoreLayoutMargin ? 0.0 : horizontalLayoutMargin,
-										  minRowHeight: defaultMinListRowHeight,
-										  rowSpacing: defaultListRowSpacing,
-										  sectionSpacing: defaultListSectionSpacing)
-#endif
 		switch backgroundStyle {
 		case .none:
-			Group {
-				header
-				MAFormNoBackground(metrics, footer: footer) {
-					content.environment(\.horizontalLayoutMargin, 0)
-				}
-			}
-#if os(macOS)
-			.environment(\.horizontalLayoutMargin, MAFormMetrics.horizontalRowInset)
-#endif
-		case .insetGrouped:
-			Group {
-				header
-				MAFormRoundedBackground(metrics, footer: footer) {
-					content
-				}
-			}
-#if os(macOS)
-			.environment(\.horizontalLayoutMargin, MAFormMetrics.horizontalRowInset)
-#endif
+			content
 		case .separatedInsetGrouped:
-
-			Group {
+			Section {
+				content
+			} header: {
 				header
-				MAFormSeparatedRoundedBackground(metrics, footer: footer) {
+			} footer: {
+				footer
+			}
+			.listRowInsets(ignoreLayoutMargin ? .zero : nil)
+		}
+#else
+		MAFormMetricsBuilder { metrics in
+			header
+
+			switch backgroundStyle {
+			case .none:
+				MAFormNoBackground(metrics) {
+					content
+				}
+			case .insetGrouped:
+				MAFormRoundedBackground(metrics) {
+					content
+				}
+			case .separatedInsetGrouped:
+				MAFormSeparatedRoundedBackground(metrics) {
 					content
 				}
 			}
-#if os(macOS)
-			.environment(\.horizontalLayoutMargin, MAFormMetrics.horizontalRowInset)
-#endif
+
+			ZStack(alignment: .topLeading) {
+				Color.clear.frame(height: defaultListSectionSpacing)
+				footer
+			}
 		}
+#if os(macOS)
+		.environment(\.horizontalLayoutMargin, MAFormMetrics.horizontalRowInset)
+#endif
 #endif
 	}
 }

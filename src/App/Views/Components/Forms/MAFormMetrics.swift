@@ -19,5 +19,4 @@ struct MAFormLayoutMetrics {
 	let layoutMargin: CGFloat
 	let minRowHeight: CGFloat
 	let rowSpacing: CGFloat?
-	let sectionSpacing: CGFloat
 }

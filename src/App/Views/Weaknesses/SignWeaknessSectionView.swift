@@ -15,6 +15,9 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 #endif
 
 #if os(iOS)
+	@ScaledMetric(relativeTo: .body)
+	private var spacing: CGFloat = 11
+
 	@ScaledMetric(relativeTo: .title2)
 	private var signFontSize: CGFloat = 22
 #endif
@@ -23,12 +26,8 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 	private var namespace
 
 	var body: some View {
-		VStack(alignment: .leading, spacing: MAFormMetrics.verticalRowInset) {
-			if !viewModel.isDefault {
-				MAItemHeader(header: viewModel.header)
-			}
-
 #if os(watchOS)
+		Section {
 			HStack(alignment: .bottom, spacing: 0) {
 				ForEach(viewModel.items) { item in
 					SignWeaknessItemView(namespace: namespace,
@@ -39,13 +38,26 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 			.onWidthChange { width in
 				updateItemWidth(from: width)
 			}
+		} header: {
+			if viewModel.isDefault {
+				MASectionHeader("Weakness")
+			} else {
+				Text(viewModel.header)
+			}
+		}
 #else
 #if os(macOS)
-			let signFontSize = 22.0
-			let padding = horizontalLayoutMargin
+		let spacing = 5.0
+		let signFontSize = 22.0
+		let padding = horizontalLayoutMargin
 #else
-			let padding = 0.5 * horizontalLayoutMargin
+		let padding = 0.5 * horizontalLayoutMargin
 #endif
+		VStack(alignment: .leading, spacing: spacing) {
+			if !viewModel.isDefault {
+				MAItemHeader(header: viewModel.header)
+			}
+
 			DividedHStack(alignment: .bottom, spacing: 0) {
 				ForEach(viewModel.items) { item in
 					SignWeaknessItemView(alignment: alignment,
@@ -65,8 +77,8 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 			.onWidthChange { width in
 				updateItemWidth(from: width)
 			}
-#endif
 		}
+#endif
 	}
 
 	private func updateItemWidth(from containerSize: CGFloat) {

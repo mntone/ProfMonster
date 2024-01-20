@@ -1,5 +1,7 @@
 import SwiftUI
 
+#if os(iOS) || os(macOS)
+
 @available(watchOS, unavailable)
 private struct _MAListRowSpacingKey: EnvironmentKey {
 	static var defaultValue: CGFloat? {
@@ -19,7 +21,7 @@ private struct _MAListSectionSpacingKey: EnvironmentKey {
 }
 
 @available(watchOS, unavailable)
-private struct _MAListIgnoreLayoutMarginKey: EnvironmentKey {
+private struct _MAListInOwnerdrawBackgroundContextKey: EnvironmentKey {
 	static var defaultValue: Bool {
 		false
 	}
@@ -37,13 +39,27 @@ extension EnvironmentValues {
 		set { self[_MAListSectionSpacingKey.self] = newValue }
 	}
 
+	var _inOwnerdrawBackgroundContext: Bool {
+		get { self[_MAListInOwnerdrawBackgroundContextKey.self] }
+		set { self[_MAListInOwnerdrawBackgroundContextKey.self] = newValue }
+	}
+}
+
+#endif
+
+private struct _MAListIgnoreLayoutMarginKey: EnvironmentKey {
+	static var defaultValue: Bool {
+		false
+	}
+}
+
+extension EnvironmentValues {
 	var _ignoreLayoutMargin: Bool {
 		get { self[_MAListIgnoreLayoutMarginKey.self] }
 		set { self[_MAListIgnoreLayoutMarginKey.self] = newValue }
 	}
 }
 
-@available(watchOS, unavailable)
 extension View {
 	@inline(__always)
 	func ignoreLayoutMargin() -> some View {
