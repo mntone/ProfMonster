@@ -171,7 +171,7 @@
 		EB9620F42B1D90DB00FD7115 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620EA2B1D839B00FD7115 /* HomeViewModel.swift */; };
 		EB9620F92B1DD41200FD7115 /* MockDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F82B1DD41200FD7115 /* MockDataSource.swift */; };
 		EB9620FA2B1DD6D500FD7115 /* AppUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F772B1A099000734AAA /* AppUtil.swift */; };
-		EB967A262B299BFC0041A491 /* MonsterLocalizationMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A252B299BFC0041A491 /* MonsterLocalizationMapper.swift */; };
+		EB967A262B299BFC0041A491 /* MonsterResourceMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A252B299BFC0041A491 /* MonsterResourceMapper.swift */; };
 		EB967A282B299F9E0041A491 /* TextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A272B299F9E0041A491 /* TextProcessor.swift */; };
 		EB967A2B2B29A0BA0041A491 /* JapaneseTextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A2A2B29A0BA0041A491 /* JapaneseTextProcessor.swift */; };
 		EB967A2D2B29AB500041A491 /* KoreanTextProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB967A2C2B29AB500041A491 /* KoreanTextProcessor.swift */; };
@@ -521,7 +521,7 @@
 		EB9620EC2B1D867E00FD7115 /* LanguageUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageUtil.swift; sourceTree = "<group>"; };
 		EB9620F12B1D8E1300FD7115 /* HomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
 		EB9620F82B1DD41200FD7115 /* MockDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDataSource.swift; sourceTree = "<group>"; };
-		EB967A252B299BFC0041A491 /* MonsterLocalizationMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterLocalizationMapper.swift; sourceTree = "<group>"; };
+		EB967A252B299BFC0041A491 /* MonsterResourceMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterResourceMapper.swift; sourceTree = "<group>"; };
 		EB967A272B299F9E0041A491 /* TextProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextProcessor.swift; sourceTree = "<group>"; };
 		EB967A2A2B29A0BA0041A491 /* JapaneseTextProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JapaneseTextProcessor.swift; sourceTree = "<group>"; };
 		EB967A2C2B29AB500041A491 /* KoreanTextProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KoreanTextProcessor.swift; sourceTree = "<group>"; };
@@ -1243,7 +1243,7 @@
 		EBF684A52B2D4FEF0071981F /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
-				EB967A252B299BFC0041A491 /* MonsterLocalizationMapper.swift */,
+				EB967A252B299BFC0041A491 /* MonsterResourceMapper.swift */,
 				EBF684A62B2D50060071981F /* PhysiologyMapper.swift */,
 			);
 			path = Mappers;
@@ -1679,7 +1679,7 @@
 				EB71C1452B5BF69C0013FBBC /* Mode.swift in Sources */,
 				EB9C7E5F2B3D58A90045BBA8 /* Model.xcdatamodeld in Sources */,
 				EB967A3A2B29DAC00041A491 /* Monster.swift in Sources */,
-				EB967A262B299BFC0041A491 /* MonsterLocalizationMapper.swift in Sources */,
+				EB967A262B299BFC0041A491 /* MonsterResourceMapper.swift in Sources */,
 				EBEA6F512B185A1A00734AAA /* NetworkDataSource.swift in Sources */,
 				EB10435B2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift in Sources */,
 				EB9620DD2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift in Sources */,

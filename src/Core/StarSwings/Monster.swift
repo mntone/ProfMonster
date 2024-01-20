@@ -65,18 +65,21 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 		false
 	}
 
-	init(app: App,
-		 game: Game,
-		 id: String,
-		 monster: MHGameMonster,
-		 dataSource: DataSource,
-		 languageService: LanguageServiceInternal,
-		 physiologyMapper: PhysiologyMapper,
-		 localization: MHLocalizationMonster,
-		 userDatabase: UserDatabase,
-		 userData: UDMonster?,
-		 prefix: String,
-		 reference: [Monster]) {
+	init?(app: App,
+		  game: Game,
+		  id: String,
+		  monster: MHGameMonster,
+		  dataSource: DataSource,
+		  resourceMapper: MonsterResourceMapper,
+		  physiologyMapper: PhysiologyMapper,
+		  userDatabase: UserDatabase,
+		  userData: UDMonster?,
+		  prefix: String,
+		  reference: [Monster]) {
+		guard let localization = resourceMapper.getMonsterResource(monster.id) else {
+			return nil
+		}
+
 		self.game = game
 		self._physiologyMapper = physiologyMapper
 		self._userDatabase = userDatabase
@@ -84,34 +87,25 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 		self.id = id
 		self.type = monster.type
 		self.size = monster.size
-		self.weaknesses = monster.weakness.map { weakness in
-			Dictionary(uniqueKeysWithValues: weakness.compactMap { key, value in
-				let localizedStateName = languageService.getLocalizedString(of: key, for: .state)
-				guard let weakness = Weakness(state: localizedStateName, string: value) else {
-					return nil
-				}
-				return (key, weakness)
-			})
-		}
+		self.weaknesses = monster.weakness.map(resourceMapper.getLocalizedWeaknesses)
 		self.name = localization.name
 
-		let readableName = localization.readableName ?? languageService.readable(from: localization.name)
+		let readableName = localization.readableName ?? resourceMapper.getReadableName(localization.name)
 		self.readableName = readableName
 		if let linkedID = monster.linkedID.map({ prefix + $0 }),
 		   let linkedIndex = monster.linkedIndex,
 		   let referenceMonster = reference.last(where: { $0.id == linkedID }) {
-			self.sortkey = languageService.sortkey(from: readableName)
+			self.sortkey = resourceMapper.getSortkey(readableName)
 			self.linkedSortkey = referenceMonster.sortkey + String(linkedIndex)
 		} else {
-			let sortkey = languageService.sortkey(from: readableName)
+			let sortkey = resourceMapper.getSortkey(readableName)
 			self.sortkey = sortkey
 			self.linkedSortkey = sortkey
 		}
 		self.anotherName = localization.anotherName
-		self.keywords = MonsterLocalizationMapper.map(localization,
-													  readableName: readableName,
-													  weaknesses: weaknesses,
-													  languageService: languageService)
+		self.keywords = resourceMapper.getKeywords(localization,
+												   readableName: readableName,
+												   weaknesses: weaknesses)
 
 		if let userData {
 			self.isFavoritedSubject = CurrentValueSubject(userData.isFavorited)

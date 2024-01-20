@@ -1,9 +1,18 @@
 import MonsterAnalyzerCore
 import Swinject
 
+#if os(iOS)
+import UIKit
+#endif
+
 struct AppAssembly: Assembly {
 	func assemble(container: Container) {
-		let app = App(resolver: container.synchronize())
+#if os(iOS)
+		let pad = UIDevice.current.userInterfaceIdiom == .pad
+		let app = App(resolver: container.synchronize(), pad: pad)
+#else
+		let app = App(resolver: container.synchronize(), pad: false)
+#endif
 		container.register(App.self) { _ in
 			app
 		}

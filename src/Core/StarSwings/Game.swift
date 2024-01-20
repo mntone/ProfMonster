@@ -4,7 +4,8 @@ import protocol Swinject.Resolver
 public final class Game: FetchableEntity<[Monster]>, Entity {
 	private let _logger: Logger
 	private let _userDatabase: UserDatabase
-	private let _languageService: LanguageServiceInternal
+	private let _resourceMapper: MonsterResourceMapper
+	private let _physiologyMapper: PhysiologyMapper
 
 	weak var app: App?
 
@@ -18,7 +19,8 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 		 resolver: Resolver,
 		 dataSource: DataSource,
 		 logger: Logger,
-		 languageService: LanguageServiceInternal,
+		 resourceMapper: MonsterResourceMapper,
+		 physiologyMapper: PhysiologyMapper,
 		 id: String,
 		 localization: MHLocalizationGame) {
 		guard let userDatabase = resolver.resolve(UserDatabase.self) else {
@@ -27,7 +29,8 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 
 		self._logger = logger
 		self._userDatabase = userDatabase
-		self._languageService = languageService
+		self._resourceMapper = resourceMapper
+		self._physiologyMapper = physiologyMapper
 
 		self.app = app
 		self.id = id
@@ -62,7 +65,6 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 		let app = self.app!
 		let idPrefix = "\(id):"
 		let udMonsters = _userDatabase.getMonsters(by: idPrefix)
-		let physiologyMapper = PhysiologyMapper(languageService: _languageService)
 
 		var monsters: [Monster] = []
 		monsters.reserveCapacity(game.monsters.count)
@@ -73,14 +75,15 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 								  id: id,
 								  monster: jsonMonster,
 								  dataSource: self._dataSource,
-								  languageService: _languageService,
-								  physiologyMapper: physiologyMapper,
-								  localization: _languageService.getMonster(of: jsonMonster.id)!,
+								  resourceMapper: _resourceMapper,
+								  physiologyMapper: _physiologyMapper,
 								  userDatabase: _userDatabase,
 								  userData: udMonsters.first { udMonster in udMonster.id == id },
 								  prefix: idPrefix,
 								  reference: monsters)
-			monsters.append(monster)
+			if let monster {
+				monsters.append(monster)
+			}
 		}
 		return monsters
 	}

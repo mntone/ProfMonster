@@ -4,13 +4,16 @@ import protocol Swinject.Resolver
 public final class App: FetchableEntity<[Game]>, Entity {
 	private let _resolver: Resolver
 	private let _storage: Storage
+#if os(iOS)
+	private let _pad: Bool
+#endif
 
 	public let logger: Logger
 	public let settings = Settings()
 
 	public private(set) var languageService: LanguageService?
 
-	public init(resolver: Resolver) {
+	public init(resolver: Resolver, pad: Bool) {
 		guard let logger = resolver.resolve(Logger.self) else {
 			fatalError("Failed to get Logger.")
 		}
@@ -23,6 +26,9 @@ public final class App: FetchableEntity<[Game]>, Entity {
 
 		self._resolver = resolver
 		self._storage = storage
+#if os(iOS)
+		self._pad = pad
+#endif
 		self.logger = logger
 #if DEBUG
 		super.init(dataSource: dataSource, delayed: settings.delayNetworkRequest)
@@ -79,12 +85,21 @@ public final class App: FetchableEntity<[Game]>, Entity {
 		let langsvc = _resolver.resolve(LanguageServiceInternal.self, arguments: preferredLocaleKey, localization)!
 		self.languageService = langsvc
 
+		// Inititalize mappers.
+#if os(iOS)
+		let resourceMapper = MonsterResourceMapper(languageService: langsvc, pad: _pad)
+#else
+		let resourceMapper = MonsterResourceMapper(languageService: langsvc)
+#endif
+		let physiologyMapper = PhysiologyMapper(languageService: langsvc)
+
 		let games = config.games.map { gameID in
 			Game(app: self,
 				 resolver: _resolver,
 				 dataSource: _dataSource,
 				 logger: logger,
-				 languageService: langsvc,
+				 resourceMapper: resourceMapper,
+				 physiologyMapper: physiologyMapper,
 				 id: gameID,
 				 localization: localization.games.first(where: { g in g.id == gameID })!)
 		}

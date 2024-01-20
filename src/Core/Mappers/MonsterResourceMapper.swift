@@ -1,10 +1,36 @@
 import Foundation
 
-enum MonsterLocalizationMapper {
-	static func map(_ src: MHLocalizationMonster,
-					readableName: String,
-					weaknesses: [String: Weakness]?,
-					languageService: LanguageServiceInternal) -> [String] {
+struct MonsterResourceMapper {
+	let languageService: LanguageServiceInternal
+#if os(iOS)
+	let pad: Bool
+#endif
+
+	func getMonsterResource(_ key: String) -> MHLocalizationMonster? {
+		languageService.getMonster(of: key)
+	}
+
+	func getReadableName(_ originalName: String) -> String {
+		languageService.readable(from: originalName)
+	}
+
+	func getSortkey(_ readableName: String) -> String {
+		languageService.sortkey(from: readableName)
+	}
+
+	func getLocalizedWeaknesses(_ weaknesses: [String: String]) -> [String: Weakness] {
+		Dictionary(uniqueKeysWithValues: weaknesses.compactMap { key, value in
+			let localizedStateName = languageService.getLocalizedString(of: key, for: .state)
+			guard let weakness = Weakness(state: localizedStateName, string: value) else {
+				return nil
+			}
+			return (key, weakness)
+		})
+	}
+
+	func getKeywords(_ src: MHLocalizationMonster,
+					 readableName: String,
+					 weaknesses: [String: Weakness]?) -> [String] {
 		var result: [String] = []
 
 		let normalizedName = languageService.normalize(forSearch: src.name)
@@ -15,7 +41,15 @@ enum MonsterLocalizationMapper {
 			result.append(normalizedReadableName)
 		}
 
-#if !os(watchOS)
+#if os(iOS)
+		if pad {
+			let latinName = languageService.latin(from: readableName)
+			if normalizedReadableName != latinName {
+				result.append(latinName)
+			}
+		}
+#endif
+#if os(macOS)
 		let latinName = languageService.latin(from: readableName)
 		if normalizedReadableName != latinName {
 			result.append(latinName)
