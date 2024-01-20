@@ -3,6 +3,8 @@ import SwiftUI
 
 @available(watchOS, unavailable)
 struct SortToolbarMenu: View {
+	let hasSizes: Bool
+
 	@Binding
 	private(set) var sort: Sort
 
@@ -44,6 +46,25 @@ struct SortToolbarMenu: View {
 					Label("Name", systemImage: reversed ? "chevron.up" : "chevron.down")
 				default:
 					Text("Name")
+				}
+			}
+
+			if hasSizes {
+				Toggle(isOn: Binding {
+					sort.isSize
+				} set: { newValue in
+					if !newValue {
+						sort = .size(reversed: !sort.isReversed)
+					} else {
+						sort = .size(reversed: false)
+					}
+				}) {
+					switch sort {
+					case let .size(reversed):
+						Label("Size", systemImage: reversed ? "chevron.up" : "chevron.down")
+					default:
+						Text("Size")
+					}
 				}
 			}
 		}

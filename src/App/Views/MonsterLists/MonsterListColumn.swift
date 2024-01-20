@@ -42,7 +42,8 @@ struct MonsterListColumn: View {
 #endif
 		.toolbar {
 			ToolbarItem(placement: .primaryAction) {
-				SortToolbarMenu(sort: $viewModel.sort,
+				SortToolbarMenu(hasSizes: viewModel.hasSizes,
+								sort: $viewModel.sort,
 								groupOption: $viewModel.groupOption)
 			}
 		}

@@ -9087,6 +9087,57 @@
         }
       }
     },
+    "Size" : {
+      "comment" : "Sort",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Size"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大きさ"
+          }
+        }
+      }
+    },
+    "Size (Largest)" : {
+      "comment" : "Sort",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Size (Largest)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大きさ (降順)"
+          }
+        }
+      }
+    },
+    "Size (Smallest)" : {
+      "comment" : "Sort",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Size (Smallest)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "大きさ (昇順)"
+          }
+        }
+      }
+    },
     "Slash" : {
       "comment" : "Elem/Short",
       "extractionState" : "manual",

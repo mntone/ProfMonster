@@ -20,6 +20,11 @@ final class GameViewModel: ObservableObject {
 	@Published
 	private(set) var items: [GameGroupViewModel] = []
 
+#if !os(watchOS)
+	@Published
+	private(set) var hasSizes: Bool = false
+#endif
+
 	var itemsCount: Int {
 		Set(items.lazy.flatMap(\.items).map(\.content.id)).count
 	}
@@ -114,6 +119,18 @@ final class GameViewModel: ObservableObject {
 			}
 			.removeDuplicates()
 			.multicast(subject: PassthroughSubject())
+
+#if !os(watchOS)
+		// Set to enable size sort.
+		items
+			.map { (monsters: [GameItemViewModel]) in
+				monsters.allSatisfy { monster in
+					monster.size != nil
+				}
+			}
+			.receive(on: scheduler)
+			.assign(to: &$hasSizes)
+#endif
 
 		// Favorite Group
 		let favorites = items
@@ -227,6 +244,12 @@ final class GameViewModel: ObservableObject {
 			monsters = baseMonsters.sorted(by: AscendingSimpleSortkeyComparator.compare)
 		case .name(true, false):
 			monsters = baseMonsters.sorted(by: DescendingSimpleSortkeyComparator.compare)
+#if !os(watchOS)
+		case .size(false):
+			monsters = baseMonsters.sorted(by: AscendingSizeComparator.compare)
+		case .size(true):
+			monsters = baseMonsters.sorted(by: DescendingSizeComparator.compare)
+#endif
 		}
 		return monsters
 	}

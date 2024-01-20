@@ -3,6 +3,8 @@ import class Foundation.UserDefaults
 public enum Sort: CaseIterable, Hashable {
 	case inGame(reversed: Bool)
 	case name(reversed: Bool, linked: Bool)
+	@available(watchOS, unavailable)
+	case size(reversed: Bool)
 
 	public init?(rawValue: String) {
 		switch rawValue {
@@ -18,6 +20,12 @@ public enum Sort: CaseIterable, Hashable {
 			self = .name(reversed: false, linked: false)
 		case "NameDescSimple":
 			self = .name(reversed: true, linked: false)
+#if !os(watchOS)
+		case "Size":
+			self = .size(reversed: false)
+		case "SizeDesc":
+			self = .size(reversed: true)
+#endif
 		default:
 			return nil
 		}
@@ -37,6 +45,12 @@ public enum Sort: CaseIterable, Hashable {
 			return "NameSimple"
 		case .name(true, false):
 			return "NameDescSimple"
+#if !os(watchOS)
+		case .size(false):
+			return "Size"
+		case .size(true):
+			return "SizeDesc"
+#endif
 		}
 	}
 
@@ -56,10 +70,25 @@ public enum Sort: CaseIterable, Hashable {
 		}
 	}
 
+#if !os(watchOS)
+	public var isSize: Bool {
+		if case .size = self {
+			true
+		} else {
+			false
+		}
+	}
+#endif
+
 	public var isReversed: Bool {
 		switch self {
+#if os(watchOS)
 		case .inGame(true), .name(true, _):
 			true
+#else
+		case .inGame(true), .name(true, _), .size(true):
+			true
+#endif
 		default:
 			false
 		}
@@ -75,6 +104,12 @@ public enum Sort: CaseIterable, Hashable {
 			.name(reversed: true, linked: linked)
 		case let .name(true, linked):
 			.name(reversed: false, linked: linked)
+#if !os(watchOS)
+		case .size(false):
+			.size(reversed: true)
+		case .size(true):
+			.size(reversed: false)
+#endif
 		}
 	}
 
@@ -102,6 +137,7 @@ public enum Sort: CaseIterable, Hashable {
 			: (linked ? allAscendingCases : allSimpleAscendingCases)
 	}
 
+#if os(watchOS)
 	public static var allAscendingCases: [Sort] = [
 		.inGame(reversed: false),
 		.name(reversed: false, linked: true),
@@ -130,6 +166,42 @@ public enum Sort: CaseIterable, Hashable {
 		.name(reversed: false, linked: false),
 		.name(reversed: true, linked: false),
 	]
+#else
+	public static var allAscendingCases: [Sort] = [
+		.inGame(reversed: false),
+		.name(reversed: false, linked: true),
+		.size(reversed: false),
+	]
+
+	public static var allSimpleAscendingCases: [Sort] = [
+		.inGame(reversed: false),
+		.name(reversed: false, linked: false),
+		.size(reversed: false),
+	]
+
+	public static var allDescendingCases: [Sort] = [
+		.inGame(reversed: true),
+		.name(reversed: true, linked: true),
+		.size(reversed: true),
+	]
+
+	public static var allSimpleDescendingCases: [Sort] = [
+		.inGame(reversed: true),
+		.name(reversed: true, linked: false),
+		.size(reversed: true),
+	]
+
+	public static var allCases: [Sort] = [
+		.inGame(reversed: false),
+		.inGame(reversed: true),
+		.name(reversed: false, linked: true),
+		.name(reversed: true, linked: true),
+		.name(reversed: false, linked: false),
+		.name(reversed: true, linked: false),
+		.size(reversed: false),
+		.size(reversed: true),
+	]
+#endif
 }
 
 extension Sort: UserDefaultable {

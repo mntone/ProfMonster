@@ -7,6 +7,10 @@ extension Sort {
 			String(localized: "In Game", comment: "Sort")
 		case .name:
 			String(localized: "Name", comment: "Sort")
+#if !os(watchOS)
+		case .size:
+			String(localized: "Size", comment: "Sort")
+#endif
 		}
 	}
 
@@ -20,6 +24,12 @@ extension Sort {
 			String(localized: "Name (A to Z)", comment: "Sort")
 		case .name(true, _):
 			String(localized: "Name (Z to A)", comment: "Sort")
+#if !os(watchOS)
+		case .size(false):
+			String(localized: "Size (Smallest)", comment: "Sort")
+		case .size(true):
+			String(localized: "Size (Largest)", comment: "Sort")
+#endif
 		}
 	}
 }

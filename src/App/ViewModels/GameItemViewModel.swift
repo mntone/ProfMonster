@@ -53,6 +53,13 @@ final class GameItemViewModel: ObservableObject, Identifiable {
 		}
 	}
 
+	var size: Float32? {
+		@inline(__always)
+		get {
+			monster.size
+		}
+	}
+
 	var name: String {
 		@inline(__always)
 		get {
@@ -114,3 +121,21 @@ enum DescendingSimpleSortkeyComparator {
 		lhs.sortkey > rhs.sortkey
 	}
 }
+
+#if !os(watchOS)
+
+@available(watchOS, unavailable)
+enum AscendingSizeComparator {
+	static func compare(lhs: GameItemViewModel, rhs: GameItemViewModel) -> Bool {
+		lhs.size.unsafelyUnwrapped < rhs.size.unsafelyUnwrapped
+	}
+}
+
+@available(watchOS, unavailable)
+enum DescendingSizeComparator {
+	static func compare(lhs: GameItemViewModel, rhs: GameItemViewModel) -> Bool {
+		lhs.size.unsafelyUnwrapped > rhs.size.unsafelyUnwrapped
+	}
+}
+
+#endif
