@@ -1,6 +1,7 @@
 import Foundation
 
 struct MHMonsterPhysiologyValue: Codable, Sendable {
+	let mode: String?
 	let states: [String]
 
 	let slash: Int8

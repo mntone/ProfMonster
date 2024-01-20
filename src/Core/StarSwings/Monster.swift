@@ -1,6 +1,6 @@
 import Combine
 
-public final class Monster: FetchableEntity<Physiology>, Entity {
+public final class Monster: FetchableEntity<Physiologies>, Entity {
 	private let _physiologyMapper: PhysiologyMapper
 	private let _userDatabase: UserDatabase
 
@@ -165,7 +165,7 @@ public final class Monster: FetchableEntity<Physiology>, Entity {
 		}
 	}
 
-	override func _fetch() async throws -> Physiology {
+	override func _fetch() async throws -> Physiologies {
 		let ids = id.split(separator: ":", maxSplits: 1).map(String.init)
 		assert(ids.count == 2)
 

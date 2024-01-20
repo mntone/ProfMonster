@@ -44,6 +44,7 @@ public struct PhysiologyValue<Number>: Hashable where Number: Hashable, Number: 
 }
 
 public struct PhysiologyPart: Hashable {
+	public let keys: [String]
 	public let stateInfo: PhysiologyStateInfo
 	public let label: String
 	public let value: PhysiologyValue<Int8>
@@ -67,7 +68,7 @@ public struct PhysiologyPart: Hashable {
 }
 
 public struct PhysiologyParts {
-	public let parts: [String]
+	public let keys: [String]
 	public let label: String
 	public let items: [PhysiologyPart]
 	public let isReference: Bool
@@ -82,11 +83,21 @@ public struct PhysiologyStateGroup {
 
 	public let key: String
 	public let label: String
-	public let groups: [PhysiologyParts]
+	public let parts: [PhysiologyParts]
 	public let average: PhysiologyValue<AverageFloat>
+
+	public var isDefault: Bool {
+		key == "default"
+	}
 }
 
 public struct Physiology: Identifiable {
 	public let id: String
-	public let sections: [PhysiologyStateGroup]
+	public let mode: Mode
+	public let states: [PhysiologyStateGroup]
+}
+
+public struct Physiologies: Identifiable {
+	public let id: String
+	public let modes: [Physiology]
 }

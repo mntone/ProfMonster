@@ -10,7 +10,10 @@ final class MonsterViewModel: ObservableObject {
 	private var task: Task<Void, Never>?
 
 	private(set) var state: RequestState = .ready
-	private(set) var item: MonsterDataViewModel? = nil
+	private(set) var items: [MonsterDataViewModel] = []
+
+	@Published
+	var selectedItem: MonsterDataViewModel?
 
 	@Published
 	var isFavorited: Bool = false {
@@ -82,26 +85,27 @@ final class MonsterViewModel: ObservableObject {
 						self.state = .loading
 
 						if let weaknesses = monster.weaknesses {
-							self.item = MonsterDataViewModel(monster.id,
-															 copyright: monster.game?.copyright,
-															 displayMode: elementDisplay,
-															 weaknesses: weaknesses)
+							self.items = MonsterDataViewModelFactory.create(monster.id,
+																		   copyright: monster.game?.copyright,
+																		   displayMode: elementDisplay,
+																		   weaknesses: weaknesses)
+							self.selectedItem = self.items.first
 						} else {
-							self.item = nil
+							self.items = []
+							self.selectedItem = nil
 						}
-						self.objectWillChange.send()
 					}
-				case let .complete(physiology):
+				case let .complete(physiologies):
 					self.state = .complete
-					self.item = MonsterDataViewModel(monster.id,
-													 copyright: monster.game?.copyright,
-													 displayMode: elementDisplay,
-													 rawValue: physiology)
-					self.objectWillChange.send()
+					self.items = MonsterDataViewModelFactory.create(monster.id,
+																	copyright: monster.game?.copyright,
+																	displayMode: elementDisplay,
+																	rawValue: physiologies)
+					self.selectedItem = self.items.first
 				case let .failure(date, error):
 					self.state = .failure(date: date, error: error)
-					self.item = nil
-					self.objectWillChange.send()
+					self.items = []
+					self.selectedItem = nil
 				}
 			}
 
@@ -184,7 +188,8 @@ extension MonsterViewModel {
 		resetState()
 
 		state = .ready
-		item = nil
+		items = []
+		selectedItem = nil
 		isFavorited = false
 		note = ""
 	}

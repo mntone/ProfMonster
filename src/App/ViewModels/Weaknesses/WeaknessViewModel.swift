@@ -71,7 +71,7 @@ struct NumberWeaknessViewModel: WeaknessViewModel {
 		let id = "\(prefixID):w"
 		self.id = id
 		self.displayMode = displayMode
-		self.sections = rawValue.sections.map { section in
+		self.sections = rawValue.states.map { section in
 			NumberWeaknessSectionViewModel(prefixID: id,
 										   rawValue: section,
 										   of: attacks)

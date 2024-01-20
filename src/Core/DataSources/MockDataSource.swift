@@ -41,7 +41,7 @@ public struct MockDataSource {
 							 url: nil,
 							 monsters: [MHGameMonster(id: "gulu_qoo", type: "piyopiyo")])
 
-	public static var physiology1: Physiology {
+	public static var physiology1: Physiologies {
 		let monster = MockData.monster(.guluQoo)!
 		let mapper = PhysiologyMapper(languageService: PassthroughtLanguageService())
 		return mapper.map(json: monster, options: PhysiologyMapperOptions(mergeParts: false))

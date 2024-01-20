@@ -5585,6 +5585,23 @@
         }
       }
     },
+    "G Rank" : {
+      "comment" : "Mode",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "G Rank"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "G級"
+          }
+        }
+      }
+    },
     "Git Commit Date" : {
       "localizations" : {
         "de" : {
@@ -5761,6 +5778,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gitの差分"
+          }
+        }
+      }
+    },
+    "GR" : {
+      "comment" : "Mode",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GR"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "G級"
           }
         }
       }
@@ -6622,6 +6656,57 @@
         }
       }
     },
+    "Low & High" : {
+      "comment" : "Mode",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Low & High"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下位・上位"
+          }
+        }
+      }
+    },
+    "LR & HR" : {
+      "comment" : "Mode",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LR & HR"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "下位・上位"
+          }
+        }
+      }
+    },
+    "Master" : {
+      "comment" : "Mode",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Master"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "マスターランク"
+          }
+        }
+      }
+    },
     "Merge Parts with Same Physiology" : {
       "localizations" : {
         "en" : {
@@ -6634,6 +6719,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "同じ肉質を持つ部位を結合する"
+          }
+        }
+      }
+    },
+    "Mode" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mode"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "モード"
           }
         }
       }
@@ -6927,6 +7028,23 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "最有效率"
+          }
+        }
+      }
+    },
+    "MR" : {
+      "comment" : "Mode",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MR"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "MR"
           }
         }
       }

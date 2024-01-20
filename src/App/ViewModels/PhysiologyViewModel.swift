@@ -127,7 +127,7 @@ struct PhysiologySectionViewModel: Identifiable {
 	init(rawValue: PhysiologyStateGroup, of attacks: [Attack]) {
 		self.header = rawValue.label
 		self.columns = attacks.map(PhysiologyColumnViewModel.init(attack:))
-		self.groups = rawValue.groups.enumerated().map { i, group in
+		self.groups = rawValue.parts.enumerated().map { i, group in
 			PhysiologyGroupViewModel(id: i, rawValue: group, of: attacks)
 		}
 		self.isDefault = rawValue.key == "default"
@@ -144,7 +144,7 @@ struct PhysiologiesViewModel: Identifiable {
 
 	init(rawValue: Physiology, of attacks: [Attack] = Attack.allCases) {
 		self.id = rawValue.id
-		self.sections = rawValue.sections.map { section in
+		self.sections = rawValue.states.map { section in
 			PhysiologySectionViewModel(rawValue: section, of: attacks)
 		}
 	}

@@ -149,7 +149,7 @@ struct WeaknessView: View {
 #Preview("Sign") {
 	let viewModel = NumberWeaknessViewModel(prefixID: "mock",
 											displayMode: .sign,
-											rawValue: MockDataSource.physiology1)
+											rawValue: MockDataSource.physiology1.modes[0])
 	return Form {
 		WeaknessView(viewModel: viewModel)
 	}
@@ -158,7 +158,7 @@ struct WeaknessView: View {
 #Preview("Number") {
 	let viewModel = NumberWeaknessViewModel(prefixID: "mock",
 											displayMode: .number,
-											rawValue: MockDataSource.physiology1)
+											rawValue: MockDataSource.physiology1.modes[0])
 	return Form {
 		WeaknessView(viewModel: viewModel)
 	}
@@ -167,7 +167,7 @@ struct WeaknessView: View {
 #Preview("Number2") {
 	let viewModel = NumberWeaknessViewModel(prefixID: "mock",
 											displayMode: .number2,
-											rawValue: MockDataSource.physiology1)
+											rawValue: MockDataSource.physiology1.modes[0])
 	return Form {
 		WeaknessView(viewModel: viewModel)
 	}

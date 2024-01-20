@@ -129,6 +129,6 @@ struct PhysiologyView: View {
 }
 
 #Preview {
-	PhysiologyView(viewModel: PhysiologiesViewModel(rawValue: MockDataSource.physiology1).sections[0], headerHidden: false)
+	PhysiologyView(viewModel: PhysiologiesViewModel(rawValue: MockDataSource.physiology1.modes[0]).sections[0], headerHidden: false)
 		.previewLayout(.sizeThatFits)
 }

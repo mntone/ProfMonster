@@ -36,7 +36,6 @@ struct MAForm<Content: View>: View {
 #if os(iOS)
 		.background(.formBackground)
 #endif
-		.injectHorizontalLayoutMargin()
 #endif
 	}
 }

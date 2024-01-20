@@ -16,7 +16,7 @@ public enum MockData {
 		return json
 	}
 
-	public static func physiology(_ key: MockMonsterKey) -> Physiology? {
+	public static func physiology(_ key: MockMonsterKey) -> Physiologies? {
 		guard let monster = Self.monster(key) else {
 			return nil
 		}

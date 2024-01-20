@@ -118,6 +118,13 @@
 		EB71C1392B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1372B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift */; };
 		EB71C13B2B5B60CA0013FBBC /* MAFormMetricsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C13A2B5B60CA0013FBBC /* MAFormMetricsBuilder.swift */; };
 		EB71C13C2B5B6FF10013FBBC /* EnvironmentValues+MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8712B5A0D4300999269 /* EnvironmentValues+MAForm.swift */; };
+		EB71C13E2B5BB56E0013FBBC /* ChromeShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C13D2B5BB56E0013FBBC /* ChromeShadow.swift */; };
+		EB71C1402B5BBAA50013FBBC /* Backport+ToolbarBackgroundForNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C13F2B5BBAA50013FBBC /* Backport+ToolbarBackgroundForNavigationBar.swift */; };
+		EB71C1422B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift */; };
+		EB71C1432B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift */; };
+		EB71C1452B5BF69C0013FBBC /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1442B5BF69C0013FBBC /* Mode.swift */; };
+		EB71C1472B5BF7C50013FBBC /* Mode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1462B5BF7C50013FBBC /* Mode+Extensions.swift */; };
+		EB71C1482B5BF7C50013FBBC /* Mode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1462B5BF7C50013FBBC /* Mode+Extensions.swift */; };
 		EB71F8722B5A0D4300999269 /* EnvironmentValues+MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8712B5A0D4300999269 /* EnvironmentValues+MAForm.swift */; };
 		EB71F8752B5A323500999269 /* MASectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8742B5A323500999269 /* MASectionFooter.swift */; };
 		EB71F8772B5A35A500999269 /* MASectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8742B5A323500999269 /* MASectionFooter.swift */; };
@@ -476,6 +483,11 @@
 		EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredVerticalPaddingModifier.swift; sourceTree = "<group>"; };
 		EB71C1372B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilitySignWeaknessSectionView.swift; sourceTree = "<group>"; };
 		EB71C13A2B5B60CA0013FBBC /* MAFormMetricsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAFormMetricsBuilder.swift; sourceTree = "<group>"; };
+		EB71C13D2B5BB56E0013FBBC /* ChromeShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromeShadow.swift; sourceTree = "<group>"; };
+		EB71C13F2B5BBAA50013FBBC /* Backport+ToolbarBackgroundForNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ToolbarBackgroundForNavigationBar.swift"; sourceTree = "<group>"; };
+		EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffsetYDetector.swift; sourceTree = "<group>"; };
+		EB71C1442B5BF69C0013FBBC /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
+		EB71C1462B5BF7C50013FBBC /* Mode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mode+Extensions.swift"; sourceTree = "<group>"; };
 		EB71F8712B5A0D4300999269 /* EnvironmentValues+MAForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+MAForm.swift"; sourceTree = "<group>"; };
 		EB71F8742B5A323500999269 /* MASectionFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MASectionFooter.swift; sourceTree = "<group>"; };
 		EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
@@ -695,6 +707,7 @@
 				EBDFF9D32B4D2E8700473634 /* Effectiveness.swift */,
 				EB95FFD12B5657AF009BE15E /* GroupOption.swift */,
 				EB2B2A612B596684008D66DF /* KeyboardDismissMode.swift */,
+				EB71C1442B5BF69C0013FBBC /* Mode.swift */,
 				EB31EEB42B2BD7FA00FF8536 /* Sort.swift */,
 				EB967A412B29E8540041A491 /* StarSwingsError.swift */,
 				EB967A3F2B29E4650041A491 /* StarSwingsState.swift */,
@@ -720,6 +733,7 @@
 			isa = PBXGroup;
 			children = (
 				EB42495C2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift */,
+				EB71C13F2B5BBAA50013FBBC /* Backport+ToolbarBackgroundForNavigationBar.swift */,
 				EBC051112B5503DC00D084E2 /* UIView+Swizzle.swift */,
 			);
 			path = iOS;
@@ -1019,6 +1033,7 @@
 				EB95FFD32B5658EF009BE15E /* GroupOption+Extensions.swift */,
 				EBB057532B47A77500AC08F5 /* IdentifyHolder.swift */,
 				EB2B2A642B596A49008D66DF /* KeyboardDismissMode+Extensions.swift */,
+				EB71C1462B5BF7C50013FBBC /* Mode+Extensions.swift */,
 				EBBF861F2B4692D500F76D03 /* Sort+Extensions.swift */,
 				EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */,
 				EB6437932B46EF5400E8D02B /* SwipeAction+Extensions.swift */,
@@ -1052,6 +1067,7 @@
 				EB6437962B4702DD00E8D02B /* EnvironmentValues+Settings.swift */,
 				EB4426AD2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift */,
 				EB5445552B527CE2008E7A48 /* Scene+Extensions.swift */,
+				EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift */,
 				EB8AD06D2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift */,
 				EB6297F12B37179200E830E6 /* View+Block.swift */,
 				EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */,
@@ -1188,6 +1204,7 @@
 				EB56721A2B57C91E00592413 /* Forms */,
 				EB29563F2B310E1D002C5CA8 /* iOS */,
 				EBF706F22B3C0C9D00AE88C4 /* Previews */,
+				EB71C13D2B5BB56E0013FBBC /* ChromeShadow.swift */,
 				EB28F1B22B370F0700291055 /* DividedHStack.swift */,
 				EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */,
 				EB967A472B2AC6E80041A491 /* LazyView.swift */,
@@ -1571,6 +1588,7 @@
 				EB5672222B57C9A200592413 /* MASection.swift in Sources */,
 				EB71F8772B5A35A500999269 /* MASectionFooter.swift in Sources */,
 				EB56721F2B57C96A00592413 /* MASectionHeader.swift in Sources */,
+				EB71C1482B5BF7C50013FBBC /* Mode+Extensions.swift in Sources */,
 				EBF684AA2B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
 				EB7DAA602B4FCBF20003210E /* MonsterList.swift in Sources */,
 				EB8778262B26B38200B3359C /* MonsterListItem.swift in Sources */,
@@ -1584,6 +1602,7 @@
 				EB5672092B57748D00592413 /* ProgressIndicatorView.swift in Sources */,
 				EB6EF7DF2B4A0DB200646BBD /* RequestState.swift in Sources */,
 				EBEA6F722B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
+				EB71C1432B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift in Sources */,
 				EB6FF1D82B48CFF600118E0F /* SettingsContainer.swift in Sources */,
 				EB3B49202B35E2B200E89711 /* SettingsLabeledContent.swift in Sources */,
 				EB99227B2B35686300DBA812 /* SettingsLabelStyle.swift in Sources */,
@@ -1657,6 +1676,7 @@
 				EBEA6F4C2B185A1600734AAA /* MHMonsterPhysiology.swift in Sources */,
 				EB6A4F4C2B48A9FF008AB7CE /* MockData.swift in Sources */,
 				EB9620F92B1DD41200FD7115 /* MockDataSource.swift in Sources */,
+				EB71C1452B5BF69C0013FBBC /* Mode.swift in Sources */,
 				EB9C7E5F2B3D58A90045BBA8 /* Model.xcdatamodeld in Sources */,
 				EB967A3A2B29DAC00041A491 /* Monster.swift in Sources */,
 				EB967A262B299BFC0041A491 /* MonsterLocalizationMapper.swift in Sources */,
@@ -1715,7 +1735,9 @@
 				EBDEEF402B3EDF3900835CBC /* Backport+ScrollContentBackground.swift in Sources */,
 				EB42495D2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift in Sources */,
 				EB8AD06B2B42944800F1E96F /* Backport+ShapeStyle.swift in Sources */,
+				EB71C1402B5BBAA50013FBBC /* Backport+ToolbarBackgroundForNavigationBar.swift in Sources */,
 				EB42495F2B332A230086E255 /* Backport.swift in Sources */,
+				EB71C13E2B5BB56E0013FBBC /* ChromeShadow.swift in Sources */,
 				EBB4B1D72B161E94004D63EA /* Color+Extensions.swift in Sources */,
 				EB8778212B26B1E600B3359C /* ColumnContentView.swift in Sources */,
 				EBA66F182B355C07009DE78C /* ColumnSettingsContainer.swift in Sources */,
@@ -1764,6 +1786,7 @@
 				EB5672212B57C9A200592413 /* MASection.swift in Sources */,
 				EB71F8752B5A323500999269 /* MASectionFooter.swift in Sources */,
 				EB56721E2B57C96A00592413 /* MASectionHeader.swift in Sources */,
+				EB71C1472B5BF7C50013FBBC /* Mode+Extensions.swift in Sources */,
 				EB7DAA662B4FD3410003210E /* MonsterColumn.swift in Sources */,
 				EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
 				EB7DAA5F2B4FCBF20003210E /* MonsterList.swift in Sources */,
@@ -1788,6 +1811,7 @@
 				EB6EF7DE2B4A0DB200646BBD /* RequestState.swift in Sources */,
 				EB5445562B527CE2008E7A48 /* Scene+Extensions.swift in Sources */,
 				EBEA6F712B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
+				EB71C1422B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift in Sources */,
 				EB2956412B310E28002C5CA8 /* SelectableListRowBackport.swift in Sources */,
 				EBCA222B2B221E5700C487AD /* SettingsContainer.swift in Sources */,
 				EB3B491F2B35E2B200E89711 /* SettingsLabeledContent.swift in Sources */,
