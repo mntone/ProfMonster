@@ -28,6 +28,9 @@ public final class Settings {
 	@UserDefault("group", initial: GroupOption.none)
 	public var groupOption: GroupOption
 
+	@UserDefault("selMaster", initial: false)
+	public var selectedMasterOrG: Bool
+
 #if DEBUG
 	@UserDefault("delayReq", initial: false)
 	public var delayNetworkRequest: Bool

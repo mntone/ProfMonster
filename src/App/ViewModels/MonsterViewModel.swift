@@ -10,10 +10,30 @@ final class MonsterViewModel: ObservableObject {
 	private var task: Task<Void, Never>?
 
 	private(set) var state: RequestState = .ready
-	private(set) var items: [MonsterDataViewModel] = []
+
+	private(set) var items: [MonsterDataViewModel] = [] {
+		didSet {
+			guard !items.isEmpty else {
+				selectedItem = nil
+				return
+			}
+
+			if app.settings.selectedMasterOrG {
+				selectedItem = items.first(where: \.mode.isMasterOrG) ?? items.first
+			} else {
+				selectedItem = items.first
+			}
+		}
+	}
 
 	@Published
-	var selectedItem: MonsterDataViewModel?
+	var selectedItem: MonsterDataViewModel? {
+		didSet {
+			if let selectedItem {
+				app.settings.selectedMasterOrG = selectedItem.mode.isMasterOrG
+			}
+		}
+	}
 
 	@Published
 	var isFavorited: Bool = false {
@@ -89,10 +109,8 @@ final class MonsterViewModel: ObservableObject {
 																		   copyright: monster.game?.copyright,
 																		   displayMode: elementDisplay,
 																		   weaknesses: weaknesses)
-							self.selectedItem = self.items.first
 						} else {
 							self.items = []
-							self.selectedItem = nil
 						}
 					}
 				case let .complete(physiologies):
@@ -101,11 +119,9 @@ final class MonsterViewModel: ObservableObject {
 																	copyright: monster.game?.copyright,
 																	displayMode: elementDisplay,
 																	rawValue: physiologies)
-					self.selectedItem = self.items.first
 				case let .failure(date, error):
 					self.state = .failure(date: date, error: error)
 					self.items = []
-					self.selectedItem = nil
 				}
 			}
 

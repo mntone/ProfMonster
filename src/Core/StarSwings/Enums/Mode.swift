@@ -30,4 +30,13 @@ public enum Mode {
 			name
 		}
 	}
+
+	public var isMasterOrG: Bool {
+		switch self {
+		case .master, .rankG:
+			true
+		default:
+			false
+		}
+	}
 }
