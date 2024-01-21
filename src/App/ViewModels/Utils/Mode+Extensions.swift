@@ -4,6 +4,7 @@ extension Mode {
 	enum LabelStyle {
 		case short
 		case medium
+		case long
 	}
 
 	func label(_ style: LabelStyle) -> String {
@@ -25,6 +26,17 @@ extension Mode {
 				String(localized: "Low & High", comment: "Mode")
 			case .master:
 				String(localized: "Master", comment: "Mode")
+			case .rankG:
+				String(localized: "G Rank", comment: "Mode")
+			case let .other(name):
+				name.capitalized
+			}
+		case .long:
+			switch self {
+			case .lowAndHigh:
+				String(localized: "Low & High Rank", comment: "Mode")
+			case .master:
+				String(localized: "Master Rank", comment: "Mode")
 			case .rankG:
 				String(localized: "G Rank", comment: "Mode")
 			case let .other(name):
