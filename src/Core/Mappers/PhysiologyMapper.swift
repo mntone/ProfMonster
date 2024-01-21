@@ -161,13 +161,12 @@ struct PhysiologyMapper {
 					 modeKey: String?,
 					 mode: Mode,
 					 options: PhysiologyMapperOptions) -> Physiology {
-		let allAbnormalStates = Set(src.physiologies.flatMap { physiologies in
-			Set(physiologies.values.flatMap(\.states))
-		}).subtracting(Self.removingState)
+		let allAbnormalStates = Self.getAbnormalStates(src.physiologies)
 		let filteredAllAbnormalStates = Self.filter(allAbnormalStates, by: src.physiologies, in: 500000)
 
-		let defaultSectionData = src.physiologies.map { physiology in
+		let defaultSectionData = src.physiologies.compactMap { physiology -> PhysiologyParts? in
 			var items = getDefaultPartData(from: physiology.values, removing: filteredAllAbnormalStates)
+			guard !items.isEmpty else { return nil }
 			patchPartData(from: physiology.values, to: &items, for: modeKey)
 
 			let partsLabel = _languageService.getLocalizedJoinedString(of: physiology.parts, for: .part)
@@ -188,7 +187,9 @@ struct PhysiologyMapper {
 										parts: sectionData,
 										average: Self.getAverages(sectionData))
 		}
-		abnormalSections.insert(defaultSection, at: 0)
+		if !defaultSection.parts.isEmpty {
+			abnormalSections.insert(defaultSection, at: 0)
+		}
 
 		return Physiology(id: "\(src.id):\(mode.rawValue)",
 						  mode: mode,
@@ -207,6 +208,14 @@ struct PhysiologyMapper {
 	}
 
 	private static let removingState: Set<String> = ["default", "broken"]
+
+	private static func getAbnormalStates(_ physiologies: [MHMonsterPhysiology]) -> [String] {
+		var uniqueStatesSet = Set<String>()
+		let uniqueAbnormalStates = physiologies
+			.flatMap { $0.values.flatMap(\.states) }
+			.filter { !removingState.contains($0) && uniqueStatesSet.insert($0).inserted }
+		return uniqueAbnormalStates
+	}
 
 	private static func getStateInfo(_ states: [String]) -> PhysiologyStateInfo {
 		if states.contains("broken") {
