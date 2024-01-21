@@ -14,10 +14,14 @@ struct MAFormSeparatedRoundedBackground<Content: View>: View {
 					.strokeBorder(.formSectionSeparator, antialiased: false)
 					.background(.formItemBackground)
 #endif
+				let rowInsets = EdgeInsets(top: 0.0,
+										   leading: metrics.layoutMargin,
+										   bottom: 0.0,
+										   trailing: metrics.layoutMargin)
 				ForEach(children.dropLast()) { child in
 					child
-						.frame(maxWidth: .infinity, minHeight: metrics.minRowHeight, alignment: .leading)
-						.padding(.horizontal, metrics.layoutMargin)
+						.frame(minHeight: metrics.minRowHeight)
+						.padding(rowInsets)
 #if os(macOS)
 						.background(background)
 #else
@@ -28,8 +32,8 @@ struct MAFormSeparatedRoundedBackground<Content: View>: View {
 				}
 
 				last
-					.frame(maxWidth: .infinity, minHeight: metrics.minRowHeight, alignment: .leading)
-					.padding(.horizontal, metrics.layoutMargin)
+					.frame(minHeight: metrics.minRowHeight)
+					.padding(rowInsets)
 #if os(macOS)
 					.background(background)
 #else

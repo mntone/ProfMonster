@@ -19,9 +19,9 @@ struct MAFormRoundedBackground<Content: View>: View {
 #endif
 				let rowInsets = EdgeInsets(top: 0.0,
 										   leading: metrics.layoutMargin,
-										   bottom: metrics.rowSpacing ?? 0.0,
+										   bottom: 0.0,
 										   trailing: metrics.layoutMargin)
-				VStack(alignment: .leading, spacing: 0) {
+				LazyVStack(alignment: .leading, spacing: metrics.rowSpacing ?? 0.0) {
 					ForEach(children.dropLast()) { child in
 						child
 							.frame(minHeight: metrics.minRowHeight)
@@ -32,9 +32,8 @@ struct MAFormRoundedBackground<Content: View>: View {
 
 					last
 						.frame(minHeight: metrics.minRowHeight)
-						.padding(.horizontal, metrics.layoutMargin)
+						.padding(rowInsets)
 				}
-				.frame(maxWidth: .infinity, alignment: .leading)
 #if os(macOS)
 				.background(background)
 #else
