@@ -113,6 +113,36 @@ struct MonsterView: View {
 		}
 #endif
 
+#if os(iOS)
+		// [iOS] Navigation Bar Background & Additional UI
+		.safeAreaInset(edge: .top, spacing: 0) {
+			Group {
+				if viewModel.items.count > 1 {
+					Picker("Mode", selection: $viewModel.selectedItem) {
+						ForEach(viewModel.items) { item in
+							Text(item.mode.label(.medium)).tag(item as MonsterDataViewModel?)
+						}
+					}
+					.pickerStyle(.segmented)
+					.layoutMargin()
+					.frame(minHeight: 44.0)
+				} else {
+					Color.clear.frame(maxWidth: .infinity, maxHeight: 0.0)
+				}
+			}
+			.background(Material.bar.opacity(isBackgroundShown ? 1.0 : 0.0),
+						ignoresSafeAreaEdges: [.top, .horizontal])
+			.overlay(alignment: .bottom) {
+				ChromeShadow().opacity(isBackgroundShown ? 1.0 : 0.0)
+			}
+			.animation(.linear(duration: 0.05), value: isBackgroundShown)
+		}
+		.backport.toolbarBackgroundForNavigationBar(.hidden)
+#endif
+
+		// Inject Horizontal Layout Margin
+		.injectHorizontalLayoutMargin()
+
 		// ==[ Toolbar ]================
 #if os(watchOS)
 		// [watchOS] Favorite Button
@@ -152,36 +182,6 @@ struct MonsterView: View {
 			}
 		}
 #endif
-
-#if os(iOS)
-		// [iOS] Navigation Bar Background & Additional UI
-		.safeAreaInset(edge: .top, spacing: 0) {
-			Group {
-				if viewModel.items.count > 1 {
-					Picker("Mode", selection: $viewModel.selectedItem) {
-						ForEach(viewModel.items) { item in
-							Text(item.mode.label(.medium)).tag(item as MonsterDataViewModel?)
-						}
-					}
-					.pickerStyle(.segmented)
-					.layoutMargin()
-					.frame(minHeight: 44.0)
-				} else {
-					Color.clear.frame(maxWidth: .infinity, maxHeight: 0.0)
-				}
-			}
-			.background(Material.bar.opacity(isBackgroundShown ? 1.0 : 0.0),
-						ignoresSafeAreaEdges: [.top, .horizontal])
-			.overlay(alignment: .bottom) {
-				ChromeShadow().opacity(isBackgroundShown ? 1.0 : 0.0)
-			}
-			.animation(.linear(duration: 0.05), value: isBackgroundShown)
-		}
-		.backport.toolbarBackgroundForNavigationBar(.hidden)
-#endif
-
-		// Inject Horizontal Layout Margin
-		.injectHorizontalLayoutMargin()
 
 		// Title Support
 #if os(iOS)
