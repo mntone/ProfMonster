@@ -17,6 +17,7 @@ struct DividedHStack<Content: View, Divider: View>: View {
 						}
 					}
 				}
+				.frame(maxWidth: .infinity, alignment: .leading)
 			}
 		}
 	}
