@@ -1,5 +1,10 @@
 import SwiftUI
 
+#if os(watchOS)
+import enum WatchKit.WKHapticType
+import class WatchKit.WKInterfaceDevice
+#endif
+
 struct FavoriteButton: View {
 	@Binding
 	private(set) var favorite: Bool
@@ -28,6 +33,9 @@ struct FavoriteButton: View {
 #endif
 		} else {
 			Button {
+#if os(watchOS)
+				WKInterfaceDevice.current().play(.click)
+#endif
 				favorite.toggle()
 			} label: {
 				Label(res.text, systemImage: res.image)
