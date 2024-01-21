@@ -173,10 +173,9 @@ struct MonsterView: View {
 			.background(Material.bar.opacity(isBackgroundShown ? 1.0 : 0.0),
 						ignoresSafeAreaEdges: [.top, .horizontal])
 			.overlay(alignment: .bottom) {
-				if isBackgroundShown {
-					ChromeShadow()
-				}
+				ChromeShadow().opacity(isBackgroundShown ? 1.0 : 0.0)
 			}
+			.animation(.linear(duration: 0.05), value: isBackgroundShown)
 		}
 		.backport.toolbarBackgroundForNavigationBar(.hidden)
 #endif
