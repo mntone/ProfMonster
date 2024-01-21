@@ -4,7 +4,7 @@ struct _WidthChangeModifier: ViewModifier {
 	let perform: (CGFloat) -> Void
 
 	func body(content: Content) -> some View {
-		ZStack {
+		content.background {
 			GeometryReader { proxy in
 				Color.clear
 					.onAppear {
@@ -16,8 +16,6 @@ struct _WidthChangeModifier: ViewModifier {
 					}
 #endif
 			}
-
-			content
 		}
 	}
 }
