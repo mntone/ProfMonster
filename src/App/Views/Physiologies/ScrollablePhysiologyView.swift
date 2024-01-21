@@ -97,6 +97,8 @@ private struct _ScrollablePhysiologyContentView: View {
 
 @available(macOS, unavailable)
 struct ScrollablePhysiologyView: View {
+	private static let physiologyCoordinateSpace = "physiology"
+
 	let viewModel: PhysiologySectionViewModel
 
 	@Environment(\.horizontalLayoutMargin)
@@ -115,7 +117,7 @@ struct ScrollablePhysiologyView: View {
 	private var headerHeights: [UInt32: CGFloat] = [:]
 
 	@State
-	private var offsetX: CGFloat = 0
+	private var isBorderShown: Bool = false
 
 	var body: some View {
 		HStack(alignment: .bottom, spacing: 0) {
@@ -142,7 +144,8 @@ struct ScrollablePhysiologyView: View {
 			}
 
 			let contentBackground = Self.contentBackground
-			ObservableHorizontalScrollView(offsetX: $offsetX) {
+			let coordSpace = "\(Self.physiologyCoordinateSpace):\(viewModel.id)"
+			ScrollView(.horizontal) {
 				VStack(spacing: 0) {
 					_ScrollablePhysiologyRowHeaderView(viewModel: viewModel.columns,
 													   itemWidth: itemWidth,
@@ -162,16 +165,22 @@ struct ScrollablePhysiologyView: View {
 					}
 				}
 				.padding(PhysiologyViewMetrics.margin.setting(leading: 0))
+				.background {
+					ScrollViewOffsetXDetector(coordinateSpace: coordSpace, result: $isBorderShown) { offsetX in
+						offsetX < 0.0
+					}
+				}
 			}
+			.coordinateSpace(name: coordSpace)
 			.ignoresSafeArea(.all, edges: .leading)
 			.backport.scrollBounceBehavior(.basedOnSize, axes: .horizontal)
 			.overlay(alignment: .topLeading) {
 				Group {
-					if offsetX > 0 {
+					if isBorderShown {
 						HBorderView()
 					}
 				}
-				.animation(.easeInOut(duration: 0.1), value: offsetX > 0)
+				.animation(.easeInOut(duration: 0.1), value: isBorderShown)
 			}
 		}
 		.font(.system(PhysiologyViewMetrics.textStyle).monospacedDigit().leading(.tight))

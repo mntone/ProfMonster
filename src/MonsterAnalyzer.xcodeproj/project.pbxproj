@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		EB10435B2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */; };
-		EB19D6712B1EBE8400C90417 /* ObservableHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */; };
-		EB19D6722B1EBEC900C90417 /* ObservableHorizontalScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */; };
 		EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */; };
 		EB2550142B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2550132B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift */; };
 		EB28F1B32B370F0700291055 /* DividedHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28F1B22B370F0700291055 /* DividedHStack.swift */; };
@@ -121,8 +119,8 @@
 		EB71C13C2B5B6FF10013FBBC /* EnvironmentValues+MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8712B5A0D4300999269 /* EnvironmentValues+MAForm.swift */; };
 		EB71C13E2B5BB56E0013FBBC /* ChromeShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C13D2B5BB56E0013FBBC /* ChromeShadow.swift */; };
 		EB71C1402B5BBAA50013FBBC /* Backport+ToolbarBackgroundForNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C13F2B5BBAA50013FBBC /* Backport+ToolbarBackgroundForNavigationBar.swift */; };
-		EB71C1422B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift */; };
-		EB71C1432B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift */; };
+		EB71C1422B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift */; };
+		EB71C1432B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift */; };
 		EB71C1452B5BF69C0013FBBC /* Mode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1442B5BF69C0013FBBC /* Mode.swift */; };
 		EB71C1472B5BF7C50013FBBC /* Mode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1462B5BF7C50013FBBC /* Mode+Extensions.swift */; };
 		EB71C1482B5BF7C50013FBBC /* Mode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1462B5BF7C50013FBBC /* Mode+Extensions.swift */; };
@@ -417,7 +415,6 @@
 
 /* Begin PBXFileReference section */
 		EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extensions.swift"; sourceTree = "<group>"; };
-		EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableHorizontalScrollView.swift; sourceTree = "<group>"; };
 		EB19D6742B1EFF7700C90417 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+RetryIf.swift"; sourceTree = "<group>"; };
 		EB2550132B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ListStyleInsetAlternatingRowBackgrounds.swift"; sourceTree = "<group>"; };
@@ -487,7 +484,7 @@
 		EB71C13A2B5B60CA0013FBBC /* MAFormMetricsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAFormMetricsBuilder.swift; sourceTree = "<group>"; };
 		EB71C13D2B5BB56E0013FBBC /* ChromeShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromeShadow.swift; sourceTree = "<group>"; };
 		EB71C13F2B5BBAA50013FBBC /* Backport+ToolbarBackgroundForNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ToolbarBackgroundForNavigationBar.swift"; sourceTree = "<group>"; };
-		EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffsetYDetector.swift; sourceTree = "<group>"; };
+		EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollViewOffsetDetector.swift; sourceTree = "<group>"; };
 		EB71C1442B5BF69C0013FBBC /* Mode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mode.swift; sourceTree = "<group>"; };
 		EB71C1462B5BF7C50013FBBC /* Mode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Mode+Extensions.swift"; sourceTree = "<group>"; };
 		EB71F8712B5A0D4300999269 /* EnvironmentValues+MAForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+MAForm.swift"; sourceTree = "<group>"; };
@@ -1070,7 +1067,7 @@
 				EB6437962B4702DD00E8D02B /* EnvironmentValues+Settings.swift */,
 				EB4426AD2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift */,
 				EB5445552B527CE2008E7A48 /* Scene+Extensions.swift */,
-				EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift */,
+				EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift */,
 				EB8AD06D2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift */,
 				EB6297F12B37179200E830E6 /* View+Block.swift */,
 				EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */,
@@ -1212,7 +1209,6 @@
 				EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */,
 				EB967A472B2AC6E80041A491 /* LazyView.swift */,
 				EB5445532B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift */,
-				EB19D6702B1EBE8400C90417 /* ObservableHorizontalScrollView.swift */,
 				EB5672072B57748D00592413 /* ProgressIndicatorView.swift */,
 				EBEA6F732B18B56700734AAA /* UnevenRoundedRectangleBackport.swift */,
 			);
@@ -1599,13 +1595,12 @@
 				EBEAB0C42B423A7200CC25A8 /* MonsterView.swift in Sources */,
 				EBB4B2122B175DE7004D63EA /* MonsterViewModel.swift in Sources */,
 				EB4426B42B58C9E60074B1FF /* NotesSection.swift in Sources */,
-				EB19D6722B1EBEC900C90417 /* ObservableHorizontalScrollView.swift in Sources */,
 				EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */,
 				EB5672092B57748D00592413 /* ProgressIndicatorView.swift in Sources */,
 				EB6EF7DF2B4A0DB200646BBD /* RequestState.swift in Sources */,
 				EBEA6F722B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
-				EB71C1432B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift in Sources */,
+				EB71C1432B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift in Sources */,
 				EB6FF1D82B48CFF600118E0F /* SettingsContainer.swift in Sources */,
 				EB3B49202B35E2B200E89711 /* SettingsLabeledContent.swift in Sources */,
 				EB99227B2B35686300DBA812 /* SettingsLabelStyle.swift in Sources */,
@@ -1805,7 +1800,6 @@
 				EB4426B32B58C9E60074B1FF /* NotesSection.swift in Sources */,
 				EB56720F2B5787DA00592413 /* NumberWeaknessItemView.swift in Sources */,
 				EB5672142B5790BF00592413 /* NumberWeaknessSectionView.swift in Sources */,
-				EB19D6712B1EBE8400C90417 /* ObservableHorizontalScrollView.swift in Sources */,
 				EB54455A2B527F80008E7A48 /* OpenWindowButton.swift in Sources */,
 				EBB4B1D02B15E0C9004D63EA /* PhysiologyView.swift in Sources */,
 				EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
@@ -1815,7 +1809,7 @@
 				EB6EF7DE2B4A0DB200646BBD /* RequestState.swift in Sources */,
 				EB5445562B527CE2008E7A48 /* Scene+Extensions.swift in Sources */,
 				EBEA6F712B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
-				EB71C1422B5BBEBF0013FBBC /* ScrollViewOffsetYDetector.swift in Sources */,
+				EB71C1422B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift in Sources */,
 				EB2956412B310E28002C5CA8 /* SelectableListRowBackport.swift in Sources */,
 				EBCA222B2B221E5700C487AD /* SettingsContainer.swift in Sources */,
 				EB3B491F2B35E2B200E89711 /* SettingsLabeledContent.swift in Sources */,
