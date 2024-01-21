@@ -19,7 +19,11 @@ struct PhysiologySection: View {
 				}
 			} else {
 				ProgressIndicatorView()
+#if os(macOS)
+					.padding(.vertical, 40)
+#else
 					.padding(.vertical, 20)
+#endif
 					.frame(maxWidth: .infinity)
 			}
 		} footer: {
