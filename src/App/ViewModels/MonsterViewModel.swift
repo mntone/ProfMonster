@@ -162,6 +162,7 @@ final class MonsterViewModel: ObservableObject {
 			return [
 				("ID", monster.id),
 				("Type", monster.type),
+				("Size", monster.size.map { String(format: "%.2f", $0) } ?? "None"),
 				("Name", monster.name),
 				("Readable Name", monster.readableName),
 				("Sortkey", monster.sortkey),
