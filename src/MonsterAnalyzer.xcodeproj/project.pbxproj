@@ -1017,6 +1017,7 @@
 		EBBBAAAE2B3F7A7E00BBAB23 /* Physiologies */ = {
 			isa = PBXGroup;
 			children = (
+				EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */,
 				EBB4B1CF2B15E0C9004D63EA /* PhysiologyView.swift */,
 				EBBBAAB02B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift */,
 				EBEA6F702B1889A900734AAA /* ScrollablePhysiologyView.swift */,
@@ -1206,7 +1207,6 @@
 				EBF706F22B3C0C9D00AE88C4 /* Previews */,
 				EB71C13D2B5BB56E0013FBBC /* ChromeShadow.swift */,
 				EB28F1B22B370F0700291055 /* DividedHStack.swift */,
-				EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */,
 				EB967A472B2AC6E80041A491 /* LazyView.swift */,
 				EB5445532B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift */,
 				EB5672072B57748D00592413 /* ProgressIndicatorView.swift */,

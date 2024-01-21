@@ -5,7 +5,7 @@
         "platform" : "ios",
         "reference" : "separatorColor"
       },
-      "idiom" : "iphone"
+      "idiom" : "universal"
     },
     {
       "appearances" : [
@@ -18,27 +18,7 @@
         "platform" : "ios",
         "reference" : "separatorColor"
       },
-      "idiom" : "iphone"
-    },
-    {
-      "color" : {
-        "platform" : "ios",
-        "reference" : "separatorColor"
-      },
-      "idiom" : "ipad"
-    },
-    {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "color" : {
-        "platform" : "ios",
-        "reference" : "separatorColor"
-      },
-      "idiom" : "ipad"
+      "idiom" : "universal"
     },
     {
       "color" : {
@@ -65,6 +45,16 @@
         }
       },
       "idiom" : "mac"
+    },
+    {
+      "color" : {
+        "color-space" : "gray-gamma-22",
+        "components" : {
+          "alpha" : "0.120",
+          "white" : "1.000"
+        }
+      },
+      "idiom" : "watch"
     }
   ],
   "info" : {
