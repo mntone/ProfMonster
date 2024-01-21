@@ -137,7 +137,9 @@ struct MonsterView: View {
 			.background(Material.bar.opacity(isBackgroundShown ? 1.0 : 0.0),
 						ignoresSafeAreaEdges: [.top, .horizontal])
 			.overlay(alignment: .bottom) {
-				ChromeShadow().opacity(isBackgroundShown ? 1.0 : 0.0)
+				ChromeShadow()
+					.opacity(isBackgroundShown ? 1.0 : 0.0)
+					.ignoresSafeArea(.container, edges: .horizontal)
 			}
 			.animation(.linear(duration: 0.05), value: isBackgroundShown)
 		}
