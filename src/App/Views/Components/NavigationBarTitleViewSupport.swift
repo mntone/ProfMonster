@@ -2,30 +2,20 @@
 
 import SwiftUI
 
-@available(iOS, deprecated: 16.0)
 @available(macOS, unavailable)
 @available(watchOS, unavailable)
-private struct _NavigationBarTitleViewBackport<Content: View>: View {
-	let content: Content
-
-	@Environment(\.verticalSizeClass)
-	private var verticalSizeClass
-
-	var body: some View {
-		content
-			.fixedSize() // Fix title are cut off on iOS 15.
-			.dynamicTypeSize(...maxDynamicTypeSize) // Fix iOS 15
+private struct _NarrowNavigationBarKey: EnvironmentKey {
+	static var defaultValue: Bool {
+		false
 	}
+}
 
-	private var maxDynamicTypeSize: DynamicTypeSize {
-		if UIDevice.current.userInterfaceIdiom == .pad {
-			DynamicTypeSize.xxLarge
-		} else if UIDevice.current.model == "iPhone8,4" /* iPhone SE (1st generation) */,
-				  verticalSizeClass == .compact {
-			DynamicTypeSize.large
-		} else {
-			DynamicTypeSize.xxLarge
-		}
+@available(macOS, unavailable)
+@available(watchOS, unavailable)
+extension EnvironmentValues {
+	var narrowNavigationBar: Bool {
+		get { self[_NarrowNavigationBarKey.self] }
+		set { self[_NarrowNavigationBarKey.self] = newValue }
 	}
 }
 
@@ -34,15 +24,39 @@ private struct _NavigationBarTitleViewBackport<Content: View>: View {
 struct NavigationBarTitleViewSupport<Content: View>: View {
 	let content: Content
 
+	@Environment(\.mobileMetrics)
+	private var mobileMetrics
+
+	@Environment(\.verticalSizeClass)
+	private var verticalSizeClass
+
 	init(@ViewBuilder content: () -> Content) {
 		self.content = content()
 	}
 
 	var body: some View {
-		if #available(iOS 16.0, *) {
-			content
+		let narrow = narrowNavigationBar
+		Group {
+			if #available(iOS 16.0, *) {
+				content
+			} else {
+				// Fix title are cut off on iOS 15.
+				content.fixedSize()
+			}
+		}
+
+		// Fix iOS 15 and add narrow height support for iOS 16+
+		.dynamicTypeSize(...(narrow ? DynamicTypeSize.large : DynamicTypeSize.xxLarge))
+
+		.environment(\.narrowNavigationBar, narrow)
+	}
+
+	private var narrowNavigationBar: Bool {
+		if mobileMetrics.narrowNavigationBar,
+		   verticalSizeClass == .compact {
+			true
 		} else {
-			_NavigationBarTitleViewBackport(content: content)
+			false
 		}
 	}
 }

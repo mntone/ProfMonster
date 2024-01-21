@@ -5,6 +5,9 @@ struct ContentView: View {
 #if os(iOS)
 	@Environment(\.horizontalSizeClass)
 	private var horizontalSizeClass
+
+	@EnvironmentObject
+	private var sceneDelegate: SceneDelegate
 #endif
 
 #if !os(macOS)
@@ -32,6 +35,9 @@ struct ContentView: View {
 			SettingsContainer()
 		}
 		.setPresentSettingsSheetAction(isPresented: $isSettingsPresented)
+#endif
+#if os(iOS)
+		.environment(\.mobileMetrics, DynamicMobileMetrics(sceneDelegate.window))
 #endif
 	}
 }

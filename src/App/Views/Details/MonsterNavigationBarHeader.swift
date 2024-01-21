@@ -8,6 +8,9 @@ struct MonsterNavigationBarHeader: View {
 	let name: String
 	let anotherName: String?
 
+	@Environment(\.narrowNavigationBar)
+	private var narrowNavigationBar
+
 	@ScaledMetric(relativeTo: .headline)
 	private var adjustedHeadline: CGFloat = 16
 
@@ -16,18 +19,16 @@ struct MonsterNavigationBarHeader: View {
 
 	var body: some View {
 		if let anotherName {
-			NavigationBarTitleViewSupport {
-				VStack(spacing: 2) {
-					Text(name)
-						.font(.system(size: adjustedHeadline, weight: .semibold))
+			VStack(spacing: narrowNavigationBar ? 0.0 : 2.0) {
+				Text(name)
+					.font(.system(size: adjustedHeadline, weight: .semibold))
 
-					Text(anotherName)
-						.font(.system(size: adjustedSubheadline, weight: .regular))
-						.foregroundStyle(.secondary)
-				}
-				.lineLimit(1)
-				.accessibilityElement(children: .combine)
+				Text(anotherName)
+					.font(.system(size: adjustedSubheadline, weight: .regular))
+					.foregroundStyle(.secondary)
 			}
+			.lineLimit(1)
+			.accessibilityElement(children: .combine)
 		}
 	}
 }

@@ -125,8 +125,10 @@ struct MonsterView: View {
 #if os(iOS)
 			// [iOS] Another Name Support in Navigation Bar
 			ToolbarItem(placement: .principal) {
-				MonsterNavigationBarHeader(name: viewModel.name,
-										   anotherName: viewModel.anotherName)
+				NavigationBarTitleViewSupport {
+					MonsterNavigationBarHeader(name: viewModel.name,
+											   anotherName: viewModel.anotherName)
+				}
 			}
 #endif
 

@@ -84,6 +84,7 @@
 		EB56722C2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722B2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift */; };
 		EB56722E2B580E3700592413 /* WidthChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722D2B580E3700592413 /* WidthChangeModifier.swift */; };
 		EB56722F2B580E3700592413 /* WidthChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722D2B580E3700592413 /* WidthChangeModifier.swift */; };
+		EB58FB6F2B5C9BE600A4B975 /* MobileMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58FB6E2B5C9BE600A4B975 /* MobileMetrics.swift */; };
 		EB5941CE2B39ABD1005BC27C /* MonsterAnalyzerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EBB4B1F22B17593F004D63EA /* MonsterAnalyzerWatch.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB6297F22B37179200E830E6 /* View+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6297F12B37179200E830E6 /* View+Block.swift */; };
 		EB6297F32B37179200E830E6 /* View+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6297F12B37179200E830E6 /* View+Block.swift */; };
@@ -465,6 +466,7 @@
 		EB5672262B57D60D00592413 /* MAForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAForm.swift; sourceTree = "<group>"; };
 		EB56722B2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityNumberWeaknessSectionView.swift; sourceTree = "<group>"; };
 		EB56722D2B580E3700592413 /* WidthChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidthChangeModifier.swift; sourceTree = "<group>"; };
+		EB58FB6E2B5C9BE600A4B975 /* MobileMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileMetrics.swift; sourceTree = "<group>"; };
 		EB6297F12B37179200E830E6 /* View+Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Block.swift"; sourceTree = "<group>"; };
 		EB6437912B46EE3B00E8D02B /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
 		EB6437932B46EF5400E8D02B /* SwipeAction+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipeAction+Extensions.swift"; sourceTree = "<group>"; };
@@ -734,6 +736,7 @@
 			children = (
 				EB42495C2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift */,
 				EB71C13F2B5BBAA50013FBBC /* Backport+ToolbarBackgroundForNavigationBar.swift */,
+				EB58FB6E2B5C9BE600A4B975 /* MobileMetrics.swift */,
 				EBC051112B5503DC00D084E2 /* UIView+Swizzle.swift */,
 			);
 			path = iOS;
@@ -1786,6 +1789,7 @@
 				EB5672212B57C9A200592413 /* MASection.swift in Sources */,
 				EB71F8752B5A323500999269 /* MASectionFooter.swift in Sources */,
 				EB56721E2B57C96A00592413 /* MASectionHeader.swift in Sources */,
+				EB58FB6F2B5C9BE600A4B975 /* MobileMetrics.swift in Sources */,
 				EB71C1472B5BF7C50013FBBC /* Mode+Extensions.swift in Sources */,
 				EB7DAA662B4FD3410003210E /* MonsterColumn.swift in Sources */,
 				EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
