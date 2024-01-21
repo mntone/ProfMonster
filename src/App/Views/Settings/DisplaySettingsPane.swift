@@ -8,8 +8,8 @@ struct DisplaySettingsPane: View {
 #if !os(watchOS)
 	private let mockData: [NumberWeaknessSectionViewModel] = {
 		let mock = MockData.physiology(.guluQoo)!
-		let baseViewModel = NumberWeaknessSectionViewModel(prefixID: "settings", rawValue: mock.modes[0].states[0])
-		return [baseViewModel]
+		let baseViewModels = mock.modes[0].states.map { NumberWeaknessSectionViewModel(prefixID: "settings", rawValue: $0) }
+		return baseViewModels
 	}()
 #endif
 
