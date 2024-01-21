@@ -3,10 +3,28 @@ import MonsterAnalyzerCore
 struct MonsterDataViewModel: Identifiable {
 	let id: String
 	let mode: Mode
+#if os(watchOS)
+	let name: String
+#endif
 	let copyright: String?
 	let weakness: (any WeaknessViewModel)?
 	let physiologies: PhysiologiesViewModel?
 
+#if os(watchOS)
+	init(id: String,
+		 mode: Mode,
+		 name: String,
+		 copyright: String?,
+		 weakness: (some WeaknessViewModel)?,
+		 physiologies: PhysiologiesViewModel) {
+		self.id = id
+		self.mode = mode
+		self.name = name
+		self.copyright = copyright
+		self.weakness = weakness
+		self.physiologies = physiologies
+	}
+#else
 	init(id: String,
 		 mode: Mode,
 		 copyright: String?,
@@ -18,14 +36,17 @@ struct MonsterDataViewModel: Identifiable {
 		self.weakness = weakness
 		self.physiologies = physiologies
 	}
+#endif
 
-	init(prefixID: String,
-		 copyright: String?,
+	init(monster: Monster,
 		 displayMode: WeaknessDisplayMode,
 		 weaknesses: [String: Weakness]) {
-		self.id = "\(prefixID):default"
+		self.id = "\(monster.id):default"
 		self.mode = .lowAndHigh
-		self.copyright = copyright
+#if os(watchOS)
+		self.name = monster.name
+#endif
+		self.copyright = monster.game?.copyright
 		if displayMode != .none {
 			self.weakness = EffectivenessWeaknessViewModel(prefixID: id,
 														   displayMode: displayMode,
@@ -36,14 +57,21 @@ struct MonsterDataViewModel: Identifiable {
 		self.physiologies = nil
 	}
 
-	init(prefixID: String,
+	init(monster: Monster,
 		 mode: Mode,
-		 copyright: String?,
 		 displayMode: WeaknessDisplayMode,
-		 rawValue: Physiology) {
-		self.id = "\(prefixID):\(mode)"
+		 rawValue: Physiology,
+		 multiple: Bool) {
+		self.id = "\(monster.id):\(mode)"
 		self.mode = mode
-		self.copyright = copyright
+#if os(watchOS)
+		if multiple {
+			self.name = String(localized: "\(monster.name) (\(mode.label(.short)))")
+		} else {
+			self.name = monster.name
+		}
+#endif
+		self.copyright = monster.game?.copyright
 		if displayMode != .none {
 			let weakness = NumberWeaknessViewModel(prefixID: id,
 												   displayMode: displayMode,
@@ -81,28 +109,26 @@ extension MonsterDataViewModel: Hashable {
 }
 
 enum MonsterDataViewModelFactory {
-	static func create(_ id: String,
-					   copyright: String?,
+	static func create(monster: Monster,
 					   displayMode: WeaknessDisplayMode,
 					   weaknesses: [String: Weakness]) -> [MonsterDataViewModel] {
 		[
-			MonsterDataViewModel(prefixID: id,
-								 copyright: copyright,
+			MonsterDataViewModel(monster: monster,
 								 displayMode: displayMode,
 								 weaknesses: weaknesses)
 		]
 	}
 
-	static func create(_ id: String,
-					   copyright: String?,
+	static func create(monster: Monster,
 					   displayMode: WeaknessDisplayMode,
 					   rawValue: Physiologies)  -> [MonsterDataViewModel] {
-		rawValue.modes.map { mode in
-			MonsterDataViewModel(prefixID: id,
+		let multipleMode: Bool = rawValue.modes.count > 1
+		return rawValue.modes.map { mode in
+			MonsterDataViewModel(monster: monster,
 								 mode: mode.mode,
-								 copyright: copyright,
 								 displayMode: displayMode,
-								 rawValue: mode)
+								 rawValue: mode,
+								 multiple: multipleMode)
 		}
 	}
 }

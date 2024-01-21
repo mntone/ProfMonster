@@ -33,12 +33,15 @@ struct MAItemHeader: View {
 		let horizontalPadding = !inBackgroundContext || ignoreLayoutMargin ? horizontalLayoutMargin : 0.0
 #endif
 		Text(header)
-			.font(.system(.headline))
 #if os(iOS) || os(macOS)
+			.font(.system(.headline))
 			.padding(EdgeInsets(top: inBackgroundContext ? 0.0 : pixelLength * round(0.75 * defaultListSectionSpacing / pixelLength),
 								leading: horizontalPadding,
 								bottom: inBackgroundContext ? spacing : MAFormMetrics.verticalRowInset,
 								trailing: horizontalPadding))
+#else
+			.font(.system(.subheadline))
+			.scenePadding(.horizontal)
 #endif
 			.accessibilityAddTraits(.isHeader)
 	}

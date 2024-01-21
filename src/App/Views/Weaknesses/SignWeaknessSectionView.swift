@@ -40,7 +40,7 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 			}
 		} header: {
 			if viewModel.isDefault {
-				MASectionHeader("Weakness")
+				MASectionHeader(LocalizedStringKey("Weakness"))
 			} else {
 				Text(viewModel.header)
 			}

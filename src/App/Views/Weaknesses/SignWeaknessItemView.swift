@@ -50,5 +50,8 @@ struct SignWeaknessItemView<ViewModel: WeaknessItemViewModel>: View {
 				.accessibilityLabel(Text(viewModel.effectiveness.accessibilityLabel))
 		}
 		.accessibilityElement(children: .combine)
+#if os(watchOS)
+		.frame(maxWidth: .infinity)
+#endif
 	}
 }

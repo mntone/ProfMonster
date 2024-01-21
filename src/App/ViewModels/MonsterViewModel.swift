@@ -105,18 +105,16 @@ final class MonsterViewModel: ObservableObject {
 						self.state = .loading
 
 						if let weaknesses = monster.weaknesses {
-							self.items = MonsterDataViewModelFactory.create(monster.id,
-																		   copyright: monster.game?.copyright,
-																		   displayMode: elementDisplay,
-																		   weaknesses: weaknesses)
+							self.items = MonsterDataViewModelFactory.create(monster: monster,
+																			displayMode: elementDisplay,
+																			weaknesses: weaknesses)
 						} else {
 							self.items = []
 						}
 					}
 				case let .complete(physiologies):
 					self.state = .complete
-					self.items = MonsterDataViewModelFactory.create(monster.id,
-																	copyright: monster.game?.copyright,
+					self.items = MonsterDataViewModelFactory.create(monster: monster,
 																	displayMode: elementDisplay,
 																	rawValue: physiologies)
 				case let .failure(date, error):

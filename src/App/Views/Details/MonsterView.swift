@@ -89,6 +89,7 @@ struct MonsterView: View {
 					MAForm {
 						content(item)
 					}
+					.navigationTitle(item.name)
 					.tag(item as MonsterDataViewModel?)
 				}
 			}
@@ -189,11 +190,13 @@ struct MonsterView: View {
 		}
 #endif
 
-		// Title Support
+		// [iOS / macOS] Title Support
 #if os(iOS)
 		.navigationBarTitleDisplayMode(.inline)
 #endif
+#if os(iOS) || os(macOS)
 		.navigationTitle(viewModel.name)
+#endif
 #if os(macOS)
 		.navigationSubtitle(viewModel.anotherName ?? "")
 #endif
