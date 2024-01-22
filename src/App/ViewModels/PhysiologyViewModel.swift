@@ -23,7 +23,7 @@ struct PhysiologyValueViewModel: Identifiable {
 
 	}
 
-	var id: String {
+	var id: UInt8 {
 		attack.rawValue
 	}
 }
@@ -113,7 +113,7 @@ struct PhysiologyGroupViewModel: Identifiable {
 struct PhysiologyColumnViewModel: Identifiable {
 	let attack: Attack
 
-	var id: String {
+	var id: UInt8 {
 		attack.rawValue
 	}
 }

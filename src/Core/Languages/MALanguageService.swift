@@ -49,7 +49,7 @@ final class MALanguageService: LanguageService, LanguageServiceInternal {
 	}
 
 	func getLocalizedKeywords(of key: Attack) -> [String] {
-		String(localized: String.LocalizationValue("KEYWORDS_" + key.rawValue.uppercased()), bundle: Self.bundle, locale: locale)
+		String(localized: String.LocalizationValue("KEYWORDS_" + key.key.uppercased()), bundle: Self.bundle, locale: locale)
 			.split(separator: ",")
 			.map(String.init)
 	}

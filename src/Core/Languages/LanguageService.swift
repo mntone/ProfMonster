@@ -58,7 +58,7 @@ final class PassthroughtLanguageService: LanguageService, LanguageServiceInterna
 	}
 
 	func getLocalizedKeywords(of key: Attack) -> [String] {
-		[key.rawValue.lowercased()]
+		[key.key]
 	}
 
 	func getLocalizedString(of key: String, for type: LanguageDictionary) -> String {
