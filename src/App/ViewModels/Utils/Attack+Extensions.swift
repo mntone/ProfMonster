@@ -1,15 +1,6 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
-enum AttackLabelStyle {
-	// English: Fir (watchOS) / Fire (Other), Japanese: 火
-	case short
-	// English: Fire, Japanese: 火属性
-	case medium
-	// English: Fire Element, Japanese: 火属性
-	case long
-}
-
 extension Attack {
 	var color: Color {
 		switch self {
@@ -49,7 +40,16 @@ extension Attack {
 		}
 	}
 
-	func label(_ style: AttackLabelStyle) -> String {
+	enum LabelStyle {
+		// English: Fir (watchOS) / Fire (Other), Japanese: 火
+		case short
+		// English: Fire, Japanese: 火属性
+		case medium
+		// English: Fire Element, Japanese: 火属性
+		case long
+	}
+
+	func label(_ style: LabelStyle) -> String {
 		switch style {
 		case .short:
 			switch self {
