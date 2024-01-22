@@ -23,14 +23,13 @@ struct MAFormMetricsBuilder<Content: View>: View {
 
 	private var metrics: MAFormLayoutMetrics {
 #if os(macOS)
-		let metrics = MAFormLayoutMetrics(layoutMargin: ignoreLayoutMargin ? 0.0 : MAFormMetrics.horizontalRowInset,
-										  minRowHeight: defaultMinListRowHeight,
-										  rowSpacing: defaultListRowSpacing)
+		let layoutMargin: CGFloat = ignoreLayoutMargin ? 0.0 : MAFormMetrics.horizontalRowInset
 #else
-		let metrics = MAFormLayoutMetrics(layoutMargin: ignoreLayoutMargin ? 0.0 : horizontalLayoutMargin,
+		let layoutMargin: CGFloat = ignoreLayoutMargin ? 0.0 : horizontalLayoutMargin
+#endif
+		let metrics = MAFormLayoutMetrics(layoutMargin: layoutMargin,
 										  minRowHeight: defaultMinListRowHeight,
 										  rowSpacing: defaultListRowSpacing)
-#endif
 		return metrics
 	}
 }
