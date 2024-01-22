@@ -125,6 +125,9 @@ struct PhysiologyView: View {
 			   maxWidth: PhysiologyViewMetrics.maxWidth)
 		.accessibilityElement(children: .contain)
 		.accessibilityLabel(Text(viewModel.header))
+
+		// Disable animations.
+		.transition(.identity)
 	}
 }
 

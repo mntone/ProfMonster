@@ -186,6 +186,10 @@ struct ScrollablePhysiologyView: View {
 		.font(.system(PhysiologyViewMetrics.textStyle).monospacedDigit().leading(.tight))
 		.minimumScaleFactor(0.5)
 		.padding(.leading, PhysiologyViewMetrics.margin.leading)
+
+		// Disable animations.
+		.animation(nil, value: headerHeights)
+		.transition(.identity)
 	}
 
 	private static var headerBackground: some View {

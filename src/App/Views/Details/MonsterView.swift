@@ -19,10 +19,10 @@ struct PhysiologySection: View {
 				}
 			} else {
 				ProgressIndicatorView()
-#if os(macOS)
-					.padding(.vertical, 40)
-#else
+#if os(watchOS)
 					.padding(.vertical, 20)
+#else
+					.padding(.vertical, 40)
 #endif
 					.frame(maxWidth: .infinity)
 			}
@@ -40,6 +40,8 @@ struct PhysiologySection: View {
 
 struct MonsterView: View {
 	private static let formCoordinateSpace = "form"
+
+	let isEntrance: Bool
 
 	@Environment(\.settings)
 	private var settings
@@ -106,17 +108,6 @@ struct MonsterView: View {
 		.coordinateSpace(name: Self.formCoordinateSpace)
 #endif
 		.headerProminence(.increased)
-#if os(iOS)
-		// [iOS] Keyboard Dismiss Support
-		.block { content in
-			switch settings?.keyboardDismissMode {
-			case .scroll, .swipe:
-				content.backport.scrollViewScrollDismissesKeyboard(settings?.keyboardDismissMode == .scroll ? .immediately : .interactively)
-			default:
-				content
-			}
-		}
-#endif
 
 #if os(iOS)
 		// [iOS] Navigation Bar Background & Additional UI
@@ -147,8 +138,23 @@ struct MonsterView: View {
 		.backport.toolbarBackgroundForNavigationBar(.hidden)
 #endif
 
+		// Animation
+		.animation(isEntrance ? nil : .default, value: viewModel.items)
+
 		// Inject Horizontal Layout Margin
 		.injectHorizontalLayoutMargin()
+
+#if os(iOS)
+		// [iOS] Keyboard Dismiss Support
+		.block { content in
+			switch settings?.keyboardDismissMode {
+			case .scroll, .swipe:
+				content.backport.scrollViewScrollDismissesKeyboard(settings?.keyboardDismissMode == .scroll ? .immediately : .interactively)
+			default:
+				content
+			}
+		}
+#endif
 
 		// ==[ Toolbar ]================
 #if os(watchOS)
@@ -206,5 +212,5 @@ struct MonsterView: View {
 #Preview {
 	let viewModel = MonsterViewModel()
 	viewModel.set(id: "mockgame:gulu_qoo")
-	return MonsterView(viewModel: viewModel)
+	return MonsterView(isEntrance: true, viewModel: viewModel)
 }
