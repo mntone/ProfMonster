@@ -5,6 +5,9 @@ struct ProgressIndicatorView: View {
 		VStack(spacing: spacing) {
 			ProgressView()
 			Text("Loading…")
+#if os(iOS)
+				.font(.callout)
+#endif
 		}
 	}
 
