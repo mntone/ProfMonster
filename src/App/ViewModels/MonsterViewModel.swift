@@ -29,7 +29,7 @@ final class MonsterViewModel: ObservableObject {
 	@Published
 	var selectedItem: MonsterDataViewModel? {
 		didSet {
-			if let selectedItem {
+			if let selectedItem, items.count > 1 {
 				app.settings.selectedMasterOrG = selectedItem.mode.isMasterOrG
 			}
 		}
