@@ -8,7 +8,7 @@
           "white" : "0.000"
         }
       },
-      "idiom" : "universal"
+      "idiom" : "iphone"
     },
     {
       "appearances" : [
@@ -24,7 +24,33 @@
           "white" : "1.000"
         }
       },
-      "idiom" : "universal"
+      "idiom" : "iphone"
+    },
+    {
+      "color" : {
+        "color-space" : "gray-gamma-22",
+        "components" : {
+          "alpha" : "0.300",
+          "white" : "0.000"
+        }
+      },
+      "idiom" : "ipad"
+    },
+    {
+      "appearances" : [
+        {
+          "appearance" : "luminosity",
+          "value" : "dark"
+        }
+      ],
+      "color" : {
+        "color-space" : "gray-gamma-22",
+        "components" : {
+          "alpha" : "0.150",
+          "white" : "1.000"
+        }
+      },
+      "idiom" : "ipad"
     }
   ],
   "info" : {

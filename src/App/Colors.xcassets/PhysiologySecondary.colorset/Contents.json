@@ -3,9 +3,16 @@
     {
       "color" : {
         "platform" : "ios",
-        "reference" : "systemFillColor"
+        "reference" : "tertiarySystemGroupedBackgroundColor"
       },
-      "idiom" : "universal"
+      "idiom" : "iphone"
+    },
+    {
+      "color" : {
+        "platform" : "ios",
+        "reference" : "tertiarySystemGroupedBackgroundColor"
+      },
+      "idiom" : "ipad"
     },
     {
       "color" : {

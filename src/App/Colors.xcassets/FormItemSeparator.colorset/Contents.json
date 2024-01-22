@@ -8,19 +8,6 @@
       "idiom" : "universal"
     },
     {
-      "appearances" : [
-        {
-          "appearance" : "luminosity",
-          "value" : "dark"
-        }
-      ],
-      "color" : {
-        "platform" : "ios",
-        "reference" : "separatorColor"
-      },
-      "idiom" : "universal"
-    },
-    {
       "color" : {
         "color-space" : "gray-gamma-22",
         "components" : {
