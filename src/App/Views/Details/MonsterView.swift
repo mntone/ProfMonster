@@ -43,6 +43,9 @@ struct MonsterView: View {
 
 	let isEntrance: Bool
 
+	@Environment(\.accessibilityReduceMotion)
+	private var reduceMotion
+
 	@Environment(\.settings)
 	private var settings
 
@@ -139,7 +142,7 @@ struct MonsterView: View {
 #endif
 
 		// Animation
-		.animation(isEntrance ? nil : .default, value: viewModel.items)
+		.animation(isEntrance || reduceMotion ? nil : .default, value: viewModel.items)
 
 #if os(iOS)
 		// [iOS] Keyboard Dismiss Support

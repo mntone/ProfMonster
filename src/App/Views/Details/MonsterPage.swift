@@ -13,7 +13,7 @@ struct MonsterPage: View {
 		MonsterView(isEntrance: isEntrance, viewModel: viewModel)
 			.task {
 				viewModel.set(id: id)
-				DispatchQueue.main.asyncAfter(deadline: .now() + 0.333) {
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
 					isEntrance = false
 				}
 			}
