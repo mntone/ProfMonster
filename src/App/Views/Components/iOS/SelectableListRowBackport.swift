@@ -12,6 +12,9 @@ struct RoundedRectangleSelectableListRowBackport<Tag: Equatable, Content: View>:
 	@Binding
 	var selection: Tag
 
+	@ScaledMetric(relativeTo: .body)
+	private var verticalPadding: CGFloat = 11.0
+
 	init(tag: Tag,
 		 selection: Binding<Tag>,
 		 @ViewBuilder content: () -> Content) {
@@ -21,11 +24,14 @@ struct RoundedRectangleSelectableListRowBackport<Tag: Equatable, Content: View>:
 	}
 
 	var body: some View {
-		let shape = RoundedRectangle(cornerRadius: 8)
+		let shape = RoundedRectangle(cornerRadius: 11.0)
 		let isSelected = tag == selection
 		content
 			.foregroundStyle(isSelected ? .white : .primary)
-			.layoutMargin()
+			.padding(EdgeInsets(top: verticalPadding,
+								leading: 8.0,
+								bottom: verticalPadding,
+								trailing: 8.0))
 			.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
 			.background(isSelected ? Color.accentColor : .clear, in: shape)
 			.contentShape(shape) // Fix tap area

@@ -57,7 +57,6 @@ struct SidebarBackport: View {
 		List(viewModel.items) { item in
 			RoundedRectangleSelectableListRowBackport(tag: item.id, selection: $selection) {
 				Text(item.name)
-					.preferredVerticalPadding()
 			}
 		}
 		.injectHorizontalLayoutMargin()
