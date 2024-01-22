@@ -128,13 +128,11 @@ struct DrillDownSettingsContainerBackport: View {
 			.navigationBarTitleDisplayMode(.large)
 			.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction))
 		}
-		.navigationViewStyle(.stack)
-#if os(watchOS)
-		// Hide the root navigation bar.
-		// Require to show this navigation bar.
-		.navigationBarHidden(true)
-#endif
+		// DO NOT WRITE FOLLOWING STYLE.
+		// NavigationLink is disable by this style on watchOS 8.
+		//.navigationViewStyle(.stack)
 #if os(iOS)
+		.navigationViewStyle(.stack)
 		.block { content in
 			switch dynamicTypeSize {
 			case .xxLarge, .xxxLarge:
