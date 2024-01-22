@@ -57,6 +57,9 @@ struct DrillDownSettingsContainer: View {
 				NavigationLink(value: pane) {
 					pane.label
 				}
+#if os(iOS)
+				.listRowInsetsLayoutMargin()
+#endif
 			}
 			.navigationDestination(for: SettingsPane.self) { pane in
 				pane.view(viewModel)
@@ -98,6 +101,11 @@ struct DrillDownSettingsContainerBackport: View {
 	@Environment(\.dismiss)
 	private var dismiss
 
+#if os(iOS)
+	@Environment(\.dynamicTypeSize)
+	private var dynamicTypeSize
+#endif
+
 	init(viewModel: SettingsViewModel,
 		 selection selectedSettingsPane: Binding<SettingsPane?> = .constant(nil)) {
 		self.viewModel = viewModel
@@ -113,6 +121,9 @@ struct DrillDownSettingsContainerBackport: View {
 				} label: {
 					pane.label
 				}
+#if os(iOS)
+				.listRowInsetsLayoutMargin()
+#endif
 			}
 			.navigationBarTitleDisplayMode(.large)
 			.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction))
@@ -122,6 +133,16 @@ struct DrillDownSettingsContainerBackport: View {
 		// Hide the root navigation bar.
 		// Require to show this navigation bar.
 		.navigationBarHidden(true)
+#endif
+#if os(iOS)
+		.block { content in
+			switch dynamicTypeSize {
+			case .xxLarge, .xxxLarge:
+				content.listStyle(.grouped)
+			default:
+				content.listStyle(.insetGrouped)
+			}
+		}
 #endif
 	}
 }

@@ -90,10 +90,13 @@ struct SettingsLabelStyle: LabelStyle, SettingsLabelMetrics {
 				.compositingGroup()
 				.shadow(radius: 0.5, y: 0.5)
 #endif
+#if os(iOS)
+				.padding(EdgeInsets(vertical: 3.0, horizontal: 0.0))
+#endif
 			configuration.title
 				.multilineTextAlignment(.leading)
 #if os(iOS)
-				.differentialPreferredVerticalPadding()
+				.preferredVerticalPadding()
 #endif
 		}
 	}
@@ -111,7 +114,7 @@ struct SettingsLabelStyle: LabelStyle, SettingsLabelMetrics {
 #elseif os(watchOS)
 		return 9.0
 #else
-		return 13.0
+		return 15.0
 #endif
 	}
 }
@@ -148,10 +151,13 @@ struct SettingsLabelStyleBackport: LabelStyle, SettingsLabelMetrics {
 				.background(.accent, in: RoundedRectangle(cornerRadius: cornerRadius))
 #endif
 				.environment(\.legibilityWeight, .regular)
+#if os(iOS)
+				.padding(EdgeInsets(vertical: 3.0, horizontal: 0.0))
+#endif
 			configuration.title
 				.multilineTextAlignment(.leading)
 #if os(iOS)
-				.insetGroupedDifferentialPreferredVerticalPaddingBackport3()
+				.preferredVerticalPadding()
 #endif
 		}
 	}

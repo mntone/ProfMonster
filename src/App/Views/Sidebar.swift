@@ -13,9 +13,13 @@ struct Sidebar: View {
 		List(viewModel.items, id: \.id, selection: $selection) { item in
 			Text(item.name)
 #if os(iOS)
-				.differentialPreferredVerticalPadding()
+				.preferredVerticalPadding()
+				.listRowInsetsLayoutMargin()
 #endif
 		}
+#if os(iOS)
+		.injectHorizontalLayoutMargin()
+#endif
 		.stateOverlay(viewModel.state)
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 
@@ -52,9 +56,11 @@ struct SidebarBackport: View {
 	var body: some View {
 		List(viewModel.items) { item in
 			RoundedRectangleSelectableListRowBackport(tag: item.id, selection: $selection) {
-				Text(item.name).insetGroupedDifferentialPreferredVerticalPaddingBackport3()
+				Text(item.name)
+					.preferredVerticalPadding()
 			}
 		}
+		.injectHorizontalLayoutMargin()
 		.stateOverlay(viewModel.state)
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 

@@ -87,9 +87,6 @@ struct _MonsterListItemStatic: View {
 			}
 		}
 		.animation(.easeInOut(duration: 0.1), value: viewModel.isFavorited)
-#if os(iOS)
-		.plainDifferentialPreferredVerticalPadding()
-#endif
 	}
 }
 

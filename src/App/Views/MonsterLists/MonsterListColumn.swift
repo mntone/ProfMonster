@@ -24,6 +24,10 @@ struct MonsterListColumn: View {
 			Section {
 				ForEach(group.items) { item in
 					MonsterListItem(viewModel: item.content)
+#if os(iOS)
+						.preferredVerticalPadding()
+						.listRowInsetsLayoutMargin()
+#endif
 				}
 			} header: {
 				if isHeaderShow {
@@ -33,6 +37,7 @@ struct MonsterListColumn: View {
 		}
 #if os(iOS)
 		.listStyle(.plain)
+		.injectHorizontalLayoutMargin()
 		.scrollDismissesKeyboard(.immediately)
 #endif
 #if os(macOS)
@@ -87,9 +92,11 @@ struct MonsterListColumnBackport: View {
 			MonsterListItem(viewModel: item.content) { content in
 				SelectableListRowBackport(tag: item.id, selection: $selectedMonsterID) {
 					content
+						.preferredVerticalPadding()
 				}
 			}
 		}
+		.injectHorizontalLayoutMargin()
 		.task(id: selectedGameID) {
 			viewModel.set(id: selectedGameID)
 		}

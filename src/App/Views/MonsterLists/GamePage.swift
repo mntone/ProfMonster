@@ -15,8 +15,14 @@ struct GamePage: View {
 			MonsterListItem(viewModel: item.content) { content in
 				NavigationLink(value: MARoute.monster(id: item.content.id)) {
 					content
+#if os(iOS)
+						.preferredVerticalPadding()
+#endif
 				}
 			}
+#if os(iOS)
+			.listRowInsetsLayoutMargin()
+#endif
 		}
 		.task {
 			viewModel.set(id: id)
@@ -46,8 +52,14 @@ struct GamePageBackport: View {
 					MonsterPage(id: item.content.id)
 				} label: {
 					content
+#if os(iOS)
+						.preferredVerticalPadding()
+#endif
 				}
 			}
+#if os(iOS)
+			.listRowInsetsLayoutMargin()
+#endif
 		}
 		.background {
 			if let restoreMonsterID {

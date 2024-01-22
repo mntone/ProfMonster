@@ -13,6 +13,9 @@ struct MonsterColumn: View {
 
 	var body: some View {
 		MonsterView(isEntrance: isEntrance, viewModel: viewModel)
+#if os(iOS)
+			.injectHorizontalLayoutMargin()
+#endif
 			.task(id: selection) {
 				isEntrance = true
 				if let id = selection?.split(separator: ";", maxSplits: 1).last.map(String.init) {

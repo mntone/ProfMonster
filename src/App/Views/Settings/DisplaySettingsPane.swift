@@ -111,6 +111,7 @@ struct DisplaySettingsPane: View {
 							let viewModel = NumberWeaknessViewModel(id: "settings", displayMode: mode, sections: mockData)
 							WeaknessView(viewModel: viewModel)
 								.fixedSize(horizontal: false, vertical: true)
+								.listRowBackground(EmptyView())
 								.listRowInsets(.zero)
 						}
 					}

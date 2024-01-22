@@ -54,7 +54,9 @@ struct SettingsPicker<Content, SelectionValue, MoreContent>: View where Content:
 
 				moreContent
 			}
+#if os(iOS)
 			.injectHorizontalLayoutMargin()
+#endif
 			.navigationTitle(titleKey)
 		} label: {
 			SettingsLabeledContent(titleKey) {

@@ -35,6 +35,9 @@ struct ColumnSettingsContainer: View {
 			NavigationSplitView(columnVisibility: .constant(.all)) {
 				List(SettingsPane.allCases, id: \.self, selection: $selectedSettingsPane) { pane in
 					pane.label
+#if os(iOS)
+						.listRowInsetsLayoutMargin()
+#endif
 				}
 #if os(macOS)
 				.navigationSplitViewColumnWidth(215.0)

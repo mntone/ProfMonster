@@ -12,8 +12,10 @@ struct HomePage: View {
 		List(viewModel.items) { item in
 #if os(iOS)
 			NavigationLink(value: MARoute.game(id: item.id)) {
-				Text(item.name).differentialPreferredVerticalPadding()
+				Text(item.name)
+					.preferredVerticalPadding()
 			}
+			.listRowInsetsLayoutMargin()
 #else
 			NavigationLink(item.name, value: MARoute.game(id: item.id))
 #endif
@@ -39,8 +41,10 @@ struct HomePageBackport: View {
 			NavigationLink(tag: item.id, selection: $selection) {
 				GamePageBackport(id: item.id)
 			} label: {
-				Text(item.name).insetGroupedDifferentialPreferredVerticalPaddingBackport3()
+				Text(item.name)
+					.preferredVerticalPadding()
 			}
+			.listRowInsetsLayoutMargin()
 #else
 			NavigationLink(item.name, tag: item.id, selection: $selection) {
 				GamePageBackport(id: item.id)

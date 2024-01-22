@@ -23,6 +23,9 @@ private struct _NavigationStackHost: View {
 					}
 				}
 		}
+#if os(iOS)
+		.injectHorizontalLayoutMargin()
+#endif
 	}
 
 	private var path: Binding<[MARoute]> {
@@ -71,6 +74,9 @@ private struct _NavigationStackHostBackport: View {
 			HomePageBackport()
 		}
 		.navigationViewStyle(.stack)
+#if os(iOS)
+		.injectHorizontalLayoutMargin()
+#endif
 	}
 }
 

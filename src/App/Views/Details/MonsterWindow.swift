@@ -25,6 +25,7 @@ struct MonsterWindow: View {
 					}
 				}
 		}
+		.injectHorizontalLayoutMargin()
 #endif
 #if os(macOS)
 		MonsterPage(id: id)

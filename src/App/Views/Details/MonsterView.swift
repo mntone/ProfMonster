@@ -141,9 +141,6 @@ struct MonsterView: View {
 		// Animation
 		.animation(isEntrance ? nil : .default, value: viewModel.items)
 
-		// Inject Horizontal Layout Margin
-		.injectHorizontalLayoutMargin()
-
 #if os(iOS)
 		// [iOS] Keyboard Dismiss Support
 		.block { content in
