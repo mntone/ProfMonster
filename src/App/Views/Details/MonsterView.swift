@@ -46,6 +46,11 @@ struct MonsterView: View {
 	@Environment(\.accessibilityReduceMotion)
 	private var reduceMotion
 
+#if os(iOS)
+	@Environment(\.verticalSizeClass)
+	private var verticalSizeClass
+#endif
+
 	@Environment(\.settings)
 	private var settings
 
@@ -124,7 +129,7 @@ struct MonsterView: View {
 					}
 					.pickerStyle(.segmented)
 					.layoutMargin()
-					.frame(minHeight: 44.0)
+					.frame(minHeight: verticalSizeClass == .compact ? 36.0 : 40.0)
 				} else {
 					Color.clear.frame(maxWidth: .infinity, maxHeight: 0.0)
 				}
