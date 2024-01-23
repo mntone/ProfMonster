@@ -58,7 +58,7 @@ struct FavoriteButton: View {
 #if os(iOS)
 			.tint(.yellow)
 #endif
-			.keyboardShortcut("F", modifiers: .command)
+			.keyboardShortcut("S", modifiers: .command)
 #endif
 	}
 }

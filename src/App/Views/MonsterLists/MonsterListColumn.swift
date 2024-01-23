@@ -17,6 +17,11 @@ struct MonsterListColumn: View {
 	@StateObject
 	private var viewModel = GameViewModel()
 
+#if os(iOS)
+	@State
+	private var isSearching: Bool = false
+#endif
+
 	var body: some View {
 		let items = viewModel.items
 		let isHeaderShow = items.count > 1 || items.first?.type.isValidType == true
@@ -52,7 +57,22 @@ struct MonsterListColumn: View {
 								groupOption: $viewModel.groupOption)
 			}
 		}
+#if os(iOS)
+		.backport.searchable(text: $viewModel.searchText,
+							 isPresented: $isSearching,
+							 prompt: Text("Monster and Weakness"))
+		.background {
+			Button("Search") {
+				if !isSearching {
+					isSearching = true
+				}
+			}
+			.keyboardShortcut("F")
+			.hidden()
+		}
+#else
 		.searchable(text: $viewModel.searchText, prompt: Text("Monster and Weakness"))
+#endif
 		.stateOverlay(viewModel.state)
 #if os(iOS)
 		.navigationBarTitleDisplayMode(.inline)

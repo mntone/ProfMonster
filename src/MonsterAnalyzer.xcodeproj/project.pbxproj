@@ -126,13 +126,14 @@
 		EB71F8722B5A0D4300999269 /* EnvironmentValues+MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8712B5A0D4300999269 /* EnvironmentValues+MAForm.swift */; };
 		EB71F8752B5A323500999269 /* MASectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8742B5A323500999269 /* MASectionFooter.swift */; };
 		EB71F8772B5A35A500999269 /* MASectionFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8742B5A323500999269 /* MASectionFooter.swift */; };
-		EB7DAA5F2B4FCBF20003210E /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */; };
+		EB7DAA5F2B4FCBF20003210E /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */; platformFilter = ios; };
 		EB7DAA602B4FCBF20003210E /* MonsterList.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */; };
 		EB7DAA662B4FD3410003210E /* MonsterColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA652B4FD3410003210E /* MonsterColumn.swift */; };
 		EB7DAA682B4FD36D0003210E /* MonsterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA672B4FD36D0003210E /* MonsterPage.swift */; };
 		EB7DAA692B4FD36D0003210E /* MonsterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA672B4FD36D0003210E /* MonsterPage.swift */; };
 		EB8201D42B5F97A000A8FDDD /* SizeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8201D32B5F97A000A8FDDD /* SizeObserver.swift */; };
 		EB8201D52B5F97A000A8FDDD /* SizeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8201D32B5F97A000A8FDDD /* SizeObserver.swift */; };
+		EB8201D72B5FA41000A8FDDD /* Backport+Searchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8201D62B5FA41000A8FDDD /* Backport+Searchable.swift */; platformFilter = ios; };
 		EB84A5BD2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */; };
 		EB84A5BE2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */; };
 		EB84A5C02B47910000291C6B /* DeveloperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BF2B47910000291C6B /* DeveloperSection.swift */; };
@@ -489,6 +490,7 @@
 		EB7DAA652B4FD3410003210E /* MonsterColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterColumn.swift; sourceTree = "<group>"; };
 		EB7DAA672B4FD36D0003210E /* MonsterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterPage.swift; sourceTree = "<group>"; };
 		EB8201D32B5F97A000A8FDDD /* SizeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeObserver.swift; sourceTree = "<group>"; };
+		EB8201D62B5FA41000A8FDDD /* Backport+Searchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+Searchable.swift"; sourceTree = "<group>"; };
 		EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsPane.swift; sourceTree = "<group>"; };
 		EB84A5BF2B47910000291C6B /* DeveloperSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSection.swift; sourceTree = "<group>"; };
 		EB86E2802B4EC8CE00A06718 /* ci_post_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_xcodebuild.sh; sourceTree = "<group>"; };
@@ -729,6 +731,7 @@
 			isa = PBXGroup;
 			children = (
 				EB42495C2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift */,
+				EB8201D62B5FA41000A8FDDD /* Backport+Searchable.swift */,
 				EB71C13F2B5BBAA50013FBBC /* Backport+ToolbarBackgroundForNavigationBar.swift */,
 				EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */,
 				EB58FB6E2B5C9BE600A4B975 /* MobileMetrics.swift */,
@@ -1725,6 +1728,7 @@
 				EB6A4F442B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift in Sources */,
 				EBDEEF402B3EDF3900835CBC /* Backport+ScrollContentBackground.swift in Sources */,
 				EB42495D2B3329F10086E255 /* Backport+ScrollDismissesKeyboard.swift in Sources */,
+				EB8201D72B5FA41000A8FDDD /* Backport+Searchable.swift in Sources */,
 				EB8AD06B2B42944800F1E96F /* Backport+ShapeStyle.swift in Sources */,
 				EB71C1402B5BBAA50013FBBC /* Backport+ToolbarBackgroundForNavigationBar.swift in Sources */,
 				EB42495F2B332A230086E255 /* Backport.swift in Sources */,

@@ -1,5 +1,3 @@
-#if !os(macOS)
-
 import SwiftUI
 
 @available(macOS, unavailable)
@@ -9,6 +7,11 @@ struct MonsterList<ItemView: View>: View {
 
 	@ViewBuilder
 	let content: (IdentifyHolder<GameItemViewModel>) -> ItemView
+
+#if !os(watchOS)
+	@State
+	private var isSearching: Bool = false
+#endif
 
 	var body: some View {
 		let items = viewModel.items
@@ -45,7 +48,18 @@ struct MonsterList<ItemView: View>: View {
 								groupOption: $viewModel.groupOption)
 			}
 		}
-		.searchable(text: $viewModel.searchText, prompt: Text("Monster and Weakness"))
+		.backport.searchable(text: $viewModel.searchText,
+							 isPresented: $isSearching,
+							 prompt: Text("Monster and Weakness"))
+		.background {
+			Button("Search") {
+				if !isSearching {
+					isSearching = true
+				}
+			}
+			.keyboardShortcut("F")
+			.hidden()
+		}
 #endif
 		.stateOverlay(viewModel.state)
 #if os(iOS)
@@ -55,4 +69,3 @@ struct MonsterList<ItemView: View>: View {
 	}
 }
 
-#endif
