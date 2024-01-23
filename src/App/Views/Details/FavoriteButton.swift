@@ -26,6 +26,9 @@ struct FavoriteButton: View {
 		let res = resources
 		if #available(iOS 17.0, *) {
 			Button(res.text, systemImage: res.image) {
+#if os(watchOS)
+				WKInterfaceDevice.current().play(.click)
+#endif
 				favorite.toggle()
 			}
 #if !os(watchOS)
@@ -33,9 +36,6 @@ struct FavoriteButton: View {
 #endif
 		} else {
 			Button {
-#if os(watchOS)
-				WKInterfaceDevice.current().play(.click)
-#endif
 				favorite.toggle()
 			} label: {
 				Label(res.text, systemImage: res.image)
