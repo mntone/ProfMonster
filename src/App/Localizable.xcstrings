@@ -3489,10 +3489,34 @@
             "value" : "Close This Window"
           }
         },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fermez cette fenêtre"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "このウィンドウを閉じる"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "창을 닫으세요"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭窗口"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "關閉視窗"
           }
         }
       }
@@ -4109,7 +4133,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Draco"
+            "value" : "Elemento draco"
           }
         },
         "fr" : {
@@ -5573,7 +5597,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Fuego"
+            "value" : "Elemento fuego"
           }
         },
         "fr" : {
@@ -5904,6 +5928,12 @@
     "G Rank" : {
       "comment" : "Mode",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رتبة G"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5944,6 +5974,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "G級"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "G급"
           }
         },
         "pl" : {
@@ -6161,6 +6197,12 @@
     "GR" : {
       "comment" : "Mode",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "G"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6201,6 +6243,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "G級"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "G급"
           }
         },
         "pl" : {
@@ -6472,7 +6520,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Hielo"
+            "value" : "Elemento hielo"
           }
         },
         "fr" : {
@@ -6847,13 +6895,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "键盘关闭"
+            "value" : "关闭键盘"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "鍵盤關閉"
+            "value" : "關閉鍵盤"
           }
         }
       }
@@ -8835,6 +8883,24 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "新しいウィンドウで開く"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "새 창에서 열기"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在新窗口中打开"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在新視窗中開啟"
           }
         }
       }
@@ -11836,7 +11902,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Rayo"
+            "value" : "Elemento rayo"
           }
         },
         "fr" : {
@@ -12785,7 +12851,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Elemento Agua"
+            "value" : "Elemento agua"
           }
         },
         "fr" : {
