@@ -5,9 +5,9 @@ import class Foundation.UserDefaults
 @available(macOS, unavailable)
 @available(watchOS, unavailable)
 public enum KeyboardDismissMode: String, CaseIterable, Hashable {
-	case button = "Button"
-	case scroll = "Scroll"
-	case swipe = "Swipe"
+	case button = "BTN"
+	case scroll = "SCR"
+	case swipe = "SWP"
 }
 
 @available(macOS, unavailable)

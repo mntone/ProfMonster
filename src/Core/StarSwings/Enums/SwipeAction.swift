@@ -1,5 +1,5 @@
 
 public enum SwipeAction: String, CaseIterable, Hashable, UserDefaultable {
-	case none
-	case favorite
+	case none = "NO"
+	case favorite = "FAV"
 }

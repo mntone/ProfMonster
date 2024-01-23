@@ -8,9 +8,9 @@ extension WeaknessDisplayMode {
 		case .sign:
 			String(localized: "Sign", comment: "DisplayMode")
 		case .number:
-			String(localized: "Number (1st decimal place)", comment: "DisplayMode")
+			String(localized: "Number (1st Decimal Place)", comment: "DisplayMode")
 		case .number2:
-			String(localized: "Number (2nd decimal place)", comment: "DisplayMode")
+			String(localized: "Number (2nd Decimal Place)", comment: "DisplayMode")
 		}
 	}
 }

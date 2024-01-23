@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StringsTable</key>
+	<string>Localizable</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Monster List</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Include Favorite Group in Search Results</string>
+			<key>Key</key>
+			<string>favInSearch</string>
+			<key>DefaultValue</key>
+			<string>NO</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Left Swipe</string>
+			<key>Key</key>
+			<string>trgSwipe</string>
+			<key>DefaultValue</key>
+			<string>NO</string>
+			<key>Values</key>
+			<array>
+				<string>NO</string>
+				<string>FAV</string>
+			</array>
+			<key>Titles</key>
+			<array>
+				<string>None</string>
+				<string>Favorite</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Monster Detail</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Element Attack</string>
+			<key>Key</key>
+			<string>elemDisp</string>
+			<key>DefaultValue</key>
+			<string>SGN</string>
+			<key>Values</key>
+			<array>
+				<string>NO</string>
+				<string>SGN</string>
+				<string>NO1</string>
+				<string>NO2</string>
+			</array>
+			<key>Titles</key>
+			<array>
+				<string>Off</string>
+				<string>Sign</string>
+				<string>Number (1st Decimal Place)</string>
+				<string>Number (2nd Decimal Place)</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Merge Parts with Same Physiology</string>
+			<key>Key</key>
+			<string>mrgPart</string>
+			<key>DefaultValue</key>
+			<string>YES</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Keyboard Dismiss</string>
+			<key>Key</key>
+			<string>kbdDismiss</string>
+			<key>DefaultValue</key>
+			<string>BTN</string>
+			<key>Values</key>
+			<array>
+				<string>BTN</string>
+				<string>SCR</string>
+				<string>SWP</string>
+			</array>
+			<key>Titles</key>
+			<array>
+				<string>Button</string>
+				<string>Scroll</string>
+				<string>Swipe</string>
+			</array>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -208,6 +208,7 @@
 		EBB057552B47A77500AC08F5 /* IdentifyHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB057532B47A77500AC08F5 /* IdentifyHolder.swift */; };
 		EBB154C02B3D03C000636DB0 /* MAItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB154BF2B3D03C000636DB0 /* MAItemHeader.swift */; };
 		EBB154C12B3D03C000636DB0 /* MAItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB154BF2B3D03C000636DB0 /* MAItemHeader.swift */; };
+		EBB4A3FB2B34606E00D8C024 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EBB4A3FA2B34606E00D8C024 /* Settings.bundle */; platformFilter = ios; };
 		EBB4B1C52B15BDA7004D63EA /* WeaknessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C42B15BDA7004D63EA /* WeaknessViewModel.swift */; };
 		EBB4B1C72B15BF48004D63EA /* MonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C62B15BF48004D63EA /* MonsterViewModel.swift */; };
 		EBB4B1CB2B15CC47004D63EA /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */; };
@@ -545,6 +546,7 @@
 		EBA66F1F2B355F3E009DE78C /* DataSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSettingsPane.swift; sourceTree = "<group>"; };
 		EBB057532B47A77500AC08F5 /* IdentifyHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyHolder.swift; sourceTree = "<group>"; };
 		EBB154BF2B3D03C000636DB0 /* MAItemHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAItemHeader.swift; sourceTree = "<group>"; };
+		EBB4A3FA2B34606E00D8C024 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		EBB4A3FE2B3491C400D8C024 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EBB4B1B92B158D14004D63EA /* MHConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHConfig.swift; sourceTree = "<group>"; };
 		EBB4B1BB2B158E38004D63EA /* MHMonster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHMonster.swift; sourceTree = "<group>"; };
@@ -1275,6 +1277,7 @@
 				EB44EF4A2B1C0BCB00DD47B5 /* Localizable.xcstrings */,
 				EBF9282A2B1038C9007D59D4 /* MAApp.swift */,
 				EB19D6742B1EFF7700C90417 /* PrivacyInfo.xcprivacy */,
+				EBB4A3FA2B34606E00D8C024 /* Settings.bundle */,
 				EBDF0B5F2B24A68C003E2808 /* SigningHelper.xcconfig */,
 				EB9C7E5B2B3D4F370045BBA8 /* watch.entitlements */,
 			);
@@ -1511,6 +1514,7 @@
 				EB44EF4B2B1C0BCB00DD47B5 /* Localizable.xcstrings in Resources */,
 				EB2B0FA62B390FCE004596A6 /* mit.txt in Resources */,
 				EBF928332B1038CB007D59D4 /* Preview Assets.xcassets in Resources */,
+				EBB4A3FB2B34606E00D8C024 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

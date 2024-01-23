@@ -8,13 +8,13 @@ public enum WeaknessDisplayMode: CaseIterable, Hashable {
 
 	public init?(rawValue: String) {
 		switch rawValue {
-		case "None":
+		case "NO":
 			self = .none
-		case "Number":
+		case "NO1":
 			self = .number
-		case "Number2":
+		case "NO2":
 			self = .number2
-		case "Sign":
+		case "SGN":
 			fallthrough
 		default:
 			self = .sign
@@ -24,13 +24,13 @@ public enum WeaknessDisplayMode: CaseIterable, Hashable {
 	public var rawValue: String {
 		switch self {
 		case .none:
-			return "None"
+			return "NO"
 		case .sign:
-			return "Sign"
+			return "SGN"
 		case .number:
-			return "Number"
+			return "NO1"
 		case .number2:
-			return "Number2"
+			return "NO2"
 		}
 	}
 }

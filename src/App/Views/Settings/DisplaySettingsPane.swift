@@ -91,7 +91,7 @@ struct DisplaySettingsPane: View {
 
 			Section {
 #if os(watchOS)
-				SettingsToggle("Show Element Attack", isOn: Binding {
+				SettingsToggle("Element Attack", isOn: Binding {
 					viewModel.elementDisplay != .none
 				} set: { value in
 					viewModel.elementDisplay = value ? .sign : .none

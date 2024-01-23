@@ -9,7 +9,7 @@ public enum Attack: UInt8, CaseIterable {
 	case thunder = 0x20
 	case ice = 0x40
 	case dragon = 0x80
-	
+
 	public var key: String {
 		switch self {
 		case .slash:
