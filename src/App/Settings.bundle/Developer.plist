@@ -14,7 +14,7 @@
 			<key>Key</key>
 			<string>intlInfo</string>
 			<key>DefaultValue</key>
-			<string>NO</string>
+			<false/>
 		</dict>
 	</array>
 </dict>

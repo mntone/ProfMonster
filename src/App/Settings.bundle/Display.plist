@@ -20,7 +20,7 @@
 			<key>Key</key>
 			<string>favInSearch</string>
 			<key>DefaultValue</key>
-			<string>NO</string>
+			<false/>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -80,7 +80,7 @@
 			<key>Key</key>
 			<string>mrgPart</string>
 			<key>DefaultValue</key>
-			<string>YES</string>
+			<true/>
 		</dict>
 		<dict>
 			<key>Type</key>
