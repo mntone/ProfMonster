@@ -14,7 +14,7 @@ private struct _NavigationSplitViewHost: View {
 	private var horizontalSizeClass
 
 	@State
-	private var screenWidth: CGFloat = 0
+	private var isWideMode: Bool = false
 #endif
 
 	var body: some View {
@@ -37,41 +37,40 @@ private struct _NavigationSplitViewHost: View {
 		} detail: {
 			MonsterColumn()
 		}
-		.background {
-			GeometryReader { proxy in
-				Color.clear.onChangeBackport(of: proxy.size.width, initial: true) { _, newValue in
-					screenWidth = newValue
-				}
-			}
-		}
-		.block { content in
+		.onWidthChange { screenWidth in
 			if screenWidth >= 1024 {
-				content.navigationSplitViewStyle(.balanced)
-			} else{
-				content.navigationSplitViewStyle(.prominentDetail)
-			}
-		}
-		.onAppear {
-			guard screenWidth < 1024 else { return }
-
-			if selectedMonsterID != nil {
-				columnVisibility = .detailOnly
-			}
-		}
-		.onChange(of: screenWidth) { newValue in
-			if screenWidth >= 1024 {
+				guard !isWideMode else { return }
+				
+				isWideMode = true
 				if columnVisibility == .detailOnly {
 					columnVisibility = .doubleColumn
 				}
 			} else {
+				guard isWideMode else { return }
+				
+				isWideMode = false
 				if columnVisibility != .detailOnly,
 				   selectedMonsterID != nil {
 					columnVisibility = .detailOnly
 				}
 			}
 		}
+		.block { content in
+			if isWideMode {
+				content.navigationSplitViewStyle(.balanced)
+			} else{
+				content.navigationSplitViewStyle(.prominentDetail)
+			}
+		}
+		.onAppear {
+			guard !isWideMode else { return }
+
+			if selectedMonsterID != nil {
+				columnVisibility = .detailOnly
+			}
+		}
 		.onChange(of: selectedMonsterID) { newValue in
-			guard screenWidth < 1024 else { return }
+			guard !isWideMode else { return }
 
 			if newValue != nil {
 				columnVisibility = .detailOnly

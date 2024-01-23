@@ -79,8 +79,8 @@
 		EB5672272B57D60D00592413 /* MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672262B57D60D00592413 /* MAForm.swift */; };
 		EB5672282B57D60D00592413 /* MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672262B57D60D00592413 /* MAForm.swift */; };
 		EB56722C2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722B2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift */; };
-		EB56722E2B580E3700592413 /* WidthChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722D2B580E3700592413 /* WidthChangeModifier.swift */; };
-		EB56722F2B580E3700592413 /* WidthChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722D2B580E3700592413 /* WidthChangeModifier.swift */; };
+		EB56722E2B580E3700592413 /* SizeChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722D2B580E3700592413 /* SizeChangeModifier.swift */; };
+		EB56722F2B580E3700592413 /* SizeChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722D2B580E3700592413 /* SizeChangeModifier.swift */; };
 		EB58FB6F2B5C9BE600A4B975 /* MobileMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58FB6E2B5C9BE600A4B975 /* MobileMetrics.swift */; platformFilter = ios; };
 		EB5941CE2B39ABD1005BC27C /* MonsterAnalyzerWatch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = EBB4B1F22B17593F004D63EA /* MonsterAnalyzerWatch.app */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		EB6297F22B37179200E830E6 /* View+Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6297F12B37179200E830E6 /* View+Block.swift */; };
@@ -131,6 +131,8 @@
 		EB7DAA662B4FD3410003210E /* MonsterColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA652B4FD3410003210E /* MonsterColumn.swift */; };
 		EB7DAA682B4FD36D0003210E /* MonsterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA672B4FD36D0003210E /* MonsterPage.swift */; };
 		EB7DAA692B4FD36D0003210E /* MonsterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7DAA672B4FD36D0003210E /* MonsterPage.swift */; };
+		EB8201D42B5F97A000A8FDDD /* SizeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8201D32B5F97A000A8FDDD /* SizeObserver.swift */; };
+		EB8201D52B5F97A000A8FDDD /* SizeObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8201D32B5F97A000A8FDDD /* SizeObserver.swift */; };
 		EB84A5BD2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */; };
 		EB84A5BE2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */; };
 		EB84A5C02B47910000291C6B /* DeveloperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BF2B47910000291C6B /* DeveloperSection.swift */; };
@@ -456,7 +458,7 @@
 		EB5672232B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAFormSeparatedRoundedBackground.swift; sourceTree = "<group>"; };
 		EB5672262B57D60D00592413 /* MAForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAForm.swift; sourceTree = "<group>"; };
 		EB56722B2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityNumberWeaknessSectionView.swift; sourceTree = "<group>"; };
-		EB56722D2B580E3700592413 /* WidthChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidthChangeModifier.swift; sourceTree = "<group>"; };
+		EB56722D2B580E3700592413 /* SizeChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeChangeModifier.swift; sourceTree = "<group>"; };
 		EB58FB6E2B5C9BE600A4B975 /* MobileMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileMetrics.swift; sourceTree = "<group>"; };
 		EB6297F12B37179200E830E6 /* View+Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Block.swift"; sourceTree = "<group>"; };
 		EB6437912B46EE3B00E8D02B /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 		EB7DAA5E2B4FCBF20003210E /* MonsterList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterList.swift; sourceTree = "<group>"; };
 		EB7DAA652B4FD3410003210E /* MonsterColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterColumn.swift; sourceTree = "<group>"; };
 		EB7DAA672B4FD36D0003210E /* MonsterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterPage.swift; sourceTree = "<group>"; };
+		EB8201D32B5F97A000A8FDDD /* SizeObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeObserver.swift; sourceTree = "<group>"; };
 		EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsPane.swift; sourceTree = "<group>"; };
 		EB84A5BF2B47910000291C6B /* DeveloperSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSection.swift; sourceTree = "<group>"; };
 		EB86E2802B4EC8CE00A06718 /* ci_post_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_xcodebuild.sh; sourceTree = "<group>"; };
@@ -1071,6 +1074,7 @@
 				EB4426AD2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift */,
 				EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift */,
 				EB8AD06D2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift */,
+				EB8201D32B5F97A000A8FDDD /* SizeObserver.swift */,
 				EB6297F12B37179200E830E6 /* View+Block.swift */,
 				EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */,
 			);
@@ -1101,9 +1105,9 @@
 			children = (
 				EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */,
 				EB97F6A72B31BCDE00E31602 /* SharedGameListModifier.swift */,
+				EB56722D2B580E3700592413 /* SizeChangeModifier.swift */,
 				EB560BD32B4386D700E91E01 /* StateOverlayModifier.swift */,
 				EBCA22282B21A58C00C487AD /* ToolbarItemBackportModifier.swift */,
-				EB56722D2B580E3700592413 /* WidthChangeModifier.swift */,
 			);
 			path = Modifiers;
 			sourceTree = "<group>";
@@ -1604,6 +1608,8 @@
 				EB6ADE752B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */,
 				EB56720D2B57870200592413 /* SignWeaknessItemView.swift in Sources */,
 				EB5672122B578FFD00592413 /* SignWeaknessSectionView.swift in Sources */,
+				EB56722F2B580E3700592413 /* SizeChangeModifier.swift in Sources */,
+				EB8201D52B5F97A000A8FDDD /* SizeObserver.swift in Sources */,
 				EBBF86212B4692D500F76D03 /* Sort+Extensions.swift in Sources */,
 				EB645A612B26749E00D27500 /* StackContentView.swift in Sources */,
 				EB693EA82B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift in Sources */,
@@ -1624,7 +1630,6 @@
 				EBB4B21C2B176CE7004D63EA /* WeaknessView.swift in Sources */,
 				EB5672192B57935300592413 /* WeaknessViewMetrics.swift in Sources */,
 				EBB4B2152B175DE7004D63EA /* WeaknessViewModel.swift in Sources */,
-				EB56722F2B580E3700592413 /* WidthChangeModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1812,6 +1817,8 @@
 				EB645A642B2685D500D27500 /* Sidebar.swift in Sources */,
 				EB56720C2B57870200592413 /* SignWeaknessItemView.swift in Sources */,
 				EB5672112B578FFD00592413 /* SignWeaknessSectionView.swift in Sources */,
+				EB56722E2B580E3700592413 /* SizeChangeModifier.swift in Sources */,
+				EB8201D42B5F97A000A8FDDD /* SizeObserver.swift in Sources */,
 				EBBF86202B4692D500F76D03 /* Sort+Extensions.swift in Sources */,
 				EBC051102B54C8A200D084E2 /* SortToolbarMenu.swift in Sources */,
 				EB645A652B269EF300D27500 /* StackContentView.swift in Sources */,
@@ -1832,7 +1839,6 @@
 				EBCA222E2B228C6800C487AD /* WeaknessView.swift in Sources */,
 				EB5672182B57935300592413 /* WeaknessViewMetrics.swift in Sources */,
 				EBB4B1C52B15BDA7004D63EA /* WeaknessViewModel.swift in Sources */,
-				EB56722E2B580E3700592413 /* WidthChangeModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
