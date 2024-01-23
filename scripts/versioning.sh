@@ -4,7 +4,7 @@
 INTERNAL_SHORT_VERSION_OFFSET=3
 
 if [ "$CI" = "TRUE" ]; then
-	git fetch origin --tags
+	git fetch --tags --depth 50
 fi
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
