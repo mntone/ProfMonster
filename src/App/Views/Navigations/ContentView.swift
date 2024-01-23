@@ -34,7 +34,7 @@ struct ContentView: View {
 		.sheet(isPresented: $isSettingsPresented) {
 			SettingsContainer()
 		}
-		.setPresentSettingsSheetAction(isPresented: $isSettingsPresented)
+		.setShowSettings(isPresented: $isSettingsPresented)
 #endif
 #if os(iOS)
 		.environment(\.mobileMetrics, DynamicMobileMetrics(sceneDelegate.window))

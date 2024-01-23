@@ -3,8 +3,8 @@ import SwiftUI
 struct SharedGameListModifier: ViewModifier {
 	let viewModel: HomeViewModel
 
-	@Environment(\.presentSettingsSheetAction)
-	private var presentSettingsSheetAction
+	@Environment(\.showSettings)
+	private var showSettings
 
 	func body(content: Content) -> some View {
 		content
@@ -12,7 +12,7 @@ struct SharedGameListModifier: ViewModifier {
 			.toolbarItemBackport(alignment: .leading) {
 				Button("Settings",
 					   systemImage: "gearshape",
-					   action: presentSettingsSheetAction.callAsFunction)
+					   action: showSettings.callAsFunction)
 #if !os(watchOS)
 				.keyboardShortcut(",", modifiers: [.command])
 #endif

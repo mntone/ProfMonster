@@ -141,8 +141,8 @@
 		EB8778232B26B28500B3359C /* MonsterListColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778222B26B28500B3359C /* MonsterListColumn.swift */; };
 		EB8778252B26B38200B3359C /* MonsterListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778242B26B38200B3359C /* MonsterListItem.swift */; };
 		EB8778262B26B38200B3359C /* MonsterListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778242B26B38200B3359C /* MonsterListItem.swift */; };
-		EB8778282B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778272B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift */; };
-		EB8778292B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778272B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift */; };
+		EB8778282B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778272B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift */; };
+		EB8778292B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778272B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift */; };
 		EB87782E2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */; };
 		EB87782F2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */; };
 		EB8AD06B2B42944800F1E96F /* Backport+ShapeStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8AD06A2B42944800F1E96F /* Backport+ShapeStyle.swift */; };
@@ -493,7 +493,7 @@
 		EB8778202B26B1E600B3359C /* ColumnContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnContentView.swift; sourceTree = "<group>"; };
 		EB8778222B26B28500B3359C /* MonsterListColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListColumn.swift; sourceTree = "<group>"; };
 		EB8778242B26B38200B3359C /* MonsterListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterListItem.swift; sourceTree = "<group>"; };
-		EB8778272B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+PresentSettingsSheetAction.swift"; sourceTree = "<group>"; };
+		EB8778272B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+ShowSettingsAction.swift"; sourceTree = "<group>"; };
 		EB87782D2B26E4F200B3359C /* View+OnChangeBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+OnChangeBackport.swift"; sourceTree = "<group>"; };
 		EB8AD06A2B42944800F1E96F /* Backport+ShapeStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ShapeStyle.swift"; sourceTree = "<group>"; };
 		EB8AD06D2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShapeStyle+Hierarchical.swift"; sourceTree = "<group>"; };
@@ -1066,8 +1066,8 @@
 				EB8AD06A2B42944800F1E96F /* Backport+ShapeStyle.swift */,
 				EB42495E2B332A230086E255 /* Backport.swift */,
 				EBC85C7C2B209D65008A16C6 /* EdgeInsets+Extensions.swift */,
-				EB8778272B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift */,
 				EB6437962B4702DD00E8D02B /* EnvironmentValues+Settings.swift */,
+				EB8778272B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift */,
 				EB4426AD2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift */,
 				EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift */,
 				EB8AD06D2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift */,
@@ -1552,8 +1552,8 @@
 				EBC85C7E2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */,
 				EBB4B20E2B175DE2004D63EA /* Effectiveness+Extensions.swift in Sources */,
 				EB71C13C2B5B6FF10013FBBC /* EnvironmentValues+MAForm.swift in Sources */,
-				EB8778292B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */,
 				EB6437982B4702DD00E8D02B /* EnvironmentValues+Settings.swift in Sources */,
+				EB8778292B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift in Sources */,
 				EB560BCF2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
 				EBBF86252B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */,
 				EBBBAABA2B3FE27000BBAB23 /* GameGroupViewModel.swift in Sources */,
@@ -1740,8 +1740,8 @@
 				EBC85C7D2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */,
 				EBB4B1D52B161691004D63EA /* Effectiveness+Extensions.swift in Sources */,
 				EB71F8722B5A0D4300999269 /* EnvironmentValues+MAForm.swift in Sources */,
-				EB8778282B26BDEF00B3359C /* EnvironmentValues+PresentSettingsSheetAction.swift in Sources */,
 				EB6437972B4702DD00E8D02B /* EnvironmentValues+Settings.swift in Sources */,
+				EB8778282B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift in Sources */,
 				EB560BCE2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
 				EBFEAB842B45A5DC005363F7 /* FavoriteContextMenuButton.swift in Sources */,
 				EBBF86242B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */,

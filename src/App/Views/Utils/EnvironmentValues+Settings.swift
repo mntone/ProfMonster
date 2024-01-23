@@ -1,13 +1,13 @@
 import class MonsterAnalyzerCore.Settings
 import SwiftUI
 
-struct SettingsEnvironmentKey: EnvironmentKey {
+private struct _SettingsEnvironmentKey: EnvironmentKey {
 	static var defaultValue: MonsterAnalyzerCore.Settings? = nil
 }
 
 extension EnvironmentValues {
 	var settings: MonsterAnalyzerCore.Settings? {
-		get { self[SettingsEnvironmentKey.self] }
-		set { self[SettingsEnvironmentKey.self] = newValue }
+		get { self[_SettingsEnvironmentKey.self] }
+		set { self[_SettingsEnvironmentKey.self] = newValue }
 	}
 }
