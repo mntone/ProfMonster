@@ -1,5 +1,9 @@
 #!/bin/zsh
 
+if [ "$CI" = "TRUE" ]; then
+	brew install jq
+fi
+
 LATEST_RELEASES=$(curl -s -L \
 	-H "Accept: application/vnd.github+json" \
 	-H "X-GitHub-Api-Version: 2022-11-28" \
