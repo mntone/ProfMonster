@@ -1,5 +1,3 @@
-#if !os(macOS)
-
 import SwiftUI
 
 @available(iOS 16.0, watchOS 9.0, *)
@@ -90,5 +88,3 @@ struct StackContentView: View {
 		}
 	}
 }
-
-#endif

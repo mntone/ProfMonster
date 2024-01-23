@@ -1,7 +1,4 @@
 import SwiftUI
-
-#if canImport(UIKit)
-
 import SwiftUIIntrospect
 
 @available(iOS 14.0, *)
@@ -68,5 +65,3 @@ extension Backport where Content: View {
 		}
 	}
 }
-
-#endif

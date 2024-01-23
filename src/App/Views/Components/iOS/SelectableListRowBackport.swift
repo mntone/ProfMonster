@@ -1,7 +1,5 @@
 import SwiftUI
 
-#if os(iOS)
-
 @available(iOS, introduced: 15.0, deprecated: 16.0, message: "Use native List instead")
 @available(macOS, unavailable)
 @available(watchOS, unavailable)
@@ -78,5 +76,3 @@ struct SelectableListRowBackport<Tag: Equatable, Content: View>: View {
 			}
 	}
 }
-
-#endif

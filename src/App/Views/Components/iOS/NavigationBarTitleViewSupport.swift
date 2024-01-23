@@ -1,9 +1,5 @@
-#if os(iOS)
-
 import SwiftUI
 
-@available(macOS, unavailable)
-@available(watchOS, unavailable)
 private struct _NarrowNavigationBarKey: EnvironmentKey {
 	static var defaultValue: Bool {
 		false
@@ -60,5 +56,3 @@ struct NavigationBarTitleViewSupport<Content: View>: View {
 		}
 	}
 }
-
-#endif

@@ -1,7 +1,5 @@
 import SwiftUI
 
-#if !os(macOS)
-
 struct SettingsList<ItemView: View>: View {
 	@ViewBuilder
 	let content: (SettingsPane) -> ItemView
@@ -150,5 +148,3 @@ struct DrillDownSettingsContainerBackport: View {
 	let viewModel = SettingsViewModel()
 	return DrillDownSettingsContainer(viewModel: viewModel, selection: .constant(nil))
 }
-
-#endif

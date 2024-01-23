@@ -1,8 +1,8 @@
 import SwiftUI
 
-#if canImport(AppKit)
-
+@available(iOS, unavailable)
 @available(macOS 12.0, *)
+@available(watchOS, unavailable)
 public enum AlternatingRowBackgroundBehaviorBackport {
 	case automatic
 	case enabled
@@ -33,7 +33,9 @@ public enum AlternatingRowBackgroundBehaviorBackport {
 	}
 }
 
+@available(iOS, unavailable)
 @available(macOS 12.0, *)
+@available(watchOS, unavailable)
 extension Backport where Content: View {
 	@ViewBuilder
 	public func listStyleInsetAlternatingRowBackgrounds(_ behavior: AlternatingRowBackgroundBehaviorBackport = .enabled) -> some View {
@@ -44,5 +46,3 @@ extension Backport where Content: View {
 		}
 	}
 }
-
-#endif

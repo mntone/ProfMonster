@@ -1,7 +1,5 @@
 import SwiftUI
 
-#if canImport(AppKit)
-
 @available(macOS 10.15, *)
 public enum Cursor {
 	case `default`
@@ -38,5 +36,3 @@ extension View {
 		}
 	}
 }
-
-#endif

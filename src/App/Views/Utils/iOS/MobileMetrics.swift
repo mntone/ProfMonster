@@ -1,5 +1,3 @@
-#if os(iOS)
-
 import SwiftUI
 
 @available(macOS, unavailable)
@@ -64,5 +62,3 @@ public extension EnvironmentValues {
 		set { self[_MobileMetricsKey.self] = newValue }
 	}
 }
-
-#endif

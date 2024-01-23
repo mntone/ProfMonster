@@ -1,5 +1,3 @@
-#if os(iOS) || os(watchOS)
-
 import SwiftUI
 
 @available(macOS, unavailable)
@@ -13,5 +11,3 @@ struct HBorderView: View {
 			.offset(x: -pixelLength)
 	}
 }
-
-#endif

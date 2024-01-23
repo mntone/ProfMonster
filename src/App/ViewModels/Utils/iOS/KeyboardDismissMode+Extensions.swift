@@ -1,5 +1,3 @@
-#if os(iOS)
-
 import enum MonsterAnalyzerCore.KeyboardDismissMode
 
 @available(macOS, unavailable)
@@ -29,5 +27,3 @@ extension KeyboardDismissMode: Identifiable {
 		}
 	}
 }
-
-#endif

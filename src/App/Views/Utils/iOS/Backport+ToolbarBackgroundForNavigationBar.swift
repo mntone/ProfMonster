@@ -1,5 +1,3 @@
-#if os(iOS)
-
 import SwiftUI
 @_spi(Advanced) import SwiftUIIntrospect
 
@@ -42,5 +40,3 @@ extension Backport where Content: View {
 		}
 	}
 }
-
-#endif

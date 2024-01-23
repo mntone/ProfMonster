@@ -1,5 +1,3 @@
-#if os(iOS)
-
 import MonsterAnalyzerCore
 import UIKit
 
@@ -42,5 +40,3 @@ extension UIView {
 		}
 	}
 }
-
-#endif

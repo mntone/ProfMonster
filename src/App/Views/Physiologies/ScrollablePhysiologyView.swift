@@ -1,8 +1,6 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
-#if !os(macOS)
-
 @available(macOS, unavailable)
 struct PhysiologyHeaderHeightPreferenceKey: PreferenceKey {
 	static var defaultValue: [PhysiologyViewModel.ID: CGFloat] = [:]
@@ -258,5 +256,3 @@ struct HeaderScrollablePhysiologyView: View {
 	.environment(\.locale, Locale(identifier: "ar"))
 	.environment(\.layoutDirection, .rightToLeft)
 }
-
-#endif
