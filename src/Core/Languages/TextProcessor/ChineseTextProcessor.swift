@@ -22,6 +22,11 @@ struct ChineseTextProcessor: TextProcessor {
 	}
 
 	func sortkey(from readableText: String) -> String {
-		readableText.applyingTransform(.mandarinToLatin, reverse: false)!
+		readableText
+			.applyingTransform(.mandarinToLatin, reverse: false)!
+			.filter { char in
+				char != " "
+			}
+			.folding(options: .diacriticInsensitive, locale: nil)
 	}
 }

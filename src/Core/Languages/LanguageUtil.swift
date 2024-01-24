@@ -34,7 +34,7 @@ enum LanguageUtil {
 		switch lang {
 		case "ja":
 			return JapaneseTextProcessor()
-		case "zh":
+		case "zh", "zh-Hans", "zh-Hant":
 			return ChineseTextProcessor()
 		case "ko":
 			return KoreanTextProcessor()
