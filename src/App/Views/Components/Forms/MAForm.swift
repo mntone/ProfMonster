@@ -34,7 +34,7 @@ struct MAForm<Content: View>: View {
 		}
 		.frame(maxWidth: .infinity)
 #if os(iOS)
-		.background(.formBackground)
+		.background(Color.formBackground.ignoresSafeArea(.all, edges: .all))
 #endif
 #endif
 	}
