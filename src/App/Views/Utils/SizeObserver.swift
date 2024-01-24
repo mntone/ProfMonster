@@ -17,7 +17,7 @@ struct WidthObserver: View {
 
 struct HeightObserver: View {
 	let perform: (CGFloat) -> Void
-	
+
 	var body: some View {
 		GeometryReader { proxy in
 			Color.clear

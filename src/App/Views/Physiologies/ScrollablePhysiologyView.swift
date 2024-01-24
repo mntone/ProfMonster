@@ -1,7 +1,6 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
-@available(macOS, unavailable)
 struct PhysiologyHeaderHeightPreferenceKey: PreferenceKey {
 	static var defaultValue: [PhysiologyViewModel.ID: CGFloat] = [:]
 
@@ -10,7 +9,6 @@ struct PhysiologyHeaderHeightPreferenceKey: PreferenceKey {
 	}
 }
 
-@available(macOS, unavailable)
 private struct _ScrollablePhysiologyRowHeaderView: View {
 	let viewModel: [PhysiologyColumnViewModel]
 	let itemWidth: CGFloat
@@ -34,15 +32,13 @@ private struct _ScrollablePhysiologyRowHeaderView: View {
 				.foregroundStyle(.thunder)
 				.frame(width: itemWidth)
 		}
-		.padding(PhysiologyViewMetrics.padding.setting(leading: PhysiologyViewMetrics.margin.leading))
+		.padding(PhysiologyViewMetrics.padding.setting(leading: spacing))
 		.accessibilityHidden(true)
 	}
 }
 
-@available(macOS, unavailable)
 private struct _ScrollablePhysiologyHeaderView: View {
 	let viewModel: PhysiologyViewModel
-	let spacing: CGFloat
 
 	var body: some View {
 		Text(viewModel.header)
@@ -51,14 +47,9 @@ private struct _ScrollablePhysiologyHeaderView: View {
 				Color.clear.preference(key: PhysiologyHeaderHeightPreferenceKey.self,
 									   value: [viewModel.id: proxy.size.height])
 			})
-			.padding(EdgeInsets(top: 0,
-								leading: PhysiologyViewMetrics.padding.leading,
-								bottom: 0,
-								trailing: spacing))
 	}
 }
 
-@available(macOS, unavailable)
 private struct _ScrollablePhysiologyContentView: View {
 	let viewModel: PhysiologyViewModel
 	let itemWidth: CGFloat
@@ -108,8 +99,25 @@ struct ScrollablePhysiologyView: View {
 	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
 	private var itemWidth: CGFloat = PhysiologyViewMetrics.itemBaseWidth
 
+#if os(watchOS)
 	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
 	private var spacing: CGFloat = PhysiologyViewMetrics.spacing
+#else
+	@Environment(\.pixelLength)
+	private var pixelLength
+
+	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
+	private var baseSpacing: CGFloat = PhysiologyViewMetrics.spacing
+
+	@ScaledMetric(relativeTo: PhysiologyViewMetrics.textStyle)
+	private var maxContentWidth: CGFloat = PhysiologyViewMetrics.baseMaxContentWidth
+
+	@State
+	private var rowMinWidth: CGFloat = 220.0
+
+	@State
+	private var spacing: CGFloat = PhysiologyViewMetrics.spacing
+#endif
 
 	@State
 	private var headerHeights: [UInt32: CGFloat] = [:]
@@ -119,23 +127,26 @@ struct ScrollablePhysiologyView: View {
 
 	var body: some View {
 		HStack(alignment: .bottom, spacing: 0) {
+#if os(watchOS)
+			let baseSpacing = spacing
+#endif
+			let itemFrameWidth = PhysiologyViewMetrics.padding.leading + headerWidth + baseSpacing
 			let headerBackground = Self.headerBackground
 			VStack(spacing: 0) {
 				ForEach(viewModel.groups) { group in
 					VStack(spacing: 0) {
 						ForEach(group.items) { item in
-							_ScrollablePhysiologyHeaderView(viewModel: item, spacing: spacing)
+							_ScrollablePhysiologyHeaderView(viewModel: item)
 						}
 					}
-					.padding(PhysiologyViewMetrics.padding.setting(horizontal: 0))
-					.frame(maxWidth: .infinity)
+					.padding(PhysiologyViewMetrics.padding.setting(trailing: baseSpacing))
+					.frame(maxWidth: itemFrameWidth)
 					.background(group.id % 2 != 0 ? headerBackground : nil)
 				}
 			}
 			.multilineTextAlignment(.center)
 			.fixedSize(horizontal: false, vertical: true)
 			.accessibilityHidden(true)
-			.frame(maxWidth: headerWidth)
 			.padding(.bottom, PhysiologyViewMetrics.margin.bottom)
 			.onPreferenceChange(PhysiologyHeaderHeightPreferenceKey.self) { heights in
 				headerHeights = heights
@@ -148,6 +159,9 @@ struct ScrollablePhysiologyView: View {
 					_ScrollablePhysiologyRowHeaderView(viewModel: viewModel.columns,
 													   itemWidth: itemWidth,
 													   spacing: spacing)
+#if !os(watchOS)
+					.frame(minWidth: rowMinWidth, alignment: .leading)
+#endif
 
 					ForEach(viewModel.groups) { group in
 						VStack(spacing: 0) {
@@ -158,16 +172,17 @@ struct ScrollablePhysiologyView: View {
 									.frame(height: headerHeights[item.id])
 							}
 						}
-						.padding(PhysiologyViewMetrics.padding.setting(leading: PhysiologyViewMetrics.margin.leading))
+						.padding(PhysiologyViewMetrics.padding.setting(leading: spacing))
+#if !os(watchOS)
+						.frame(minWidth: rowMinWidth, alignment: .leading)
+#endif
 						.background(group.id % 2 != 0 ? contentBackground : nil)
 					}
 				}
 				.padding(PhysiologyViewMetrics.margin.setting(leading: 0))
-				.background {
-					ScrollViewOffsetXDetector(coordinateSpace: coordSpace, result: $isBorderShown) { offsetX in
-						offsetX < 0.0
-					}
-				}
+				.background(ScrollViewOffsetXDetector(coordinateSpace: coordSpace, result: $isBorderShown) { offsetX in
+					offsetX < 0.0
+				})
 			}
 			.coordinateSpace(name: coordSpace)
 			.ignoresSafeArea(.all, edges: .leading)
@@ -180,6 +195,16 @@ struct ScrollablePhysiologyView: View {
 				}
 				.animation(.easeInOut(duration: 0.1), value: isBorderShown)
 			}
+#if !os(watchOS)
+			.onWidthChange { scrollViewWidth in
+				rowMinWidth = scrollViewWidth - PhysiologyViewMetrics.margin.trailing
+			}
+			.onChange(of: rowMinWidth) { newRowMinWidth in
+				let count: CGFloat = CGFloat(viewModel.columns.count + 1 /* Stun */)
+				let calcSpacing: CGFloat = pixelLength * floor((min(newRowMinWidth, maxContentWidth) - itemWidth * count - PhysiologyViewMetrics.padding.trailing) / pixelLength / count)
+				spacing = max(baseSpacing, calcSpacing)
+			}
+#endif
 		}
 		.font(.system(PhysiologyViewMetrics.textStyle).monospacedDigit().leading(.tight))
 		.minimumScaleFactor(0.5)
@@ -187,6 +212,10 @@ struct ScrollablePhysiologyView: View {
 
 		// Disable animations.
 		.animation(nil, value: headerHeights)
+#if !os(watchOS)
+		.animation(nil, value: rowMinWidth)
+		.animation(nil, value: spacing)
+#endif
 		.transition(.identity)
 	}
 
