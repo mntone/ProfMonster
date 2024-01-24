@@ -8,6 +8,9 @@ struct MonsterWindow: View {
 #if os(iOS)
 	@Environment(\.dismiss)
 	private var dismiss
+
+	@EnvironmentObject
+	private var sceneDelegate: SceneDelegate
 #endif
 
 	var body: some View {
@@ -26,6 +29,7 @@ struct MonsterWindow: View {
 				}
 		}
 		.injectHorizontalLayoutMargin()
+		.environment(\.mobileMetrics, DynamicMobileMetrics(sceneDelegate.window))
 #endif
 #if os(macOS)
 		MonsterPage(id: id)
