@@ -32,6 +32,9 @@ struct NotesSection: View {
 
 	@Environment(\.settings)
 	private var settings
+
+	@ScaledMetric(relativeTo: .body)
+	private var verticalPadding: CGFloat = 11.0
 #endif
 
 	var body: some View {
@@ -46,12 +49,16 @@ struct NotesSection: View {
 		.ignoreLayoutMargin()
 #else
 		if #available(iOS 16.0, *) {
-			MASection("Notes", background: .separatedInsetGrouped) {
+			MASection("Notes", background: MASectionBackgroundStyle.none) {
 				TextField(text: note, axis: .vertical) {
 					Never?.none
 				}
-				.preferredVerticalPadding()
 				.focused($isActive)
+				.padding(EdgeInsets(top: verticalPadding,
+									leading: horizontalLayoutMargin,
+									bottom: verticalPadding,
+									trailing: horizontalLayoutMargin))
+				.background(in: .rect(cornerRadius: MAFormMetrics.cornerRadius))
 				.toolbar {
 					if settings?.keyboardDismissMode == .button {
 						ToolbarItemGroup(placement: .keyboard) {
@@ -74,9 +81,9 @@ struct NotesSection: View {
 						textView.isScrollEnabled = false
 
 						// Set current context insets.
-						textView.textContainerInset = UIEdgeInsets(top: MAFormMetrics.verticalRowInset,
+						textView.textContainerInset = UIEdgeInsets(top: verticalPadding,
 																   left: horizontalLayoutMargin - 6.0,
-																   bottom: MAFormMetrics.verticalRowInset,
+																   bottom: verticalPadding,
 																   right: horizontalLayoutMargin - 6.0)
 					}
 					.block { content in
