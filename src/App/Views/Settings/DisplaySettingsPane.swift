@@ -90,6 +90,9 @@ struct DisplaySettingsPane: View {
 			}
 
 			Section {
+				SettingsToggle("Physical Attack",
+							   isOn: $viewModel.showPhysicalAttack)
+
 #if os(watchOS)
 				SettingsToggle("Element Attack", isOn: Binding {
 					viewModel.elementDisplay != .none

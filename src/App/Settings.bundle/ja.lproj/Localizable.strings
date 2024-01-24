@@ -7,13 +7,14 @@
 "Favorite" = "お気に入り";
 
 "Monster Detail" = "モンスター詳細";
+"Physical Attack" = "物理攻撃";
 "Element Attack" = "属性攻撃";
 "Off" = "オフ";
 "Sign" = "記号";
 "Number (1st Decimal Place)" = "数値 (小数点第1位まで)";
 "Number (2nd Decimal Place)" = "数値 (小数点第2位まで)";
 "Merge Parts with Same Physiology" = "同じ肉質を持つ部位を結合する";
-"Keyboard Dismiss" = "キーボードの非表示方法";
+"Keyboard Dismiss" = "キーボードを閉じる";
 "Button" = "ボタン";
 "Scroll" = "スクロール";
 "Swipe" = "スワイプ";

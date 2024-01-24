@@ -1,5 +1,3 @@
-#if os(iOS) || os(watchOS)
-
 import SwiftUI
 
 @available(macOS, unavailable)
@@ -12,10 +10,10 @@ private struct _AccessibilitySignWeaknessItemView<ViewModel: WeaknessItemViewMod
 
 	var body: some View {
 		HStack(alignment: .firstTextBaseline, spacing: 0) {
-			Text(viewModel.attack.label(.medium))
-				.foregroundStyle(viewModel.attack.color)
+			Text(viewModel.element.label(.medium))
+				.foregroundStyle(viewModel.element.color)
 				.accessibilityLabeledPair(role: .label, id: viewModel.id, in: namespace)
-				.accessibilityLabel(viewModel.attack.label(.long))
+				.accessibilityLabel(viewModel.element.label(.long))
 
 			Spacer()
 
@@ -55,6 +53,9 @@ struct AccessibilitySignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>
 	var body: some View {
 #if os(watchOS)
 		Section {
+			SeparatedPhysicalWeaknessSectionView(namespace: namespace,
+												 viewModel: viewModel.physical as? PhysicalWeaknessSectionViewModel<PhysicalWeaknessItemViewModel>)
+
 			ForEach(viewModel.items) { item in
 				_AccessibilitySignWeaknessItemView(namespace: namespace, viewModel: item)
 			}
@@ -72,6 +73,10 @@ struct AccessibilitySignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>
 
 		MAFormMetricsBuilder { metrics in
 			MAFormRoundedBackground(metrics) {
+				SeparatedPhysicalWeaknessSectionView(namespace: namespace,
+													 viewModel: viewModel.physical as? PhysicalWeaknessSectionViewModel<PhysicalWeaknessItemViewModel>)
+					.preferredVerticalPadding()
+
 				ForEach(viewModel.items) { item in
 					_AccessibilitySignWeaknessItemView(signFontSize: signFontSize,
 													   namespace: namespace,
@@ -83,5 +88,3 @@ struct AccessibilitySignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>
 #endif
 	}
 }
-
-#endif

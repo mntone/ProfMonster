@@ -23,10 +23,10 @@ struct SignWeaknessItemView<ViewModel: WeaknessItemViewModel>: View {
 		let alignment: HorizontalAlignment = .center
 #endif
 		VStack(alignment: alignment, spacing: 0) {
-			viewModel.attack.image
-				.foregroundStyle(viewModel.attack.color)
+			viewModel.element.image
+				.foregroundStyle(viewModel.element.color)
 				.accessibilityLabeledPair(role: .label, id: viewModel.id, in: namespace)
-				.accessibilityLabel(viewModel.attack.label(.long))
+				.accessibilityLabel(viewModel.element.label(.long))
 
 #if !os(watchOS)
 			Spacer(minLength: 0)

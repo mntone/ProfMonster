@@ -51,6 +51,13 @@ final class SettingsViewModel: ObservableObject {
 #endif
 
 	@Published
+	var showPhysicalAttack: Bool {
+		didSet {
+			settings.showPhysicalAttack = showPhysicalAttack
+		}
+	}
+
+	@Published
 	var elementDisplay: WeaknessDisplayMode {
 		didSet {
 			settings.elementDisplay = elementDisplay
@@ -110,6 +117,7 @@ final class SettingsViewModel: ObservableObject {
 #if !os(watchOS)
 		self.includesFavoriteGroupInSearchResult = app.settings.includesFavoriteGroupInSearchResult
 #endif
+		self.showPhysicalAttack = app.settings.showPhysicalAttack
 		self.elementDisplay = app.settings.elementDisplay
 		self.mergeParts = app.settings.mergeParts
 #if os(iOS)
@@ -130,6 +138,7 @@ final class SettingsViewModel: ObservableObject {
 #if !os(watchOS)
 		settings.$includesFavoriteGroupInSearchResult.dropFirst().receive(on: scheduler).assign(to: &$includesFavoriteGroupInSearchResult)
 #endif
+		settings.$showPhysicalAttack.dropFirst().receive(on: scheduler).assign(to: &$showPhysicalAttack)
 		settings.$elementDisplay.dropFirst().receive(on: scheduler).assign(to: &$elementDisplay)
 		settings.$mergeParts.dropFirst().receive(on: scheduler).assign(to: &$mergeParts)
 #if os(iOS)

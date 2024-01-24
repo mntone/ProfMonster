@@ -17,6 +17,32 @@ public struct PhysiologyValue<Number>: Hashable where Number: Hashable, Number: 
 	public let ice: Number
 	public let dragon: Number
 
+	public func value(of physical: Physical) -> Number {
+		switch physical {
+		case .slash:
+			return slash
+		case .impact:
+			return impact
+		case .shot:
+			return shot
+		}
+	}
+
+	public func value(of element: Element) -> Number {
+		switch element {
+		case .fire:
+			return fire
+		case .water:
+			return water
+		case .thunder:
+			return thunder
+		case .ice:
+			return ice
+		case .dragon:
+			return dragon
+		}
+	}
+
 	public func value(of attack: Attack) -> Number {
 		switch attack {
 		case .slash:
@@ -36,6 +62,10 @@ public struct PhysiologyValue<Number>: Hashable where Number: Hashable, Number: 
 		case .dragon:
 			return dragon
 		}
+	}
+
+	public func values(of elements: [Element] = Element.allCases) -> [Number] {
+		elements.map(value(of:))
 	}
 
 	public func values(of attacks: [Attack] = Attack.allCases) -> [Number] {

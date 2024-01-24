@@ -1,11 +1,20 @@
 import enum MonsterAnalyzerCore.Attack
+import enum MonsterAnalyzerCore.Element
 import struct MonsterAnalyzerCore.PhysiologyStateGroup
 import struct MonsterAnalyzerCore.Weakness
 
+struct PhysicalWeaknessSectionViewModel<ViewModel> {
+	let slash: ViewModel
+	let impact: ViewModel
+	let shot: ViewModel
+}
+
 protocol WeaknessSectionViewModel: Identifiable {
+	associatedtype PhysicalItem
 	associatedtype Item: WeaknessItemViewModel
 
 	var header: String { get }
+	var physical: PhysicalWeaknessSectionViewModel<PhysicalItem>? { get }
 	var items: [Item] { get }
 	var isDefault: Bool { get }
 }
@@ -13,8 +22,12 @@ protocol WeaknessSectionViewModel: Identifiable {
 struct EffectivenessWeaknessSectionViewModel: WeaknessSectionViewModel {
 	let id: String
 	let header: String
-	let items: [EffectivenessWeaknessItemViewModel]
 	let isDefault: Bool
+	let items: [EffectivenessWeaknessItemViewModel]
+
+	var physical: PhysicalWeaknessSectionViewModel<Never>? {
+		nil
+	}
 
 	init(id: String,
 		 header: String,
@@ -22,59 +35,64 @@ struct EffectivenessWeaknessSectionViewModel: WeaknessSectionViewModel {
 		 isDefault: Bool) {
 		self.id = id
 		self.header = header
-		self.items = items
 		self.isDefault = isDefault
+		self.items = items
 	}
 
 	init(prefixID: String,
 		 key: String,
-		 rawValue: Weakness,
-		 of attacks: [Attack] = Attack.allElements) {
+		 rawValue: Weakness) {
 		let id = "\(prefixID):\(key)"
 		self.id = id
 		self.header = rawValue.state
-
-		self.items = attacks.map { attack in
-			EffectivenessWeaknessItemViewModel(prefixID: id,
-											   attack: attack,
-											   effectiveness: rawValue.value(of: attack))
-		}
 		self.isDefault = key == "default"
+		self.items = Element.allCases.map { element in
+			EffectivenessWeaknessItemViewModel(prefixID: id,
+											   element: element,
+											   effectiveness: rawValue.value(of: element))
+		}
 	}
 }
 
 struct NumberWeaknessSectionViewModel: WeaknessSectionViewModel {
 	let id: String
 	let header: String
-	let items: [NumberWeaknessItemViewModel]
 	let isDefault: Bool
+	let physical: PhysicalWeaknessSectionViewModel<PhysicalWeaknessItemViewModel>?
+	let items: [NumberWeaknessItemViewModel]
 
 	init(id: String,
 		 header: String,
+		 physical: PhysicalWeaknessSectionViewModel<PhysicalWeaknessItemViewModel>?,
 		 items: [NumberWeaknessItemViewModel],
 		 isDefault: Bool) {
 		self.id = id
 		self.header = header
-		self.items = items
 		self.isDefault = isDefault
+		self.physical = physical
+		self.items = items
 	}
 
 	init(prefixID: String,
-		 rawValue: PhysiologyStateGroup,
-		 of attacks: [Attack] = Attack.allElements) {
-		let id = "\(prefixID):\(rawValue.label)"
+		 rawValue: PhysiologyStateGroup) {
+		let id = "\(prefixID):\(rawValue.key)"
 		self.id = id
 		self.header = rawValue.label
+		self.isDefault = rawValue.key == "default"
+		self.physical = PhysicalWeaknessSectionViewModel(
+			slash: PhysicalWeaknessItemViewModel(prefixID: id, physical: .slash, stateGroup: rawValue),
+			impact: PhysicalWeaknessItemViewModel(prefixID: id, physical: .impact, stateGroup: rawValue),
+			shot: PhysicalWeaknessItemViewModel(prefixID: id, physical: .shot, stateGroup: rawValue))
 
-		let val = rawValue.average.values(of: attacks)
+		let elements = Element.allCases
+		let val = rawValue.average.values(of: elements)
 		let top = val.max() ?? 0
-		self.items = zip(attacks, val).map { attack, val in
+		self.items = zip(elements, val).map { element, val in
 			NumberWeaknessItemViewModel(prefixID: id,
-										attack: attack,
+										element: element,
 										averageValue: val,
 										topValue: top)
 		}
-		self.isDefault = rawValue.key == "default"
 	}
 
 	static func compareEffectiveness(lhs: NumberWeaknessSectionViewModel, rhs: NumberWeaknessSectionViewModel) -> Bool {

@@ -9,10 +9,10 @@ struct NumberWeaknessItemView: View {
 
 	var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
-			viewModel.attack.image
-				.foregroundStyle(viewModel.attack.color)
+			viewModel.element.image
+				.foregroundStyle(viewModel.element.color)
 				.accessibilityLabeledPair(role: .label, id: viewModel.id, in: namespace)
-				.accessibilityLabel(viewModel.attack.label(.long))
+				.accessibilityLabel(viewModel.element.label(.long))
 
 			Spacer(minLength: 0)
 

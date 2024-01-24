@@ -7,7 +7,8 @@
 "Favorite" = "즐겨찾기";
 
 "Monster Detail" = "몬스터 디테일";
-"Element Attack" = "Element Attack";
+"Physical Attack" = "Physical Attack";
+"Element Attack" = "속성 공격";
 "Off" = "끔";
 "Sign" = "기호";
 "Number (1st Decimal Place)" = "숫자(소수점 1번째 자리)";

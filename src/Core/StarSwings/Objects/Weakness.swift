@@ -69,6 +69,23 @@ public struct Weakness {
 		}
 	}
 
+	@inline(__always)
+	public func value(of element: Element) -> Effectiveness {
+		switch element {
+		case .fire:
+			return fire
+		case .water:
+			return water
+		case .thunder:
+			return thunder
+		case .ice:
+			return ice
+		case .dragon:
+			return dragon
+		}
+	}
+
+	@inline(__always)
 	public func value(of attack: Attack) -> Effectiveness {
 		switch attack {
 		case .fire:

@@ -27,8 +27,7 @@ struct EffectivenessWeaknessViewModel: WeaknessViewModel {
 
 	init(prefixID: String,
 		 displayMode: WeaknessDisplayMode,
-		 rawValue: [String: Weakness],
-		 of attacks: [Attack] = Attack.allElements) {
+		 rawValue: [String: Weakness]) {
 		precondition(displayMode != .none)
 
 		let id = "\(prefixID):w"
@@ -38,8 +37,7 @@ struct EffectivenessWeaknessViewModel: WeaknessViewModel {
 			.map { key, weakness in
 				EffectivenessWeaknessSectionViewModel(prefixID: id,
 													  key: key,
-													  rawValue: weakness,
-													  of: attacks)
+													  rawValue: weakness)
 			}
 			.sorted { lhs, rhs in
 				lhs.isDefault && !rhs.isDefault
@@ -64,8 +62,7 @@ struct NumberWeaknessViewModel: WeaknessViewModel {
 
 	init(prefixID: String,
 		 displayMode: WeaknessDisplayMode,
-		 rawValue: Physiology,
-		 of attacks: [Attack] = Attack.allElements) {
+		 rawValue: Physiology) {
 		precondition(displayMode != .none)
 
 		let id = "\(prefixID):w"
@@ -73,8 +70,7 @@ struct NumberWeaknessViewModel: WeaknessViewModel {
 		self.displayMode = displayMode
 		self.sections = rawValue.states.map { section in
 			NumberWeaknessSectionViewModel(prefixID: id,
-										   rawValue: section,
-										   of: attacks)
+										   rawValue: section)
 		}
 	}
 }

@@ -14,6 +14,9 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 	private var horizontalLayoutMargin
 #endif
 
+	@Environment(\.settings)
+	private var settings
+
 #if os(iOS)
 	@ScaledMetric(relativeTo: .body)
 	private var spacing: CGFloat = 11
@@ -28,6 +31,11 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 	var body: some View {
 #if os(watchOS)
 		Section {
+			if settings?.showPhysicalAttack == true {
+				SeparatedPhysicalWeaknessSectionView(namespace: namespace,
+													 viewModel: viewModel.physical as? PhysicalWeaknessSectionViewModel<PhysicalWeaknessItemViewModel>)
+			}
+
 			HStack(alignment: .bottom, spacing: 0) {
 				ForEach(viewModel.items) { item in
 					SignWeaknessItemView(namespace: namespace,
@@ -47,35 +55,46 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 		}
 #else
 #if os(macOS)
-		let spacing = 5.0
+		let spacing = MAFormMetrics.verticalRowInset
 		let signFontSize = 22.0
 		let padding = horizontalLayoutMargin
 #else
 		let padding = 0.5 * horizontalLayoutMargin
 #endif
-		VStack(alignment: .leading, spacing: spacing) {
-			if !viewModel.isDefault {
-				MAItemHeader(header: viewModel.header)
-			}
-
-			DividedHStack(alignment: .bottom, spacing: 0) {
-				ForEach(viewModel.items) { item in
-					SignWeaknessItemView(alignment: alignment,
-										 signFontSize: signFontSize,
-										 namespace: namespace,
-										 viewModel: item)
+		let hasHeader = !viewModel.isDefault
+		MAFormMetricsBuilder { metrics in
+			MAFormRoundedBackground(metrics, header: hasHeader) {
+				if hasHeader {
+					MAItemHeader(header: viewModel.header)
+						.padding(.top, spacing)
 				}
-				.padding(.horizontal, padding)
-				.frame(minWidth: 0,
-					   idealWidth: itemWidth,
-					   maxWidth: WeaknessViewMetrics.maxItemWidth,
-					   alignment: Alignment(horizontal: alignment, vertical: .center))
-			} divider: {
-				MAVDivider()
-			}
-			.padding(.horizontal, -padding)
-			.onWidthChange { width in
-				updateItemWidth(from: width)
+
+				if settings?.showPhysicalAttack == true {
+					PhysicalWeaknessSectionView(padding: padding,
+												namespace: namespace,
+												viewModel: viewModel.physical as? PhysicalWeaknessSectionViewModel<PhysicalWeaknessItemViewModel>)
+						.padding(.vertical, spacing)
+				}
+
+				DividedHStack(alignment: .bottom, spacing: 0) {
+					ForEach(viewModel.items) { item in
+						SignWeaknessItemView(alignment: alignment,
+											 signFontSize: signFontSize,
+											 namespace: namespace,
+											 viewModel: item)
+					}
+					.padding(.horizontal, padding)
+					.frame(minWidth: 0,
+						   idealWidth: itemWidth,
+						   maxWidth: WeaknessViewMetrics.maxItemWidth,
+						   alignment: Alignment(horizontal: alignment, vertical: .center))
+				} divider: {
+					MAVDivider()
+				}
+				.padding(EdgeInsets(vertical: spacing, horizontal: -padding))
+				.onWidthChange { width in
+					updateItemWidth(from: width)
+				}
 			}
 		}
 #endif

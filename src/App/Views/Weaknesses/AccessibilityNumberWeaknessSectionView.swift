@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(macOS, unavailable)
 @available(watchOS, unavailable)
 struct AccessibilityNumberWeaknessItemView: View {
 	let fractionLength: Int
@@ -9,10 +10,10 @@ struct AccessibilityNumberWeaknessItemView: View {
 
 	var body: some View {
 		HStack(alignment: .firstTextBaseline, spacing: 0) {
-			Text(viewModel.attack.label(.medium))
-				.foregroundStyle(viewModel.attack.color)
+			Text(viewModel.element.label(.medium))
+				.foregroundStyle(viewModel.element.color)
 				.accessibilityLabeledPair(role: .label, id: viewModel.id, in: namespace)
-				.accessibilityLabel(viewModel.attack.label(.long))
+				.accessibilityLabel(viewModel.element.label(.long))
 
 			Spacer()
 
@@ -31,6 +32,7 @@ struct AccessibilityNumberWeaknessItemView: View {
 	}
 }
 
+@available(macOS, unavailable)
 @available(watchOS, unavailable)
 struct AccessibilityNumberWeaknessSectionView: View {
 	let fractionLength: Int
@@ -54,6 +56,10 @@ struct AccessibilityNumberWeaknessSectionView: View {
 
 		MAFormMetricsBuilder { metrics in
 			MAFormRoundedBackground(metrics) {
+				SeparatedPhysicalWeaknessSectionView(namespace: namespace,
+													 viewModel: viewModel.physical)
+					.preferredVerticalPadding()
+
 				ForEach(viewModel.items) { item in
 					AccessibilityNumberWeaknessItemView(fractionLength: fractionLength,
 														signFontSize: signFontSize,

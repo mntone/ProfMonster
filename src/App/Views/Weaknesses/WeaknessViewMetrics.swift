@@ -2,8 +2,10 @@ import SwiftUI
 
 enum WeaknessViewMetrics {
 #if os(macOS)
+	static let maxPhysicalContentWidth: CGFloat = 200
 	static let maxItemWidth: CGFloat = 120
 #else
+	static let maxPhysicalContentWidth: CGFloat = 160
 	static let maxItemWidth: CGFloat = 96
 #endif
 

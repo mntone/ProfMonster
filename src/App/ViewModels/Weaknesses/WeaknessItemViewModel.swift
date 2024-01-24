@@ -1,12 +1,12 @@
-import enum MonsterAnalyzerCore.Attack
 import enum MonsterAnalyzerCore.Effectiveness
+import enum MonsterAnalyzerCore.Element
 import struct MonsterAnalyzerCore.PhysiologyStateGroup
 import SwiftUI
 
 protocol WeaknessItemViewModel: Identifiable {
 	typealias AverageFloat = PhysiologyStateGroup.AverageFloat
 
-	var attack: Attack { get }
+	var element: Element { get }
 	var effectiveness: Effectiveness { get }
 	var averageValueOrNil: AverageFloat? { get }
 }
@@ -33,7 +33,7 @@ extension WeaknessItemViewModel {
 
 struct EffectivenessWeaknessItemViewModel: WeaknessItemViewModel {
 	let id: String
-	let attack: Attack
+	let element: Element
 	let effectiveness: Effectiveness
 
 	var averageValueOrNil: AverageFloat? {
@@ -41,25 +41,25 @@ struct EffectivenessWeaknessItemViewModel: WeaknessItemViewModel {
 	}
 
 	init(id: String,
-		 attack: Attack,
+		 element: Element,
 		 effectiveness: Effectiveness) {
 		self.id = id
-		self.attack = attack
+		self.element = element
 		self.effectiveness = effectiveness
 	}
 
 	init(prefixID: String,
-		 attack: Attack,
+		 element: Element,
 		 effectiveness: Effectiveness) {
-		self.id = "\(prefixID):\(attack.prefix)"
-		self.attack = attack
+		self.id = "\(prefixID):\(element.prefix)"
+		self.element = element
 		self.effectiveness = effectiveness
 	}
 }
 
 struct NumberWeaknessItemViewModel: WeaknessItemViewModel {
 	let id: String
-	let attack: Attack
+	let element: Element
 	let effectiveness: Effectiveness
 	let averageValue: AverageFloat
 
@@ -68,21 +68,21 @@ struct NumberWeaknessItemViewModel: WeaknessItemViewModel {
 	}
 
 	init(prefixID: String,
-		 attack: Attack,
+		 element: Element,
 		 effective: Effectiveness,
 		 averageValue: AverageFloat) {
-		self.id = "\(prefixID):\(attack.prefix)"
-		self.attack = attack
+		self.id = "\(prefixID):\(element.prefix)"
+		self.element = element
 		self.effectiveness = effective
 		self.averageValue = averageValue
 	}
 
 	init(prefixID: String,
-		 attack: Attack,
+		 element: Element,
 		 averageValue: AverageFloat,
 		 topValue: AverageFloat) {
-		self.id = "\(prefixID):\(attack.prefix)"
-		self.attack = attack
+		self.id = "\(prefixID):\(element.prefix)"
+		self.element = element
 		switch averageValue {
 		case 10...:
 			if (averageValue == topValue) {

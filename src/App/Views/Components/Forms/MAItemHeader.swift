@@ -20,15 +20,7 @@ struct MAItemHeader: View {
 	private var pixelLength
 #endif
 
-#if os(iOS)
-	@ScaledMetric(relativeTo: .body)
-	private var spacing: CGFloat = 2.75
-#endif
-
 	var body: some View {
-#if os(macOS)
-		let spacing = pixelLength * round(2.5 / pixelLength)
-#endif
 #if os(iOS) || os(macOS)
 		let horizontalPadding = !inBackgroundContext || ignoreLayoutMargin ? horizontalLayoutMargin : 0.0
 #endif
@@ -37,7 +29,7 @@ struct MAItemHeader: View {
 			.font(.system(.headline))
 			.padding(EdgeInsets(top: inBackgroundContext ? 0.0 : pixelLength * round(0.75 * defaultListSectionSpacing / pixelLength),
 								leading: horizontalPadding,
-								bottom: inBackgroundContext ? spacing : MAFormMetrics.verticalRowInset,
+								bottom: inBackgroundContext ? 0.0 : MAFormMetrics.verticalRowInset,
 								trailing: horizontalPadding))
 #else
 			.font(.system(.subheadline))

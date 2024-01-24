@@ -1,11 +1,9 @@
-import enum MonsterAnalyzerCore.Attack
+import enum MonsterAnalyzerCore.Element
 import SwiftUI
 
-extension Attack {
+extension Element {
 	var color: Color {
 		switch self {
-		case .slash, .impact, .shot:
-			return .primary
 		case .fire:
 			return .fire
 		case .water:
@@ -21,12 +19,6 @@ extension Attack {
 
 	var image: Image {
 		switch self {
-		case .slash:
-			return Image(systemName: "scissors")
-		case .impact:
-			return Image(systemName: "hammer.fill")
-		case .shot:
-			return Image(systemName: "fossil.shell.fill")
 		case .fire:
 			return Image(systemName: "flame.fill")
 		case .water:
@@ -53,12 +45,6 @@ extension Attack {
 		switch style {
 		case .short:
 			switch self {
-			case .slash:
-				String(localized: "Slash", comment: "Elem/Short")
-			case .impact:
-				String(localized: "Strike", comment: "Elem/Short")
-			case .shot:
-				String(localized: "Shell", comment: "Elem/Short")
 			case .fire:
 				String(localized: "Fire", comment: "Elem/Short")
 			case .water:
@@ -72,12 +58,6 @@ extension Attack {
 			}
 		case .medium:
 			switch self {
-			case .slash:
-				String(localized: "Slash_MEDIUM", comment: "Elem/Medium")
-			case .impact:
-				String(localized: "Strike_MEDIUM", comment: "Elem/Medium")
-			case .shot:
-				String(localized: "Shell_MEDIUM", comment: "Elem/Medium")
 			case .fire:
 				String(localized: "Fire_MEDIUM", comment: "Elem/Medium")
 			case .water:
@@ -91,12 +71,6 @@ extension Attack {
 			}
 		case .long:
 			switch self {
-			case .slash:
-				String(localized: "Slash Element", comment: "Elem/Long")
-			case .impact:
-				String(localized: "Strike Element", comment: "Elem/Long")
-			case .shot:
-				String(localized: "Shell Element", comment: "Elem/Long")
 			case .fire:
 				String(localized: "Fire Element", comment: "Elem/Long")
 			case .water:
@@ -113,12 +87,6 @@ extension Attack {
 
 	var prefix: String {
 		switch self {
-		case .slash:
-			"s"
-		case .impact:
-			"i"
-		case .shot:
-			"p"
 		case .fire:
 			"f"
 		case .water:
@@ -134,12 +102,6 @@ extension Attack {
 
 	var sortkey: String {
 		switch self {
-		case .slash:
-			"2"
-		case .impact:
-			"3"
-		case .shot:
-			"4"
 		case .fire:
 			"5"
 		case .water:

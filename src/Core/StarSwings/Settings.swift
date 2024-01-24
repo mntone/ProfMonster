@@ -11,6 +11,9 @@ public final class Settings {
 	public var includesFavoriteGroupInSearchResult: Bool
 #endif
 
+	@UserDefault("showPhys", initial: false)
+	public var showPhysicalAttack: Bool
+
 	@UserDefault("elemDisp", initial: .sign)
 	public var elementDisplay: WeaknessDisplayMode
 

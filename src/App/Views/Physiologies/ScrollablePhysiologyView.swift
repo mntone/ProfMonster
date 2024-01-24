@@ -253,11 +253,20 @@ struct HeaderScrollablePhysiologyView: View {
 	let viewModel: PhysiologySectionViewModel
 	let headerHidden: Bool
 
+#if !os(watchOS)
+	@ScaledMetric(relativeTo: .body)
+	private var verticalPadding: CGFloat = 11.0
+#endif
+
 	var body: some View {
 		VStack(alignment: .leading, spacing: 0) {
 			if !viewModel.isDefault {
 				MAItemHeader(header: viewModel.header)
-					.padding(.top, MAFormMetrics.verticalRowInset)
+#if os(watchOS)
+					.padding(.top, PhysiologyViewMetrics.margin.top)
+#else
+					.padding(.top, verticalPadding)
+#endif
 			}
 
 			ScrollablePhysiologyView(viewModel: viewModel)

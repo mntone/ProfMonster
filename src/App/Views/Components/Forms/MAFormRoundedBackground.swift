@@ -4,6 +4,7 @@ import SwiftUI
 struct MAFormRoundedBackground<Content: View>: View {
 	private struct _Proxy: _VariadicView_MultiViewRoot {
 		let metrics: MAFormLayoutMetrics
+		let hasHeader: Bool
 
 		@ViewBuilder
 		func body(children: _VariadicView.Children) -> some View {
@@ -22,17 +23,35 @@ struct MAFormRoundedBackground<Content: View>: View {
 										   bottom: 0.0,
 										   trailing: metrics.layoutMargin)
 				LazyVStack(alignment: .leading, spacing: metrics.rowSpacing ?? 0.0) {
-					ForEach(children.dropLast()) { child in
-						child
+					let itemsExceptLast = children.dropLast()
+					if hasHeader,
+					   let first = itemsExceptLast.first {
+						first.padding(rowInsets)
+
+						ForEach(itemsExceptLast.dropFirst()) { child in
+							child
+								.frame(minHeight: metrics.minRowHeight)
+								.padding(rowInsets)
+								.overlay(separator, alignment: .bottom)
+							//separator // SwiftUI.ListStyle.insetGrouped default style, not Apple Design Resources (Comment out overlay)
+						}
+
+						last
 							.frame(minHeight: metrics.minRowHeight)
 							.padding(rowInsets)
-							.overlay(separator, alignment: .bottom)
-						//separator // SwiftUI.ListStyle.insetGrouped default style, not Apple Design Resources (Comment out overlay)
-					}
+					} else {
+						ForEach(itemsExceptLast) { child in
+							child
+								.frame(minHeight: metrics.minRowHeight)
+								.padding(rowInsets)
+								.overlay(separator, alignment: .bottom)
+							//separator // SwiftUI.ListStyle.insetGrouped default style, not Apple Design Resources (Comment out overlay)
+						}
 
-					last
-						.frame(minHeight: metrics.minRowHeight)
-						.padding(rowInsets)
+						last
+							.frame(minHeight: metrics.minRowHeight)
+							.padding(rowInsets)
+					}
 				}
 #if os(macOS)
 				.background(background)
@@ -46,7 +65,11 @@ struct MAFormRoundedBackground<Content: View>: View {
 	private let _tree: _VariadicView.Tree<_Proxy, Content>
 
 	init(_ metrics: MAFormLayoutMetrics, @ViewBuilder content: () -> Content) {
-		_tree = _VariadicView.Tree(_Proxy(metrics: metrics), content: content)
+		_tree = _VariadicView.Tree(_Proxy(metrics: metrics, hasHeader: false), content: content)
+	}
+
+	init(_ metrics: MAFormLayoutMetrics, header hasHeader: Bool, @ViewBuilder content: () -> Content) {
+		_tree = _VariadicView.Tree(_Proxy(metrics: metrics, hasHeader: hasHeader), content: content)
 	}
 
 	var body: some View {
