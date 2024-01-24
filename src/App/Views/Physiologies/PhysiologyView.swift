@@ -28,6 +28,7 @@ private struct _PhysiologyRowView: View {
 					.frame(width: itemWidth)
 					.accessibilityLabel(item.attack.label(.long))
 					.accessibilityValue(text)
+					.speechAdjustedPitch(item.isEmphasized ? 0.2 : 0)
 			}
 
 			Spacer(minLength: PhysiologyViewMetrics.spacing)

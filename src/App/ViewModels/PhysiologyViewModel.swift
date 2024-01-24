@@ -5,6 +5,7 @@ import SwiftUI
 struct PhysiologyValueViewModel: Identifiable {
 	let attack: Attack
 	let value: Int8
+	let isEmphasized: Bool
 	let foregroundStyle: any ShapeStyle
 
 	init(attack: Attack, value: Int8, level: Int) {
@@ -13,14 +14,16 @@ struct PhysiologyValueViewModel: Identifiable {
 		switch attack {
 		case .slash, .impact, .shot:
 			if value >= 45 {
+				self.isEmphasized = true
 				self.foregroundStyle = TintShapeStyle().backport.hierarchical(level)
 			} else {
+				self.isEmphasized = false
 				self.foregroundStyle = ForegroundStyle().backport.hierarchical(level)
 			}
 		case .fire, .water, .thunder, .ice, .dragon:
+			self.isEmphasized = false
 			self.foregroundStyle = ForegroundStyle().backport.hierarchical(level)
 		}
-
 	}
 
 	var id: UInt8 {

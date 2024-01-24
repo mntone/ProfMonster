@@ -42,6 +42,7 @@ struct MASectionHeader: View {
 									leading: horizontalLayoutMargin,
 									bottom: 11.0,
 									trailing: horizontalLayoutMargin))
+				.accessibilityAddTraits(.isHeader)
 		} else {
 			header
 				.textCase(.uppercase)
@@ -52,6 +53,7 @@ struct MASectionHeader: View {
 									leading: horizontalLayoutMargin,
 									bottom: 5.0,
 									trailing: horizontalLayoutMargin))
+				.accessibilityAddTraits(.isHeader)
 		}
 #elseif os(macOS)
 		header
@@ -61,6 +63,7 @@ struct MASectionHeader: View {
 								leading: horizontalLayoutMargin,
 								bottom: 10.0,
 								trailing: horizontalLayoutMargin))
+			.accessibilityAddTraits(.isHeader)
 #else
 		header.font(headerProminence == .increased ? .headline : .footnote)
 #endif

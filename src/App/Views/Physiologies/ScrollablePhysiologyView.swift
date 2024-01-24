@@ -69,6 +69,7 @@ private struct _ScrollablePhysiologyContentView: View {
 					}
 					.accessibilityLabel(item.attack.label(.long))
 					.accessibilityValue(text)
+					.speechAdjustedPitch(item.isEmphasized ? 0.2 : 0)
 			}
 			.frame(width: itemWidth)
 
