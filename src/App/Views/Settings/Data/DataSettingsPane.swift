@@ -42,8 +42,8 @@ struct DataSettingsPane: View {
 					}
 #else
 					.textContentType(.URL)
-#endif
 					.textInputAutocapitalization(.never)
+#endif
 #if !os(watchOS)
 					.focused($isActive)
 #endif
