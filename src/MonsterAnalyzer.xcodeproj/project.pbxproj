@@ -289,6 +289,10 @@
 		EBDFF9D12B4D2A2500473634 /* CompactWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFF9D02B4D2A2500473634 /* CompactWeaknessView.swift */; };
 		EBDFF9D22B4D2A2500473634 /* CompactWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFF9D02B4D2A2500473634 /* CompactWeaknessView.swift */; };
 		EBDFF9D42B4D2E8700473634 /* Effectiveness.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFF9D32B4D2E8700473634 /* Effectiveness.swift */; };
+		EBE7875A2B62005800328E8F /* RemoveCacheButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE787592B62005800328E8F /* RemoveCacheButton.swift */; };
+		EBE7875B2B62005800328E8F /* RemoveCacheButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE787592B62005800328E8F /* RemoveCacheButton.swift */; };
+		EBE7875D2B6200E600328E8F /* ResetSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7875C2B6200E600328E8F /* ResetSettingsButton.swift */; };
+		EBE7875E2B6200E600328E8F /* ResetSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7875C2B6200E600328E8F /* ResetSettingsButton.swift */; };
 		EBEA6F2F2B1858FB00734AAA /* MonsterAnalyzerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEA6F252B1858FA00734AAA /* MonsterAnalyzerCore.framework */; };
 		EBEA6F362B1858FB00734AAA /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F352B1858FB00734AAA /* StorageTests.swift */; };
 		EBEA6F372B1858FB00734AAA /* MonsterAnalyserCore.h in Headers */ = {isa = PBXBuildFile; fileRef = EBEA6F272B1858FA00734AAA /* MonsterAnalyserCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -621,6 +625,8 @@
 		EBDFF9CD2B4D023400473634 /* Weakness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weakness.swift; sourceTree = "<group>"; };
 		EBDFF9D02B4D2A2500473634 /* CompactWeaknessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactWeaknessView.swift; sourceTree = "<group>"; };
 		EBDFF9D32B4D2E8700473634 /* Effectiveness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effectiveness.swift; sourceTree = "<group>"; };
+		EBE787592B62005800328E8F /* RemoveCacheButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCacheButton.swift; sourceTree = "<group>"; };
+		EBE7875C2B6200E600328E8F /* ResetSettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetSettingsButton.swift; sourceTree = "<group>"; };
 		EBEA6F0B2B17F9B300734AAA /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		EBEA6F0E2B1800E600734AAA /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 		EBEA6F132B1829EE00734AAA /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
@@ -971,11 +977,11 @@
 			children = (
 				EB6FF1D22B48CEA200118E0F /* Components */,
 				EB6FF1D62B48CF1700118E0F /* Containers */,
+				EBE787582B62004200328E8F /* Data */,
 				EB2B0FA42B390FA3004596A6 /* Licenses */,
 				EB6FF1DD2B48F01D00118E0F /* Modifiers */,
 				EB6FF1DC2B48E49100118E0F /* Styles */,
 				EBA66F1C2B355F38009DE78C /* AppSettingsPane.swift */,
-				EBA66F1F2B355F3E009DE78C /* DataSettingsPane.swift */,
 				EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */,
 				EB99227F2B357D9400DBA812 /* DisplaySettingsPane.swift */,
 				EB2B0FAC2B39260D004596A6 /* LicenseView.swift */,
@@ -1160,6 +1166,16 @@
 				EBC0510F2B54C8A200D084E2 /* SortToolbarMenu.swift */,
 			);
 			path = MonsterLists;
+			sourceTree = "<group>";
+		};
+		EBE787582B62004200328E8F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				EBA66F1F2B355F3E009DE78C /* DataSettingsPane.swift */,
+				EBE787592B62005800328E8F /* RemoveCacheButton.swift */,
+				EBE7875C2B6200E600328E8F /* ResetSettingsButton.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		EBEA6F0A2B17F93900734AAA /* Caches */ = {
@@ -1620,7 +1636,9 @@
 				EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */,
 				EB5672092B57748D00592413 /* ProgressIndicatorView.swift in Sources */,
+				EBE7875B2B62005800328E8F /* RemoveCacheButton.swift in Sources */,
 				EB6EF7DF2B4A0DB200646BBD /* RequestState.swift in Sources */,
+				EBE7875E2B6200E600328E8F /* ResetSettingsButton.swift in Sources */,
 				EBEA6F722B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
 				EB71C1432B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift in Sources */,
 				EB489E6F2B613C8B00E48950 /* SeparatedPhysicalWeaknessSectionView.swift in Sources */,
@@ -1834,7 +1852,9 @@
 				EBB4B1D22B15ED1B004D63EA /* PhysiologyViewModel.swift in Sources */,
 				EB6FF1DF2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */,
 				EB5672082B57748D00592413 /* ProgressIndicatorView.swift in Sources */,
+				EBE7875A2B62005800328E8F /* RemoveCacheButton.swift in Sources */,
 				EB6EF7DE2B4A0DB200646BBD /* RequestState.swift in Sources */,
+				EBE7875D2B6200E600328E8F /* ResetSettingsButton.swift in Sources */,
 				EBEA6F712B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
 				EB71C1422B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift in Sources */,
 				EB2956412B310E28002C5CA8 /* SelectableListRowBackport.swift in Sources */,

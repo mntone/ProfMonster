@@ -1598,7 +1598,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Todos los monstruos"
+            "value" : "Todas los monstruos"
           }
         },
         "fr" : {
@@ -1837,7 +1837,7 @@
         }
       }
     },
-    "Are you sure you want to continue? This will remove all caches." : {
+    "Are you sure you want to continue? This will reset all caches." : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -1854,7 +1854,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Are you sure you want to continue? This will remove all caches."
+            "value" : "Are you sure you want to continue? This will reset all caches."
           }
         },
         "es" : {
@@ -1884,7 +1884,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "本当に続けますか? すべてのキャッシュを削除します。"
+            "value" : "本当に続けますか? すべてのキャッシュを消去します。"
           }
         },
         "ko" : {
@@ -1896,13 +1896,13 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Czy na pewno chcesz kontynuować? Spowoduje to wyzerowanie wszystkich pamięci podręczne."
+            "value" : "Czy na pewno chcesz kontynuować? Spowoduje to wyzeruj wszystkich pamięci podręcznych."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tem a certeza de que pretende continuar? Todos os caches serão repostas."
+            "value" : "Tem a certeza de que pretende continuar? Todos os caches serão redefinidos."
           }
         },
         "ru" : {
@@ -1921,6 +1921,88 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "確定要繼續嗎？這將重置所有快取。"
+          }
+        }
+      }
+    },
+    "Are you sure you want to continue? This will reset all settings." : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Möchtest du wirklich fortfahren? Hiermit werden alle Einstellungen zurückgesetzt."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Are you sure you want to continue? This will reset all settings."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Seguro que quieres continuar? Se restablecerán todos los ajustes."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Seguro que quieres continuar? Se restablecerán todas los ajustes."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voulez-vous vraiment continuer ? Tous les réglages seront réinitialisés."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Confermi di voler continuare? Tutte le impostazioni verranno ripristinate."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "本当に続けますか? すべての設定を消去します。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "계속하겠습니까? 이 작업은 모든 설정를 재설정합니다."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Czy na pewno chcesz kontynuować? Spowoduje to wyzeruj wszystkich ustawień."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tem a certeza de que pretende continuar? Todos os ajustes serão redefinidos."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вы действительно хотите продолжить? Все настройки будут сброшены."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "您确定要继续吗？这将还原所有设置。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "確定要繼續嗎？這將重置所有設定。"
           }
         }
       }
@@ -9762,7 +9844,7 @@
         }
       }
     },
-    "Remove All Caches" : {
+    "Reset All Caches" : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -9779,7 +9861,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Remove All Caches"
+            "value" : "Reset All Caches"
           }
         },
         "es" : {
@@ -9791,7 +9873,7 @@
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Restablecer todos los cachés"
+            "value" : "Restablecer todas los cachés"
           }
         },
         "fr" : {
@@ -9809,7 +9891,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "すべてのキャッシュを削除"
+            "value" : "すべてのキャッシュを消去"
           }
         },
         "ko" : {
@@ -9821,13 +9903,13 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wyzerowanie wszystkie pamięci podręczne"
+            "value" : "Wyzeruj wszystkie pamięci podręczne"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Repor Todos os ﻿Caches"
+            "value" : "Redefinir Todos os ﻿Caches"
           }
         },
         "ru" : {
@@ -9850,7 +9932,89 @@
         }
       }
     },
-    "Remove Caches" : {
+    "Reset All Settings" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle Einstellungen zurücksetzen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset All Settings"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restablecer todos los ajustes"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restablecer todas los ajustes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinitialiser tous les réglages"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ripristinare tutte le impostazioni"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべての設定を消去"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "모든 설정 재설정하기"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wyzeruj wszystkie ustawienia"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redefinir Todos os Ajustes"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сбросить все настройки"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还原所有设置"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置所有設定"
+          }
+        }
+      }
+    },
+    "Reset Caches" : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -9867,7 +10031,7 @@
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Remove Caches"
+            "value" : "Reset Caches"
           }
         },
         "es" : {
@@ -9897,7 +10061,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "キャッシュを削除"
+            "value" : "キャッシュを消去"
           }
         },
         "ko" : {
@@ -9909,13 +10073,13 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wyzerowanie pamięci podręczne"
+            "value" : "Wyzeruj pamięci podręczne"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Repor Caches"
+            "value" : "Redefinir Caches"
           }
         },
         "ru" : {
@@ -9934,6 +10098,88 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "重置所有快取"
+          }
+        }
+      }
+    },
+    "Reset Settings" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Einstellungen zurücksetzen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset Settings"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restablecer ajustes"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Restablecer ajustes"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Réinitialiser les réglages"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ripristinare impostazioni"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "設定を消去"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "설정 재설정하기"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wyzeruj ustawienia"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Redefinir Ajustes"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сбросить настройки"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "还原所有设置"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "重置所有設定"
           }
         }
       }

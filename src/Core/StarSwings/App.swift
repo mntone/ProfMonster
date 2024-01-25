@@ -59,6 +59,19 @@ public final class App: FetchableEntity<[Game]>, Entity {
 	}
 
 	@discardableResult
+	public func resetAllSettings() -> Task<Void, Never> {
+		Task.detached(priority: .utility) { [weak self] in
+			guard let self else { return }
+			guard let appDomain = Bundle.main.bundleIdentifier else {
+				self.logger.error("Failed to get the bundle indentifier.")
+				return
+			}
+			self.logger.notice("Reset all settings.")
+			UserDefaults.standard.removePersistentDomain(forName: appDomain)
+		}
+	}
+
+	@discardableResult
 	public func prefetch(of gameID: String) async throws -> Game? {
 		guard let games = try await fetch() else {
 			return nil

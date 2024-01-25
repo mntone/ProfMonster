@@ -171,6 +171,10 @@ final class SettingsViewModel: ObservableObject {
 		}
 	}
 
+	func resetAllSettings() {
+		app.resetAllSettings()
+	}
+
 	func updateStorageSize() async {
 		let sizeString = await app.getCacheSize().map { size in
 			formatter.string(fromByteCount: Int64(clamping: size))
