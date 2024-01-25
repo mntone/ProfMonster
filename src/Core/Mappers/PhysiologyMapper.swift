@@ -23,7 +23,7 @@ struct PhysiologyMapper {
 	}
 
 	private func mapPart(_ src: MHMonsterPhysiologyValue, override overrideStates: [String]? = nil) -> PhysiologyPart {
-		let baseStates = overrideStates ?? src.states
+		let baseStates = overrideStates ?? src.states ?? ["default"]
 		let statesLabel = _languageService.getLocalizedJoinedString(of: baseStates, for: .state)
 		return PhysiologyPart(keys: src.states,
 							  stateInfo: Self.getStateInfo(baseStates),
@@ -34,21 +34,27 @@ struct PhysiologyMapper {
 
 	private func getDefaultPartData(from values: [MHMonsterPhysiologyValue], removing removingStates: [String]) -> [PhysiologyPart] {
 		values.compactMap { value -> PhysiologyPart? in
-			guard value.mode == nil,
-				  !value.states.contains(where: { s in removingStates.contains(s) }) else {
+			guard value.mode == nil else {
 				return nil
 			}
-			return mapPart(value)
+
+			if let states = value.states,
+			   states.contains(where: { s in removingStates.contains(s) }) {
+				return nil
+			} else {
+				return mapPart(value)
+			}
 		}
 	}
 
 	private func getPartData(from values: [MHMonsterPhysiologyValue], for targetState: String) -> [PhysiologyPart] {
 		values.compactMap { value -> PhysiologyPart? in
 			guard value.mode == nil,
-				  value.states.contains(targetState) else {
+				  let states = value.states,
+				  states.contains(targetState) else {
 				return nil
 			}
-			var filteredState = value.states.filter { state in
+			var filteredState = states.filter { state in
 				state != targetState
 			}
 			if filteredState.isEmpty {
@@ -212,12 +218,16 @@ struct PhysiologyMapper {
 	private static func getAbnormalStates(_ physiologies: [MHMonsterPhysiology]) -> [String] {
 		var uniqueStatesSet = Set<String>()
 		let uniqueAbnormalStates = physiologies
-			.flatMap { $0.values.flatMap(\.states) }
+			.flatMap { $0.values.compactMap(\.states).flatMap({ $0 }) }
 			.filter { !removingState.contains($0) && uniqueStatesSet.insert($0).inserted }
 		return uniqueAbnormalStates
 	}
 
-	private static func getStateInfo(_ states: [String]) -> PhysiologyStateInfo {
+	private static func getStateInfo(_ states: [String]?) -> PhysiologyStateInfo {
+		guard let states else {
+			return .default
+		}
+
 		if states.contains("broken") {
 			return .broken
 		} else if states.contains("default") {
@@ -231,7 +241,7 @@ struct PhysiologyMapper {
 		return states.filter { state in
 			let pickedCount = physiologies.reduce(into: 0) { count, physiology in
 				let hasState = physiology.values.contains { value in
-					value.states.contains(state)
+					value.states?.contains(state) ?? false
 				}
 				if hasState {
 					count += 1

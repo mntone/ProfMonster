@@ -74,7 +74,7 @@ public struct PhysiologyValue<Number>: Hashable where Number: Hashable, Number: 
 }
 
 public struct PhysiologyPart: Hashable {
-	public let keys: [String]
+	public let keys: [String]?
 	public let stateInfo: PhysiologyStateInfo
 	public let label: String
 	public let value: PhysiologyValue<Int8>
