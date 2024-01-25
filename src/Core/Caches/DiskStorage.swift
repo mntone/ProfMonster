@@ -27,7 +27,7 @@ final class DiskStorage: Storage {
 		do {
 			return try fileManager.contentsOfDirectory(at: baseUrl, includingPropertiesForKeys: nil).reduce(into: UInt64(0)) { size, url in
 #if os(macOS) || targetEnvironment(simulator)
-				guard url.lastPathComponent != ".DS_Store" else {
+				guard !Self.isExclude(url.lastPathComponent) else {
 					return
 				}
 #endif
@@ -52,6 +52,12 @@ final class DiskStorage: Storage {
 	func resetAll() {
 		do {
 			try fileManager.contentsOfDirectory(at: baseUrl, includingPropertiesForKeys: nil).forEach { url in
+#if os(macOS) || targetEnvironment(simulator)
+				guard !Self.isExclude(url.lastPathComponent) else {
+					return
+				}
+#endif
+
 				do {
 					try fileManager.removeItem(at: url)
 				} catch {
@@ -133,4 +139,20 @@ final class DiskStorage: Storage {
 
 		return fileURL
 	}
+
+#if os(macOS) || targetEnvironment(simulator)
+	private static func isExclude(_ name: String) -> Bool {
+		switch name {
+#if os(macOS)
+		case ".DS_Store", "CloudKit":
+			true
+#elseif targetEnvironment(simulator)
+		case ".DS_Store":
+			true
+#endif
+		default:
+			false
+		}
+	}
+#endif
 }
