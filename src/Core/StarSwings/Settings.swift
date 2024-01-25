@@ -1,5 +1,9 @@
 
 public final class Settings {
+	public enum Key: String {
+		case source = "source"
+	}
+
 	@UserDefault("trgSwipe", initial: SwipeAction.none)
 	public var trailingSwipeAction: SwipeAction
 
@@ -24,6 +28,9 @@ public final class Settings {
 	@UserDefault("kbdDismiss", initial: .button)
 	public var keyboardDismissMode: KeyboardDismissMode
 #endif
+
+	@UserDefault(Key.source.rawValue, initial: "")
+	public var source: String
 
 	@UserDefault("sort", initial: .inGame(reversed: false))
 	public var sort: Sort

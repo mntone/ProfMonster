@@ -9,17 +9,21 @@ struct AppAssembly: Assembly {
 	func assemble(container: Container) {
 #if os(iOS)
 		let pad = UIDevice.current.userInterfaceIdiom == .pad
-		let app = App(resolver: container.synchronize(), pad: pad)
+#elseif os(macOS)
+		let pad = true
 #else
-		let app = App(resolver: container.synchronize(), pad: false)
+		let pad = false
 #endif
-		container.register(App.self) { _ in
-			app
-		}
+		container
+			.register(App.self) { _ in
+				App(container: container, pad: pad)
+			}
+			.inObjectScope(.container)
 
 #if DEBUG || targetEnvironment(simulator)
 		if AppUtil.isPreview {
 			// Prefetch for Previews
+			let app = container.resolve(App.self)!
 			app.fetchIfNeeded()
 			app.state.data?.forEach { game in
 				game.fetchIfNeeded()

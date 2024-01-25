@@ -1,7 +1,9 @@
 import Foundation
+import class Swinject.Container
 import protocol Swinject.Resolver
 
 public final class App: FetchableEntity<[Game]>, Entity {
+	private let _container: Container
 	private let _resolver: Resolver
 	private let _storage: Storage
 #if os(iOS)
@@ -9,22 +11,37 @@ public final class App: FetchableEntity<[Game]>, Entity {
 #endif
 
 	public let logger: Logger
+	public let sourceURL: URL
+	public let isUserSource: Bool
 	public let settings = Settings()
 
 	public private(set) var languageService: LanguageService?
 
-	public init(resolver: Resolver, pad: Bool) {
-		guard let logger = resolver.resolve(Logger.self) else {
+	private var requireReinitApp: Bool = false
+
+	public init(container: Container, pad: Bool) {
+		guard let logger = container.resolve(Logger.self) else {
 			fatalError("Failed to get Logger.")
 		}
-		guard let storage = resolver.resolve(Storage.self) else {
+		guard let storage = container.resolve(Storage.self) else {
 			logger.fault("Failed to get Storage.")
 		}
-		guard let dataSource = resolver.resolve(DataSource.self) else {
+
+		let settingsSource = settings.source
+		if !settingsSource.isEmpty,
+		   let userSourceURL = URL(string: settingsSource) {
+			self.sourceURL = userSourceURL
+			self.isUserSource = true
+		} else {
+			self.sourceURL = AppUtil.dataSourceURL
+			self.isUserSource = false
+		}
+		guard let dataSource = container.resolve(DataSource.self, argument: sourceURL) else {
 			logger.fault("Failed to get DataSource.")
 		}
 
-		self._resolver = resolver
+		self._container = container
+		self._resolver = container.synchronize()
 		self._storage = storage
 #if os(iOS)
 		self._pad = pad
@@ -44,6 +61,21 @@ public final class App: FetchableEntity<[Game]>, Entity {
 		}.value
 	}
 
+	public func changeSourceURL(_ sourceURLString: String) {
+		self.logger.notice("Change data source.")
+		requireReinitApp = true
+		Task {
+			await resetAllData().value
+			_container.resetObjectScope(.container)
+			if sourceURLString == AppUtil.dataSourceURL.absoluteString {
+				settings.source = ""
+			} else {
+				settings.source = sourceURLString
+			}
+		}
+	}
+
+	@discardableResult
 	public func resetAllData() -> Task<Void, Never> {
 		Task.detached(priority: .utility) { [weak self] in
 			guard let self else { return }
@@ -83,6 +115,10 @@ public final class App: FetchableEntity<[Game]>, Entity {
 	}
 
 	override func _fetch() async throws -> [Game] {
+		guard !requireReinitApp else {
+			throw StarSwingsError.cancelled
+		}
+
 		let config = try await _dataSource.getConfig()
 
 		// Check data format version.

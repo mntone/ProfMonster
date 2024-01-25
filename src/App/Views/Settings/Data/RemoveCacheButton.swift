@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ResetCacheButton: View {
-	let viewModel: SettingsViewModel
+	let viewModel: DataSettingsViewModel
 
 	@State
 	private var isConfirm: Bool = false

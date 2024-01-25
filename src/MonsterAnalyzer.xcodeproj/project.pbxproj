@@ -293,6 +293,8 @@
 		EBE7875B2B62005800328E8F /* RemoveCacheButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE787592B62005800328E8F /* RemoveCacheButton.swift */; };
 		EBE7875D2B6200E600328E8F /* ResetSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7875C2B6200E600328E8F /* ResetSettingsButton.swift */; };
 		EBE7875E2B6200E600328E8F /* ResetSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7875C2B6200E600328E8F /* ResetSettingsButton.swift */; };
+		EBE787622B6256D200328E8F /* DataSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE787602B6256CF00328E8F /* DataSettingsViewModel.swift */; };
+		EBE787632B6256D300328E8F /* DataSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE787602B6256CF00328E8F /* DataSettingsViewModel.swift */; };
 		EBEA6F2F2B1858FB00734AAA /* MonsterAnalyzerCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EBEA6F252B1858FA00734AAA /* MonsterAnalyzerCore.framework */; };
 		EBEA6F362B1858FB00734AAA /* StorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F352B1858FB00734AAA /* StorageTests.swift */; };
 		EBEA6F372B1858FB00734AAA /* MonsterAnalyserCore.h in Headers */ = {isa = PBXBuildFile; fileRef = EBEA6F272B1858FA00734AAA /* MonsterAnalyserCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -627,6 +629,7 @@
 		EBDFF9D32B4D2E8700473634 /* Effectiveness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effectiveness.swift; sourceTree = "<group>"; };
 		EBE787592B62005800328E8F /* RemoveCacheButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCacheButton.swift; sourceTree = "<group>"; };
 		EBE7875C2B6200E600328E8F /* ResetSettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetSettingsButton.swift; sourceTree = "<group>"; };
+		EBE787602B6256CF00328E8F /* DataSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSettingsViewModel.swift; sourceTree = "<group>"; };
 		EBEA6F0B2B17F9B300734AAA /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		EBEA6F0E2B1800E600734AAA /* MemoryStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryStorage.swift; sourceTree = "<group>"; };
 		EBEA6F132B1829EE00734AAA /* DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSource.swift; sourceTree = "<group>"; };
@@ -995,6 +998,7 @@
 			children = (
 				EB2B05B92B3AAA0200E0BFD3 /* Enums */,
 				EBFEAB852B45A7F7005363F7 /* Protocols */,
+				EBE7875F2B6256C000328E8F /* Settings */,
 				EBC85C632B202DCD008A16C6 /* Utils */,
 				EB5671FF2B5746AA00592413 /* Weaknesses */,
 				EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */,
@@ -1004,7 +1008,6 @@
 				EBF684A82B2D88450071981F /* MonsterDataViewModel.swift */,
 				EBB4B1C62B15BF48004D63EA /* MonsterViewModel.swift */,
 				EBB4B1D12B15ED1B004D63EA /* PhysiologyViewModel.swift */,
-				EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -1176,6 +1179,15 @@
 				EBE7875C2B6200E600328E8F /* ResetSettingsButton.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		EBE7875F2B6256C000328E8F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EBE787602B6256CF00328E8F /* DataSettingsViewModel.swift */,
+				EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 		EBEA6F0A2B17F93900734AAA /* Caches */ = {
@@ -1590,6 +1602,7 @@
 				EBB4B2052B175D4A004D63EA /* ContentView.swift in Sources */,
 				EB42B7822B5045D0001CFACA /* CoordinatorUtil.swift in Sources */,
 				EBA66F212B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
+				EBE787632B6256D300328E8F /* DataSettingsViewModel.swift in Sources */,
 				EBDEEF3D2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */,
 				EB84A5C12B47910000291C6B /* DeveloperSection.swift in Sources */,
 				EB84A5BE2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */,
@@ -1786,6 +1799,7 @@
 				EBB4B2042B175D4A004D63EA /* ContentView.swift in Sources */,
 				EB42B7832B5045D1001CFACA /* CoordinatorUtil.swift in Sources */,
 				EBA66F202B355F3E009DE78C /* DataSettingsPane.swift in Sources */,
+				EBE787622B6256D200328E8F /* DataSettingsViewModel.swift in Sources */,
 				EBDEEF3E2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */,
 				EB84A5C02B47910000291C6B /* DeveloperSection.swift in Sources */,
 				EB84A5BD2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */,

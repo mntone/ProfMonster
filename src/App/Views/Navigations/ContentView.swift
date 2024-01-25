@@ -2,6 +2,9 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct ContentView: View {
+	@AppStorage(Settings.Key.source.rawValue)
+	private var source: String?
+
 #if os(iOS)
 	@Environment(\.horizontalSizeClass)
 	private var horizontalSizeClass
@@ -30,6 +33,7 @@ struct ContentView: View {
 			}
 #endif
 		}
+		.id(source)
 #if !os(macOS)
 		.sheet(isPresented: $isSettingsPresented) {
 			SettingsContainer()

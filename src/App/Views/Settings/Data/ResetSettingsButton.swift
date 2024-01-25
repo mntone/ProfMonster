@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct ResetSettingsButton: View {
-	let viewModel: SettingsViewModel
+	let viewModel: DataSettingsViewModel
 
 	@State
 	private var isConfirm: Bool = false

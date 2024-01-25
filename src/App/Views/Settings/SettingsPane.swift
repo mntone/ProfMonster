@@ -38,7 +38,7 @@ enum SettingsPane: String, CaseIterable, Hashable, Identifiable {
 		case .display:
 			DisplaySettingsPane(viewModel: viewModel)
 		case .data:
-			DataSettingsPane(viewModel: viewModel)
+			DataSettingsPane()
 		case .developer:
 			DeveloperSettingsPane(viewModel: viewModel)
 		case .app:

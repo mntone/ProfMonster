@@ -3,20 +3,10 @@ import Foundation
 import MonsterAnalyzerCore
 
 final class SettingsViewModel: ObservableObject {
-	private let formatter = {
-		var formatter = ByteCountFormatter()
-		formatter.allowedUnits = [.useBytes, .useKB, .useMB]
-		formatter.countStyle = .file
-		return formatter
-	}()
-
 	private let app: MonsterAnalyzerCore.App
 	private let settings: MonsterAnalyzerCore.Settings
 
 	private var cancellable: AnyCancellable?
-
-	@Published
-	var storageSize: String?
 
 #if os(watchOS)
 	@Published
@@ -160,27 +150,5 @@ final class SettingsViewModel: ObservableObject {
 			.sink { _ in
 				app.resetMemoryData()
 			}
-	}
-
-	func resetAllCaches() {
-		storageSize = nil
-
-		Task(priority: .utility) {
-			await app.resetAllData().value
-			await updateStorageSize()
-		}
-	}
-
-	func resetAllSettings() {
-		app.resetAllSettings()
-	}
-
-	func updateStorageSize() async {
-		let sizeString = await app.getCacheSize().map { size in
-			formatter.string(fromByteCount: Int64(clamping: size))
-		}
-		DispatchQueue.main.async {
-			self.storageSize = sizeString
-		}
 	}
 }

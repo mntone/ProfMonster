@@ -3855,6 +3855,22 @@
         }
       }
     },
+    "Data Source" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data Source"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データソース"
+          }
+        }
+      }
+    },
     "Delete Favorite" : {
       "localizations" : {
         "ar" : {
@@ -6978,6 +6994,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "冰屬性"
+          }
+        }
+      }
+    },
+    "If there is a problem with the reference data, Prof. Monster may crash." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If there is a problem with the reference data, Prof. Monster may crash."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "参照するデータに問題がある場合、アプリがクラッシュする可能性があります。"
           }
         }
       }
@@ -10242,6 +10274,22 @@
         }
       }
     },
+    "Save" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保存"
+          }
+        }
+      }
+    },
     "Scroll" : {
       "comment" : "KeyboardDismissMode",
       "localizations" : {
@@ -11625,6 +11673,22 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "排序方式:"
+          }
+        }
+      }
+    },
+    "Source URL" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Source URL"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ソースURL"
           }
         }
       }

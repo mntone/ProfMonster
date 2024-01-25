@@ -12,18 +12,9 @@ public enum CoreAssemblyMode {
 public struct CoreAssembly: Assembly {
 #if DEBUG || targetEnvironment(simulator)
 	private let mode: CoreAssemblyMode
-#endif
-	private let source: URL
 
-#if DEBUG || targetEnvironment(simulator)
-	public init(mode: CoreAssemblyMode = .auto,
-				source: URL = AppUtil.dataSourceURL) {
+	public init(mode: CoreAssemblyMode = .auto) {
 		self.mode = mode
-		self.source = source
-	}
-#else
-	public init(source: URL = AppUtil.dataSourceURL) {
-		self.source = source
 	}
 #endif
 
@@ -72,9 +63,8 @@ public struct CoreAssembly: Assembly {
 			storage
 		}
 
-		let dataSource: DataSource = CacheableDataSource(source: NetworkDataSource(source: self.source, logger: logger), storage: storage)
-		container.register(DataSource.self) { _ in
-			dataSource
+		container.register(DataSource.self) { (_, source: URL) in
+			CacheableDataSource(source: NetworkDataSource(source: source, logger: logger), storage: storage)
 		}
 	}
 
@@ -86,7 +76,7 @@ public struct CoreAssembly: Assembly {
 		}
 
 		let dataSource: DataSource = MockDataSource()
-		container.register(DataSource.self) { _ in
+		container.register(DataSource.self) { (_, _: URL) in
 			dataSource
 		}
 	}
