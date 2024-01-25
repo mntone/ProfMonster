@@ -72,7 +72,7 @@ struct MonsterDataViewModel: Identifiable {
 		 physiology: Physiology,
 		 multiple: Bool,
 		 options: MonsterDataViewModelBuildOptions) {
-		self.id = "\(monster.id):\(mode)"
+		self.id = "\(monster.id):\(mode.key)"
 		self.mode = mode
 #if os(watchOS)
 		if multiple {
