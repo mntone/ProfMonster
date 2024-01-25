@@ -58,7 +58,7 @@ struct NotesSection: View {
 									leading: horizontalLayoutMargin,
 									bottom: verticalPadding,
 									trailing: horizontalLayoutMargin))
-				.background(in: .rect(cornerRadius: MAFormMetrics.cornerRadius))
+				.background(.formItemBackground, in: .rect(cornerRadius: MAFormMetrics.cornerRadius))
 				.toolbar {
 					if settings?.keyboardDismissMode == .button {
 						ToolbarItemGroup(placement: .keyboard) {
