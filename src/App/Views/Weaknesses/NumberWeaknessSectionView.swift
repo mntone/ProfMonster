@@ -8,9 +8,6 @@ struct NumberWeaknessSectionView: View {
 	@Environment(\.horizontalLayoutMargin)
 	private var horizontalLayoutMargin
 
-	@Environment(\.settings)
-	private var settings
-
 #if !os(macOS)
 	@ScaledMetric(relativeTo: .body)
 	private var spacing: CGFloat = 11
@@ -41,32 +38,34 @@ struct NumberWeaknessSectionView: View {
 						.padding(.top, spacing)
 				}
 
-				if settings?.showPhysicalAttack == true {
+				if viewModel.options.physical {
 					PhysicalWeaknessSectionView(padding: padding,
 												namespace: namespace,
 												viewModel: viewModel.physical)
 						.padding(.vertical, spacing)
 				}
 
-				DividedHStack(alignment: .bottom, spacing: 0) {
-					ForEach(viewModel.items) { item in
-						NumberWeaknessItemView(fractionLength: fractionLength,
-											   signFontSize: signFontSize,
-											   namespace: namespace,
-											   viewModel: item)
+				if !viewModel.items.isEmpty {
+					DividedHStack(alignment: .bottom, spacing: 0) {
+						ForEach(viewModel.items) { item in
+							NumberWeaknessItemView(fractionLength: fractionLength,
+												   signFontSize: signFontSize,
+												   namespace: namespace,
+												   viewModel: item)
+						}
+						.lineLimit(1)
+						.padding(.horizontal, padding)
+						.frame(minWidth: 0,
+							   idealWidth: itemWidth,
+							   maxWidth: WeaknessViewMetrics.maxItemWidth,
+							   alignment: .leading)
+					} divider: {
+						MAVDivider()
 					}
-					.lineLimit(1)
-					.padding(.horizontal, padding)
-					.frame(minWidth: 0,
-						   idealWidth: itemWidth,
-						   maxWidth: WeaknessViewMetrics.maxItemWidth,
-						   alignment: .leading)
-				} divider: {
-					MAVDivider()
-				}
-				.padding(EdgeInsets(vertical: spacing, horizontal: -padding))
-				.onWidthChange { width in
-					updateItemWidth(from: width)
+					.padding(EdgeInsets(vertical: spacing, horizontal: -padding))
+					.onWidthChange { width in
+						updateItemWidth(from: width)
+					}
 				}
 			}
 		}

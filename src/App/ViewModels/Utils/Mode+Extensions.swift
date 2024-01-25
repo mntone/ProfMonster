@@ -7,6 +7,19 @@ extension Mode {
 		case long
 	}
 
+	var key: String {
+		switch self {
+		case .lowAndHigh:
+			"d"
+		case .master:
+			"m"
+		case .rankG:
+			"g"
+		case let .other(name):
+			name
+		}
+	}
+
 	func label(_ style: LabelStyle) -> String {
 		switch style {
 		case .short:

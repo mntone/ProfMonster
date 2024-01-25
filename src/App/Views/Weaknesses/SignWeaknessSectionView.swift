@@ -14,9 +14,6 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 	private var horizontalLayoutMargin
 #endif
 
-	@Environment(\.settings)
-	private var settings
-
 #if os(iOS)
 	@ScaledMetric(relativeTo: .body)
 	private var spacing: CGFloat = 11
@@ -31,9 +28,9 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 	var body: some View {
 #if os(watchOS)
 		Section {
-			if settings?.showPhysicalAttack == true {
+			if viewModel.options.physical {
 				SeparatedPhysicalWeaknessSectionView(namespace: namespace,
-													 viewModel: viewModel.physical as? PhysicalWeaknessSectionViewModel<PhysicalWeaknessItemViewModel>)
+													 viewModel: viewModel.physical)
 			}
 
 			HStack(alignment: .bottom, spacing: 0) {
@@ -69,31 +66,33 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 						.padding(.top, spacing)
 				}
 
-				if settings?.showPhysicalAttack == true {
+				if viewModel.options.physical {
 					PhysicalWeaknessSectionView(padding: padding,
 												namespace: namespace,
-												viewModel: viewModel.physical as? PhysicalWeaknessSectionViewModel<PhysicalWeaknessItemViewModel>)
+												viewModel: viewModel.physical)
 						.padding(.vertical, spacing)
 				}
 
-				DividedHStack(alignment: .bottom, spacing: 0) {
-					ForEach(viewModel.items) { item in
-						SignWeaknessItemView(alignment: alignment,
-											 signFontSize: signFontSize,
-											 namespace: namespace,
-											 viewModel: item)
+				if !viewModel.items.isEmpty {
+					DividedHStack(alignment: .bottom, spacing: 0) {
+						ForEach(viewModel.items) { item in
+							SignWeaknessItemView(alignment: alignment,
+												 signFontSize: signFontSize,
+												 namespace: namespace,
+												 viewModel: item)
+						}
+						.padding(.horizontal, padding)
+						.frame(minWidth: 0,
+							   idealWidth: itemWidth,
+							   maxWidth: WeaknessViewMetrics.maxItemWidth,
+							   alignment: Alignment(horizontal: alignment, vertical: .center))
+					} divider: {
+						MAVDivider()
 					}
-					.padding(.horizontal, padding)
-					.frame(minWidth: 0,
-						   idealWidth: itemWidth,
-						   maxWidth: WeaknessViewMetrics.maxItemWidth,
-						   alignment: Alignment(horizontal: alignment, vertical: .center))
-				} divider: {
-					MAVDivider()
-				}
-				.padding(EdgeInsets(vertical: spacing, horizontal: -padding))
-				.onWidthChange { width in
-					updateItemWidth(from: width)
+					.padding(EdgeInsets(vertical: spacing, horizontal: -padding))
+					.onWidthChange { width in
+						updateItemWidth(from: width)
+					}
 				}
 			}
 		}

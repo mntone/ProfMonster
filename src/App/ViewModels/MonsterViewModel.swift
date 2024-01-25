@@ -94,7 +94,6 @@ final class MonsterViewModel: ObservableObject {
 
 		// Load data from domain.
 		let scheduler = DispatchQueue.main
-		let elementDisplay = app.settings.elementDisplay
 		cancellable = monster.$state
 			.receive(on: scheduler)
 			.sink { [weak self] state in
@@ -105,18 +104,22 @@ final class MonsterViewModel: ObservableObject {
 						self.state = .loading
 
 						if let weaknesses = monster.weaknesses {
+							let options = MonsterDataViewModelBuildOptions(physical: self.app.settings.showPhysicalAttack,
+																		   element: self.app.settings.elementDisplay)
 							self.items = MonsterDataViewModelFactory.create(monster: monster,
-																			displayMode: elementDisplay,
-																			weaknesses: weaknesses)
+																			weakness: weaknesses,
+																			options: options)
 						} else {
 							self.items = []
 						}
 					}
 				case let .complete(physiologies):
 					self.state = .complete
+					let options = MonsterDataViewModelBuildOptions(physical: self.app.settings.showPhysicalAttack,
+																   element: self.app.settings.elementDisplay)
 					self.items = MonsterDataViewModelFactory.create(monster: monster,
-																	displayMode: elementDisplay,
-																	rawValue: physiologies)
+																	physiology: physiologies,
+																	options: options)
 				case let .failure(date, error):
 					self.state = .failure(date: date, error: error)
 					self.items = []

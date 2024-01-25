@@ -6,71 +6,65 @@ import enum MonsterAnalyzerCore.WeaknessDisplayMode
 protocol WeaknessViewModel: Identifiable {
 	associatedtype Section: WeaknessSectionViewModel
 
-	var displayMode: WeaknessDisplayMode { get }
 	var sections: [Section] { get }
+	var options: MonsterDataViewModelBuildOptions { get }
 }
 
 struct EffectivenessWeaknessViewModel: WeaknessViewModel {
 	let id: String
-	let displayMode: WeaknessDisplayMode
 	let sections: [EffectivenessWeaknessSectionViewModel]
+	let options: MonsterDataViewModelBuildOptions
 
 	init(id: String,
-		 displayMode: WeaknessDisplayMode,
-		 sections: [EffectivenessWeaknessSectionViewModel]) {
-		precondition(displayMode != .none)
-
+		 sections: [EffectivenessWeaknessSectionViewModel],
+		 options: MonsterDataViewModelBuildOptions) {
 		self.id = id
-		self.displayMode = displayMode
 		self.sections = sections
+		self.options = options
 	}
 
 	init(prefixID: String,
-		 displayMode: WeaknessDisplayMode,
-		 rawValue: [String: Weakness]) {
-		precondition(displayMode != .none)
-
+		 weakness weaknesses: [String: Weakness],
+		 options: MonsterDataViewModelBuildOptions) {
 		let id = "\(prefixID):w"
 		self.id = id
-		self.displayMode = displayMode
-		self.sections = rawValue
+		self.sections = weaknesses
 			.map { key, weakness in
 				EffectivenessWeaknessSectionViewModel(prefixID: id,
 													  key: key,
-													  rawValue: weakness)
+													  weakness: weakness,
+													  options: options)
 			}
 			.sorted { lhs, rhs in
 				lhs.isDefault && !rhs.isDefault
 			}
+		self.options = options
 	}
 }
 
 struct NumberWeaknessViewModel: WeaknessViewModel {
 	let id: String
-	let displayMode: WeaknessDisplayMode
 	let sections: [NumberWeaknessSectionViewModel]
+	let options: MonsterDataViewModelBuildOptions
 
 	init(id: String,
-		 displayMode: WeaknessDisplayMode,
-		 sections: [NumberWeaknessSectionViewModel]) {
-		precondition(displayMode != .none)
-
+		 sections: [NumberWeaknessSectionViewModel],
+		 options: MonsterDataViewModelBuildOptions) {
 		self.id = id
-		self.displayMode = displayMode
 		self.sections = sections
+		self.options = options
 	}
 
 	init(prefixID: String,
-		 displayMode: WeaknessDisplayMode,
-		 rawValue: Physiology) {
-		precondition(displayMode != .none)
-
+		 physiology: Physiology,
+		 options: MonsterDataViewModelBuildOptions) {
 		let id = "\(prefixID):w"
 		self.id = id
-		self.displayMode = displayMode
-		self.sections = rawValue.states.map { section in
+		self.sections = physiology.states.map { section in
 			NumberWeaknessSectionViewModel(prefixID: id,
-										   rawValue: section)
+										   physiology: section,
+										   options: options)
 		}
+		self.options = options
 	}
 }

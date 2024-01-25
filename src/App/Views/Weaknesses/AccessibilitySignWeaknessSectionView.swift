@@ -54,7 +54,7 @@ struct AccessibilitySignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>
 #if os(watchOS)
 		Section {
 			SeparatedPhysicalWeaknessSectionView(namespace: namespace,
-												 viewModel: viewModel.physical as? PhysicalWeaknessSectionViewModel<PhysicalWeaknessItemViewModel>)
+												 viewModel: viewModel.physical)
 
 			ForEach(viewModel.items) { item in
 				_AccessibilitySignWeaknessItemView(namespace: namespace, viewModel: item)
@@ -74,7 +74,7 @@ struct AccessibilitySignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>
 		MAFormMetricsBuilder { metrics in
 			MAFormRoundedBackground(metrics) {
 				SeparatedPhysicalWeaknessSectionView(namespace: namespace,
-													 viewModel: viewModel.physical as? PhysicalWeaknessSectionViewModel<PhysicalWeaknessItemViewModel>)
+													 viewModel: viewModel.physical)
 					.preferredVerticalPadding()
 
 				ForEach(viewModel.items) { item in

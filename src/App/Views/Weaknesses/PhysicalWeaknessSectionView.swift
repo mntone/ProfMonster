@@ -35,10 +35,10 @@ private struct _PhysicalWeaknessItemView: View {
 #endif
 				.accessibilityLabeledPair(role: .content, id: physical.prefix, in: namespace)
 		}
-		.accessibilityElement(children: .combine)
 #if !os(macOS)
 		.padding(EdgeInsets(top: 0.0, leading: 0.0, bottom: offsetY, trailing: 0.0))
 #endif
+		.accessibilityElement(children: .combine)
 		.id(viewModel?.id ?? physical.prefix)
 	}
 
@@ -76,7 +76,7 @@ private struct _PhysicalWeaknessItemView: View {
 struct PhysicalWeaknessSectionView: View {
 	let padding: CGFloat
 	let namespace: Namespace.ID
-	let viewModel: PhysicalWeaknessSectionViewModel<PhysicalWeaknessItemViewModel>?
+	let viewModel: PhysicalWeaknessSectionViewModel?
 
 	@State
 	private var itemWidth: CGFloat?

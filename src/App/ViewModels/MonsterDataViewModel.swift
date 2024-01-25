@@ -1,5 +1,15 @@
 import MonsterAnalyzerCore
 
+struct MonsterDataViewModelBuildOptions {
+	let physical: Bool
+	let element: WeaknessDisplayMode
+
+	@inline(__always)
+	fileprivate var isHidden: Bool {
+		!physical && element == .none
+	}
+}
+
 struct MonsterDataViewModel: Identifiable {
 	let id: String
 	let mode: Mode
@@ -39,18 +49,18 @@ struct MonsterDataViewModel: Identifiable {
 #endif
 
 	init(monster: Monster,
-		 displayMode: WeaknessDisplayMode,
-		 weaknesses: [String: Weakness]) {
-		self.id = "\(monster.id):default"
+		 weakness: [String: Weakness],
+		 options: MonsterDataViewModelBuildOptions) {
+		self.id = "\(monster.id):d"
 		self.mode = .lowAndHigh
 #if os(watchOS)
 		self.name = monster.name
 #endif
 		self.copyright = monster.game?.copyright
-		if displayMode != .none {
+		if !options.isHidden {
 			self.weakness = EffectivenessWeaknessViewModel(prefixID: id,
-														   displayMode: displayMode,
-														   rawValue: weaknesses)
+														   weakness: weakness,
+														   options: options)
 		} else {
 			self.weakness = nil
 		}
@@ -59,9 +69,9 @@ struct MonsterDataViewModel: Identifiable {
 
 	init(monster: Monster,
 		 mode: Mode,
-		 displayMode: WeaknessDisplayMode,
-		 rawValue: Physiology,
-		 multiple: Bool) {
+		 physiology: Physiology,
+		 multiple: Bool,
+		 options: MonsterDataViewModelBuildOptions) {
 		self.id = "\(monster.id):\(mode)"
 		self.mode = mode
 #if os(watchOS)
@@ -72,17 +82,18 @@ struct MonsterDataViewModel: Identifiable {
 		}
 #endif
 		self.copyright = monster.game?.copyright
-		if displayMode != .none {
+
+		if !options.isHidden {
 			let weakness = NumberWeaknessViewModel(prefixID: id,
-												   displayMode: displayMode,
-												   rawValue: rawValue)
-			if displayMode == .sign {
+												   physiology: physiology,
+												   options: options)
+			if options.element == .sign {
 				if let defaultWeakness = weakness.sections.first(where: { $0.isDefault }) {
 					self.weakness = NumberWeaknessViewModel(id: weakness.id,
-															displayMode: displayMode,
 															sections: weakness.sections.filter {
 						$0.isDefault || !NumberWeaknessSectionViewModel.compareEffectiveness(lhs: $0, rhs: defaultWeakness)
-					})
+					},
+															options: options)
 				} else {
 					self.weakness = weakness
 				}
@@ -92,7 +103,8 @@ struct MonsterDataViewModel: Identifiable {
 		} else {
 			self.weakness = nil
 		}
-		self.physiologies = PhysiologiesViewModel(rawValue: rawValue)
+
+		self.physiologies = PhysiologiesViewModel(rawValue: physiology)
 	}
 }
 
@@ -110,25 +122,25 @@ extension MonsterDataViewModel: Hashable {
 
 enum MonsterDataViewModelFactory {
 	static func create(monster: Monster,
-					   displayMode: WeaknessDisplayMode,
-					   weaknesses: [String: Weakness]) -> [MonsterDataViewModel] {
+					   weakness: [String: Weakness],
+					   options: MonsterDataViewModelBuildOptions) -> [MonsterDataViewModel] {
 		[
 			MonsterDataViewModel(monster: monster,
-								 displayMode: displayMode,
-								 weaknesses: weaknesses)
+								 weakness: weakness,
+								 options: options)
 		]
 	}
 
 	static func create(monster: Monster,
-					   displayMode: WeaknessDisplayMode,
-					   rawValue: Physiologies)  -> [MonsterDataViewModel] {
-		let multipleMode: Bool = rawValue.modes.count > 1
-		return rawValue.modes.map { mode in
+					   physiology physiologies: Physiologies,
+					   options: MonsterDataViewModelBuildOptions)  -> [MonsterDataViewModel] {
+		let multipleMode: Bool = physiologies.modes.count > 1
+		return physiologies.modes.map { mode in
 			MonsterDataViewModel(monster: monster,
 								 mode: mode.mode,
-								 displayMode: displayMode,
-								 rawValue: mode,
-								 multiple: multipleMode)
+								 physiology: mode,
+								 multiple: multipleMode,
+								 options: options)
 		}
 	}
 }

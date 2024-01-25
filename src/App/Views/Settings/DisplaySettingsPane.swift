@@ -6,10 +6,9 @@ struct DisplaySettingsPane: View {
 	private(set) var viewModel: SettingsViewModel
 
 #if !os(watchOS)
-	private let mockData: [NumberWeaknessSectionViewModel] = {
+	private let mockData: Physiology = {
 		let mock = MockData.physiology(.guluQoo)!
-		let baseViewModels = mock.modes[0].states.map { NumberWeaknessSectionViewModel(prefixID: "settings", rawValue: $0) }
-		return baseViewModels
+		return mock.modes[0]
 	}()
 #endif
 
@@ -111,7 +110,9 @@ struct DisplaySettingsPane: View {
 					let mode = viewModel.elementDisplay
 					if mode != .none {
 						Section("Preview") {
-							let viewModel = NumberWeaknessViewModel(id: "settings", displayMode: mode, sections: mockData)
+							let options = MonsterDataViewModelBuildOptions(physical: viewModel.showPhysicalAttack,
+																		   element: mode)
+							let viewModel = NumberWeaknessViewModel(prefixID: "settings", physiology: mockData, options: options)
 							WeaknessView(viewModel: viewModel)
 								.fixedSize(horizontal: false, vertical: true)
 								.listRowBackground(EmptyView())

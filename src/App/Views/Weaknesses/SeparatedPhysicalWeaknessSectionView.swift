@@ -54,7 +54,7 @@ private struct _SeparatedPhysicalWeaknessItemView: View {
 
 struct SeparatedPhysicalWeaknessSectionView: View {
 	let namespace: Namespace.ID
-	let viewModel: PhysicalWeaknessSectionViewModel<PhysicalWeaknessItemViewModel>?
+	let viewModel: PhysicalWeaknessSectionViewModel?
 
 	var body: some View {
 		_SeparatedPhysicalWeaknessItemView(namespace: namespace,

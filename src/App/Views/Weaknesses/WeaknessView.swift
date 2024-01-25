@@ -38,7 +38,7 @@ struct WeaknessView: View {
 #else
 		switch viewModel {
 		case let effectiveness as EffectivenessWeaknessViewModel:
-			let alignment: HorizontalAlignment = viewModel.displayMode == .sign ? .center : .leading
+			let alignment: HorizontalAlignment = viewModel.options.element == .sign ? .center : .leading
 			VSpacer(spacing: 5.0) {
 #if os(macOS)
 				ForEach(effectiveness.sections) { section in
@@ -62,10 +62,10 @@ struct WeaknessView: View {
 			}
 		case let number as NumberWeaknessViewModel:
 			VSpacer(spacing: 5.0) {
-				switch viewModel.displayMode {
-				case .none:
+				switch (viewModel.options.physical, viewModel.options.element) {
+				case (false, .none):
 					Never?.none
-				case .sign:
+				case (true, .none), (_, .sign):
 #if os(macOS)
 					ForEach(number.sections) { section in
 						SignWeaknessSectionView(alignment: .center,
@@ -83,8 +83,8 @@ struct WeaknessView: View {
 						}
 					}
 #endif
-				case .number, .number2:
-					let fractionLength: Int = viewModel.displayMode == .number2 ? 2 : 1
+				case (_, .number), (_, .number2):
+					let fractionLength: Int = viewModel.options.element == .number2 ? 2 : 1
 #if os(macOS)
 					ForEach(number.sections) { section in
 						NumberWeaknessSectionView(fractionLength: fractionLength,
@@ -114,8 +114,8 @@ struct WeaknessView: View {
 
 #Preview("Sign") {
 	let viewModel = NumberWeaknessViewModel(prefixID: "mock",
-											displayMode: .sign,
-											rawValue: MockDataSource.physiology1.modes[0])
+											physiology: MockDataSource.physiology1.modes[0],
+											options: MonsterDataViewModelBuildOptions(physical: true, element: .sign))
 	return Form {
 		WeaknessView(viewModel: viewModel)
 	}
@@ -123,8 +123,8 @@ struct WeaknessView: View {
 
 #Preview("Number") {
 	let viewModel = NumberWeaknessViewModel(prefixID: "mock",
-											displayMode: .number,
-											rawValue: MockDataSource.physiology1.modes[0])
+											physiology: MockDataSource.physiology1.modes[0],
+											options: MonsterDataViewModelBuildOptions(physical: true, element: .number))
 	return Form {
 		WeaknessView(viewModel: viewModel)
 	}
@@ -132,8 +132,8 @@ struct WeaknessView: View {
 
 #Preview("Number2") {
 	let viewModel = NumberWeaknessViewModel(prefixID: "mock",
-											displayMode: .number2,
-											rawValue: MockDataSource.physiology1.modes[0])
+											physiology: MockDataSource.physiology1.modes[0],
+											options: MonsterDataViewModelBuildOptions(physical: true, element: .number2))
 	return Form {
 		WeaknessView(viewModel: viewModel)
 	}
