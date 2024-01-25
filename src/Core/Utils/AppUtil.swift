@@ -62,6 +62,10 @@ public enum AppUtil {
 		URL(string: info(key: "MADataSourceURL") as! String)!
 	}
 
+	static var monstersLimit: Int {
+		info(key: "MAMonstersLimit") as! Int
+	}
+
 	private static func info(key: String) -> Any? {
 		Bundle.main.object(forInfoDictionaryKey: key)
 	}

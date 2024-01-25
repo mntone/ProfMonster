@@ -2,6 +2,10 @@ import Foundation
 import protocol Swinject.Resolver
 
 public final class Game: FetchableEntity<[Monster]>, Entity {
+	public static let maxMonsters: Int = {
+		min(AppUtil.monstersLimit, 1000)
+	}()
+
 	private let _logger: Logger
 	private let _userDatabase: UserDatabase
 	private let _resourceMapper: MonsterResourceMapper
@@ -83,6 +87,9 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 								  reference: monsters)
 			if let monster {
 				monsters.append(monster)
+				if monsters.count > Self.maxMonsters {
+					break
+				}
 			}
 		}
 		return monsters
