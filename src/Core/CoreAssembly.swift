@@ -16,6 +16,9 @@ public struct CoreAssembly: Assembly {
 	public init(mode: CoreAssemblyMode = .auto) {
 		self.mode = mode
 	}
+#else
+	public init() {
+	}
 #endif
 
 	public func assemble(container: Container) {
