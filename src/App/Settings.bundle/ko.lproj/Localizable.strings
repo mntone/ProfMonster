@@ -6,7 +6,7 @@
 "None" = "없음";
 "Favorite" = "즐겨찾기";
 
-"Monster Detail" = "몬스터 디테일";
+"Monster" = "몬스터";
 "Physical Attack" = "Physical Attack";
 "Element Attack" = "속성 공격";
 "Off" = "끔";
@@ -21,3 +21,6 @@
 
 "Developer" = "개발자";
 "Show Internal Information" = "Show Internal Information";
+
+"About App" = "앱 정보";
+"Version" = "버전";

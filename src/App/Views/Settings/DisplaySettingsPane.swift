@@ -81,7 +81,7 @@ struct DisplaySettingsPane: View {
 				}
 			}
 
-			Section {
+			Section("Monster") {
 				SettingsToggle("Physical Attack",
 							   isOn: $viewModel.showPhysicalAttack)
 
@@ -123,8 +123,6 @@ struct DisplaySettingsPane: View {
 					Text(mode.label)
 				}
 #endif
-			} header: {
-				Text("Monster Detail")
 			}
 		}
 		.navigationTitle("Display")

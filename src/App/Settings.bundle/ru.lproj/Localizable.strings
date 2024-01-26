@@ -6,7 +6,7 @@
 "None" = "Не выбрано";
 "Favorite" = "Избранное";
 
-"Monster Detail" = "Деталь монстра";
+"Monster" = "Монстр";
 "Physical Attack" = "Physical Attack";
 "Element Attack" = "Атаки стихий";
 "Off" = "Выкл.";
@@ -21,3 +21,6 @@
 
 "Developer" = "Разработчик";
 "Show Internal Information" = "Show Internal Information";
+
+"About App" = "Об этом приложений";
+"Version" = "Версия";

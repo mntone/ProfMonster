@@ -13,6 +13,13 @@
                scriptText = "cd $WORKSPACE_PATH/../..&#10;../scripts/versioning.sh&#10;">
             </ActionContent>
          </ExecutionAction>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Settings.bundle Script"
+               scriptText = "TARGET_BUNDLE=$WORKSPACE_PATH/../../App/Settings.bundle&#10;OUTPUT_DIR=$WORKSPACE_PATH/../../.tmp&#10;mkdir -p $OUTPUT_DIR&#10;find &quot;$TARGET_BUNDLE&quot; -iname &apos;*.plist&apos; -type f \&#10;&#9;| rev | cut -d &quot;/&quot; -f1-3 | rev \&#10;&#9;| xargs -L 1 -I {} echo &apos;$(SRCROOT)/{}&apos; \&#10;&#9;&gt; &quot;$OUTPUT_DIR/SettingsBundlePlists_INPUT.xcfilelist&quot;&#10;find &quot;$TARGET_BUNDLE&quot; -iname &apos;*.plist&apos; -type f \&#10;&#9;| rev | cut -d &quot;/&quot; -f1-2 | rev \&#10;&#9;| xargs -L 1 -I {} echo &apos;$(BUILT_PRODUCTS_DIR)/$(PRODUCT_NAME).app/{}&apos; \&#10;&#9;&gt; &quot;$OUTPUT_DIR/SettingsBundlePlists_OUTPUT.xcfilelist&quot;&#10;find &quot;$TARGET_BUNDLE&quot; -iname &apos;*.strings&apos; -type f \&#10;&#9;| rev | cut -d &quot;/&quot; -f1-4 | rev \&#10;&#9;| xargs -L 1 -I {} echo &apos;$(SRCROOT)/{}&apos; \&#10;&#9;&gt; &quot;$OUTPUT_DIR/SettingsBundleStrings_INPUT.xcfilelist&quot;&#10;find &quot;$TARGET_BUNDLE&quot; -iname &apos;*.strings&apos; -type f \&#10;&#9;| rev | cut -d &quot;/&quot; -f1-3 | rev \&#10;&#9;| xargs -L 1 -I {} echo &apos;$(BUILT_PRODUCTS_DIR)/$(PRODUCT_NAME).app/{}&apos; \&#10;&#9;&gt; &quot;$OUTPUT_DIR/SettingsBundleStrings_OUTPUT.xcfilelist&quot;&#10;">
+            </ActionContent>
+         </ExecutionAction>
       </PreActions>
       <BuildActionEntries>
          <BuildActionEntry

@@ -6,7 +6,7 @@
 "None" = "لا يوجد";
 "Favorite" = "Favorite";
 
-"Monster Detail" = "تفاصيل الوحش";
+"Monster" = "الوحش";
 "Physical Attack" = "Physical Attack";
 "Element Attack" = "هجوم العنصر";
 "Off" = "متوقف";
@@ -21,3 +21,6 @@
 
 "Developer" = "المطور";
 "Show Internal Information" = "Show Internal Information";
+
+"About App" = "حول التطبيق";
+"Version" = "الإصدار";

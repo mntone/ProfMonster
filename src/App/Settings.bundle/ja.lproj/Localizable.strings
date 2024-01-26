@@ -6,7 +6,7 @@
 "None" = "なし";
 "Favorite" = "お気に入り";
 
-"Monster Detail" = "モンスター詳細";
+"Monster" = "モンスター";
 "Physical Attack" = "物理攻撃";
 "Element Attack" = "属性攻撃";
 "Off" = "オフ";
@@ -21,3 +21,6 @@
 
 "Developer" = "開発";
 "Show Internal Information" = "内部情報を表示する";
+
+"About App" = "アプリ情報";
+"Version" = "バージョン";

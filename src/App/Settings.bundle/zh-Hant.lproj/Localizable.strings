@@ -6,7 +6,7 @@
 "None" = "無";
 "Favorite" = "收藏夾";
 
-"Monster Detail" = "怪物細節";
+"Monster" = "怪物";
 "Physical Attack" = "Physical Attack";
 "Element Attack" = "屬性攻擊";
 "Off" = "關閉";
@@ -21,3 +21,6 @@
 
 "Developer" = "開發者";
 "Show Internal Information" = "Show Internal Information";
+
+"About App" = "關於App";
+"Version" = "版本";

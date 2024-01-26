@@ -6,7 +6,7 @@
 "None" = "Nenhum";
 "Favorite" = "Favorito";
 
-"Monster Detail" = "Detalhe do Monstro";
+"Monster" = "Monstro";
 "Physical Attack" = "Physical Attack";
 "Element Attack" = "Ataques Elementares";
 "Off" = "Desligado";
@@ -21,3 +21,6 @@
 
 "Developer" = "Desenvolvedor";
 "Show Internal Information" = "Show Internal Information";
+
+"About App" = "Informações do App";
+"Version" = "Versão";

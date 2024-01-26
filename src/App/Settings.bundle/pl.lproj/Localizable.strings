@@ -6,7 +6,7 @@
 "None" = "Brak";
 "Favorite" = "Ulubiony";
 
-"Monster Detail" = "Szczegóły potwora";
+"Monster" = "Potwór";
 "Physical Attack" = "Physical Attack";
 "Element Attack" = "Atak żywiołów";
 "Off" = "Wył.";
@@ -21,3 +21,6 @@
 
 "Developer" = "Deweloper";
 "Show Internal Information" = "Show Internal Information";
+
+"About App" = "Ta aplikacja";
+"Version" = "Wersja";

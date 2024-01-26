@@ -223,7 +223,6 @@
 		EBB057552B47A77500AC08F5 /* IdentifyHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB057532B47A77500AC08F5 /* IdentifyHolder.swift */; };
 		EBB154C02B3D03C000636DB0 /* MAItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB154BF2B3D03C000636DB0 /* MAItemHeader.swift */; };
 		EBB154C12B3D03C000636DB0 /* MAItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB154BF2B3D03C000636DB0 /* MAItemHeader.swift */; };
-		EBB4A3FB2B34606E00D8C024 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EBB4A3FA2B34606E00D8C024 /* Settings.bundle */; platformFilter = ios; };
 		EBB4B1C52B15BDA7004D63EA /* WeaknessViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C42B15BDA7004D63EA /* WeaknessViewModel.swift */; };
 		EBB4B1C72B15BF48004D63EA /* MonsterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1C62B15BF48004D63EA /* MonsterViewModel.swift */; };
 		EBB4B1CB2B15CC47004D63EA /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB4B1CA2B15CC47004D63EA /* GameViewModel.swift */; };
@@ -1457,6 +1456,7 @@
 				EBF928232B1038C9007D59D4 /* Sources */,
 				EBF928242B1038C9007D59D4 /* Frameworks */,
 				EBF928252B1038C9007D59D4 /* Resources */,
+				EB85BF112B637AD700560CD6 /* Process Settings.bundle Resource */,
 				EBEA6F3F2B1858FB00734AAA /* Embed Frameworks */,
 				EB5941D12B39ABD1005BC27C /* Embed Watch Content */,
 			);
@@ -1582,11 +1582,36 @@
 				EB44EF4B2B1C0BCB00DD47B5 /* Localizable.xcstrings in Resources */,
 				EB2B0FA62B390FCE004596A6 /* mit.txt in Resources */,
 				EBF928332B1038CB007D59D4 /* Preview Assets.xcassets in Resources */,
-				EBB4A3FB2B34606E00D8C024 /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		EB85BF112B637AD700560CD6 /* Process Settings.bundle Resource */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"$(SRCROOT)/.tmp/SettingsBundlePlists_INPUT.xcfilelist",
+				"$(SRCROOT)/.tmp/SettingsBundleStrings_INPUT.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "Process Settings.bundle Resource";
+			outputFileListPaths = (
+				"$(SRCROOT)/.tmp/SettingsBundlePlists_OUTPUT.xcfilelist",
+				"$(SRCROOT)/.tmp/SettingsBundleStrings_OUTPUT.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ \"$PLATFORM_FAMILY_NAME\" != \"iOS\" ]; then\n\techo \"Skipped to process Settings.bundle.\"\n\texit 0\nfi\n\nBUILD_SETTINGS_DIR=$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/Settings.bundle\nmkdir -p \"$BUILD_PRODUCT_DIR\"\n\nif [ \"$PLIST_FILE_OUTPUT_FORMAT\" == \"binary\" ]; then\n\twhile read -r FILENAME; do\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f1 | rev | xargs -L 1 -I {} plutil -convert binary1 \"$FILENAME\" -o \"$BUILD_SETTINGS_DIR/{}\"\n\tdone < \"$SCRIPT_INPUT_FILE_LIST_0\"\n\n\twhile read -r FILENAME; do\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f2 | rev | xargs -L 1 -I {} mkdir -p \"$BUILD_SETTINGS_DIR/{}\"\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f1-2 | rev | xargs -L 1 -I {} plutil -convert binary1 \"$FILENAME\" -o \"$BUILD_SETTINGS_DIR/{}\"\n\tdone < \"$SCRIPT_INPUT_FILE_LIST_1\"\nelse\n\twhile read -r FILENAME; do\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f1 | rev | xargs -L 1 -I {} cp \"$FILENAME\" \"$BUILD_SETTINGS_DIR/{}\"\n\tdone < \"$SCRIPT_INPUT_FILE_LIST_0\"\n\n\twhile read -r FILENAME; do\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f2 | rev | xargs -L 1 -I {} mkdir -p \"$BUILD_SETTINGS_DIR/{}\"\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f1-2 | rev | xargs -L 1 -I {} cp \"$FILENAME\" \"$BUILD_SETTINGS_DIR/{}\"\n\tdone < \"$SCRIPT_INPUT_FILE_LIST_1\"\nfi\n\n# Write App Version.\nAPP_VERSION=\"$INTERNAL_VERSION ($INTERNAL_SHORT_VERSION)\"\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:3:DefaultValue $APP_VERSION\" \"$BUILD_SETTINGS_DIR/Root.plist\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EBB4B1EE2B17593F004D63EA /* Sources */ = {

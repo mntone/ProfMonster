@@ -22,6 +22,24 @@
 			<key>File</key>
 			<string>Developer</string>
 		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>About App</string>
+			<key>FooterText</key>
+			<string>© 2023–2024 mntone. All rights reserved.</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTitleValueSpecifier</string>
+			<key>Title</key>
+			<string>Version</string>
+			<key>Key</key>
+			<string>_v</string>
+			<key>DefaultValue</key>
+			<string>x.x.x-xxxxxxx (n)</string>
+		</dict>
 	</array>
 </dict>
 </plist>
