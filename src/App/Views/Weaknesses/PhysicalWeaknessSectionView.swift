@@ -33,6 +33,7 @@ private struct _PhysicalWeaknessItemView: View {
 #else
 				.offset(x: viewModel == nil ? offsetX : 0.0, y: offsetY)
 #endif
+				.transition(.opacity)
 				.accessibilityLabeledPair(role: .content, id: physical.prefix, in: namespace)
 		}
 #if !os(macOS)

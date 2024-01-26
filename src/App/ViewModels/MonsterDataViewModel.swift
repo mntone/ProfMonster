@@ -1,6 +1,6 @@
 import MonsterAnalyzerCore
 
-struct MonsterDataViewModelBuildOptions {
+struct MonsterDataViewModelBuildOptions: Hashable {
 	let physical: Bool
 	let element: ElementWeaknessDisplayMode
 
@@ -120,7 +120,16 @@ struct MonsterDataViewModel: Identifiable {
 
 extension MonsterDataViewModel: Equatable {
 	static func ==(lhs: MonsterDataViewModel, rhs: MonsterDataViewModel) -> Bool {
-		lhs.id == rhs.id
+		guard lhs.id == rhs.id else { return false }
+
+		switch (lhs.weakness, rhs.weakness) {
+		case let (lw as EffectivenessWeaknessViewModel, rw as EffectivenessWeaknessViewModel):
+			return lw == rw
+		case let (lw as NumberWeaknessViewModel, rw as NumberWeaknessViewModel):
+			return lw == rw
+		default:
+			return false
+		}
 	}
 }
 

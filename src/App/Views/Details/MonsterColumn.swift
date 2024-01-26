@@ -23,7 +23,7 @@ struct MonsterColumn: View {
 				} else {
 					viewModel.set()
 				}
-				DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+				DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
 					isEntrance = false
 				}
 			}

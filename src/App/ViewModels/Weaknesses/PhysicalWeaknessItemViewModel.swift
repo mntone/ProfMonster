@@ -2,7 +2,7 @@ import enum MonsterAnalyzerCore.Physical
 import struct MonsterAnalyzerCore.PhysiologyStateGroup
 import SwiftUI
 
-struct PhysicalWeaknessItemViewModel: Identifiable {
+struct PhysicalWeaknessItemViewModel: Identifiable, Hashable {
 	static let separator: String = {
 		String(localized: "/")
 	}()

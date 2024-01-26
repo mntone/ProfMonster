@@ -3,13 +3,13 @@ import enum MonsterAnalyzerCore.Element
 import struct MonsterAnalyzerCore.PhysiologyStateGroup
 import struct MonsterAnalyzerCore.Weakness
 
-struct PhysicalWeaknessSectionViewModel {
+struct PhysicalWeaknessSectionViewModel: Hashable {
 	let slash: PhysicalWeaknessItemViewModel
 	let impact: PhysicalWeaknessItemViewModel
 	let shot: PhysicalWeaknessItemViewModel
 }
 
-protocol WeaknessSectionViewModel: Identifiable {
+protocol WeaknessSectionViewModel: Identifiable, Hashable {
 	associatedtype Item: WeaknessItemViewModel
 
 	var header: String { get }

@@ -3,7 +3,7 @@ import enum MonsterAnalyzerCore.Element
 import struct MonsterAnalyzerCore.PhysiologyStateGroup
 import SwiftUI
 
-protocol WeaknessItemViewModel: Identifiable {
+protocol WeaknessItemViewModel: Identifiable, Hashable {
 	typealias AverageFloat = PhysiologyStateGroup.AverageFloat
 
 	var element: Element { get }
