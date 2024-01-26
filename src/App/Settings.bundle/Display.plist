@@ -54,7 +54,7 @@
 			<key>Title</key>
 			<string>Physical Attack</string>
 			<key>Key</key>
-			<string>showPhys</string>
+			<string>phys</string>
 			<key>DefaultValue</key>
 			<false/>
 		</dict>
@@ -64,7 +64,7 @@
 			<key>Title</key>
 			<string>Element Attack</string>
 			<key>Key</key>
-			<string>elemDisp</string>
+			<string>elem</string>
 			<key>DefaultValue</key>
 			<string>SGN</string>
 			<key>Values</key>

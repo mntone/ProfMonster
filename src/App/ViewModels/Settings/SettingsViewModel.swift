@@ -48,9 +48,9 @@ final class SettingsViewModel: ObservableObject {
 	}
 
 	@Published
-	var elementDisplay: WeaknessDisplayMode {
+	var elementAttack: ElementWeaknessDisplayMode {
 		didSet {
-			settings.elementDisplay = elementDisplay
+			settings.elementAttack = elementAttack
 		}
 	}
 
@@ -108,7 +108,7 @@ final class SettingsViewModel: ObservableObject {
 		self.includesFavoriteGroupInSearchResult = app.settings.includesFavoriteGroupInSearchResult
 #endif
 		self.showPhysicalAttack = app.settings.showPhysicalAttack
-		self.elementDisplay = app.settings.elementDisplay
+		self.elementAttack = app.settings.elementAttack
 		self.mergeParts = app.settings.mergeParts
 #if os(iOS)
 		self.keyboardDismissMode = app.settings.keyboardDismissMode
@@ -129,7 +129,7 @@ final class SettingsViewModel: ObservableObject {
 		settings.$includesFavoriteGroupInSearchResult.dropFirst().receive(on: scheduler).assign(to: &$includesFavoriteGroupInSearchResult)
 #endif
 		settings.$showPhysicalAttack.dropFirst().receive(on: scheduler).assign(to: &$showPhysicalAttack)
-		settings.$elementDisplay.dropFirst().receive(on: scheduler).assign(to: &$elementDisplay)
+		settings.$elementAttack.dropFirst().receive(on: scheduler).assign(to: &$elementAttack)
 		settings.$mergeParts.dropFirst().receive(on: scheduler).assign(to: &$mergeParts)
 #if os(iOS)
 		settings.$keyboardDismissMode.dropFirst().receive(on: scheduler).assign(to: &$keyboardDismissMode)

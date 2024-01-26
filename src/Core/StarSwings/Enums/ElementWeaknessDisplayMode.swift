@@ -1,6 +1,6 @@
 import Foundation
 
-public enum WeaknessDisplayMode: CaseIterable, Hashable {
+public enum ElementWeaknessDisplayMode: CaseIterable, Hashable {
 	case none
 	case sign
 	case number
@@ -35,10 +35,10 @@ public enum WeaknessDisplayMode: CaseIterable, Hashable {
 	}
 }
 
-extension WeaknessDisplayMode: UserDefaultable {
+extension ElementWeaknessDisplayMode: UserDefaultable {
 	public typealias Internal = String
 
-	public static var defaultValue: WeaknessDisplayMode {
+	public static var defaultValue: ElementWeaknessDisplayMode {
 		.sign
 	}
 
@@ -50,7 +50,7 @@ extension WeaknessDisplayMode: UserDefaultable {
 		guard let value = store.string(forKey: key) else {
 			return initialValue ?? defaultValue
 		}
-		return WeaknessDisplayMode(rawValue: value) ?? defaultValue
+		return ElementWeaknessDisplayMode(rawValue: value) ?? defaultValue
 	}
 
 	public static func set(_ newValue: Self, for key: String, in store: UserDefaults) {

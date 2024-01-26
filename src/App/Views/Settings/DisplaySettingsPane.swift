@@ -94,20 +94,20 @@ struct DisplaySettingsPane: View {
 
 #if os(watchOS)
 				SettingsToggle("Element Attack", isOn: Binding {
-					viewModel.elementDisplay != .none
+					viewModel.elementAttack != .none
 				} set: { value in
-					viewModel.elementDisplay = value ? .sign : .none
+					viewModel.elementAttack = value ? .sign : .none
 				})
 #else
 				SettingsPicker("Element Attack",
-							   selection: $viewModel.elementDisplay) {
-					ForEach(WeaknessDisplayMode.allCases) { mode in
+							   selection: $viewModel.elementAttack) {
+					ForEach(ElementWeaknessDisplayMode.allCases) { mode in
 						Text(mode.label).tag(mode)
 					}
 				} label: { mode in
 					Text(mode.label)
 				} more: {
-					let mode = viewModel.elementDisplay
+					let mode = viewModel.elementAttack
 					if mode != .none {
 						Section("Preview") {
 							let options = MonsterDataViewModelBuildOptions(physical: viewModel.showPhysicalAttack,

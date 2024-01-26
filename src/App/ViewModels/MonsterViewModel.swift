@@ -104,8 +104,7 @@ final class MonsterViewModel: ObservableObject {
 						self.state = .loading
 
 						if let weaknesses = monster.weaknesses {
-							let options = MonsterDataViewModelBuildOptions(physical: self.app.settings.showPhysicalAttack,
-																		   element: self.app.settings.elementDisplay)
+							let options = MonsterDataViewModelBuildOptions(self.app.settings)
 							self.items = MonsterDataViewModelFactory.create(monster: monster,
 																			weakness: weaknesses,
 																			options: options)
@@ -115,8 +114,7 @@ final class MonsterViewModel: ObservableObject {
 					}
 				case let .complete(physiologies):
 					self.state = .complete
-					let options = MonsterDataViewModelBuildOptions(physical: self.app.settings.showPhysicalAttack,
-																   element: self.app.settings.elementDisplay)
+					let options = MonsterDataViewModelBuildOptions(self.app.settings)
 					self.items = MonsterDataViewModelFactory.create(monster: monster,
 																	physiology: physiologies,
 																	options: options)

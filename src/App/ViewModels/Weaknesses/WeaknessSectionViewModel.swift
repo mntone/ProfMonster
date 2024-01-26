@@ -2,7 +2,6 @@ import enum MonsterAnalyzerCore.Attack
 import enum MonsterAnalyzerCore.Element
 import struct MonsterAnalyzerCore.PhysiologyStateGroup
 import struct MonsterAnalyzerCore.Weakness
-import enum MonsterAnalyzerCore.WeaknessDisplayMode
 
 struct PhysicalWeaknessSectionViewModel {
 	let slash: PhysicalWeaknessItemViewModel

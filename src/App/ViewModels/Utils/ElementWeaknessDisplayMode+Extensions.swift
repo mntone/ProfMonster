@@ -1,6 +1,6 @@
 import MonsterAnalyzerCore
 
-extension WeaknessDisplayMode {
+extension ElementWeaknessDisplayMode {
 	var label: String {
 		switch self {
 		case .none:
@@ -17,7 +17,7 @@ extension WeaknessDisplayMode {
 
 // MARK: - Identifiable
 
-extension WeaknessDisplayMode: Identifiable {
+extension ElementWeaknessDisplayMode: Identifiable {
 	public var id: String {
 		@inline(__always)
 		get {

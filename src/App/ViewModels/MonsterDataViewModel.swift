@@ -2,11 +2,21 @@ import MonsterAnalyzerCore
 
 struct MonsterDataViewModelBuildOptions {
 	let physical: Bool
-	let element: WeaknessDisplayMode
+	let element: ElementWeaknessDisplayMode
 
 	@inline(__always)
 	fileprivate var isHidden: Bool {
 		!physical && element == .none
+	}
+
+	init(physical: Bool, element: ElementWeaknessDisplayMode) {
+		self.physical = physical
+		self.element = element
+	}
+
+	init(_ settings: MonsterAnalyzerCore.Settings) {
+		self.physical = settings.showPhysicalAttack
+		self.element = settings.elementAttack
 	}
 }
 

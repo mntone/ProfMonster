@@ -15,11 +15,11 @@ public final class Settings {
 	public var includesFavoriteGroupInSearchResult: Bool
 #endif
 
-	@UserDefault("showPhys", initial: false)
+	@UserDefault("phys", initial: false)
 	public var showPhysicalAttack: Bool
 
-	@UserDefault("elemDisp", initial: .sign)
-	public var elementDisplay: WeaknessDisplayMode
+	@UserDefault("elem", initial: .sign)
+	public var elementAttack: ElementWeaknessDisplayMode
 
 	@UserDefault("mrgPart", initial: true)
 	public var mergeParts: Bool

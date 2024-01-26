@@ -1,7 +1,6 @@
 import enum MonsterAnalyzerCore.Attack
 import struct MonsterAnalyzerCore.Physiology
 import struct MonsterAnalyzerCore.Weakness
-import enum MonsterAnalyzerCore.WeaknessDisplayMode
 
 protocol WeaknessViewModel: Identifiable {
 	associatedtype Section: WeaknessSectionViewModel
