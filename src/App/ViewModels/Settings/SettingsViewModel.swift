@@ -8,6 +8,13 @@ final class SettingsViewModel: ObservableObject {
 
 	private var cancellable: AnyCancellable?
 
+#if os(iOS)
+	private let mockData: Physiology
+
+	@Published
+	private(set) var elementAttackPreview: NumberWeaknessViewModel?
+#endif
+
 #if os(watchOS)
 	@Published
 	var sort: Sort {
@@ -50,6 +57,9 @@ final class SettingsViewModel: ObservableObject {
 	@Published
 	var elementAttack: ElementWeaknessDisplayMode {
 		didSet {
+#if os(iOS)
+			updateElementAttack()
+#endif
 			settings.elementAttack = elementAttack
 		}
 	}
@@ -76,6 +86,10 @@ final class SettingsViewModel: ObservableObject {
 		}
 		self.app = app
 		self.settings = app.settings
+#if os(iOS)
+		self.mockData = MockData.physiology(.guluQoo)!.modes[0]
+#endif
+
 #if os(watchOS)
 		self.sort = app.settings.sort
 		self.groupOption = app.settings.groupOption
@@ -117,5 +131,23 @@ final class SettingsViewModel: ObservableObject {
 			.sink { _ in
 				app.resetMemoryData()
 			}
+
+#if os(iOS)
+		updateElementAttack()
+#endif
 	}
+
+	// MARK: - Element Attack Preview
+	
+#if os(iOS)
+	private func updateElementAttack() {
+		if elementAttack != .none {
+			let options = MonsterDataViewModelBuildOptions(physical: false, element: elementAttack)
+			let viewModel = NumberWeaknessViewModel(prefixID: "settings", physiology: mockData, options: options)
+			elementAttackPreview = viewModel
+		} else {
+			elementAttackPreview = nil
+		}
+	}
+#endif
 }

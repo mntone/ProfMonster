@@ -5,13 +5,6 @@ struct DisplaySettingsPane: View {
 	@ObservedObject
 	private(set) var viewModel: SettingsViewModel
 
-#if !os(watchOS)
-	private let mockData: Physiology = {
-		let mock = MockData.physiology(.guluQoo)!
-		return mock.modes[0]
-	}()
-#endif
-
 	var body: some View {
 		SettingsPreferredList {
 			Section("Monster List") {
@@ -107,13 +100,9 @@ struct DisplaySettingsPane: View {
 				} label: { mode in
 					Text(mode.label)
 				} more: {
-					let mode = viewModel.elementAttack
-					if mode != .none {
+					if let previewData = viewModel.elementAttackPreview {
 						Section("Preview") {
-							let options = MonsterDataViewModelBuildOptions(physical: viewModel.showPhysicalAttack,
-																		   element: mode)
-							let viewModel = NumberWeaknessViewModel(prefixID: "settings", physiology: mockData, options: options)
-							WeaknessView(viewModel: viewModel)
+							WeaknessView(viewModel: previewData)
 								.fixedSize(horizontal: false, vertical: true)
 								.listRowBackground(EmptyView())
 								.listRowInsets(.zero)
