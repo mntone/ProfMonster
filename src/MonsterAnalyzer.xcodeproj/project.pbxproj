@@ -219,6 +219,7 @@
 		EBA66F1E2B355F38009DE78C /* AppSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA66F1C2B355F38009DE78C /* AppSettingsPane.swift */; };
 		EBA66F202B355F3E009DE78C /* DataSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA66F1F2B355F3E009DE78C /* DataSettingsPane.swift */; };
 		EBA66F212B355F3E009DE78C /* DataSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA66F1F2B355F3E009DE78C /* DataSettingsPane.swift */; };
+		EBA691DB2B63FF9800EF9A2D /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EBA691DA2B63FF9100EF9A2D /* Settings.bundle */; platformFilter = ios; };
 		EBB057542B47A77500AC08F5 /* IdentifyHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB057532B47A77500AC08F5 /* IdentifyHolder.swift */; };
 		EBB057552B47A77500AC08F5 /* IdentifyHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB057532B47A77500AC08F5 /* IdentifyHolder.swift */; };
 		EBB154C02B3D03C000636DB0 /* MAItemHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBB154BF2B3D03C000636DB0 /* MAItemHeader.swift */; };
@@ -572,6 +573,7 @@
 		EBA66F192B355EDE009DE78C /* DrillDownSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrillDownSettingsContainer.swift; sourceTree = "<group>"; };
 		EBA66F1C2B355F38009DE78C /* AppSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsPane.swift; sourceTree = "<group>"; };
 		EBA66F1F2B355F3E009DE78C /* DataSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSettingsPane.swift; sourceTree = "<group>"; };
+		EBA691DA2B63FF9100EF9A2D /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		EBB057532B47A77500AC08F5 /* IdentifyHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifyHolder.swift; sourceTree = "<group>"; };
 		EBB154BF2B3D03C000636DB0 /* MAItemHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAItemHeader.swift; sourceTree = "<group>"; };
 		EBB4A3FA2B34606E00D8C024 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -994,6 +996,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		EBA691D92B63FF5800EF9A2D /* build */ = {
+			isa = PBXGroup;
+			children = (
+				EBA691DA2B63FF9100EF9A2D /* Settings.bundle */,
+			);
+			path = build;
+			sourceTree = "<group>";
+		};
 		EBB4B1C32B15BD82004D63EA /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -1309,6 +1319,7 @@
 		EBF9281E2B1038C9007D59D4 = {
 			isa = PBXGroup;
 			children = (
+				EBA691D92B63FF5800EF9A2D /* build */,
 				EB86E27E2B4EC89100A06718 /* ci_scripts */,
 				EBEA6F262B1858FA00734AAA /* Core */,
 				EBEA6F342B1858FB00734AAA /* CoreTests */,
@@ -1455,8 +1466,8 @@
 			buildPhases = (
 				EBF928232B1038C9007D59D4 /* Sources */,
 				EBF928242B1038C9007D59D4 /* Frameworks */,
-				EBF928252B1038C9007D59D4 /* Resources */,
 				EB85BF112B637AD700560CD6 /* Process Settings.bundle Resource */,
+				EBF928252B1038C9007D59D4 /* Resources */,
 				EBEA6F3F2B1858FB00734AAA /* Embed Frameworks */,
 				EB5941D12B39ABD1005BC27C /* Embed Watch Content */,
 			);
@@ -1582,6 +1593,7 @@
 				EB44EF4B2B1C0BCB00DD47B5 /* Localizable.xcstrings in Resources */,
 				EB2B0FA62B390FCE004596A6 /* mit.txt in Resources */,
 				EBF928332B1038CB007D59D4 /* Preview Assets.xcassets in Resources */,
+				EBA691DB2B63FF9800EF9A2D /* Settings.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1594,22 +1606,21 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"$(SRCROOT)/.tmp/SettingsBundlePlists_INPUT.xcfilelist",
-				"$(SRCROOT)/.tmp/SettingsBundleStrings_INPUT.xcfilelist",
+				"$(SRCROOT)/build/SettingsBundlePlists_INPUT.xcfilelist",
+				"$(SRCROOT)/build/SettingsBundleStrings_INPUT.xcfilelist",
 			);
 			inputPaths = (
 			);
 			name = "Process Settings.bundle Resource";
 			outputFileListPaths = (
-				"$(SRCROOT)/.tmp/SettingsBundlePlists_OUTPUT.xcfilelist",
-				"$(SRCROOT)/.tmp/SettingsBundleStrings_OUTPUT.xcfilelist",
+				"$(SRCROOT)/build/SettingsBundlePlists_OUTPUT.xcfilelist",
+				"$(SRCROOT)/build/SettingsBundleStrings_OUTPUT.xcfilelist",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if [ \"$PLATFORM_FAMILY_NAME\" != \"iOS\" ]; then\n\techo \"Skipped to process Settings.bundle.\"\n\texit 0\nfi\n\nBUILD_SETTINGS_DIR=$BUILT_PRODUCTS_DIR/$PRODUCT_NAME.app/Settings.bundle\nmkdir -p \"$BUILD_PRODUCT_DIR\"\n\nif [ \"$PLIST_FILE_OUTPUT_FORMAT\" == \"binary\" ]; then\n\twhile read -r FILENAME; do\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f1 | rev | xargs -L 1 -I {} plutil -convert binary1 \"$FILENAME\" -o \"$BUILD_SETTINGS_DIR/{}\"\n\tdone < \"$SCRIPT_INPUT_FILE_LIST_0\"\n\n\twhile read -r FILENAME; do\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f2 | rev | xargs -L 1 -I {} mkdir -p \"$BUILD_SETTINGS_DIR/{}\"\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f1-2 | rev | xargs -L 1 -I {} plutil -convert binary1 \"$FILENAME\" -o \"$BUILD_SETTINGS_DIR/{}\"\n\tdone < \"$SCRIPT_INPUT_FILE_LIST_1\"\nelse\n\twhile read -r FILENAME; do\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f1 | rev | xargs -L 1 -I {} cp \"$FILENAME\" \"$BUILD_SETTINGS_DIR/{}\"\n\tdone < \"$SCRIPT_INPUT_FILE_LIST_0\"\n\n\twhile read -r FILENAME; do\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f2 | rev | xargs -L 1 -I {} mkdir -p \"$BUILD_SETTINGS_DIR/{}\"\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f1-2 | rev | xargs -L 1 -I {} cp \"$FILENAME\" \"$BUILD_SETTINGS_DIR/{}\"\n\tdone < \"$SCRIPT_INPUT_FILE_LIST_1\"\nfi\n\n# Write App Version.\nAPP_VERSION=\"$INTERNAL_VERSION ($INTERNAL_SHORT_VERSION)\"\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:3:DefaultValue $APP_VERSION\" \"$BUILD_SETTINGS_DIR/Root.plist\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "if [ \"$PLATFORM_FAMILY_NAME\" != \"iOS\" ]; then\n\techo \"Skipped to process Settings.bundle.\"\n\texit 0\nfi\n\nBUILD_SETTINGS_DIR=$SRCROOT/build/Settings.bundle\nmkdir -p \"$BUILD_SETTINGS_DIR\"\n\nif [ \"$PLIST_FILE_OUTPUT_FORMAT\" = \"binary\" ]; then\n\twhile read -r FILENAME; do\n\t\tif [[ \"$FILENAME\" == *Root.plist ]]; then\n\t\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f1 | rev | xargs -L 1 -I {} plutil -convert binary1 \"$FILENAME\" -o \"$TARGET_TEMP_DIR/{}.tmp\"\n\t\telse\n\t\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f1 | rev | xargs -L 1 -I {} plutil -convert binary1 \"$FILENAME\" -o \"$BUILD_SETTINGS_DIR/{}\"\n\t\tfi\n\tdone < \"$SCRIPT_INPUT_FILE_LIST_0\"\n\n\twhile read -r FILENAME; do\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f1-2 | rev | xargs -L 1 -I {} plutil -convert binary1 \"$FILENAME\" -o \"$BUILD_SETTINGS_DIR/{}\"\n\tdone < \"$SCRIPT_INPUT_FILE_LIST_1\"\nelse\n\twhile read -r FILENAME; do\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f1 | rev | xargs -L 1 -I {} cp \"$FILENAME\" \"$BUILD_SETTINGS_DIR/{}\"\n\tdone < \"$SCRIPT_INPUT_FILE_LIST_0\"\n\n\twhile read -r FILENAME; do\n\t\techo \"$FILENAME\" | rev | cut -d \"/\" -f1-2 | rev | xargs -L 1 -I {} cp \"$FILENAME\" \"$BUILD_SETTINGS_DIR/{}\"\n\tdone < \"$SCRIPT_INPUT_FILE_LIST_1\"\nfi\n\n# Write App Version.\nAPP_VERSION=\"$INTERNAL_VERSION ($INTERNAL_SHORT_VERSION)\"\n/usr/libexec/PlistBuddy -c \"Set :PreferenceSpecifiers:3:DefaultValue $APP_VERSION\" \"$TARGET_TEMP_DIR/Root.plist.tmp\"\nmv \"$TARGET_TEMP_DIR/Root.plist.tmp\" \"$BUILD_SETTINGS_DIR/Root.plist\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

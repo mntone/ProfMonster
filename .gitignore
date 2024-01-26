@@ -22,4 +22,4 @@ Signing.xcconfig
 Versioning.xcconfig
 
 ## Project Files
-.tmp
+build/
