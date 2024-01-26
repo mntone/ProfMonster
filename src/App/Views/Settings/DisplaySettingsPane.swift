@@ -100,6 +100,7 @@ struct DisplaySettingsPane: View {
 				} label: { mode in
 					Text(mode.label)
 				} more: {
+#if os(iOS)
 					if let previewData = viewModel.elementAttackPreview {
 						Section("Preview") {
 							WeaknessView(viewModel: previewData)
@@ -108,6 +109,7 @@ struct DisplaySettingsPane: View {
 								.listRowInsets(.zero)
 						}
 					}
+#endif
 				}
 #endif
 
