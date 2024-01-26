@@ -1,6 +1,7 @@
 import SwiftUI
 
 #if os(iOS)
+import enum MonsterAnalyzerCore.KeyboardDismissMode
 import SwiftUIIntrospect
 #endif
 
@@ -27,11 +28,11 @@ struct NotesSection: View {
 	@FocusState
 	private var isActive: Bool
 
+	@AppStorage(settings: \.keyboardDismissMode)
+	private var keyboardDismissMode: KeyboardDismissMode
+
 	@Environment(\.horizontalLayoutMargin)
 	private var horizontalLayoutMargin
-
-	@Environment(\.settings)
-	private var settings
 
 	@ScaledMetric(relativeTo: .body)
 	private var verticalPadding: CGFloat = 11.0
@@ -60,7 +61,7 @@ struct NotesSection: View {
 									trailing: horizontalLayoutMargin))
 				.background(.formItemBackground, in: .rect(cornerRadius: MAFormMetrics.cornerRadius))
 				.toolbar {
-					if settings?.keyboardDismissMode == .button {
+					if keyboardDismissMode == .button {
 						ToolbarItemGroup(placement: .keyboard) {
 							Spacer(minLength: 0.0)
 							Button("Done") {
@@ -87,7 +88,7 @@ struct NotesSection: View {
 																   right: horizontalLayoutMargin - 6.0)
 					}
 					.block { content in
-						if settings?.keyboardDismissMode == .button {
+						if keyboardDismissMode == .button {
 							content.toolbar {
 								ToolbarItemGroup(placement: .keyboard) {
 									Spacer(minLength: 0.0)

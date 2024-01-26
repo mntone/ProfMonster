@@ -26,7 +26,6 @@ struct MAApp: SwiftUI.App {
 		WindowGroup {
 			ContentView()
 		}
-		.environment(\.settings, Self.settings)
 #if os(watchOS)
 		.environment(\.watchMetrics, WatchUtil.getMetrics())
 #endif
@@ -68,7 +67,6 @@ struct MAApp: SwiftUI.App {
 		// Issue: "Swift runtime failure"
 		//.defaultSizeBackport(MonsterWindow.defaultSize)
 #endif
-		.environment(\.settings, Self.settings)
 	}
 #endif
 
@@ -103,11 +101,6 @@ struct MAApp: SwiftUI.App {
 			CoreAssembly(),
 			AppAssembly(),
 		]).resolver
-	}()
-
-	private static var settings: MonsterAnalyzerCore.Settings = {
-		let settings = MAApp.resolver.resolve(MonsterAnalyzerCore.App.self)!.settings
-		return settings
 	}()
 }
 

@@ -1,23 +1,30 @@
-import MonsterAnalyzerCore
 import SwiftUI
 
 struct DeveloperSettingsPane: View {
-	@ObservedObject
-	private(set) var viewModel: SettingsViewModel
+#if DEBUG
+	@AppStorage(settings: \.delayNetworkRequest)
+	private var delayNetworkRequest: Bool
+#endif
+
+	@AppStorage(settings: \.showInternalInformation)
+	private var showInternalInformation: Bool
+
+	@AppStorage(settings: \.monsterRowStyle)
+	private var monsterRowStyle: String
 
 	var body: some View {
 		SettingsPreferredList {
 			Section {
 #if DEBUG
 				SettingsToggle(verbatim: "Delay Network Request",
-							   isOn: $viewModel.delayNetworkRequest)
+							   isOn: $delayNetworkRequest)
 #endif
 
 				SettingsToggle("Show Internal Information",
-							   isOn: $viewModel.showInternalInformation)
+							   isOn: $showInternalInformation)
 
-				SettingsPicker("Weakness Display Mode in List",
-							   selection: $viewModel.test) {
+				SettingsPicker("Row Style",
+							   selection: $monsterRowStyle) {
 					Text(verbatim: "After Monster Name").tag("A")
 					Text(verbatim: "Before Favorite").tag("B")
 				} label: { mode in

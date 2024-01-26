@@ -1,4 +1,5 @@
 import enum MonsterAnalyzerCore.Attack
+import enum MonsterAnalyzerCore.SwipeAction
 import SwiftUI
 
 struct MonsterListItem_TestA: View {
@@ -73,13 +74,13 @@ struct MonsterListItem_TestB: View {
 struct _MonsterListItemStatic: View {
 	let viewModel: GameItemViewModel
 
-	@Environment(\.settings)
-	private var settings
+	@AppStorage(settings: \.monsterRowStyle)
+	private var monsterRowStyle: String
 
 	var body: some View {
 		HStack(spacing: 0) {
 			Text(viewModel.name)
-			switch settings?.test {
+			switch monsterRowStyle {
 			case "B":
 				MonsterListItem_TestB(viewModel: viewModel)
 			default:
@@ -91,8 +92,8 @@ struct _MonsterListItemStatic: View {
 }
 
 struct MonsterListItem<Container: View>: View {
-	@Environment(\.settings)
-	private var settings
+	@AppStorage(settings: \.trailingSwipeAction)
+	private var trailingSwipeAction: SwipeAction
 
 	@ObservedObject
 	private(set) var viewModel: GameItemViewModel
@@ -122,8 +123,8 @@ struct MonsterListItem<Container: View>: View {
 			}
 #endif
 			.block { content in
-				switch settings?.trailingSwipeAction {
-				case Optional.none, .some(.none):
+				switch trailingSwipeAction {
+				case .none:
 					content
 				case .favorite:
 					content.swipeActions(edge: .trailing, allowsFullSwipe: false) {

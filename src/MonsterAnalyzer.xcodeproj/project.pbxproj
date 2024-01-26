@@ -99,8 +99,6 @@
 		EB6437922B46EE3B00E8D02B /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6437912B46EE3B00E8D02B /* SwipeAction.swift */; };
 		EB6437942B46EF5400E8D02B /* SwipeAction+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6437932B46EF5400E8D02B /* SwipeAction+Extensions.swift */; };
 		EB6437952B46EF5400E8D02B /* SwipeAction+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6437932B46EF5400E8D02B /* SwipeAction+Extensions.swift */; };
-		EB6437972B4702DD00E8D02B /* EnvironmentValues+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6437962B4702DD00E8D02B /* EnvironmentValues+Settings.swift */; };
-		EB6437982B4702DD00E8D02B /* EnvironmentValues+Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6437962B4702DD00E8D02B /* EnvironmentValues+Settings.swift */; };
 		EB645A612B26749E00D27500 /* StackContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A602B26749E00D27500 /* StackContentView.swift */; };
 		EB645A642B2685D500D27500 /* Sidebar.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A632B2685D500D27500 /* Sidebar.swift */; };
 		EB645A652B269EF300D27500 /* StackContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB645A602B26749E00D27500 /* StackContentView.swift */; platformFilter = ios; };
@@ -150,6 +148,8 @@
 		EB84A5C02B47910000291C6B /* DeveloperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BF2B47910000291C6B /* DeveloperSection.swift */; };
 		EB84A5C12B47910000291C6B /* DeveloperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BF2B47910000291C6B /* DeveloperSection.swift */; };
 		EB85BF0C2B63279500560CD6 /* CloseButtonDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB85BF0B2B63279400560CD6 /* CloseButtonDisabled.swift */; };
+		EB85BF0F2B6355F400560CD6 /* AppStorage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB85BF0E2B6355F400560CD6 /* AppStorage+Extensions.swift */; };
+		EB85BF102B6355F400560CD6 /* AppStorage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB85BF0E2B6355F400560CD6 /* AppStorage+Extensions.swift */; };
 		EB8729B22B4D682000E0E5A1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB8729B12B4D682000E0E5A1 /* Localizable.xcstrings */; };
 		EB87781F2B26B0AB00B3359C /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F12B1D8E1300FD7115 /* HomePage.swift */; };
 		EB8778212B26B1E600B3359C /* ColumnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778202B26B1E600B3359C /* ColumnContentView.swift */; };
@@ -488,7 +488,6 @@
 		EB6297F12B37179200E830E6 /* View+Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Block.swift"; sourceTree = "<group>"; };
 		EB6437912B46EE3B00E8D02B /* SwipeAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeAction.swift; sourceTree = "<group>"; };
 		EB6437932B46EF5400E8D02B /* SwipeAction+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwipeAction+Extensions.swift"; sourceTree = "<group>"; };
-		EB6437962B4702DD00E8D02B /* EnvironmentValues+Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EnvironmentValues+Settings.swift"; sourceTree = "<group>"; };
 		EB645A602B26749E00D27500 /* StackContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackContentView.swift; sourceTree = "<group>"; };
 		EB645A632B2685D500D27500 /* Sidebar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sidebar.swift; sourceTree = "<group>"; };
 		EB693EA62B3B9F9700CDEC6F /* StarSwingsError+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StarSwingsError+Extensions.swift"; sourceTree = "<group>"; };
@@ -518,6 +517,7 @@
 		EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsPane.swift; sourceTree = "<group>"; };
 		EB84A5BF2B47910000291C6B /* DeveloperSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSection.swift; sourceTree = "<group>"; };
 		EB85BF0B2B63279400560CD6 /* CloseButtonDisabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonDisabled.swift; sourceTree = "<group>"; };
+		EB85BF0E2B6355F400560CD6 /* AppStorage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppStorage+Extensions.swift"; sourceTree = "<group>"; };
 		EB86E2802B4EC8CE00A06718 /* ci_post_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_xcodebuild.sh; sourceTree = "<group>"; };
 		EB8729B12B4D682000E0E5A1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB8778202B26B1E600B3359C /* ColumnContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnContentView.swift; sourceTree = "<group>"; };
@@ -1100,13 +1100,13 @@
 				EB42495B2B3329E30086E255 /* iOS */,
 				EB60764B2B33F5B900AF9121 /* macOS */,
 				EBC85C6F2B2053A5008A16C6 /* watchOS */,
+				EB85BF0E2B6355F400560CD6 /* AppStorage+Extensions.swift */,
 				EB6A4F432B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift */,
 				EBDEEF3F2B3EDF3900835CBC /* Backport+ScrollContentBackground.swift */,
 				EB8AD06A2B42944800F1E96F /* Backport+ShapeStyle.swift */,
 				EB42495E2B332A230086E255 /* Backport.swift */,
 				EB85BF0B2B63279400560CD6 /* CloseButtonDisabled.swift */,
 				EBC85C7C2B209D65008A16C6 /* EdgeInsets+Extensions.swift */,
-				EB6437962B4702DD00E8D02B /* EnvironmentValues+Settings.swift */,
 				EB8778272B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift */,
 				EB4426AD2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift */,
 				EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift */,
@@ -1596,6 +1596,7 @@
 				EB71C1392B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift in Sources */,
 				EB29563B2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBA66F1E2B355F38009DE78C /* AppSettingsPane.swift in Sources */,
+				EB85BF102B6355F400560CD6 /* AppStorage+Extensions.swift in Sources */,
 				EBB4B2162B175DE7004D63EA /* Attack+Extensions.swift in Sources */,
 				EB6A4F452B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift in Sources */,
 				EB8AD06C2B42944800F1E96F /* Backport+ShapeStyle.swift in Sources */,
@@ -1616,7 +1617,6 @@
 				EB489E622B60E4A300E48950 /* Element+Extensions.swift in Sources */,
 				EB99DBCE2B36D16B00A43552 /* ElementWeaknessDisplayMode+Extensions.swift in Sources */,
 				EB71C13C2B5B6FF10013FBBC /* EnvironmentValues+MAForm.swift in Sources */,
-				EB6437982B4702DD00E8D02B /* EnvironmentValues+Settings.swift in Sources */,
 				EB8778292B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift in Sources */,
 				EB560BCF2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
 				EBBF86252B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */,
@@ -1785,6 +1785,7 @@
 				EB71C1382B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift in Sources */,
 				EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBA66F1D2B355F38009DE78C /* AppSettingsPane.swift in Sources */,
+				EB85BF0F2B6355F400560CD6 /* AppStorage+Extensions.swift in Sources */,
 				EBB4B1E52B16A6D4004D63EA /* Attack+Extensions.swift in Sources */,
 				EB2550142B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift in Sources */,
 				EB6A4F442B484F5E008AB7CE /* Backport+ScrollBounceBehavior.swift in Sources */,
@@ -1815,7 +1816,6 @@
 				EB489E612B60E4A300E48950 /* Element+Extensions.swift in Sources */,
 				EB99DBCD2B36D16B00A43552 /* ElementWeaknessDisplayMode+Extensions.swift in Sources */,
 				EB71F8722B5A0D4300999269 /* EnvironmentValues+MAForm.swift in Sources */,
-				EB6437972B4702DD00E8D02B /* EnvironmentValues+Settings.swift in Sources */,
 				EB8778282B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift in Sources */,
 				EB560BCE2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
 				EBFEAB842B45A5DC005363F7 /* FavoriteContextMenuButton.swift in Sources */,

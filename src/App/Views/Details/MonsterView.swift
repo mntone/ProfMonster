@@ -43,6 +43,14 @@ struct MonsterView: View {
 
 	let isEntrance: Bool
 
+#if os(iOS)
+	@AppStorage(settings: \.keyboardDismissMode)
+	private var keyboardDismissMode: KeyboardDismissMode
+#endif
+
+	@AppStorage(settings: \.showInternalInformation)
+	private var showInternalInformation: Bool
+
 	@Environment(\.accessibilityReduceMotion)
 	private var reduceMotion
 
@@ -50,9 +58,6 @@ struct MonsterView: View {
 	@Environment(\.verticalSizeClass)
 	private var verticalSizeClass
 #endif
-
-	@Environment(\.settings)
-	private var settings
 
 	@ObservedObject
 	private(set) var viewModel: MonsterViewModel
@@ -86,7 +91,7 @@ struct MonsterView: View {
 			.disabled(viewModel.isDisabled)
 #endif
 
-		if settings?.showInternalInformation ?? false {
+		if showInternalInformation {
 			DeveloperSection(pairs: viewModel.pairs)
 		}
 	}
@@ -152,9 +157,9 @@ struct MonsterView: View {
 #if os(iOS)
 		// [iOS] Keyboard Dismiss Support
 		.block { content in
-			switch settings?.keyboardDismissMode {
+			switch keyboardDismissMode {
 			case .scroll, .swipe:
-				content.backport.scrollViewScrollDismissesKeyboard(settings?.keyboardDismissMode == .scroll ? .immediately : .interactively)
+				content.backport.scrollViewScrollDismissesKeyboard(keyboardDismissMode == .scroll ? .immediately : .interactively)
 			default:
 				content
 			}

@@ -2,8 +2,8 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct ContentView: View {
-	@AppStorage(Settings.Key.source.rawValue)
-	private var source: String?
+	@AppStorage(settings: \.source)
+	private var source: String
 
 #if os(iOS)
 	@Environment(\.horizontalSizeClass)

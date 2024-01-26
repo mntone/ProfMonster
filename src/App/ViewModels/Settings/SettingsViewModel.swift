@@ -70,29 +70,6 @@ final class SettingsViewModel: ObservableObject {
 	}
 #endif
 
-#if DEBUG
-	@Published
-	var delayNetworkRequest: Bool {
-		didSet {
-			settings.delayNetworkRequest = delayNetworkRequest
-		}
-	}
-#endif
-
-	@Published
-	var showInternalInformation: Bool {
-		didSet {
-			settings.showInternalInformation = showInternalInformation
-		}
-	}
-
-	@Published
-	var test: String {
-		didSet {
-			settings.test = test
-		}
-	}
-
 	init() {
 		guard let app = MAApp.resolver.resolve(MonsterAnalyzerCore.App.self) else {
 			fatalError()
@@ -113,11 +90,6 @@ final class SettingsViewModel: ObservableObject {
 #if os(iOS)
 		self.keyboardDismissMode = app.settings.keyboardDismissMode
 #endif
-#if DEBUG
-		self.delayNetworkRequest = app.settings.delayNetworkRequest
-#endif
-		self.showInternalInformation = app.settings.showInternalInformation
-		self.test = app.settings.test
 
 		let scheduler = DispatchQueue.main
 #if os(watchOS)
@@ -134,11 +106,6 @@ final class SettingsViewModel: ObservableObject {
 #if os(iOS)
 		settings.$keyboardDismissMode.dropFirst().receive(on: scheduler).assign(to: &$keyboardDismissMode)
 #endif
-#if DEBUG
-		settings.$delayNetworkRequest.dropFirst().receive(on: scheduler).assign(to: &$delayNetworkRequest)
-#endif
-		settings.$showInternalInformation.dropFirst().receive(on: scheduler).assign(to: &$showInternalInformation)
-		settings.$test.dropFirst().receive(on: scheduler).assign(to: &$test)
 
 		// App should reload to change some settings.
 		cancellable = $mergeParts
