@@ -149,6 +149,7 @@
 		EB84A5BE2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */; };
 		EB84A5C02B47910000291C6B /* DeveloperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BF2B47910000291C6B /* DeveloperSection.swift */; };
 		EB84A5C12B47910000291C6B /* DeveloperSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB84A5BF2B47910000291C6B /* DeveloperSection.swift */; };
+		EB85BF0C2B63279500560CD6 /* CloseButtonDisabled.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB85BF0B2B63279400560CD6 /* CloseButtonDisabled.swift */; };
 		EB8729B22B4D682000E0E5A1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = EB8729B12B4D682000E0E5A1 /* Localizable.xcstrings */; };
 		EB87781F2B26B0AB00B3359C /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9620F12B1D8E1300FD7115 /* HomePage.swift */; };
 		EB8778212B26B1E600B3359C /* ColumnContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8778202B26B1E600B3359C /* ColumnContentView.swift */; };
@@ -516,6 +517,7 @@
 		EB8201D62B5FA41000A8FDDD /* Backport+Searchable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+Searchable.swift"; sourceTree = "<group>"; };
 		EB84A5BC2B47873B00291C6B /* DeveloperSettingsPane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSettingsPane.swift; sourceTree = "<group>"; };
 		EB84A5BF2B47910000291C6B /* DeveloperSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperSection.swift; sourceTree = "<group>"; };
+		EB85BF0B2B63279400560CD6 /* CloseButtonDisabled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloseButtonDisabled.swift; sourceTree = "<group>"; };
 		EB86E2802B4EC8CE00A06718 /* ci_post_xcodebuild.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_xcodebuild.sh; sourceTree = "<group>"; };
 		EB8729B12B4D682000E0E5A1 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		EB8778202B26B1E600B3359C /* ColumnContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColumnContentView.swift; sourceTree = "<group>"; };
@@ -1102,6 +1104,7 @@
 				EBDEEF3F2B3EDF3900835CBC /* Backport+ScrollContentBackground.swift */,
 				EB8AD06A2B42944800F1E96F /* Backport+ShapeStyle.swift */,
 				EB42495E2B332A230086E255 /* Backport.swift */,
+				EB85BF0B2B63279400560CD6 /* CloseButtonDisabled.swift */,
 				EBC85C7C2B209D65008A16C6 /* EdgeInsets+Extensions.swift */,
 				EB6437962B4702DD00E8D02B /* EnvironmentValues+Settings.swift */,
 				EB8778272B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift */,
@@ -1792,6 +1795,7 @@
 				EB71C1402B5BBAA50013FBBC /* Backport+ToolbarBackgroundForNavigationBar.swift in Sources */,
 				EB42495F2B332A230086E255 /* Backport.swift in Sources */,
 				EB71C13E2B5BB56E0013FBBC /* ChromeShadow.swift in Sources */,
+				EB85BF0C2B63279500560CD6 /* CloseButtonDisabled.swift in Sources */,
 				EBB4B1D72B161E94004D63EA /* Color+Extensions.swift in Sources */,
 				EB8778212B26B1E600B3359C /* ColumnContentView.swift in Sources */,
 				EBA66F182B355C07009DE78C /* ColumnSettingsContainer.swift in Sources */,

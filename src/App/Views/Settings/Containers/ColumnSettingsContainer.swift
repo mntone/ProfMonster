@@ -23,6 +23,9 @@ struct ColumnSettingsContainer: View {
 	@Binding
 	var selectedSettingsPane: SettingsPane?
 
+	@State
+	private var isCloseButtonDisabled: Bool = false
+
 	init(viewModel: SettingsViewModel,
 		 selection selectedSettingsPane: Binding<SettingsPane?>) {
 		self.viewModel = viewModel
@@ -43,6 +46,7 @@ struct ColumnSettingsContainer: View {
 				.navigationSplitViewColumnWidth(215.0)
 #else
 				.listStyle(.insetGrouped)
+				.disabled(isCloseButtonDisabled)
 				.navigationBarTitleDisplayMode(.large)
 #endif
 				.block { content in
@@ -63,7 +67,8 @@ struct ColumnSettingsContainer: View {
 #if os(macOS)
 				.modifier(SharedSettingsContainerModifier())
 #else
-				.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction))
+				.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction,
+														  isCloseButtonDisabled: isCloseButtonDisabled))
 #endif
 			} detail: {
 				NavigationStack {
@@ -81,6 +86,7 @@ struct ColumnSettingsContainer: View {
 			.onExitCommand(perform: dismiss.callAsFunction)
 			.frame(width: 720)
 #else
+			.setCloseButtonDisabled($isCloseButtonDisabled)
 			.navigationBarTitleDisplayMode(.large)
 			.introspect(.navigationSplitView, on: .iOS(.v16)) { splitViewController in
 				splitViewController.displayModeButtonVisibility = .never
@@ -100,11 +106,14 @@ struct ColumnSettingsContainer: View {
 					}
 				}
 				.listStyle(.insetGrouped)
-				.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction))
+				.disabled(isCloseButtonDisabled)
+				.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction,
+														  isCloseButtonDisabled: isCloseButtonDisabled))
 
 				selectedSettingsPane?.view(viewModel)
 			}
 			.navigationViewStyle(.columns)
+			.setCloseButtonDisabled($isCloseButtonDisabled)
 			.introspect(.navigationView(style: .columns), on: .iOS(.v15)) { splitViewController in
 				splitViewController.displayModeButtonVisibility = .never
 				splitViewController.preferredSplitBehavior = .displace

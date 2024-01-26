@@ -30,6 +30,9 @@ struct DrillDownSettingsContainer: View {
 #if os(iOS)
 	@Environment(\.dynamicTypeSize)
 	private var dynamicTypeSize
+
+	@State
+	private var isCloseButtonDisabled: Bool = false
 #endif
 
 	init(viewModel: SettingsViewModel,
@@ -63,7 +66,12 @@ struct DrillDownSettingsContainer: View {
 				pane.view(viewModel)
 			}
 			.navigationBarTitleDisplayMode(.large)
+#if os(watchOS)
 			.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction))
+#else
+			.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction,
+													  isCloseButtonDisabled: isCloseButtonDisabled))
+#endif
 		}
 #if os(watchOS)
 		.block { content in
@@ -77,6 +85,7 @@ struct DrillDownSettingsContainer: View {
 		}
 #endif
 #if os(iOS)
+		.setCloseButtonDisabled($isCloseButtonDisabled)
 		.block { content in
 			switch dynamicTypeSize {
 			case .xxLarge, .xxxLarge:
@@ -102,6 +111,9 @@ struct DrillDownSettingsContainerBackport: View {
 #if os(iOS)
 	@Environment(\.dynamicTypeSize)
 	private var dynamicTypeSize
+
+	@State
+	private var isCloseButtonDisabled: Bool = false
 #endif
 
 	init(viewModel: SettingsViewModel,
@@ -124,13 +136,19 @@ struct DrillDownSettingsContainerBackport: View {
 #endif
 			}
 			.navigationBarTitleDisplayMode(.large)
+#if os(watchOS)
 			.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction))
+#else
+			.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction,
+													  isCloseButtonDisabled: isCloseButtonDisabled))
+#endif
 		}
 		// DO NOT WRITE FOLLOWING STYLE.
 		// NavigationLink is disable by this style on watchOS 8.
 		//.navigationViewStyle(.stack)
 #if os(iOS)
 		.navigationViewStyle(.stack)
+		.setCloseButtonDisabled($isCloseButtonDisabled)
 		.block { content in
 			switch dynamicTypeSize {
 			case .xxLarge, .xxxLarge:

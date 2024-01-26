@@ -5,6 +5,9 @@ struct SharedSettingsContainerModifier: ViewModifier {
 #if os(iOS) || os(watchOS)
 	let dismiss: () -> Void
 #endif
+#if os(iOS)
+	let isCloseButtonDisabled: Bool
+#endif
 
 	func body(content: Content) -> some View {
 		content
@@ -23,6 +26,7 @@ struct SharedSettingsContainerModifier: ViewModifier {
 			.toolbar {
 				ToolbarItem(placement: .cancellationAction) {
 					Button("Close", role: .cancel, action: dismiss)
+						.disabled(isCloseButtonDisabled)
 				}
 			}
 #elseif os(watchOS)

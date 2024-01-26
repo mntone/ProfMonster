@@ -131,16 +131,11 @@ struct DataSettingsPane: View {
 #if !os(watchOS)
 		.animation(.default, value: isActive)
 #endif
+#if os(iOS)
+		.closeButtonDisabled(isEditMode)
+#endif
 		.interactiveDismissDisabled(isEditMode)
-#if os(macOS)
-		.block { content in
-			if #available(macOS 13.0, *) {
-				content.navigationBarBackButtonHidden(isActive)
-			} else {
-				content
-			}
-		}
-#else
+#if !os(macOS)
 		.navigationBarBackButtonHidden(isEditMode)
 #endif
 		.navigationTitle("Data")
