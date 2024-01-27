@@ -2,7 +2,6 @@ import SwiftUI
 
 #if os(iOS)
 import enum MonsterAnalyzerCore.KeyboardDismissMode
-import SwiftUIIntrospect
 #endif
 
 #if os(watchOS)
@@ -25,17 +24,8 @@ struct NotesSection: View {
 	let note: Binding<String>
 
 #if !os(macOS)
-	@FocusState
-	private var isActive: Bool
-
 	@AppStorage(settings: \.keyboardDismissMode)
 	private var keyboardDismissMode: KeyboardDismissMode
-
-	@Environment(\.horizontalLayoutMargin)
-	private var horizontalLayoutMargin
-
-	@ScaledMetric(relativeTo: .body)
-	private var verticalPadding: CGFloat = 11.0
 #endif
 
 	var body: some View {
@@ -47,62 +37,11 @@ struct NotesSection: View {
 				.preferredVerticalPadding()
 				.padding(.horizontal, 6.0)
 		}
-		.ignoreLayoutMargin()
 #else
-		if #available(iOS 16.0, *) {
-			MASection("Notes", background: MASectionBackgroundStyle.none) {
-				TextField(text: note, axis: .vertical) {
-					Never?.none
-				}
-				.focused($isActive)
-				.padding(EdgeInsets(top: verticalPadding,
-									leading: horizontalLayoutMargin,
-									bottom: verticalPadding,
-									trailing: horizontalLayoutMargin))
-				.background(.formItemBackground, in: .rect(cornerRadius: MAFormMetrics.cornerRadius))
-				.toolbar {
-					if keyboardDismissMode == .button {
-						ToolbarItemGroup(placement: .keyboard) {
-							Spacer(minLength: 0.0)
-							Button("Done") {
-								isActive = false
-							}
-							.font(.body.bold())
-						}
-					}
-				}
-			}
-		} else {
-			MASection("Notes", background: MASectionBackgroundStyle.none) {
-				TextEditor(text: note)
-					.focused($isActive)
-					.clipShape(.rect(cornerRadius: MAFormMetrics.cornerRadius))
-					.introspect(.textEditor, on: .iOS(.v15)) { (textView: UITextView) in
-						// Disable scroll behavior.
-						textView.isScrollEnabled = false
-
-						// Set current context insets.
-						textView.textContainerInset = UIEdgeInsets(top: verticalPadding,
-																   left: horizontalLayoutMargin - 6.0,
-																   bottom: verticalPadding,
-																   right: horizontalLayoutMargin - 6.0)
-					}
-					.block { content in
-						if keyboardDismissMode == .button {
-							content.toolbar {
-								ToolbarItemGroup(placement: .keyboard) {
-									Spacer(minLength: 0.0)
-									Button("Done") {
-										isActive = false
-									}
-									.font(.body.bold())
-								}
-							}
-						} else {
-							content
-						}
-					}
-			}
+		MASection("Notes", background: MASectionBackgroundStyle.none) {
+			MATextField(enableDoneButton: keyboardDismissMode == .button,
+						text: note)
+				.clipShape(.rect(cornerRadius: MAFormMetrics.cornerRadius))
 		}
 #endif
 	}
