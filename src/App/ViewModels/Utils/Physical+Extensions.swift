@@ -59,7 +59,7 @@ extension Physical {
 		case .slash:
 			"s"
 		case .impact:
-			"i"
+			"m"
 		case .shot:
 			"p"
 		}
