@@ -24,7 +24,7 @@ extension Attack {
 		case .slash:
 			return Image(systemName: "scissors")
 		case .impact:
-			return Image(systemName: "hammer.fill")
+			return Image(.impact)
 		case .shot:
 			return Image(systemName: "fossil.shell.fill")
 		case .fire:
