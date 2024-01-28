@@ -24,13 +24,13 @@ struct MAForm<Content: View>: View {
 		ScrollView {
 			VStack(alignment: .leading, spacing: 0) {
 				content
-					.layoutMargin()
-					.fixedSize(horizontal: false, vertical: true)
 
 #if os(macOS)
 				Color.clear.frame(height: 10.0)
 #endif
 			}
+			.layoutMargin()
+			.fixedSize(horizontal: false, vertical: true)
 			.frame(maxWidth: .infinity, alignment: .leading)
 		}
 #if os(iOS)
