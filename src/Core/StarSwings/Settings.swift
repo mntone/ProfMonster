@@ -58,11 +58,19 @@ public final class Settings {
 	public var includesFavoriteGroupInSearchResult: Bool
 #endif
 
+#if DEBUG
+	@UserDefault("phys", initial: true)
+	public var showPhysicalAttack: Bool
+
+	@UserDefault("elem", initial: .number)
+	public var elementAttack: ElementWeaknessDisplayMode
+#else
 	@UserDefault("phys", initial: false)
 	public var showPhysicalAttack: Bool
 
 	@UserDefault("elem", initial: .sign)
 	public var elementAttack: ElementWeaknessDisplayMode
+#endif
 
 	@UserDefault("mrgPart", initial: true)
 	public var mergeParts: Bool
@@ -82,7 +90,7 @@ public final class Settings {
 	@UserDefault("group", initial: GroupOption.none)
 	public var groupOption: GroupOption
 
-	@UserDefault("selMaster", initial: false)
+	@UserDefault("selMaster", initial: true)
 	public var selectedMasterOrG: Bool
 
 #if DEBUG
