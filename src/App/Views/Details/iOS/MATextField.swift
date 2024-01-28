@@ -41,12 +41,15 @@ struct MATextField: UIViewRepresentable {
 	}
 
 	@available(iOS 16.0, *)
-	func sizeThatFits(_ proposal: ProposedViewSize, uiView: UITextView, context: Context) -> CGSize? {
-		let size = uiView.systemLayoutSizeFitting(
+	func sizeThatFits(_ proposal: ProposedViewSize, uiView textView: UITextView, context: Context) -> CGSize? {
+		var size = textView.systemLayoutSizeFitting(
 			CGSize(width: proposal.width ?? UIView.layoutFittingCompressedSize.width,
 				   height: UIView.layoutFittingCompressedSize.height),
 			withHorizontalFittingPriority: .required,
 			verticalFittingPriority: .defaultLow)
+		if size.height < context.environment.defaultMinListRowHeight {
+			size.height = context.environment.defaultMinListRowHeight
+		}
 		return proposal.replacingUnspecifiedDimensions(by: size)
 	}
 
@@ -64,6 +67,10 @@ struct MATextField: UIViewRepresentable {
 												 dynamicTypeSize: context.environment.dynamicTypeSize,
 												 pixelLength: context.environment.pixelLength,
 												 horizontalInsets: context.environment.horizontalLayoutMargin)
+
+		if let patchedTextView = textView as? _PatchedUITextView {
+			patchedTextView.minHeight = context.environment.defaultMinListRowHeight
+		}
 	}
 }
 
@@ -116,13 +123,19 @@ extension MATextField {
 		}
 	}
 
+	@available(iOS, deprecated: 16.0)
 	private final class _PatchedUITextView: UITextView {
+		fileprivate var minHeight: CGFloat = 0.0
+
 		override var intrinsicContentSize: CGSize {
-			let size = systemLayoutSizeFitting(
+			var size = systemLayoutSizeFitting(
 				CGSize(width: frame.size.width,
 					   height: UIView.layoutFittingCompressedSize.height),
 				withHorizontalFittingPriority: .required,
 				verticalFittingPriority: .defaultLow)
+			if size.height < minHeight {
+				size.height = minHeight
+			}
 			return size
 		}
 	}
