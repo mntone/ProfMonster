@@ -1,5 +1,5 @@
 <svg width="3300" height="2200" viewBox="0 0 3300 2200" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="impact.fill" clip-path="url(#clip0_8_178)">
+<g id="shot.fill" clip-path="url(#clip0_8_3)">
 <g id="Notes">
 <path id="artboard" d="M3300 0H0V2200H3300V0Z" fill="white"/>
 <path id="Vector" d="M263 292H3036" stroke="black" stroke-width="0.5"/>
@@ -45,7 +45,7 @@
 <text id="design is preserved when submitting to Xcode." fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="13" letter-spacing="0em"><tspan x="1289" y="1988.73">design is preserved when submitting to Xcode.</tspan></text>
 <text id="template-version" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="13" letter-spacing="0em"><tspan x="2945.98" y="1932.73">Template v.4.0</tspan></text>
 <text id="Requires Xcode 15 or greater" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="13" letter-spacing="0em"><tspan x="2858" y="1950.73">Requires Xcode 15 or greater</tspan></text>
-<text id="descriptive-name" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="13" letter-spacing="0em"><tspan x="2860" y="1968.73">Generated from rectangle.fill</tspan></text>
+<text id="descriptive-name" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="13" letter-spacing="0em"><tspan x="2826" y="1968.73">Generated from arrowshape.up.fill</tspan></text>
 <text id="Typeset at 100.0 points" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="13" letter-spacing="0em"><tspan x="2892" y="1986.73">Typeset at 100.0 points</tspan></text>
 <text id="Small" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="13" letter-spacing="0em"><tspan x="263" y="725.727">Small</tspan></text>
 <text id="Medium_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="13" letter-spacing="0em"><tspan x="263" y="1155.73">Medium</tspan></text>
@@ -67,27 +67,36 @@
 </g>
 <path id="Baseline-L" d="M263 1556H3036" stroke="#27AAE1" stroke-width="0.5"/>
 <path id="Capline-L" d="M263 1485.54H3036" stroke="#27AAE1" stroke-width="0.5"/>
-<path id="left-margin-Ultralight-S" d="M510.7 600.785V720.121" stroke="#00AEEF" stroke-width="0.5"/>
-<path id="right-margin-Ultralight-S" d="M608.72 600.785V720.121" stroke="#00AEEF" stroke-width="0.5"/>
-<path id="left-margin-Regular-S" d="M1401.79 600.785V720.121" stroke="#00AEEF" stroke-width="0.5"/>
-<path id="right-margin-Regular-S" d="M1497.9 600.785V720.121" stroke="#00AEEF" stroke-width="0.5"/>
-<path id="left-margin-Black-S" d="M2886.35 600.785V720.121" stroke="#00AEEF" stroke-width="0.5"/>
-<path id="right-margin-Black-S" d="M2980.45 600.785V720.121" stroke="#00AEEF" stroke-width="0.5"/>
+<path id="left-margin-Ultralight-S" d="M521.9 600.785V720.121" stroke="#00AEEF" stroke-width="0.5"/>
+<path id="right-margin-Ultralight-S" d="M597.53 600.785V720.121" stroke="#00AEEF" stroke-width="0.5"/>
+<path id="left-margin-Regular-S" d="M1411.53 600.785V720.121" stroke="#00AEEF" stroke-width="0.5"/>
+<path id="right-margin-Regular-S" d="M1488.16 600.785V720.121" stroke="#00AEEF" stroke-width="0.5"/>
+<path id="left-margin-Black-S" d="M2894.6 600.785V720.121" stroke="#00AEEF" stroke-width="0.5"/>
+<path id="right-margin-Black-S" d="M2972.2 600.785V720.121" stroke="#00AEEF" stroke-width="0.5"/>
 </g>
 <g id="Symbols">
 <g id="Black-S">
-<path id="Vector_13" d="M2937.53 704H2928.47C2924.03 704 2921.88 702.318 2922.01 698.954V662H2908.18C2900.53 662 2896 658.881 2896 653.611V628.389C2896 623.119 2900.53 620 2908.18 620H2957.82C2965.47 620 2970 623.119 2970 628.389V653.611C2970 658.881 2965.47 662 2957.82 662H2944V698.954C2944 702.318 2941.84 704 2937.53 704Z" stroke="black" stroke-width="0.5"/>
+<path id="Vector_13" d="M2951.5 703C2954.8 703 2957 700.572 2957 696.935V693.065C2957 689.428 2954.8 687 2951.5 687C2948.2 687 2946 689.428 2946 693.065V696.935C2946 700.572 2948.2 703 2951.5 703Z" stroke="black" stroke-width="0.5"/>
+<path id="Vector_14" d="M2932.5 703C2935.8 703 2938 700.572 2938 696.935V693.065C2938 689.428 2935.8 687 2932.5 687C2929.2 687 2927 689.428 2927 693.065V696.935C2927 700.572 2929.2 703 2932.5 703Z" stroke="black" stroke-width="0.5"/>
+<path id="Vector_15" d="M2913.5 703C2916.8 703 2919 700.572 2919 696.935V693.065C2919 689.428 2916.8 687 2913.5 687C2910.2 687 2908 689.428 2908 693.065V696.935C2908 700.572 2910.2 703 2913.5 703Z" stroke="black" stroke-width="0.5"/>
+<path id="Vector_16" d="M2908 673.392C2908 678.8 2911.86 682 2918.39 682H2946.61C2953.14 682 2957 678.8 2957 673.392V641.608C2957 640.036 2956 637.5 2954 635.075L2939.02 617.527C2937.54 615.817 2935.07 615 2932.51 615C2929.96 615 2927.4 615.855 2925.98 617.527L2911.04 635.045C2909 637.5 2908 640.06 2908 641.608V673.392Z" fill="#D9D9D9" stroke="black" stroke-width="0.5"/>
 </g>
 <g id="Regular-S">
-<path id="Vector_14" d="M1454.05 701H1445.99C1442.74 701 1441 699.613 1441 697.015V660H1424.62C1418.21 660 1415 657.695 1415 653.086V626.914C1415 622.305 1418.21 620 1424.62 620H1475.38C1481.83 620 1485 622.305 1485 626.914V653.086C1485 657.695 1481.83 660 1475.38 660H1459V697.015C1459 699.613 1457.26 701 1454.05 701Z" stroke="black" stroke-width="0.5"/>
+<path id="Vector_17" d="M1466 703C1469.01 703 1471 700.63 1471 697.065V693.935C1471 690.377 1469.01 688 1466 688C1462.99 688 1461 690.377 1461 693.935V697.065C1461 700.63 1462.99 703 1466 703Z" stroke="black" stroke-width="0.5"/>
+<path id="Vector_18" d="M1449 703C1452.01 703 1454 700.63 1454 697.065V693.935C1454 690.377 1452.01 688 1449 688C1445.99 688 1444 690.377 1444 693.935V697.065C1444 700.63 1445.99 703 1449 703Z" stroke="black" stroke-width="0.5"/>
+<path id="Vector_19" d="M1432 703C1435.01 703 1437 700.63 1437 697.065V693.935C1437 690.377 1435.01 688 1432 688C1428.99 688 1427 690.377 1427 693.935V697.065C1427 700.63 1428.99 703 1432 703Z" stroke="black" stroke-width="0.5"/>
+<path id="Vector_20" d="M1427 675.438C1427 680.509 1429.74 683 1435.29 683H1462.68C1468.23 683 1471 680.509 1471 675.438V640.562C1471 639.18 1470 636.5 1468.25 634.365L1454.12 617.119C1452.97 615.731 1451.03 615 1449 615C1446.97 615 1445 615.731 1443.88 617.119L1429.78 634.335C1428 636.5 1427 639.184 1427 640.562V675.438Z" fill="#D9D9D9" stroke="black" stroke-width="0.5"/>
 </g>
 <g id="Ultralight-S">
-<path id="Vector_15" d="M563.742 700H556.261C553.966 700 553 699.252 553 697.474V661H534.458C529.588 661 527 659.04 527 655.351V628.649C527 624.96 529.588 623 534.458 623H585.542C590.415 623 593 625.011 593 628.649V655.351C593 658.989 590.415 661 585.542 661H567V697.474C567 699.252 566.034 700 563.742 700Z" stroke="black" stroke-width="0.5"/>
+<path id="Vector_21" d="M574 702C576.461 702 578 700 578 696.907V693.086C578 689.994 576.461 688 574 688C571.539 688 570 689.994 570 693.086V696.907C570 700 571.539 702 574 702Z" stroke="black" stroke-width="0.5"/>
+<path id="Vector_22" d="M560 702C562.461 702 564 700 564 696.907V693.086C564 689.994 562.461 688 560 688C557.539 688 556 689.994 556 693.086V696.907C556 700 557.539 702 560 702Z" stroke="black" stroke-width="0.5"/>
+<path id="Vector_23" d="M546 702C548.461 702 550 700 550 696.907V693.086C550 689.994 548.461 688 546 688C543.539 688 542 689.994 542 693.086V696.907C542 700 543.539 702 546 702Z" stroke="black" stroke-width="0.5"/>
+<path id="Vector_24" d="M540 676.804C540 680.852 542.259 683 546.514 683H573.484C577.769 683 580 680.852 580 676.804V639.196C580 638.024 579 635.5 577.202 633.77L563.492 619.19C562.723 618.361 561.347 618 560.012 618C558.653 618 557.275 618.361 556.508 619.19L542.787 633.781C541 635.5 540 638.018 540 639.196V676.804Z" fill="#D9D9D9" stroke="black" stroke-width="0.5"/>
 </g>
 </g>
 </g>
 <defs>
-<clipPath id="clip0_8_178">
+<clipPath id="clip0_8_3">
 <rect width="3300" height="2200" fill="white"/>
 </clipPath>
 </defs>

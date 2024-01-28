@@ -5,7 +5,7 @@ extension Attack {
 	var color: Color {
 		switch self {
 		case .slash, .impact, .shot:
-			return .primary
+			return .secondary
 		case .fire:
 			return .fire
 		case .water:
@@ -26,7 +26,7 @@ extension Attack {
 		case .impact:
 			return Image(.impact)
 		case .shot:
-			return Image(systemName: "fossil.shell.fill")
+			return Image(.shot)
 		case .fire:
 			return Image(systemName: "flame.fill")
 		case .water:

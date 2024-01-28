@@ -9,7 +9,7 @@ extension Physical {
 		case .impact:
 			return Image(.impact)
 		case .shot:
-			return Image(systemName: "fossil.shell.fill")
+			return Image(.shot)
 		}
 	}
 

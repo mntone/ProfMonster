@@ -23,6 +23,7 @@ private struct _PhysicalWeaknessItemView: View {
 	var body: some View {
 		ZStack(alignment: .topLeading) {
 			physical.image
+				.foregroundStyle(.secondary)
 				.accessibilityLabeledPair(role: .label, id: physical.prefix, in: namespace)
 				.accessibilityLabel(physical.label(.long))
 
