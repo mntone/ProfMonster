@@ -31,6 +31,7 @@ final class NetworkDataSource {
 		let conf = URLSessionConfiguration.ephemeral
 		conf.httpAdditionalHeaders = [
 			"Accept": "application/json",
+			"User-Agent": "ProfMonster/\(AppUtil.version)",
 		]
 		conf.httpShouldSetCookies = false
 		conf.waitsForConnectivity = false
