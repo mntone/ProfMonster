@@ -1,6 +1,88 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    ", " : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", "
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", "
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", "
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", "
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", "
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", "
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "、"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", "
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", "
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", "
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", "
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "、"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "、"
+          }
+        }
+      }
+    },
     "/" : {
       "localizations" : {
         "ar" : {
@@ -13,12 +95,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : " / "
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "/"
           }
         },
         "es" : {
@@ -94,85 +170,79 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ (%2$@)"
+            "value" : "%@ (%@)"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ (%2$@)"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$@ (%2$@)"
+            "value" : "%@ (%@)"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ (%2$@)"
+            "value" : "%@ (%@)"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ (%2$@)"
+            "value" : "%@ (%@)"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ (%2$@)"
+            "value" : "%@ (%@)"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ (%2$@)"
+            "value" : "%@ (%@)"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ (%2$@)"
+            "value" : "%@ (%@)"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@(%2$@)"
+            "value" : "%@(%@)"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ (%2$@)"
+            "value" : "%@ (%@)"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ (%2$@)"
+            "value" : "%@ (%@)"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@ (%2$@)"
+            "value" : "%@ (%@)"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@（%2$@）"
+            "value" : "%@（%@）"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "%1$@（%2$@）"
+            "value" : "%@（%@）"
           }
         }
       }
@@ -436,12 +506,6 @@
             "value" : "+"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "+"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -520,12 +584,6 @@
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "++"
-          }
-        },
-        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "++"
@@ -614,12 +672,6 @@
             "value" : "+++"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "+++"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -698,12 +750,6 @@
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "0"
-          }
-        },
-        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "0"
@@ -792,12 +838,6 @@
             "value" : "1"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "1"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -876,12 +916,6 @@
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "1/2"
-          }
-        },
-        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "1/2"
@@ -970,12 +1004,6 @@
             "value" : "1/4"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "1/4"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1054,12 +1082,6 @@
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "3/4"
-          }
-        },
-        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "3/4"
@@ -1148,12 +1170,6 @@
             "value" : "4/5"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "4/5"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1232,12 +1248,6 @@
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "6/5"
-          }
-        },
-        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "6/5"
@@ -1325,12 +1335,6 @@
             "value" : "Info-App"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "About App"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1411,12 +1415,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Über Prof. Monster"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "About Prof. Monster"
           }
         },
         "es" : {
@@ -1501,12 +1499,6 @@
             "value" : "Als Favorit sichern"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add to Favorites"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1587,12 +1579,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alle Monster"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "All Monsters"
           }
         },
         "es" : {
@@ -1677,12 +1663,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Amphibien"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Amphibian"
           }
         },
         "es" : {
@@ -1857,12 +1837,6 @@
             "value" : "Möchtest du wirklich fortfahren? Hiermit werden alle Caches zurückgesetzt."
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Are you sure you want to continue? This will reset all caches."
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1937,12 +1911,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Möchtest du wirklich fortfahren? Hiermit werden alle Einstellungen zurückgesetzt."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Are you sure you want to continue? This will reset all settings."
           }
         },
         "es" : {
@@ -2770,12 +2738,6 @@
             "value" : "Vogelwyvern"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bird Wyvern"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2950,12 +2912,6 @@
             "value" : "Kampfwyvern"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Brute Wyvern"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3116,12 +3072,6 @@
     },
     "Build Info" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Build Info"
-          }
-        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3143,12 +3093,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Taste"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Button"
           }
         },
         "es" : {
@@ -3225,12 +3169,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Cachegröße: %@"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cache Size: %@"
           }
         },
         "es" : {
@@ -3315,12 +3253,6 @@
             "value" : "Abbrechen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cancel"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3400,12 +3332,6 @@
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Carapaceon"
-          }
-        },
-        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Carapaceon"
@@ -3583,12 +3509,6 @@
             "value" : "Schließen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Close"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3659,12 +3579,6 @@
     },
     "Close This Window" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Close This Window"
-          }
-        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3709,12 +3623,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kopieren"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Copy"
           }
         },
         "es" : {
@@ -3799,12 +3707,6 @@
             "value" : "Daten"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Data"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3887,22 +3789,16 @@
             "value" : "Datenquelle"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Data Source"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fuente de datos"
+            "value" : "Origen de datos"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fuente de datos"
+            "value" : "Origen de datos"
           }
         },
         "fr" : {
@@ -3914,7 +3810,7 @@
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fonte di dati"
+            "value" : "Origine dati"
           }
         },
         "ja" : {
@@ -3973,12 +3869,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Favorit löschen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Delete Favorite"
           }
         },
         "es" : {
@@ -4063,12 +3953,6 @@
             "value" : "Entwickler"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Developer"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4151,12 +4035,6 @@
             "value" : "Anzeige"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Display"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4237,12 +4115,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fertig"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Done"
           }
         },
         "es" : {
@@ -4328,12 +4200,6 @@
             "value" : "Drache"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dragon"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4415,12 +4281,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Drachenelement"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dragon Element"
           }
         },
         "es" : {
@@ -4506,12 +4366,6 @@
             "value" : "D"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Drg"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4583,16 +4437,64 @@
     "Effective" : {
       "comment" : "Effectiveness",
       "localizations" : {
-        "en" : {
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Effective"
+            "value" : "فعال"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wirksam"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eficaz"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eficaz"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Efficace"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Efficace"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "有効"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Skuteczny"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eficaz"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Эффективный"
           }
         },
         "zh-Hans" : {
@@ -4622,12 +4524,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Drachenältester"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elder Dragon"
           }
         },
         "es" : {
@@ -4799,12 +4695,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Elementangriff"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Element Attack"
           }
         },
         "es" : {
@@ -5125,12 +5015,6 @@
             "value" : "Reißzahn-Bestie"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fanged Beast"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5305,12 +5189,6 @@
             "value" : "Reißzahn-Wyvern"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fanged Wyvern"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5478,12 +5356,6 @@
             "value" : "Favorit"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Favorite"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5554,12 +5426,6 @@
     },
     "Favorited" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Favorited"
-          }
-        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5580,12 +5446,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Favoriten"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Favorites"
           }
         },
         "es" : {
@@ -5671,12 +5531,6 @@
             "value" : "F"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fir"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5758,12 +5612,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Feuer"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fire"
           }
         },
         "es" : {
@@ -5849,12 +5697,6 @@
             "value" : "Feuerelement"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fire Element"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5937,12 +5779,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Flugwyvern"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Flying Wyvern"
           }
         },
         "es" : {
@@ -6118,12 +5954,6 @@
             "value" : "G-Rang"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "G Rank"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6198,12 +6028,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Git-Commit-Datum"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Git Commit Date"
           }
         },
         "es" : {
@@ -6282,12 +6106,6 @@
             "value" : "Git-Commit-Hash"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Git Commit Hash"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6358,16 +6176,76 @@
     },
     "Git Difference" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Git Difference"
+            "value" : "Git-Unterschied"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diferencia de Git"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diferencia de Git"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Différence Git"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Differenza Git"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Gitの差分"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Git 차이"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Różnica w Git"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Diferença Git"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Разница в Git"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Git 差异"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Git 的差異"
           }
         }
       }
@@ -6382,12 +6260,6 @@
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "GR"
-          }
-        },
-        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "GR"
@@ -6475,12 +6347,6 @@
             "value" : "Gruppieren nach:"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Group By:"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6552,16 +6418,64 @@
     "Hardly Effective" : {
       "comment" : "Effectiveness",
       "localizations" : {
-        "en" : {
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hardly Effective"
+            "value" : "بالكاد فعالة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kaum wirksam"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Difícilmente efectivo"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Difícilmente efectivo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Peu efficace"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poco efficace"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ほぼ無効"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mało skuteczny"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dificilmente eficaz"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Вряд ли эффективно"
           }
         },
         "zh-Hans" : {
@@ -6591,12 +6505,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Eis"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ice"
           }
         },
         "es" : {
@@ -6771,12 +6679,6 @@
             "value" : "Eiselement"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ice Element"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6847,12 +6749,6 @@
     },
     "If there is a problem with the reference data, Prof. Monster may crash." : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "If there is a problem with the reference data, Prof. Monster may crash."
-          }
-        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6874,12 +6770,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "I"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Imp"
           }
         },
         "es" : {
@@ -6959,12 +6849,6 @@
             "value" : "Schlagen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impact"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7042,12 +6926,6 @@
             "value" : "Schlagenelement"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impact Element"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7123,12 +7001,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Im spiel"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "In Game"
           }
         },
         "es" : {
@@ -7212,12 +7084,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Im spiel (Umgekehrt)"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "In Game (Reverse)"
           }
         },
         "es" : {
@@ -7379,12 +7245,6 @@
     },
     "Include Favorite Group in Search Results" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Include Favorite Group in Search Results"
-          }
-        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7396,16 +7256,64 @@
     "Ineffective" : {
       "comment" : "Effectiveness",
       "localizations" : {
-        "en" : {
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ineffective"
+            "value" : "غير فعالة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unwirksam"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ineficaz"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ineficaz"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inefficace"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inefficace"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "効果なし"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nieskuteczny"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ineficaz"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Неэффективно"
           }
         },
         "zh-Hans" : {
@@ -7434,12 +7342,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tastatur schließen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Keyboard Dismiss"
           }
         },
         "es" : {
@@ -7516,12 +7418,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Nach links Streichgesten"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Left Swipe"
           }
         },
         "es" : {
@@ -7603,12 +7499,6 @@
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Leviathan"
-          }
-        },
-        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Leviathan"
@@ -7780,12 +7670,6 @@
             "value" : "LIZENZEN"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "LICENSES"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7860,12 +7744,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Laden …"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Loading…"
           }
         },
         "es" : {
@@ -7951,12 +7829,6 @@
             "value" : "Hoher & Niedriger"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Low & High"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8038,12 +7910,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hoher & Niedriger Rang"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Low & High Rank"
           }
         },
         "es" : {
@@ -8129,12 +7995,6 @@
             "value" : "HR & NR"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "LR & HR"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8216,12 +8076,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Meister"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Master"
           }
         },
         "es" : {
@@ -8307,12 +8161,6 @@
             "value" : "Meisterrang"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Master Rank"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8383,12 +8231,6 @@
     },
     "Merge Parts with Same Physiology" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Merge Parts with Same Physiology"
-          }
-        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8399,12 +8241,6 @@
     },
     "Mode" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mode"
-          }
-        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8422,12 +8258,6 @@
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Monster"
-          }
-        },
-        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Monster"
@@ -8515,12 +8345,6 @@
             "value" : "Monster und Schwäche"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Monster and Weakness"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8603,12 +8427,6 @@
             "value" : "Monsterliste"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Monster List"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8680,16 +8498,64 @@
     "Most Effective" : {
       "comment" : "Effectiveness",
       "localizations" : {
-        "en" : {
+        "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Most Effective"
+            "value" : "الأكثر فعالية"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Am wirkungsvollsten"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más efectivo"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Más efectivo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plus efficace"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il più efficace"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "最も有効"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Najbardziej skuteczny"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mais eficaz"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Наиболее эффективный"
           }
         },
         "zh-Hans" : {
@@ -8716,12 +8582,6 @@
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "MR"
-          }
-        },
-        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "MR"
@@ -8810,12 +8670,6 @@
             "value" : "Name"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Name"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -8897,12 +8751,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Name (A bis Z)"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Name (A to Z)"
           }
         },
         "es" : {
@@ -8988,12 +8836,6 @@
             "value" : "Name (Z bis A)"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Name (Z to A)"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9063,7 +8905,7 @@
       }
     },
     "None" : {
-      "comment" : "SwipeAction\nGroupOption",
+      "comment" : "GroupOption\nSwipeAction",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -9075,12 +8917,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ohne"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "None"
           }
         },
         "es" : {
@@ -9163,12 +8999,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Notizen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Notes"
           }
         },
         "es" : {
@@ -9254,12 +9084,6 @@
             "value" : "Zahl (1. Dezimalstelle)"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Number (1st Decimal Place)"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9341,12 +9165,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zahl (2. Dezimalstelle)"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Number (2nd Decimal Place)"
           }
         },
         "es" : {
@@ -9433,12 +9251,6 @@
             "value" : "Aus"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Off"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9509,12 +9321,6 @@
     },
     "Open Browser" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Open Browser"
-          }
-        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9525,12 +9331,6 @@
     },
     "Open In New Window" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Open In New Window"
-          }
-        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9569,12 +9369,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Physischer Angriff"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Physical Attack"
           }
         },
         "es" : {
@@ -9657,12 +9451,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Physiologie"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Physiology"
           }
         },
         "es" : {
@@ -9838,12 +9626,6 @@
             "value" : "Fischwyvern"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Piscine Wyvern"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10004,12 +9786,6 @@
     },
     "Place Variant After Original" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Place Variant After Original"
-          }
-        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10042,12 +9818,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Vorschau"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Preview"
           }
         },
         "es" : {
@@ -10127,12 +9897,6 @@
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Prof. Monster"
-          }
-        },
-        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Prof. Monster"
@@ -10220,12 +9984,6 @@
             "value" : "Alle Caches zurücksetzen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reset All Caches"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10300,12 +10058,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Alle Einstellungen zurücksetzen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reset All Settings"
           }
         },
         "es" : {
@@ -10390,12 +10142,6 @@
             "value" : "Caches zurücksetzen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reset Caches"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10470,12 +10216,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Einstellungen zurücksetzen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reset Settings"
           }
         },
         "es" : {
@@ -10554,12 +10294,6 @@
             "value" : "Umkehren"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Reverse"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10606,12 +10340,6 @@
     },
     "Save" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Save"
-          }
-        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10633,12 +10361,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Scrollen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Scroll"
           }
         },
         "es" : {
@@ -10723,12 +10445,6 @@
             "value" : "Suchen"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10809,12 +10525,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Einstellungen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Settings"
           }
         },
         "es" : {
@@ -10900,12 +10610,6 @@
             "value" : "Munition"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Shot"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10983,12 +10687,6 @@
             "value" : "Munitionelement"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Shot Element"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11053,12 +10751,6 @@
     },
     "Show Internal Information" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Show Internal Information"
-          }
-        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11080,12 +10772,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "M"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sht"
           }
         },
         "es" : {
@@ -11163,12 +10849,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Zeichen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sign"
           }
         },
         "es" : {
@@ -11254,12 +10934,6 @@
             "value" : "Größe"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Size"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11341,12 +11015,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Größe (Größte)"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Size (Largest)"
           }
         },
         "es" : {
@@ -11432,12 +11100,6 @@
             "value" : "Größe (Kleinste)"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Size (Smallest)"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11521,12 +11183,6 @@
             "value" : "Schrägstrich"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Slash"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11602,12 +11258,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Schrägstrichelement"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Slash Element"
           }
         },
         "es" : {
@@ -11687,12 +11337,6 @@
             "value" : "S"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sls"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11769,12 +11413,6 @@
             "value" : "Sortiert nach:"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sort By:"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11845,16 +11483,64 @@
     },
     "Source URL" : {
       "localizations" : {
-        "en" : {
+        "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Source URL"
+            "value" : "Quell-URL"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL de origen"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL de origen"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL source"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL di origine"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "ソースURL"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "소스 URL"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adres URL źródła"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL da fonte"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "URL-адрес источника"
           }
         }
       }
@@ -11871,12 +11557,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Betäubung"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Stun"
           }
         },
         "es" : {
@@ -11954,12 +11634,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Streichgesten"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Swipe"
           }
         },
         "es" : {
@@ -12041,12 +11715,6 @@
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Temnoceran"
-          }
-        },
-        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Temnoceran"
@@ -12210,23 +11878,6 @@
         }
       }
     },
-    "The asterisk (*) settings will take effect when you restart the app." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The asterisk (*) settings will take effect when you restart the app."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "※印の設定を反映するには、アプリを再起動する必要があります"
-          }
-        }
-      }
-    },
     "Thn" : {
       "comment" : "Elem",
       "localizations" : {
@@ -12240,12 +11891,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "D"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thn"
           }
         },
         "es" : {
@@ -12331,12 +11976,6 @@
             "value" : "Donner"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thunder"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12420,12 +12059,6 @@
             "value" : "Donnerelement"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thunder Element"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12507,12 +12140,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Typ"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Type"
           }
         },
         "es" : {
@@ -12765,12 +12392,6 @@
     },
     "Variant After Original" : {
       "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Variant After Original"
-          }
-        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12800,12 +12421,6 @@
           }
         },
         "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Version %@"
-          }
-        },
-        "en" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Version %@"
@@ -12890,79 +12505,73 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Version %1$@ (%2$@)"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Version %1$@ (%2$@)"
+            "value" : "Version %@ (%@)"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versión %1$@ (%2$@)"
+            "value" : "Versión %@ (%@)"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versión %1$@ (%2$@)"
+            "value" : "Versión %@ (%@)"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Version %1$@ (%2$@)"
+            "value" : "Version %@ (%@)"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versione %1$@ (%2$@)"
+            "value" : "Versione %@ (%@)"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "バージョン %1$@ (%2$@)"
+            "value" : "バージョン %@ (%@)"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "버전 %1$@ (%2$@)"
+            "value" : "버전 %@ (%@)"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Wersja %1$@ (%2$@)"
+            "value" : "Wersja %@ (%@)"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versão %1$@ (%2$@)"
+            "value" : "Versão %@ (%@)"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Версия %1$@ (%2$@)"
+            "value" : "Версия %@ (%@)"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "版本 %1$@ (%2$@)"
+            "value" : "版本 %@ (%@)"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "版本 %1$@ (%2$@)"
+            "value" : "版本 %@ (%@)"
           }
         }
       }
@@ -12979,12 +12588,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Darstellungsoptionen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "View Options"
           }
         },
         "es" : {
@@ -13070,12 +12673,6 @@
             "value" : "Wasser"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Water"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13157,12 +12754,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Wasserelement"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Water Element"
           }
         },
         "es" : {
@@ -13248,12 +12839,6 @@
             "value" : "Schwäche"
           }
         },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Weakness"
-          }
-        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -13335,12 +12920,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "W"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wtr"
           }
         },
         "es" : {

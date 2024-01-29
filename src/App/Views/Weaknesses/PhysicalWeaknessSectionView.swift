@@ -51,13 +51,13 @@ private struct _PhysicalWeaknessItemView: View {
 			let firstText = Text(verbatim: "        ") + Text(viewModel.firstPartNames)
 			if #available(iOS 17.0, macOS 14.0, *) {
 				if !viewModel.secondPartNames.isEmpty {
-					return (firstText + (Text("/") + Text(viewModel.secondPartNames)).foregroundStyle(.secondary)).font(Self.font)
+					return (firstText + (Text(", ") + Text(viewModel.secondPartNames)).foregroundStyle(.secondary)).font(Self.font)
 				} else {
 					return firstText.font(Self.font)
 				}
 			} else {
 				if !viewModel.secondPartNames.isEmpty {
-					return (firstText + (Text("/") + Text(viewModel.secondPartNames)).foregroundColor(.secondary)).font(Self.font)
+					return (firstText + (Text(", ") + Text(viewModel.secondPartNames)).foregroundColor(.secondary)).font(Self.font)
 				} else {
 					return firstText.font(Self.font)
 				}

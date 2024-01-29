@@ -4,7 +4,7 @@ import SwiftUI
 
 struct PhysicalWeaknessItemViewModel: Identifiable, Hashable {
 	static let separator: String = {
-		String(localized: "/")
+		String(localized: ", ")
 	}()
 
 	let id: String
