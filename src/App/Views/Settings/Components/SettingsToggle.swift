@@ -1,9 +1,30 @@
 import SwiftUI
 
+@available(iOS 16.0, macOS 13.0, tvOS 16.0, watchOS 9.0, *)
+struct _ToggleLabeledContentStyle: LabeledContentStyle {
+	@ScaledMetric(relativeTo: .body)
+	private var verticalPadding: CGFloat = 11.0
+
+	@ViewBuilder
+	func makeBody(configuration: Configuration) -> some View {
+		HStack(spacing: 0) {
+			configuration.label
+				.padding(EdgeInsets(top: verticalPadding,
+									leading: 0.0,
+									bottom: verticalPadding,
+									trailing: 0.0))
+
+			Spacer(minLength: 8.0)
+
+			configuration.content.foregroundStyle(.secondary)
+		}
+	}
+}
+
 struct SettingsToggle: View {
 #if os(iOS)
-	@Environment(\.dynamicTypeSize)
-	private var dynamicTypeSize
+	@ScaledMetric(relativeTo: .body)
+	private var verticalPadding: CGFloat = 11.0
 #endif
 
 	let content: Toggle<Text>
@@ -18,22 +39,13 @@ struct SettingsToggle: View {
 
 	var body: some View {
 #if os(iOS)
-		content.padding(.vertical, verticalPadding)
+		if #available(iOS 16.0, *) {
+			content.labeledContentStyle(_ToggleLabeledContentStyle())
+		} else {
+			content
+		}
 #else
 		content
 #endif
 	}
-
-#if os(iOS)
-	private var verticalPadding: CGFloat {
-		switch dynamicTypeSize {
-		case .accessibility1...:
-			return 16.0
-		case .xxLarge, .xxxLarge:
-			return 4.0
-		default:
-			return 0.0
-		}
-	}
-#endif
 }

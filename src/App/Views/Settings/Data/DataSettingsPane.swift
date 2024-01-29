@@ -51,6 +51,7 @@ struct DataSettingsPane: View {
 					.introspect(.textField, on: .iOS(.v15, .v16, .v17)) { textField in
 						textField.clearButtonMode = .whileEditing
 					}
+					.preferredVerticalPadding()
 #endif
 
 #if os(macOS)

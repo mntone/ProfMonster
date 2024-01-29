@@ -86,36 +86,52 @@ struct SettingsLabeledContent<Label, Content>: View where Label: View, Content: 
 	@Namespace
 	private var namespace
 
+	@ScaledMetric(relativeTo: .body)
+	private var verticalPadding: CGFloat = 11.0
+
 	init(@ViewBuilder content: () -> Content, @ViewBuilder label: () -> Label) {
 		self.label = label()
 		self.content = content()
 	}
 
 	var body: some View {
-		if dynamicTypeSize.isAccessibilitySize {
-			VStack(alignment: .leading) {
-				label
-					.accessibilityLabeledPair(role: .label, id: 1, in: namespace)
+		Group {
+			if dynamicTypeSize.isAccessibilitySize {
+				VStack(alignment: .leading, spacing: 8.0) {
+					label
+						.accessibilityLabeledPair(role: .label, id: 1, in: namespace)
 
-				content
-					.accessibilityLabeledPair(role: .content, id: 1, in: namespace)
+					content
+						.accessibilityLabeledPair(role: .content, id: 1, in: namespace)
+				}
+				.multilineTextAlignment(.leading)
+				.padding(EdgeInsets(top: verticalPadding,
+									leading: 0.0,
+									bottom: verticalPadding,
+									trailing: 0.0))
+			} else {
+				HStack(spacing: 0) {
+					label
+						.padding(EdgeInsets(top: verticalPadding,
+											leading: 0.0,
+											bottom: verticalPadding,
+											trailing: 0.0))
+						.accessibilityLabeledPair(role: .label, id: 0, in: namespace)
+
+					Spacer(minLength: 8.0)
+
+					if content is Text {
+						content
+							.preferredVerticalPadding()
+							.accessibilityLabeledPair(role: .content, id: 0, in: namespace)
+					} else {
+						content
+							.accessibilityLabeledPair(role: .content, id: 0, in: namespace)
+					}
+				}
 			}
-			.multilineTextAlignment(.leading)
-			.accessibilityElement(children: .combine)
-			.padding(.vertical, 15.0)
-		} else {
-			HStack {
-				label
-					.accessibilityLabeledPair(role: .label, id: 0, in: namespace)
-
-				Spacer()
-
-				content
-					.accessibilityLabeledPair(role: .content, id: 0, in: namespace)
-			}
-			.accessibilityElement(children: .combine)
-			.padding(.vertical, dynamicTypeSize >= .xxLarge ? 10.0 : 5.0)
 		}
+		.accessibilityElement(children: .combine)
 	}
 }
 

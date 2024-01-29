@@ -138,7 +138,7 @@ final class SettingsViewModel: ObservableObject {
 	}
 
 	// MARK: - Element Attack Preview
-	
+
 #if os(iOS)
 	private func updateElementAttack() {
 		if elementAttack != .none {

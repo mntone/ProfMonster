@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		EB02AF7E2B65095B004F6422 /* NotesAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02AF7D2B65095A004F6422 /* NotesAccessoryView.swift */; platformFilter = ios; };
 		EB02AF802B6524C3004F6422 /* MATextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02AF7F2B6524C3004F6422 /* MATextField.swift */; platformFilter = ios; };
+		EB02AF822B6755E8004F6422 /* SettingsButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02AF812B6755E8004F6422 /* SettingsButtonStyle.swift */; platformFilter = ios; };
 		EB10435B2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */; };
 		EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */; };
 		EB2550142B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2550132B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift */; platformFilters = (macos, ); };
@@ -434,6 +435,7 @@
 /* Begin PBXFileReference section */
 		EB02AF7D2B65095A004F6422 /* NotesAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesAccessoryView.swift; sourceTree = "<group>"; };
 		EB02AF7F2B6524C3004F6422 /* MATextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MATextField.swift; sourceTree = "<group>"; };
+		EB02AF812B6755E8004F6422 /* SettingsButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonStyle.swift; sourceTree = "<group>"; };
 		EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extensions.swift"; sourceTree = "<group>"; };
 		EB19D6742B1EFF7700C90417 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+RetryIf.swift"; sourceTree = "<group>"; };
@@ -873,6 +875,7 @@
 		EB6FF1DC2B48E49100118E0F /* Styles */ = {
 			isa = PBXGroup;
 			children = (
+				EB02AF812B6755E8004F6422 /* SettingsButtonStyle.swift */,
 				EB9922792B35686300DBA812 /* SettingsLabelStyle.swift */,
 			);
 			path = Styles;
@@ -1931,6 +1934,7 @@
 				EB71C1422B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift in Sources */,
 				EB2956412B310E28002C5CA8 /* SelectableListRowBackport.swift in Sources */,
 				EB489E6E2B613C8B00E48950 /* SeparatedPhysicalWeaknessSectionView.swift in Sources */,
+				EB02AF822B6755E8004F6422 /* SettingsButtonStyle.swift in Sources */,
 				EBCA222B2B221E5700C487AD /* SettingsContainer.swift in Sources */,
 				EB3B491F2B35E2B200E89711 /* SettingsLabeledContent.swift in Sources */,
 				EB99227A2B35686300DBA812 /* SettingsLabelStyle.swift in Sources */,

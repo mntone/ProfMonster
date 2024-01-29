@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 # Build Number Offset
-INTERNAL_SHORT_VERSION_OFFSET=3
+INTERNAL_SHORT_VERSION_OFFSET=13
 
 if [ "$CI" = "TRUE" ]; then
 	git fetch --tags --depth 50

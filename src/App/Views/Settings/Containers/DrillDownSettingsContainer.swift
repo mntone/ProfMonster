@@ -127,7 +127,6 @@ struct DrillDownSettingsContainerBackport: View {
 			SettingsList { pane in
 				NavigationLink(tag: pane, selection: $selectedSettingsPane) {
 					pane.view(viewModel)
-						.navigationBarTitleDisplayMode(.inline)
 				} label: {
 					pane.label
 				}

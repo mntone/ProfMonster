@@ -11,6 +11,9 @@ struct SettingsPreferredList<Content: View>: View {
 #if os(iOS)
 		List {
 			content
+#if os(iOS)
+				.listRowInsetsLayoutMargin()
+#endif
 		}
 #else
 		Form {

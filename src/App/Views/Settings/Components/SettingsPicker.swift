@@ -44,9 +44,9 @@ struct SettingsPicker<Content, SelectionValue, MoreContent>: View where Content:
 				// Inlined Picker is styled correctly only directly below Form.
 				Picker(selection: $selection) {
 					content
-//#if os(iOS)
-					//.preferredVerticalPadding()
-//#endif
+#if os(iOS)
+						.preferredVerticalPadding()
+#endif
 				} label: {
 					Never?.none
 				}
@@ -54,9 +54,6 @@ struct SettingsPicker<Content, SelectionValue, MoreContent>: View where Content:
 
 				moreContent
 			}
-#if os(iOS)
-			.injectHorizontalLayoutMargin()
-#endif
 			.navigationTitle(titleKey)
 		} label: {
 			SettingsLabeledContent(titleKey) {
