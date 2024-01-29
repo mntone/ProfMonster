@@ -62,8 +62,12 @@ public enum AppUtil {
 		URL(string: info(key: "MADataSourceURL") as! String)!
 	}
 
-	static var monstersLimit: Int {
-		info(key: "MAMonstersLimit") as! Int
+	static var gameLimit: Int {
+		info(key: "MAGameLimit") as! Int
+	}
+
+	static var monsterLimit: Int {
+		info(key: "MAMonsterLimit") as! Int
 	}
 
 	private static func info(key: String) -> Any? {

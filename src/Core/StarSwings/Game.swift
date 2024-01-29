@@ -3,7 +3,7 @@ import protocol Swinject.Resolver
 
 public final class Game: FetchableEntity<[Monster]>, Entity {
 	public static let maxMonsters: Int = {
-		min(AppUtil.monstersLimit, 1000)
+		min(AppUtil.monsterLimit, 1024)
 	}()
 
 	private let _logger: Logger
@@ -71,7 +71,7 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 		let udMonsters = _userDatabase.getMonsters(by: idPrefix)
 
 		var monsters: [Monster] = []
-		monsters.reserveCapacity(game.monsters.count)
+		monsters.reserveCapacity(min(game.monsters.count, Self.maxMonsters))
 		for jsonMonster in game.monsters {
 			let id = idPrefix + jsonMonster.id
 			let monster = Monster(app: app,
@@ -88,6 +88,7 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 			if let monster {
 				monsters.append(monster)
 				if monsters.count > Self.maxMonsters {
+					_logger.notice("Interrupt to load monster data.")
 					break
 				}
 			}

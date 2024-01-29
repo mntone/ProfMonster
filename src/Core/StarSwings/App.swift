@@ -3,6 +3,10 @@ import class Swinject.Container
 import protocol Swinject.Resolver
 
 public final class App: FetchableEntity<[Game]>, Entity {
+	public static let maxGames: Int = {
+		min(AppUtil.gameLimit, 16)
+	}()
+
 	private let _container: Container
 	private let _resolver: Resolver
 	private let _storage: Storage
@@ -142,15 +146,22 @@ public final class App: FetchableEntity<[Game]>, Entity {
 #endif
 		let physiologyMapper = PhysiologyMapper(languageService: langsvc)
 
-		let games = config.games.map { gameID in
-			Game(app: self,
-				 resolver: _resolver,
-				 dataSource: _dataSource,
-				 logger: logger,
-				 resourceMapper: resourceMapper,
-				 physiologyMapper: physiologyMapper,
-				 id: gameID,
-				 localization: localization.games.first(where: { g in g.id == gameID })!)
+		var games: [Game] = []
+		games.reserveCapacity(min(config.games.count, Self.maxGames))
+		for gameID in config.games {
+			let game = Game(app: self,
+							resolver: _resolver,
+							dataSource: _dataSource,
+							logger: logger,
+							resourceMapper: resourceMapper,
+							physiologyMapper: physiologyMapper,
+							id: gameID,
+							localization: localization.games.first(where: { g in g.id == gameID })!)
+			games.append(game)
+			if games.count > Self.maxGames {
+				logger.notice("Interrupt to load config data.")
+				break
+			}
 		}
 		return games
 	}

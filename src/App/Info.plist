@@ -16,7 +16,9 @@
 	<string>$(GIT_HASH_ORIGIN)</string>
 	<key>MAGitOrigin</key>
 	<string>$(GIT_ORIGIN)</string>
-	<key>MAMonstersLimit</key>
+	<key>MAGameLimit</key>
+	<integer>4</integer>
+	<key>MAMonsterLimit</key>
 	<integer>100</integer>
 	<key>MAVersion</key>
 	<string>$(INTERNAL_VERSION)</string>
