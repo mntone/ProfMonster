@@ -1,6 +1,7 @@
 
 public final class Settings {
 	fileprivate enum Key: String {
+		case firstTime = "fsttm"
 		case trailingSwipeAction = "trgSwipe"
 #if os(iOS)
 		case keyboardDismissMode = "kbdDismiss"
@@ -14,6 +15,14 @@ public final class Settings {
 	}
 
 	fileprivate enum DefaultValues {
+		public static var firstTime: Bool {
+#if DEBUG
+			false
+#else
+			true
+#endif
+		}
+
 		public static var trailingSwipeAction: SwipeAction {
 			.none
 		}
@@ -45,6 +54,10 @@ public final class Settings {
 		public static var monsterRowStyle: String {
 			"A"
 		}
+	}
+
+	public var firstTime: Bool {
+		fatalError("This is dummy property. Use AppStorage(settings:).")
 	}
 
 	@UserDefault("trgSwipe", initial: SwipeAction.none)
@@ -112,6 +125,8 @@ extension PartialKeyPath where Root == Settings {
 	@inline(__always)
 	public var userDefaultKeyName: String {
 		switch self {
+		case \.firstTime:
+			Settings.Key.firstTime.rawValue
 		case \.trailingSwipeAction:
 			Settings.Key.trailingSwipeAction.rawValue
 #if os(iOS)
@@ -136,6 +151,8 @@ extension PartialKeyPath where Root == Settings {
 	@inline(__always)
 	public func getDefaultValue() -> Bool {
 		switch self {
+		case \.firstTime:
+			Settings.DefaultValues.firstTime
 #if DEBUG
 		case \.delayNetworkRequest:
 			Settings.DefaultValues.delayNetworkRequest

@@ -2,6 +2,9 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct ContentView: View {
+	@AppStorage(settings: \.firstTime)
+	private var firstTime: Bool
+
 	@AppStorage(settings: \.source)
 	private var source: String
 
@@ -34,6 +37,13 @@ struct ContentView: View {
 #endif
 		}
 		.id(source)
+		.alert("Caution", isPresented: $firstTime) {
+			Button("I Understand") {
+				firstTime = false
+			}
+		} message: {
+			Text("Prof. Monster is 3rd party app. Please **DO NOT contact** Capcom about the contents.")
+		}
 #if !os(macOS)
 		.sheet(isPresented: $isSettingsPresented) {
 			SettingsContainer()

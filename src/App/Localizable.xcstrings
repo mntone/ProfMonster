@@ -3495,6 +3495,16 @@
         }
       }
     },
+    "Caution" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "注意"
+          }
+        }
+      }
+    },
     "Close" : {
       "localizations" : {
         "ar" : {
@@ -6488,6 +6498,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "幾乎無效"
+          }
+        }
+      }
+    },
+    "I Understand" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "理解した"
           }
         }
       }
@@ -9966,6 +9986,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "怪物教授"
+          }
+        }
+      }
+    },
+    "Prof. Monster is 3rd party app. Please **DO NOT contact** Capcom about the contents." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "モンハクはサードパーティー製 (非公式) アプリです。内容について、カプコンに**問い合わせないで**ください。"
           }
         }
       }
