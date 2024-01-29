@@ -4314,217 +4314,96 @@
       }
     },
     "Dragon" : {
-      "comment" : "Elem/Short",
-      "extractionState" : "manual",
+      "comment" : "Elem",
       "localizations" : {
         "ar" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "التنين"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "التنين"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "التنين"
           }
         },
         "de" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Drache"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Drache"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drache"
           }
         },
         "en" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Drg"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Dragon"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dragon"
           }
         },
         "es" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Draco"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Draco"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Draco"
           }
         },
         "es-419" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Draco"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Draco"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Draco"
           }
         },
         "fr" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Dragon"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Dragon"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dragon"
           }
         },
         "it" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Drago"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Drago"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Drago"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "龍"
+            "value" : "龍属性"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "용"
+            "value" : "용속성"
           }
         },
         "pl" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Smok"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Smok"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Smok"
           }
         },
         "pt-BR" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Dr."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Dragão"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dragão"
           }
         },
         "ru" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Дракон"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Дракон"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Дракон"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "龙"
+            "value" : "龙属性"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "龍"
+            "value" : "龍屬性"
           }
         }
       }
     },
     "Dragon Element" : {
-      "comment" : "Elem/Long",
+      "comment" : "Elem",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -4612,8 +4491,8 @@
         }
       }
     },
-    "Dragon_MEDIUM" : {
-      "comment" : "Elem/Medium",
+    "Drg" : {
+      "comment" : "Elem",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -4624,79 +4503,79 @@
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Drache"
+            "value" : "D"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dragon"
+            "value" : "Drg"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Draco"
+            "value" : "Dr."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Draco"
+            "value" : "Dr."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dragon"
+            "value" : "Dr."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Drago"
+            "value" : "Dr."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "龍属性"
+            "value" : "龍"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "용속성"
+            "value" : "용"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Smok"
+            "value" : "Sm."
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Dragão"
+            "value" : "Dr."
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Дракон"
+            "value" : "Др."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "龙属性"
+            "value" : "龙"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "龍屬性"
+            "value" : "龍"
           }
         }
       }
@@ -5777,134 +5656,49 @@
         }
       }
     },
-    "Fire" : {
-      "comment" : "Elem/Short",
-      "extractionState" : "manual",
+    "Fir" : {
+      "comment" : "Elem",
       "localizations" : {
         "ar" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "نار"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "نار"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نار"
           }
         },
         "de" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Feuer"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Feuer"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "F"
           }
         },
         "en" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Fir"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Fire"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fir"
           }
         },
         "es" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Fuego"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Fuego"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fu."
           }
         },
         "es-419" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Fuego"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Fuego"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fu."
           }
         },
         "fr" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Feu"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Feu"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feu"
           }
         },
         "it" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Fuoco"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Fuoco"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fu."
           }
         },
         "ja" : {
@@ -5920,57 +5714,21 @@
           }
         },
         "pl" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Ogień"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Ogień"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Og."
           }
         },
         "pt-BR" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Fo."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Fogo"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fo."
           }
         },
         "ru" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Огонь"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Огонь"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ог."
           }
         },
         "zh-Hans" : {
@@ -5987,97 +5745,8 @@
         }
       }
     },
-    "Fire Element" : {
-      "comment" : "Elem/Long",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "عنصر النار"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Feuerelement"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fire Element"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento fuego"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento fuego"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elément feu"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento fuoco"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "火属性"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "불속성"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Żywiołu ognia"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento Fogo"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Стихией огня"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "火属性"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "火屬性"
-          }
-        }
-      }
-    },
-    "Fire_MEDIUM" : {
-      "comment" : "Elem/Medium",
+    "Fire" : {
+      "comment" : "Elem",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -6149,6 +5818,95 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Огонь"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "火属性"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "火屬性"
+          }
+        }
+      }
+    },
+    "Fire Element" : {
+      "comment" : "Elem",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عنصر النار"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Feuerelement"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fire Element"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento fuego"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento fuego"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elément feu"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento fuoco"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "火属性"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "불속성"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Żywiołu ognia"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento Fogo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стихией огня"
           }
         },
         "zh-Hans" : {
@@ -6821,8 +6579,7 @@
       }
     },
     "Ice" : {
-      "comment" : "Elem/Short",
-      "extractionState" : "manual",
+      "comment" : "Elem",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -6869,13 +6626,13 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "氷"
+            "value" : "氷属性"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "얼음"
+            "value" : "얼음속성"
           }
         },
         "pl" : {
@@ -6899,6 +6656,95 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
+            "value" : "冰属性"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "冰屬性"
+          }
+        }
+      }
+    },
+    "Ice (Short)" : {
+      "comment" : "Elem",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ثلج"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "E"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ice"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hi."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hi."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gl."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gh."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "氷"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "얼음"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lód"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ge."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Лед"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "冰"
           }
         },
@@ -6911,7 +6757,7 @@
       }
     },
     "Ice Element" : {
-      "comment" : "Elem/Long",
+      "comment" : "Elem",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -6999,95 +6845,6 @@
         }
       }
     },
-    "Ice_MEDIUM" : {
-      "comment" : "Elem/Medium",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ثلج"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eis"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ice"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hielo"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Hielo"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Glace"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ghiaccio"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "氷属性"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "얼음속성"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Lód"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gelo"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Лед"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "冰属性"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "冰屬性"
-          }
-        }
-      }
-    },
     "If there is a problem with the reference data, Prof. Monster may crash." : {
       "localizations" : {
         "en" : {
@@ -7100,6 +6857,255 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "参照するデータに問題がある場合、アプリがクラッシュする可能性があります。"
+          }
+        }
+      }
+    },
+    "Imp" : {
+      "comment" : "Elem",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تأثير"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Imp"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Im."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Im."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Im."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Co."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "타"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ud."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Уд."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打"
+          }
+        }
+      }
+    },
+    "Impact" : {
+      "comment" : "Elem",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تأثير"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schlagen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impact"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impacto"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impacto"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impact"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Colpo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打撃"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "타격"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Uderzenie"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Удар"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打击"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打擊"
+          }
+        }
+      }
+    },
+    "Impact Element" : {
+      "comment" : "Elem",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عنصر التأثير"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schlagenelement"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impact Element"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento de impacto"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento de impacto"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elément impact"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento colpo"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打撃属性"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "타격속성"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Żywiołu udarowe"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стихией удар"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打击属性"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打擊屬性"
           }
         }
       }
@@ -10879,80 +10885,37 @@
         }
       }
     },
-    "Shell" : {
-      "comment" : "Elem/Short",
-      "extractionState" : "manual",
+    "Shot" : {
+      "comment" : "Elem",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "طلقة"
+          }
+        },
         "de" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Munition"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Munition"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Munition"
           }
         },
         "en" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Sht"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Shot"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Shot"
           }
         },
         "es" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Ti."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Tiro"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiro"
           }
         },
         "es-419" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Ti."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Tiro"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiro"
           }
         },
         "fr" : {
@@ -10962,118 +10925,58 @@
           }
         },
         "it" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Proiettile"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Proiettile"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Proiettile"
           }
         },
         "ja" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "射"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "射撃"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "射撃属性"
           }
         },
         "ko" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "사"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "사격"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사격"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Strzał"
           }
         },
         "ru" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Снаряд"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Снаряд"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Снаряд"
           }
         },
         "zh-Hans" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "射"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "射击"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "射击"
           }
         },
         "zh-Hant" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "射"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "射擊"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "射擊"
           }
         }
       }
     },
-    "Shell Element" : {
-      "comment" : "Elem/Long",
+    "Shot Element" : {
+      "comment" : "Elem",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عنصر الطلقة"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11122,75 +11025,16 @@
             "value" : "사격속성"
           }
         },
-        "zh-Hans" : {
+        "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "射击属性"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "射擊屬性"
-          }
-        }
-      }
-    },
-    "Shell_MEDIUM" : {
-      "comment" : "Elem/Medium",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Munition"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Shot"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tiro"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tiro"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Tir"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Proiettile"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "射撃属性"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "사격속성"
+            "value" : "Żywiołu strzał"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Снаряд"
+            "value" : "Стихией снаряд"
           }
         },
         "zh-Hans" : {
@@ -11219,6 +11063,89 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "内部情報を表示する"
+          }
+        }
+      }
+    },
+    "Sht" : {
+      "comment" : "Elem",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "طلقة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "M"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sht"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ti."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ti."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tir"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pr."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "射"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "St."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сн."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "射"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "射"
           }
         }
       }
@@ -11580,212 +11507,97 @@
       }
     },
     "Slash" : {
-      "comment" : "Elem/Short",
-      "extractionState" : "manual",
+      "comment" : "Elem",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يقطع"
+          }
+        },
         "de" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Schrägstrich"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Schrägstrich"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schrägstrich"
           }
         },
         "en" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Sls"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Slash"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Slash"
           }
         },
         "es" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Co."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Cortar"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cortar"
           }
         },
         "es-419" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Co."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Cortar"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cortar"
           }
         },
         "fr" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Cp"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Couper"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couper"
           }
         },
         "it" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Taglio"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Taglio"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Taglio"
           }
         },
         "ja" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "斬"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "斬撃"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "斬撃"
           }
         },
         "ko" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "참"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "참격"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "참격"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ciąć"
           }
         },
         "ru" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Разрез"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Разрез"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Разрез"
           }
         },
         "zh-Hans" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "斩"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "斩击"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "斩击"
           }
         },
         "zh-Hant" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "斬"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "斬擊"
-                }
-              }
-            }
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "斬擊"
           }
         }
       }
     },
     "Slash Element" : {
-      "comment" : "Elem/Long",
+      "comment" : "Elem",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عنصر القطع"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11834,6 +11646,18 @@
             "value" : "참격속성"
           }
         },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Żywiołu cięcie"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стихией разрез"
+          }
+        },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11848,67 +11672,85 @@
         }
       }
     },
-    "Slash_MEDIUM" : {
-      "comment" : "Elem/Medium",
+    "Sls" : {
+      "comment" : "Elem",
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يقطع"
+          }
+        },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Schrägstrich"
+            "value" : "S"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Slash"
+            "value" : "Sls"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cortar"
+            "value" : "Co."
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cortar"
+            "value" : "Co."
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Couper"
+            "value" : "Cp."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Taglio"
+            "value" : "Ta."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "斬撃属性"
+            "value" : "斬"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "참격속성"
+            "value" : "참"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ci."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ра."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "斩击属性"
+            "value" : "斩"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "斬擊屬性"
+            "value" : "斬"
           }
         }
       }
@@ -12013,346 +11855,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ソースURL"
-          }
-        }
-      }
-    },
-    "Strike" : {
-      "comment" : "Elem/Short",
-      "extractionState" : "manual",
-      "localizations" : {
-        "de" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Schlagen"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Schlagen"
-                }
-              }
-            }
-          }
-        },
-        "en" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Imp"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Impact"
-                }
-              }
-            }
-          }
-        },
-        "es" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Im."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Impacto"
-                }
-              }
-            }
-          }
-        },
-        "es-419" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Im."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Impacto"
-                }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "new",
-                  "value" : "Imp"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Impact"
-                }
-              }
-            }
-          }
-        },
-        "it" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Colpo"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Colpo"
-                }
-              }
-            }
-          }
-        },
-        "ja" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "打"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "打撃"
-                }
-              }
-            }
-          }
-        },
-        "ko" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "타"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "타격"
-                }
-              }
-            }
-          }
-        },
-        "ru" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Удар"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Удар"
-                }
-              }
-            }
-          }
-        },
-        "zh-Hans" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "打"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "打击"
-                }
-              }
-            }
-          }
-        },
-        "zh-Hant" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "打"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "打擊"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "Strike Element" : {
-      "comment" : "Elem/Long",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schlagenelement"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impact Element"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento de impacto"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento de impacto"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elément impact"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento colpo"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "打撃属性"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "타격속성"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "打击属性"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "打擊屬性"
-          }
-        }
-      }
-    },
-    "Strike_MEDIUM" : {
-      "comment" : "Elem/Medium",
-      "localizations" : {
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Schlagen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impact"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impacto"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impacto"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Impact"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Colpo"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "打撃属性"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "타격"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Удар"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "打击属性"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "打擊屬性"
           }
         }
       }
@@ -12725,318 +12227,97 @@
         }
       }
     },
+    "Thn" : {
+      "comment" : "Elem",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "رعد"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "D"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thn"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ra."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ra."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fo."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雷"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "번개"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pi."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ra."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Гр."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雷"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雷"
+          }
+        }
+      }
+    },
     "Thunder" : {
-      "comment" : "Elem/Short",
-      "localizations" : {
-        "ar" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "رعد"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "رعد"
-                }
-              }
-            }
-          }
-        },
-        "de" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Donner"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Donner"
-                }
-              }
-            }
-          }
-        },
-        "en" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Thn"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Thunder"
-                }
-              }
-            }
-          }
-        },
-        "es" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Rayo"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Rayo"
-                }
-              }
-            }
-          }
-        },
-        "es-419" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Rayo"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Rayo"
-                }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Foudre"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Foudre"
-                }
-              }
-            }
-          }
-        },
-        "it" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Tuono"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Tuono"
-                }
-              }
-            }
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "雷"
-          }
-        },
-        "ko" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "번개"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "번개"
-                }
-              }
-            }
-          }
-        },
-        "pl" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Piorun"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Piorun"
-                }
-              }
-            }
-          }
-        },
-        "pt-BR" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Ra."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Raio"
-                }
-              }
-            }
-          }
-        },
-        "ru" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Гроза"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Гроза"
-                }
-              }
-            }
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "雷"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "雷"
-          }
-        }
-      }
-    },
-    "Thunder Element" : {
-      "comment" : "Elem/Long",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "عنصر الرعد"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Donnerelement"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Thunder Element"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento rayo"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento rayo"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elément foudre"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento tuono"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "雷属性"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "번개속성"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Żywiołu pioruna"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento Raio"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Стихией грозы"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "雷属性"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "雷屬性"
-          }
-        }
-      }
-    },
-    "Thunder_MEDIUM" : {
-      "comment" : "Elem/Medium",
+      "comment" : "Elem",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -13108,6 +12389,95 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Гроза"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雷属性"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雷屬性"
+          }
+        }
+      }
+    },
+    "Thunder Element" : {
+      "comment" : "Elem",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عنصر الرعد"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Donnerelement"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Thunder Element"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento rayo"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento rayo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elément foudre"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento tuono"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "雷属性"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "번개속성"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Żywiołu pioruna"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento Raio"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стихией грозы"
           }
         },
         "zh-Hans" : {
@@ -13686,306 +13056,7 @@
       }
     },
     "Water" : {
-      "comment" : "Elem/Short",
-      "extractionState" : "manual",
-      "localizations" : {
-        "ar" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "ماء"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "ماء"
-                }
-              }
-            }
-          }
-        },
-        "de" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Wasser"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Wasser"
-                }
-              }
-            }
-          }
-        },
-        "en" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Wtr"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Water"
-                }
-              }
-            }
-          }
-        },
-        "es" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Agua"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Agua"
-                }
-              }
-            }
-          }
-        },
-        "es-419" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Agua"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Agua"
-                }
-              }
-            }
-          }
-        },
-        "fr" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Eau"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Eau"
-                }
-              }
-            }
-          }
-        },
-        "it" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Acqua"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Acqua"
-                }
-              }
-            }
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "水"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "물"
-          }
-        },
-        "pl" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Woda"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Woda"
-                }
-              }
-            }
-          }
-        },
-        "pt-BR" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Ág."
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Água"
-                }
-              }
-            }
-          }
-        },
-        "ru" : {
-          "variations" : {
-            "device" : {
-              "applewatch" : {
-                "stringUnit" : {
-                  "state" : "needs_review",
-                  "value" : "Вода"
-                }
-              },
-              "other" : {
-                "stringUnit" : {
-                  "state" : "translated",
-                  "value" : "Вода"
-                }
-              }
-            }
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "水"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "水"
-          }
-        }
-      }
-    },
-    "Water Element" : {
-      "comment" : "Elem/Long",
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "عنصر الماء"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wasserelement"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Water Element"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento agua"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento agua"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elément eau"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento acqua"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "水属性"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "물속성"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Żywiołu wody"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Elemento Água"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Стихией воды"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "水属性"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "水屬性"
-          }
-        }
-      }
-    },
-    "Water_MEDIUM" : {
-      "comment" : "Elem/Medium",
+      "comment" : "Elem",
       "localizations" : {
         "ar" : {
           "stringUnit" : {
@@ -14057,6 +13128,95 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Вода"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水属性"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水屬性"
+          }
+        }
+      }
+    },
+    "Water Element" : {
+      "comment" : "Elem",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عنصر الماء"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wasserelement"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Water Element"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento agua"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento agua"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elément eau"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento acqua"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水属性"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "물속성"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Żywiołu wody"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento Água"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Стихией воды"
           }
         },
         "zh-Hans" : {
@@ -14158,6 +13318,95 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "弱點"
+          }
+        }
+      }
+    },
+    "Wtr" : {
+      "comment" : "Elem",
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ماء"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "W"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wtr"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ag."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ag."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eau"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ac."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "물"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Wo."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ág."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Во."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "水"
           }
         }
       }

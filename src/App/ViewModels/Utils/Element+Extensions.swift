@@ -33,7 +33,7 @@ extension Element {
 	}
 
 	enum LabelStyle {
-		// English: Fir (watchOS) / Fire (Other), Japanese: 火
+		// English: Fir, Japanese: 火
 		case short
 		// English: Fire, Japanese: 火属性
 		case medium
@@ -46,41 +46,41 @@ extension Element {
 		case .short:
 			switch self {
 			case .fire:
-				String(localized: "Fire", comment: "Elem/Short")
+				String(localized: "Fir", comment: "Elem")
 			case .water:
-				String(localized: "Water", comment: "Elem/Short")
+				String(localized: "Wtr", comment: "Elem")
 			case .thunder:
-				String(localized: "Thunder", comment: "Elem/Short")
+				String(localized: "Thn", comment: "Elem")
 			case .ice:
-				String(localized: "Ice", comment: "Elem/Short")
+				String(localized: "Ice (Short)", comment: "Elem")
 			case .dragon:
-				String(localized: "Dragon", comment: "Elem/Short")
+				String(localized: "Drg", comment: "Elem")
 			}
 		case .medium:
 			switch self {
 			case .fire:
-				String(localized: "Fire_MEDIUM", comment: "Elem/Medium")
+				String(localized: "Fire", comment: "Elem")
 			case .water:
-				String(localized: "Water_MEDIUM", comment: "Elem/Medium")
+				String(localized: "Water", comment: "Elem")
 			case .thunder:
-				String(localized: "Thunder_MEDIUM", comment: "Elem/Medium")
+				String(localized: "Thunder", comment: "Elem")
 			case .ice:
-				String(localized: "Ice_MEDIUM", comment: "Elem/Medium")
+				String(localized: "Ice", comment: "Elem")
 			case .dragon:
-				String(localized: "Dragon_MEDIUM", comment: "Elem/Medium")
+				String(localized: "Dragon", comment: "Elem")
 			}
 		case .long:
 			switch self {
 			case .fire:
-				String(localized: "Fire Element", comment: "Elem/Long")
+				String(localized: "Fire Element", comment: "Elem")
 			case .water:
-				String(localized: "Water Element", comment: "Elem/Long")
+				String(localized: "Water Element", comment: "Elem")
 			case .thunder:
-				String(localized: "Thunder Element", comment: "Elem/Long")
+				String(localized: "Thunder Element", comment: "Elem")
 			case .ice:
-				String(localized: "Ice Element", comment: "Elem/Long")
+				String(localized: "Ice Element", comment: "Elem")
 			case .dragon:
-				String(localized: "Dragon Element", comment: "Elem/Long")
+				String(localized: "Dragon Element", comment: "Elem")
 			}
 		}
 	}
