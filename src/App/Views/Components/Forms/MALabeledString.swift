@@ -14,13 +14,11 @@ private struct CopyButton: View {
 	private var defaultMinListRowHeight
 
 	var body: some View {
-		Button {
+		Button("Copy", systemImage: "doc.on.doc") {
 			UIPasteboard.general.setValue(value, forPasteboardType: UTType.plainText.identifier)
-		} label: {
-			SwiftUI.Label("Copy", systemImage: "doc.on.doc")
-				.labelStyle(.iconOnly)
 		}
 		.buttonStyle(.borderless)
+		.labelStyle(.iconOnly)
 		.frame(height: defaultMinListRowHeight)
 	}
 }

@@ -21,10 +21,12 @@ struct MonsterWindow: View {
 				.frame(minWidth: 240.0, minHeight: 50.0)
 				.toolbar {
 					ToolbarItem(placement: .topBarLeading) {
-						Button(role: .destructive, action: dismiss.callAsFunction) {
-							Label("Close This Window", systemImage: "xmark")
-						}
-						.tint(.red)
+						Button("Close This Window",
+							   systemImage: "xmark",
+							   role: .destructive,
+							   action: dismiss.callAsFunction)
+							.tint(.red)
+							.accessibilityLabel("Close This Window")
 					}
 				}
 		}
