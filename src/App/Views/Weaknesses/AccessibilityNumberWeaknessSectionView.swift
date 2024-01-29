@@ -56,9 +56,11 @@ struct AccessibilityNumberWeaknessSectionView: View {
 
 		MAFormMetricsBuilder { metrics in
 			MAFormRoundedBackground(metrics) {
-				SeparatedPhysicalWeaknessSectionView(namespace: namespace,
-													 viewModel: viewModel.physical)
-					.preferredVerticalPadding()
+				if viewModel.options.physical {
+					SeparatedPhysicalWeaknessSectionView(namespace: namespace,
+														 viewModel: viewModel.physical)
+						.preferredVerticalPadding()
+				}
 
 				ForEach(viewModel.items) { item in
 					AccessibilityNumberWeaknessItemView(fractionLength: fractionLength,
