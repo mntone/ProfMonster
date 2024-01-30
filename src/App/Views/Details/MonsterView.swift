@@ -179,7 +179,7 @@ struct MonsterView: View {
 			// [iOS] Another Name Support in Navigation Bar
 			ToolbarItem(placement: .principal) {
 				NavigationBarTitleViewSupport {
-					MonsterNavigationBarHeader(name: viewModel.name,
+					MonsterNavigationBarHeader(name: viewModel.title,
 											   anotherName: viewModel.anotherName)
 				}
 			}
@@ -211,7 +211,7 @@ struct MonsterView: View {
 		.navigationBarTitleDisplayMode(.inline)
 #endif
 #if os(iOS) || os(macOS)
-		.navigationTitle(viewModel.name)
+		.navigationTitle(viewModel.title)
 #endif
 #if os(macOS)
 		.navigationSubtitle(viewModel.anotherName ?? "")

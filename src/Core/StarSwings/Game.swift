@@ -15,6 +15,7 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 
 	public let id: String
 	public let name: String
+	public let abbreviation: String?
 
 	public var copyright: String?
 	public var url: URL?
@@ -39,6 +40,7 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 		self.app = app
 		self.id = id
 		self.name = localization.name
+		self.abbreviation = localization.abbreviation
 #if DEBUG
 		super.init(dataSource: dataSource, delayed: app.delayRequest)
 #else

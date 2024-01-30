@@ -16,7 +16,7 @@ struct MonsterWindow: View {
 	var body: some View {
 #if os(iOS)
 		NavigationStack {
-			MonsterPage(id: id)
+			MonsterPage(id: id, root: true)
 				// For Stage Manager
 				.frame(minWidth: 240.0, minHeight: 50.0)
 				.toolbar {
@@ -34,7 +34,7 @@ struct MonsterWindow: View {
 		.environment(\.mobileMetrics, DynamicMobileMetrics(sceneDelegate.window))
 #endif
 #if os(macOS)
-		MonsterPage(id: id)
+		MonsterPage(id: id, root: true)
 			.frame(minWidth: 480.0, minHeight: 50.0)
 #endif
 	}

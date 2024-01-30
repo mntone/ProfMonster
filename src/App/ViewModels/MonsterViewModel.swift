@@ -6,8 +6,14 @@ final class MonsterViewModel: ObservableObject {
 	private let app: App
 
 	private var monster: Monster?
+
 	private var cancellable: AnyCancellable?
 	private var task: Task<Void, Never>?
+
+	var isRoot: Bool = false
+
+	@Published
+	private(set) var title: String = ""
 
 	private(set) var state: RequestState = .ready
 
@@ -92,6 +98,14 @@ final class MonsterViewModel: ObservableObject {
 		resetState()
 		monster.fetchIfNeeded()
 
+		// Set title.
+		if isRoot,
+		   let abbreviation = monster.game?.abbreviation {
+			title = String(localized: "\(monster.name) (\(abbreviation))")
+		} else {
+			title = monster.name
+		}
+
 		// Load data from domain.
 		let scheduler = DispatchQueue.main
 		cancellable = monster.$state
@@ -152,13 +166,6 @@ final class MonsterViewModel: ObservableObject {
 		@inline(__always)
 		get {
 			monster == nil || !state.isComplete
-		}
-	}
-
-	var name: String {
-		@inline(__always)
-		get {
-			monster?.name ?? ""
 		}
 	}
 

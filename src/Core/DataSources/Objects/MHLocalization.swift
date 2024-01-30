@@ -4,6 +4,7 @@ struct MHLocalizationGame: Codable, Sendable {
 	let id: String
 	let name: String
 	let fullName: String?
+	let abbreviation: String?
 }
 
 struct MHLocalizationMonster: Codable, Sendable {

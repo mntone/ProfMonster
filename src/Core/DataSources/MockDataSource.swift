@@ -5,7 +5,10 @@ public struct MockDataSource {
 
 	static let localizationEnglish = MHLocalization(
 		games: [
-			MHLocalizationGame(id: "mockgame", name: "H.Fest!", fullName: "Hunster Festival!")
+			MHLocalizationGame(id: "mockgame",
+							   name: "H.Fest!",
+							   fullName: "Hunster Festival!",
+							   abbreviation: "HF")
 		],
 		monsters: [
 			MHLocalizationMonster(id: "gulu_qoo",
@@ -21,7 +24,10 @@ public struct MockDataSource {
 
 	static let localizationJapanese = MHLocalization(
 		games: [
-			MHLocalizationGame(id: "mockgame", name: "狩りカニ！", fullName: "狩り狩りカーニバル！")
+			MHLocalizationGame(id: "mockgame",
+							   name: "狩りカニ！",
+							   fullName: "狩り狩りカーニバル！",
+							   abbreviation: "HF")
 		],
 		monsters: [
 			MHLocalizationMonster(id: "gulu_qoo",
