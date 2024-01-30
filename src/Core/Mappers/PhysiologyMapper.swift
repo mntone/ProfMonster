@@ -32,13 +32,14 @@ struct PhysiologyMapper {
 							  stun: src.stun)
 	}
 
-	private func getDefaultPartData(from values: [MHMonsterPhysiologyValue], removing removingStates: [String]) -> [PhysiologyPart] {
+	private func getDefaultPartData(from values: [MHMonsterPhysiologyValue], removing removingStates: [String]? = nil) -> [PhysiologyPart] {
 		values.compactMap { value -> PhysiologyPart? in
 			guard value.mode == nil else {
 				return nil
 			}
 
-			if let states = value.states,
+			if let removingStates,
+			   let states = value.states,
 			   states.contains(where: { s in removingStates.contains(s) }) {
 				return nil
 			} else {
@@ -93,7 +94,7 @@ struct PhysiologyMapper {
 				var abnormalItems = getPartData(from: physiology.values, for: targetState)
 				guard !abnormalItems.isEmpty else {
 					let partsLabel = _languageService.getLocalizedJoinedString(of: physiology.parts, for: .part)
-					var defaultItems = getPartData(from: physiology.values, for: "default")
+					var defaultItems = getDefaultPartData(from: physiology.values)
 					if !defaultItems.isEmpty {
 						patchPartData(from: physiology.values, to: &defaultItems, for: mode)
 						let defaultGroup = PhysiologyParts(keys: physiology.parts,
@@ -143,7 +144,7 @@ struct PhysiologyMapper {
 				var abnormalItems = getPartData(from: physiology.values, for: targetState)
 				let partsLabel = _languageService.getLocalizedJoinedString(of: physiology.parts, for: .part)
 				guard !abnormalItems.isEmpty else {
-					var defaultItems = getPartData(from: physiology.values, for: "default")
+					var defaultItems = getDefaultPartData(from: physiology.values)
 					guard !defaultItems.isEmpty else {
 						return nil
 					}
