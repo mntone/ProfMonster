@@ -1,9 +1,9 @@
 import class Foundation.UserDefaults
 
 public enum GroupOption: String, CaseIterable, Hashable {
-	case none = "None"
-	case type = "Type"
-	case weakness = "Weakness"
+	case none = "NONE"
+	case type = "TYPE"
+	case weakness = "WEAK"
 
 	public var isNone: Bool {
 		self == .none

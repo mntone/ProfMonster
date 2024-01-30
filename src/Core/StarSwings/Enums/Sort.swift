@@ -8,22 +8,22 @@ public enum Sort: CaseIterable, Hashable {
 
 	public init?(rawValue: String) {
 		switch rawValue {
-		case "InGame":
+		case "GAME":
 			self = .inGame(reversed: false)
-		case "InGameDesc":
+		case "GAME_REV":
 			self = .inGame(reversed: true)
-		case "Name":
+		case "NAME":
 			self = .name(reversed: false, linked: true)
-		case "NameDesc":
+		case "NAME_REV":
 			self = .name(reversed: true, linked: true)
-		case "NameSimple":
+		case "NAME_NOLINK":
 			self = .name(reversed: false, linked: false)
-		case "NameDescSimple":
+		case "NAME_NOLINK_REV":
 			self = .name(reversed: true, linked: false)
 #if !os(watchOS)
-		case "Size":
+		case "SIZE":
 			self = .size(reversed: false)
-		case "SizeDesc":
+		case "SIZE_REV":
 			self = .size(reversed: true)
 #endif
 		default:
@@ -34,22 +34,22 @@ public enum Sort: CaseIterable, Hashable {
 	public var rawValue: String {
 		switch self {
 		case .inGame(false):
-			return "InGame"
+			return "GAME"
 		case .inGame(true):
-			return "InGameDesc"
+			return "GAME_REV"
 		case .name(false, true):
-			return "Name"
+			return "NAME"
 		case .name(true, true):
-			return "NameDesc"
+			return "NAME_REV"
 		case .name(false, false):
-			return "NameSimple"
+			return "NAME_NOLINK"
 		case .name(true, false):
-			return "NameDescSimple"
+			return "NAME_NOLINK_REV"
 #if !os(watchOS)
 		case .size(false):
-			return "Size"
+			return "SIZE"
 		case .size(true):
-			return "SizeDesc"
+			return "SIZE_REV"
 #endif
 		}
 	}
