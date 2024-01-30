@@ -51,7 +51,7 @@ struct MonsterList<ItemView: View>: View {
 		.backport.searchable(text: $viewModel.searchText,
 							 isPresented: $isSearching,
 							 prompt: Text("Monster and Weakness"))
-		.background {
+		.background(
 			Button("Search") {
 				if !isSearching {
 					isSearching = true
@@ -59,7 +59,7 @@ struct MonsterList<ItemView: View>: View {
 			}
 			.keyboardShortcut("F")
 			.hidden()
-		}
+		)
 #endif
 		.stateOverlay(viewModel.state)
 #if os(iOS)

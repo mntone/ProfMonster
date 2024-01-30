@@ -55,23 +55,21 @@ struct _HorizontalLayoutMarginInjectModifier: ViewModifier {
 
 	func body(content: Content) -> some View {
 		content
-			.background {
-				GeometryReader { proxy in
-					Color.clear
-						.onAppear {
-							let layoutMargin: CGFloat = proxy.size.width >= 400 ? 20 : 16
-							if horizontalLayoutMargin != layoutMargin {
-								horizontalLayoutMargin = layoutMargin
-							}
+			.background(GeometryReader { proxy in
+				Color.clear
+					.onAppear {
+						let layoutMargin: CGFloat = proxy.size.width >= 400 ? 20 : 16
+						if horizontalLayoutMargin != layoutMargin {
+							horizontalLayoutMargin = layoutMargin
 						}
-						.onChange(of: proxy.size.width >= 400) { newValue in
-							let layoutMargin: CGFloat = newValue ? 20 : 16
-							if horizontalLayoutMargin != layoutMargin {
-								horizontalLayoutMargin = layoutMargin
-							}
+					}
+					.onChange(of: proxy.size.width >= 400) { newValue in
+						let layoutMargin: CGFloat = newValue ? 20 : 16
+						if horizontalLayoutMargin != layoutMargin {
+							horizontalLayoutMargin = layoutMargin
 						}
-				}
-			}
+					}
+			})
 			.environment(\.horizontalLayoutMargin, horizontalLayoutMargin)
 	}
 }

@@ -61,7 +61,7 @@ struct MonsterListColumn: View {
 		.backport.searchable(text: $viewModel.searchText,
 							 isPresented: $isSearching,
 							 prompt: Text("Monster and Weakness"))
-		.background {
+		.background(
 			Button("Search") {
 				if !isSearching {
 					isSearching = true
@@ -69,7 +69,7 @@ struct MonsterListColumn: View {
 			}
 			.keyboardShortcut("F")
 			.hidden()
-		}
+		)
 #else
 		.searchable(text: $viewModel.searchText, prompt: Text("Monster and Weakness"))
 #endif
