@@ -27,14 +27,12 @@
       "size" : "29x29"
     },
     {
-      "filename" : "PhoneIcon76@2x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "38x38"
     },
     {
-      "filename" : "PhoneIcon114@3x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
@@ -55,26 +53,26 @@
       "size" : "40x40"
     },
     {
+      "filename" : "PhoneIcon120@2x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
+      "filename" : "PhoneIcon180@3x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
       "size" : "60x60"
     },
     {
-      "filename" : "PhoneIcon128@2x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "2x",
       "size" : "64x64"
     },
     {
-      "filename" : "PhoneIcon192@3x.png",
       "idiom" : "universal",
       "platform" : "ios",
       "scale" : "3x",
@@ -186,6 +184,7 @@
       "size" : "27.5x27.5"
     },
     {
+      "filename" : "WatchIcon58@2x.png",
       "idiom" : "universal",
       "platform" : "watchos",
       "scale" : "2x",
