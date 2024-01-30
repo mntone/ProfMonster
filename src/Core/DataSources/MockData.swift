@@ -1,7 +1,9 @@
 import Foundation
 
 public enum MockMonsterKey: String, CaseIterable {
+#if DEBUG
 	case buchaCat = "bucha_cat"
+#endif
 	case guluQoo = "gulu_qoo"
 }
 

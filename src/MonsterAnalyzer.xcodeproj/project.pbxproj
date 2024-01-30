@@ -844,7 +844,7 @@
 		EB6A4F462B48A946008AB7CE /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				EB6A4F472B48A951008AB7CE /* bucha_cat.json */,
+				EBDF16D02B687EDB00FF6B91 /* Previews */,
 				EB6A4F482B48A951008AB7CE /* gulu_qoo.json */,
 			);
 			path = Mocks;
@@ -1181,6 +1181,14 @@
 				EBD2FC232B4C20BE00F7B6FF /* Logger.swift */,
 			);
 			path = Loggers;
+			sourceTree = "<group>";
+		};
+		EBDF16D02B687EDB00FF6B91 /* Previews */ = {
+			isa = PBXGroup;
+			children = (
+				EB6A4F472B48A951008AB7CE /* bucha_cat.json */,
+			);
+			path = Previews;
 			sourceTree = "<group>";
 		};
 		EBDFF9CF2B4D2A0C00473634 /* MonsterLists */ = {
@@ -2079,6 +2087,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_ASSET_PATHS = Core/DataSources/Mocks/Previews;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -2112,6 +2121,7 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_ASSET_PATHS = Core/DataSources/Mocks/Previews;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";

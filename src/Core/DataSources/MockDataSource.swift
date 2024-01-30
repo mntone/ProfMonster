@@ -1,4 +1,3 @@
-import Combine
 import Foundation
 
 public struct MockDataSource {
@@ -71,8 +70,15 @@ extension MockDataSource: DataSource {
 	}
 
 	func getMonster(of id: String, for titleId: String) async throws -> MHMonster {
-		guard let key = MockMonsterKey(rawValue: id),
-			  let mock = MockData.monster(key) else {
+		guard let key = MockMonsterKey(rawValue: id) else {
+			guard let fallbackMock = MockData.monster(.guluQoo) else {
+				throw StarSwingsError.notExists
+			}
+			// Return default monster as fallback.
+			return fallbackMock
+		}
+
+		guard let mock = MockData.monster(key) else {
 			throw StarSwingsError.notExists
 		}
 		return mock
