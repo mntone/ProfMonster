@@ -31,6 +31,9 @@ private struct _AccessibilitySignWeaknessItemView<ViewModel: WeaknessItemViewMod
 #if !os(macOS)
 				.minimumScaleFactor(0.5)
 #endif
+#if !os(watchOS)
+				.background(.formItemBackground)
+#endif
 				.accessibilityLabeledPair(role: .content, id: viewModel.id, in: namespace)
 				.accessibilityLabel(Text(viewModel.effectiveness.accessibilityLabel))
 		}

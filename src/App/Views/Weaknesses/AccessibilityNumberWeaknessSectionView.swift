@@ -26,6 +26,7 @@ struct AccessibilityNumberWeaknessItemView: View {
 #if !os(macOS)
 				.minimumScaleFactor(0.5)
 #endif
+				.background(.formItemBackground)
 				.accessibilityLabeledPair(role: .content, id: viewModel.id, in: namespace)
 		}
 		.accessibilityElement(children: .combine)
