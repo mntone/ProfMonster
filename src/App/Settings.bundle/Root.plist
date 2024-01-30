@@ -16,11 +16,19 @@
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSChildPaneSpecifier</string>
+			<string>PSGroupSpecifier</string>
 			<key>Title</key>
 			<string>Developer</string>
-			<key>File</key>
-			<string>Developer</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Internal Information</string>
+			<key>Key</key>
+			<string>intlInfo</string>
+			<key>DefaultValue</key>
+			<false/>
 		</dict>
 		<dict>
 			<key>Type</key>

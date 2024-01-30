@@ -20,7 +20,7 @@ struct DeveloperSettingsPane: View {
 							   isOn: $delayNetworkRequest)
 #endif
 
-				SettingsToggle("Show Internal Information",
+				SettingsToggle("Internal Information",
 							   isOn: $showInternalInformation)
 
 				SettingsPicker("Row Style",
