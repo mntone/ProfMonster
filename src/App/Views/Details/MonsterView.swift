@@ -1,43 +1,6 @@
 import MonsterAnalyzerCore
 import SwiftUI
 
-struct PhysiologySection: View {
-	let physiologies: PhysiologiesViewModel?
-	let copyright: String?
-
-	var body: some View {
-		MASection("Physiology", background: .separatedInsetGrouped) {
-			if let physiologies {
-				let headerHidden = physiologies.sections.count <= 1
-				ForEach(physiologies.sections) { section in
-#if os(macOS)
-					PhysiologyView(viewModel: section, headerHidden: headerHidden)
-#else
-					HeaderScrollablePhysiologyView(viewModel: section,
-												   headerHidden: headerHidden)
-#endif
-				}
-			} else {
-				ProgressIndicatorView()
-#if os(watchOS)
-					.padding(.vertical, 20)
-#else
-					.padding(.vertical, 40)
-#endif
-					.frame(maxWidth: .infinity)
-			}
-		} footer: {
-			if physiologies != nil,
-			   let copyright {
-				MASectionFooter(copyright)
-			}
-		}
-#if os(iOS) || os(watchOS)
-		.ignoreLayoutMargin()
-#endif
-	}
-}
-
 struct MonsterView: View {
 	private static let formCoordinateSpace = "form"
 
@@ -53,11 +16,6 @@ struct MonsterView: View {
 
 	@Environment(\.accessibilityReduceMotion)
 	private var reduceMotion
-
-#if os(iOS)
-	@Environment(\.verticalSizeClass)
-	private var verticalSizeClass
-#endif
 
 	@ObservedObject
 	private(set) var viewModel: MonsterViewModel
@@ -125,28 +83,8 @@ struct MonsterView: View {
 #if os(iOS)
 		// [iOS] Navigation Bar Background & Additional UI
 		.safeAreaInset(edge: .top, spacing: 0) {
-			Group {
-				if viewModel.items.count > 1 {
-					Picker("Mode", selection: $viewModel.selectedItem) {
-						ForEach(viewModel.items) { item in
-							Text(item.mode.label(.medium)).tag(item as MonsterDataViewModel?)
-						}
-					}
-					.pickerStyle(.segmented)
-					.layoutMargin()
-					.frame(minHeight: verticalSizeClass == .compact ? 36.0 : 40.0)
-				} else {
-					Color.clear.frame(maxWidth: .infinity, maxHeight: 0.0)
-				}
-			}
-			.background(Material.bar.opacity(isBackgroundShown ? 1.0 : 0.0),
-						ignoresSafeAreaEdges: [.top, .horizontal])
-			.overlay(alignment: .bottom) {
-				ChromeShadow()
-					.opacity(isBackgroundShown ? 1.0 : 0.0)
-					.ignoresSafeArea(.container, edges: .horizontal)
-			}
-			.animation(.linear(duration: 0.05), value: isBackgroundShown)
+			ModeSelection(isBackgroundShown: isBackgroundShown,
+						  viewModel: viewModel)
 		}
 		.backport.toolbarBackgroundForNavigationBar(.hidden)
 #endif

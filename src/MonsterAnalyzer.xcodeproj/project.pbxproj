@@ -288,6 +288,9 @@
 		EBDEEF3D2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */; };
 		EBDEEF3E2B3EDA8100835CBC /* DebounceNotifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */; };
 		EBDEEF402B3EDF3900835CBC /* Backport+ScrollContentBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDEEF3F2B3EDF3900835CBC /* Backport+ScrollContentBackground.swift */; };
+		EBDF16D22B6887F900FF6B91 /* PhysiologySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDF16D12B6887F900FF6B91 /* PhysiologySection.swift */; };
+		EBDF16D32B6887F900FF6B91 /* PhysiologySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDF16D12B6887F900FF6B91 /* PhysiologySection.swift */; };
+		EBDF16D52B6892F100FF6B91 /* ModeSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDF16D42B6892F100FF6B91 /* ModeSelection.swift */; platformFilter = ios; };
 		EBDFD8512B3C112A00AF1832 /* GameGroupViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */; };
 		EBDFF9CE2B4D023400473634 /* Weakness.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFF9CD2B4D023400473634 /* Weakness.swift */; };
 		EBDFF9D12B4D2A2500473634 /* CompactWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFF9D02B4D2A2500473634 /* CompactWeaknessView.swift */; };
@@ -632,6 +635,8 @@
 		EBDEEF392B3E3E5800835CBC /* DebounceNotifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebounceNotifier.swift; sourceTree = "<group>"; };
 		EBDEEF3F2B3EDF3900835CBC /* Backport+ScrollContentBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ScrollContentBackground.swift"; sourceTree = "<group>"; };
 		EBDF0B5F2B24A68C003E2808 /* SigningHelper.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = SigningHelper.xcconfig; sourceTree = "<group>"; };
+		EBDF16D12B6887F900FF6B91 /* PhysiologySection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysiologySection.swift; sourceTree = "<group>"; };
+		EBDF16D42B6892F100FF6B91 /* ModeSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModeSelection.swift; sourceTree = "<group>"; };
 		EBDFD8502B3C112A00AF1832 /* GameGroupViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameGroupViewModel.swift; sourceTree = "<group>"; };
 		EBDFF9CD2B4D023400473634 /* Weakness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weakness.swift; sourceTree = "<group>"; };
 		EBDFF9D02B4D2A2500473634 /* CompactWeaknessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactWeaknessView.swift; sourceTree = "<group>"; };
@@ -1313,12 +1318,14 @@
 				EB02AF7C2B650942004F6422 /* iOS */,
 				EB84A5BF2B47910000291C6B /* DeveloperSection.swift */,
 				EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */,
+				EBDF16D42B6892F100FF6B91 /* ModeSelection.swift */,
 				EB7DAA652B4FD3410003210E /* MonsterColumn.swift */,
 				EBEAB0C22B42378100CC25A8 /* MonsterNavigationBarHeader.swift */,
 				EB7DAA672B4FD36D0003210E /* MonsterPage.swift */,
 				EBF9282C2B1038C9007D59D4 /* MonsterView.swift */,
 				EB5445572B527D12008E7A48 /* MonsterWindow.swift */,
 				EB4426B22B58C9E60074B1FF /* NotesSection.swift */,
+				EBDF16D12B6887F900FF6B91 /* PhysiologySection.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -1712,6 +1719,7 @@
 				EB4426B42B58C9E60074B1FF /* NotesSection.swift in Sources */,
 				EB489E682B60E92400E48950 /* Physical+Extensions.swift in Sources */,
 				EB489E652B60E6B100E48950 /* PhysicalWeaknessItemViewModel.swift in Sources */,
+				EBDF16D32B6887F900FF6B91 /* PhysiologySection.swift in Sources */,
 				EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */,
 				EB5672092B57748D00592413 /* ProgressIndicatorView.swift in Sources */,
@@ -1911,6 +1919,7 @@
 				EB02AF802B6524C3004F6422 /* MATextField.swift in Sources */,
 				EB58FB6F2B5C9BE600A4B975 /* MobileMetrics.swift in Sources */,
 				EB71C1472B5BF7C50013FBBC /* Mode+Extensions.swift in Sources */,
+				EBDF16D52B6892F100FF6B91 /* ModeSelection.swift in Sources */,
 				EB7DAA662B4FD3410003210E /* MonsterColumn.swift in Sources */,
 				EBF684A92B2D88450071981F /* MonsterDataViewModel.swift in Sources */,
 				EB7DAA5F2B4FCBF20003210E /* MonsterList.swift in Sources */,
@@ -1930,6 +1939,7 @@
 				EB489E672B60E92400E48950 /* Physical+Extensions.swift in Sources */,
 				EB489E642B60E6B100E48950 /* PhysicalWeaknessItemViewModel.swift in Sources */,
 				EB489E6A2B60F62800E48950 /* PhysicalWeaknessSectionView.swift in Sources */,
+				EBDF16D22B6887F900FF6B91 /* PhysiologySection.swift in Sources */,
 				EBB4B1D02B15E0C9004D63EA /* PhysiologyView.swift in Sources */,
 				EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B1D22B15ED1B004D63EA /* PhysiologyViewModel.swift in Sources */,
