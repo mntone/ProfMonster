@@ -29,13 +29,13 @@ private struct _SeparatedPhysicalWeaknessItemView: View {
 			let firstText = Text(viewModel.firstPartNames)
 			if #available(iOS 17.0, watchOS 10.0, *) {
 				if !viewModel.secondPartNames.isEmpty {
-					return firstText + (Text("/") + Text(viewModel.secondPartNames)).foregroundStyle(.secondary)
+					return firstText + (Text(", ") + Text(viewModel.secondPartNames)).foregroundStyle(.secondary)
 				} else {
 					return firstText
 				}
 			} else {
 				if !viewModel.secondPartNames.isEmpty {
-					return firstText + (Text("/") + Text(viewModel.secondPartNames)).foregroundColor(.secondary)
+					return firstText + (Text(", ") + Text(viewModel.secondPartNames)).foregroundColor(.secondary)
 				} else {
 					return firstText
 				}
