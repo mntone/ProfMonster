@@ -64,7 +64,6 @@ struct SelectableListRowBackport<Tag: Equatable, Content: View>: View {
 		let isSelected = tag == selection
 		content
 			.foregroundStyle(isSelected ? .white : .primary)
-			.layoutMargin()
 			.frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
 			.background(isSelected ? Color.accentColor : .clear)
 			.contentShape(Rectangle()) // Fix tap area

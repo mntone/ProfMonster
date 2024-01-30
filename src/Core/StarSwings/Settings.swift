@@ -11,7 +11,6 @@ public final class Settings {
 		case delayNetworkRequest = "delayReq"
 #endif
 		case showInternalInformation = "intlInfo"
-		case monsterRowStyle = "_t"
 	}
 
 	fileprivate enum DefaultValues {
@@ -49,10 +48,6 @@ public final class Settings {
 #else
 			false
 #endif
-		}
-
-		public static var monsterRowStyle: String {
-			"A"
 		}
 	}
 
@@ -115,10 +110,6 @@ public final class Settings {
 	public var showInternalInformation: Bool {
 		fatalError("This is dummy property. Use AppStorage(settings:).")
 	}
-
-	public var monsterRowStyle: String {
-		fatalError("This is dummy property. Use AppStorage(settings:).")
-	}
 }
 
 extension PartialKeyPath where Root == Settings {
@@ -141,8 +132,6 @@ extension PartialKeyPath where Root == Settings {
 #endif
 		case \.showInternalInformation:
 			Settings.Key.showInternalInformation.rawValue
-		case \.monsterRowStyle:
-			Settings.Key.monsterRowStyle.rawValue
 		default:
 			fatalError("Failed to get UserDefault key name.")
 		}
@@ -175,8 +164,6 @@ extension PartialKeyPath where Root == Settings {
 #endif
 		case \.source:
 			Settings.DefaultValues.source
-		case \.monsterRowStyle:
-			Settings.DefaultValues.monsterRowStyle
 		default:
 			fatalError("Failed to get default value.")
 		}

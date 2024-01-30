@@ -9,9 +9,6 @@ struct DeveloperSettingsPane: View {
 	@AppStorage(settings: \.showInternalInformation)
 	private var showInternalInformation: Bool
 
-	@AppStorage(settings: \.monsterRowStyle)
-	private var monsterRowStyle: String
-
 	var body: some View {
 		SettingsPreferredList {
 			Section {
@@ -22,14 +19,6 @@ struct DeveloperSettingsPane: View {
 
 				SettingsToggle("Internal Information",
 							   isOn: $showInternalInformation)
-
-				SettingsPicker("Row Style",
-							   selection: $monsterRowStyle) {
-					Text(verbatim: "After Monster Name").tag("A")
-					Text(verbatim: "Before Favorite").tag("B")
-				} label: { mode in
-					Text(mode)
-				}
 			}
 		}
 		.navigationTitle("Developer")

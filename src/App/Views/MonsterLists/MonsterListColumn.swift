@@ -8,6 +8,11 @@ struct MonsterListColumn: View {
 	private var accessibilityReduceMotion
 #endif
 
+#if os(iOS)
+	@Environment(\.horizontalLayoutMargin)
+	private var horizontalLayoutMargin
+#endif
+
 	@SceneStorage(CoordinatorUtil.GAME_ID_STORAGE_NAME)
 	private var selectedGameID: CoordinatorUtil.GameIDType?
 
@@ -20,28 +25,49 @@ struct MonsterListColumn: View {
 #if os(iOS)
 	@State
 	private var isSearching: Bool = false
+
+	@State
+	private var topOffset: CGFloat = 0.0
 #endif
 
 	var body: some View {
 		let items = viewModel.items
 		let isHeaderShow = items.count > 1 || items.first?.type.isValidType == true
 		List(items, id: \.id, selection: $selectedMonsterID) { group in
+#if os(iOS)
 			Section {
 				ForEach(group.items) { item in
 					MonsterListItem(viewModel: item.content)
-#if os(iOS)
-						.preferredVerticalPadding()
-						.listRowInsetsLayoutMargin()
-#endif
+				}
+				.listRowInsets(EdgeInsets(top: 0.0,
+										  leading: horizontalLayoutMargin - 10.0,
+										  bottom: 0.0,
+										  trailing: horizontalLayoutMargin))
+			} header: {
+				if isHeaderShow {
+					MobileMonsterListHeader(text: group.label, topOffset: topOffset)
+				}
+			}
+#else
+			Section {
+				ForEach(group.items) { item in
+					MonsterListItem(viewModel: item.content)
 				}
 			} header: {
 				if isHeaderShow {
 					Text(group.label)
 				}
 			}
+#endif
 		}
 #if os(iOS)
 		.listStyle(.plain)
+		.coordinateSpace(name: MobileMonsterListHeader.listCoordinateSpace)
+		.background(alignment: .topLeading) {
+			YObserver { y in
+				topOffset = y
+			}
+		}
 		.injectHorizontalLayoutMargin()
 		.scrollDismissesKeyboard(.immediately)
 #endif
@@ -98,6 +124,9 @@ struct MonsterListColumn: View {
 @available(macOS, unavailable)
 @available(watchOS, unavailable)
 struct MonsterListColumnBackport: View {
+	@Environment(\.horizontalLayoutMargin)
+	private var horizontalLayoutMargin
+
 	@SceneStorage(CoordinatorUtil.GAME_ID_STORAGE_NAME)
 	private var selectedGameID: CoordinatorUtil.GameIDType?
 
@@ -108,11 +137,13 @@ struct MonsterListColumnBackport: View {
 	private var viewModel = GameViewModel()
 
 	var body: some View {
-		MonsterList(viewModel: viewModel) { item in
+		MonsterList(viewModel: viewModel, rowInsets: .zero) { item in
 			MonsterListItem(viewModel: item.content) { content in
 				SelectableListRowBackport(tag: item.id, selection: $selectedMonsterID) {
-					content
-						.preferredVerticalPadding()
+					content.padding(EdgeInsets(top: 0.0,
+											   leading: horizontalLayoutMargin - 10.0,
+											   bottom: 0.0,
+											   trailing: horizontalLayoutMargin))
 				}
 			}
 		}

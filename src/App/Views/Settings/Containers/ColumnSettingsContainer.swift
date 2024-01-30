@@ -102,7 +102,7 @@ struct ColumnSettingsContainer: View {
 			NavigationView {
 				List(SettingsPane.allCases) { pane in
 					SelectableListRowBackport(tag: pane, selection: $selectedSettingsPane) {
-						pane.label
+						pane.label.layoutMargin()
 					}
 				}
 				.listStyle(.insetGrouped)

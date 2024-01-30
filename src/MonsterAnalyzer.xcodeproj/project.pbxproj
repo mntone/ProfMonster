@@ -62,6 +62,10 @@
 		EB489E6F2B613C8B00E48950 /* SeparatedPhysicalWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB489E6D2B613C8B00E48950 /* SeparatedPhysicalWeaknessSectionView.swift */; };
 		EB489E712B614C8400E48950 /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB489E702B614C8400E48950 /* VSpacer.swift */; };
 		EB489E722B614C8400E48950 /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB489E702B614C8400E48950 /* VSpacer.swift */; };
+		EB4C63E32B69550F008624E1 /* PositionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C63E22B69550F008624E1 /* PositionObserver.swift */; };
+		EB4C63E42B69550F008624E1 /* PositionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C63E22B69550F008624E1 /* PositionObserver.swift */; };
+		EB4C63E62B6955C7008624E1 /* MobileMonsterListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C63E52B6955C7008624E1 /* MobileMonsterListHeader.swift */; platformFilter = ios; };
+		EB4C63E92B695A1C008624E1 /* TopSeparatorRemover.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C63E82B695A1C008624E1 /* TopSeparatorRemover.swift */; platformFilter = ios; };
 		EB513ADF2B3C8B0400C8FB4A /* TabSettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB513ADE2B3C8B0400C8FB4A /* TabSettingsContainer.swift */; platformFilters = (macos, ); };
 		EB5445542B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5445532B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift */; platformFilter = ios; };
 		EB5445582B527D12008E7A48 /* MonsterWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5445572B527D12008E7A48 /* MonsterWindow.swift */; };
@@ -472,6 +476,9 @@
 		EB489E692B60F62800E48950 /* PhysicalWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalWeaknessSectionView.swift; sourceTree = "<group>"; };
 		EB489E6D2B613C8B00E48950 /* SeparatedPhysicalWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatedPhysicalWeaknessSectionView.swift; sourceTree = "<group>"; };
 		EB489E702B614C8400E48950 /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
+		EB4C63E22B69550F008624E1 /* PositionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionObserver.swift; sourceTree = "<group>"; };
+		EB4C63E52B6955C7008624E1 /* MobileMonsterListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileMonsterListHeader.swift; sourceTree = "<group>"; };
+		EB4C63E82B695A1C008624E1 /* TopSeparatorRemover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSeparatorRemover.swift; sourceTree = "<group>"; };
 		EB513ADE2B3C8B0400C8FB4A /* TabSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSettingsContainer.swift; sourceTree = "<group>"; };
 		EB5445532B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleViewSupport.swift; sourceTree = "<group>"; };
 		EB5445572B527D12008E7A48 /* MonsterWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterWindow.swift; sourceTree = "<group>"; };
@@ -785,6 +792,15 @@
 				EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */,
 				EB58FB6E2B5C9BE600A4B975 /* MobileMetrics.swift */,
 				EBC051112B5503DC00D084E2 /* UIView+Swizzle.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		EB4C63E72B69575F008624E1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				EB4C63E52B6955C7008624E1 /* MobileMonsterListHeader.swift */,
+				EB4C63E82B695A1C008624E1 /* TopSeparatorRemover.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -1139,6 +1155,7 @@
 				EBC85C7C2B209D65008A16C6 /* EdgeInsets+Extensions.swift */,
 				EB8778272B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift */,
 				EB4426AD2B58AB1C0074B1FF /* HorizontalLayoutMargin.swift */,
+				EB4C63E22B69550F008624E1 /* PositionObserver.swift */,
 				EB71C1412B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift */,
 				EB8AD06D2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift */,
 				EB8201D32B5F97A000A8FDDD /* SizeObserver.swift */,
@@ -1199,6 +1216,7 @@
 		EBDFF9CF2B4D2A0C00473634 /* MonsterLists */ = {
 			isa = PBXGroup;
 			children = (
+				EB4C63E72B69575F008624E1 /* iOS */,
 				EBDFF9D02B4D2A2500473634 /* CompactWeaknessView.swift */,
 				EBFEAB832B45A5DC005363F7 /* FavoriteContextMenuButton.swift */,
 				EBBF86232B46D4F000F76D03 /* FavoriteSwipeButton.swift */,
@@ -1722,6 +1740,7 @@
 				EBDF16D32B6887F900FF6B91 /* PhysiologySection.swift in Sources */,
 				EBBBAAB22B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */,
+				EB4C63E42B69550F008624E1 /* PositionObserver.swift in Sources */,
 				EB5672092B57748D00592413 /* ProgressIndicatorView.swift in Sources */,
 				EBE7875B2B62005800328E8F /* RemoveCacheButton.swift in Sources */,
 				EB6EF7DF2B4A0DB200646BBD /* RequestState.swift in Sources */,
@@ -1918,6 +1937,7 @@
 				EB56721E2B57C96A00592413 /* MASectionHeader.swift in Sources */,
 				EB02AF802B6524C3004F6422 /* MATextField.swift in Sources */,
 				EB58FB6F2B5C9BE600A4B975 /* MobileMetrics.swift in Sources */,
+				EB4C63E62B6955C7008624E1 /* MobileMonsterListHeader.swift in Sources */,
 				EB71C1472B5BF7C50013FBBC /* Mode+Extensions.swift in Sources */,
 				EBDF16D52B6892F100FF6B91 /* ModeSelection.swift in Sources */,
 				EB7DAA662B4FD3410003210E /* MonsterColumn.swift in Sources */,
@@ -1943,6 +1963,7 @@
 				EBB4B1D02B15E0C9004D63EA /* PhysiologyView.swift in Sources */,
 				EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
 				EBB4B1D22B15ED1B004D63EA /* PhysiologyViewModel.swift in Sources */,
+				EB4C63E32B69550F008624E1 /* PositionObserver.swift in Sources */,
 				EB6FF1DF2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */,
 				EB5672082B57748D00592413 /* ProgressIndicatorView.swift in Sources */,
 				EBE7875A2B62005800328E8F /* RemoveCacheButton.swift in Sources */,
@@ -1978,6 +1999,7 @@
 				EB6437942B46EF5400E8D02B /* SwipeAction+Extensions.swift in Sources */,
 				EB513ADF2B3C8B0400C8FB4A /* TabSettingsContainer.swift in Sources */,
 				EBCA222D2B222ECB00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
+				EB4C63E92B695A1C008624E1 /* TopSeparatorRemover.swift in Sources */,
 				EBC051122B5503DC00D084E2 /* UIView+Swizzle.swift in Sources */,
 				EBEA6F742B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
 				EB3B49192B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
