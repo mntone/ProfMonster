@@ -1,26 +1,18 @@
 import SwiftUI
-@_spi(Advanced) import SwiftUIIntrospect
+import SwiftUIIntrospect
 
 private struct _NavigationBarBackgroundHiddenModifier: ViewModifier {
-	@Weak
-	private var navigationController: UINavigationController?
-
 	func body(content: Content) -> some View {
 		content
-			.introspect(.navigationView(style: .stack), on: .iOS(.v15), scope: .ancestor) { navigationController in
+			.introspect(.viewController, on: .iOS(.v15), scope: .ancestor) { viewController in
+				guard viewController.navigationItem.standardAppearance == nil else {
+					return
+				}
+
 				let appearance = UINavigationBarAppearance()
 				appearance.configureWithTransparentBackground()
-				navigationController.navigationBar.standardAppearance = appearance
-				navigationController.navigationBar.compactAppearance = appearance
-				self.navigationController = navigationController
-			}
-			.onDisappear {
-				if let navigationController {
-					let appearance = UINavigationBarAppearance()
-					appearance.configureWithDefaultBackground()
-					navigationController.navigationBar.standardAppearance = appearance
-					navigationController.navigationBar.compactAppearance = appearance
-				}
+				viewController.navigationItem.standardAppearance = appearance
+				viewController.navigationItem.compactAppearance = appearance
 			}
 	}
 }
