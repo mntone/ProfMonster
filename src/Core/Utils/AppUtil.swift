@@ -46,14 +46,6 @@ public enum AppUtil {
 		return dateFormatter.date(from: gitDateString)!
 	}
 
-	public static var gitHash: String {
-		info(key: "MAGitHash") as! String
-	}
-
-	public static var gitHashOrigin: String {
-		info(key: "MAGitHashOrigin") as! String
-	}
-
 	public static var gitOrigin: String {
 		info(key: "MAGitOrigin") as! String
 	}
@@ -77,7 +69,7 @@ public enum AppUtil {
 	private static let dateFormatter: DateFormatter = {
 		let formatter = DateFormatter()
 		formatter.locale = Locale(identifier: "en_US_POSIX")
-		formatter.dateFormat = "yyyy-MM-dd HH:mm:ss ZZZZZ"
+		formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
 		return formatter
 	}()
 }

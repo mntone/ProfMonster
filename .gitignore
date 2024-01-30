@@ -19,7 +19,6 @@ playground.xcworkspace
 
 ## Signing Files
 Signing.xcconfig
-Versioning.xcconfig
 
 ## Project Files
 build/

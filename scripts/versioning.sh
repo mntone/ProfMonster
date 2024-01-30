@@ -8,7 +8,10 @@ if [ "$CI" = "TRUE" ]; then
 fi
 
 SCRIPT_DIR=$(cd $(dirname $0); pwd)
-XCCONFIG_PATH=$SCRIPT_DIR/../src/App/Versioning.xcconfig
+XCCONFIG_DIR=$SCRIPT_DIR/../src/build
+XCCONFIG_PATH=$XCCONFIG_DIR/Versioning.xcconfig
+
+mkdir -p $XCCONFIG_DIR
 
 if [ -v CI_TAG ]; then
 	GIT_TAG=$CI_TAG
@@ -38,7 +41,7 @@ else
 	GIT_CURRENT=$GIT_HASH
 	GIT_TAG_ORIGIN=$GIT_TAG
 fi
-GIT_DATE=$(git log -1 --format='%ci')
+GIT_DATE=$(git log -1 --format='%cI')
 
 if [ "$CI" = "TRUE" ]; then
 	SHORT_VERSION=$CI_BUILD_NUMBER
@@ -50,8 +53,6 @@ fi
 	echo "CURRENT_PROJECT_VERSION = $GIT_TAG;"
 	echo "GIT_CURRENT             = $GIT_CURRENT;"
 	echo "GIT_DATE                = $GIT_DATE;"
-	echo "GIT_HASH                = $GIT_HASH;"
-	echo "GIT_HASH_ORIGIN         = $GIT_HASH_ORIGIN;"
 	echo "GIT_ORIGIN              = $GIT_TAG_ORIGIN;"
 	echo "INTERNAL_VERSION        = $VERSION;"
 	echo "INTERNAL_SHORT_VERSION  = $SHORT_VERSION;"

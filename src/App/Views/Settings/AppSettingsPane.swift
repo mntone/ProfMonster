@@ -52,12 +52,16 @@ struct AppSettingsPane: View {
 					Text("Version \(AppUtil.version) (\(AppUtil.shortVersion))")
 						.font(.subheadline)
 					Spacer()
+					Text("GPLv3 License")
+						.font(.subheadline)
+					Spacer()
 					Text(AppUtil.copyright)
 #if os(watchOS)
 						.font(.footnote)
 #else
 						.font(.subheadline)
 #endif
+						.foregroundStyle(.secondary)
 #if os(macOS)
 						.textSelection(.enabled)
 #endif
@@ -73,17 +77,10 @@ struct AppSettingsPane: View {
 #endif
 
 			Section("Build Info") {
-				let gitHash = AppUtil.gitHash
 				SettingsLabeledContent(LocalizedStringKey("Git Difference")) {
 					hashContent
 				}
 
-				SettingsLabeledContent(LocalizedStringKey("Git Commit Hash"), value: String(gitHash.prefix(7)))
-#if os(watchOS)
-					.listRowBackground(EmptyView())
-#else
-					.help(gitHash)
-#endif
 				SettingsLabeledContent(LocalizedStringKey("Git Commit Date"), value: AppUtil.gitDate.formatted(date: .numeric, time: .complete))
 #if os(watchOS)
 					.listRowBackground(EmptyView())

@@ -10,10 +10,6 @@
 	<string>$(GIT_CURRENT)</string>
 	<key>MAGitDate</key>
 	<string>$(GIT_DATE)</string>
-	<key>MAGitHash</key>
-	<string>$(GIT_HASH)</string>
-	<key>MAGitHashOrigin</key>
-	<string>$(GIT_HASH_ORIGIN)</string>
 	<key>MAGitOrigin</key>
 	<string>$(GIT_ORIGIN)</string>
 	<key>MAGameLimit</key>
