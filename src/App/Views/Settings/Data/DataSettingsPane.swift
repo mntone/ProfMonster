@@ -3,11 +3,26 @@ import SwiftUI
 
 #if os(iOS)
 import SwiftUIIntrospect
+
+fileprivate extension View {
+	var isiOS17: Bool {
+		if #available(iOS 17.0, *) {
+			true
+		} else {
+			false
+		}
+	}
+}
 #endif
 
 struct DataSettingsPane: View {
 	@StateObject
 	private var viewModel = DataSettingsViewModel()
+
+#if os(iOS)
+	@Environment(\.horizontalLayoutMargin)
+	private var horizontalLayoutMargin
+#endif
 
 #if !os(watchOS)
 	@FocusState
@@ -75,9 +90,8 @@ struct DataSettingsPane: View {
 			} header: {
 				Text("Data Source")
 			} footer: {
-				if isEditMode {
-					Text("If there is a problem with the reference data, Prof. Monster may crash.")
-				}
+				Text("If there is a problem with the reference data, Prof. Monster may crash.")
+					.opacity(isEditMode ? 1.0 : 0.0) // DO NOT USE `if`. It no longer works on iOS 15 & 16.
 			}
 
 			if !isEditMode {
@@ -103,6 +117,9 @@ struct DataSettingsPane: View {
 						isActive = false
 #endif
 					}
+#if os(iOS)
+					.padding(.trailing, isiOS17 ? 0.0 : horizontalLayoutMargin)
+#endif
 					.disabled(!viewModel.enableSaveButton)
 				}
 			}
@@ -133,7 +150,7 @@ struct DataSettingsPane: View {
 		.animation(.default, value: isActive)
 #endif
 #if os(iOS)
-		.closeButtonDisabled(isEditMode)
+		.closeButtonDisabled(isActive)
 #endif
 		.interactiveDismissDisabled(isEditMode)
 #if !os(macOS)
