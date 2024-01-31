@@ -17,7 +17,7 @@ struct DeveloperSettingsPane: View {
 							   isOn: $delayNetworkRequest)
 #endif
 
-				SettingsToggle("Internal Information",
+				SettingsToggle("Show Internal Information",
 							   isOn: $showInternalInformation)
 			}
 		}

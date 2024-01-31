@@ -7,7 +7,7 @@
 "Favorite" = "Preferito";
 
 "Monster" = "Mostro";
-"Physical Attack" = "Physical Attack";
+"Show Physical Weaknesses" = "Mostra debolezze fisiche";
 "Element Attack" = "Attacco elementale";
 "Off" = "Nessuno";
 "Sign" = "Segno";
@@ -20,7 +20,7 @@
 "Swipe" = "Scorrimento";
 
 "Developer" = "Sviluppatore";
-"Internal Information" = "Informazioni interne";
+"Show Internal Information" = "Afficher les informations internes";
 
 "About App" = "Info sull'app";
 "Version" = "Versione";

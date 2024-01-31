@@ -7,7 +7,7 @@
 "Favorite" = "Favorite";
 
 "Monster" = "Monster";
-"Physical Attack" = "Physical Attack";
+"Show Physical Weaknesses" = "Show Physical Weaknesses";
 "Element Attack" = "Element Attack";
 "Off" = "Off";
 "Sign" = "Sign";
@@ -20,7 +20,7 @@
 "Swipe" = "Swipe";
 
 "Developer" = "Developer";
-"Internal Information" = "Internal Information";
+"Show Internal Information" = "Show Internal Information";
 
 "About App" = "About App";
 "Version" = "Version";

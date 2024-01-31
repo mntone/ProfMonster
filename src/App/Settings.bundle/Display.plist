@@ -52,7 +52,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Physical Attack</string>
+			<string>Show Physical Weaknesses</string>
 			<key>Key</key>
 			<string>phys</string>
 			<key>DefaultValue</key>

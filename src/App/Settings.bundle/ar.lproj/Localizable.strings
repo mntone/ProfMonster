@@ -7,7 +7,7 @@
 "Favorite" = "Favorite";
 
 "Monster" = "الوحش";
-"Physical Attack" = "Physical Attack";
+"Show Physical Weaknesses" = "إظهار نقاط الضعف الجسدية";
 "Element Attack" = "هجوم العنصر";
 "Off" = "متوقف";
 "Sign" = "علامة";
@@ -20,7 +20,7 @@
 "Swipe" = "Swipe";
 
 "Developer" = "المطور";
-"Internal Information" = "معلومات داخلية";
+"Show Internal Information" = "إظهار المعلومات الداخلية";
 
 "About App" = "حول التطبيق";
 "Version" = "الإصدار";

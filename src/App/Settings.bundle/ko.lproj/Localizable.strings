@@ -7,7 +7,7 @@
 "Favorite" = "즐겨찾기";
 
 "Monster" = "몬스터";
-"Physical Attack" = "Physical Attack";
+"Show Physical Weaknesses" = "물리 약점 보기";
 "Element Attack" = "속성 공격";
 "Off" = "끔";
 "Sign" = "기호";
@@ -20,7 +20,7 @@
 "Swipe" = "쓸어넘기기";
 
 "Developer" = "개발자";
-"Internal Information" = "내부 정보";
+"Show Internal Information" = "내부 정보 보기";
 
 "About App" = "앱 정보";
 "Version" = "버전";

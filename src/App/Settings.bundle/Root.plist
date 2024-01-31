@@ -24,7 +24,7 @@
 			<key>Type</key>
 			<string>PSToggleSwitchSpecifier</string>
 			<key>Title</key>
-			<string>Internal Information</string>
+			<string>Show Internal Information</string>
 			<key>Key</key>
 			<string>intlInfo</string>
 			<key>DefaultValue</key>

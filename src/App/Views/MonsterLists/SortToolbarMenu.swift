@@ -70,7 +70,7 @@ struct SortToolbarMenu: View {
 		}
 
 		if sort.isName {
-			Toggle("Variant After Original", isOn: Binding {
+			Toggle("Arrange Variant After Original", isOn: Binding {
 				sort.isLinked
 			} set: { _ in
 				sort = sort.toggleLinked()
@@ -116,7 +116,7 @@ struct SortToolbarMenu: View {
 			.pickerStyle(.inline)
 
 			if sort.isName {
-				Toggle("Variant After Original", isOn: Binding {
+				Toggle("Arrange Variant After Original", isOn: Binding {
 					sort.isLinked
 				} set: { _ in
 					sort = sort.toggleLinked()

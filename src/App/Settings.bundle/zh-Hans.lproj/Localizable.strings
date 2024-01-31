@@ -7,7 +7,7 @@
 "Favorite" = "收藏夹";
 
 "Monster" = "怪物";
-"Physical Attack" = "Physical Attack";
+"Show Physical Weaknesses" = "显示物理弱点";
 "Element Attack" = "属性攻击";
 "Off" = "关";
 "Sign" = "符号";
@@ -20,7 +20,7 @@
 "Swipe" = "轻扫";
 
 "Developer" = "开发者";
-"Internal Information" = "内部信息";
+"Show Internal Information" = "显示内部信息";
 
 "About App" = "关于App";
 "Version" = "版本";

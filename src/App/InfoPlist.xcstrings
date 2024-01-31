@@ -22,6 +22,12 @@
             "value" : "Prof. Monster"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monster"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -106,6 +112,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monster"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Prof. Monster"
@@ -198,6 +210,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "© 2023–2024 mntone. All rights reserved."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "© 2023–2024 mntone. All rights reserved."
           }
         },

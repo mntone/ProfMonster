@@ -1417,6 +1417,12 @@
             "value" : "Als Favorit sichern"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Add to Favourite"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1673,6 +1679,12 @@
             "value" : "amphibian"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "amphibian"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -1899,6 +1911,76 @@
         }
       }
     },
+    "Arrange Variant After Original" : {
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Variante nach Original anordnen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organizar variante tras original"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organizar variante tras original"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organiser la variante après l'original"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disponi variante dopo originale"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "亜種を原種の後に配置"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ułóż wariant po oryginale"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organizar Variante Após Original"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Упорядочить вариант после оригинала"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "将亚种置于原种之后"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "將亞種置於原種之後"
+          }
+        }
+      }
+    },
     "attackShort.blast" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -1915,6 +1997,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blast"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Blast"
@@ -2009,6 +2097,12 @@
             "value" : "Exhaust"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Exhaust"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2093,6 +2187,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paralysis"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Paralysis"
@@ -2187,6 +2287,12 @@
             "value" : "Poison"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Poison"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2271,6 +2377,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sleep"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sleep"
@@ -2365,6 +2477,12 @@
             "value" : "Ailment Effectiveness"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ailment Effectiveness"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2442,6 +2560,12 @@
             "value" : "Element Effectiveness"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Element Effectiveness"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2484,6 +2608,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ailments"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ailments"
@@ -2567,6 +2697,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elements"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Elements"
@@ -2746,6 +2882,12 @@
             "value" : "birdwyvern"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "birdwyvern"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -2915,6 +3057,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "brutewyvern"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "brutewyvern"
@@ -3345,6 +3493,12 @@
             "value" : "carapaceon"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "carapaceon"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -3507,10 +3661,34 @@
     },
     "Close This Window" : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dieses Fenster schließen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar esta ventana"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar esta ventana"
+          }
+        },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Fermez cette fenêtre"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiudi questa finestra"
           }
         },
         "ja" : {
@@ -3522,7 +3700,25 @@
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "창을 닫으세요"
+            "value" : "윈도우에 닫기"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zamknij to okno"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fechar Esta Janela"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Закрыть это окно"
           }
         },
         "zh-Hans" : {
@@ -3797,6 +3993,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Favorit löschen"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Delete Favourite"
           }
         },
         "es" : {
@@ -4407,6 +4609,12 @@
             "value" : "有効"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "효과적인"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4538,6 +4746,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "elderdragon"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "elderdragon"
@@ -4694,7 +4908,92 @@
       }
     },
     "ERROR_CANCELLED" : {
-
+      "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monster kann die Daten nicht herunterladen, da der Vorgang abgebrochen wurde."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monster cannot download the data because the operation is canceled."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monster cannot download the data because the operation is cancelled."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo no puede descargar los datos porque la operación está cancelada."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo no puede descargar los datos porque la operación está cancelada."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstre ne peut télécharger les données car l'opération est annulée."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il Prof. Mostro non può scaricare i dati perché l'operazione è annullata."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "データをダウンロードできません。操作は中断されました。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "작업이 취소되었습니다 때문에 몬스터 교수가 해당 데이터를 다운로드할 수 없습니다."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Potwór nie może pobrać danych, ponieważ operacja została anulowana."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Prof. Monstro não consegue baixar os dados, porque a operação foi cancelada."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проф. Монстр не может загрузить данные, поскольку операция была отменена."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "怪物教授无法下载资料，因为操作被取消。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "怪物教授無法下載資料，因為操作被取消。"
+          }
+        }
+      }
     },
     "ERROR_CONNECTION_LOST" : {
 
@@ -4712,6 +5011,30 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Prof. Monster cannot download the data because the Internet is offline."
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monster cannot download the data because the Internet is offline."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo no puede descargar los datos porque Internet no está conectado."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo no puede descargar los datos porque Internet no está conectado."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstre ne peut télécharger les données car Internet est hors ligne."
           }
         },
         "it" : {
@@ -4732,6 +5055,18 @@
             "value" : "인터넷이 오프라인이기 때문에 몬스터 교수가 해당 데이터를 다운로드할 수 없습니다."
           }
         },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Potwór nie może pobrać danych, ponieważ Internet jest offline."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Prof. Monstro não consegue baixar os dados, porque a Internet está offline."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4741,7 +5076,7 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "怪物教授无法下载资料，因为网路是离线的。"
+            "value" : "怪物教授无法下载资料，因为网络是离线的。"
           }
         },
         "zh-Hant" : {
@@ -4767,6 +5102,30 @@
             "value" : "Prof. Monster cannot download the data because the data is not found."
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monster cannot download the data because the data is not found."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo no puede descargar los datos porque no se encuentran."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo no puede descargar los datos porque no se encuentran."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstre ne peut télécharger les données car elles sont introuvables."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4783,6 +5142,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "데이터를 찾을 수 없기 때문에 몬스터 교수가 해당 데이터를 다운로드할 수 없습니다."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Potwór nie może pobrać danych, ponieważ nie zostały znalezione."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Prof. Monstro não consegue baixar os dados, porque os dados não foram encontrados."
           }
         },
         "ru" : {
@@ -4809,6 +5180,12 @@
       "extractionState" : "manual",
       "localizations" : {
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monster cannot read the data.﻿ Please update Prof. Monster to the latest version."
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Prof. Monster cannot read the data.﻿ Please update Prof. Monster to the latest version."
@@ -4842,6 +5219,30 @@
             "value" : "Prof. Monster cannot download the data because it is the unknown error. (Reason: %@)"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monster cannot download the data because it is the unknown error. (Reason: %@)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo no puede descargar los datos porque se trata de un error desconocido. (Razón: %@)"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo no puede descargar los datos porque se trata de un error desconocido. (Razón: %@)"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstre ne peut télécharger les données car il s'agit d'une erreur inconnue. (Raison: %@)"
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4854,6 +5255,18 @@
             "value" : "データをダウンロードできません。不明なエラーです。(理由: %@)"
           }
         },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Potwór nie może pobrać danych, ponieważ jest to nieznany błąd. (Powód: %@)"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Prof. Monstro não consegue baixar os dados, porque é um erro desconhecido. (Razão: %@)"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4863,13 +5276,13 @@
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "怪物教授无法下载资料，因为这是未知错误。 (原因: %@)"
+            "value" : "怪物教授无法下载资料，因为这是未知错误。（原因: %@）"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "怪物教授無法下載資料，因為這是未知錯誤。 (原因: %@)"
+            "value" : "怪物教授無法下載資料，因為這是未知錯誤。（原因: %@）"
           }
         }
       }
@@ -4889,6 +5302,30 @@
             "value" : "Prof. Monster cannot download the data because the connection is timed out."
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monster cannot download the data because the connection is timed out."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo no puede descargar los datos porque se agotó el tiempo de espera de la conexión."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo no puede descargar los datos porque se agotó el tiempo de espera de la conexión."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstre ne peut télécharger les données car la connexion a expiré."
+          }
+        },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
@@ -4905,6 +5342,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "연결 시간이 초과되어 몬스터 교수가 해당 데이터를 다운로드할 수 없습니다."
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Potwór nie może pobrać danych, ponieważ upłynął limit czasu połączenia."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Prof. Monstro não consegue baixar os dados, porque a conexão expirou."
           }
         },
         "ru" : {
@@ -5028,6 +5477,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fangedbeast"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "fangedbeast"
@@ -5207,6 +5662,12 @@
             "value" : "fangedwyvern"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "fangedwyvern"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5284,6 +5745,12 @@
             "value" : "Favorit"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favourite"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5354,6 +5821,12 @@
     },
     "Favorited" : {
       "localizations" : {
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favourited"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -5374,6 +5847,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Favoriten"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Favourites"
           }
         },
         "es" : {
@@ -5799,6 +6278,12 @@
             "value" : "flyingwyvern"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "flyingwyvern"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6110,6 +6595,12 @@
             "value" : "GPLv3-Lizenz"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "GPLv3 Licence"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6388,6 +6879,12 @@
             "value" : "ほぼ無効"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "거의 효과적이지 않음"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6529,6 +7026,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ice"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ice"
@@ -6752,6 +7255,12 @@
             "value" : "Ud."
           }
         },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Im."
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6829,6 +7338,12 @@
             "value" : "Uderzenie"
           }
         },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Impacto"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -6904,6 +7419,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Żywiołu udarowe"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento de Impacto"
           }
         },
         "ru" : {
@@ -7113,6 +7634,12 @@
             "value" : "In Game"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In Game"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7183,6 +7710,12 @@
     },
     "Include Favorite Group in Search Results" : {
       "localizations" : {
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Include Favourite Group in Search Results"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7236,6 +7769,12 @@
             "value" : "効果なし"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "효과적이지 않다"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7264,88 +7803,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "無效"
-          }
-        }
-      }
-    },
-    "Internal Information" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "معلومات داخلية"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Interne Informationen"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Información interna"
-          }
-        },
-        "es-419" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Información interna"
-          }
-        },
-        "fr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Informations internes"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Informazioni interne"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "内部情報"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "내부 정보"
-          }
-        },
-        "pl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Informacje wewnętrzne"
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Informações Internas"
-          }
-        },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Внутренняя информация"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "内部信息"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "內部訊息"
           }
         }
       }
@@ -7614,6 +8071,12 @@
             "value" : "leviathan"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "leviathan"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -7688,6 +8151,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "LIZENZEN"
+          }
+        },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "LICENCES"
           }
         },
         "es" : {
@@ -8566,6 +9035,12 @@
             "value" : "最も有効"
           }
         },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "가장 효과적인"
+          }
+        },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9347,120 +9822,164 @@
     },
     "Open Browser" : {
       "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ブラウザーで開く"
-          }
-        }
-      }
-    },
-    "Open In New Window" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "新しいウィンドウで開く"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "새 창에서 열기"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在新窗口中打开"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "在新視窗中開啟"
-          }
-        }
-      }
-    },
-    "Physical Attack" : {
-      "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "الهجوم الجسدي"
+            "value" : "فتح متصفح"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Physischer Angriff"
+            "value" : "Browser öffnen"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ataque físico"
+            "value" : "Abrir navegador"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ataque físico"
+            "value" : "Abrir navegador"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Attaque physique"
+            "value" : "Ouvrir le navigateur"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Attacco fisico"
+            "value" : "Apri browser"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "物理攻撃"
+            "value" : "ブラウザーで開く"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "물리 공격"
+            "value" : "브라우저 열기"
           }
         },
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Atak fizyczny"
+            "value" : "Otwórz przeglądarkę"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ataque Físico"
+            "value" : "Abrir Navegador"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Атака физического"
+            "value" : "Открыть браузер"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "物理攻击"
+            "value" : "打开浏览器"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "物理攻擊"
+            "value" : "打開瀏覽器"
+          }
+        }
+      }
+    },
+    "Open New Window" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فتح نافذة جديدة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Neues Fenster öffnen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir nueva ventana"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir ventana nueva"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ouvrir une nouvelle fenêtre"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Apri una nuova finestra"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "新規ウインドウを開く"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "새로운 윈도우 열기"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Otwórz nowe okno"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Abrir Nova Janela"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Открыть новое окно"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打开新窗口"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "打開新視窗"
           }
         }
       }
@@ -9563,6 +10082,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "100"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "100"
@@ -9742,6 +10267,12 @@
             "value" : "piscinewyvern"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "piscinewyvern"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -9806,28 +10337,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "ㄩˊㄌㄨㄥˊㄓㄨㄥˇ"
-          }
-        }
-      }
-    },
-    "Place Variant After Original" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "亜種を原種の後に配置する"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "将亚种置于原种之后"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "將亞種置於原種之後"
           }
         }
       }
@@ -10376,10 +10885,82 @@
     },
     "Save" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "حفظ"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sichern"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enregistrer"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Salva"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "保存"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "저장"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Zachowaj"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Сохранить"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "存储"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "儲存"
           }
         }
       }
@@ -10688,6 +11269,12 @@
             "value" : "Strzał"
           }
         },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiro"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10765,6 +11352,12 @@
             "value" : "Żywiołu strzał"
           }
         },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento de Tiro"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -10781,6 +11374,170 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "射擊屬性"
+          }
+        }
+      }
+    },
+    "Show Internal Information" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إظهار المعلومات الداخلية"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Interne Informationen anzeigen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar información interna"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar información interna"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les informations internes"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra informazioni interne"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "内部情報を表示"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "내부 정보 보기"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokaż informacje wewnętrzne"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar Informações Internas"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать внутреннюю информацию"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示内部信息"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示內部訊息"
+          }
+        }
+      }
+    },
+    "Show Physical Weaknesses" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إظهار نقاط الضعف الجسدية"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Körperliche Schwächen anzeigen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar debilidades físicas"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar debilidades físicas"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Afficher les faiblesses physiques"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra debolezze fisiche"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "物理弱点を表示"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "물리 약점 보기"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Pokaż słabości fizyczne"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostrar Fraquezas Físicas"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Показать физические слабости"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "显示物理弱点"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "顯示物理弱點"
           }
         }
       }
@@ -10840,6 +11597,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "St."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ti."
           }
         },
         "ru" : {
@@ -11251,6 +12014,12 @@
             "value" : "Ciąć"
           }
         },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Corte"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11328,6 +12097,12 @@
             "value" : "Żywiołu cięcie"
           }
         },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elemento de Corte"
+          }
+        },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
@@ -11403,6 +12178,12 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ci."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Co."
           }
         },
         "ru" : {
@@ -11831,6 +12612,12 @@
           }
         },
         "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "temnoceran"
+          }
+        },
+        "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "temnoceran"
@@ -12348,6 +13135,12 @@
             "value" : "???"
           }
         },
+        "en-GB" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "???"
+          }
+        },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
@@ -12412,28 +13205,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "???"
-          }
-        }
-      }
-    },
-    "Variant After Original" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "原種の後に亜種"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "原种之后的亚种"
-          }
-        },
-        "zh-Hant" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "原種之後的亞種"
           }
         }
       }

@@ -7,7 +7,7 @@
 "Favorite" = "Избранное";
 
 "Monster" = "Монстр";
-"Physical Attack" = "Physical Attack";
+"Show Physical Weaknesses" = "Показать физические слабости";
 "Element Attack" = "Атаки стихий";
 "Off" = "Выкл.";
 "Sign" = "Знак";
@@ -20,7 +20,7 @@
 "Swipe" = "Смахивание";
 
 "Developer" = "Разработчик";
-"Internal Information" = "Внутренняя информация";
+"Show Internal Information" = "Показать внутреннюю информацию";
 
 "About App" = "Об этом приложений";
 "Version" = "Версия";

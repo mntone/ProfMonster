@@ -1582,6 +1582,7 @@
 				"pt-BR",
 				"es-419",
 				es,
+				"en-GB",
 			);
 			mainGroup = EBF9281E2B1038C9007D59D4;
 			packageReferences = (

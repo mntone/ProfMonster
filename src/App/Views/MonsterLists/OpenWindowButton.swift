@@ -15,12 +15,12 @@ struct OpenWindowButton: View {
 
 	var body: some View {
 #if os(macOS)
-		Button("Open In New Window", systemImage: "macwindow.badge.plus") {
+		Button("Open New Window", systemImage: "macwindow.badge.plus") {
 			openWindow(value: id)
 		}
 #else
 		if supportsMultipleWindows {
-			Button("Open In New Window", systemImage: "square.split.2x1") {
+			Button("Open New Window", systemImage: "square.split.2x1") {
 				openWindow(value: id)
 			}
 		}

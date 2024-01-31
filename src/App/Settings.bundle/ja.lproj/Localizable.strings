@@ -7,7 +7,7 @@
 "Favorite" = "お気に入り";
 
 "Monster" = "モンスター";
-"Physical Attack" = "物理攻撃";
+"Show Physical Weaknesses" = "物理弱点を表示";
 "Element Attack" = "属性攻撃";
 "Off" = "オフ";
 "Sign" = "記号";
@@ -20,7 +20,7 @@
 "Swipe" = "スワイプ";
 
 "Developer" = "開発";
-"Internal Information" = "内部情報";
+"Show Internal Information" = "内部情報を表示";
 
 "About App" = "アプリ情報";
 "Version" = "バージョン";

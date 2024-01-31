@@ -19,7 +19,7 @@ struct DisplaySettingsPane: View {
 						.pickerStyle(.inline)
 
 						if viewModel.sort.isName {
-							Toggle("Place Variant After Original", isOn: Binding {
+							Toggle("Arrange Variant After Original", isOn: Binding {
 								viewModel.sort.isLinked
 							} set: { _ in
 								viewModel.sort = viewModel.sort.toggleLinked()
@@ -50,7 +50,7 @@ struct DisplaySettingsPane: View {
 
 							if viewModel.sort.isName,
 							   viewModel.sort.isLinked {
-								Text("Variant After Original")
+								Text("Arrange Variant After Original")
 							}
 
 							if !viewModel.groupOption.isNone {
@@ -82,7 +82,7 @@ struct DisplaySettingsPane: View {
 			}
 
 			Section("Monster") {
-				SettingsToggle("Physical Attack",
+				SettingsToggle("Show Physical Weaknesses",
 							   isOn: $viewModel.showPhysicalAttack)
 
 #if os(watchOS)

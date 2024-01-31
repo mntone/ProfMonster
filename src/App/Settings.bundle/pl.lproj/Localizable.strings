@@ -7,7 +7,7 @@
 "Favorite" = "Ulubiony";
 
 "Monster" = "Potwór";
-"Physical Attack" = "Physical Attack";
+"Show Physical Weaknesses" = "Pokaż słabości fizyczne";
 "Element Attack" = "Atak żywiołów";
 "Off" = "Wył.";
 "Sign" = "Podpisać";
@@ -20,7 +20,7 @@
 "Swipe" = "Przeciągnij";
 
 "Developer" = "Deweloper";
-"Internal Information" = "Informacje wewnętrzne";
+"Show Internal Information" = "Pokaż informacje wewnętrzne";
 
 "About App" = "Ta aplikacja";
 "Version" = "Wersja";

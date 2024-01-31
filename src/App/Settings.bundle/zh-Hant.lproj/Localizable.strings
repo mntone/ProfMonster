@@ -7,7 +7,7 @@
 "Favorite" = "收藏夾";
 
 "Monster" = "怪物";
-"Physical Attack" = "Physical Attack";
+"Show Physical Weaknesses" = "顯示物理弱點";
 "Element Attack" = "屬性攻擊";
 "Off" = "關閉";
 "Sign" = "符號";
@@ -20,7 +20,7 @@
 "Swipe" = "滑動";
 
 "Developer" = "開發者";
-"Internal Information" = "內部訊息";
+"Show Internal Information" = "顯示內部訊息";
 
 "About App" = "關於App";
 "Version" = "版本";
