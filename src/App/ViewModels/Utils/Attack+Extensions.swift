@@ -34,7 +34,7 @@ extension Attack {
 		case .thunder:
 			return Image(.thunder)
 		case .ice:
-			return Image(systemName: "snowflake")
+			return Image(.ice)
 		case .dragon:
 			return Image(.dragon)
 		}
