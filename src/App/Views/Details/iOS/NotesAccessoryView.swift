@@ -63,14 +63,10 @@ final class NotesAccessoryView: UIInputView {
 
 	private func updateFont(_ traitCollection: UITraitCollection) {
 		if let doneButton {
-			let limitSize = traitCollection.verticalSizeClass == .compact
-			? 19.0 /* Limit .xLarge for .body. */
-			: 23.0 /* Limit .xxxLarge for .body. */
-
 			let descriptor = UIFontDescriptor.preferredFontDescriptor(withTextStyle: .body, compatibleWith: traitCollection)
 				.withSymbolicTraits(.traitBold)!
 			let font = UIFont(descriptor: descriptor,
-							  size: min(descriptor.pointSize, limitSize))
+							  size: max(17.0 /* .large for body */, min(descriptor.pointSize, 21.0 /* .xxLarge for body */)))
 			doneButton.titleLabel!.font = font
 
 			doneButton.sizeToFit()
