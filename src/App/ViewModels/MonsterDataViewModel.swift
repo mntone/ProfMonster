@@ -108,16 +108,7 @@ struct MonsterDataViewModel: Identifiable {
 
 extension MonsterDataViewModel: Equatable {
 	static func ==(lhs: MonsterDataViewModel, rhs: MonsterDataViewModel) -> Bool {
-		guard lhs.id == rhs.id else { return false }
-
-		switch (lhs.weakness, rhs.weakness) {
-		case let (lw as EffectivenessWeaknessViewModel, rw as EffectivenessWeaknessViewModel):
-			return lw == rw
-		case let (lw as NumberWeaknessViewModel, rw as NumberWeaknessViewModel):
-			return lw == rw
-		default:
-			return false
-		}
+		lhs.id == rhs.id
 	}
 }
 
@@ -142,12 +133,13 @@ enum MonsterDataViewModelFactory {
 					   physiology physiologies: Physiologies,
 					   options: MonsterDataViewModelBuildOptions)  -> [MonsterDataViewModel] {
 		let multipleMode: Bool = physiologies.modes.count > 1
-		return physiologies.modes.map { mode in
+		let data = physiologies.modes.map { mode in
 			MonsterDataViewModel(monster: monster,
 								 mode: mode.mode,
 								 physiology: mode,
 								 multiple: multipleMode,
 								 options: options)
 		}
+		return data
 	}
 }

@@ -63,12 +63,16 @@ struct AccessibilityNumberWeaknessSectionView: View {
 						.preferredVerticalPadding()
 				}
 
-				ForEach(viewModel.items) { item in
-					AccessibilityNumberWeaknessItemView(fractionLength: fractionLength,
-														signFontSize: signFontSize,
-														namespace: namespace,
-														viewModel: item)
-						.preferredVerticalPadding()
+				
+				if let elements = viewModel.elements {
+					Group {
+						AccessibilityNumberWeaknessItemView(fractionLength: fractionLength, signFontSize: signFontSize, namespace: namespace, viewModel: elements.fire)
+						AccessibilityNumberWeaknessItemView(fractionLength: fractionLength, signFontSize: signFontSize, namespace: namespace, viewModel: elements.water)
+						AccessibilityNumberWeaknessItemView(fractionLength: fractionLength, signFontSize: signFontSize, namespace: namespace, viewModel: elements.thunder)
+						AccessibilityNumberWeaknessItemView(fractionLength: fractionLength, signFontSize: signFontSize, namespace: namespace, viewModel: elements.ice)
+						AccessibilityNumberWeaknessItemView(fractionLength: fractionLength, signFontSize: signFontSize, namespace: namespace, viewModel: elements.dragon)
+					}
+					.preferredVerticalPadding()
 				}
 			}
 		}

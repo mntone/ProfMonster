@@ -21,6 +21,7 @@ struct NumberWeaknessItemView: View {
 									  length: fractionLength,
 									  baseSize: signFontSize,
 									  weight: viewModel.signWeight)
+				.lineLimit(1)
 #if !os(macOS)
 				.minimumScaleFactor(0.5)
 #endif

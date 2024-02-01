@@ -2,7 +2,7 @@ import enum MonsterAnalyzerCore.Attack
 import struct MonsterAnalyzerCore.Physiology
 import struct MonsterAnalyzerCore.Weakness
 
-protocol WeaknessViewModel: Identifiable, Hashable {
+protocol WeaknessViewModel: Identifiable {
 	associatedtype Section: WeaknessSectionViewModel
 
 	var sections: [Section] { get }

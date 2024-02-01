@@ -9,12 +9,40 @@ struct PhysicalWeaknessSectionViewModel: Hashable {
 	let shot: PhysicalWeaknessItemViewModel
 }
 
-protocol WeaknessSectionViewModel: Identifiable, Hashable {
+struct ElementWeaknessSectionViewModel<ViewModel: WeaknessItemViewModel> {
+	let fire: ViewModel
+	let water: ViewModel
+	let thunder: ViewModel
+	let ice: ViewModel
+	let dragon: ViewModel
+}
+
+extension ElementWeaknessSectionViewModel where ViewModel == NumberWeaknessItemViewModel {
+	static func compareEffectiveness(_ lhs: ElementWeaknessSectionViewModel, _ rhs: ElementWeaknessSectionViewModel) -> Bool {
+		NumberWeaknessItemViewModel.compareEffectiveness(lhs.fire, rhs.fire)
+		&& NumberWeaknessItemViewModel.compareEffectiveness(lhs.water, rhs.water)
+		&& NumberWeaknessItemViewModel.compareEffectiveness(lhs.thunder, rhs.thunder)
+		&& NumberWeaknessItemViewModel.compareEffectiveness(lhs.ice, rhs.ice)
+		&& NumberWeaknessItemViewModel.compareEffectiveness(lhs.dragon, rhs.dragon)
+	}
+}
+
+extension ElementWeaknessSectionViewModel: Equatable where ViewModel == NumberWeaknessItemViewModel {
+	static func ==(lhs: ElementWeaknessSectionViewModel, rhs: ElementWeaknessSectionViewModel) -> Bool {
+		lhs.fire == rhs.fire
+		&& lhs.water == rhs.water
+		&& lhs.thunder == rhs.thunder
+		&& lhs.ice == rhs.ice
+		&& lhs.dragon == rhs.dragon
+	}
+}
+
+protocol WeaknessSectionViewModel: Identifiable {
 	associatedtype Item: WeaknessItemViewModel
 
 	var header: String { get }
 	var physical: PhysicalWeaknessSectionViewModel? { get }
-	var items: [Item] { get }
+	var elements: ElementWeaknessSectionViewModel<Item>? { get }
 	var isDefault: Bool { get }
 	var options: MonsterDataViewModelBuildOptions { get }
 }
@@ -23,7 +51,7 @@ struct EffectivenessWeaknessSectionViewModel: WeaknessSectionViewModel {
 	let id: String
 	let header: String
 	let isDefault: Bool
-	let items: [EffectivenessWeaknessItemViewModel]
+	let elements: ElementWeaknessSectionViewModel<EffectivenessWeaknessItemViewModel>?
 	let options: MonsterDataViewModelBuildOptions
 
 	var physical: PhysicalWeaknessSectionViewModel? {
@@ -32,13 +60,13 @@ struct EffectivenessWeaknessSectionViewModel: WeaknessSectionViewModel {
 
 	init(id: String,
 		 header: String,
-		 items: [EffectivenessWeaknessItemViewModel],
+		 elements: ElementWeaknessSectionViewModel<EffectivenessWeaknessItemViewModel>?,
 		 isDefault: Bool,
 		 options: MonsterDataViewModelBuildOptions) {
 		self.id = id
 		self.header = header
 		self.isDefault = isDefault
-		self.items = items
+		self.elements = elements
 		self.options = options
 	}
 
@@ -51,13 +79,14 @@ struct EffectivenessWeaknessSectionViewModel: WeaknessSectionViewModel {
 		self.header = weakness.state
 		self.isDefault = key == "default"
 		if options.element != .none {
-			self.items = Element.allCases.map { element in
-				EffectivenessWeaknessItemViewModel(prefixID: id,
-												   element: element,
-												   effectiveness: weakness.value(of: element))
-			}
+			self.elements = ElementWeaknessSectionViewModel(
+				fire: EffectivenessWeaknessItemViewModel(prefixID: id, element: .fire, effectiveness: weakness.fire),
+				water: EffectivenessWeaknessItemViewModel(prefixID: id, element: .water, effectiveness: weakness.water),
+				thunder: EffectivenessWeaknessItemViewModel(prefixID: id, element: .thunder, effectiveness: weakness.thunder),
+				ice: EffectivenessWeaknessItemViewModel(prefixID: id, element: .ice, effectiveness: weakness.ice),
+				dragon: EffectivenessWeaknessItemViewModel(prefixID: id, element: .dragon, effectiveness: weakness.dragon))
 		} else {
-			self.items = []
+			self.elements = nil
 		}
 		self.options = options
 	}
@@ -68,20 +97,20 @@ struct NumberWeaknessSectionViewModel: WeaknessSectionViewModel {
 	let header: String
 	let isDefault: Bool
 	let physical: PhysicalWeaknessSectionViewModel?
-	let items: [NumberWeaknessItemViewModel]
+	let elements: ElementWeaknessSectionViewModel<NumberWeaknessItemViewModel>?
 	let options: MonsterDataViewModelBuildOptions
 
 	init(id: String,
 		 header: String,
 		 physical: PhysicalWeaknessSectionViewModel?,
-		 items: [NumberWeaknessItemViewModel],
+		 elements: ElementWeaknessSectionViewModel<NumberWeaknessItemViewModel>?,
 		 isDefault: Bool,
 		 options: MonsterDataViewModelBuildOptions) {
 		self.id = id
 		self.header = header
 		self.isDefault = isDefault
 		self.physical = physical
-		self.items = items
+		self.elements = elements
 		self.options = options
 	}
 
@@ -92,7 +121,7 @@ struct NumberWeaknessSectionViewModel: WeaknessSectionViewModel {
 		self.header = header
 		self.isDefault = isDefault
 		self.physical = base.physical
-		self.items = base.items
+		self.elements = base.elements
 		self.options = base.options
 	}
 
@@ -117,29 +146,17 @@ struct NumberWeaknessSectionViewModel: WeaknessSectionViewModel {
 			let elements = Element.allCases
 			let val = physiology.average.values(of: elements)
 			let top = val.max() ?? 0
-			self.items = zip(elements, val).map { element, val in
-				NumberWeaknessItemViewModel(prefixID: id,
-											element: element,
-											averageValue: val,
-											topValue: top)
-			}
+			self.elements = ElementWeaknessSectionViewModel(
+				fire: NumberWeaknessItemViewModel(prefixID: id, element: .fire, averageValue: physiology.average.fire, topValue: top),
+				water: NumberWeaknessItemViewModel(prefixID: id, element: .water, averageValue: physiology.average.water, topValue: top),
+				thunder: NumberWeaknessItemViewModel(prefixID: id, element: .thunder, averageValue: physiology.average.thunder, topValue: top),
+				ice: NumberWeaknessItemViewModel(prefixID: id, element: .ice, averageValue: physiology.average.ice, topValue: top),
+				dragon: NumberWeaknessItemViewModel(prefixID: id, element: .dragon, averageValue: physiology.average.dragon, topValue: top))
 		} else {
-			self.items = []
+			self.elements = nil
 		}
 
 		self.options = options
-	}
-
-	static func compareEffectiveness(_ lhs: NumberWeaknessSectionViewModel, _ rhs: NumberWeaknessSectionViewModel) -> Bool {
-		zip(lhs.items, rhs.items).allSatisfy { lhs, rhs in
-			NumberWeaknessItemViewModel.compareEffectiveness(lhs, rhs)
-		}
-	}
-
-	static func compareValue(_ lhs: NumberWeaknessSectionViewModel, _ rhs: NumberWeaknessSectionViewModel) -> Bool {
-		zip(lhs.items, rhs.items).allSatisfy { lhs, rhs in
-			lhs == rhs
-		}
 	}
 }
 
@@ -154,9 +171,15 @@ extension NumberWeaknessSectionViewModel: Equatable {
 			physical = true
 		}
 		if lhs.options.element == .sign {
-			return physical && NumberWeaknessSectionViewModel.compareEffectiveness(lhs, rhs)
+			if !physical {
+				return false
+			} else if let a = lhs.elements, let b = rhs.elements {
+				return ElementWeaknessSectionViewModel.compareEffectiveness(a, b)
+			} else {
+				return false
+			}
 		} else {
-			return physical && NumberWeaknessSectionViewModel.compareValue(lhs, rhs)
+			return physical && lhs.elements == rhs.elements
 		}
 	}
 }

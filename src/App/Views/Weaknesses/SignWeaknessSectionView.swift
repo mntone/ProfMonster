@@ -33,15 +33,25 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 													 viewModel: viewModel.physical)
 			}
 
-			HStack(alignment: .bottom, spacing: 0) {
-				ForEach(viewModel.items) { item in
-					SignWeaknessItemView(namespace: namespace,
-										 viewModel: item)
+			if let elements = viewModel.elements {
+				HStack(alignment: .bottom, spacing: 0) {
+					Group {
+						SignWeaknessItemView(namespace: namespace,
+											 viewModel: elements.fire)
+						SignWeaknessItemView(namespace: namespace,
+											 viewModel: elements.water)
+						SignWeaknessItemView(namespace: namespace,
+											 viewModel: elements.thunder)
+						SignWeaknessItemView(namespace: namespace,
+											 viewModel: elements.ice)
+						SignWeaknessItemView(namespace: namespace,
+											 viewModel: elements.dragon)
+					}
+					.frame(width: itemWidth)
 				}
-				.frame(width: itemWidth)
-			}
-			.onWidthChange { width in
-				updateItemWidth(from: width)
+				.onWidthChange { width in
+					updateItemWidth(from: width)
+				}
 			}
 		} header: {
 			if viewModel.isDefault {
@@ -73,13 +83,29 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 						.padding(.vertical, spacing)
 				}
 
-				if !viewModel.items.isEmpty {
+				if let elements = viewModel.elements {
 					DividedHStack(alignment: .bottom, spacing: 0) {
-						ForEach(viewModel.items) { item in
+						Group {
 							SignWeaknessItemView(alignment: alignment,
 												 signFontSize: signFontSize,
 												 namespace: namespace,
-												 viewModel: item)
+												 viewModel: elements.fire)
+							SignWeaknessItemView(alignment: alignment,
+												 signFontSize: signFontSize,
+												 namespace: namespace,
+												 viewModel: elements.water)
+							SignWeaknessItemView(alignment: alignment,
+												 signFontSize: signFontSize,
+												 namespace: namespace,
+												 viewModel: elements.thunder)
+							SignWeaknessItemView(alignment: alignment,
+												 signFontSize: signFontSize,
+												 namespace: namespace,
+												 viewModel: elements.ice)
+							SignWeaknessItemView(alignment: alignment,
+												 signFontSize: signFontSize,
+												 namespace: namespace,
+												 viewModel: elements.dragon)
 						}
 						.padding(.horizontal, padding)
 						.frame(minWidth: 0,
@@ -100,6 +126,6 @@ struct SignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>: View {
 	}
 
 	private func updateItemWidth(from containerSize: CGFloat) {
-		itemWidth = min(WeaknessViewMetrics.maxItemWidth, containerSize / CGFloat(viewModel.items.count))
+		itemWidth = min(WeaknessViewMetrics.maxItemWidth, 0.2 * containerSize)
 	}
 }

@@ -61,8 +61,12 @@ struct AccessibilitySignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>
 													 viewModel: viewModel.physical)
 			}
 
-			ForEach(viewModel.items) { item in
-				_AccessibilitySignWeaknessItemView(namespace: namespace, viewModel: item)
+			if let elements = viewModel.elements {
+				_AccessibilitySignWeaknessItemView(namespace: namespace, viewModel: elements.fire)
+				_AccessibilitySignWeaknessItemView(namespace: namespace, viewModel: elements.water)
+				_AccessibilitySignWeaknessItemView(namespace: namespace, viewModel: elements.thunder)
+				_AccessibilitySignWeaknessItemView(namespace: namespace, viewModel: elements.ice)
+				_AccessibilitySignWeaknessItemView(namespace: namespace, viewModel: elements.dragon)
 			}
 		} header: {
 			if viewModel.isDefault {
@@ -84,11 +88,15 @@ struct AccessibilitySignWeaknessSectionView<ViewModel: WeaknessSectionViewModel>
 						.preferredVerticalPadding()
 				}
 
-				ForEach(viewModel.items) { item in
-					_AccessibilitySignWeaknessItemView(signFontSize: signFontSize,
-													   namespace: namespace,
-													   viewModel: item)
-						.preferredVerticalPadding()
+				if let elements = viewModel.elements {
+					Group {
+						_AccessibilitySignWeaknessItemView(signFontSize: signFontSize, namespace: namespace, viewModel: elements.fire)
+						_AccessibilitySignWeaknessItemView(signFontSize: signFontSize, namespace: namespace, viewModel: elements.water)
+						_AccessibilitySignWeaknessItemView(signFontSize: signFontSize, namespace: namespace, viewModel: elements.thunder)
+						_AccessibilitySignWeaknessItemView(signFontSize: signFontSize, namespace: namespace, viewModel: elements.ice)
+						_AccessibilitySignWeaknessItemView(signFontSize: signFontSize, namespace: namespace, viewModel: elements.dragon)
+					}
+					.preferredVerticalPadding()
 				}
 			}
 		}

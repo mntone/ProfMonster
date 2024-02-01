@@ -45,15 +45,15 @@ struct NumberWeaknessSectionView: View {
 						.padding(.vertical, spacing)
 				}
 
-				if !viewModel.items.isEmpty {
+				if let elements = viewModel.elements {
 					DividedHStack(alignment: .bottom, spacing: 0) {
-						ForEach(viewModel.items) { item in
-							NumberWeaknessItemView(fractionLength: fractionLength,
-												   signFontSize: signFontSize,
-												   namespace: namespace,
-												   viewModel: item)
+						Group {
+							NumberWeaknessItemView(fractionLength: fractionLength, signFontSize: signFontSize, namespace: namespace, viewModel: elements.fire)
+							NumberWeaknessItemView(fractionLength: fractionLength, signFontSize: signFontSize, namespace: namespace, viewModel: elements.water)
+							NumberWeaknessItemView(fractionLength: fractionLength, signFontSize: signFontSize, namespace: namespace, viewModel: elements.thunder)
+							NumberWeaknessItemView(fractionLength: fractionLength, signFontSize: signFontSize, namespace: namespace, viewModel: elements.ice)
+							NumberWeaknessItemView(fractionLength: fractionLength, signFontSize: signFontSize, namespace: namespace, viewModel: elements.dragon)
 						}
-						.lineLimit(1)
 						.padding(.horizontal, padding)
 						.frame(minWidth: 0,
 							   idealWidth: itemWidth,
@@ -72,6 +72,6 @@ struct NumberWeaknessSectionView: View {
 	}
 
 	private func updateItemWidth(from containerSize: CGFloat) {
-		itemWidth = min(WeaknessViewMetrics.maxItemWidth, containerSize / CGFloat(viewModel.items.count))
+		itemWidth = min(WeaknessViewMetrics.maxItemWidth, 0.2 * containerSize)
 	}
 }
