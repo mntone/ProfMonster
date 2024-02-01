@@ -340,7 +340,7 @@
 		EBEA6F7F2B1A1B2D00734AAA /* HBorderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F7C2B1A1B1100734AAA /* HBorderView.swift */; };
 		EBEA6F822B1A205300734AAA /* MessagePacker in Frameworks */ = {isa = PBXBuildFile; productRef = EBEA6F812B1A205300734AAA /* MessagePacker */; };
 		EBEA6F842B1A208200734AAA /* DiskStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEA6F832B1A208200734AAA /* DiskStorage.swift */; };
-		EBEAB0C32B42378100CC25A8 /* MonsterNavigationBarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEAB0C22B42378100CC25A8 /* MonsterNavigationBarHeader.swift */; };
+		EBEAB0C32B42378100CC25A8 /* MonsterNavigationBarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBEAB0C22B42378100CC25A8 /* MonsterNavigationBarHeader.swift */; platformFilter = ios; };
 		EBEAB0C42B423A7200CC25A8 /* MonsterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF9282C2B1038C9007D59D4 /* MonsterView.swift */; };
 		EBF684A42B2D4C5D0071981F /* Physiology.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A32B2D4C5D0071981F /* Physiology.swift */; };
 		EBF684A72B2D50060071981F /* PhysiologyMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF684A62B2D50060071981F /* PhysiologyMapper.swift */; };
@@ -724,6 +724,7 @@
 			isa = PBXGroup;
 			children = (
 				EB02AF7F2B6524C3004F6422 /* MATextField.swift */,
+				EBEAB0C22B42378100CC25A8 /* MonsterNavigationBarHeader.swift */,
 				EB02AF7D2B65095A004F6422 /* NotesAccessoryView.swift */,
 			);
 			path = iOS;
@@ -1338,7 +1339,6 @@
 				EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */,
 				EBDF16D42B6892F100FF6B91 /* ModeSelection.swift */,
 				EB7DAA652B4FD3410003210E /* MonsterColumn.swift */,
-				EBEAB0C22B42378100CC25A8 /* MonsterNavigationBarHeader.swift */,
 				EB7DAA672B4FD36D0003210E /* MonsterPage.swift */,
 				EBF9282C2B1038C9007D59D4 /* MonsterView.swift */,
 				EB5445572B527D12008E7A48 /* MonsterWindow.swift */,

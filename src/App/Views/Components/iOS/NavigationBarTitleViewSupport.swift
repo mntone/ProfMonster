@@ -41,9 +41,10 @@ struct NavigationBarTitleViewSupport<Content: View>: View {
 			}
 		}
 
-		// Fix iOS 15 and add narrow height support for iOS 16+
-		.dynamicTypeSize(...(narrow ? DynamicTypeSize.large : DynamicTypeSize.xxLarge))
+		// Fix iOS 15
+		.dynamicTypeSize(DynamicTypeSize.large...DynamicTypeSize.xxLarge)
 
+		// Add narrow height support
 		.environment(\.narrowNavigationBar, narrow)
 	}
 
