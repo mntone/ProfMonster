@@ -42,6 +42,10 @@ struct EffectivenessWeaknessViewModel: WeaknessViewModel {
 }
 
 struct NumberWeaknessViewModel: WeaknessViewModel {
+	private static let separator: String = {
+		String(localized: "/")
+	}()
+
 	let id: String
 	let sections: [NumberWeaknessSectionViewModel]
 	let options: MonsterDataViewModelBuildOptions
@@ -59,11 +63,34 @@ struct NumberWeaknessViewModel: WeaknessViewModel {
 		 options: MonsterDataViewModelBuildOptions) {
 		let id = "\(prefixID):w"
 		self.id = id
-		self.sections = physiology.states.map { section in
+		var sections = physiology.states.map { section in
 			NumberWeaknessSectionViewModel(prefixID: id,
 										   physiology: section,
 										   options: options)
 		}
+
+		// Merge objects with same value.
+		var i = sections.count - 1
+		while i >= 0 {
+			let a = sections[i]
+			for j in 0..<i {
+				let b = sections[j]
+				if a == b {
+					if a.isDefault {
+						sections[j] = b
+					} else if !b.isDefault {
+						let header = b.header + Self.separator + a.header
+						sections[j] = NumberWeaknessSectionViewModel(header: header,
+																	 isDefault: false,
+																	 from: a)
+					}
+					sections.remove(at: i)
+					break
+				}
+			}
+			i = i - 1
+		}
+		self.sections = sections
 		self.options = options
 	}
 }

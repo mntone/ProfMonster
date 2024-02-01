@@ -97,19 +97,7 @@ struct MonsterDataViewModel: Identifiable {
 			let weakness = NumberWeaknessViewModel(prefixID: id,
 												   physiology: physiology,
 												   options: options)
-			if options.element == .sign {
-				if let defaultWeakness = weakness.sections.first(where: { $0.isDefault }) {
-					self.weakness = NumberWeaknessViewModel(id: weakness.id,
-															sections: weakness.sections.filter {
-						$0.isDefault || !NumberWeaknessSectionViewModel.compareEffectiveness(lhs: $0, rhs: defaultWeakness)
-					},
-															options: options)
-				} else {
-					self.weakness = weakness
-				}
-			} else {
-				self.weakness = weakness
-			}
+			self.weakness = weakness
 		} else {
 			self.weakness = nil
 		}

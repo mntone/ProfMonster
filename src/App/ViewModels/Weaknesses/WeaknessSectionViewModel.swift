@@ -85,6 +85,17 @@ struct NumberWeaknessSectionViewModel: WeaknessSectionViewModel {
 		self.options = options
 	}
 
+	init(header: String,
+		 isDefault: Bool,
+		 from base: NumberWeaknessSectionViewModel) {
+		self.id = base.id
+		self.header = header
+		self.isDefault = isDefault
+		self.physical = base.physical
+		self.items = base.items
+		self.options = base.options
+	}
+
 	init(prefixID: String,
 		 physiology: PhysiologyStateGroup,
 		 options: MonsterDataViewModelBuildOptions) {
@@ -119,9 +130,33 @@ struct NumberWeaknessSectionViewModel: WeaknessSectionViewModel {
 		self.options = options
 	}
 
-	static func compareEffectiveness(lhs: NumberWeaknessSectionViewModel, rhs: NumberWeaknessSectionViewModel) -> Bool {
+	static func compareEffectiveness(_ lhs: NumberWeaknessSectionViewModel, _ rhs: NumberWeaknessSectionViewModel) -> Bool {
 		zip(lhs.items, rhs.items).allSatisfy { lhs, rhs in
-			NumberWeaknessItemViewModel.compareEffectiveness(lhs: lhs, rhs: rhs)
+			NumberWeaknessItemViewModel.compareEffectiveness(lhs, rhs)
+		}
+	}
+
+	static func compareValue(_ lhs: NumberWeaknessSectionViewModel, _ rhs: NumberWeaknessSectionViewModel) -> Bool {
+		zip(lhs.items, rhs.items).allSatisfy { lhs, rhs in
+			lhs == rhs
+		}
+	}
+}
+
+extension NumberWeaknessSectionViewModel: Equatable {
+	static func ==(lhs: NumberWeaknessSectionViewModel, rhs: NumberWeaknessSectionViewModel) -> Bool {
+		precondition(lhs.options.element == rhs.options.element)
+
+		let physical: Bool
+		if lhs.options.physical {
+			physical = lhs.physical == rhs.physical
+		} else {
+			physical = true
+		}
+		if lhs.options.element == .sign {
+			return physical && NumberWeaknessSectionViewModel.compareEffectiveness(lhs, rhs)
+		} else {
+			return physical && NumberWeaknessSectionViewModel.compareValue(lhs, rhs)
 		}
 	}
 }
