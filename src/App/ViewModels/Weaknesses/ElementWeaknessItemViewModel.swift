@@ -52,6 +52,17 @@ struct ElementWeaknessItemViewModel: Identifiable, Hashable {
 	static func compareEffectiveness(_ lhs: ElementWeaknessItemViewModel, _ rhs: ElementWeaknessItemViewModel) -> Bool {
 		lhs.effectiveness == rhs.effectiveness
 	}
+
+	static func compareNumber(_ lhs: ElementWeaknessItemViewModel, _ rhs: ElementWeaknessItemViewModel) -> Bool {
+		switch (lhs.average, rhs.average) {
+		case let (.some(a), .some(b)):
+			a.isEqual(to: b)
+		case (.none, .none):
+			true
+		default:
+			false
+		}
+	}
 }
 
 extension ElementWeaknessItemViewModel {
@@ -70,19 +81,6 @@ extension ElementWeaknessItemViewModel {
 			return .bold
 		case .hardlyEffective, .ineffective:
 			return .semibold
-		}
-	}
-}
-
-extension ElementWeaknessItemViewModel: Equatable {
-	static func == (lhs: ElementWeaknessItemViewModel, rhs: ElementWeaknessItemViewModel) -> Bool {
-		switch (lhs.average, rhs.average) {
-		case let (.some(a), .some(b)):
-			a.isEqual(to: b)
-		case (.none, .none):
-			true
-		default:
-			false
 		}
 	}
 }

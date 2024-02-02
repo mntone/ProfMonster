@@ -54,7 +54,7 @@ struct WeaknessViewModel: Identifiable, Hashable {
 			let a = sections[i]
 			for j in 0..<i {
 				let b = sections[j]
-				if a == b {
+				if WeaknessSectionViewModel.compareContent(a, b) {
 					if a.isDefault {
 						sections[j] = b
 					} else if !b.isDefault {

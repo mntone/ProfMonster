@@ -23,15 +23,13 @@ struct ElementWeaknessSectionViewModel: Hashable {
 		&& ElementWeaknessItemViewModel.compareEffectiveness(lhs.ice, rhs.ice)
 		&& ElementWeaknessItemViewModel.compareEffectiveness(lhs.dragon, rhs.dragon)
 	}
-}
 
-extension ElementWeaknessSectionViewModel: Equatable {
-	static func ==(lhs: ElementWeaknessSectionViewModel, rhs: ElementWeaknessSectionViewModel) -> Bool {
-		lhs.fire == rhs.fire
-		&& lhs.water == rhs.water
-		&& lhs.thunder == rhs.thunder
-		&& lhs.ice == rhs.ice
-		&& lhs.dragon == rhs.dragon
+	static func compareNumber(_ lhs: ElementWeaknessSectionViewModel, _ rhs: ElementWeaknessSectionViewModel) -> Bool {
+		ElementWeaknessItemViewModel.compareNumber(lhs.fire, rhs.fire)
+		&& ElementWeaknessItemViewModel.compareNumber(lhs.water, rhs.water)
+		&& ElementWeaknessItemViewModel.compareNumber(lhs.thunder, rhs.thunder)
+		&& ElementWeaknessItemViewModel.compareNumber(lhs.ice, rhs.ice)
+		&& ElementWeaknessItemViewModel.compareNumber(lhs.dragon, rhs.dragon)
 	}
 }
 
@@ -123,22 +121,20 @@ struct WeaknessSectionViewModel: Identifiable, Hashable {
 
 		self.options = options
 	}
-}
 
-extension WeaknessSectionViewModel: Equatable {
-	static func ==(lhs: WeaknessSectionViewModel, rhs: WeaknessSectionViewModel) -> Bool {
+	static func compareContent(_ lhs: WeaknessSectionViewModel, _ rhs: WeaknessSectionViewModel) -> Bool {
 		guard lhs.physical == rhs.physical else {
 			return false
 		}
 
-		if lhs.options.element == .sign {
-			if let a = lhs.elements, let b = rhs.elements {
+		if let a = lhs.elements, let b = rhs.elements {
+			if lhs.options.element == .sign {
 				return ElementWeaknessSectionViewModel.compareEffectiveness(a, b)
 			} else {
-				return false
+				return ElementWeaknessSectionViewModel.compareNumber(a, b)
 			}
 		} else {
-			return lhs.elements == rhs.elements
+			return false
 		}
 	}
 }
