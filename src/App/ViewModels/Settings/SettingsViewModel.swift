@@ -12,7 +12,7 @@ final class SettingsViewModel: ObservableObject {
 	private let mockData: Physiology
 
 	@Published
-	private(set) var elementAttackPreview: NumberWeaknessViewModel?
+	private(set) var elementAttackPreview: WeaknessViewModel?
 #endif
 
 #if os(watchOS)
@@ -143,7 +143,7 @@ final class SettingsViewModel: ObservableObject {
 	private func updateElementAttack() {
 		if elementAttack != .none {
 			let options = MonsterDataViewModelBuildOptions(physical: false, element: elementAttack)
-			let viewModel = NumberWeaknessViewModel(prefixID: "settings", physiology: mockData, options: options)
+			let viewModel = WeaknessViewModel(prefixID: "settings", physiology: mockData, options: options)
 			elementAttackPreview = viewModel
 		} else {
 			elementAttackPreview = nil

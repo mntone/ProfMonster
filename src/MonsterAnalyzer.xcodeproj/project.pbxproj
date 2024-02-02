@@ -74,18 +74,16 @@
 		EB560BCF2B42F48800E91E01 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */; };
 		EB560BD42B4386D700E91E01 /* StateOverlayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BD32B4386D700E91E01 /* StateOverlayModifier.swift */; };
 		EB560BD52B4386D700E91E01 /* StateOverlayModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB560BD32B4386D700E91E01 /* StateOverlayModifier.swift */; };
-		EB5672022B5747ED00592413 /* WeaknessItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672002B5746EA00592413 /* WeaknessItemViewModel.swift */; };
-		EB5672032B5747ED00592413 /* WeaknessItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672002B5746EA00592413 /* WeaknessItemViewModel.swift */; };
+		EB5672022B5747ED00592413 /* ElementWeaknessItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672002B5746EA00592413 /* ElementWeaknessItemViewModel.swift */; };
+		EB5672032B5747ED00592413 /* ElementWeaknessItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672002B5746EA00592413 /* ElementWeaknessItemViewModel.swift */; };
 		EB5672052B574B7800592413 /* WeaknessSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672042B574B7800592413 /* WeaknessSectionViewModel.swift */; };
 		EB5672062B574B7800592413 /* WeaknessSectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672042B574B7800592413 /* WeaknessSectionViewModel.swift */; };
 		EB5672082B57748D00592413 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672072B57748D00592413 /* ProgressIndicatorView.swift */; };
 		EB5672092B57748D00592413 /* ProgressIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672072B57748D00592413 /* ProgressIndicatorView.swift */; };
-		EB56720C2B57870200592413 /* SignWeaknessItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56720B2B57870200592413 /* SignWeaknessItemView.swift */; };
-		EB56720D2B57870200592413 /* SignWeaknessItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56720B2B57870200592413 /* SignWeaknessItemView.swift */; };
-		EB56720F2B5787DA00592413 /* NumberWeaknessItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56720E2B5787DA00592413 /* NumberWeaknessItemView.swift */; };
-		EB5672112B578FFD00592413 /* SignWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672102B578FFD00592413 /* SignWeaknessSectionView.swift */; };
-		EB5672122B578FFD00592413 /* SignWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672102B578FFD00592413 /* SignWeaknessSectionView.swift */; };
-		EB5672142B5790BF00592413 /* NumberWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672132B5790BF00592413 /* NumberWeaknessSectionView.swift */; };
+		EB56720C2B57870200592413 /* ElementWeaknessItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56720B2B57870200592413 /* ElementWeaknessItemView.swift */; };
+		EB56720D2B57870200592413 /* ElementWeaknessItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56720B2B57870200592413 /* ElementWeaknessItemView.swift */; };
+		EB5672112B578FFD00592413 /* WeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672102B578FFD00592413 /* WeaknessSectionView.swift */; };
+		EB5672122B578FFD00592413 /* WeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672102B578FFD00592413 /* WeaknessSectionView.swift */; };
 		EB5672182B57935300592413 /* WeaknessViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672172B57935300592413 /* WeaknessViewMetrics.swift */; };
 		EB5672192B57935300592413 /* WeaknessViewMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672172B57935300592413 /* WeaknessViewMetrics.swift */; };
 		EB56721C2B57C92C00592413 /* MAFormRoundedBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56721B2B57C92C00592413 /* MAFormRoundedBackground.swift */; };
@@ -96,7 +94,6 @@
 		EB5672242B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672232B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift */; };
 		EB5672272B57D60D00592413 /* MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672262B57D60D00592413 /* MAForm.swift */; };
 		EB5672282B57D60D00592413 /* MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5672262B57D60D00592413 /* MAForm.swift */; };
-		EB56722C2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722B2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift */; platformFilter = ios; };
 		EB56722E2B580E3700592413 /* SizeChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722D2B580E3700592413 /* SizeChangeModifier.swift */; };
 		EB56722F2B580E3700592413 /* SizeChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB56722D2B580E3700592413 /* SizeChangeModifier.swift */; };
 		EB58FB6F2B5C9BE600A4B975 /* MobileMetrics.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB58FB6E2B5C9BE600A4B975 /* MobileMetrics.swift */; platformFilter = ios; };
@@ -128,8 +125,8 @@
 		EB6FF1DA2B48DA5400118E0F /* SettingsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */; };
 		EB6FF1DB2B48DA5400118E0F /* SettingsToggle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */; };
 		EB6FF1DF2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */; };
-		EB71C1382B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1372B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift */; platformFilter = ios; };
-		EB71C1392B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1372B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift */; };
+		EB71C1382B5B5BF20013FBBC /* AccessibilityWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1372B5B5BF20013FBBC /* AccessibilityWeaknessSectionView.swift */; platformFilter = ios; };
+		EB71C1392B5B5BF20013FBBC /* AccessibilityWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C1372B5B5BF20013FBBC /* AccessibilityWeaknessSectionView.swift */; };
 		EB71C13B2B5B60CA0013FBBC /* MAFormMetricsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C13A2B5B60CA0013FBBC /* MAFormMetricsBuilder.swift */; };
 		EB71C13C2B5B6FF10013FBBC /* EnvironmentValues+MAForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71F8712B5A0D4300999269 /* EnvironmentValues+MAForm.swift */; };
 		EB71C13E2B5BB56E0013FBBC /* ChromeShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB71C13D2B5BB56E0013FBBC /* ChromeShadow.swift */; };
@@ -485,20 +482,17 @@
 		EB5445592B527F80008E7A48 /* OpenWindowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWindowButton.swift; sourceTree = "<group>"; };
 		EB560BCD2B42F48800E91E01 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
 		EB560BD32B4386D700E91E01 /* StateOverlayModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateOverlayModifier.swift; sourceTree = "<group>"; };
-		EB5672002B5746EA00592413 /* WeaknessItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaknessItemViewModel.swift; sourceTree = "<group>"; };
+		EB5672002B5746EA00592413 /* ElementWeaknessItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementWeaknessItemViewModel.swift; sourceTree = "<group>"; };
 		EB5672042B574B7800592413 /* WeaknessSectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaknessSectionViewModel.swift; sourceTree = "<group>"; };
 		EB5672072B57748D00592413 /* ProgressIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressIndicatorView.swift; sourceTree = "<group>"; };
-		EB56720B2B57870200592413 /* SignWeaknessItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignWeaknessItemView.swift; sourceTree = "<group>"; };
-		EB56720E2B5787DA00592413 /* NumberWeaknessItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberWeaknessItemView.swift; sourceTree = "<group>"; };
-		EB5672102B578FFD00592413 /* SignWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignWeaknessSectionView.swift; sourceTree = "<group>"; };
-		EB5672132B5790BF00592413 /* NumberWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberWeaknessSectionView.swift; sourceTree = "<group>"; };
+		EB56720B2B57870200592413 /* ElementWeaknessItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElementWeaknessItemView.swift; sourceTree = "<group>"; };
+		EB5672102B578FFD00592413 /* WeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaknessSectionView.swift; sourceTree = "<group>"; };
 		EB5672172B57935300592413 /* WeaknessViewMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaknessViewMetrics.swift; sourceTree = "<group>"; };
 		EB56721B2B57C92C00592413 /* MAFormRoundedBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAFormRoundedBackground.swift; sourceTree = "<group>"; };
 		EB56721D2B57C96A00592413 /* MASectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MASectionHeader.swift; sourceTree = "<group>"; };
 		EB5672202B57C9A200592413 /* MASection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MASection.swift; sourceTree = "<group>"; };
 		EB5672232B57CB1B00592413 /* MAFormSeparatedRoundedBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAFormSeparatedRoundedBackground.swift; sourceTree = "<group>"; };
 		EB5672262B57D60D00592413 /* MAForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAForm.swift; sourceTree = "<group>"; };
-		EB56722B2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityNumberWeaknessSectionView.swift; sourceTree = "<group>"; };
 		EB56722D2B580E3700592413 /* SizeChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeChangeModifier.swift; sourceTree = "<group>"; };
 		EB58FB6E2B5C9BE600A4B975 /* MobileMetrics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileMetrics.swift; sourceTree = "<group>"; };
 		EB6297F12B37179200E830E6 /* View+Block.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Block.swift"; sourceTree = "<group>"; };
@@ -516,7 +510,7 @@
 		EB6FF1D32B48CEFF00118E0F /* SettingsPreferredList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPreferredList.swift; sourceTree = "<group>"; };
 		EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsToggle.swift; sourceTree = "<group>"; };
 		EB6FF1DE2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferredVerticalPaddingModifier.swift; sourceTree = "<group>"; };
-		EB71C1372B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilitySignWeaknessSectionView.swift; sourceTree = "<group>"; };
+		EB71C1372B5B5BF20013FBBC /* AccessibilityWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessibilityWeaknessSectionView.swift; sourceTree = "<group>"; };
 		EB71C13A2B5B60CA0013FBBC /* MAFormMetricsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MAFormMetricsBuilder.swift; sourceTree = "<group>"; };
 		EB71C13D2B5BB56E0013FBBC /* ChromeShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChromeShadow.swift; sourceTree = "<group>"; };
 		EB71C13F2B5BBAA50013FBBC /* Backport+ToolbarBackgroundForNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ToolbarBackgroundForNavigationBar.swift"; sourceTree = "<group>"; };
@@ -809,8 +803,8 @@
 		EB5671FF2B5746AA00592413 /* Weaknesses */ = {
 			isa = PBXGroup;
 			children = (
+				EB5672002B5746EA00592413 /* ElementWeaknessItemViewModel.swift */,
 				EB489E632B60E6B100E48950 /* PhysicalWeaknessItemViewModel.swift */,
-				EB5672002B5746EA00592413 /* WeaknessItemViewModel.swift */,
 				EB5672042B574B7800592413 /* WeaknessSectionViewModel.swift */,
 				EBB4B1C42B15BDA7004D63EA /* WeaknessViewModel.swift */,
 			);
@@ -820,14 +814,11 @@
 		EB56720A2B5786EC00592413 /* Weaknesses */ = {
 			isa = PBXGroup;
 			children = (
-				EB56722B2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift */,
-				EB71C1372B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift */,
-				EB56720E2B5787DA00592413 /* NumberWeaknessItemView.swift */,
-				EB5672132B5790BF00592413 /* NumberWeaknessSectionView.swift */,
+				EB71C1372B5B5BF20013FBBC /* AccessibilityWeaknessSectionView.swift */,
+				EB56720B2B57870200592413 /* ElementWeaknessItemView.swift */,
 				EB489E692B60F62800E48950 /* PhysicalWeaknessSectionView.swift */,
 				EB489E6D2B613C8B00E48950 /* SeparatedPhysicalWeaknessSectionView.swift */,
-				EB56720B2B57870200592413 /* SignWeaknessItemView.swift */,
-				EB5672102B578FFD00592413 /* SignWeaknessSectionView.swift */,
+				EB5672102B578FFD00592413 /* WeaknessSectionView.swift */,
 				EBB4B21B2B176CE7004D63EA /* WeaknessView.swift */,
 				EB5672172B57935300592413 /* WeaknessViewMetrics.swift */,
 			);
@@ -1681,7 +1672,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB71C1392B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift in Sources */,
+				EB71C1392B5B5BF20013FBBC /* AccessibilityWeaknessSectionView.swift in Sources */,
 				EB29563B2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBA66F1E2B355F38009DE78C /* AppSettingsPane.swift in Sources */,
 				EB85BF102B6355F400560CD6 /* AppStorage+Extensions.swift in Sources */,
@@ -1704,6 +1695,8 @@
 				EBB4B20E2B175DE2004D63EA /* Effectiveness+Extensions.swift in Sources */,
 				EB489E622B60E4A300E48950 /* Element+Extensions.swift in Sources */,
 				EB99DBCE2B36D16B00A43552 /* ElementWeaknessDisplayMode+Extensions.swift in Sources */,
+				EB56720D2B57870200592413 /* ElementWeaknessItemView.swift in Sources */,
+				EB5672022B5747ED00592413 /* ElementWeaknessItemViewModel.swift in Sources */,
 				EB71C13C2B5B6FF10013FBBC /* EnvironmentValues+MAForm.swift in Sources */,
 				EB8778292B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift in Sources */,
 				EB560BCF2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
@@ -1761,8 +1754,6 @@
 				EB97F6A92B31BCDE00E31602 /* SharedGameListModifier.swift in Sources */,
 				EB3B49232B35EAD100E89711 /* SharedSettingsContainerModifier.swift in Sources */,
 				EB6ADE752B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */,
-				EB56720D2B57870200592413 /* SignWeaknessItemView.swift in Sources */,
-				EB5672122B578FFD00592413 /* SignWeaknessSectionView.swift in Sources */,
 				EB56722F2B580E3700592413 /* SizeChangeModifier.swift in Sources */,
 				EB8201D52B5F97A000A8FDDD /* SizeObserver.swift in Sources */,
 				EBBF86212B4692D500F76D03 /* Sort+Extensions.swift in Sources */,
@@ -1780,7 +1771,7 @@
 				EBC85C732B205469008A16C6 /* WatchMetrics.swift in Sources */,
 				EBC85C772B205F67008A16C6 /* WatchMetricsKey.swift in Sources */,
 				EBC85C752B205DE0008A16C6 /* WatchUtil.swift in Sources */,
-				EB5672022B5747ED00592413 /* WeaknessItemViewModel.swift in Sources */,
+				EB5672122B578FFD00592413 /* WeaknessSectionView.swift in Sources */,
 				EB5672062B574B7800592413 /* WeaknessSectionViewModel.swift in Sources */,
 				EBB4B21C2B176CE7004D63EA /* WeaknessView.swift in Sources */,
 				EB5672192B57935300592413 /* WeaknessViewMetrics.swift in Sources */,
@@ -1871,8 +1862,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB56722C2B57F5E400592413 /* AccessibilityNumberWeaknessSectionView.swift in Sources */,
-				EB71C1382B5B5BF20013FBBC /* AccessibilitySignWeaknessSectionView.swift in Sources */,
+				EB71C1382B5B5BF20013FBBC /* AccessibilityWeaknessSectionView.swift in Sources */,
 				EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */,
 				EBA66F1D2B355F38009DE78C /* AppSettingsPane.swift in Sources */,
 				EB85BF0F2B6355F400560CD6 /* AppStorage+Extensions.swift in Sources */,
@@ -1905,6 +1895,8 @@
 				EBB4B1D52B161691004D63EA /* Effectiveness+Extensions.swift in Sources */,
 				EB489E612B60E4A300E48950 /* Element+Extensions.swift in Sources */,
 				EB99DBCD2B36D16B00A43552 /* ElementWeaknessDisplayMode+Extensions.swift in Sources */,
+				EB56720C2B57870200592413 /* ElementWeaknessItemView.swift in Sources */,
+				EB5672032B5747ED00592413 /* ElementWeaknessItemViewModel.swift in Sources */,
 				EB71F8722B5A0D4300999269 /* EnvironmentValues+MAForm.swift in Sources */,
 				EB8778282B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift in Sources */,
 				EB560BCE2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
@@ -1954,8 +1946,6 @@
 				EB5445542B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift in Sources */,
 				EB02AF7E2B65095B004F6422 /* NotesAccessoryView.swift in Sources */,
 				EB4426B32B58C9E60074B1FF /* NotesSection.swift in Sources */,
-				EB56720F2B5787DA00592413 /* NumberWeaknessItemView.swift in Sources */,
-				EB5672142B5790BF00592413 /* NumberWeaknessSectionView.swift in Sources */,
 				EB54455A2B527F80008E7A48 /* OpenWindowButton.swift in Sources */,
 				EB489E672B60E92400E48950 /* Physical+Extensions.swift in Sources */,
 				EB489E642B60E6B100E48950 /* PhysicalWeaknessItemViewModel.swift in Sources */,
@@ -1988,8 +1978,6 @@
 				EB3B49222B35EAD100E89711 /* SharedSettingsContainerModifier.swift in Sources */,
 				EB6ADE742B3660340010BD64 /* SharedSettingsPaneModifier.swift in Sources */,
 				EB645A642B2685D500D27500 /* Sidebar.swift in Sources */,
-				EB56720C2B57870200592413 /* SignWeaknessItemView.swift in Sources */,
-				EB5672112B578FFD00592413 /* SignWeaknessSectionView.swift in Sources */,
 				EB56722E2B580E3700592413 /* SizeChangeModifier.swift in Sources */,
 				EB8201D42B5F97A000A8FDDD /* SizeObserver.swift in Sources */,
 				EBBF86202B4692D500F76D03 /* Sort+Extensions.swift in Sources */,
@@ -2008,7 +1996,7 @@
 				EB2B0FAB2B3925E3004596A6 /* View+Cursor.swift in Sources */,
 				EB87782E2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */,
 				EB489E712B614C8400E48950 /* VSpacer.swift in Sources */,
-				EB5672032B5747ED00592413 /* WeaknessItemViewModel.swift in Sources */,
+				EB5672112B578FFD00592413 /* WeaknessSectionView.swift in Sources */,
 				EB5672052B574B7800592413 /* WeaknessSectionViewModel.swift in Sources */,
 				EBCA222E2B228C6800C487AD /* WeaknessView.swift in Sources */,
 				EB5672182B57935300592413 /* WeaknessViewMetrics.swift in Sources */,

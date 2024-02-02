@@ -104,6 +104,7 @@ struct DisplaySettingsPane: View {
 					if let previewData = viewModel.elementAttackPreview {
 						Section("Preview") {
 							WeaknessView(viewModel: previewData)
+								.id(viewModel.elementAttack)
 								.fixedSize(horizontal: false, vertical: true)
 								.listRowBackground(EmptyView())
 								.listRowInsets(.zero)

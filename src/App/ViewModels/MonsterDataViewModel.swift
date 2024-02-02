@@ -27,7 +27,7 @@ struct MonsterDataViewModel: Identifiable {
 	let name: String
 #endif
 	let copyright: String?
-	let weakness: (any WeaknessViewModel)?
+	let weakness: WeaknessViewModel?
 	let physiologies: PhysiologiesViewModel?
 
 #if os(watchOS)
@@ -35,7 +35,7 @@ struct MonsterDataViewModel: Identifiable {
 		 mode: Mode,
 		 name: String,
 		 copyright: String?,
-		 weakness: (some WeaknessViewModel)?,
+		 weakness: WeaknessViewModel?,
 		 physiologies: PhysiologiesViewModel) {
 		self.id = id
 		self.mode = mode
@@ -48,7 +48,7 @@ struct MonsterDataViewModel: Identifiable {
 	init(id: String,
 		 mode: Mode,
 		 copyright: String?,
-		 weakness: (some WeaknessViewModel)?,
+		 weakness: WeaknessViewModel?,
 		 physiologies: PhysiologiesViewModel) {
 		self.id = id
 		self.mode = mode
@@ -68,9 +68,9 @@ struct MonsterDataViewModel: Identifiable {
 #endif
 		self.copyright = monster.game?.copyright
 		if !options.isHidden {
-			self.weakness = EffectivenessWeaknessViewModel(prefixID: id,
-														   weakness: weakness,
-														   options: options)
+			self.weakness = WeaknessViewModel(prefixID: id,
+											  weakness: weakness,
+											  options: options)
 		} else {
 			self.weakness = nil
 		}
@@ -94,9 +94,9 @@ struct MonsterDataViewModel: Identifiable {
 		self.copyright = monster.game?.copyright
 
 		if !options.isHidden {
-			let weakness = NumberWeaknessViewModel(prefixID: id,
-												   physiology: physiology,
-												   options: options)
+			let weakness = WeaknessViewModel(prefixID: id,
+											 physiology: physiology,
+											 options: options)
 			self.weakness = weakness
 		} else {
 			self.weakness = nil
@@ -108,13 +108,14 @@ struct MonsterDataViewModel: Identifiable {
 
 extension MonsterDataViewModel: Equatable {
 	static func ==(lhs: MonsterDataViewModel, rhs: MonsterDataViewModel) -> Bool {
-		lhs.id == rhs.id
+		lhs.id == rhs.id && lhs.weakness == rhs.weakness
 	}
 }
 
 extension MonsterDataViewModel: Hashable {
 	func hash(into hasher: inout Hasher) {
 		hasher.combine(id)
+		hasher.combine(weakness)
 	}
 }
 

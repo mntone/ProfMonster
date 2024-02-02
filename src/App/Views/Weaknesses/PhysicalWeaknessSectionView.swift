@@ -76,39 +76,18 @@ private struct _PhysicalWeaknessItemView: View {
 
 @available(watchOS, unavailable)
 struct PhysicalWeaknessSectionView: View {
-	let padding: CGFloat
 	let namespace: Namespace.ID
 	let viewModel: PhysicalWeaknessSectionViewModel?
 
-	@State
-	private var itemWidth: CGFloat?
-
 	var body: some View {
-		DividedHStack(alignment: .top, spacing: 0.0) {
-			Group {
-				_PhysicalWeaknessItemView(namespace: namespace,
-										  viewModel: viewModel?.slash,
-										  physical: .slash)
-				_PhysicalWeaknessItemView(namespace: namespace,
-										  viewModel: viewModel?.impact,
-										  physical: .impact)
-				_PhysicalWeaknessItemView(namespace: namespace,
-										  viewModel: viewModel?.shot,
-										  physical: .shot)
-			}
-			.padding(EdgeInsets(vertical: 0.0, horizontal: padding))
-			.frame(idealWidth: itemWidth,
-				   maxWidth: WeaknessViewMetrics.maxPhysicalContentWidth,
-				   maxHeight: .infinity,
-				   alignment: .topLeading)
-		}
-		.padding(EdgeInsets(vertical: 0.0, horizontal: -padding))
-		.onWidthChange { width in
-			updateItemWidth(from: width)
-		}
-	}
-
-	private func updateItemWidth(from containerWidth: CGFloat) {
-		itemWidth = min(WeaknessViewMetrics.maxItemWidth, containerWidth / 3.0)
+		_PhysicalWeaknessItemView(namespace: namespace,
+								  viewModel: viewModel?.slash,
+								  physical: .slash)
+		_PhysicalWeaknessItemView(namespace: namespace,
+								  viewModel: viewModel?.impact,
+								  physical: .impact)
+		_PhysicalWeaknessItemView(namespace: namespace,
+								  viewModel: viewModel?.shot,
+								  physical: .shot)
 	}
 }

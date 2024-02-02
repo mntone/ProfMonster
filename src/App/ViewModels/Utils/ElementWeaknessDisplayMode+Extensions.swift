@@ -13,6 +13,17 @@ extension ElementWeaknessDisplayMode {
 			String(localized: "Number (2nd Decimal Place)", comment: "DisplayMode")
 		}
 	}
+
+	var fractionLength: Int {
+		switch self {
+		case .number:
+			1
+		case .number2:
+			2
+		default:
+			0
+		}
+	}
 }
 
 // MARK: - Identifiable

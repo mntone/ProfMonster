@@ -9,25 +9,23 @@ struct PhysicalWeaknessSectionViewModel: Hashable {
 	let shot: PhysicalWeaknessItemViewModel
 }
 
-struct ElementWeaknessSectionViewModel<ViewModel: WeaknessItemViewModel> {
-	let fire: ViewModel
-	let water: ViewModel
-	let thunder: ViewModel
-	let ice: ViewModel
-	let dragon: ViewModel
-}
+struct ElementWeaknessSectionViewModel: Hashable {
+	let fire: ElementWeaknessItemViewModel
+	let water: ElementWeaknessItemViewModel
+	let thunder: ElementWeaknessItemViewModel
+	let ice: ElementWeaknessItemViewModel
+	let dragon: ElementWeaknessItemViewModel
 
-extension ElementWeaknessSectionViewModel where ViewModel == NumberWeaknessItemViewModel {
 	static func compareEffectiveness(_ lhs: ElementWeaknessSectionViewModel, _ rhs: ElementWeaknessSectionViewModel) -> Bool {
-		NumberWeaknessItemViewModel.compareEffectiveness(lhs.fire, rhs.fire)
-		&& NumberWeaknessItemViewModel.compareEffectiveness(lhs.water, rhs.water)
-		&& NumberWeaknessItemViewModel.compareEffectiveness(lhs.thunder, rhs.thunder)
-		&& NumberWeaknessItemViewModel.compareEffectiveness(lhs.ice, rhs.ice)
-		&& NumberWeaknessItemViewModel.compareEffectiveness(lhs.dragon, rhs.dragon)
+		ElementWeaknessItemViewModel.compareEffectiveness(lhs.fire, rhs.fire)
+		&& ElementWeaknessItemViewModel.compareEffectiveness(lhs.water, rhs.water)
+		&& ElementWeaknessItemViewModel.compareEffectiveness(lhs.thunder, rhs.thunder)
+		&& ElementWeaknessItemViewModel.compareEffectiveness(lhs.ice, rhs.ice)
+		&& ElementWeaknessItemViewModel.compareEffectiveness(lhs.dragon, rhs.dragon)
 	}
 }
 
-extension ElementWeaknessSectionViewModel: Equatable where ViewModel == NumberWeaknessItemViewModel {
+extension ElementWeaknessSectionViewModel: Equatable {
 	static func ==(lhs: ElementWeaknessSectionViewModel, rhs: ElementWeaknessSectionViewModel) -> Bool {
 		lhs.fire == rhs.fire
 		&& lhs.water == rhs.water
@@ -37,35 +35,24 @@ extension ElementWeaknessSectionViewModel: Equatable where ViewModel == NumberWe
 	}
 }
 
-protocol WeaknessSectionViewModel: Identifiable {
-	associatedtype Item: WeaknessItemViewModel
-
-	var header: String { get }
-	var physical: PhysicalWeaknessSectionViewModel? { get }
-	var elements: ElementWeaknessSectionViewModel<Item>? { get }
-	var isDefault: Bool { get }
-	var options: MonsterDataViewModelBuildOptions { get }
-}
-
-struct EffectivenessWeaknessSectionViewModel: WeaknessSectionViewModel {
+struct WeaknessSectionViewModel: Identifiable, Hashable {
 	let id: String
 	let header: String
 	let isDefault: Bool
-	let elements: ElementWeaknessSectionViewModel<EffectivenessWeaknessItemViewModel>?
+	let physical: PhysicalWeaknessSectionViewModel?
+	let elements: ElementWeaknessSectionViewModel?
 	let options: MonsterDataViewModelBuildOptions
-
-	var physical: PhysicalWeaknessSectionViewModel? {
-		nil
-	}
 
 	init(id: String,
 		 header: String,
-		 elements: ElementWeaknessSectionViewModel<EffectivenessWeaknessItemViewModel>?,
+		 physical: PhysicalWeaknessSectionViewModel?,
+		 elements: ElementWeaknessSectionViewModel?,
 		 isDefault: Bool,
 		 options: MonsterDataViewModelBuildOptions) {
 		self.id = id
 		self.header = header
 		self.isDefault = isDefault
+		self.physical = physical
 		self.elements = elements
 		self.options = options
 	}
@@ -78,45 +65,23 @@ struct EffectivenessWeaknessSectionViewModel: WeaknessSectionViewModel {
 		self.id = id
 		self.header = weakness.state
 		self.isDefault = key == "default"
+		self.physical = nil
 		if options.element != .none {
 			self.elements = ElementWeaknessSectionViewModel(
-				fire: EffectivenessWeaknessItemViewModel(prefixID: id, element: .fire, effectiveness: weakness.fire),
-				water: EffectivenessWeaknessItemViewModel(prefixID: id, element: .water, effectiveness: weakness.water),
-				thunder: EffectivenessWeaknessItemViewModel(prefixID: id, element: .thunder, effectiveness: weakness.thunder),
-				ice: EffectivenessWeaknessItemViewModel(prefixID: id, element: .ice, effectiveness: weakness.ice),
-				dragon: EffectivenessWeaknessItemViewModel(prefixID: id, element: .dragon, effectiveness: weakness.dragon))
+				fire: ElementWeaknessItemViewModel(prefixID: id, element: .fire, effectiveness: weakness.fire),
+				water: ElementWeaknessItemViewModel(prefixID: id, element: .water, effectiveness: weakness.water),
+				thunder: ElementWeaknessItemViewModel(prefixID: id, element: .thunder, effectiveness: weakness.thunder),
+				ice: ElementWeaknessItemViewModel(prefixID: id, element: .ice, effectiveness: weakness.ice),
+				dragon: ElementWeaknessItemViewModel(prefixID: id, element: .dragon, effectiveness: weakness.dragon))
 		} else {
 			self.elements = nil
 		}
 		self.options = options
 	}
-}
-
-struct NumberWeaknessSectionViewModel: WeaknessSectionViewModel {
-	let id: String
-	let header: String
-	let isDefault: Bool
-	let physical: PhysicalWeaknessSectionViewModel?
-	let elements: ElementWeaknessSectionViewModel<NumberWeaknessItemViewModel>?
-	let options: MonsterDataViewModelBuildOptions
-
-	init(id: String,
-		 header: String,
-		 physical: PhysicalWeaknessSectionViewModel?,
-		 elements: ElementWeaknessSectionViewModel<NumberWeaknessItemViewModel>?,
-		 isDefault: Bool,
-		 options: MonsterDataViewModelBuildOptions) {
-		self.id = id
-		self.header = header
-		self.isDefault = isDefault
-		self.physical = physical
-		self.elements = elements
-		self.options = options
-	}
 
 	init(header: String,
 		 isDefault: Bool,
-		 from base: NumberWeaknessSectionViewModel) {
+		 from base: WeaknessSectionViewModel) {
 		self.id = base.id
 		self.header = header
 		self.isDefault = isDefault
@@ -147,11 +112,11 @@ struct NumberWeaknessSectionViewModel: WeaknessSectionViewModel {
 			let val = physiology.average.values(of: elements)
 			let top = val.max() ?? 0
 			self.elements = ElementWeaknessSectionViewModel(
-				fire: NumberWeaknessItemViewModel(prefixID: id, element: .fire, averageValue: physiology.average.fire, topValue: top),
-				water: NumberWeaknessItemViewModel(prefixID: id, element: .water, averageValue: physiology.average.water, topValue: top),
-				thunder: NumberWeaknessItemViewModel(prefixID: id, element: .thunder, averageValue: physiology.average.thunder, topValue: top),
-				ice: NumberWeaknessItemViewModel(prefixID: id, element: .ice, averageValue: physiology.average.ice, topValue: top),
-				dragon: NumberWeaknessItemViewModel(prefixID: id, element: .dragon, averageValue: physiology.average.dragon, topValue: top))
+				fire: ElementWeaknessItemViewModel(prefixID: id, element: .fire, averageValue: physiology.average.fire, topValue: top),
+				water: ElementWeaknessItemViewModel(prefixID: id, element: .water, averageValue: physiology.average.water, topValue: top),
+				thunder: ElementWeaknessItemViewModel(prefixID: id, element: .thunder, averageValue: physiology.average.thunder, topValue: top),
+				ice: ElementWeaknessItemViewModel(prefixID: id, element: .ice, averageValue: physiology.average.ice, topValue: top),
+				dragon: ElementWeaknessItemViewModel(prefixID: id, element: .dragon, averageValue: physiology.average.dragon, topValue: top))
 		} else {
 			self.elements = nil
 		}
@@ -160,26 +125,20 @@ struct NumberWeaknessSectionViewModel: WeaknessSectionViewModel {
 	}
 }
 
-extension NumberWeaknessSectionViewModel: Equatable {
-	static func ==(lhs: NumberWeaknessSectionViewModel, rhs: NumberWeaknessSectionViewModel) -> Bool {
-		precondition(lhs.options.element == rhs.options.element)
-
-		let physical: Bool
-		if lhs.options.physical {
-			physical = lhs.physical == rhs.physical
-		} else {
-			physical = true
+extension WeaknessSectionViewModel: Equatable {
+	static func ==(lhs: WeaknessSectionViewModel, rhs: WeaknessSectionViewModel) -> Bool {
+		guard lhs.physical == rhs.physical else {
+			return false
 		}
+
 		if lhs.options.element == .sign {
-			if !physical {
-				return false
-			} else if let a = lhs.elements, let b = rhs.elements {
+			if let a = lhs.elements, let b = rhs.elements {
 				return ElementWeaknessSectionViewModel.compareEffectiveness(a, b)
 			} else {
 				return false
 			}
 		} else {
-			return physical && lhs.elements == rhs.elements
+			return lhs.elements == rhs.elements
 		}
 	}
 }

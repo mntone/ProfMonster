@@ -2,20 +2,17 @@ import enum MonsterAnalyzerCore.Attack
 import struct MonsterAnalyzerCore.Physiology
 import struct MonsterAnalyzerCore.Weakness
 
-protocol WeaknessViewModel: Identifiable {
-	associatedtype Section: WeaknessSectionViewModel
+struct WeaknessViewModel: Identifiable, Hashable {
+	private static let separator: String = {
+		String(localized: "/")
+	}()
 
-	var sections: [Section] { get }
-	var options: MonsterDataViewModelBuildOptions { get }
-}
-
-struct EffectivenessWeaknessViewModel: WeaknessViewModel {
 	let id: String
-	let sections: [EffectivenessWeaknessSectionViewModel]
+	let sections: [WeaknessSectionViewModel]
 	let options: MonsterDataViewModelBuildOptions
 
 	init(id: String,
-		 sections: [EffectivenessWeaknessSectionViewModel],
+		 sections: [WeaknessSectionViewModel],
 		 options: MonsterDataViewModelBuildOptions) {
 		self.id = id
 		self.sections = sections
@@ -29,32 +26,14 @@ struct EffectivenessWeaknessViewModel: WeaknessViewModel {
 		self.id = id
 		self.sections = weaknesses
 			.map { key, weakness in
-				EffectivenessWeaknessSectionViewModel(prefixID: id,
-													  key: key,
-													  weakness: weakness,
-													  options: options)
+				WeaknessSectionViewModel(prefixID: id,
+										 key: key,
+										 weakness: weakness,
+										 options: options)
 			}
 			.sorted { lhs, rhs in
 				lhs.isDefault && !rhs.isDefault
 			}
-		self.options = options
-	}
-}
-
-struct NumberWeaknessViewModel: WeaknessViewModel {
-	private static let separator: String = {
-		String(localized: "/")
-	}()
-
-	let id: String
-	let sections: [NumberWeaknessSectionViewModel]
-	let options: MonsterDataViewModelBuildOptions
-
-	init(id: String,
-		 sections: [NumberWeaknessSectionViewModel],
-		 options: MonsterDataViewModelBuildOptions) {
-		self.id = id
-		self.sections = sections
 		self.options = options
 	}
 
@@ -64,9 +43,9 @@ struct NumberWeaknessViewModel: WeaknessViewModel {
 		let id = "\(prefixID):w"
 		self.id = id
 		var sections = physiology.states.map { section in
-			NumberWeaknessSectionViewModel(prefixID: id,
-										   physiology: section,
-										   options: options)
+			WeaknessSectionViewModel(prefixID: id,
+									 physiology: section,
+									 options: options)
 		}
 
 		// Merge objects with same value.
@@ -80,9 +59,9 @@ struct NumberWeaknessViewModel: WeaknessViewModel {
 						sections[j] = b
 					} else if !b.isDefault {
 						let header = b.header + Self.separator + a.header
-						sections[j] = NumberWeaknessSectionViewModel(header: header,
-																	 isDefault: false,
-																	 from: a)
+						sections[j] = WeaknessSectionViewModel(header: header,
+															   isDefault: false,
+															   from: a)
 					}
 					sections.remove(at: i)
 					break
