@@ -4,7 +4,7 @@ extension GroupOption {
 	var label: String {
 		switch self {
 		case .none:
-			String(localized: "None", comment: "GroupOption")
+			String(localized: "None")
 		case .type:
 			String(localized: "Type", comment: "GroupOption")
 		case .weakness:
