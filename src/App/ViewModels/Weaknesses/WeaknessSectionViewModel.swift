@@ -37,6 +37,9 @@ struct WeaknessSectionViewModel: Identifiable, Hashable {
 	let id: String
 	let header: String
 	let isDefault: Bool
+#if os(watchOS)
+	let isFirst: Bool
+#endif
 	let physical: PhysicalWeaknessSectionViewModel?
 	let elements: ElementWeaknessSectionViewModel?
 	let options: MonsterDataViewModelBuildOptions
@@ -46,10 +49,14 @@ struct WeaknessSectionViewModel: Identifiable, Hashable {
 		 physical: PhysicalWeaknessSectionViewModel?,
 		 elements: ElementWeaknessSectionViewModel?,
 		 isDefault: Bool,
+		 isFirst: Bool,
 		 options: MonsterDataViewModelBuildOptions) {
 		self.id = id
 		self.header = header
 		self.isDefault = isDefault
+#if os(watchOS)
+		self.isFirst = isFirst
+#endif
 		self.physical = physical
 		self.elements = elements
 		self.options = options
@@ -58,11 +65,15 @@ struct WeaknessSectionViewModel: Identifiable, Hashable {
 	init(prefixID: String,
 		 key: String,
 		 weakness: Weakness,
+		 isFirst: Bool,
 		 options: MonsterDataViewModelBuildOptions) {
 		let id = "\(prefixID):\(key)"
 		self.id = id
 		self.header = weakness.state
 		self.isDefault = key == "default"
+#if os(watchOS)
+		self.isFirst = isFirst
+#endif
 		self.physical = nil
 		if options.element != .none {
 			self.elements = ElementWeaknessSectionViewModel(
@@ -78,11 +89,13 @@ struct WeaknessSectionViewModel: Identifiable, Hashable {
 	}
 
 	init(header: String,
-		 isDefault: Bool,
 		 from base: WeaknessSectionViewModel) {
 		self.id = base.id
 		self.header = header
-		self.isDefault = isDefault
+		self.isDefault = false
+#if os(watchOS)
+		self.isFirst = false
+#endif
 		self.physical = base.physical
 		self.elements = base.elements
 		self.options = base.options
@@ -90,11 +103,15 @@ struct WeaknessSectionViewModel: Identifiable, Hashable {
 
 	init(prefixID: String,
 		 physiology: PhysiologyStateGroup,
+		 isFirst: Bool,
 		 options: MonsterDataViewModelBuildOptions) {
 		let id = "\(prefixID):\(physiology.key)"
 		self.id = id
 		self.header = physiology.label
-		self.isDefault = physiology.key == "default"
+		self.isDefault = physiology.isDefault
+#if os(watchOS)
+		self.isFirst = isFirst
+#endif
 
 		if options.physical {
 			self.physical = PhysicalWeaknessSectionViewModel(

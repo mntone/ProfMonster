@@ -25,11 +25,14 @@ struct WeaknessViewModel: Identifiable, Hashable {
 		let id = "\(prefixID):w"
 		self.id = id
 		self.sections = weaknesses
-			.map { key, weakness in
-				WeaknessSectionViewModel(prefixID: id,
-										 key: key,
-										 weakness: weakness,
-										 options: options)
+			.enumerated()
+			.map { i, pair in
+				let (key, weakness) = pair
+				return WeaknessSectionViewModel(prefixID: id,
+												key: key,
+												weakness: weakness,
+												isFirst: i == 0,
+												options: options)
 			}
 			.sorted { lhs, rhs in
 				lhs.isDefault && !rhs.isDefault
@@ -42,9 +45,10 @@ struct WeaknessViewModel: Identifiable, Hashable {
 		 options: MonsterDataViewModelBuildOptions) {
 		let id = "\(prefixID):w"
 		self.id = id
-		var sections = physiology.states.map { section in
+		var sections = physiology.states.enumerated().map { i, section in
 			WeaknessSectionViewModel(prefixID: id,
 									 physiology: section,
+									 isFirst: i == 0,
 									 options: options)
 		}
 
@@ -60,7 +64,6 @@ struct WeaknessViewModel: Identifiable, Hashable {
 					} else if !b.isDefault {
 						let header = b.header + Self.separator + a.header
 						sections[j] = WeaknessSectionViewModel(header: header,
-															   isDefault: false,
 															   from: a)
 					}
 					sections.remove(at: i)

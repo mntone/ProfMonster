@@ -58,8 +58,15 @@ struct WeaknessSectionView: View {
 				.fixedSize(horizontal: false, vertical: true)
 			}
 		} header: {
-			if viewModel.isDefault {
-				MASectionHeader(LocalizedStringKey("Weakness"))
+			if viewModel.isFirst {
+				if viewModel.isDefault {
+					MASectionHeader(LocalizedStringKey("Weakness"))
+				} else {
+					VStack(alignment: .leading, spacing: 0.0) {
+						MASectionHeader(LocalizedStringKey("Weakness"))
+						Text(viewModel.header)
+					}
+				}
 			} else {
 				Text(viewModel.header)
 			}
