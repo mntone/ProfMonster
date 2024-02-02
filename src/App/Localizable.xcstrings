@@ -3651,10 +3651,82 @@
     },
     "Caution" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الحذر"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vorsicht"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Precaución"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Precaución"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prudence"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cautela"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "注意"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "주의"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ostrożność"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuidado"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Осторожность"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "警告"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "警告"
           }
         }
       }
@@ -7001,10 +7073,82 @@
     },
     "I Understand" : {
       "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أفهم"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich Verstehe"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entiendo"
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Entiendo"
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je comprends"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Capisco"
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "理解した"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "양해"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rozumiem"
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eu Entendo"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Я понимаю"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "了解了"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "了解了"
           }
         }
       }
@@ -10589,10 +10733,70 @@
     },
     "Prof. Monster is 3rd party app. Please **DO NOT contact** Capcom about the contents." : {
       "localizations" : {
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monster ist eine Drittanbieter-App. Bitte kontaktieren Sie Capcom NICHT bezüglich des Inhalts."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo es una aplicación de terceros. Por favor NO contacte a Capcom sobre el contenido."
+          }
+        },
+        "es-419" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstruo es una aplicación de terceros. Por favor NO contacte a Capcom sobre el contenido."
+          }
+        },
+        "fr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstre est une application tierce. NE PAS contacter Capcom à propos du contenu."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Mostro è un'app di terze parti. Si prega di NON contattare Capcom in merito ai contenuti."
+          }
+        },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "モンハクはサードパーティー製 (非公式) アプリです。内容について、カプコンに**問い合わせないで**ください。"
+            "value" : "モンハクはサードパーティー製 (非公式) アプリです。内容について、カプコンに問い合わせないでください。"
+          }
+        },
+        "pl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Potwór to aplikacja innej firmy. NIE kontaktuj się z firmą Capcom w sprawie zawartości."
+          }
+        },
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Prof. Monstro é um app de terceiros. NÃO entre em contato com a Capcom sobre o conteúdo."
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Проф. Монстр — стороннее приложение. НЕ связывайтесь с Capcom по поводу содержания."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "怪物教授是第三方应用。请不要就内容联系Capcom。"
+          }
+        },
+        "zh-Hant" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "怪物教授是第三方應用程式。 請不要就內容聯絡Capcom。"
           }
         }
       }
@@ -11336,7 +11540,7 @@
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "射撃属性"
+            "value" : "射撃"
           }
         },
         "ko" : {
