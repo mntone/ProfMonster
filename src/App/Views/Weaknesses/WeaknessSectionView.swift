@@ -84,13 +84,19 @@ struct WeaknessSectionView: View {
 
 				if viewModel.options.physical {
 					DividedHStack(alignment: .top, spacing: 0.0) {
-						PhysicalWeaknessSectionView(namespace: namespace,
-													viewModel: viewModel.physical)
-							.padding(.horizontal, padding)
-							.frame(idealWidth: physicalWidth,
-								   maxWidth: WeaknessViewMetrics.maxPhysicalContentWidth,
-								   maxHeight: .infinity,
-								   alignment: .topLeading)
+						Group {
+							PhysicalWeaknessItemView(viewModel: viewModel.physical?.slash,
+													 physical: .slash)
+							PhysicalWeaknessItemView(viewModel: viewModel.physical?.impact,
+													 physical: .impact)
+							PhysicalWeaknessItemView(viewModel: viewModel.physical?.shot,
+													 physical: .shot)
+						}
+						.padding(.horizontal, padding)
+						.frame(idealWidth: physicalWidth,
+							   maxWidth: WeaknessViewMetrics.maxPhysicalContentWidth,
+							   maxHeight: .infinity,
+							   alignment: .topLeading)
 					} divider: {
 						MAVDivider()
 					}

@@ -57,7 +57,7 @@
 		EB489E652B60E6B100E48950 /* PhysicalWeaknessItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB489E632B60E6B100E48950 /* PhysicalWeaknessItemViewModel.swift */; };
 		EB489E672B60E92400E48950 /* Physical+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB489E662B60E92400E48950 /* Physical+Extensions.swift */; };
 		EB489E682B60E92400E48950 /* Physical+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB489E662B60E92400E48950 /* Physical+Extensions.swift */; };
-		EB489E6A2B60F62800E48950 /* PhysicalWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB489E692B60F62800E48950 /* PhysicalWeaknessSectionView.swift */; };
+		EB489E6A2B60F62800E48950 /* PhysicalWeaknessItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB489E692B60F62800E48950 /* PhysicalWeaknessItemView.swift */; };
 		EB489E6E2B613C8B00E48950 /* SeparatedPhysicalWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB489E6D2B613C8B00E48950 /* SeparatedPhysicalWeaknessSectionView.swift */; platformFilter = ios; };
 		EB489E6F2B613C8B00E48950 /* SeparatedPhysicalWeaknessSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB489E6D2B613C8B00E48950 /* SeparatedPhysicalWeaknessSectionView.swift */; };
 		EB489E712B614C8400E48950 /* VSpacer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB489E702B614C8400E48950 /* VSpacer.swift */; };
@@ -470,7 +470,7 @@
 		EB489E602B60E4A200E48950 /* Element+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Element+Extensions.swift"; sourceTree = "<group>"; };
 		EB489E632B60E6B100E48950 /* PhysicalWeaknessItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalWeaknessItemViewModel.swift; sourceTree = "<group>"; };
 		EB489E662B60E92400E48950 /* Physical+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Physical+Extensions.swift"; sourceTree = "<group>"; };
-		EB489E692B60F62800E48950 /* PhysicalWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalWeaknessSectionView.swift; sourceTree = "<group>"; };
+		EB489E692B60F62800E48950 /* PhysicalWeaknessItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalWeaknessItemView.swift; sourceTree = "<group>"; };
 		EB489E6D2B613C8B00E48950 /* SeparatedPhysicalWeaknessSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatedPhysicalWeaknessSectionView.swift; sourceTree = "<group>"; };
 		EB489E702B614C8400E48950 /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
 		EB4C63E22B69550F008624E1 /* PositionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionObserver.swift; sourceTree = "<group>"; };
@@ -816,7 +816,7 @@
 			children = (
 				EB71C1372B5B5BF20013FBBC /* AccessibilityWeaknessSectionView.swift */,
 				EB56720B2B57870200592413 /* ElementWeaknessItemView.swift */,
-				EB489E692B60F62800E48950 /* PhysicalWeaknessSectionView.swift */,
+				EB489E692B60F62800E48950 /* PhysicalWeaknessItemView.swift */,
 				EB489E6D2B613C8B00E48950 /* SeparatedPhysicalWeaknessSectionView.swift */,
 				EB5672102B578FFD00592413 /* WeaknessSectionView.swift */,
 				EBB4B21B2B176CE7004D63EA /* WeaknessView.swift */,
@@ -1948,8 +1948,8 @@
 				EB4426B32B58C9E60074B1FF /* NotesSection.swift in Sources */,
 				EB54455A2B527F80008E7A48 /* OpenWindowButton.swift in Sources */,
 				EB489E672B60E92400E48950 /* Physical+Extensions.swift in Sources */,
+				EB489E6A2B60F62800E48950 /* PhysicalWeaknessItemView.swift in Sources */,
 				EB489E642B60E6B100E48950 /* PhysicalWeaknessItemViewModel.swift in Sources */,
-				EB489E6A2B60F62800E48950 /* PhysicalWeaknessSectionView.swift in Sources */,
 				EBDF16D22B6887F900FF6B91 /* PhysiologySection.swift in Sources */,
 				EBB4B1D02B15E0C9004D63EA /* PhysiologyView.swift in Sources */,
 				EBBBAAB12B3F8C5A00BBAB23 /* PhysiologyViewMetrics.swift in Sources */,
