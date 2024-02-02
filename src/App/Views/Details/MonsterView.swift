@@ -89,8 +89,10 @@ struct MonsterView: View {
 		.backport.toolbarBackgroundForNavigationBar(.hidden)
 #endif
 
+#if !os(watchOS)
 		// Animation
 		.animation(isEntrance || reduceMotion ? nil : .default, value: viewModel.items)
+#endif
 
 #if os(iOS)
 		// [iOS] Keyboard Dismiss Support
