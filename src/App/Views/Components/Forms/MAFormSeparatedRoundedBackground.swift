@@ -25,7 +25,7 @@ struct MAFormSeparatedRoundedBackground<Content: View>: View {
 #if os(macOS)
 						.background(background)
 #else
-						.background(.formItemBackground, in: backgroundShape)
+						.background(.formItemBackground)
 #endif
 						.containerShape(backgroundShape)
 						.padding(.bottom, metrics.rowSpacing ?? 5.0)
@@ -37,7 +37,7 @@ struct MAFormSeparatedRoundedBackground<Content: View>: View {
 #if os(macOS)
 					.background(background)
 #else
-					.background(.formItemBackground, in: backgroundShape)
+					.background(.formItemBackground)
 #endif
 					.containerShape(backgroundShape)
 			}

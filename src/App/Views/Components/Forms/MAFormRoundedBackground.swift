@@ -56,7 +56,8 @@ struct MAFormRoundedBackground<Content: View>: View {
 #if os(macOS)
 				.background(background)
 #else
-				.background(.formItemBackground, in: backgroundShape)
+				.background(.formItemBackground)
+				.containerShape(backgroundShape)
 #endif
 			}
 		}
