@@ -4,9 +4,6 @@ import SwiftUI
 @available(macOS, introduced: 12.0, deprecated: 13.0, message: "Use ColumnSettingsContainer instead")
 @available(watchOS, unavailable)
 struct TabSettingsContainer: View {
-	@StateObject
-	private var viewModel = SettingsViewModel()
-
 	@Environment(\.dismiss)
 	private var dismiss
 
@@ -16,7 +13,7 @@ struct TabSettingsContainer: View {
 	var body: some View {
 		TabView(selection: $selectedSettingsPane) {
 			ForEach(SettingsPane.allCases) { pane in
-				pane.view(viewModel)
+				pane.view
 					.tabItem {
 						pane.label
 					}

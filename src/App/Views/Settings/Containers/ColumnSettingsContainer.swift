@@ -12,13 +12,9 @@ struct ColumnSettingsContainer: View {
 	private var dismiss
 
 #if os(macOS)
-	@StateObject
-	private var viewModel = SettingsViewModel()
-
 	@State
 	private var selectedSettingsPane: SettingsPane = .display
 #else
-	let viewModel: SettingsViewModel
 
 	@Binding
 	var selectedSettingsPane: SettingsPane?
@@ -26,9 +22,7 @@ struct ColumnSettingsContainer: View {
 	@State
 	private var isCloseButtonDisabled: Bool = false
 
-	init(viewModel: SettingsViewModel,
-		 selection selectedSettingsPane: Binding<SettingsPane?>) {
-		self.viewModel = viewModel
+	init(selection selectedSettingsPane: Binding<SettingsPane?>) {
 		self._selectedSettingsPane = selectedSettingsPane
 	}
 #endif
@@ -73,10 +67,10 @@ struct ColumnSettingsContainer: View {
 			} detail: {
 				NavigationStack {
 #if os(macOS)
-					selectedSettingsPane.view(viewModel)
+					selectedSettingsPane.view
 						.buttonStyle(.link)
 #else
-					selectedSettingsPane?.view(viewModel)
+					selectedSettingsPane?.view
 #endif
 				}
 				.formStyle(.grouped)
@@ -110,7 +104,7 @@ struct ColumnSettingsContainer: View {
 				.modifier(SharedSettingsContainerModifier(dismiss: dismiss.callAsFunction,
 														  isCloseButtonDisabled: isCloseButtonDisabled))
 
-				selectedSettingsPane?.view(viewModel)
+				selectedSettingsPane?.view
 			}
 			.navigationViewStyle(.columns)
 			.setCloseButtonDisabled($isCloseButtonDisabled)
@@ -134,7 +128,6 @@ struct ColumnSettingsContainer: View {
 #if os(macOS)
 	return ColumnSettingsContainer()
 #else
-	let viewModel = SettingsViewModel()
-	return ColumnSettingsContainer(viewModel: viewModel, selection: .constant(.display))
+	return ColumnSettingsContainer(selection: .constant(.display))
 #endif
 }

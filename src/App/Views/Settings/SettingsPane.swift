@@ -33,10 +33,10 @@ enum SettingsPane: String, CaseIterable, Hashable, Identifiable {
 	}
 
 	@ViewBuilder
-	func view(_ viewModel: SettingsViewModel) -> some View {
+	var view: some View {
 		switch self {
 		case .display:
-			DisplaySettingsPane(viewModel: viewModel)
+			DisplaySettingsPane()
 		case .data:
 			DataSettingsPane()
 		case .developer:

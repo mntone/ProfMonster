@@ -2,8 +2,8 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct DisplaySettingsPane: View {
-	@ObservedObject
-	private(set) var viewModel: SettingsViewModel
+	@StateObject
+	private var viewModel = DisplaySettingsViewModel()
 
 	var body: some View {
 		SettingsPreferredList {

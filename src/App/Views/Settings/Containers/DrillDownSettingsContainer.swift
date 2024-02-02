@@ -18,8 +18,6 @@ struct SettingsList<ItemView: View>: View {
 @available(iOS 16.0, watchOS 9.0, *)
 @available(macOS, unavailable)
 struct DrillDownSettingsContainer: View {
-	let viewModel: SettingsViewModel
-
 	@Binding
 	var selectedSettingsPanes: [SettingsPane]
 
@@ -35,9 +33,7 @@ struct DrillDownSettingsContainer: View {
 	private var isCloseButtonDisabled: Bool = false
 #endif
 
-	init(viewModel: SettingsViewModel,
-		 selection selectedSettingsPane: Binding<SettingsPane?>) {
-		self.viewModel = viewModel
+	init(selection selectedSettingsPane: Binding<SettingsPane?>) {
 		self._selectedSettingsPanes = Binding {
 			selectedSettingsPane.wrappedValue.map { [$0] } ?? []
 		} set: { value in
@@ -63,7 +59,7 @@ struct DrillDownSettingsContainer: View {
 #endif
 			}
 			.navigationDestination(for: SettingsPane.self) { pane in
-				pane.view(viewModel)
+				pane.view
 			}
 			.navigationBarTitleDisplayMode(.large)
 #if os(watchOS)
@@ -100,8 +96,6 @@ struct DrillDownSettingsContainer: View {
 
 @available(macOS, unavailable)
 struct DrillDownSettingsContainerBackport: View {
-	private let viewModel: SettingsViewModel
-
 	@Binding
 	var selectedSettingsPane: SettingsPane?
 
@@ -116,9 +110,7 @@ struct DrillDownSettingsContainerBackport: View {
 	private var isCloseButtonDisabled: Bool = false
 #endif
 
-	init(viewModel: SettingsViewModel,
-		 selection selectedSettingsPane: Binding<SettingsPane?> = .constant(nil)) {
-		self.viewModel = viewModel
+	init(selection selectedSettingsPane: Binding<SettingsPane?> = .constant(nil)) {
 		self._selectedSettingsPane = selectedSettingsPane
 	}
 
@@ -126,7 +118,7 @@ struct DrillDownSettingsContainerBackport: View {
 		NavigationView {
 			SettingsList { pane in
 				NavigationLink(tag: pane, selection: $selectedSettingsPane) {
-					pane.view(viewModel)
+					pane.view
 				} label: {
 					pane.label
 				}
@@ -162,6 +154,5 @@ struct DrillDownSettingsContainerBackport: View {
 
 @available(iOS 16.0, watchOS 9.0, *)
 #Preview {
-	let viewModel = SettingsViewModel()
-	return DrillDownSettingsContainer(viewModel: viewModel, selection: .constant(nil))
+	return DrillDownSettingsContainer(selection: .constant(nil))
 }

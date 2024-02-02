@@ -10,27 +10,24 @@ struct SettingsContainer: View {
 	private var horizontalSizeClass
 #endif
 
-	@StateObject
-	private var viewModel = SettingsViewModel()
-
 	@State
 	private var selectedSettingsPane: SettingsPane?
 
 	var body: some View {
 #if os(watchOS)
 		if #available(watchOS 9.0, *) {
-			DrillDownSettingsContainer(viewModel: viewModel, selection: $selectedSettingsPane)
+			DrillDownSettingsContainer(selection: $selectedSettingsPane)
 		} else {
-			DrillDownSettingsContainerBackport(viewModel: viewModel, selection: $selectedSettingsPane)
+			DrillDownSettingsContainerBackport(selection: $selectedSettingsPane)
 		}
 #else
 		if UIDevice.current.userInterfaceIdiom == .pad,
 		   horizontalSizeClass == .regular {
-			ColumnSettingsContainer(viewModel: viewModel, selection: $selectedSettingsPane)
+			ColumnSettingsContainer(selection: $selectedSettingsPane)
 		} else if #available(iOS 16.0, *) {
-			DrillDownSettingsContainer(viewModel: viewModel, selection: $selectedSettingsPane)
+			DrillDownSettingsContainer(selection: $selectedSettingsPane)
 		} else {
-			DrillDownSettingsContainerBackport(viewModel: viewModel, selection: $selectedSettingsPane)
+			DrillDownSettingsContainerBackport(selection: $selectedSettingsPane)
 		}
 #endif
 	}

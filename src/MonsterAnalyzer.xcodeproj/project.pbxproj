@@ -25,8 +25,8 @@
 		EB2B2A632B5966EE008D66DF /* KeyboardDismissMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B2A612B596684008D66DF /* KeyboardDismissMode.swift */; };
 		EB2B2A652B596A49008D66DF /* KeyboardDismissMode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B2A642B596A49008D66DF /* KeyboardDismissMode+Extensions.swift */; platformFilter = ios; };
 		EB31EEB72B2BEB4300FF8536 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB42B2BD7FA00FF8536 /* Sort.swift */; };
-		EB38D1FB2B2946A800CED9DB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */; };
-		EB38D1FC2B2946A800CED9DB /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */; };
+		EB38D1FB2B2946A800CED9DB /* DisplaySettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* DisplaySettingsViewModel.swift */; };
+		EB38D1FC2B2946A800CED9DB /* DisplaySettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* DisplaySettingsViewModel.swift */; };
 		EB3B49192B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B49182B35DFA000E89711 /* VerticalLabeledContentStyle.swift */; };
 		EB3B491A2B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B49182B35DFA000E89711 /* VerticalLabeledContentStyle.swift */; };
 		EB3B491C2B35E29400E89711 /* SettingsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B491B2B35E29400E89711 /* SettingsPicker.swift */; };
@@ -455,7 +455,7 @@
 		EB2B2A612B596684008D66DF /* KeyboardDismissMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardDismissMode.swift; sourceTree = "<group>"; };
 		EB2B2A642B596A49008D66DF /* KeyboardDismissMode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardDismissMode+Extensions.swift"; sourceTree = "<group>"; };
 		EB31EEB42B2BD7FA00FF8536 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
-		EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		EB38D1FA2B2946A800CED9DB /* DisplaySettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySettingsViewModel.swift; sourceTree = "<group>"; };
 		EB3B49182B35DFA000E89711 /* VerticalLabeledContentStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabeledContentStyle.swift; sourceTree = "<group>"; };
 		EB3B491B2B35E29400E89711 /* SettingsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPicker.swift; sourceTree = "<group>"; };
 		EB3B491E2B35E2B200E89711 /* SettingsLabeledContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabeledContent.swift; sourceTree = "<group>"; };
@@ -1240,7 +1240,7 @@
 			isa = PBXGroup;
 			children = (
 				EBE787602B6256CF00328E8F /* DataSettingsViewModel.swift */,
-				EB38D1FA2B2946A800CED9DB /* SettingsViewModel.swift */,
+				EB38D1FA2B2946A800CED9DB /* DisplaySettingsViewModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -1694,6 +1694,7 @@
 				EB84A5C12B47910000291C6B /* DeveloperSection.swift in Sources */,
 				EB84A5BE2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */,
 				EB9922812B357D9400DBA812 /* DisplaySettingsPane.swift in Sources */,
+				EB38D1FC2B2946A800CED9DB /* DisplaySettingsViewModel.swift in Sources */,
 				EB6FF1D72B48CFEE00118E0F /* DrillDownSettingsContainer.swift in Sources */,
 				EBC85C7E2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */,
 				EBB4B20E2B175DE2004D63EA /* Effectiveness+Extensions.swift in Sources */,
@@ -1754,7 +1755,6 @@
 				EB6FF1D52B48CEFF00118E0F /* SettingsPreferredList.swift in Sources */,
 				EB50646E2B6CE8FC00C4BDBD /* SettingsSection.swift in Sources */,
 				EB6FF1DB2B48DA5400118E0F /* SettingsToggle.swift in Sources */,
-				EB38D1FC2B2946A800CED9DB /* SettingsViewModel.swift in Sources */,
 				EB8AD06F2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift in Sources */,
 				EB97F6A92B31BCDE00E31602 /* SharedGameListModifier.swift in Sources */,
 				EB3B49232B35EAD100E89711 /* SharedSettingsContainerModifier.swift in Sources */,
@@ -1894,6 +1894,7 @@
 				EB84A5C02B47910000291C6B /* DeveloperSection.swift in Sources */,
 				EB84A5BD2B47873B00291C6B /* DeveloperSettingsPane.swift in Sources */,
 				EB9922802B357D9400DBA812 /* DisplaySettingsPane.swift in Sources */,
+				EB38D1FB2B2946A800CED9DB /* DisplaySettingsViewModel.swift in Sources */,
 				EB28F1B32B370F0700291055 /* DividedHStack.swift in Sources */,
 				EBA66F1A2B355EDE009DE78C /* DrillDownSettingsContainer.swift in Sources */,
 				EBC85C7D2B209D65008A16C6 /* EdgeInsets+Extensions.swift in Sources */,
@@ -1978,7 +1979,6 @@
 				EB6FF1D42B48CEFF00118E0F /* SettingsPreferredList.swift in Sources */,
 				EB50646D2B6CE8FC00C4BDBD /* SettingsSection.swift in Sources */,
 				EB6FF1DA2B48DA5400118E0F /* SettingsToggle.swift in Sources */,
-				EB38D1FB2B2946A800CED9DB /* SettingsViewModel.swift in Sources */,
 				EB8AD06E2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift in Sources */,
 				EB97F6A82B31BCDE00E31602 /* SharedGameListModifier.swift in Sources */,
 				EB3B49222B35EAD100E89711 /* SharedSettingsContainerModifier.swift in Sources */,

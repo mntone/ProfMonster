@@ -2,7 +2,7 @@ import Combine
 import Foundation
 import MonsterAnalyzerCore
 
-final class SettingsViewModel: ObservableObject {
+final class DisplaySettingsViewModel: ObservableObject {
 	private let app: MonsterAnalyzerCore.App
 	private let settings: MonsterAnalyzerCore.Settings
 
