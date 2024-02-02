@@ -76,7 +76,7 @@ struct AppSettingsPane: View {
 			.listRowSeparator(.hidden)
 #endif
 
-			Section("Build Info") {
+			SettingsSection("Build Info") {
 				SettingsLabeledContent(LocalizedStringKey("Git Difference")) {
 					hashContent
 				}
@@ -87,7 +87,7 @@ struct AppSettingsPane: View {
 #endif
 			}
 
-			Section("LICENSES") {
+			SettingsSection("LICENSES") {
 				let mit = Self.loadLicense(of: "mit")!
 				LicenseView(name: "MessagePacker",
 							link: URL(string: "https://github.com/hirotakan/MessagePacker"),

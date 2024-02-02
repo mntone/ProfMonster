@@ -11,7 +11,7 @@ struct DeveloperSettingsPane: View {
 
 	var body: some View {
 		SettingsPreferredList {
-			Section {
+			SettingsSection {
 #if DEBUG
 				SettingsToggle(verbatim: "Delay Network Request",
 							   isOn: $delayNetworkRequest)

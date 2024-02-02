@@ -7,7 +7,7 @@ struct DisplaySettingsPane: View {
 
 	var body: some View {
 		SettingsPreferredList {
-			Section("Monster List") {
+			SettingsSection("Monster List") {
 #if os(watchOS)
 				NavigationLink {
 					Form {
@@ -81,7 +81,7 @@ struct DisplaySettingsPane: View {
 				}
 			}
 
-			Section("Monster") {
+			SettingsSection("Monster") {
 				SettingsToggle("Show Physical Weaknesses",
 							   isOn: $viewModel.showPhysicalAttack)
 

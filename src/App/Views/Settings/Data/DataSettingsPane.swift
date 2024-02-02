@@ -39,7 +39,7 @@ struct DataSettingsPane: View {
 
 	var body: some View {
 		SettingsPreferredList {
-			Section {
+			SettingsSection {
 				TextField("Source URL",
 						  text: $viewModel.sourceURLString,
 						  prompt: Text(viewModel.currentURLString))
@@ -95,7 +95,7 @@ struct DataSettingsPane: View {
 			}
 
 			if !isEditMode {
-				Section {
+				SettingsSection {
 					ResetSettingsButton(viewModel: viewModel)
 					ResetCacheButton(viewModel: viewModel)
 				} footer: {

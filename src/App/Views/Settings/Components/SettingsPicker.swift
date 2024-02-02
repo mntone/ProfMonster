@@ -51,8 +51,15 @@ struct SettingsPicker<Content, SelectionValue, MoreContent>: View where Content:
 					Never?.none
 				}
 				.pickerStyle(.inline)
+#if os(iOS)
+				.listRowInsetsLayoutMargin()
+#endif
 
+#if os(iOS)
+				moreContent?.listRowInsetsLayoutMargin()
+#else
 				moreContent
+#endif
 			}
 			.navigationTitle(titleKey)
 		} label: {

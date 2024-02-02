@@ -66,6 +66,8 @@
 		EB4C63E42B69550F008624E1 /* PositionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C63E22B69550F008624E1 /* PositionObserver.swift */; };
 		EB4C63E62B6955C7008624E1 /* MobileMonsterListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C63E52B6955C7008624E1 /* MobileMonsterListHeader.swift */; platformFilter = ios; };
 		EB4C63E92B695A1C008624E1 /* TopSeparatorRemover.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C63E82B695A1C008624E1 /* TopSeparatorRemover.swift */; platformFilter = ios; };
+		EB50646D2B6CE8FC00C4BDBD /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB50646C2B6CE8FC00C4BDBD /* SettingsSection.swift */; };
+		EB50646E2B6CE8FC00C4BDBD /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB50646C2B6CE8FC00C4BDBD /* SettingsSection.swift */; };
 		EB513ADF2B3C8B0400C8FB4A /* TabSettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB513ADE2B3C8B0400C8FB4A /* TabSettingsContainer.swift */; platformFilters = (macos, ); };
 		EB5445542B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5445532B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift */; platformFilter = ios; };
 		EB5445582B527D12008E7A48 /* MonsterWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB5445572B527D12008E7A48 /* MonsterWindow.swift */; };
@@ -476,6 +478,7 @@
 		EB4C63E22B69550F008624E1 /* PositionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionObserver.swift; sourceTree = "<group>"; };
 		EB4C63E52B6955C7008624E1 /* MobileMonsterListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileMonsterListHeader.swift; sourceTree = "<group>"; };
 		EB4C63E82B695A1C008624E1 /* TopSeparatorRemover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSeparatorRemover.swift; sourceTree = "<group>"; };
+		EB50646C2B6CE8FC00C4BDBD /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		EB513ADE2B3C8B0400C8FB4A /* TabSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSettingsContainer.swift; sourceTree = "<group>"; };
 		EB5445532B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleViewSupport.swift; sourceTree = "<group>"; };
 		EB5445572B527D12008E7A48 /* MonsterWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterWindow.swift; sourceTree = "<group>"; };
@@ -869,6 +872,7 @@
 				EB3B491E2B35E2B200E89711 /* SettingsLabeledContent.swift */,
 				EB3B491B2B35E29400E89711 /* SettingsPicker.swift */,
 				EB6FF1D32B48CEFF00118E0F /* SettingsPreferredList.swift */,
+				EB50646C2B6CE8FC00C4BDBD /* SettingsSection.swift */,
 				EB6FF1D92B48DA5400118E0F /* SettingsToggle.swift */,
 			);
 			path = Components;
@@ -1748,6 +1752,7 @@
 				EB99227E2B357D6C00DBA812 /* SettingsPane.swift in Sources */,
 				EB3B491D2B35E29400E89711 /* SettingsPicker.swift in Sources */,
 				EB6FF1D52B48CEFF00118E0F /* SettingsPreferredList.swift in Sources */,
+				EB50646E2B6CE8FC00C4BDBD /* SettingsSection.swift in Sources */,
 				EB6FF1DB2B48DA5400118E0F /* SettingsToggle.swift in Sources */,
 				EB38D1FC2B2946A800CED9DB /* SettingsViewModel.swift in Sources */,
 				EB8AD06F2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift in Sources */,
@@ -1971,6 +1976,7 @@
 				EB99227D2B357D6C00DBA812 /* SettingsPane.swift in Sources */,
 				EB3B491C2B35E29400E89711 /* SettingsPicker.swift in Sources */,
 				EB6FF1D42B48CEFF00118E0F /* SettingsPreferredList.swift in Sources */,
+				EB50646D2B6CE8FC00C4BDBD /* SettingsSection.swift in Sources */,
 				EB6FF1DA2B48DA5400118E0F /* SettingsToggle.swift in Sources */,
 				EB38D1FB2B2946A800CED9DB /* SettingsViewModel.swift in Sources */,
 				EB8AD06E2B42946A00F1E96F /* ShapeStyle+Hierarchical.swift in Sources */,
