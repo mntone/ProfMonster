@@ -8,7 +8,7 @@ import UIKit
 struct AppAssembly: Assembly {
 	func assemble(container: Container) {
 #if os(iOS)
-		let pad = UIDevice.current.userInterfaceIdiom == .pad
+		let pad = UIDevice.current.systemName == "iPadOS"
 #elseif os(macOS)
 		let pad = true
 #else
