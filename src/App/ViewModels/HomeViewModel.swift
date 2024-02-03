@@ -50,11 +50,15 @@ final class HomeViewModel: ObservableObject {
 					self.state = .complete
 					self.items = games.map(HomeItemViewModel.init)
 					self.objectWillChange.send()
-				case let .failure(date, error):
-					self.state = .failure(date: date, error: error)
+				case let .failure(reset, error):
+					self.state = .failure(reset: reset, error: error)
 					self.objectWillChange.send()
 				}
 			}
+	}
+
+	func refresh() {
+		app.fetchIfNeeded()
 	}
 }
 

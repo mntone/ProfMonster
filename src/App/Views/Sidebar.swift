@@ -20,7 +20,7 @@ struct Sidebar: View {
 #if os(iOS)
 		.injectHorizontalLayoutMargin()
 #endif
-		.stateOverlay(viewModel.state)
+		.stateOverlay(viewModel.state, refresh: viewModel.refresh)
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 
 		// Select the first item when new scene.
@@ -60,7 +60,7 @@ struct SidebarBackport: View {
 			}
 		}
 		.injectHorizontalLayoutMargin()
-		.stateOverlay(viewModel.state)
+		.stateOverlay(viewModel.state, refresh: viewModel.refresh)
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 
 		// Select the first item when new scene.

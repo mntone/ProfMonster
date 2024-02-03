@@ -99,7 +99,7 @@ struct MonsterListColumn: View {
 #else
 		.searchable(text: $viewModel.searchText, prompt: Text("Monster and Weakness"))
 #endif
-		.stateOverlay(viewModel.state)
+		.stateOverlay(viewModel.state, refresh: viewModel.refresh)
 #if os(iOS)
 		.navigationBarTitleDisplayMode(.inline)
 #endif

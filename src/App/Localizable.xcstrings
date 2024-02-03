@@ -10800,6 +10800,16 @@
         }
       }
     },
+    "Refresh" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "更新"
+          }
+        }
+      }
+    },
     "Reset All Caches" : {
       "localizations" : {
         "ar" : {

@@ -178,6 +178,9 @@
 		EB8F07E32B300B84006AC575 /* TestAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F07E22B300B84006AC575 /* TestAssembly.swift */; };
 		EB8F07E52B300BE4006AC575 /* GameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F07E42B300BE4006AC575 /* GameTests.swift */; };
 		EB8F07E72B300F18006AC575 /* MonsterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8F07E62B300F18006AC575 /* MonsterTests.swift */; };
+		EB9563DD2B6DEC75007039A4 /* NetworkDataSourceOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9563DC2B6DEC75007039A4 /* NetworkDataSourceOptions.swift */; };
+		EB9563DF2B6DFFC7007039A4 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9563DE2B6DFFC7007039A4 /* ErrorView.swift */; };
+		EB9563E02B6DFFC7007039A4 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9563DE2B6DFFC7007039A4 /* ErrorView.swift */; };
 		EB95FFD22B5657AF009BE15E /* GroupOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB95FFD12B5657AF009BE15E /* GroupOption.swift */; };
 		EB95FFD42B5658EF009BE15E /* GroupOption+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB95FFD32B5658EF009BE15E /* GroupOption+Extensions.swift */; };
 		EB95FFD52B5658EF009BE15E /* GroupOption+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB95FFD32B5658EF009BE15E /* GroupOption+Extensions.swift */; };
@@ -548,6 +551,8 @@
 		EB8F07E22B300B84006AC575 /* TestAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAssembly.swift; sourceTree = "<group>"; };
 		EB8F07E42B300BE4006AC575 /* GameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTests.swift; sourceTree = "<group>"; };
 		EB8F07E62B300F18006AC575 /* MonsterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonsterTests.swift; sourceTree = "<group>"; };
+		EB9563DC2B6DEC75007039A4 /* NetworkDataSourceOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDataSourceOptions.swift; sourceTree = "<group>"; };
+		EB9563DE2B6DFFC7007039A4 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		EB95FFD12B5657AF009BE15E /* GroupOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupOption.swift; sourceTree = "<group>"; };
 		EB95FFD32B5658EF009BE15E /* GroupOption+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GroupOption+Extensions.swift"; sourceTree = "<group>"; };
 		EB9620DC2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OSAllocatedUnfairLockBackport.swift; sourceTree = "<group>"; };
@@ -1265,6 +1270,7 @@
 				EB6A4F4B2B48A9FF008AB7CE /* MockData.swift */,
 				EB9620F82B1DD41200FD7115 /* MockDataSource.swift */,
 				EBB4B1BD2B158F91004D63EA /* NetworkDataSource.swift */,
+				EB9563DC2B6DEC75007039A4 /* NetworkDataSourceOptions.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -1319,6 +1325,7 @@
 				EB29563F2B310E1D002C5CA8 /* iOS */,
 				EB71C13D2B5BB56E0013FBBC /* ChromeShadow.swift */,
 				EB28F1B22B370F0700291055 /* DividedHStack.swift */,
+				EB9563DE2B6DFFC7007039A4 /* ErrorView.swift */,
 				EB5672072B57748D00592413 /* ProgressIndicatorView.swift */,
 				EBEA6F732B18B56700734AAA /* UnevenRoundedRectangleBackport.swift */,
 				EB489E702B614C8400E48950 /* VSpacer.swift */,
@@ -1704,6 +1711,7 @@
 				EB5672022B5747ED00592413 /* ElementWeaknessItemViewModel.swift in Sources */,
 				EB71C13C2B5B6FF10013FBBC /* EnvironmentValues+MAForm.swift in Sources */,
 				EB8778292B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift in Sources */,
+				EB9563E02B6DFFC7007039A4 /* ErrorView.swift in Sources */,
 				EB560BCF2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
 				EBBF86252B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */,
 				EBBBAABA2B3FE27000BBAB23 /* GameGroupViewModel.swift in Sources */,
@@ -1825,6 +1833,7 @@
 				EB967A3A2B29DAC00041A491 /* Monster.swift in Sources */,
 				EB967A262B299BFC0041A491 /* MonsterResourceMapper.swift in Sources */,
 				EBEA6F512B185A1A00734AAA /* NetworkDataSource.swift in Sources */,
+				EB9563DD2B6DEC75007039A4 /* NetworkDataSourceOptions.swift in Sources */,
 				EB10435B2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift in Sources */,
 				EB9620DD2B1D5F9000FD7115 /* OSAllocatedUnfairLockBackport.swift in Sources */,
 				EBF684A42B2D4C5D0071981F /* Physiology.swift in Sources */,
@@ -1905,6 +1914,7 @@
 				EB5672032B5747ED00592413 /* ElementWeaknessItemViewModel.swift in Sources */,
 				EB71F8722B5A0D4300999269 /* EnvironmentValues+MAForm.swift in Sources */,
 				EB8778282B26BDEF00B3359C /* EnvironmentValues+ShowSettingsAction.swift in Sources */,
+				EB9563DF2B6DFFC7007039A4 /* ErrorView.swift in Sources */,
 				EB560BCE2B42F48800E91E01 /* FavoriteButton.swift in Sources */,
 				EBFEAB842B45A5DC005363F7 /* FavoriteContextMenuButton.swift in Sources */,
 				EBBF86242B46D4F000F76D03 /* FavoriteSwipeButton.swift in Sources */,

@@ -23,7 +23,9 @@ public final class App: FetchableEntity<[Game]>, Entity {
 
 	private var requireReinitApp: Bool = false
 
-	public init(container: Container, pad: Bool) {
+	public init(container: Container,
+				requestBehavior: RepeatBehavior,
+				pad: Bool) {
 		guard let logger = container.resolve(Logger.self) else {
 			fatalError("Failed to get Logger.")
 		}
@@ -52,9 +54,12 @@ public final class App: FetchableEntity<[Game]>, Entity {
 #endif
 		self.logger = logger
 #if DEBUG
-		super.init(dataSource: dataSource, delayed: settings.delayNetworkRequest)
+		super.init(dataSource: dataSource,
+				   requestBehavior: requestBehavior,
+				   delayed: settings.delayNetworkRequest)
 #else
-		super.init(dataSource: dataSource)
+		super.init(dataSource: dataSource,
+				   requestBehavior: requestBehavior)
 #endif
 	}
 

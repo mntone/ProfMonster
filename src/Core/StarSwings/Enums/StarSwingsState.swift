@@ -5,7 +5,7 @@ public enum StarSwingsState<Data> {
 	case ready
 	case loading(publisher: Publishers.Buffer<Deferred<PassthroughSubject<Data?, StarSwingsError>>>)
 	case complete(data: Data)
-	case failure(date: Date, error: StarSwingsError)
+	case failure(reset: Date, error: StarSwingsError)
 
 	public var isReady: Bool {
 		if case .ready = self {

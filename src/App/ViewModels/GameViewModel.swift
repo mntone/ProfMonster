@@ -93,6 +93,10 @@ final class GameViewModel: ObservableObject {
 		}
 	}
 
+	func refresh() {
+		game?.fetchIfNeeded()
+	}
+
 	func set(domain game: Game) {
 		// Reset current states.
 		self.game = nil

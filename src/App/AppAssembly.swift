@@ -16,7 +16,9 @@ struct AppAssembly: Assembly {
 #endif
 		container
 			.register(App.self) { _ in
-				App(container: container, pad: pad)
+				App(container: container,
+					requestBehavior: .exponentialDelayed(initial: 3.0, multiplier: 2.0, max: 24.0),
+					pad: pad)
 			}
 			.inObjectScope(.container)
 

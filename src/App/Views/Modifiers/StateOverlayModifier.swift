@@ -31,32 +31,36 @@ private struct DelayedProgressIndicatorView: View {
 
 #endif
 
-struct StateOverlayModifier<ProgressIndicator: View>: ViewModifier {
+struct StateOverlayModifier: ViewModifier {
 	let state: RequestState
-	let progressIndicator: ProgressIndicator
+	let refreshAction: () -> Void
 
 	fileprivate init(state: RequestState,
-					 progressIndicator: ProgressIndicator) {
+					 refreshAction: @escaping () -> Void) {
 		self.state = state
-		self.progressIndicator = progressIndicator
+		self.refreshAction = refreshAction
 	}
 
 	func body(content: Content) -> some View {
 		content.overlay {
 			switch state {
 			case .loading:
+				Color.clear
 #if os(iOS)
 				if UIDevice.current.userInterfaceIdiom == .pad {
 					DelayedProgressIndicatorView()
 				} else {
 					ProgressIndicatorView()
 				}
+#elseif os(macOS)
+				DelayedProgressIndicatorView()
 #else
-				progressIndicator
+				ProgressIndicatorView()
 #endif
-			case let .failure(_, error):
-				Text(error.label)
-					.scenePadding()
+			case let .failure(reset, error):
+				ErrorView(reset: reset,
+						  error: error,
+						  refresh: refreshAction)
 			default:
 				Never?.none
 			}
@@ -67,18 +71,7 @@ struct StateOverlayModifier<ProgressIndicator: View>: ViewModifier {
 extension View {
 	@inline(__always)
 	@ViewBuilder
-	func stateOverlay(_ state: RequestState) -> ModifiedContent<Self, StateOverlayModifier<Group<TupleView<(Color, ProgressIndicatorView)>>>> {
-		modifier(StateOverlayModifier(state: state, progressIndicator: Group {
-			Color.clear
-			ProgressIndicatorView()
-		}))
-	}
-
-	@inline(__always)
-	@ViewBuilder
-	func stateOverlay<ProgressIndicator>(
-		_ state: RequestState,
-		@ViewBuilder progressIndicator: () -> ProgressIndicator) -> ModifiedContent<Self, StateOverlayModifier<ProgressIndicator>> {
-		modifier(StateOverlayModifier(state: state, progressIndicator: progressIndicator()))
+	func stateOverlay(_ state: RequestState, refresh: @escaping () -> Void) -> some View {
+		modifier(StateOverlayModifier(state: state, refreshAction: refresh))
 	}
 }

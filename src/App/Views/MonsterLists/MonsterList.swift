@@ -111,7 +111,7 @@ struct MonsterList<ItemView: View>: View {
 			.hidden()
 		)
 #endif
-		.stateOverlay(viewModel.state)
+		.stateOverlay(viewModel.state, refresh: viewModel.refresh)
 #if os(iOS)
 		.navigationBarTitleDisplayMode(.inline)
 #endif

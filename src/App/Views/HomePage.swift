@@ -18,7 +18,7 @@ struct HomePage: View {
 			NavigationLink(item.name, value: MARoute.game(id: item.id))
 #endif
 		}
-		.stateOverlay(viewModel.state)
+		.stateOverlay(viewModel.state, refresh: viewModel.refresh)
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 	}
 }
@@ -49,7 +49,7 @@ struct HomePageBackport: View {
 			}
 #endif
 		}
-		.stateOverlay(viewModel.state)
+		.stateOverlay(viewModel.state, refresh: viewModel.refresh)
 		.modifier(SharedGameListModifier(viewModel: viewModel))
 	}
 }

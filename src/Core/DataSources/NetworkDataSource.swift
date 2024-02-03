@@ -1,15 +1,5 @@
 import Foundation
 
-public struct NetworkDataSourceOptions {
-	public let retryCount: Int
-
-	init(retryCount: Int = 1) {
-		self.retryCount = retryCount
-	}
-
-	public static let `default` = NetworkDataSourceOptions()
-}
-
 final class NetworkDataSource {
 	private let source: URL
 	private let logger: Logger
@@ -34,19 +24,20 @@ final class NetworkDataSource {
 			"User-Agent": "ProfMonster/\(AppUtil.version)",
 		]
 		conf.httpShouldSetCookies = false
-		conf.waitsForConnectivity = false
+		conf.timeoutIntervalForRequest = 20.0
+		conf.timeoutIntervalForResource = 180.0 // 3 minutes
 		let session = URLSession(configuration: conf)
 		self.init(source: source, logger: logger, session: session)
 	}
 
 	private func getItem<Item: Decodable>(of url: URL, type: Item.Type) async throws -> Item {
-		var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 30)
+		var request = URLRequest(url: url, cachePolicy: .reloadIgnoringLocalCacheData, timeoutInterval: 40.0)
 		request.assumesHTTP3Capable = true
 		request.networkServiceType = .responsiveData
-		return try await getItem(ofRequest: request, type: type, count: options.retryCount)
+		return try await getItem(ofRequest: request, type: type, count: options.maxRetry - 1)
 	}
 
-	private func getItem<Item: Decodable>(ofRequest urlRequest: URLRequest, type: Item.Type, count: Int = 0) async throws -> Item {
+	private func getItem<Item: Decodable>(ofRequest urlRequest: URLRequest, type: Item.Type, count: UInt = 0) async throws -> Item {
 		do {
 			let (data, response) = try await session.data(for: urlRequest)
 			try handle(response: response)
@@ -69,7 +60,9 @@ final class NetworkDataSource {
 				}
 
 				if retry {
-					return try await getItem(ofRequest: urlRequest, type: type, count: options.retryCount - 1)
+					let timeInterval = UInt64(options.repeatBehavior.timeInterval(retry: options.maxRetry - count) * Double(NSEC_PER_SEC))
+					try? await Task.sleep(nanoseconds: timeInterval)
+					return try await getItem(ofRequest: urlRequest, type: type, count: count - 1)
 				}
 			}
 			throw error

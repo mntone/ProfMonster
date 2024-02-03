@@ -42,9 +42,12 @@ public final class Game: FetchableEntity<[Monster]>, Entity {
 		self.name = localization.name
 		self.abbreviation = localization.abbreviation
 #if DEBUG
-		super.init(dataSource: dataSource, delayed: app.delayRequest)
+		super.init(dataSource: dataSource,
+				   requestBehavior: app.requestBehavior,
+				   delayed: app.delayRequest)
 #else
-		super.init(dataSource: dataSource)
+		super.init(dataSource: dataSource,
+				   requestBehavior: app.requestBehavior)
 #endif
 	}
 

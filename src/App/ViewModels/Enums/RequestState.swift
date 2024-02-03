@@ -7,7 +7,7 @@ enum RequestState: Equatable {
 	case ready
 	case loading
 	case complete
-	case failure(date: Date, error: StarSwingsError)
+	case failure(reset: Date, error: StarSwingsError)
 
 	var isReady: Bool {
 		if case .ready = self {
@@ -61,8 +61,8 @@ extension StarSwingsState {
 			.loading
 		case .complete:
 			.complete
-		case let .failure(date: date, error: error):
-			.failure(date: date, error: error)
+		case let .failure(reset, error):
+			.failure(reset: reset, error: error)
 		}
 	}
 }

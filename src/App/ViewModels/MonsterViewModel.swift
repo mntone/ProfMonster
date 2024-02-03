@@ -132,8 +132,8 @@ final class MonsterViewModel: ObservableObject {
 					self.items = MonsterDataViewModelFactory.create(monster: monster,
 																	physiology: physiologies,
 																	options: options)
-				case let .failure(date, error):
-					self.state = .failure(date: date, error: error)
+				case let .failure(reset, error):
+					self.state = .failure(reset: reset, error: error)
 					self.items = []
 				}
 			}

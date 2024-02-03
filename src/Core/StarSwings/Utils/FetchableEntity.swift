@@ -3,11 +3,14 @@ import Foundation
 
 public class FetchableEntity<Data> {
 	let _dataSource: DataSource
+	let requestBehavior: RepeatBehavior
 	let _lock: Lock = LockUtil.create()
 
 #if DEBUG
 	let delayRequest: Bool
 #endif
+
+	private(set) var retryCount: UInt = 0
 
 	@Published
 	public internal(set) var state: StarSwingsState<Data> = .ready
@@ -17,13 +20,18 @@ public class FetchableEntity<Data> {
 	}
 
 #if DEBUG
-	init(dataSource: DataSource, delayed delayRequest: Bool) {
+	init(dataSource: DataSource,
+		 requestBehavior: RepeatBehavior,
+		 delayed delayRequest: Bool) {
 		self._dataSource = dataSource
+		self.requestBehavior = requestBehavior
 		self.delayRequest = delayRequest
 	}
 #else
-	init(dataSource: DataSource) {
+	init(dataSource: DataSource,
+		 requestBehavior: RepeatBehavior) {
 		self._dataSource = dataSource
+		self.requestBehavior = requestBehavior
 	}
 #endif
 
@@ -47,7 +55,13 @@ public class FetchableEntity<Data> {
 		case let .complete(data):
 			_lock.unlock()
 			return data
-		case .ready, .failure:
+		case let .failure(reset, _):
+			guard reset <= Date.now else {
+				_lock.unlock()
+				return nil
+			}
+			fallthrough
+		case .ready:
 			let publisher = Deferred { [weak self] () in
 				let subject = PassthroughSubject<Data?, StarSwingsError>()
 				Task.detached(priority: priority) { [weak self] in
@@ -65,6 +79,7 @@ public class FetchableEntity<Data> {
 					do {
 						let data = try await _fetch()
 						self._lock.withLock {
+							self.retryCount = 0
 							self.state = .complete(data: data)
 						}
 						subject.send(data)
@@ -130,8 +145,10 @@ public class FetchableEntity<Data> {
 	}
 
 	final func _handle(ssError: StarSwingsError) {
+		let nextReset = Date.now + requestBehavior.timeInterval(retry: retryCount)
 		_lock.withLock {
-			state = .failure(date: Date.now, error: ssError)
+			retryCount = retryCount + 1
+			state = .failure(reset: nextReset, error: ssError)
 		}
 	}
 

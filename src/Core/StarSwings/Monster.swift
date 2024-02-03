@@ -116,9 +116,12 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 		}
 
 #if DEBUG
-		super.init(dataSource: dataSource, delayed: app.delayRequest)
+		super.init(dataSource: dataSource,
+				   requestBehavior: app.requestBehavior,
+				   delayed: app.delayRequest)
 #else
-		super.init(dataSource: dataSource)
+		super.init(dataSource: dataSource,
+				   requestBehavior: app.requestBehavior)
 #endif
 
 		self.cancellable = userDatabase.observeChange(of: id).sink { [weak self] change in
