@@ -95,6 +95,17 @@ struct DataSettingsPane: View {
 			}
 
 			if !isEditMode {
+				if let dataSourceInfo = viewModel.currentDataSourceInformation {
+					SettingsSection("Data Source Info") {
+						SettingsLabeledContent(LocalizedStringKey("Name"), value: dataSourceInfo.name)
+						SettingsLabeledContent(LocalizedStringKey("Copyright"), value: dataSourceInfo.copyright)
+						SettingsLabeledContent(LocalizedStringKey("License"), value: dataSourceInfo.license)
+					}
+#if os(watchOS)
+					.listRowBackground(EmptyView())
+#endif
+				}
+
 				SettingsSection {
 					ResetSettingsButton(viewModel: viewModel)
 					ResetCacheButton(viewModel: viewModel)

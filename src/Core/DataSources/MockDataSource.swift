@@ -1,7 +1,7 @@
 import Foundation
 
 public struct MockDataSource {
-	static let config = MHConfig(version: 3, games: ["mockgame"], languages: ["en", "ja"])
+	static let config = MHConfig(version: 3, games: ["mockgame"], languages: ["en", "ja"], source: nil)
 
 	static let localizationEnglish = MHLocalization(
 		games: [

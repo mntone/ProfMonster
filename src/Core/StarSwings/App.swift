@@ -23,6 +23,9 @@ public final class App: FetchableEntity<[Game]>, Entity {
 
 	private var requireReinitApp: Bool = false
 
+	@Published
+	public private(set) var dataSourceInformation: MHDataSourceInformation?
+
 	public init(container: Container,
 				requestBehavior: RepeatBehavior,
 				pad: Bool) {
@@ -133,6 +136,11 @@ public final class App: FetchableEntity<[Game]>, Entity {
 		// Check data format version.
 		guard config.version == MHConfig.currentVersion else {
 			throw StarSwingsError.notSupported
+		}
+
+		// Set data source information.
+		if let source = config.source {
+			self.dataSourceInformation = source
 		}
 
 		// Get localization.

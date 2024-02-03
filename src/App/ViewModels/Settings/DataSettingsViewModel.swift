@@ -18,6 +18,9 @@ final class DataSettingsViewModel: ObservableObject {
 		app.sourceURL.absoluteString
 	}
 
+	@Published
+	private(set) var currentDataSourceInformation: MHDataSourceInformation?
+
 #if os(watchOS)
 	@Published
 	var isSourceURLChanged: Bool = false
@@ -48,6 +51,10 @@ final class DataSettingsViewModel: ObservableObject {
 		}
 		self.app = app
 		self.sourceURLString = Self.getSourceURLString(app)
+
+		app.$dataSourceInformation
+			.receive(on: DispatchQueue.main)
+			.assign(to: &$currentDataSourceInformation)
 	}
 
 	// MARK: - Data Source
