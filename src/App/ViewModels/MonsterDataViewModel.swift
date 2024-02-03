@@ -26,7 +26,6 @@ struct MonsterDataViewModel: Identifiable {
 #if os(watchOS)
 	let name: String
 #endif
-	let copyright: String?
 	let weakness: WeaknessViewModel?
 	let physiologies: PhysiologiesViewModel?
 
@@ -34,25 +33,21 @@ struct MonsterDataViewModel: Identifiable {
 	init(id: String,
 		 mode: Mode,
 		 name: String,
-		 copyright: String?,
 		 weakness: WeaknessViewModel?,
 		 physiologies: PhysiologiesViewModel) {
 		self.id = id
 		self.mode = mode
 		self.name = name
-		self.copyright = copyright
 		self.weakness = weakness
 		self.physiologies = physiologies
 	}
 #else
 	init(id: String,
 		 mode: Mode,
-		 copyright: String?,
 		 weakness: WeaknessViewModel?,
 		 physiologies: PhysiologiesViewModel) {
 		self.id = id
 		self.mode = mode
-		self.copyright = copyright
 		self.weakness = weakness
 		self.physiologies = physiologies
 	}
@@ -66,7 +61,6 @@ struct MonsterDataViewModel: Identifiable {
 #if os(watchOS)
 		self.name = monster.name
 #endif
-		self.copyright = monster.game?.copyright
 		if !options.isHidden {
 			self.weakness = WeaknessViewModel(prefixID: id,
 											  weakness: weakness,
@@ -79,6 +73,7 @@ struct MonsterDataViewModel: Identifiable {
 
 	init(monster: Monster,
 		 mode: Mode,
+		 version: String,
 		 physiology: Physiology,
 		 multiple: Bool,
 		 options: MonsterDataViewModelBuildOptions) {
@@ -91,7 +86,6 @@ struct MonsterDataViewModel: Identifiable {
 			self.name = monster.name
 		}
 #endif
-		self.copyright = monster.game?.copyright
 
 		if !options.isHidden {
 			let weakness = WeaknessViewModel(prefixID: id,
@@ -102,7 +96,7 @@ struct MonsterDataViewModel: Identifiable {
 			self.weakness = nil
 		}
 
-		self.physiologies = PhysiologiesViewModel(rawValue: physiology)
+		self.physiologies = PhysiologiesViewModel(version: version, physiology: physiology)
 	}
 }
 
@@ -137,6 +131,7 @@ enum MonsterDataViewModelFactory {
 		let data = physiologies.modes.map { mode in
 			MonsterDataViewModel(monster: monster,
 								 mode: mode.mode,
+								 version: physiologies.version,
 								 physiology: mode,
 								 multiple: multipleMode,
 								 options: options)

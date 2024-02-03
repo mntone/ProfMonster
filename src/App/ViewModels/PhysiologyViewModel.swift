@@ -143,11 +143,15 @@ struct PhysiologySectionViewModel: Identifiable {
 
 struct PhysiologiesViewModel: Identifiable {
 	let id: String
+	let version: String
 	let sections: [PhysiologySectionViewModel]
 
-	init(rawValue: Physiology, of attacks: [Attack] = Attack.allCases) {
-		self.id = rawValue.id
-		self.sections = rawValue.states.map { section in
+	init(version: String,
+		 physiology: Physiology,
+		 of attacks: [Attack] = Attack.allCases) {
+		self.id = physiology.id
+		self.version = version
+		self.sections = physiology.states.map { section in
 			PhysiologySectionViewModel(rawValue: section, of: attacks)
 		}
 	}

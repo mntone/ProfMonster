@@ -129,5 +129,6 @@ public struct Physiology: Identifiable {
 
 public struct Physiologies: Identifiable {
 	public let id: String
+	public let version: String
 	public let modes: [Physiology]
 }

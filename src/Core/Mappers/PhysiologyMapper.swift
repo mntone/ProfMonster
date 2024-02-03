@@ -211,7 +211,9 @@ struct PhysiologyMapper {
 		let modesData = [map(src, modeKey: nil, mode: .lowAndHigh, options: options)] + modes.map { key, mode in
 			map(src, modeKey: key, mode: mode, options: options)
 		}
-		return Physiologies(id: src.id, modes: modesData)
+		return Physiologies(id: src.id,
+							version: src.version,
+							modes: modesData)
 	}
 
 	private static let removingState: Set<String> = ["default", "broken"]

@@ -2,7 +2,6 @@ import SwiftUI
 
 struct PhysiologySection: View {
 	let physiologies: PhysiologiesViewModel?
-	let copyright: String?
 
 	var body: some View {
 		MASection("Physiology", background: .separatedInsetGrouped) {
@@ -26,9 +25,8 @@ struct PhysiologySection: View {
 					.frame(maxWidth: .infinity)
 			}
 		} footer: {
-			if physiologies != nil,
-			   let copyright {
-				MASectionFooter(copyright)
+			if let version = physiologies?.version {
+				MASectionFooter(LocalizedStringKey("Version \(version)"))
 			}
 		}
 #if os(iOS) || os(watchOS)

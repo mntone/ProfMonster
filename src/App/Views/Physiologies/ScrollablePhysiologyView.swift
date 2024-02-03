@@ -278,7 +278,8 @@ struct HeaderScrollablePhysiologyView: View {
 
 @available(macOS, unavailable)
 #Preview("Default") {
-	let viewModel = PhysiologiesViewModel(rawValue: MockDataSource.physiology1.modes[0])
+	let data = MockDataSource.physiology1
+	let viewModel = PhysiologiesViewModel(version: data.version, physiology: data.modes[0])
 	return Form {
 		ScrollablePhysiologyView(viewModel: viewModel.sections[0])
 			.listRowInsets(.zero)
@@ -287,7 +288,8 @@ struct HeaderScrollablePhysiologyView: View {
 
 @available(macOS, unavailable)
 #Preview("Right-to-Left") {
-	let viewModel = PhysiologiesViewModel(rawValue: MockDataSource.physiology1.modes[0])
+	let data = MockDataSource.physiology1
+	let viewModel = PhysiologiesViewModel(version: data.version, physiology: data.modes[0])
 	return Form {
 		ScrollablePhysiologyView(viewModel: viewModel.sections[0])
 			.listRowInsets(.zero)

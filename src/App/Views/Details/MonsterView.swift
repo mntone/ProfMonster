@@ -39,8 +39,7 @@ struct MonsterView: View {
 			}
 		}
 
-		PhysiologySection(physiologies: item.physiologies,
-						  copyright: item.copyright)
+		PhysiologySection(physiologies: item.physiologies)
 
 #if os(watchOS)
 		NotesSection(note: viewModel.note)
