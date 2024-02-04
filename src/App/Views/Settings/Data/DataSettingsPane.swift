@@ -3,16 +3,6 @@ import SwiftUI
 
 #if os(iOS)
 import SwiftUIIntrospect
-
-fileprivate extension View {
-	var isiOS17: Bool {
-		if #available(iOS 17.0, *) {
-			true
-		} else {
-			false
-		}
-	}
-}
 #endif
 
 struct DataSettingsPane: View {
@@ -129,7 +119,7 @@ struct DataSettingsPane: View {
 #endif
 					}
 #if os(iOS)
-					.padding(.trailing, isiOS17 ? 0.0 : horizontalLayoutMargin)
+					.padding(.trailing, isiOS17OrLater ? 0.0 : horizontalLayoutMargin)
 #endif
 					.disabled(!viewModel.enableSaveButton)
 				}

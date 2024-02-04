@@ -11,6 +11,7 @@
 		EB02AF802B6524C3004F6422 /* MATextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02AF7F2B6524C3004F6422 /* MATextField.swift */; platformFilter = ios; };
 		EB02AF822B6755E8004F6422 /* SettingsButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02AF812B6755E8004F6422 /* SettingsButtonStyle.swift */; platformFilter = ios; };
 		EB10435B2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */; };
+		EB131BBF2B6FEE36009C65B4 /* View+VersionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB131BBE2B6FEE36009C65B4 /* View+VersionExtensions.swift */; };
 		EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */; };
 		EB2550142B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2550132B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift */; platformFilters = (macos, ); };
 		EB28F1B32B370F0700291055 /* DividedHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28F1B22B370F0700291055 /* DividedHStack.swift */; };
@@ -65,7 +66,6 @@
 		EB4C63E32B69550F008624E1 /* PositionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C63E22B69550F008624E1 /* PositionObserver.swift */; };
 		EB4C63E42B69550F008624E1 /* PositionObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C63E22B69550F008624E1 /* PositionObserver.swift */; };
 		EB4C63E62B6955C7008624E1 /* MobileMonsterListHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C63E52B6955C7008624E1 /* MobileMonsterListHeader.swift */; platformFilter = ios; };
-		EB4C63E92B695A1C008624E1 /* TopSeparatorRemover.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4C63E82B695A1C008624E1 /* TopSeparatorRemover.swift */; platformFilter = ios; };
 		EB50646D2B6CE8FC00C4BDBD /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB50646C2B6CE8FC00C4BDBD /* SettingsSection.swift */; };
 		EB50646E2B6CE8FC00C4BDBD /* SettingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB50646C2B6CE8FC00C4BDBD /* SettingsSection.swift */; };
 		EB513ADF2B3C8B0400C8FB4A /* TabSettingsContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB513ADE2B3C8B0400C8FB4A /* TabSettingsContainer.swift */; platformFilters = (macos, ); };
@@ -446,6 +446,7 @@
 		EB02AF7F2B6524C3004F6422 /* MATextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MATextField.swift; sourceTree = "<group>"; };
 		EB02AF812B6755E8004F6422 /* SettingsButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonStyle.swift; sourceTree = "<group>"; };
 		EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extensions.swift"; sourceTree = "<group>"; };
+		EB131BBE2B6FEE36009C65B4 /* View+VersionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+VersionExtensions.swift"; sourceTree = "<group>"; };
 		EB19D6742B1EFF7700C90417 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+RetryIf.swift"; sourceTree = "<group>"; };
 		EB2550132B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ListStyleInsetAlternatingRowBackgrounds.swift"; sourceTree = "<group>"; };
@@ -480,7 +481,6 @@
 		EB489E702B614C8400E48950 /* VSpacer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSpacer.swift; sourceTree = "<group>"; };
 		EB4C63E22B69550F008624E1 /* PositionObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PositionObserver.swift; sourceTree = "<group>"; };
 		EB4C63E52B6955C7008624E1 /* MobileMonsterListHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileMonsterListHeader.swift; sourceTree = "<group>"; };
-		EB4C63E82B695A1C008624E1 /* TopSeparatorRemover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopSeparatorRemover.swift; sourceTree = "<group>"; };
 		EB50646C2B6CE8FC00C4BDBD /* SettingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsSection.swift; sourceTree = "<group>"; };
 		EB513ADE2B3C8B0400C8FB4A /* TabSettingsContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSettingsContainer.swift; sourceTree = "<group>"; };
 		EB5445532B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarTitleViewSupport.swift; sourceTree = "<group>"; };
@@ -795,6 +795,7 @@
 				EBB4B1D62B161E94004D63EA /* Color+Extensions.swift */,
 				EB58FB6E2B5C9BE600A4B975 /* MobileMetrics.swift */,
 				EBC051112B5503DC00D084E2 /* UIView+Swizzle.swift */,
+				EB131BBE2B6FEE36009C65B4 /* View+VersionExtensions.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -803,7 +804,6 @@
 			isa = PBXGroup;
 			children = (
 				EB4C63E52B6955C7008624E1 /* MobileMonsterListHeader.swift */,
-				EB4C63E82B695A1C008624E1 /* TopSeparatorRemover.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -2004,13 +2004,13 @@
 				EB6437942B46EF5400E8D02B /* SwipeAction+Extensions.swift in Sources */,
 				EB513ADF2B3C8B0400C8FB4A /* TabSettingsContainer.swift in Sources */,
 				EBCA222D2B222ECB00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
-				EB4C63E92B695A1C008624E1 /* TopSeparatorRemover.swift in Sources */,
 				EBC051122B5503DC00D084E2 /* UIView+Swizzle.swift in Sources */,
 				EBEA6F742B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
 				EB3B49192B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
 				EB6297F22B37179200E830E6 /* View+Block.swift in Sources */,
 				EB2B0FAB2B3925E3004596A6 /* View+Cursor.swift in Sources */,
 				EB87782E2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */,
+				EB131BBF2B6FEE36009C65B4 /* View+VersionExtensions.swift in Sources */,
 				EB489E712B614C8400E48950 /* VSpacer.swift in Sources */,
 				EB5672112B578FFD00592413 /* WeaknessSectionView.swift in Sources */,
 				EB5672052B574B7800592413 /* WeaknessSectionViewModel.swift in Sources */,

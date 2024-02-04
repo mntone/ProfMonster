@@ -45,10 +45,10 @@ struct MonsterList<ItemView: View>: View {
 		List(items) { group in
 #if os(iOS)
 			Section {
-				TopSeparatorRemover {
-					ForEach(group.items) { item in
-						content(item)
-					}
+				let firstID = isiOS16OrLater ? group.items.first?.id : nil
+				ForEach(group.items) { item in
+					content(item)
+						.listRowSeparator(.hidden, edges: item.id == firstID ? .top : [])
 				}
 				.listRowInsets(rowInsets ?? EdgeInsets(top: 0.0,
 													   leading: horizontalLayoutMargin - 10.0,

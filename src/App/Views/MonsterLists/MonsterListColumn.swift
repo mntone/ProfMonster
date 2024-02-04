@@ -36,8 +36,10 @@ struct MonsterListColumn: View {
 		List(items, id: \.id, selection: $selectedMonsterID) { group in
 #if os(iOS)
 			Section {
+				let firstID = group.items.first?.id
 				ForEach(group.items) { item in
 					MonsterListItem(viewModel: item.content)
+						.listRowSeparator(.hidden, edges: item.id == firstID ? .top : [])
 				}
 				.listRowInsets(EdgeInsets(top: 0.0,
 										  leading: horizontalLayoutMargin - 10.0,
