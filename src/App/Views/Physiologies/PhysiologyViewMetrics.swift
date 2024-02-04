@@ -11,6 +11,7 @@ enum PhysiologyViewMetrics {
 	static let margin: EdgeInsets = EdgeInsets(top: 8, leading: 4, bottom: 4, trailing: 4)
 	static let padding: EdgeInsets = EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12)
 	static let spacing: CGFloat = 4
+	static let cornerRadius: CGFloat = 6
 #elseif os(watchOS)
 	static let textStyle: Font.TextStyle = .caption2
 	static let defaultFontSize: CGFloat = 14
@@ -20,10 +21,11 @@ enum PhysiologyViewMetrics {
 	static let margin: EdgeInsets = EdgeInsets(top: 6, leading: 4, bottom: 4, trailing: 4)
 	static let padding: EdgeInsets = EdgeInsets(top: 2, leading: 8, bottom: 2, trailing: 8)
 	static let spacing: CGFloat = 4
+	static let cornerRadius: CGFloat = 8
 #else
 	static let textStyle: Font.TextStyle = .subheadline
 	static let defaultFontSize: CGFloat = 15
-	// Chinese / Japanese: 60.0 (4 chars width), Korean: 75.0 (5 chars width), the others: 100.0
+	// Japanese: 60.0 (4 chars width), Chinese: 66.0 (4 chars width + extra), Korean: 75.0 (5 chars width), the others: 90.0
 	static var headerBaseWidth: CGFloat = {
 		CGFloat(CGFloat.NativeType(String(localized: "PhysiologyViewMetrics.headerBaseWidth")) ?? 100.0)
 	}()
@@ -34,7 +36,6 @@ enum PhysiologyViewMetrics {
 	static let margin: EdgeInsets = EdgeInsets(top: 8, leading: 4, bottom: 4, trailing: 4)
 	static let padding: EdgeInsets = EdgeInsets(top: 4, leading: 12, bottom: 4, trailing: 12)
 	static let spacing: CGFloat = 4
-#endif
-
 	static let cornerRadius: CGFloat = 6
+#endif
 }

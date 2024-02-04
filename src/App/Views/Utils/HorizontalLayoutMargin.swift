@@ -47,9 +47,20 @@ struct _ListRowInsetsLayoutMarginModifier: ViewModifier {
 	}
 }
 
+#endif
+
+#if os(iOS) || os(watchOS)
+
 @available(macOS, unavailable)
-@available(watchOS, unavailable)
 struct _HorizontalLayoutMarginInjectModifier: ViewModifier {
+#if os(watchOS)
+	@Environment(\.watchMetrics)
+	private var watchMetrics
+
+	func body(content: Content) -> some View {
+		content.environment(\.horizontalLayoutMargin, watchMetrics.horizontalLayoutMargin)
+	}
+#else
 	@State
 	private var horizontalLayoutMargin: CGFloat = 16.0
 
@@ -72,6 +83,7 @@ struct _HorizontalLayoutMarginInjectModifier: ViewModifier {
 			})
 			.environment(\.horizontalLayoutMargin, horizontalLayoutMargin)
 	}
+#endif
 }
 
 #endif
@@ -96,7 +108,9 @@ extension View {
 	func listRowInsetsLayoutMargin() -> ModifiedContent<Self, _ListRowInsetsLayoutMarginModifier> {
 		modifier(_ListRowInsetsLayoutMarginModifier())
 	}
+#endif
 
+#if os(iOS) || os(watchOS)
 	@inline(__always)
 	@ViewBuilder
 	func injectHorizontalLayoutMargin() -> ModifiedContent<Self, _HorizontalLayoutMarginInjectModifier> {

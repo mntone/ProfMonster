@@ -17,16 +17,27 @@ public protocol WatchMetrics {
 	var iconSize: CGFloat { get }
 	var topCircularButtonLength: CGFloat { get } // 2 * round(15 * imageScale)
 
+	var horizontalLayoutMargin: CGFloat { get }
 	var safeAreaInsets: EdgeInsets { get }
 	var preferredSafeAreaInsets: EdgeInsets { get }
 }
 
 fileprivate protocol WatchMetricsPrivate {
-	var safeAreaInsets3: EdgeInsets { get } // watchOS 8
+	var horizontalLayoutMargin3: CGFloat { get } // watchOS 8, 9
+	var horizontalLayoutMargin5: CGFloat { get } // watchOS 10
+	var safeAreaInsets3: EdgeInsets { get } // watchOS 8, 9
 	var safeAreaInsets5: EdgeInsets { get } // watchOS 10
 }
 
 extension WatchMetricsPrivate {
+	public var horizontalLayoutMargin: CGFloat {
+		if #available(watchOS 10.0, *) {
+			horizontalLayoutMargin5
+		} else {
+			horizontalLayoutMargin3
+		}
+	}
+
 	public var safeAreaInsets: EdgeInsets {
 		safeAreaInsets5
 	}
@@ -49,6 +60,8 @@ struct ErrorWatchMetrics: WatchMetrics, WatchMetricsPrivate {
 	var iconSize: CGFloat { fatalError() }
 	var topCircularButtonLength: CGFloat { fatalError() }
 
+	fileprivate var horizontalLayoutMargin3: CGFloat { fatalError() }
+	fileprivate var horizontalLayoutMargin5: CGFloat { fatalError() }
 	fileprivate var safeAreaInsets3: EdgeInsets { fatalError() }
 	fileprivate var safeAreaInsets5: EdgeInsets { fatalError() }
 }
@@ -62,8 +75,10 @@ public struct DynamicWatchMetrics: WatchMetrics, WatchMetricsPrivate {
 	public let iconSize: CGFloat = 40
 	public let topCircularButtonLength: CGFloat
 
-	public let safeAreaInsets3: EdgeInsets = .init(top: 0.0, leading: 1.0, bottom: 0.0, trailing: 1.0)
-	public let safeAreaInsets5: EdgeInsets = .init(top: 0.0, leading: 1.0, bottom: 0.0, trailing: 1.0)
+	fileprivate let horizontalLayoutMargin3: CGFloat = 8.0
+	fileprivate let horizontalLayoutMargin5: CGFloat = 7.5
+	fileprivate let safeAreaInsets3: EdgeInsets = .init(top: 0.0, leading: 1.0, bottom: 0.0, trailing: 1.0)
+	fileprivate let safeAreaInsets5: EdgeInsets = .init(top: 0.0, leading: 1.0, bottom: 0.0, trailing: 1.0)
 
 	public init(size: CGSize) {
 		self.width = size.width
@@ -82,8 +97,10 @@ private struct Case38WatchMetrics: WatchMetrics, WatchMetricsPrivate {
 	let iconSize: CGFloat = 40
 	let topCircularButtonLength: CGFloat = 27
 
-	public let safeAreaInsets3: EdgeInsets = .init(top: 0.0, leading: 1.0, bottom: 0.0, trailing: 1.0)
-	public let safeAreaInsets5: EdgeInsets = .init(top: 0.0, leading: 1.0, bottom: 0.0, trailing: 1.0)
+	let horizontalLayoutMargin3: CGFloat = 7.0
+	var horizontalLayoutMargin5: CGFloat { fatalError() }
+	let safeAreaInsets3: EdgeInsets = .init(top: 0.0, leading: 1.0, bottom: 0.0, trailing: 1.0)
+	let safeAreaInsets5: EdgeInsets = .init(top: 0.0, leading: 1.0, bottom: 0.0, trailing: 1.0)
 }
 
 private struct Case42WatchMetrics: WatchMetrics, WatchMetricsPrivate {
@@ -95,8 +112,10 @@ private struct Case42WatchMetrics: WatchMetrics, WatchMetricsPrivate {
 	let iconSize: CGFloat = 40
 	let topCircularButtonLength: CGFloat = 30
 
-	public let safeAreaInsets3: EdgeInsets = .init(top: 0.0, leading: 1.0, bottom: 0.0, trailing: 1.0)
-	public let safeAreaInsets5: EdgeInsets = .init(top: 0.0, leading: 1.0, bottom: 0.0, trailing: 1.0)
+	let horizontalLayoutMargin3: CGFloat = 8.0
+	var horizontalLayoutMargin5: CGFloat { fatalError() }
+	let safeAreaInsets3: EdgeInsets = .init(top: 0.0, leading: 1.0, bottom: 0.0, trailing: 1.0)
+	let safeAreaInsets5: EdgeInsets = .init(top: 0.0, leading: 1.0, bottom: 0.0, trailing: 1.0)
 }
 
 private struct Case40WatchMetrics: WatchMetrics, WatchMetricsPrivate {
@@ -108,6 +127,8 @@ private struct Case40WatchMetrics: WatchMetrics, WatchMetricsPrivate {
 	let iconSize: CGFloat = 44
 	let topCircularButtonLength: CGFloat = 30
 
+	let horizontalLayoutMargin3: CGFloat = 8.0
+	let horizontalLayoutMargin5: CGFloat = 7.5
 	let safeAreaInsets3: EdgeInsets = .init(top: 28.0, leading: 8.5, bottom: 9.0, trailing: 8.5)
 	let safeAreaInsets5: EdgeInsets = .init(top: 10.0, leading: 9.5, bottom: 10.0, trailing: 9.5)
 }
@@ -121,6 +142,8 @@ private struct Case44WatchMetrics: WatchMetrics, WatchMetricsPrivate {
 	let iconSize: CGFloat = 50
 	let topCircularButtonLength: CGFloat = 34
 
+	let horizontalLayoutMargin3: CGFloat = 9.0
+	let horizontalLayoutMargin5: CGFloat = 8.5
 	let safeAreaInsets3: EdgeInsets = .init(top: 31.0, leading: 9.5, bottom: 11.0, trailing: 9.5)
 	let safeAreaInsets5: EdgeInsets = .init(top: 12.5, leading: 10.5, bottom: 12.5, trailing: 10.5)
 }
@@ -135,6 +158,8 @@ private struct Case41WatchMetrics: WatchMetrics, WatchMetricsPrivate {
 	let iconSize: CGFloat = 46
 	let topCircularButtonLength: CGFloat = 32
 
+	let horizontalLayoutMargin3: CGFloat = 10.0
+	let horizontalLayoutMargin5: CGFloat = 9.5
 	let safeAreaInsets3: EdgeInsets = .init(top: 34.0, leading: 11.0, bottom: 14.0, trailing: 11.0)
 	let safeAreaInsets5: EdgeInsets = .init(top: 14.0, leading: 11.5, bottom: 14.0, trailing: 11.5)
 }
@@ -149,6 +174,8 @@ private struct Case45WatchMetrics: WatchMetrics, WatchMetricsPrivate {
 	let iconSize: CGFloat = 51
 	let topCircularButtonLength: CGFloat = 36
 
+	let horizontalLayoutMargin3: CGFloat = 11.0
+	let horizontalLayoutMargin5: CGFloat = 10.5
 	let safeAreaInsets3: EdgeInsets = .init(top: 35.0, leading: 12.0, bottom: 16.0, trailing: 12.0)
 	let safeAreaInsets5: EdgeInsets = .init(top: 15.0, leading: 12.5, bottom: 15.0, trailing: 12.5)
 }
@@ -163,6 +190,8 @@ private struct Case49WatchMetrics: WatchMetrics, WatchMetricsPrivate {
 	let iconSize: CGFloat = 54
 	let topCircularButtonLength: CGFloat = 36
 
+	let horizontalLayoutMargin3: CGFloat = 9.5
+	let horizontalLayoutMargin5: CGFloat = 13.5
 	let safeAreaInsets3: EdgeInsets = .init(top: 37.0, leading: 14.0, bottom: 18.5, trailing: 14.0)
 	let safeAreaInsets5: EdgeInsets = .init(top: 19.0, leading: 15.5, bottom: 15.0, trailing: 15.5)
 }

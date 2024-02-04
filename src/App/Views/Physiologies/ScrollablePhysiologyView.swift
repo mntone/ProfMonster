@@ -133,6 +133,7 @@ struct ScrollablePhysiologyView: View {
 #endif
 			let itemFrameWidth = PhysiologyViewMetrics.padding.leading + headerWidth + baseSpacing
 			let headerBackground = Self.headerBackground
+			let headerInsets = self.headerInsets
 			VStack(spacing: 0) {
 				ForEach(viewModel.groups) { group in
 					VStack(spacing: 0) {
@@ -140,7 +141,7 @@ struct ScrollablePhysiologyView: View {
 							_ScrollablePhysiologyHeaderView(viewModel: item)
 						}
 					}
-					.padding(PhysiologyViewMetrics.padding.setting(trailing: baseSpacing))
+					.padding(headerInsets)
 					.frame(maxWidth: itemFrameWidth)
 					.background(group.id % 2 != 0 ? headerBackground : nil)
 				}
@@ -154,6 +155,7 @@ struct ScrollablePhysiologyView: View {
 			}
 
 			let contentBackground = Self.contentBackground
+			let contentInsets = self.contentInsets
 			let coordSpace = "\(Self.physiologyCoordinateSpace):\(viewModel.id)"
 			ScrollView(.horizontal) {
 				VStack(spacing: 0) {
@@ -173,7 +175,7 @@ struct ScrollablePhysiologyView: View {
 									.frame(height: headerHeights[item.id])
 							}
 						}
-						.padding(PhysiologyViewMetrics.padding.setting(leading: spacing))
+						.padding(contentInsets)
 #if !os(watchOS)
 						.frame(minWidth: rowMinWidth, alignment: .leading)
 #endif
@@ -218,6 +220,26 @@ struct ScrollablePhysiologyView: View {
 		.animation(nil, value: spacing)
 #endif
 		.transition(.identity)
+	}
+
+	private var headerInsets: EdgeInsets {
+#if os(watchOS)
+		let baseSpacing = spacing
+#endif
+		return EdgeInsets(top: PhysiologyViewMetrics.padding.top,
+						  leading: horizontalLayoutMargin - PhysiologyViewMetrics.margin.leading,
+						  bottom: PhysiologyViewMetrics.padding.bottom,
+						  trailing: spacing)
+	}
+
+	private var contentInsets: EdgeInsets {
+#if os(watchOS)
+		let baseSpacing = spacing
+#endif
+		return EdgeInsets(top: PhysiologyViewMetrics.padding.top,
+						  leading: spacing,
+						  bottom: PhysiologyViewMetrics.padding.bottom,
+						  trailing: horizontalLayoutMargin - PhysiologyViewMetrics.margin.trailing)
 	}
 
 	private static var headerBackground: some View {

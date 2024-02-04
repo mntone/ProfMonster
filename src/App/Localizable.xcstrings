@@ -10561,49 +10561,49 @@
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "100"
+            "value" : "90"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "100"
+            "value" : "90"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "100"
+            "value" : "90"
           }
         },
         "en-GB" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "100"
+            "value" : "90"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "100"
+            "value" : "90"
           }
         },
         "es-419" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "100"
+            "value" : "90"
           }
         },
         "fr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "100"
+            "value" : "90"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "100"
+            "value" : "90"
           }
         },
         "ja" : {
@@ -10621,31 +10621,31 @@
         "pl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "100"
+            "value" : "90"
           }
         },
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "100"
+            "value" : "90"
           }
         },
         "ru" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "100"
+            "value" : "90"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "60"
+            "value" : "66"
           }
         },
         "zh-Hant" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "60"
+            "value" : "66"
           }
         }
       }
