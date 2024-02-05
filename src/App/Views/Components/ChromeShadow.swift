@@ -1,5 +1,6 @@
 import SwiftUI
 
+@available(watchOS, unavailable)
 struct ChromeShadow: View {
 	@Environment(\.pixelLength)
 	private var pixelLength
