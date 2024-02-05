@@ -14,6 +14,10 @@
 "Number (1st Decimal Place)" = "数値 (小数点第1位まで)";
 "Number (2nd Decimal Place)" = "数値 (小数点第2位まで)";
 "Merge Parts with Same Physiology" = "同じ肉質を持つ部位を結合する";
+"Navigation Bar" = "ナビゲーションバー";
+"Always Show" = "常に表示";
+"Hide When Editing in Landscape Mode" = "横向きで編集中に非表示";
+"Hide When Editing" = "編集中に非表示";
 "Keyboard Dismiss" = "キーボードを閉じる";
 "Button" = "ボタン";
 "Scroll" = "スクロール";

@@ -5,6 +5,7 @@ public final class Settings {
 		case trailingSwipeAction = "trgSwipe"
 #if os(iOS)
 		case keyboardDismissMode = "kbdDismiss"
+		case navigationBarHideMode = "navbarHide"
 #endif
 		case source = "source"
 #if DEBUG
@@ -29,6 +30,10 @@ public final class Settings {
 #if os(iOS)
 		public static var keyboardDismissMode: KeyboardDismissMode {
 			.button
+		}
+
+		public static var navigationBarHideMode: NavigationBarHideMode {
+			.editingLandscape
 		}
 #endif
 
@@ -87,6 +92,10 @@ public final class Settings {
 	@UserDefault(Key.keyboardDismissMode.rawValue,
 				 initial: DefaultValues.keyboardDismissMode)
 	public var keyboardDismissMode: KeyboardDismissMode
+
+	public var navigationBarHideMode: NavigationBarHideMode {
+		fatalError("This is dummy property. Use AppStorage(settings:).")
+	}
 #endif
 
 	@UserDefault(Key.source.rawValue, initial: DefaultValues.source)
@@ -123,6 +132,8 @@ extension PartialKeyPath where Root == Settings {
 #if os(iOS)
 		case \.keyboardDismissMode:
 			Settings.Key.keyboardDismissMode.rawValue
+		case \.navigationBarHideMode:
+			Settings.Key.navigationBarHideMode.rawValue
 #endif
 		case \.source:
 			Settings.Key.source.rawValue
@@ -161,6 +172,8 @@ extension PartialKeyPath where Root == Settings {
 #if os(iOS)
 		case \.keyboardDismissMode:
 			Settings.DefaultValues.keyboardDismissMode.rawValue
+		case \.navigationBarHideMode:
+			Settings.DefaultValues.navigationBarHideMode.rawValue
 #endif
 		case \.source:
 			Settings.DefaultValues.source

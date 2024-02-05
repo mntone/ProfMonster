@@ -14,6 +14,10 @@
 "Number (1st Decimal Place)" = "Zahl (1. Dezimalstelle)";
 "Number (2nd Decimal Place)" = "Zahl (2. Dezimalstelle)";
 "Merge Parts with Same Physiology" = "Merge Parts with Same Physiology";
+"Navigation Bar" = "Navigationsleiste";
+"Always Show" = "Immer anzeigen";
+"Hide When Editing in Landscape Mode" = "Beim Bearbeiten im Querformat ausblenden";
+"Hide When Editing" = "Beim Bearbeiten ausblenden";
 "Keyboard Dismiss" = "Tastatur schließen";
 "Button" = "Taste";
 "Scroll" = "Scrollen";

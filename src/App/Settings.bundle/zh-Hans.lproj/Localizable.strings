@@ -14,6 +14,10 @@
 "Number (1st Decimal Place)" = "数值（到十分位）";
 "Number (2nd Decimal Place)" = "数值（到百分位）";
 "Merge Parts with Same Physiology" = "Merge Parts with Same Physiology";
+"Navigation Bar" = "导航栏";
+"Always Show" = "始终显示";
+"Hide When Editing in Landscape Mode" = "在横屏模式下编辑时隐藏";
+"Hide When Editing" = "编辑时隐藏";
 "Keyboard Dismiss" = "关闭键盘";
 "Button" = "按钮";
 "Scroll" = "滚动";

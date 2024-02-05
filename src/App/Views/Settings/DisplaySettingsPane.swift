@@ -2,6 +2,11 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct DisplaySettingsPane: View {
+#if os(iOS)
+	@AppStorage(settings: \.navigationBarHideMode)
+	private var navigationBarHideMode: NavigationBarHideMode
+#endif
+
 	@StateObject
 	private var viewModel = DisplaySettingsViewModel()
 
@@ -117,6 +122,17 @@ struct DisplaySettingsPane: View {
 				SettingsToggle("Merge Parts with Same Physiology", isOn: $viewModel.mergeParts)
 
 #if os(iOS)
+				if UIDevice.current.systemName == "iOS" {
+					SettingsPicker("Navigation Bar",
+								   selection: $navigationBarHideMode) {
+						ForEach(NavigationBarHideMode.allCases) { mode in
+							Text(mode.label).tag(mode)
+						}
+					} label: { mode in
+						Text(mode.label)
+					}
+				}
+
 				SettingsPicker("Keyboard Dismiss",
 							   selection: $viewModel.keyboardDismissMode) {
 					ForEach(KeyboardDismissMode.allCases) { mode in

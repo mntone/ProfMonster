@@ -2,19 +2,19 @@ import class Foundation.UserDefaults
 
 @available(macOS, unavailable)
 @available(watchOS, unavailable)
-public enum KeyboardDismissMode: String, CaseIterable, Hashable {
-	case button = "BTN"
-	case scroll = "SCR"
-	case swipe = "SWP"
+public enum NavigationBarHideMode: String, CaseIterable, Hashable {
+	case nothing = "NO"
+	case editingLandscape = "EDTLS"
+	case editing = "EDT"
 }
 
 @available(macOS, unavailable)
 @available(watchOS, unavailable)
-extension KeyboardDismissMode: UserDefaultable {
+extension NavigationBarHideMode: UserDefaultable {
 	public typealias Internal = String
 
-	public static var defaultValue: KeyboardDismissMode {
-		.button
+	public static var defaultValue: NavigationBarHideMode {
+		.editingLandscape
 	}
 
 	public init?(userDefaultable value: String) {
@@ -25,7 +25,7 @@ extension KeyboardDismissMode: UserDefaultable {
 		guard let value = store.string(forKey: key) else {
 			return initialValue ?? defaultValue
 		}
-		return KeyboardDismissMode(rawValue: value) ?? defaultValue
+		return NavigationBarHideMode(rawValue: value) ?? defaultValue
 	}
 
 	public static func set(_ newValue: Self, for key: String, in store: UserDefaults) {

@@ -14,6 +14,10 @@
 "Number (1st Decimal Place)" = "Число (1-й знак после запятой)";
 "Number (2nd Decimal Place)" = "Число (2-й знак после запятой)";
 "Merge Parts with Same Physiology" = "Merge Parts with Same Physiology";
+"Navigation Bar" = "Панель навигации";
+"Always Show" = "Всегда показывать";
+"Hide When Editing in Landscape Mode" = "Скрыть при редактировании в альбомной ориентации";
+"Hide When Editing" = "Скрыть при редактировании";
 "Keyboard Dismiss" = "Закрытие клавиатура";
 "Button" = "Кнопка";
 "Scroll" = "Прокручивать";

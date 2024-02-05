@@ -14,6 +14,10 @@
 "Number (1st Decimal Place)" = "Liczba (pierwsze miejsce po przecinku)";
 "Number (2nd Decimal Place)" = "Liczba (drugie miejsce po przecinku)";
 "Merge Parts with Same Physiology" = "Merge Parts with Same Physiology";
+"Navigation Bar" = "Pasek nawigacyjny";
+"Always Show" = "Zawsze pokazuj";
+"Hide When Editing in Landscape Mode" = "Ukryj podczas edycji w trybie poziomym";
+"Hide When Editing" = "Ukryj podczas edycji";
 "Keyboard Dismiss" = "Zamknij klawiaturę";
 "Button" = "Przycisk";
 "Scroll" = "Zwój";

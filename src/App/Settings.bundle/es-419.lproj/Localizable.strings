@@ -14,6 +14,10 @@
 "Number (1st Decimal Place)" = "Número (1er decimal)";
 "Number (2nd Decimal Place)" = "Número (2º decimal)";
 "Merge Parts with Same Physiology" = "Merge Parts with Same Physiology";
+"Navigation Bar" = "Barra de navegación";
+"Always Show" = "Mostrar siempre";
+"Hide When Editing in Landscape Mode" = "Ocultar al editar en modo horizontal";
+"Hide When Editing" = "Ocultar al editar";
 "Keyboard Dismiss" = "Cerrar el teclado";
 "Button" = "Botón";
 "Scroll" = "Desplazarse";

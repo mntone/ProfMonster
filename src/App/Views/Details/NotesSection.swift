@@ -2,6 +2,7 @@ import SwiftUI
 
 #if os(iOS)
 import enum MonsterAnalyzerCore.KeyboardDismissMode
+import enum MonsterAnalyzerCore.NavigationBarHideMode
 #endif
 
 #if os(watchOS)
@@ -23,9 +24,18 @@ struct NotesSection: View {
 struct NotesSection: View {
 	let note: Binding<String>
 
-#if !os(macOS)
+#if os(iOS)
 	@AppStorage(settings: \.keyboardDismissMode)
 	private var keyboardDismissMode: KeyboardDismissMode
+
+	@AppStorage(settings: \.navigationBarHideMode)
+	private var navigationBarHideMode: NavigationBarHideMode
+
+	@Environment(\.verticalSizeClass)
+	private var verticalSizeClass
+
+	@State
+	private var isEditing: Bool = false
 #endif
 
 	var body: some View {
@@ -38,13 +48,41 @@ struct NotesSection: View {
 				.padding(.horizontal, 6.0)
 		}
 #else
-		MASection("Notes", background: MASectionBackgroundStyle.none) {
+		let section = MASection("Notes", background: MASectionBackgroundStyle.none) {
 			MATextField(enableDoneButton: keyboardDismissMode == .button,
-						text: note)
+						text: note,
+						isEditing: $isEditing)
 				.clipShape(.rect(cornerRadius: MAFormMetrics.cornerRadius))
+		}
+
+		if UIDevice.current.systemName == "iOS" {
+			if #available(iOS 16.0, *) {
+				section.toolbar(navigatinBarHidden ? .hidden : .visible, for: .navigationBar)
+			} else {
+				section.navigationBarHidden(navigatinBarHidden)
+			}
+		} else {
+			section
 		}
 #endif
 	}
+
+#if os(iOS)
+	private var navigatinBarHidden: Bool {
+		switch navigationBarHideMode {
+		case .nothing:
+			false
+		case .editingLandscape:
+			if verticalSizeClass == .regular {
+				false
+			} else {
+				isEditing
+			}
+		case .editing:
+			isEditing
+		}
+	}
+#endif
 }
 
 #endif

@@ -6,8 +6,11 @@ struct MATextField: UIViewRepresentable {
 	@Binding
 	private(set) var text: String
 
+	@Binding
+	private(set) var isEditing: Bool
+
 	func makeCoordinator() -> Coordinator {
-		Coordinator(text: $text)
+		Coordinator(text: $text, isEditing: $isEditing)
 	}
 
 	func makeUIView(context: Context) -> UITextView {
@@ -77,14 +80,17 @@ struct MATextField: UIViewRepresentable {
 extension MATextField {
 	final class Coordinator: NSObject, UITextViewDelegate, NotesAccessoryViewDelegate {
 		fileprivate var text: Binding<String>
+		fileprivate var isEditing: Binding<Bool>
 		fileprivate weak var textView: UITextView?
 
 		private var savedDynamicTypeSize: DynamicTypeSize = .large
 		private var savedPixelLength: CGFloat = 0.5
 		private var savedHorizontalInsets: CGFloat = 0.0
 
-		init(text: Binding<String>) {
+		init(text: Binding<String>,
+			 isEditing: Binding<Bool>) {
 			self.text = text
+			self.isEditing = isEditing
 		}
 
 		fileprivate func setEnvironmentValues(_ textView: UITextView,
@@ -116,6 +122,18 @@ extension MATextField {
 
 		func textViewDidChange(_ textView: UITextView) {
 			text.wrappedValue = textView.text
+		}
+
+		func textViewDidBeginEditing(_ textView: UITextView) {
+			DispatchQueue.main.async {
+				self.isEditing.wrappedValue = true
+			}
+		}
+
+		func textViewDidEndEditing(_ textView: UITextView) {
+			DispatchQueue.main.async {
+				self.isEditing.wrappedValue = false
+			}
 		}
 
 		func doneButtonDidPressed(_ doneButton: UIButton) {

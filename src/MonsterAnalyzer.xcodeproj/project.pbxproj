@@ -13,6 +13,8 @@
 		EB10435B2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */; };
 		EB131BBF2B6FEE36009C65B4 /* View+VersionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB131BBE2B6FEE36009C65B4 /* View+VersionExtensions.swift */; };
 		EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */; };
+		EB1AE8072B7082380037C1E4 /* NavigationBarHideMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1AE8062B7082380037C1E4 /* NavigationBarHideMode.swift */; platformFilter = ios; };
+		EB1AE8092B7084960037C1E4 /* NavigationBarHideMode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1AE8082B7084960037C1E4 /* NavigationBarHideMode+Extensions.swift */; platformFilter = ios; };
 		EB2550142B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2550132B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift */; platformFilters = (macos, ); };
 		EB28F1B32B370F0700291055 /* DividedHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28F1B22B370F0700291055 /* DividedHStack.swift */; };
 		EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
@@ -23,7 +25,7 @@
 		EB2B0FAB2B3925E3004596A6 /* View+Cursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B0FAA2B3925E3004596A6 /* View+Cursor.swift */; platformFilters = (macos, ); };
 		EB2B0FAD2B39260D004596A6 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B0FAC2B39260D004596A6 /* LicenseView.swift */; };
 		EB2B0FAE2B39260D004596A6 /* LicenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B0FAC2B39260D004596A6 /* LicenseView.swift */; };
-		EB2B2A632B5966EE008D66DF /* KeyboardDismissMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B2A612B596684008D66DF /* KeyboardDismissMode.swift */; };
+		EB2B2A632B5966EE008D66DF /* KeyboardDismissMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B2A612B596684008D66DF /* KeyboardDismissMode.swift */; platformFilter = ios; };
 		EB2B2A652B596A49008D66DF /* KeyboardDismissMode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B2A642B596A49008D66DF /* KeyboardDismissMode+Extensions.swift */; platformFilter = ios; };
 		EB31EEB72B2BEB4300FF8536 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB42B2BD7FA00FF8536 /* Sort.swift */; };
 		EB38D1FB2B2946A800CED9DB /* DisplaySettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* DisplaySettingsViewModel.swift */; };
@@ -449,6 +451,8 @@
 		EB131BBE2B6FEE36009C65B4 /* View+VersionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+VersionExtensions.swift"; sourceTree = "<group>"; };
 		EB19D6742B1EFF7700C90417 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+RetryIf.swift"; sourceTree = "<group>"; };
+		EB1AE8062B7082380037C1E4 /* NavigationBarHideMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarHideMode.swift; sourceTree = "<group>"; };
+		EB1AE8082B7084960037C1E4 /* NavigationBarHideMode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationBarHideMode+Extensions.swift"; sourceTree = "<group>"; };
 		EB2550132B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ListStyleInsetAlternatingRowBackgrounds.swift"; sourceTree = "<group>"; };
 		EB28F1B22B370F0700291055 /* DividedHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividedHStack.swift; sourceTree = "<group>"; };
 		EB2956392B30139A002C5CA8 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
@@ -766,6 +770,7 @@
 				EB95FFD12B5657AF009BE15E /* GroupOption.swift */,
 				EB2B2A612B596684008D66DF /* KeyboardDismissMode.swift */,
 				EB71C1442B5BF69C0013FBBC /* Mode.swift */,
+				EB1AE8062B7082380037C1E4 /* NavigationBarHideMode.swift */,
 				EB31EEB42B2BD7FA00FF8536 /* Sort.swift */,
 				EB967A412B29E8540041A491 /* StarSwingsError.swift */,
 				EB967A3F2B29E4650041A491 /* StarSwingsState.swift */,
@@ -916,6 +921,7 @@
 			isa = PBXGroup;
 			children = (
 				EB2B2A642B596A49008D66DF /* KeyboardDismissMode+Extensions.swift */,
+				EB1AE8082B7084960037C1E4 /* NavigationBarHideMode+Extensions.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -1832,6 +1838,7 @@
 				EB9C7E5F2B3D58A90045BBA8 /* Model.xcdatamodeld in Sources */,
 				EB967A3A2B29DAC00041A491 /* Monster.swift in Sources */,
 				EB967A262B299BFC0041A491 /* MonsterResourceMapper.swift in Sources */,
+				EB1AE8072B7082380037C1E4 /* NavigationBarHideMode.swift in Sources */,
 				EBEA6F512B185A1A00734AAA /* NetworkDataSource.swift in Sources */,
 				EB9563DD2B6DEC75007039A4 /* NetworkDataSourceOptions.swift in Sources */,
 				EB10435B2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift in Sources */,
@@ -1959,6 +1966,7 @@
 				EBF9282D2B1038C9007D59D4 /* MonsterView.swift in Sources */,
 				EBB4B1C72B15BF48004D63EA /* MonsterViewModel.swift in Sources */,
 				EB5445582B527D12008E7A48 /* MonsterWindow.swift in Sources */,
+				EB1AE8092B7084960037C1E4 /* NavigationBarHideMode+Extensions.swift in Sources */,
 				EB5445542B525AB6008E7A48 /* NavigationBarTitleViewSupport.swift in Sources */,
 				EB02AF7E2B65095B004F6422 /* NotesAccessoryView.swift in Sources */,
 				EB4426B32B58C9E60074B1FF /* NotesSection.swift in Sources */,
