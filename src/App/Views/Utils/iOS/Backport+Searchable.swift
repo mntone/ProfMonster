@@ -38,7 +38,6 @@ private final class _SearchBarManager: NSObject, ObservableObject, UISearchBarDe
 	func toggleState() {
 		guard let searchBar else { return }
 
-		debugPrint(#function, isPresented)
 		if isPresented {
 			searchBar.resignFirstResponder()
 		} else {
@@ -51,7 +50,6 @@ private final class _SearchBarManager: NSObject, ObservableObject, UISearchBarDe
 	}
 
 	func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-		debugPrint(#function, isPresented)
 		next?.searchBarTextDidBeginEditing?(searchBar)
 		isPresented = true
 	}
@@ -61,7 +59,6 @@ private final class _SearchBarManager: NSObject, ObservableObject, UISearchBarDe
 	}
 
 	func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-		debugPrint(#function, isPresented)
 		next?.searchBarTextDidEndEditing?(searchBar)
 		isPresented = false
 	}
