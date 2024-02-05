@@ -131,7 +131,7 @@ struct ScrollablePhysiologyView: View {
 #if os(watchOS)
 			let baseSpacing = spacing
 #endif
-			let itemFrameWidth = PhysiologyViewMetrics.padding.leading + headerWidth + baseSpacing
+			let itemFrameWidth = (horizontalLayoutMargin - PhysiologyViewMetrics.margin.leading) + headerWidth + baseSpacing
 			let headerBackground = Self.headerBackground
 			let headerInsets = self.headerInsets
 			VStack(spacing: 0) {
@@ -229,7 +229,7 @@ struct ScrollablePhysiologyView: View {
 		return EdgeInsets(top: PhysiologyViewMetrics.padding.top,
 						  leading: horizontalLayoutMargin - PhysiologyViewMetrics.margin.leading,
 						  bottom: PhysiologyViewMetrics.padding.bottom,
-						  trailing: spacing)
+						  trailing: baseSpacing)
 	}
 
 	private var contentInsets: EdgeInsets {
