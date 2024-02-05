@@ -8,6 +8,26 @@ public enum MockMonsterKey: String, CaseIterable {
 }
 
 public enum MockData {
+	static func localization(_ key: String) -> MHLocalization? {
+		let bundle = Bundle(for: NetworkDataSource.self)
+		guard let url = bundle.url(forResource: key, withExtension: "json"),
+			  let data = try? Data(contentsOf: url),
+			  let json = try? JSONDecoder().decode(MHLocalization.self, from: data) else {
+			return nil
+		}
+		return json
+	}
+
+	static func game() -> MHGame? {
+		let bundle = Bundle(for: NetworkDataSource.self)
+		guard let url = bundle.url(forResource: "index", withExtension: "json"),
+			  let data = try? Data(contentsOf: url),
+			  let json = try? JSONDecoder().decode(MHGame.self, from: data) else {
+			return nil
+		}
+		return json
+	}
+
 	static func monster(_ key: MockMonsterKey) -> MHMonster? {
 		let bundle = Bundle(for: NetworkDataSource.self)
 		guard let url = bundle.url(forResource: key.rawValue, withExtension: "json"),

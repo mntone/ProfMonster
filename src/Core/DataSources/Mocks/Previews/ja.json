@@ -1,0 +1,48 @@
+{
+	"games": [
+		{
+			"id": "mockgame",
+			"name": "狩りカニ！",
+			"full_name": "狩り狩りカーニバル！",
+			"abbreviation": "HF"
+		}
+	],
+	"monsters": [
+		{
+			"id": "super_bug",
+			"name": "超蟲"
+		},
+		{
+			"id": "super_oraora",
+			"name": "超突"
+		},
+		{
+			"id": "gulu_qoo",
+			"name": "グークー"
+		},
+		{
+			"id": "super_warota",
+			"name": "超草"
+		},
+		{
+			"id": "paos",
+			"name": "パオス"
+		},
+		{
+			"id": "lambii",
+			"name": "ランビィ"
+		},
+		{
+			"id": "vivi_papa",
+			"name": "ヴィヴィ・パパ"
+		},
+		{
+			"id": "kurururu",
+			"name": "クルルル"
+		},
+		{
+			"id": "bucha_cat",
+			"name": "ブチャネコ"
+		}
+	]
+}

@@ -1,0 +1,59 @@
+{
+	"id": "mockgame",
+	"monsters": [
+		{
+			"id": "super_bug",
+			"type": "piyopiyo",
+			"size": 825,
+			"weakness": "fwTi_"
+		},
+		{
+			"id": "super_oraora",
+			"type": "piyopiyo",
+			"size": 824,
+			"weakness": "Fwt  "
+		},
+		{
+			"id": "gulu_qoo",
+			"type": "piyopiyo",
+			"size": 903,
+			"weakness": "Fwtid"
+		},
+		{
+			"id": "super_warota",
+			"type": "piyopiyo",
+			"size": 725,
+			"weakness": " w_I "
+		},
+		{
+			"id": "paos",
+			"type": "piyopiyo",
+			"size": 324,
+			"weakness": "F_ti "
+		},
+		{
+			"id": "lambii",
+			"type": "piyopiyo",
+			"size": 764,
+			"weakness": "F t  "
+		},
+		{
+			"id": "vivi_papa",
+			"type": "piyopiyo",
+			"size": 1245,
+			"weakness": " W_i "
+		},
+		{
+			"id": "kurururu",
+			"type": "piyopiyo",
+			"size": 999,
+			"weakness": " Wt_ "
+		},
+		{
+			"id": "bucha_cat",
+			"type": "piyopiyo",
+			"size": 1600,
+			"weakness": "fW i_"
+		}
+	]
+}

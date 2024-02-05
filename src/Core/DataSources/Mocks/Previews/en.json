@@ -1,0 +1,48 @@
+{
+	"games": [
+		{
+			"id": "mockgame",
+			"name": "H.Fest!",
+			"full_name": "Hunster Festival!",
+			"abbreviation": "HF"
+		}
+	],
+	"monsters": [
+		{
+			"id": "super_bug",
+			"name": "Super Bug"
+		},
+		{
+			"id": "super_oraora",
+			"name": "Super Ora-Ora"
+		},
+		{
+			"id": "gulu_qoo",
+			"name": "Gulu Qoo"
+		},
+		{
+			"id": "super_warota",
+			"name": "Super Warota"
+		},
+		{
+			"id": "paos",
+			"name": "Paos"
+		},
+		{
+			"id": "lambii",
+			"name": "Lambii"
+		},
+		{
+			"id": "vivi_papa",
+			"name": "Vivi Papa"
+		},
+		{
+			"id": "kurururu",
+			"name": "Ku-Ru-Ru-Ru"
+		},
+		{
+			"id": "bucha_cat",
+			"name": "Bucha Cat"
+		}
+	]
+}

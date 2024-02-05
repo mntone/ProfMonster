@@ -15,6 +15,9 @@
 		EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */; };
 		EB1AE8072B7082380037C1E4 /* NavigationBarHideMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1AE8062B7082380037C1E4 /* NavigationBarHideMode.swift */; platformFilter = ios; };
 		EB1AE8092B7084960037C1E4 /* NavigationBarHideMode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1AE8082B7084960037C1E4 /* NavigationBarHideMode+Extensions.swift */; platformFilter = ios; };
+		EB1AE80D2B70D16D0037C1E4 /* index.json in Resources */ = {isa = PBXBuildFile; fileRef = EB1AE80A2B70D16D0037C1E4 /* index.json */; };
+		EB1AE80E2B70D16D0037C1E4 /* ja.json in Resources */ = {isa = PBXBuildFile; fileRef = EB1AE80B2B70D16D0037C1E4 /* ja.json */; };
+		EB1AE80F2B70D16D0037C1E4 /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = EB1AE80C2B70D16D0037C1E4 /* en.json */; };
 		EB2550142B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2550132B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift */; platformFilters = (macos, ); };
 		EB28F1B32B370F0700291055 /* DividedHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28F1B22B370F0700291055 /* DividedHStack.swift */; };
 		EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
@@ -453,6 +456,9 @@
 		EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Publishers+RetryIf.swift"; sourceTree = "<group>"; };
 		EB1AE8062B7082380037C1E4 /* NavigationBarHideMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarHideMode.swift; sourceTree = "<group>"; };
 		EB1AE8082B7084960037C1E4 /* NavigationBarHideMode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationBarHideMode+Extensions.swift"; sourceTree = "<group>"; };
+		EB1AE80A2B70D16D0037C1E4 /* index.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = index.json; sourceTree = "<group>"; };
+		EB1AE80B2B70D16D0037C1E4 /* ja.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ja.json; sourceTree = "<group>"; };
+		EB1AE80C2B70D16D0037C1E4 /* en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
 		EB2550132B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ListStyleInsetAlternatingRowBackgrounds.swift"; sourceTree = "<group>"; };
 		EB28F1B22B370F0700291055 /* DividedHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividedHStack.swift; sourceTree = "<group>"; };
 		EB2956392B30139A002C5CA8 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
@@ -1216,6 +1222,9 @@
 			isa = PBXGroup;
 			children = (
 				EB6A4F472B48A951008AB7CE /* bucha_cat.json */,
+				EB1AE80C2B70D16D0037C1E4 /* en.json */,
+				EB1AE80A2B70D16D0037C1E4 /* index.json */,
+				EB1AE80B2B70D16D0037C1E4 /* ja.json */,
 			);
 			path = Previews;
 			sourceTree = "<group>";
@@ -1629,7 +1638,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EB6A4F492B48A951008AB7CE /* bucha_cat.json in Resources */,
+				EB1AE80F2B70D16D0037C1E4 /* en.json in Resources */,
 				EB6A4F4A2B48A951008AB7CE /* gulu_qoo.json in Resources */,
+				EB1AE80D2B70D16D0037C1E4 /* index.json in Resources */,
+				EB1AE80E2B70D16D0037C1E4 /* ja.json in Resources */,
 				EB8729B22B4D682000E0E5A1 /* Localizable.xcstrings in Resources */,
 				EB8F07DA2B2FB229006AC575 /* Parts.xcstrings in Resources */,
 			);
