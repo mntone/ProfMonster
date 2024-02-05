@@ -60,8 +60,9 @@ public final class Settings {
 		fatalError("This is dummy property. Use AppStorage(settings:).")
 	}
 
-	@UserDefault("trgSwipe", initial: SwipeAction.none)
-	public var trailingSwipeAction: SwipeAction
+	public var trailingSwipeAction: SwipeAction {
+		fatalError("This is dummy property. Use AppStorage(settings:).")
+	}
 
 #if os(macOS)
 	@UserDefault("favInSearch", initial: true)
@@ -89,9 +90,9 @@ public final class Settings {
 	public var mergeParts: Bool
 
 #if os(iOS)
-	@UserDefault(Key.keyboardDismissMode.rawValue,
-				 initial: DefaultValues.keyboardDismissMode)
-	public var keyboardDismissMode: KeyboardDismissMode
+	public var keyboardDismissMode: KeyboardDismissMode {
+		fatalError("This is dummy property. Use AppStorage(settings:).")
+	}
 
 	public var navigationBarHideMode: NavigationBarHideMode {
 		fatalError("This is dummy property. Use AppStorage(settings:).")

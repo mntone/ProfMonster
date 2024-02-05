@@ -2,9 +2,15 @@ import MonsterAnalyzerCore
 import SwiftUI
 
 struct DisplaySettingsPane: View {
+	@AppStorage(settings: \.trailingSwipeAction)
+	private var trailingSwipeAction: SwipeAction
+
 #if os(iOS)
 	@AppStorage(settings: \.navigationBarHideMode)
 	private var navigationBarHideMode: NavigationBarHideMode
+
+	@AppStorage(settings: \.keyboardDismissMode)
+	private var keyboardDismissMode: KeyboardDismissMode
 #endif
 
 	@StateObject
@@ -77,7 +83,7 @@ struct DisplaySettingsPane: View {
 #endif
 
 				SettingsPicker("Left Swipe",
-							   selection: $viewModel.trailingSwipeAction) {
+							   selection: $trailingSwipeAction) {
 					ForEach(SwipeAction.allCases) { mode in
 						Text(mode.label).tag(mode)
 					}
@@ -134,7 +140,7 @@ struct DisplaySettingsPane: View {
 				}
 
 				SettingsPicker("Keyboard Dismiss",
-							   selection: $viewModel.keyboardDismissMode) {
+							   selection: $keyboardDismissMode) {
 					ForEach(KeyboardDismissMode.allCases) { mode in
 						Text(mode.label).tag(mode)
 					}
