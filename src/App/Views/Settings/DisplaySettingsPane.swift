@@ -13,6 +13,12 @@ struct DisplaySettingsPane: View {
 	private var keyboardDismissMode: KeyboardDismissMode
 #endif
 
+	@Environment(\.dynamicTypeSize)
+	private var dynamicTypeSize
+
+	@Environment(\.horizontalLayoutMargin)
+	private var horizontalLayoutMargin
+
 	@StateObject
 	private var viewModel = DisplaySettingsViewModel()
 
@@ -116,9 +122,11 @@ struct DisplaySettingsPane: View {
 						Section("Preview") {
 							WeaknessView(viewModel: previewData)
 								.id(viewModel.elementAttack)
+								.padding(.horizontal, (DynamicTypeSize.xxLarge...DynamicTypeSize.xxxLarge).contains(dynamicTypeSize) ? horizontalLayoutMargin : 0.0)
 								.fixedSize(horizontal: false, vertical: true)
 								.listRowBackground(EmptyView())
 								.listRowInsets(.zero)
+								.listRowSeparator(.hidden)
 						}
 					}
 #endif
