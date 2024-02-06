@@ -2,14 +2,14 @@ import enum MonsterAnalyzerCore.Physical
 import SwiftUI
 
 extension Physical {
-	var image: Image {
+	var imageResource: ImageResource {
 		switch self {
 		case .slash:
-			return Image(systemName: "scissors")
+			.slash
 		case .impact:
-			return Image(.impact)
+			.impact
 		case .shot:
-			return Image(.shot)
+			.shot
 		}
 	}
 

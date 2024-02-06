@@ -54,7 +54,7 @@ struct PhysicalWeaknessItemView: View {
 
 	var body: some View {
 		ZStack(alignment: .leadingFirstTextBaseline) {
-			physical.image
+			Image(physical.imageResource)
 				.foregroundStyle(.secondary)
 				.accessibilityLabel(physical.label(.medium))
 				.alignmentGuide(.firstTextBaseline) { d in

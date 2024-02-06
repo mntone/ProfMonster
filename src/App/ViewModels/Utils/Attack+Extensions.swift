@@ -22,7 +22,7 @@ extension Attack {
 	var image: Image {
 		switch self {
 		case .slash:
-			return Image(systemName: "scissors")
+			return Image(.slash)
 		case .impact:
 			return Image(.impact)
 		case .shot:
