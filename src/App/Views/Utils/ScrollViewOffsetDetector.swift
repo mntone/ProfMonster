@@ -38,6 +38,7 @@ struct ScrollViewOffsetYDetector<ResultType: Hashable>: View {
 	var body: some View {
 		GeometryReader { proxy in
 			Color.clear
+				.frame(width: 0.0, height: 0.0, alignment: .topLeading)
 				.onAppear {
 					let offsetX = proxy.frame(in: .named(coordinateSpace)).origin.y
 					let transformedValue = transform(offsetX)
