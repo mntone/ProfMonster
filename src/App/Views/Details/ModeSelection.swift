@@ -14,7 +14,9 @@ struct ModeSelection: View {
 			if viewModel.items.count > 1 {
 				Picker("Mode", selection: $viewModel.selectedItem) {
 					ForEach(viewModel.items) { item in
-						Text(item.mode.label(.medium)).tag(item as MonsterDataViewModel?)
+						Text(item.mode.label(.medium))
+							.accessibilityLabel(item.mode.label(.long))
+							.tag(item as MonsterDataViewModel?)
 					}
 				}
 				.pickerStyle(.segmented)
