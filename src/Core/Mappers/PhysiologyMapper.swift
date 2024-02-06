@@ -208,7 +208,8 @@ struct PhysiologyMapper {
 		let modes = modeKeys.map { key in
 			(key, Mode(rawValue: key))
 		}
-		let modesData = [map(src, modeKey: nil, mode: .lowAndHigh, options: options)] + modes.map { key, mode in
+		let defaultMode = src.defaultMode.map(Mode.init(rawValue:))
+		let modesData = [map(src, modeKey: nil, mode: defaultMode ?? .lowAndHigh, options: options)] + modes.map { key, mode in
 			map(src, modeKey: key, mode: mode, options: options)
 		}
 		return Physiologies(id: src.id,

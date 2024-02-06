@@ -11,6 +11,8 @@ extension Mode {
 		switch self {
 		case .lowAndHigh:
 			"d"
+		case .high:
+			"h"
 		case .master:
 			"m"
 		case .rankG:
@@ -26,6 +28,8 @@ extension Mode {
 			switch self {
 			case .lowAndHigh:
 				String(localized: "LR & HR", comment: "Mode")
+			case .high:
+				String(localized: "HR", comment: "Mode")
 			case .master:
 				String(localized: "MR", comment: "Mode")
 			case .rankG:
@@ -37,6 +41,8 @@ extension Mode {
 			switch self {
 			case .lowAndHigh:
 				String(localized: "Low & High", comment: "Mode")
+			case .high:
+				String(localized: "High", comment: "Mode")
 			case .master:
 				String(localized: "Master", comment: "Mode")
 			case .rankG:
@@ -48,6 +54,8 @@ extension Mode {
 			switch self {
 			case .lowAndHigh:
 				String(localized: "Low & High Rank", comment: "Mode")
+			case .high:
+				String(localized: "High Rank", comment: "Mode")
 			case .master:
 				String(localized: "Master Rank", comment: "Mode")
 			case .rankG:
