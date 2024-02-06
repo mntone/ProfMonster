@@ -32,7 +32,6 @@ private struct _ScrollablePhysiologyRowHeaderView: View {
 				.foregroundStyle(.thunder)
 				.frame(width: itemWidth)
 		}
-		.padding(PhysiologyViewMetrics.padding.setting(leading: spacing))
 		.accessibilityHidden(true)
 	}
 }
@@ -162,6 +161,7 @@ struct ScrollablePhysiologyView: View {
 					_ScrollablePhysiologyRowHeaderView(viewModel: viewModel.columns,
 													   itemWidth: itemWidth,
 													   spacing: spacing)
+					.padding(contentInsets)
 #if !os(watchOS)
 					.frame(minWidth: rowMinWidth, alignment: .leading)
 #endif
@@ -233,9 +233,6 @@ struct ScrollablePhysiologyView: View {
 	}
 
 	private var contentInsets: EdgeInsets {
-#if os(watchOS)
-		let baseSpacing = spacing
-#endif
 		return EdgeInsets(top: PhysiologyViewMetrics.padding.top,
 						  leading: spacing,
 						  bottom: PhysiologyViewMetrics.padding.bottom,
