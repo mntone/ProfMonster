@@ -102,6 +102,9 @@ struct DataSettingsPane: View {
 				} footer: {
 					if let storageSize = viewModel.storageSize {
 						Text("Cache Size: \(storageSize)")
+#if os(macOS)
+							.foregroundStyle(.secondary)
+#endif
 							.transition(.opacity)
 					}
 				}

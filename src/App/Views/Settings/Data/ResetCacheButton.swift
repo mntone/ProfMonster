@@ -7,7 +7,7 @@ struct ResetCacheButton: View {
 	private var isConfirm: Bool = false
 
 	var body: some View {
-		Button("Reset All Caches") {
+		SettingsButton("Reset All Caches") {
 			isConfirm = true
 		}
 		.alert("Reset Caches", isPresented: $isConfirm) {

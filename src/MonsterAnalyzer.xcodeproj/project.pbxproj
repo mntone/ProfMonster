@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		EB02AF7E2B65095B004F6422 /* NotesAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02AF7D2B65095A004F6422 /* NotesAccessoryView.swift */; platformFilter = ios; };
 		EB02AF802B6524C3004F6422 /* MATextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02AF7F2B6524C3004F6422 /* MATextField.swift */; platformFilter = ios; };
-		EB02AF822B6755E8004F6422 /* SettingsButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02AF812B6755E8004F6422 /* SettingsButtonStyle.swift */; platformFilter = ios; };
 		EB10435B2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */; };
 		EB131BBF2B6FEE36009C65B4 /* View+VersionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB131BBE2B6FEE36009C65B4 /* View+VersionExtensions.swift */; };
 		EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */; };
@@ -18,6 +17,8 @@
 		EB1AE80D2B70D16D0037C1E4 /* index.json in Resources */ = {isa = PBXBuildFile; fileRef = EB1AE80A2B70D16D0037C1E4 /* index.json */; };
 		EB1AE80E2B70D16D0037C1E4 /* ja.json in Resources */ = {isa = PBXBuildFile; fileRef = EB1AE80B2B70D16D0037C1E4 /* ja.json */; };
 		EB1AE80F2B70D16D0037C1E4 /* en.json in Resources */ = {isa = PBXBuildFile; fileRef = EB1AE80C2B70D16D0037C1E4 /* en.json */; };
+		EB1AE8112B71CE9A0037C1E4 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1AE8102B71CE9A0037C1E4 /* SettingsButton.swift */; };
+		EB1AE8122B71CE9A0037C1E4 /* SettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1AE8102B71CE9A0037C1E4 /* SettingsButton.swift */; };
 		EB2550142B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2550132B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift */; platformFilters = (macos, ); };
 		EB28F1B32B370F0700291055 /* DividedHStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB28F1B22B370F0700291055 /* DividedHStack.swift */; };
 		EB29563A2B30139A002C5CA8 /* AppAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2956392B30139A002C5CA8 /* AppAssembly.swift */; };
@@ -307,8 +308,8 @@
 		EBDFF9D12B4D2A2500473634 /* CompactWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFF9D02B4D2A2500473634 /* CompactWeaknessView.swift */; };
 		EBDFF9D22B4D2A2500473634 /* CompactWeaknessView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFF9D02B4D2A2500473634 /* CompactWeaknessView.swift */; };
 		EBDFF9D42B4D2E8700473634 /* Effectiveness.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBDFF9D32B4D2E8700473634 /* Effectiveness.swift */; };
-		EBE7875A2B62005800328E8F /* RemoveCacheButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE787592B62005800328E8F /* RemoveCacheButton.swift */; };
-		EBE7875B2B62005800328E8F /* RemoveCacheButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE787592B62005800328E8F /* RemoveCacheButton.swift */; };
+		EBE7875A2B62005800328E8F /* ResetCacheButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE787592B62005800328E8F /* ResetCacheButton.swift */; };
+		EBE7875B2B62005800328E8F /* ResetCacheButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE787592B62005800328E8F /* ResetCacheButton.swift */; };
 		EBE7875D2B6200E600328E8F /* ResetSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7875C2B6200E600328E8F /* ResetSettingsButton.swift */; };
 		EBE7875E2B6200E600328E8F /* ResetSettingsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE7875C2B6200E600328E8F /* ResetSettingsButton.swift */; };
 		EBE787622B6256D200328E8F /* DataSettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBE787602B6256CF00328E8F /* DataSettingsViewModel.swift */; };
@@ -449,7 +450,6 @@
 /* Begin PBXFileReference section */
 		EB02AF7D2B65095A004F6422 /* NotesAccessoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesAccessoryView.swift; sourceTree = "<group>"; };
 		EB02AF7F2B6524C3004F6422 /* MATextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MATextField.swift; sourceTree = "<group>"; };
-		EB02AF812B6755E8004F6422 /* SettingsButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButtonStyle.swift; sourceTree = "<group>"; };
 		EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationName+Extensions.swift"; sourceTree = "<group>"; };
 		EB131BBE2B6FEE36009C65B4 /* View+VersionExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+VersionExtensions.swift"; sourceTree = "<group>"; };
 		EB19D6742B1EFF7700C90417 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -459,6 +459,7 @@
 		EB1AE80A2B70D16D0037C1E4 /* index.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = index.json; sourceTree = "<group>"; };
 		EB1AE80B2B70D16D0037C1E4 /* ja.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ja.json; sourceTree = "<group>"; };
 		EB1AE80C2B70D16D0037C1E4 /* en.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = en.json; sourceTree = "<group>"; };
+		EB1AE8102B71CE9A0037C1E4 /* SettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsButton.swift; sourceTree = "<group>"; };
 		EB2550132B288C84004823BA /* Backport+ListStyleInsetAlternatingRowBackgrounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Backport+ListStyleInsetAlternatingRowBackgrounds.swift"; sourceTree = "<group>"; };
 		EB28F1B22B370F0700291055 /* DividedHStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DividedHStack.swift; sourceTree = "<group>"; };
 		EB2956392B30139A002C5CA8 /* AppAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAssembly.swift; sourceTree = "<group>"; };
@@ -660,7 +661,7 @@
 		EBDFF9CD2B4D023400473634 /* Weakness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weakness.swift; sourceTree = "<group>"; };
 		EBDFF9D02B4D2A2500473634 /* CompactWeaknessView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompactWeaknessView.swift; sourceTree = "<group>"; };
 		EBDFF9D32B4D2E8700473634 /* Effectiveness.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Effectiveness.swift; sourceTree = "<group>"; };
-		EBE787592B62005800328E8F /* RemoveCacheButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveCacheButton.swift; sourceTree = "<group>"; };
+		EBE787592B62005800328E8F /* ResetCacheButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetCacheButton.swift; sourceTree = "<group>"; };
 		EBE7875C2B6200E600328E8F /* ResetSettingsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetSettingsButton.swift; sourceTree = "<group>"; };
 		EBE787602B6256CF00328E8F /* DataSettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSettingsViewModel.swift; sourceTree = "<group>"; };
 		EBEA6F0B2B17F9B300734AAA /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -885,6 +886,7 @@
 		EB6FF1D22B48CEA200118E0F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				EB1AE8102B71CE9A0037C1E4 /* SettingsButton.swift */,
 				EB3B491E2B35E2B200E89711 /* SettingsLabeledContent.swift */,
 				EB3B491B2B35E29400E89711 /* SettingsPicker.swift */,
 				EB6FF1D32B48CEFF00118E0F /* SettingsPreferredList.swift */,
@@ -908,7 +910,6 @@
 		EB6FF1DC2B48E49100118E0F /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				EB02AF812B6755E8004F6422 /* SettingsButtonStyle.swift */,
 				EB9922792B35686300DBA812 /* SettingsLabelStyle.swift */,
 			);
 			path = Styles;
@@ -1250,7 +1251,7 @@
 			isa = PBXGroup;
 			children = (
 				EBA66F1F2B355F3E009DE78C /* DataSettingsPane.swift */,
-				EBE787592B62005800328E8F /* RemoveCacheButton.swift */,
+				EBE787592B62005800328E8F /* ResetCacheButton.swift */,
 				EBE7875C2B6200E600328E8F /* ResetSettingsButton.swift */,
 			);
 			path = Data;
@@ -1767,12 +1768,13 @@
 				EBB4B2132B175DE7004D63EA /* PhysiologyViewModel.swift in Sources */,
 				EB4C63E42B69550F008624E1 /* PositionObserver.swift in Sources */,
 				EB5672092B57748D00592413 /* ProgressIndicatorView.swift in Sources */,
-				EBE7875B2B62005800328E8F /* RemoveCacheButton.swift in Sources */,
 				EB6EF7DF2B4A0DB200646BBD /* RequestState.swift in Sources */,
+				EBE7875B2B62005800328E8F /* ResetCacheButton.swift in Sources */,
 				EBE7875E2B6200E600328E8F /* ResetSettingsButton.swift in Sources */,
 				EBEA6F722B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
 				EB71C1432B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift in Sources */,
 				EB489E6F2B613C8B00E48950 /* SeparatedPhysicalWeaknessSectionView.swift in Sources */,
+				EB1AE8122B71CE9A0037C1E4 /* SettingsButton.swift in Sources */,
 				EB6FF1D82B48CFF600118E0F /* SettingsContainer.swift in Sources */,
 				EB3B49202B35E2B200E89711 /* SettingsLabeledContent.swift in Sources */,
 				EB99227B2B35686300DBA812 /* SettingsLabelStyle.swift in Sources */,
@@ -1993,14 +1995,14 @@
 				EB4C63E32B69550F008624E1 /* PositionObserver.swift in Sources */,
 				EB6FF1DF2B48F03200118E0F /* PreferredVerticalPaddingModifier.swift in Sources */,
 				EB5672082B57748D00592413 /* ProgressIndicatorView.swift in Sources */,
-				EBE7875A2B62005800328E8F /* RemoveCacheButton.swift in Sources */,
 				EB6EF7DE2B4A0DB200646BBD /* RequestState.swift in Sources */,
+				EBE7875A2B62005800328E8F /* ResetCacheButton.swift in Sources */,
 				EBE7875D2B6200E600328E8F /* ResetSettingsButton.swift in Sources */,
 				EBEA6F712B1889A900734AAA /* ScrollablePhysiologyView.swift in Sources */,
 				EB71C1422B5BBEBF0013FBBC /* ScrollViewOffsetDetector.swift in Sources */,
 				EB2956412B310E28002C5CA8 /* SelectableListRowBackport.swift in Sources */,
 				EB489E6E2B613C8B00E48950 /* SeparatedPhysicalWeaknessSectionView.swift in Sources */,
-				EB02AF822B6755E8004F6422 /* SettingsButtonStyle.swift in Sources */,
+				EB1AE8112B71CE9A0037C1E4 /* SettingsButton.swift in Sources */,
 				EBCA222B2B221E5700C487AD /* SettingsContainer.swift in Sources */,
 				EB3B491F2B35E2B200E89711 /* SettingsLabeledContent.swift in Sources */,
 				EB99227A2B35686300DBA812 /* SettingsLabelStyle.swift in Sources */,

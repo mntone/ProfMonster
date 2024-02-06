@@ -7,7 +7,7 @@ struct ResetSettingsButton: View {
 	private var isConfirm: Bool = false
 
 	var body: some View {
-		Button("Reset All Settings") {
+		SettingsButton("Reset All Settings") {
 			isConfirm = true
 		}
 		.alert("Reset Settings", isPresented: $isConfirm) {
