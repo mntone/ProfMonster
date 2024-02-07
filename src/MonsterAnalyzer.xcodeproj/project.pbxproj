@@ -10,7 +10,7 @@
 		EB02AF7E2B65095B004F6422 /* NotesAccessoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02AF7D2B65095A004F6422 /* NotesAccessoryView.swift */; platformFilter = ios; };
 		EB02AF802B6524C3004F6422 /* MATextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB02AF7F2B6524C3004F6422 /* MATextField.swift */; platformFilter = ios; };
 		EB10435B2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB10435A2B3D3BE200A6A4A7 /* NotificationName+Extensions.swift */; };
-		EB131BBF2B6FEE36009C65B4 /* View+VersionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB131BBE2B6FEE36009C65B4 /* View+VersionExtensions.swift */; };
+		EB131BBF2B6FEE36009C65B4 /* View+VersionExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB131BBE2B6FEE36009C65B4 /* View+VersionExtensions.swift */; platformFilter = ios; };
 		EB19D6782B1F025300C90417 /* Publishers+RetryIf.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB19D6772B1F025300C90417 /* Publishers+RetryIf.swift */; };
 		EB1AE8072B7082380037C1E4 /* NavigationBarHideMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1AE8062B7082380037C1E4 /* NavigationBarHideMode.swift */; platformFilter = ios; };
 		EB1AE8092B7084960037C1E4 /* NavigationBarHideMode+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1AE8082B7084960037C1E4 /* NavigationBarHideMode+Extensions.swift */; platformFilter = ios; };
@@ -34,8 +34,6 @@
 		EB31EEB72B2BEB4300FF8536 /* Sort.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB31EEB42B2BD7FA00FF8536 /* Sort.swift */; };
 		EB38D1FB2B2946A800CED9DB /* DisplaySettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* DisplaySettingsViewModel.swift */; };
 		EB38D1FC2B2946A800CED9DB /* DisplaySettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB38D1FA2B2946A800CED9DB /* DisplaySettingsViewModel.swift */; };
-		EB3B49192B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B49182B35DFA000E89711 /* VerticalLabeledContentStyle.swift */; };
-		EB3B491A2B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B49182B35DFA000E89711 /* VerticalLabeledContentStyle.swift */; };
 		EB3B491C2B35E29400E89711 /* SettingsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B491B2B35E29400E89711 /* SettingsPicker.swift */; };
 		EB3B491D2B35E29400E89711 /* SettingsPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B491B2B35E29400E89711 /* SettingsPicker.swift */; };
 		EB3B491F2B35E2B200E89711 /* SettingsLabeledContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3B491E2B35E2B200E89711 /* SettingsLabeledContent.swift */; };
@@ -471,7 +469,6 @@
 		EB2B2A642B596A49008D66DF /* KeyboardDismissMode+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "KeyboardDismissMode+Extensions.swift"; sourceTree = "<group>"; };
 		EB31EEB42B2BD7FA00FF8536 /* Sort.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sort.swift; sourceTree = "<group>"; };
 		EB38D1FA2B2946A800CED9DB /* DisplaySettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplaySettingsViewModel.swift; sourceTree = "<group>"; };
-		EB3B49182B35DFA000E89711 /* VerticalLabeledContentStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalLabeledContentStyle.swift; sourceTree = "<group>"; };
 		EB3B491B2B35E29400E89711 /* SettingsPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPicker.swift; sourceTree = "<group>"; };
 		EB3B491E2B35E2B200E89711 /* SettingsLabeledContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLabeledContent.swift; sourceTree = "<group>"; };
 		EB3B49212B35EAD100E89711 /* SharedSettingsContainerModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSettingsContainerModifier.swift; sourceTree = "<group>"; };
@@ -1149,7 +1146,6 @@
 			isa = PBXGroup;
 			children = (
 				EBC85C782B206267008A16C6 /* watchOS */,
-				EB3B49182B35DFA000E89711 /* VerticalLabeledContentStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -1796,7 +1792,6 @@
 				EB6437952B46EF5400E8D02B /* SwipeAction+Extensions.swift in Sources */,
 				EBCA22292B21A58C00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
 				EBEA6F752B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
-				EB3B491A2B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
 				EB6297F32B37179200E830E6 /* View+Block.swift in Sources */,
 				EB87782F2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */,
 				EB489E722B614C8400E48950 /* VSpacer.swift in Sources */,
@@ -2028,7 +2023,6 @@
 				EBCA222D2B222ECB00C487AD /* ToolbarItemBackportModifier.swift in Sources */,
 				EBC051122B5503DC00D084E2 /* UIView+Swizzle.swift in Sources */,
 				EBEA6F742B18B56700734AAA /* UnevenRoundedRectangleBackport.swift in Sources */,
-				EB3B49192B35DFA000E89711 /* VerticalLabeledContentStyle.swift in Sources */,
 				EB6297F22B37179200E830E6 /* View+Block.swift in Sources */,
 				EB2B0FAB2B3925E3004596A6 /* View+Cursor.swift in Sources */,
 				EB87782E2B26E4F200B3359C /* View+OnChangeBackport.swift in Sources */,

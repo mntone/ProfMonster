@@ -40,14 +40,14 @@ private struct _NavigationSplitViewHost: View {
 		.onWidthChange { screenWidth in
 			if screenWidth >= 1024 {
 				guard !isWideMode else { return }
-				
+
 				isWideMode = true
 				if columnVisibility == .detailOnly {
 					columnVisibility = .doubleColumn
 				}
 			} else {
 				guard isWideMode else { return }
-				
+
 				isWideMode = false
 				if columnVisibility != .detailOnly,
 				   selectedMonsterID != nil {
