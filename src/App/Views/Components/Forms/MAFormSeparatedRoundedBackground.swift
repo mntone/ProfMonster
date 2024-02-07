@@ -20,7 +20,7 @@ struct MAFormSeparatedRoundedBackground<Content: View>: View {
 										   trailing: metrics.layoutMargin)
 				ForEach(children.dropLast()) { child in
 					child
-						.frame(minHeight: metrics.minRowHeight)
+						.frame(maxWidth: .infinity, minHeight: metrics.minRowHeight, alignment: .leading)
 						.padding(rowInsets)
 #if os(macOS)
 						.background(background)
@@ -32,7 +32,7 @@ struct MAFormSeparatedRoundedBackground<Content: View>: View {
 				}
 
 				last
-					.frame(minHeight: metrics.minRowHeight)
+					.frame(maxWidth: .infinity, minHeight: metrics.minRowHeight, alignment: .leading)
 					.padding(rowInsets)
 #if os(macOS)
 					.background(background)

@@ -30,7 +30,7 @@ struct MAFormRoundedBackground<Content: View>: View {
 
 						ForEach(itemsExceptLast.dropFirst()) { child in
 							child
-								.frame(minHeight: metrics.minRowHeight)
+								.frame(maxWidth: .infinity, minHeight: metrics.minRowHeight, alignment: .leading)
 								.padding(rowInsets)
 								.overlay(separator, alignment: .bottom)
 							//separator // SwiftUI.ListStyle.insetGrouped default style, not Apple Design Resources (Comment out overlay)
@@ -42,14 +42,14 @@ struct MAFormRoundedBackground<Content: View>: View {
 					} else {
 						ForEach(itemsExceptLast) { child in
 							child
-								.frame(minHeight: metrics.minRowHeight)
+								.frame(maxWidth: .infinity, minHeight: metrics.minRowHeight, alignment: .leading)
 								.padding(rowInsets)
 								.overlay(separator, alignment: .bottom)
 							//separator // SwiftUI.ListStyle.insetGrouped default style, not Apple Design Resources (Comment out overlay)
 						}
 
 						last
-							.frame(minHeight: metrics.minRowHeight)
+							.frame(maxWidth: .infinity, minHeight: metrics.minRowHeight, alignment: .leading)
 							.padding(rowInsets)
 					}
 				}
