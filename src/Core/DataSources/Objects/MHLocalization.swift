@@ -13,17 +13,20 @@ struct MHLocalizationMonster: Codable, Sendable {
 	let readableName: String?
 	let anotherName: String?
 	let keywords: [String]
+	let overrides: [String: String]?
 
 	init(id: String,
 		 name: String,
 		 readableName: String? = nil,
 		 anotherName: String? = nil,
-		 keywords: [String] = []) {
+		 keywords: [String] = [],
+		 overrides: [String: String]? = nil) {
 		self.id = id
 		self.name = name
 		self.readableName = readableName
 		self.anotherName = anotherName
 		self.keywords = keywords
+		self.overrides = overrides
 	}
 
 	private enum CodingKeys: CodingKey {
@@ -32,6 +35,7 @@ struct MHLocalizationMonster: Codable, Sendable {
 		case readableName
 		case anotherName
 		case keywords
+		case overrides
 	}
 
 	init(from decoder: Decoder) throws {
@@ -41,6 +45,7 @@ struct MHLocalizationMonster: Codable, Sendable {
 		self.readableName = try container.decodeIfPresent(String.self, forKey: .readableName)
 		self.anotherName = try container.decodeIfPresent(String.self, forKey: .anotherName)
 		self.keywords = try container.decodeIfPresent([String].self, forKey: .keywords) ?? []
+		self.overrides = try container.decodeIfPresent([String: String].self, forKey: .overrides)
 	}
 
 	func encode(to encoder: Encoder) throws {
@@ -52,6 +57,7 @@ struct MHLocalizationMonster: Codable, Sendable {
 		if !keywords.isEmpty {
 			try container.encode(keywords, forKey: .keywords)
 		}
+		try container.encodeIfPresent(overrides, forKey: .overrides)
 	}
 }
 

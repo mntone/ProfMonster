@@ -88,7 +88,11 @@ public final class Monster: FetchableEntity<Physiologies>, Entity {
 		self.type = monster.type
 		self.size = monster.size
 		self.weaknesses = monster.weakness.map(resourceMapper.getLocalizedWeaknesses)
-		self.name = localization.name
+		if let overrideName = localization.overrides?[game.id] {
+			self.name = overrideName
+		} else {
+			self.name = localization.name
+		}
 
 		let readableName = localization.readableName ?? resourceMapper.getReadableName(localization.name)
 		self.readableName = readableName
